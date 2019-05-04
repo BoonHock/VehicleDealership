@@ -17,7 +17,15 @@ namespace VehicleDealership
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Form_main_menu());
+
+			if (Log_in())
+			{
+				Application.Run(new Form_main_menu());
+			}
+		}
+		static bool Log_in()
+		{
+			return (new Form_log_in()).ShowDialog() == DialogResult.OK;
 		}
 	}
 }

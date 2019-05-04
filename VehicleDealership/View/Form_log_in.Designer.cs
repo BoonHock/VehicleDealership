@@ -33,7 +33,7 @@
 			this.txt_username = new System.Windows.Forms.TextBox();
 			this.txt_password = new System.Windows.Forms.TextBox();
 			this.btn_log_in = new System.Windows.Forms.Button();
-			this.btn_cancel = new System.Windows.Forms.Button();
+			this.lbl_invalid_login = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -80,25 +80,24 @@
 			this.btn_log_in.UseVisualStyleBackColor = true;
 			this.btn_log_in.Click += new System.EventHandler(this.Btn_log_in_Click);
 			// 
-			// btn_cancel
+			// lbl_invalid_login
 			// 
-			this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btn_cancel.Location = new System.Drawing.Point(12, 88);
-			this.btn_cancel.Name = "btn_cancel";
-			this.btn_cancel.Size = new System.Drawing.Size(80, 29);
-			this.btn_cancel.TabIndex = 5;
-			this.btn_cancel.Text = "dummy button";
-			this.btn_cancel.UseVisualStyleBackColor = true;
-			this.btn_cancel.Visible = false;
+			this.lbl_invalid_login.AutoSize = true;
+			this.lbl_invalid_login.ForeColor = System.Drawing.Color.Red;
+			this.lbl_invalid_login.Location = new System.Drawing.Point(12, 99);
+			this.lbl_invalid_login.Name = "lbl_invalid_login";
+			this.lbl_invalid_login.Size = new System.Drawing.Size(102, 21);
+			this.lbl_invalid_login.TabIndex = 5;
+			this.lbl_invalid_login.Text = "Login invalid.";
+			this.lbl_invalid_login.Visible = false;
 			// 
 			// Form_log_in
 			// 
 			this.AcceptButton = this.btn_log_in;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.CancelButton = this.btn_cancel;
 			this.ClientSize = new System.Drawing.Size(379, 129);
-			this.Controls.Add(this.btn_cancel);
+			this.Controls.Add(this.lbl_invalid_login);
 			this.Controls.Add(this.btn_log_in);
 			this.Controls.Add(this.txt_password);
 			this.Controls.Add(this.txt_username);
@@ -122,6 +121,6 @@
 		private System.Windows.Forms.TextBox txt_username;
 		private System.Windows.Forms.TextBox txt_password;
 		private System.Windows.Forms.Button btn_log_in;
-		private System.Windows.Forms.Button btn_cancel;
+		private System.Windows.Forms.Label lbl_invalid_login;
 	}
 }
