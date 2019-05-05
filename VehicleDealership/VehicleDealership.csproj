@@ -70,10 +70,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Users_DS.cs">
+    <Compile Include="Classes\System_user.cs" />
+    <Compile Include="Datasets\Users_DS.cs">
       <DependentUpon>Users_DS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Model\Users_DS.Designer.cs">
+    <Compile Include="Datasets\Users_DS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Users_DS.xsd</DependentUpon>
@@ -91,6 +92,12 @@
     </Compile>
     <Compile Include="View\Form_main_menu.Designer.cs">
       <DependentUpon>Form_main_menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Form_register_user.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form_register_user.Designer.cs">
+      <DependentUpon>Form_register_user.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Form_sales_order.cs">
       <SubType>Form</SubType>
@@ -114,18 +121,21 @@
     <EmbeddedResource Include="View\Form_main_menu.resx">
       <DependentUpon>Form_main_menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Form_register_user.resx">
+      <DependentUpon>Form_register_user.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Form_sales_order.resx">
       <DependentUpon>Form_sales_order.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Model\Users_DS.xsc">
+    <None Include="Datasets\Users_DS.xsc">
       <DependentUpon>Users_DS.xsd</DependentUpon>
     </None>
-    <None Include="Model\Users_DS.xsd">
+    <None Include="Datasets\Users_DS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Users_DS.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Model\Users_DS.xss">
+    <None Include="Datasets\Users_DS.xss">
       <DependentUpon>Users_DS.xsd</DependentUpon>
     </None>
     <None Include="Properties\app.manifest" />
