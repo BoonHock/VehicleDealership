@@ -50,28 +50,28 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.grd_sales_order.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.grd_sales_order.Location = new System.Drawing.Point(13, 65);
+			this.grd_sales_order.Location = new System.Drawing.Point(12, 62);
 			this.grd_sales_order.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.grd_sales_order.Name = "grd_sales_order";
 			this.grd_sales_order.ReadOnly = true;
-			this.grd_sales_order.Size = new System.Drawing.Size(1123, 555);
+			this.grd_sales_order.Size = new System.Drawing.Size(999, 529);
 			this.grd_sales_order.TabIndex = 0;
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(13, 32);
+			this.label1.Location = new System.Drawing.Point(12, 30);
 			this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(60, 21);
+			this.label1.Size = new System.Drawing.Size(56, 20);
 			this.label1.TabIndex = 1;
 			this.label1.Text = "Search:";
 			// 
 			// Txt_search
 			// 
-			this.Txt_search.Location = new System.Drawing.Point(80, 28);
+			this.Txt_search.Location = new System.Drawing.Point(71, 27);
 			this.Txt_search.Name = "Txt_search";
-			this.Txt_search.Size = new System.Drawing.Size(378, 29);
+			this.Txt_search.Size = new System.Drawing.Size(336, 27);
 			this.Txt_search.TabIndex = 2;
 			// 
 			// toolStrip1
@@ -82,7 +82,7 @@
             this.ts_delete});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
-			this.toolStrip1.Size = new System.Drawing.Size(1149, 25);
+			this.toolStrip1.Size = new System.Drawing.Size(1022, 25);
 			this.toolStrip1.TabIndex = 3;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
@@ -90,9 +90,9 @@
 			// 
 			this.rad_all.AutoSize = true;
 			this.rad_all.Checked = true;
-			this.rad_all.Location = new System.Drawing.Point(927, 30);
+			this.rad_all.Location = new System.Drawing.Point(413, 28);
 			this.rad_all.Name = "rad_all";
-			this.rad_all.Size = new System.Drawing.Size(46, 25);
+			this.rad_all.Size = new System.Drawing.Size(45, 24);
 			this.rad_all.TabIndex = 0;
 			this.rad_all.TabStop = true;
 			this.rad_all.Text = "All";
@@ -101,9 +101,9 @@
 			// rad_active
 			// 
 			this.rad_active.AutoSize = true;
-			this.rad_active.Location = new System.Drawing.Point(979, 30);
+			this.rad_active.Location = new System.Drawing.Point(464, 28);
 			this.rad_active.Name = "rad_active";
-			this.rad_active.Size = new System.Drawing.Size(70, 25);
+			this.rad_active.Size = new System.Drawing.Size(68, 24);
 			this.rad_active.TabIndex = 1;
 			this.rad_active.Text = "Active";
 			this.rad_active.UseVisualStyleBackColor = true;
@@ -111,9 +111,9 @@
 			// rad_inactive
 			// 
 			this.rad_inactive.AutoSize = true;
-			this.rad_inactive.Location = new System.Drawing.Point(1055, 30);
+			this.rad_inactive.Location = new System.Drawing.Point(538, 28);
 			this.rad_inactive.Name = "rad_inactive";
-			this.rad_inactive.Size = new System.Drawing.Size(81, 25);
+			this.rad_inactive.Size = new System.Drawing.Size(78, 24);
 			this.rad_inactive.TabIndex = 2;
 			this.rad_inactive.Text = "Inactive";
 			this.rad_inactive.UseVisualStyleBackColor = true;
@@ -150,9 +150,9 @@
 			// 
 			// Form_sales_order
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1149, 634);
+			this.ClientSize = new System.Drawing.Size(1022, 604);
 			this.Controls.Add(this.rad_inactive);
 			this.Controls.Add(this.rad_active);
 			this.Controls.Add(this.rad_all);
@@ -160,7 +160,7 @@
 			this.Controls.Add(this.Txt_search);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.grd_sales_order);
-			this.Font = new System.Drawing.Font("Segoe UI", 12F);
+			this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "Form_sales_order";
 			this.Text = "Sales order";

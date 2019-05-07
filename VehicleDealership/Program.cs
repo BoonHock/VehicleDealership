@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -25,7 +27,16 @@ namespace VehicleDealership
 				enter_program = Log_in();
 
 			if (enter_program)
+			{
+				////Gets the icon associated with the currently executing assembly
+				////(or pass a different file path and name for a different executable)
+				//Icon appIcon = Icon.ExtractAssociatedIcon(Assembly.GetExecutingAssembly().Location);
+				//View.Form_main_menu form_Main_Menu = new View.Form_main_menu();
+				//form_Main_Menu.Icon = appIcon;
+				
 				Application.Run(new View.Form_main_menu());
+
+			}
 
 		}
 		public static Classes.System_user System_user = new Classes.System_user(""); // just to initialise
