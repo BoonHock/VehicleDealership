@@ -99,8 +99,9 @@
 			// 
 			// txt_search
 			// 
+			this.txt_search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.txt_search.Name = "txt_search";
-			this.txt_search.Size = new System.Drawing.Size(100, 25);
+			this.txt_search.Size = new System.Drawing.Size(150, 25);
 			// 
 			// grd_users
 			// 

@@ -294,7 +294,7 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columnPassword;
             
-            private global::System.Data.DataColumn columnIc_no;
+            private global::System.Data.DataColumn columnIC_no;
             
             private global::System.Data.DataColumn columnIs_activated;
             
@@ -373,9 +373,9 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Ic_noColumn {
+            public global::System.Data.DataColumn IC_noColumn {
                 get {
-                    return this.columnIc_no;
+                    return this.columnIC_no;
                 }
             }
             
@@ -456,14 +456,14 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public UsersRow AddUsersRow(string Username, string Name, string Password, string Ic_no, bool Is_activated, System.DateTime Join_date, System.DateTime Leave_date, UsersRow parentUsersRowByFK_Users_Users1, System.DateTime Modified_on) {
+            public UsersRow AddUsersRow(string Username, string Name, string Password, string IC_no, bool Is_activated, System.DateTime Join_date, System.DateTime Leave_date, UsersRow parentUsersRowByFK_Users_Users1, System.DateTime Modified_on) {
                 UsersRow rowUsersRow = ((UsersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Username,
                         Name,
                         Password,
-                        Ic_no,
+                        IC_no,
                         Is_activated,
                         Join_date,
                         Leave_date,
@@ -505,7 +505,7 @@ namespace VehicleDealership.Datasets {
                 this.columnUsername = base.Columns["Username"];
                 this.columnName = base.Columns["Name"];
                 this.columnPassword = base.Columns["Password"];
-                this.columnIc_no = base.Columns["Ic_no"];
+                this.columnIC_no = base.Columns["IC_no"];
                 this.columnIs_activated = base.Columns["Is_activated"];
                 this.columnJoin_date = base.Columns["Join_date"];
                 this.columnLeave_date = base.Columns["Leave_date"];
@@ -524,8 +524,8 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columnName);
                 this.columnPassword = new global::System.Data.DataColumn("Password", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPassword);
-                this.columnIc_no = new global::System.Data.DataColumn("Ic_no", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIc_no);
+                this.columnIC_no = new global::System.Data.DataColumn("IC_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIC_no);
                 this.columnIs_activated = new global::System.Data.DataColumn("Is_activated", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIs_activated);
                 this.columnJoin_date = new global::System.Data.DataColumn("Join_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -550,8 +550,8 @@ namespace VehicleDealership.Datasets {
                 this.columnName.MaxLength = 200;
                 this.columnPassword.AllowDBNull = false;
                 this.columnPassword.MaxLength = 2147483647;
-                this.columnIc_no.AllowDBNull = false;
-                this.columnIc_no.MaxLength = 12;
+                this.columnIC_no.AllowDBNull = false;
+                this.columnIC_no.MaxLength = 12;
                 this.columnIs_activated.AllowDBNull = false;
                 this.columnJoin_date.AllowDBNull = false;
                 this.columnModified_on.AllowDBNull = false;
@@ -741,12 +741,12 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Ic_no {
+            public string IC_no {
                 get {
-                    return ((string)(this[this.tableUsers.Ic_noColumn]));
+                    return ((string)(this[this.tableUsers.IC_noColumn]));
                 }
                 set {
-                    this[this.tableUsers.Ic_noColumn] = value;
+                    this[this.tableUsers.IC_noColumn] = value;
                 }
             }
             
@@ -1025,21 +1025,22 @@ namespace VehicleDealership.Datasets.Users_DSTableAdapters {
             tableMapping.ColumnMappings.Add("Username", "Username");
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("Password", "Password");
-            tableMapping.ColumnMappings.Add("Ic_no", "Ic_no");
+            tableMapping.ColumnMappings.Add("Ic_no", "IC_no");
             tableMapping.ColumnMappings.Add("Is_activated", "Is_activated");
             tableMapping.ColumnMappings.Add("Join_date", "Join_date");
             tableMapping.ColumnMappings.Add("Leave_date", "Leave_date");
             tableMapping.ColumnMappings.Add("Modified_by", "Modified_by");
             tableMapping.ColumnMappings.Add("Modified_on", "Modified_on");
+            tableMapping.ColumnMappings.Add("IC_no", "IC_no");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [SECURITY].[Users] WHERE (([User_id] = @Original_User_id) AND ([Username] = @Original_Username) AND ([Name] = @Original_Name) AND ([Ic_no] = @Original_Ic_no) AND ([Is_activated] = @Original_Is_activated) AND ([Join_date] = @Original_Join_date) AND ((@IsNull_Leave_date = 1 AND [Leave_date] IS NULL) OR ([Leave_date] = @Original_Leave_date)) AND ((@IsNull_Modified_by = 1 AND [Modified_by] IS NULL) OR ([Modified_by] = @Original_Modified_by)) AND ([Modified_on] = @Original_Modified_on))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [SECURITY].[Users] WHERE (([User_id] = @Original_User_id) AND ([Username] = @Original_Username) AND ([Name] = @Original_Name) AND ([IC_no] = @Original_IC_no) AND ([Is_activated] = @Original_Is_activated) AND ([Join_date] = @Original_Join_date) AND ((@IsNull_Leave_date = 1 AND [Leave_date] IS NULL) OR ([Leave_date] = @Original_Leave_date)) AND ((@IsNull_Modified_by = 1 AND [Modified_by] IS NULL) OR ([Modified_by] = @Original_Modified_by)) AND ([Modified_on] = @Original_Modified_on))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_User_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "User_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ic_no", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ic_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IC_no", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IC_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Is_activated", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_activated", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Join_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Join_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Leave_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Leave_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1049,13 +1050,13 @@ namespace VehicleDealership.Datasets.Users_DSTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Modified_on", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Modified_on", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [SECURITY].[Users] ([Username], [Name], [Password], [Ic_no], [Is_activated], [Join_date], [Leave_date], [Modified_by], [Modified_on]) VALUES (@Username, @Name, @Password, @Ic_no, @Is_activated, @Join_date, @Leave_date, @Modified_by, @Modified_on);
-SELECT User_id, Username, Name, Password, Ic_no, Is_activated, Join_date, Leave_date, Modified_by, Modified_on FROM SECURITY.Users WHERE (User_id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [SECURITY].[Users] ([Username], [Name], [Password], [IC_no], [Is_activated], [Join_date], [Leave_date], [Modified_by], [Modified_on]) VALUES (@Username, @Name, @Password, @IC_no, @Is_activated, @Join_date, @Leave_date, @Modified_by, @Modified_on);
+SELECT User_id, Username, Name, Password, IC_no, Is_activated, Join_date, Leave_date, Modified_by, Modified_on FROM SECURITY.Users WHERE (User_id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ic_no", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ic_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IC_no", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IC_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Is_activated", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_activated", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Join_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Join_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Leave_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Leave_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1063,13 +1064,13 @@ SELECT User_id, Username, Name, Password, Ic_no, Is_activated, Join_date, Leave_
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Modified_on", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Modified_on", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [SECURITY].[Users] SET [Username] = @Username, [Name] = @Name, [Password] = @Password, [Ic_no] = @Ic_no, [Is_activated] = @Is_activated, [Join_date] = @Join_date, [Leave_date] = @Leave_date, [Modified_by] = @Modified_by, [Modified_on] = @Modified_on WHERE (([User_id] = @Original_User_id) AND ([Username] = @Original_Username) AND ([Name] = @Original_Name) AND ([Ic_no] = @Original_Ic_no) AND ([Is_activated] = @Original_Is_activated) AND ([Join_date] = @Original_Join_date) AND ((@IsNull_Leave_date = 1 AND [Leave_date] IS NULL) OR ([Leave_date] = @Original_Leave_date)) AND ((@IsNull_Modified_by = 1 AND [Modified_by] IS NULL) OR ([Modified_by] = @Original_Modified_by)) AND ([Modified_on] = @Original_Modified_on));
-SELECT User_id, Username, Name, Password, Ic_no, Is_activated, Join_date, Leave_date, Modified_by, Modified_on FROM SECURITY.Users WHERE (User_id = @User_id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [SECURITY].[Users] SET [Username] = @Username, [Name] = @Name, [Password] = @Password, [IC_no] = @IC_no, [Is_activated] = @Is_activated, [Join_date] = @Join_date, [Leave_date] = @Leave_date, [Modified_by] = @Modified_by, [Modified_on] = @Modified_on WHERE (([User_id] = @Original_User_id) AND ([Username] = @Original_Username) AND ([Name] = @Original_Name) AND ([IC_no] = @Original_IC_no) AND ([Is_activated] = @Original_Is_activated) AND ([Join_date] = @Original_Join_date) AND ((@IsNull_Leave_date = 1 AND [Leave_date] IS NULL) OR ([Leave_date] = @Original_Leave_date)) AND ((@IsNull_Modified_by = 1 AND [Modified_by] IS NULL) OR ([Modified_by] = @Original_Modified_by)) AND ([Modified_on] = @Original_Modified_on));
+SELECT User_id, Username, Name, Password, IC_no, Is_activated, Join_date, Leave_date, Modified_by, Modified_on FROM SECURITY.Users WHERE (User_id = @User_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ic_no", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ic_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IC_no", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IC_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Is_activated", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_activated", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Join_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Join_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Leave_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Leave_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1078,7 +1079,7 @@ SELECT User_id, Username, Name, Password, Ic_no, Is_activated, Join_date, Leave_
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_User_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "User_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ic_no", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ic_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IC_no", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IC_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Is_activated", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_activated", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Join_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Join_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Leave_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Leave_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1099,7 +1100,7 @@ SELECT User_id, Username, Name, Password, Ic_no, Is_activated, Join_date, Leave_
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT *\r\nFROM [SECURITY].[Users]\r\n";
@@ -1112,20 +1113,10 @@ SELECT User_id, Username, Name, Password, Ic_no, Is_activated, Join_date, Leave_
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@uid", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SECURITY.sp_COUNT_users";
+            this._commandCollection[2].CommandText = "SECURITY.sp_SELECT_user_by_search";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SECURITY.sp_INSERT_user";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.NVarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ic_no", global::System.Data.SqlDbType.Char, 12, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@join_date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modified_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@search", global::System.Data.SqlDbType.NVarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1191,6 +1182,42 @@ SELECT User_id, Username, Name, Password, Ic_no, Is_activated, Join_date, Leave_
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy1(Users_DS.UsersDataTable dataTable, string search) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((search == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(search));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Users_DS.UsersDataTable sp_SELECT_user_by_search(string search) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((search == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(search));
+            }
+            Users_DS.UsersDataTable dataTable = new Users_DS.UsersDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(Users_DS.UsersDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
@@ -1221,7 +1248,7 @@ SELECT User_id, Username, Name, Password, Ic_no, Is_activated, Join_date, Leave_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_User_id, string Original_Username, string Original_Name, string Original_Ic_no, bool Original_Is_activated, System.DateTime Original_Join_date, global::System.Nullable<global::System.DateTime> Original_Leave_date, global::System.Nullable<int> Original_Modified_by, System.DateTime Original_Modified_on) {
+        public virtual int Delete(int Original_User_id, string Original_Username, string Original_Name, string Original_IC_no, bool Original_Is_activated, System.DateTime Original_Join_date, global::System.Nullable<global::System.DateTime> Original_Leave_date, global::System.Nullable<int> Original_Modified_by, System.DateTime Original_Modified_on) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_User_id));
             if ((Original_Username == null)) {
                 throw new global::System.ArgumentNullException("Original_Username");
@@ -1235,11 +1262,11 @@ SELECT User_id, Username, Name, Password, Ic_no, Is_activated, Join_date, Leave_
             else {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Name));
             }
-            if ((Original_Ic_no == null)) {
-                throw new global::System.ArgumentNullException("Original_Ic_no");
+            if ((Original_IC_no == null)) {
+                throw new global::System.ArgumentNullException("Original_IC_no");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Ic_no));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_IC_no));
             }
             this.Adapter.DeleteCommand.Parameters[4].Value = ((bool)(Original_Is_activated));
             this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_Join_date));
@@ -1280,7 +1307,7 @@ SELECT User_id, Username, Name, Password, Ic_no, Is_activated, Join_date, Leave_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Username, string Name, string Password, string Ic_no, bool Is_activated, System.DateTime Join_date, global::System.Nullable<global::System.DateTime> Leave_date, global::System.Nullable<int> Modified_by, System.DateTime Modified_on) {
+        public virtual int Insert(string Username, string Name, string Password, string IC_no, bool Is_activated, System.DateTime Join_date, global::System.Nullable<global::System.DateTime> Leave_date, global::System.Nullable<int> Modified_by, System.DateTime Modified_on) {
             if ((Username == null)) {
                 throw new global::System.ArgumentNullException("Username");
             }
@@ -1299,11 +1326,11 @@ SELECT User_id, Username, Name, Password, Ic_no, Is_activated, Join_date, Leave_
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Password));
             }
-            if ((Ic_no == null)) {
-                throw new global::System.ArgumentNullException("Ic_no");
+            if ((IC_no == null)) {
+                throw new global::System.ArgumentNullException("IC_no");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Ic_no));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(IC_no));
             }
             this.Adapter.InsertCommand.Parameters[4].Value = ((bool)(Is_activated));
             this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(Join_date));
@@ -1344,7 +1371,7 @@ SELECT User_id, Username, Name, Password, Ic_no, Is_activated, Join_date, Leave_
                     string Username, 
                     string Name, 
                     string Password, 
-                    string Ic_no, 
+                    string IC_no, 
                     bool Is_activated, 
                     System.DateTime Join_date, 
                     global::System.Nullable<global::System.DateTime> Leave_date, 
@@ -1353,7 +1380,7 @@ SELECT User_id, Username, Name, Password, Ic_no, Is_activated, Join_date, Leave_
                     int Original_User_id, 
                     string Original_Username, 
                     string Original_Name, 
-                    string Original_Ic_no, 
+                    string Original_IC_no, 
                     bool Original_Is_activated, 
                     System.DateTime Original_Join_date, 
                     global::System.Nullable<global::System.DateTime> Original_Leave_date, 
@@ -1378,11 +1405,11 @@ SELECT User_id, Username, Name, Password, Ic_no, Is_activated, Join_date, Leave_
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Password));
             }
-            if ((Ic_no == null)) {
-                throw new global::System.ArgumentNullException("Ic_no");
+            if ((IC_no == null)) {
+                throw new global::System.ArgumentNullException("IC_no");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Ic_no));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(IC_no));
             }
             this.Adapter.UpdateCommand.Parameters[4].Value = ((bool)(Is_activated));
             this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Join_date));
@@ -1412,11 +1439,11 @@ SELECT User_id, Username, Name, Password, Ic_no, Is_activated, Join_date, Leave_
             else {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Name));
             }
-            if ((Original_Ic_no == null)) {
-                throw new global::System.ArgumentNullException("Original_Ic_no");
+            if ((Original_IC_no == null)) {
+                throw new global::System.ArgumentNullException("Original_IC_no");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Ic_no));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_IC_no));
             }
             this.Adapter.UpdateCommand.Parameters[13].Value = ((bool)(Original_Is_activated));
             this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_Join_date));
@@ -1462,7 +1489,7 @@ SELECT User_id, Username, Name, Password, Ic_no, Is_activated, Join_date, Leave_
                     string Username, 
                     string Name, 
                     string Password, 
-                    string Ic_no, 
+                    string IC_no, 
                     bool Is_activated, 
                     System.DateTime Join_date, 
                     global::System.Nullable<global::System.DateTime> Leave_date, 
@@ -1471,20 +1498,67 @@ SELECT User_id, Username, Name, Password, Ic_no, Is_activated, Join_date, Leave_
                     int Original_User_id, 
                     string Original_Username, 
                     string Original_Name, 
-                    string Original_Ic_no, 
+                    string Original_IC_no, 
                     bool Original_Is_activated, 
                     System.DateTime Original_Join_date, 
                     global::System.Nullable<global::System.DateTime> Original_Leave_date, 
                     global::System.Nullable<int> Original_Modified_by, 
                     System.DateTime Original_Modified_on) {
-            return this.Update(Username, Name, Password, Ic_no, Is_activated, Join_date, Leave_date, Modified_by, Modified_on, Original_User_id, Original_Username, Original_Name, Original_Ic_no, Original_Is_activated, Original_Join_date, Original_Leave_date, Original_Modified_by, Original_Modified_on, Original_User_id);
+            return this.Update(Username, Name, Password, IC_no, Is_activated, Join_date, Leave_date, Modified_by, Modified_on, Original_User_id, Original_Username, Original_Name, Original_IC_no, Original_Is_activated, Original_Join_date, Original_Leave_date, Original_Modified_by, Original_Modified_on, Original_User_id);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class QueriesTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.IDbCommand[] _commandCollection;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.IDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.IDbCommand[2];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "SECURITY.sp_COUNT_users";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandText = "SECURITY.sp_INSERT_user";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandType = global::System.Data.CommandType.StoredProcedure;
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.NVarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ic_no", global::System.Data.SqlDbType.Char, 12, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@join_date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modified_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual object sp_COUNT_users() {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1512,7 +1586,7 @@ SELECT User_id, Username, Name, Password, Ic_no, Is_activated, Join_date, Leave_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int sp_INSERT_user(string username, string name, string password, string ic_no, global::System.Nullable<global::System.DateTime> join_date, global::System.Nullable<int> modified_by) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[1]));
             if ((username == null)) {
                 command.Parameters[1].Value = global::System.DBNull.Value;
             }

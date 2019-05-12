@@ -84,6 +84,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Class_datagridview.cs" />
+    <Compile Include="Classes\Class_datatable.cs" />
     <Compile Include="Classes\System_user.cs" />
     <Compile Include="Datasets\Users_DS.cs">
       <DependentUpon>Users_DS.xsd</DependentUpon>

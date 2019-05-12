@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VehicleDealership.Datasets;
+using VehicleDealership.Classes;
 
 namespace VehicleDealership.View
 {
@@ -41,11 +42,16 @@ namespace VehicleDealership.View
 			}
 			else
 			{
-				users = Users_DS.SELECT_user_by_username(str_search);
+				users = Users_DS.SELECT_user_by_search(str_search);
 			}
+
+			Class_datatable.Remove_columns(users, new string[] { "Password", "Modified_by", "Modified_on" });
 
 			grd_users.DataSource = users;
 			grd_users.AutoResizeColumns();
+
+			Class_datagridview.Hide_columns(grd_users, new string[] { "User_id" });
+			Class_datagridview.Change_header_text(grd_users, Users_DS.UsersDataTable_cols_caption());
 		}
 	}
 }
