@@ -39,7 +39,7 @@ namespace VehicleDealership.View
 			string str_username = txt_username.Text.Trim();
 			string str_password = txt_password.Text;
 
-			Users_DS.UsersDataTable user_dttable = Users_DS.SELECT_user_by_username(str_username);
+			Users_DS.UsersDataTable user_dttable = Users_DS.SELECT_user(str_username);
 
 			if (user_dttable.Rows.Count == 0 || !((bool)user_dttable.Rows[0]["Is_activated"])) return false;
 

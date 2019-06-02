@@ -14,6 +14,7 @@ namespace VehicleDealership.View
 {
 	public partial class Form_main_menu : Form
 	{
+		string str_project_path = Application.StartupPath;
 		public Form_main_menu()
 		{
 			InitializeComponent();

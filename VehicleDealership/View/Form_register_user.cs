@@ -13,6 +13,13 @@ namespace VehicleDealership.View
 {
 	public partial class Form_register_user : Form
 	{
+		public static string Register_user()
+		{
+			View.Form_register_user form_register = new View.Form_register_user();
+			if (form_register.ShowDialog() != DialogResult.OK) return null;
+
+			return form_register.Username;
+		}
 		public string Username { get; private set; }
 
 		public Form_register_user()
@@ -25,9 +32,6 @@ namespace VehicleDealership.View
 		}
 		private void Btn_register_Click(object sender, EventArgs e)
 		{
-			this.DialogResult = DialogResult.OK;
-
-			Regex r = new Regex("^[a-zA-Z0-9]*$");
 			Username = txt_username.Text.Trim();
 			string str_password = txt_pw1.Text;
 			string str_name = txt_fullname.Text.Trim();
@@ -39,27 +43,21 @@ namespace VehicleDealership.View
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-			if (!r.IsMatch(txt_username.Text))
+			if (!Classes.User.Is_username_valid(Username))
 			{
-				MessageBox.Show("Only aphanumeric characters allowed for username. Please retry",
+				MessageBox.Show("Username is invalid. Only aphanumeric characters allowed for username. Please retry",
 					"Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-			if (Datasets.Users_DS.SELECT_user_by_username(Username).Rows.Count > 0)
+			if (Classes.User.Is_username_taken(Username))
 			{
-				MessageBox.Show("Username already in use.", "Username taken",
-					MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
-			}
-			if (str_ic_no.Length != 12)
-			{
-				MessageBox.Show("IC number is not in valid format. Please retry.", "Invalid input",
-					MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Username is taken.", "Username taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
 			Datasets.Users_DS.INSERT_user(Username, str_name, Form_log_in.ComputeHash(str_password, null), str_ic_no, dtp_join_date.Value);
 
+			this.DialogResult = DialogResult.OK;
 			this.Close();
 		}
 

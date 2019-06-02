@@ -19,42 +19,35 @@ namespace VehicleDealership
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 
-			bool enter_program = false;
+			string str_username;
 
 			if (Datasets.Users_DS.COUNT_user() == 0)
-				enter_program = Register_user();
+				str_username = View.Form_register_user.Register_user();
 			else
-				enter_program = Log_in();
+				str_username = Log_in();
 
-			if (enter_program)
+			if (str_username != null)
 			{
+				System_user = new Classes.User(str_username);
 				////Gets the icon associated with the currently executing assembly
 				////(or pass a different file path and name for a different executable)
 				//Icon appIcon = Icon.ExtractAssociatedIcon(Assembly.GetExecutingAssembly().Location);
 				//View.Form_main_menu form_Main_Menu = new View.Form_main_menu();
 				//form_Main_Menu.Icon = appIcon;
-				
+
 				Application.Run(new View.Form_main_menu());
 
 			}
 
 		}
-		public static Classes.System_user System_user = new Classes.System_user(""); // just to initialise
-		static bool Log_in()
+		public static Classes.User System_user;
+		static string Log_in()
 		{
 			View.Form_log_in form_login = new View.Form_log_in();
-			if (form_login.ShowDialog() != DialogResult.OK) return false;
+			if (form_login.ShowDialog() != DialogResult.OK) return null;
 
-			System_user = new Classes.System_user(form_login.Username);
-			return true;
-		}
-		static bool Register_user() 
-		{
-			View.Form_register_user form_register = new View.Form_register_user();
-			if (form_register.ShowDialog() != DialogResult.OK) return false;
-
-			System_user = new Classes.System_user(form_register.Username);
-			return true;
+			//System_user = new Classes.System_user(form_login.Username);
+			return form_login.Username;
 		}
 	}
 }

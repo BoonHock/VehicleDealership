@@ -141,14 +141,14 @@
 			this.label6.AutoSize = true;
 			this.label6.Location = new System.Drawing.Point(11, 169);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(179, 20);
+			this.label6.Size = new System.Drawing.Size(174, 20);
 			this.label6.TabIndex = 6;
-			this.label6.Text = "New IC no. (without dash)";
+			this.label6.Text = "New IC no. / Passport no.";
 			// 
 			// txt_ic_no
 			// 
 			this.txt_ic_no.Location = new System.Drawing.Point(11, 191);
-			this.txt_ic_no.MaxLength = 12;
+			this.txt_ic_no.MaxLength = 30;
 			this.txt_ic_no.Name = "txt_ic_no";
 			this.txt_ic_no.Size = new System.Drawing.Size(327, 27);
 			this.txt_ic_no.TabIndex = 7;
