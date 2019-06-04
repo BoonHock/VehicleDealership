@@ -8,10 +8,14 @@ namespace VehicleDealership.Classes
 {
 	public class User_permission
 	{
-		private User_permission(string value) { Value = value; }
-		public string Value { get; private set; }
-		public static User_permission ADMINISTRATOR { get { return new User_permission("ADMINISTRATOR"); } }
-		public static User_permission EDIT_USERS { get { return new User_permission("EDIT_USERS"); } }
-		public static User_permission VIEW_USERS { get { return new User_permission("VIEW_USERS"); } }
+		public static string ADMINISTRATOR { get { return "ADMINISTRATOR"; } }
+		public static string EDIT_USERS { get { return "EDIT_USERS"; } }
+		public static string VIEW_USERS { get { return "VIEW_USERS"; } }
+
+		//private User_permission(string value) { Value = value; }
+		//public string Value { get; private set; }
+		//public static User_permission ADMINISTRATOR { get { return new User_permission("ADMINISTRATOR"); } }
+		//public static User_permission EDIT_USERS { get { return new User_permission("EDIT_USERS"); } }
+		//public static User_permission VIEW_USERS { get { return new User_permission("VIEW_USERS"); } }
 	}
 }

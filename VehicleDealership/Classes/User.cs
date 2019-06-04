@@ -18,6 +18,19 @@ namespace VehicleDealership.Classes
 		public DateTime JoinDate { get; private set; }
 		public DateTime? LeaveDate { get; private set; }
 		public byte[] Photo { get; private set; }
+		public List<string> Permissions
+		{
+			get
+			{
+				List<string> list_permissions = new List<string>();
+
+				foreach (System.Data.DataRow dt_row in User_permission_DS.SELECT_user_permission(UserID))
+				{
+					list_permissions.Add(dt_row["Permission"].ToString());
+				}
+				return list_permissions;
+			}
+		}
 
 		public User(string username)
 		{
@@ -48,12 +61,11 @@ namespace VehicleDealership.Classes
 			LeaveDate = (dt_row["Leave_date"] == DBNull.Value) ? (DateTime?)null : (DateTime)dt_row["Leave_date"];
 			Photo = (dt_row["Photo"] == DBNull.Value) ? null : (byte[])dt_row["Photo"];
 		}
-		public bool Has_permission (User_permission permission)
+		public bool Has_permission(string permission)
 		{
 			return User_permission_DS.Has_permission(UserID, permission);
 		}
 		#region static stuffs
-
 		public static bool Is_username_valid(string str_username)
 		{
 			Regex r = new Regex("^[a-zA-Z0-9]*$");

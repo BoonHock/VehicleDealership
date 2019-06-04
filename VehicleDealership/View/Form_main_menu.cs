@@ -26,6 +26,7 @@ namespace VehicleDealership.View
 			//Object.assignHandler((sender) => evHandler(sender, someData));
 			salesOrderToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_sales_order());
 			usersToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_users());
+			simulateUserToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_simulate_user());
 		}
 		private void Open_form(Form form_to_open, bool is_maximised = false, string form_tag = "")
 		{

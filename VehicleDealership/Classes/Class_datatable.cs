@@ -10,25 +10,27 @@ namespace VehicleDealership.Classes
 {
 	class Class_datatable
 	{
-		public static void Remove_columns(DataTable dataTable, string[] cols_to_remove)
+		public static DataTable Remove_columns(DataTable dttable, string[] cols_to_remove)
 		{
-			for (int i = dataTable.Columns.Count - 1; i >= 0; i--)
+			for (int i = dttable.Columns.Count - 1; i >= 0; i--)
 			{
-				if (cols_to_remove.Contains(dataTable.Columns[i].ColumnName, StringComparer.OrdinalIgnoreCase))
+				if (cols_to_remove.Contains(dttable.Columns[i].ColumnName, StringComparer.OrdinalIgnoreCase))
 				{
-					dataTable.Columns.RemoveAt(i);
+					dttable.Columns.RemoveAt(i);
 				}
 			}
+			return dttable;
 		}
-		public static void Remove_unnecessary_columns(DataTable dataTable, string[] cols_to_keep)
+		public static DataTable Remove_unnecessary_columns(DataTable dttable, string[] cols_to_keep)
 		{
-			for (int i = dataTable.Columns.Count - 1; i >= 0; i--)
+			for (int i = dttable.Columns.Count - 1; i >= 0; i--)
 			{
-				if (!cols_to_keep.Contains(dataTable.Columns[i].ColumnName, StringComparer.OrdinalIgnoreCase))
+				if (!cols_to_keep.Contains(dttable.Columns[i].ColumnName, StringComparer.OrdinalIgnoreCase))
 				{
-					dataTable.Columns.RemoveAt(i);
+					dttable.Columns.RemoveAt(i);
 				}
 			}
+			return dttable;
 		}
 		public static void Change_header_text(DataGridView grd, Dictionary<string, string> change_pairs)
 		{

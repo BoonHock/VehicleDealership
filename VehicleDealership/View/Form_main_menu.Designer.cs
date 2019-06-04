@@ -31,16 +31,19 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_main_menu));
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.administratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salesOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.gODMODEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.simulateUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
 			// 
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gODMODEToolStripMenuItem,
             this.administratorToolStripMenuItem,
             this.salesToolStripMenuItem,
             this.aboutToolStripMenuItem});
@@ -59,6 +62,12 @@
 			this.administratorToolStripMenuItem.Size = new System.Drawing.Size(92, 19);
 			this.administratorToolStripMenuItem.Text = "Administrator";
 			// 
+			// usersToolStripMenuItem
+			// 
+			this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+			this.usersToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+			this.usersToolStripMenuItem.Text = "Users";
+			// 
 			// salesToolStripMenuItem
 			// 
 			this.salesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -73,17 +82,25 @@
 			this.salesOrderToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
 			this.salesOrderToolStripMenuItem.Text = "Sales order";
 			// 
-			// usersToolStripMenuItem
-			// 
-			this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-			this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.usersToolStripMenuItem.Text = "Users";
-			// 
 			// aboutToolStripMenuItem
 			// 
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 19);
 			this.aboutToolStripMenuItem.Text = "About";
+			// 
+			// gODMODEToolStripMenuItem
+			// 
+			this.gODMODEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.simulateUserToolStripMenuItem});
+			this.gODMODEToolStripMenuItem.Name = "gODMODEToolStripMenuItem";
+			this.gODMODEToolStripMenuItem.Size = new System.Drawing.Size(81, 19);
+			this.gODMODEToolStripMenuItem.Text = "GOD MODE";
+			// 
+			// simulateUserToolStripMenuItem
+			// 
+			this.simulateUserToolStripMenuItem.Name = "simulateUserToolStripMenuItem";
+			this.simulateUserToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.simulateUserToolStripMenuItem.Text = "Simulate user";
 			// 
 			// Form_main_menu
 			// 
@@ -115,5 +132,7 @@
 		private System.Windows.Forms.ToolStripMenuItem salesOrderToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem gODMODEToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem simulateUserToolStripMenuItem;
 	}
 }

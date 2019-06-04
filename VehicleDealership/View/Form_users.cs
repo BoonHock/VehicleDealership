@@ -46,11 +46,9 @@ namespace VehicleDealership.View
 				dttable_users = Users_DS.SELECT_user_by_search(str_search);
 			}
 
-			Class_datatable.Remove_unnecessary_columns(dttable_users, new string[] { "User_id", "Username", "Name",
-				"IC_no", "Is_activated", "Join_date", "Leave_date" });
-			//Class_datatable.Remove_columns(dttable_users, new string[] { "Password", "Modified_by", "Modified_on" });
-
-			Grd_users.DataSource = dttable_users;
+			;
+			Grd_users.DataSource = Class_datatable.Remove_unnecessary_columns(dttable_users, new string[] { "User_id",
+				"Username", "Name", "IC_no", "Is_activated", "Join_date", "Leave_date" });
 			Grd_users.AutoResizeColumns();
 
 			Class_datagridview.Hide_columns(Grd_users, new string[] { "User_id" });

@@ -14,7 +14,7 @@ namespace VehicleDealership.View
 {
 	public partial class Form_edit_users : Form
 	{
-		int int_edit_user = 0;
+		private readonly Classes.User Obj_user;
 		private void Setup_form()
 		{
 			Classes.Class_listview.Setup_listview(listview_permissions, Permission_DS.SELECT_permissions());
@@ -29,9 +29,7 @@ namespace VehicleDealership.View
 			InitializeComponent();
 			Setup_form();
 
-			int_edit_user = int_user_id;
-
-			Classes.User Obj_user = new Classes.User(int_user_id);
+			Obj_user = new Classes.User(int_user_id);
 
 			txt_username.Text = Obj_user.Username;
 			txt_name.Text = Obj_user.Name;
@@ -53,6 +51,14 @@ namespace VehicleDealership.View
 			{
 				picbox_photo.Image = Image.FromStream(new MemoryStream(Obj_user.Photo));
 			}
+
+			List<string> list_permissions = Obj_user.Permissions;
+
+			foreach (ListViewItem lv_item in listview_permissions.Items)
+			{
+				lv_item.Checked = list_permissions.Contains(lv_item.Text);
+			}
+
 		}
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
@@ -70,7 +76,7 @@ namespace VehicleDealership.View
 			this.DialogResult = DialogResult.OK;
 			this.Close();
 		}
-		private void Update_user_details ()
+		private void Update_user_details()
 		{
 			string str_username = txt_username.Text.Trim();
 			string str_name = txt_name.Text.Trim();
@@ -90,7 +96,7 @@ namespace VehicleDealership.View
 					"Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-			if (Classes.User.Is_username_taken(str_username, int_edit_user))
+			if (Classes.User.Is_username_taken(str_username, Obj_user.UserID))
 			{
 				MessageBox.Show("Username is taken.", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
@@ -116,16 +122,28 @@ namespace VehicleDealership.View
 				}
 			}
 
-			Users_DS.UPDATE_user(int_edit_user, str_username, str_name, str_ic_no, date_join, date_leave, byte_image);
+			Users_DS.UPDATE_user(Obj_user.UserID, str_username, str_name, str_ic_no, date_join, date_leave, byte_image);
 
-			if (int_edit_user == Program.System_user.UserID)
+			if (Obj_user.UserID == Program.System_user.UserID)
 			{
-				Program.System_user = new Classes.User(int_edit_user); // refresh current user details
+				Program.System_user = new Classes.User(Obj_user.UserID); // refresh current user details
 			}
 		}
 		private void Update_user_permissions()
 		{
-			// @TODO: UPDATE USER PERMISSION
+			foreach (ListViewItem lv_item in listview_permissions.Items)
+			{
+				if (Obj_user.Has_permission(lv_item.Text) && !lv_item.Checked)
+				{
+					// remove permission
+					User_permission_DS.DELETE_user_permission(Obj_user.UserID, lv_item.Text);
+				}
+				else if (!Obj_user.Has_permission(lv_item.Text) && lv_item.Checked)
+				{
+					// add permission
+					User_permission_DS.INSERT_user_permission(Obj_user.UserID, lv_item.Text);
+				}
+			}
 		}
 		private void Btn_cancel_Click(object sender, EventArgs e)
 		{
@@ -151,7 +169,7 @@ namespace VehicleDealership.View
 		{
 			if (!Program.System_user.Has_permission(Classes.User_permission.EDIT_USERS))
 			{
-				MessageBox.Show("You do not have permission to edit users!", "PERMISSION DENIED", 
+				MessageBox.Show("You do not have permission to edit users!", "PERMISSION DENIED",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
 				this.Close();
 				return;
