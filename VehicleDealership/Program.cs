@@ -21,10 +21,10 @@ namespace VehicleDealership
 
 			string str_username;
 
-			if (Datasets.Users_DS.COUNT_user() == 0)
-				str_username = View.Form_register_user.Register_user();
-			else
+			if (Datasets.user_ds.Check_db_has_user())
 				str_username = Log_in();
+			else
+				str_username = View.Form_register_user.Register_user();
 
 			if (str_username != null)
 			{
@@ -36,7 +36,6 @@ namespace VehicleDealership
 				//form_Main_Menu.Icon = appIcon;
 
 				Application.Run(new View.Form_main_menu());
-
 			}
 
 		}

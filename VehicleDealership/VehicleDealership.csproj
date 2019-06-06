@@ -98,13 +98,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Permission_DS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\Users_DS.cs">
-      <DependentUpon>Users_DS.xsd</DependentUpon>
+    <Compile Include="Datasets\user_ds.cs">
+      <DependentUpon>user_ds.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\Users_DS.Designer.cs">
+    <Compile Include="Datasets\user_ds.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Users_DS.xsd</DependentUpon>
+      <DependentUpon>user_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\User_permission_DS.cs">
       <DependentUpon>User_permission_DS.xsd</DependentUpon>
@@ -200,16 +200,16 @@
     <None Include="Datasets\Permission_DS.xss">
       <DependentUpon>Permission_DS.xsd</DependentUpon>
     </None>
-    <None Include="Datasets\Users_DS.xsc">
-      <DependentUpon>Users_DS.xsd</DependentUpon>
+    <None Include="Datasets\user_ds.xsc">
+      <DependentUpon>user_ds.xsd</DependentUpon>
     </None>
-    <None Include="Datasets\Users_DS.xsd">
+    <None Include="Datasets\user_ds.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Users_DS.Designer.cs</LastGenOutput>
+      <LastGenOutput>user_ds.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Datasets\Users_DS.xss">
-      <DependentUpon>Users_DS.xsd</DependentUpon>
+    <None Include="Datasets\user_ds.xss">
+      <DependentUpon>user_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\User_permission_DS.xsc">
       <DependentUpon>User_permission_DS.xsd</DependentUpon>
