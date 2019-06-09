@@ -22,11 +22,13 @@ namespace VehicleDealership.View
 
 		private void Form_main_menu_Load(object sender, EventArgs e)
 		{
-			//grd_test.DataSource = Model.Users_DS.SELECT_user("", "");
-			//Object.assignHandler((sender) => evHandler(sender, someData));
+			usersToolStripMenuItem.Enabled = Program.System_user.Has_permission(User_permission.EDIT_USER);
+
+
 			salesOrderToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_sales_order());
 			usersToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_users());
 			simulateUserToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_simulate_user());
+			userGroupsToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_usergroup());
 		}
 		private void Open_form(Form form_to_open, bool is_maximised = false, string form_tag = "")
 		{

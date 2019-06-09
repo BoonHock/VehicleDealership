@@ -21,10 +21,7 @@ namespace VehicleDealership
 
 			string str_username;
 
-			if (Datasets.user_ds.Check_db_has_user())
-				str_username = Log_in();
-			else
-				str_username = View.Form_register_user.Register_user();
+			str_username = Log_in();
 
 			if (str_username != null)
 			{

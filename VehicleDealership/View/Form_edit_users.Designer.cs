@@ -32,7 +32,6 @@
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.btn_remove_photo = new System.Windows.Forms.Button();
 			this.label9 = new System.Windows.Forms.Label();
-			this.label8 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.ch_empty_leave_date = new System.Windows.Forms.CheckBox();
@@ -49,16 +48,25 @@
 			this.txt_username = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.listview_usergroup = new System.Windows.Forms.ListView();
+			this.label11 = new System.Windows.Forms.Label();
+			this.grd_permission = new System.Windows.Forms.DataGridView();
+			this.label10 = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.btn_cancel = new System.Windows.Forms.Button();
 			this.btn_ok = new System.Windows.Forms.Button();
 			this.filedlg_img = new System.Windows.Forms.OpenFileDialog();
-			this.listview_permissions = new System.Windows.Forms.ListView();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picbox_photo)).BeginInit();
 			this.tabPage2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+			this.splitContainer1.Panel1.SuspendLayout();
+			this.splitContainer1.Panel2.SuspendLayout();
+			this.splitContainer1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.grd_permission)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
@@ -78,7 +86,6 @@
 			// 
 			this.tabPage1.Controls.Add(this.btn_remove_photo);
 			this.tabPage1.Controls.Add(this.label9);
-			this.tabPage1.Controls.Add(this.label8);
 			this.tabPage1.Controls.Add(this.label7);
 			this.tabPage1.Controls.Add(this.label6);
 			this.tabPage1.Controls.Add(this.ch_empty_leave_date);
@@ -122,16 +129,6 @@
 			this.label9.Size = new System.Drawing.Size(15, 20);
 			this.label9.TabIndex = 16;
 			this.label9.Text = "*";
-			// 
-			// label8
-			// 
-			this.label8.AutoSize = true;
-			this.label8.ForeColor = System.Drawing.Color.Red;
-			this.label8.Location = new System.Drawing.Point(208, 75);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(15, 20);
-			this.label8.TabIndex = 15;
-			this.label8.Text = "*";
 			// 
 			// label7
 			// 
@@ -272,7 +269,7 @@
 			// 
 			// tabPage2
 			// 
-			this.tabPage2.Controls.Add(this.listview_permissions);
+			this.tabPage2.Controls.Add(this.splitContainer1);
 			this.tabPage2.Location = new System.Drawing.Point(4, 29);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -280,6 +277,73 @@
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Permissions";
 			this.tabPage2.UseVisualStyleBackColor = true;
+			// 
+			// splitContainer1
+			// 
+			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+			this.splitContainer1.Name = "splitContainer1";
+			// 
+			// splitContainer1.Panel1
+			// 
+			this.splitContainer1.Panel1.Controls.Add(this.listview_usergroup);
+			this.splitContainer1.Panel1.Controls.Add(this.label11);
+			// 
+			// splitContainer1.Panel2
+			// 
+			this.splitContainer1.Panel2.Controls.Add(this.grd_permission);
+			this.splitContainer1.Panel2.Controls.Add(this.label10);
+			this.splitContainer1.Size = new System.Drawing.Size(961, 553);
+			this.splitContainer1.SplitterDistance = 459;
+			this.splitContainer1.TabIndex = 2;
+			// 
+			// listview_usergroup
+			// 
+			this.listview_usergroup.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.listview_usergroup.FullRowSelect = true;
+			this.listview_usergroup.GridLines = true;
+			this.listview_usergroup.HideSelection = false;
+			this.listview_usergroup.Location = new System.Drawing.Point(0, 20);
+			this.listview_usergroup.MultiSelect = false;
+			this.listview_usergroup.Name = "listview_usergroup";
+			this.listview_usergroup.Size = new System.Drawing.Size(459, 533);
+			this.listview_usergroup.TabIndex = 0;
+			this.listview_usergroup.UseCompatibleStateImageBehavior = false;
+			this.listview_usergroup.View = System.Windows.Forms.View.Details;
+			this.listview_usergroup.SelectedIndexChanged += new System.EventHandler(this.Listview_usergroup_SelectedIndexChanged);
+			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Dock = System.Windows.Forms.DockStyle.Top;
+			this.label11.Location = new System.Drawing.Point(0, 0);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(120, 20);
+			this.label11.TabIndex = 3;
+			this.label11.Text = "Select usergroup";
+			// 
+			// grd_permission
+			// 
+			this.grd_permission.AllowUserToAddRows = false;
+			this.grd_permission.AllowUserToDeleteRows = false;
+			this.grd_permission.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.grd_permission.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.grd_permission.Location = new System.Drawing.Point(0, 20);
+			this.grd_permission.Name = "grd_permission";
+			this.grd_permission.ReadOnly = true;
+			this.grd_permission.RowHeadersVisible = false;
+			this.grd_permission.Size = new System.Drawing.Size(498, 533);
+			this.grd_permission.TabIndex = 1;
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Dock = System.Windows.Forms.DockStyle.Top;
+			this.label10.Location = new System.Drawing.Point(0, 0);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(86, 20);
+			this.label10.TabIndex = 2;
+			this.label10.Text = "Permissions";
 			// 
 			// panel1
 			// 
@@ -334,18 +398,6 @@
 			// 
 			this.filedlg_img.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
 			// 
-			// listview_permissions
-			// 
-			this.listview_permissions.CheckBoxes = true;
-			this.listview_permissions.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listview_permissions.GridLines = true;
-			this.listview_permissions.Location = new System.Drawing.Point(3, 3);
-			this.listview_permissions.Name = "listview_permissions";
-			this.listview_permissions.Size = new System.Drawing.Size(961, 553);
-			this.listview_permissions.TabIndex = 0;
-			this.listview_permissions.UseCompatibleStateImageBehavior = false;
-			this.listview_permissions.View = System.Windows.Forms.View.Details;
-			// 
 			// Form_edit_users
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -365,6 +417,13 @@
 			this.tabPage1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picbox_photo)).EndInit();
 			this.tabPage2.ResumeLayout(false);
+			this.splitContainer1.Panel1.ResumeLayout(false);
+			this.splitContainer1.Panel1.PerformLayout();
+			this.splitContainer1.Panel2.ResumeLayout(false);
+			this.splitContainer1.Panel2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+			this.splitContainer1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.grd_permission)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
@@ -395,11 +454,14 @@
 		private System.Windows.Forms.Button btn_change_photo;
 		private System.Windows.Forms.CheckBox ch_empty_leave_date;
 		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.OpenFileDialog filedlg_img;
 		private System.Windows.Forms.Button btn_remove_photo;
-		private System.Windows.Forms.ListView listview_permissions;
+		private System.Windows.Forms.ListView listview_usergroup;
+		private System.Windows.Forms.SplitContainer splitContainer1;
+		private System.Windows.Forms.DataGridView grd_permission;
+		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Label label11;
 	}
 }

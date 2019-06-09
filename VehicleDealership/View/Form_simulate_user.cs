@@ -28,11 +28,11 @@ namespace VehicleDealership.View
 		}
 		private void Setup_grd()
 		{
-			string str_search = Txt_search.Text.Trim();
+			//string str_search = Txt_search.Text.Trim();
 
-			Grd_users.DataSource = null;
-			Grd_users.DataSource = Class_datatable.Remove_columns(Users_DS.
-				SELECT_user_by_search(str_search), new string[] { "Password", "Photo" });
+			//Grd_users.DataSource = null;
+			//Grd_users.DataSource = Class_datatable.Remove_columns(Users_DS.
+			//	SELECT_user_by_search(str_search), new string[] { "Password", "Photo" });
 		}
 	}
 }

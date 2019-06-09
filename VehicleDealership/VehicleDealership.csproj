@@ -90,32 +90,30 @@
     <Compile Include="Classes\Class_style.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\User_permission.cs" />
-    <Compile Include="Datasets\Permission_DS.cs">
-      <DependentUpon>Permission_DS.xsd</DependentUpon>
+    <Compile Include="Datasets\Permission_ds.cs">
+      <DependentUpon>Permission_ds.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\Permission_DS.Designer.cs">
+    <Compile Include="Datasets\Permission_ds.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Permission_DS.xsd</DependentUpon>
+      <DependentUpon>Permission_ds.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\user_ds.cs">
-      <DependentUpon>user_ds.xsd</DependentUpon>
+    <Compile Include="Datasets\User_ds.cs">
+      <DependentUpon>User_ds.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\user_ds.Designer.cs">
+    <Compile Include="Datasets\User_ds.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>user_ds.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Datasets\User_permission_DS.cs">
-      <DependentUpon>User_permission_DS.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Datasets\User_permission_DS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>User_permission_DS.xsd</DependentUpon>
+      <DependentUpon>User_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Form_edit_usergroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form_edit_usergroup.Designer.cs">
+      <DependentUpon>Form_edit_usergroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Form_edit_users.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +150,12 @@
     <Compile Include="View\Form_simulate_user.Designer.cs">
       <DependentUpon>Form_simulate_user.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Form_usergroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form_usergroup.Designer.cs">
+      <DependentUpon>Form_usergroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Form_users.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +172,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\Form_edit_usergroup.resx">
+      <DependentUpon>Form_edit_usergroup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Form_edit_users.resx">
       <DependentUpon>Form_edit_users.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,41 +193,33 @@
     <EmbeddedResource Include="View\Form_simulate_user.resx">
       <DependentUpon>Form_simulate_user.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Form_usergroup.resx">
+      <DependentUpon>Form_usergroup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Form_users.resx">
       <DependentUpon>Form_users.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Datasets\Permission_DS.xsc">
-      <DependentUpon>Permission_DS.xsd</DependentUpon>
+    <None Include="Datasets\Permission_ds.xsc">
+      <DependentUpon>Permission_ds.xsd</DependentUpon>
     </None>
-    <None Include="Datasets\Permission_DS.xsd">
+    <None Include="Datasets\Permission_ds.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Permission_DS.Designer.cs</LastGenOutput>
+      <LastGenOutput>Permission_ds.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Datasets\Permission_DS.xss">
-      <DependentUpon>Permission_DS.xsd</DependentUpon>
+    <None Include="Datasets\Permission_ds.xss">
+      <DependentUpon>Permission_ds.xsd</DependentUpon>
     </None>
-    <None Include="Datasets\user_ds.xsc">
-      <DependentUpon>user_ds.xsd</DependentUpon>
+    <None Include="Datasets\User_ds.xsc">
+      <DependentUpon>User_ds.xsd</DependentUpon>
     </None>
-    <None Include="Datasets\user_ds.xsd">
+    <None Include="Datasets\User_ds.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>user_ds.Designer.cs</LastGenOutput>
+      <LastGenOutput>User_ds.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Datasets\user_ds.xss">
-      <DependentUpon>user_ds.xsd</DependentUpon>
-    </None>
-    <None Include="Datasets\User_permission_DS.xsc">
-      <DependentUpon>User_permission_DS.xsd</DependentUpon>
-    </None>
-    <None Include="Datasets\User_permission_DS.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>User_permission_DS.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Datasets\User_permission_DS.xss">
-      <DependentUpon>User_permission_DS.xsd</DependentUpon>
+    <None Include="Datasets\User_ds.xss">
+      <DependentUpon>User_ds.xsd</DependentUpon>
     </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">

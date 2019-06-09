@@ -9,27 +9,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VehicleDealership.Datasets;
+using VehicleDealership.Classes;
 
 namespace VehicleDealership.View
 {
 	public partial class Form_edit_users : Form
 	{
-		private readonly Classes.User Obj_user;
+		private readonly User Obj_user;
 		private void Setup_form()
 		{
-			Classes.Class_listview.Setup_listview(listview_permissions, Permission_DS.SELECT_permissions());
+			Class_style.Grd_style.Common_style(grd_permission);
+			Class_listview.Setup_listview(listview_usergroup, Permission_ds.Select_usergroup());
 		}
-		public Form_edit_users()
-		{
-			InitializeComponent();
-			Setup_form();
-		}
-		public Form_edit_users(int int_user_id)
+		public Form_edit_users(int int_user)
 		{
 			InitializeComponent();
 			Setup_form();
 
-			Obj_user = new Classes.User(int_user_id);
+			Obj_user = new User(int_user);
 
 			txt_username.Text = Obj_user.Username;
 			txt_name.Text = Obj_user.Name;
@@ -51,18 +48,22 @@ namespace VehicleDealership.View
 			{
 				picbox_photo.Image = Image.FromStream(new MemoryStream(Obj_user.Photo));
 			}
-
-			List<string> list_permissions = Obj_user.Permissions;
-
-			foreach (ListViewItem lv_item in listview_permissions.Items)
+			if (Obj_user.UserGroup != null )
 			{
-				lv_item.Checked = list_permissions.Contains(lv_item.Text);
+				foreach (ListViewItem lv_item in listview_usergroup.Items)
+				{
+					if (lv_item.Text == Obj_user.UserGroup)
+					{
+						listview_usergroup.SelectedItems.Clear();
+						lv_item.Selected = true;
+						break;
+					}
+				}
 			}
-
 		}
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
-			if (!Program.System_user.Has_permission(Classes.User_permission.EDIT_USERS))
+			if (!Program.System_user.Has_permission(User_permission.EDIT_USER))
 			{
 				MessageBox.Show("You do not have permission to edit users!", "PERMISSION DENIED",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -82,36 +83,38 @@ namespace VehicleDealership.View
 			string str_name = txt_name.Text.Trim();
 			string str_ic_no = txt_ic_no.Text.Trim();
 			DateTime date_join = dtp_join.Value;
-			DateTime? date_leave = dtp_leave.Value;
+			DateTime? date_leave = (ch_empty_leave_date.Checked) ? (DateTime?)null : dtp_leave.Value;
 			byte[] byte_image = null;
+			string str_usergroup = "";
 
-			if (str_username.Length == 0 || str_name.Length == 0 || str_ic_no.Length == 0)
+			if (str_username.Length == 0 || str_name.Length == 0)
 			{
-				MessageBox.Show("Username, Name and IC no./Passport no. is required.", "Missing input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Username and Name is required.", "Missing input", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-			if (!Classes.User.Is_username_valid(str_username))
+			if (!User.Is_username_valid(str_username))
 			{
 				MessageBox.Show("Username is invalid. Only aphanumeric characters allowed for username. Please retry",
 					"Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-			if (Classes.User.Is_username_taken(str_username, Obj_user.UserID))
+			if (!User.Is_username_available(str_username, Obj_user.UserID))
 			{
 				MessageBox.Show("Username is taken.", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-			if (date_leave < date_join)
+			if (date_leave != null && date_leave < date_join)
 			{
 				MessageBox.Show("Leave date cannot be before Join Date.", "Invalid input",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-			if (ch_empty_leave_date.Checked)
+			if (listview_usergroup.SelectedItems.Count == 0)
 			{
-				date_leave = null;
+				MessageBox.Show("Usergroup is required. Please go to 'Permission' tab to select usergroup.", "Invalid input",
+					MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
 			}
-
 			if (picbox_photo.Image != null)
 			{
 				Image img = picbox_photo.Image;
@@ -121,29 +124,28 @@ namespace VehicleDealership.View
 					byte_image = ms.ToArray();
 				}
 			}
+			str_usergroup = listview_usergroup.SelectedItems[0].Text;
 
-			Users_DS.UPDATE_user(Obj_user.UserID, str_username, str_name, str_ic_no, date_join, date_leave, byte_image);
+			User_ds.Update_user(Obj_user.UserID, str_username, str_name, str_ic_no, date_join, date_leave, byte_image, str_usergroup);
 
 			if (Obj_user.UserID == Program.System_user.UserID)
-			{
-				Program.System_user = new Classes.User(Obj_user.UserID); // refresh current user details
-			}
+				Program.System_user = new User(Obj_user.UserID); // refresh current user details
 		}
 		private void Update_user_permissions()
 		{
-			foreach (ListViewItem lv_item in listview_permissions.Items)
-			{
-				if (Obj_user.Has_permission(lv_item.Text) && !lv_item.Checked)
-				{
-					// remove permission
-					User_permission_DS.DELETE_user_permission(Obj_user.UserID, lv_item.Text);
-				}
-				else if (!Obj_user.Has_permission(lv_item.Text) && lv_item.Checked)
-				{
-					// add permission
-					User_permission_DS.INSERT_user_permission(Obj_user.UserID, lv_item.Text);
-				}
-			}
+			//foreach (ListViewItem lv_item in listview_permissions.Items)
+			//{
+			//	if (Obj_user.Has_permission(lv_item.Text) && !lv_item.Checked)
+			//	{
+			//		// remove permission
+			//		User_permission_DS.DELETE_user_permission(Obj_user.UserID, lv_item.Text);
+			//	}
+			//	else if (!Obj_user.Has_permission(lv_item.Text) && lv_item.Checked)
+			//	{
+			//		// add permission
+			//		User_permission_DS.INSERT_user_permission(Obj_user.UserID, lv_item.Text);
+			//	}
+			//}
 		}
 		private void Btn_cancel_Click(object sender, EventArgs e)
 		{
@@ -167,13 +169,24 @@ namespace VehicleDealership.View
 		}
 		private void Form_edit_users_Shown(object sender, EventArgs e)
 		{
-			if (!Program.System_user.Has_permission(Classes.User_permission.EDIT_USERS))
+			if (!Program.System_user.Has_permission(User_permission.EDIT_USER))
 			{
 				MessageBox.Show("You do not have permission to edit users!", "PERMISSION DENIED",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
 				this.Close();
+			}
+		}
+		private void Listview_usergroup_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (listview_usergroup.Items.Count == 0 || listview_usergroup.SelectedIndices[0] < 0)
+			{
 				return;
 			}
+
+			grd_permission.DataSource = null;
+			grd_permission.DataSource = Permission_ds.Select_permission_by_usergroup(listview_usergroup.SelectedItems[0].Text);
+			grd_permission.Columns["permission"].Width = 160;
+			grd_permission.Columns["permission_desc"].Width = 200;
 		}
 	}
 }

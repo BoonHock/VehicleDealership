@@ -37,9 +37,21 @@ namespace VehicleDealership.View
 			string str_name = txt_fullname.Text.Trim();
 			string str_ic_no = txt_ic_no.Text.Trim();
 
-			if (Username.Length == 0 || str_password.Length == 0 || str_name.Length == 0 || str_ic_no.Length == 0)
+			if (Username.Length == 0)
 			{
-				MessageBox.Show("All fields are required.", "Missing input",
+				MessageBox.Show("Username is required.", "Missing input",
+					MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			if (str_password.Length == 0)
+			{
+				MessageBox.Show("Password is required.", "Missing input",
+					MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			if (str_name.Length == 0)
+			{
+				MessageBox.Show("Full name is required.", "Missing input",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
@@ -49,18 +61,17 @@ namespace VehicleDealership.View
 					"Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-			if (Classes.User.Is_username_taken(Username))
+			if (!Classes.User.Is_username_available(Username))
 			{
 				MessageBox.Show("Username is taken.", "Username taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
-			Datasets.Users_DS.INSERT_user(Username, str_name, Form_log_in.ComputeHash(str_password, null), str_ic_no, dtp_join_date.Value);
+			Datasets.User_ds.Insert_user(Username, str_name, Form_log_in.ComputeHash(str_password, null), str_ic_no, dtp_join_date.Value);
 
 			this.DialogResult = DialogResult.OK;
 			this.Close();
 		}
-
 		private void Btn_cancel_Click(object sender, EventArgs e)
 		{
 			this.DialogResult = DialogResult.Cancel;

@@ -18,52 +18,34 @@ namespace VehicleDealership.Classes
 		public DateTime JoinDate { get; private set; }
 		public DateTime? LeaveDate { get; private set; }
 		public byte[] Photo { get; private set; }
-		public List<string> Permissions
+		public string UserGroup { get; private set; }
+		public User(string str_username)
 		{
-			get
-			{
-				List<string> list_permissions = new List<string>();
-
-				foreach (System.Data.DataRow dt_row in User_permission_DS.SELECT_user_permission(UserID))
-				{
-					list_permissions.Add(dt_row["Permission"].ToString());
-				}
-				return list_permissions;
-			}
-		}
-
-		public User(string username)
-		{
-			Users_DS.UsersDataTable users = Users_DS.SELECT_user(username);
-
-			if (users.Rows.Count == 0) throw new Exception("NO USER FOUND");
-
-			Init_obj((int)users[0]["User_id"]);
+			Init_obj(User_ds.Select_user(str_username));
 		}
 		public User(int user_id)
 		{
-			Init_obj(user_id);
+			Init_obj(User_ds.Select_user(user_id));
 		}
-		private void Init_obj(int int_user_id)
+		private void Init_obj(User_ds.userDataTable dttable_user)
 		{
-			Users_DS.UsersDataTable users = Users_DS.SELECT_user(int_user_id);
+			if (dttable_user.Rows.Count == 0) throw new Exception("NO USER FOUND");
 
-			if (users.Rows.Count == 0) throw new Exception("NO USER FOUND");
+			System.Data.DataRow dt_row = dttable_user.Rows[0];
 
-			System.Data.DataRow dt_row = users.Rows[0];
-
-			UserID = int_user_id;
-			Username = dt_row["Username"].ToString();
-			Name = dt_row["Name"].ToString();
-			IcNo = dt_row["IC_no"].ToString();
-			IsActivated = (bool)dt_row["Is_activated"];
-			JoinDate = (DateTime)dt_row["Join_date"];
-			LeaveDate = (dt_row["Leave_date"] == DBNull.Value) ? (DateTime?)null : (DateTime)dt_row["Leave_date"];
+			UserID = (int)dt_row["user"];
+			Username = dt_row["username"].ToString();
+			Name = dt_row["name"].ToString();
+			IcNo = dt_row["ic_no"].ToString();
+			IsActivated = (bool)dt_row["is_activated"];
+			JoinDate = (DateTime)dt_row["join_date"];
+			LeaveDate = (dt_row["leave_date"] == DBNull.Value) ? (DateTime?)null : (DateTime)dt_row["Leave_date"];
 			Photo = (dt_row["Photo"] == DBNull.Value) ? null : (byte[])dt_row["Photo"];
+			UserGroup = (dt_row["usergroup"] == DBNull.Value) ? null : dt_row["usergroup"].ToString();
 		}
 		public bool Has_permission(string permission)
 		{
-			return User_permission_DS.Has_permission(UserID, permission);
+			return User_ds.Check_user_has_permission(UserID, permission);
 		}
 		#region static stuffs
 		public static bool Is_username_valid(string str_username)
@@ -72,11 +54,10 @@ namespace VehicleDealership.Classes
 
 			return !(str_username.Length == 0 || !r.IsMatch(str_username));
 		}
-		public static bool Is_username_taken(string str_username, int exclude_user_id = 0)
+		public static bool Is_username_available(string str_username, int exclude_user_id = 0)
 		{
-			return (Users_DS.COUNT_user(str_username, exclude_user_id) > 0);
+			return User_ds.Check_username_available(str_username, exclude_user_id);
 		}
-
 		#endregion
 	}
 }

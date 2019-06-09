@@ -30,13 +30,14 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_main_menu));
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.gODMODEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.simulateUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.administratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salesOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.gODMODEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.simulateUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.userGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -54,10 +55,25 @@
 			this.menuStrip1.TabIndex = 1;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
+			// gODMODEToolStripMenuItem
+			// 
+			this.gODMODEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.simulateUserToolStripMenuItem});
+			this.gODMODEToolStripMenuItem.Name = "gODMODEToolStripMenuItem";
+			this.gODMODEToolStripMenuItem.Size = new System.Drawing.Size(81, 19);
+			this.gODMODEToolStripMenuItem.Text = "GOD MODE";
+			// 
+			// simulateUserToolStripMenuItem
+			// 
+			this.simulateUserToolStripMenuItem.Name = "simulateUserToolStripMenuItem";
+			this.simulateUserToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+			this.simulateUserToolStripMenuItem.Text = "Simulate user";
+			// 
 			// administratorToolStripMenuItem
 			// 
 			this.administratorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.usersToolStripMenuItem});
+            this.usersToolStripMenuItem,
+            this.userGroupsToolStripMenuItem});
 			this.administratorToolStripMenuItem.Name = "administratorToolStripMenuItem";
 			this.administratorToolStripMenuItem.Size = new System.Drawing.Size(92, 19);
 			this.administratorToolStripMenuItem.Text = "Administrator";
@@ -65,7 +81,7 @@
 			// usersToolStripMenuItem
 			// 
 			this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-			this.usersToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+			this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.usersToolStripMenuItem.Text = "Users";
 			// 
 			// salesToolStripMenuItem
@@ -88,19 +104,11 @@
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 19);
 			this.aboutToolStripMenuItem.Text = "About";
 			// 
-			// gODMODEToolStripMenuItem
+			// userGroupsToolStripMenuItem
 			// 
-			this.gODMODEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.simulateUserToolStripMenuItem});
-			this.gODMODEToolStripMenuItem.Name = "gODMODEToolStripMenuItem";
-			this.gODMODEToolStripMenuItem.Size = new System.Drawing.Size(81, 19);
-			this.gODMODEToolStripMenuItem.Text = "GOD MODE";
-			// 
-			// simulateUserToolStripMenuItem
-			// 
-			this.simulateUserToolStripMenuItem.Name = "simulateUserToolStripMenuItem";
-			this.simulateUserToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.simulateUserToolStripMenuItem.Text = "Simulate user";
+			this.userGroupsToolStripMenuItem.Name = "userGroupsToolStripMenuItem";
+			this.userGroupsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.userGroupsToolStripMenuItem.Text = "Usergroups";
 			// 
 			// Form_main_menu
 			// 
@@ -134,5 +142,6 @@
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem gODMODEToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem simulateUserToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem userGroupsToolStripMenuItem;
 	}
 }

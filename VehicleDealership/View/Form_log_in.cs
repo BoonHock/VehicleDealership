@@ -39,11 +39,11 @@ namespace VehicleDealership.View
 			string str_username = txt_username.Text.Trim();
 			string str_password = txt_password.Text;
 
-			Users_DS.UsersDataTable user_dttable = Users_DS.SELECT_user(str_username);
+			User_ds.sp_user_loginDataTable dttable_user = User_ds.Select_password(str_username);
 
-			if (user_dttable.Rows.Count == 0 || !((bool)user_dttable.Rows[0]["Is_activated"])) return false;
+			if (dttable_user.Rows.Count == 0 || !((bool)dttable_user.Rows[0]["is_activated"])) return false;
 
-			return VerifyHash(str_password, user_dttable.Rows[0]["Password"].ToString());
+			return VerifyHash(str_password, dttable_user.Rows[0]["password"].ToString());
 		}
 		/// <summary>
 		/// https://chandradev819.wordpress.com/2011/04/11/how-to-encrypt-and-decrypt-password-in-asp-net-using-c/
