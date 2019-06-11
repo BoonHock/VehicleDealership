@@ -25,7 +25,7 @@ namespace VehicleDealership.View
 
 			Setup_grd_usergroup();
 		}
-		private void Setup_grd_usergroup ()
+		private void Setup_grd_usergroup()
 		{
 			Grd_usergroup.DataSource = Permission_ds.Select_usergroup();
 			Grd_usergroup.AutoResizeColumns();
@@ -41,7 +41,21 @@ namespace VehicleDealership.View
 		}
 		private void Btn_edit_Click(object sender, EventArgs e)
 		{
+			if (Grd_usergroup.SelectedCells.Count == 0)
+			{
+				MessageBox.Show("Select a usergroup to edit.");
+				return;
+			}
 
+			DataGridViewRow grd_row = Grd_usergroup.Rows[Grd_usergroup.SelectedCells[0].RowIndex];
+
+			Form_edit_usergroup form_edit = new Form_edit_usergroup(grd_row.Cells["usergroup"].Value.ToString(), 
+				grd_row.Cells["usergroup_desc"].Value.ToString());
+
+			if (form_edit.ShowDialog() == DialogResult.OK)
+			{
+				Setup_grd_usergroup();
+			}
 		}
 	}
 }

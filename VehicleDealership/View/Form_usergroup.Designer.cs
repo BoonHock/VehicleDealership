@@ -29,16 +29,16 @@
 		private void InitializeComponent()
 		{
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-			this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-			this.txt_search = new System.Windows.Forms.ToolStripTextBox();
-			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-			this.label11 = new System.Windows.Forms.Label();
-			this.label10 = new System.Windows.Forms.Label();
 			this.btn_edit = new System.Windows.Forms.ToolStripButton();
 			this.btn_add = new System.Windows.Forms.ToolStripButton();
 			this.btn_remove = new System.Windows.Forms.ToolStripButton();
+			this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+			this.txt_search = new System.Windows.Forms.ToolStripTextBox();
+			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.Grd_usergroup = new System.Windows.Forms.DataGridView();
+			this.label11 = new System.Windows.Forms.Label();
 			this.listview_permissions = new System.Windows.Forms.ListView();
+			this.label10 = new System.Windows.Forms.Label();
 			this.toolStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
@@ -57,60 +57,9 @@
             this.txt_search});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
-			this.toolStrip1.Size = new System.Drawing.Size(896, 25);
+			this.toolStrip1.Size = new System.Drawing.Size(1159, 25);
 			this.toolStrip1.TabIndex = 1;
 			this.toolStrip1.Text = "toolStrip1";
-			// 
-			// toolStripLabel1
-			// 
-			this.toolStripLabel1.Name = "toolStripLabel1";
-			this.toolStripLabel1.Size = new System.Drawing.Size(45, 22);
-			this.toolStripLabel1.Text = "Search:";
-			// 
-			// txt_search
-			// 
-			this.txt_search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.txt_search.Name = "txt_search";
-			this.txt_search.Size = new System.Drawing.Size(150, 25);
-			// 
-			// splitContainer1
-			// 
-			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.splitContainer1.Location = new System.Drawing.Point(0, 25);
-			this.splitContainer1.Name = "splitContainer1";
-			// 
-			// splitContainer1.Panel1
-			// 
-			this.splitContainer1.Panel1.Controls.Add(this.Grd_usergroup);
-			this.splitContainer1.Panel1.Controls.Add(this.label11);
-			// 
-			// splitContainer1.Panel2
-			// 
-			this.splitContainer1.Panel2.Controls.Add(this.listview_permissions);
-			this.splitContainer1.Panel2.Controls.Add(this.label10);
-			this.splitContainer1.Size = new System.Drawing.Size(896, 588);
-			this.splitContainer1.SplitterDistance = 427;
-			this.splitContainer1.TabIndex = 3;
-			// 
-			// label11
-			// 
-			this.label11.AutoSize = true;
-			this.label11.Dock = System.Windows.Forms.DockStyle.Top;
-			this.label11.Location = new System.Drawing.Point(0, 0);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(78, 20);
-			this.label11.TabIndex = 3;
-			this.label11.Text = "Usergroup";
-			// 
-			// label10
-			// 
-			this.label10.AutoSize = true;
-			this.label10.Dock = System.Windows.Forms.DockStyle.Top;
-			this.label10.Location = new System.Drawing.Point(0, 0);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(86, 20);
-			this.label10.TabIndex = 2;
-			this.label10.Text = "Permissions";
 			// 
 			// btn_edit
 			// 
@@ -141,6 +90,37 @@
 			this.btn_remove.Size = new System.Drawing.Size(23, 22);
 			this.btn_remove.Text = "Remove";
 			// 
+			// toolStripLabel1
+			// 
+			this.toolStripLabel1.Name = "toolStripLabel1";
+			this.toolStripLabel1.Size = new System.Drawing.Size(45, 22);
+			this.toolStripLabel1.Text = "Search:";
+			// 
+			// txt_search
+			// 
+			this.txt_search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.txt_search.Name = "txt_search";
+			this.txt_search.Size = new System.Drawing.Size(150, 25);
+			// 
+			// splitContainer1
+			// 
+			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.splitContainer1.Location = new System.Drawing.Point(0, 25);
+			this.splitContainer1.Name = "splitContainer1";
+			// 
+			// splitContainer1.Panel1
+			// 
+			this.splitContainer1.Panel1.Controls.Add(this.Grd_usergroup);
+			this.splitContainer1.Panel1.Controls.Add(this.label11);
+			// 
+			// splitContainer1.Panel2
+			// 
+			this.splitContainer1.Panel2.Controls.Add(this.listview_permissions);
+			this.splitContainer1.Panel2.Controls.Add(this.label10);
+			this.splitContainer1.Size = new System.Drawing.Size(1159, 745);
+			this.splitContainer1.SplitterDistance = 552;
+			this.splitContainer1.TabIndex = 3;
+			// 
 			// Grd_usergroup
 			// 
 			this.Grd_usergroup.AllowUserToAddRows = false;
@@ -151,8 +131,18 @@
 			this.Grd_usergroup.Name = "Grd_usergroup";
 			this.Grd_usergroup.ReadOnly = true;
 			this.Grd_usergroup.RowHeadersVisible = false;
-			this.Grd_usergroup.Size = new System.Drawing.Size(427, 568);
+			this.Grd_usergroup.Size = new System.Drawing.Size(552, 725);
 			this.Grd_usergroup.TabIndex = 4;
+			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Dock = System.Windows.Forms.DockStyle.Top;
+			this.label11.Location = new System.Drawing.Point(0, 0);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(78, 20);
+			this.label11.TabIndex = 3;
+			this.label11.Text = "Usergroup";
 			// 
 			// listview_permissions
 			// 
@@ -161,16 +151,26 @@
 			this.listview_permissions.GridLines = true;
 			this.listview_permissions.Location = new System.Drawing.Point(0, 20);
 			this.listview_permissions.Name = "listview_permissions";
-			this.listview_permissions.Size = new System.Drawing.Size(465, 568);
+			this.listview_permissions.Size = new System.Drawing.Size(603, 725);
 			this.listview_permissions.TabIndex = 3;
 			this.listview_permissions.UseCompatibleStateImageBehavior = false;
 			this.listview_permissions.View = System.Windows.Forms.View.Details;
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Dock = System.Windows.Forms.DockStyle.Top;
+			this.label10.Location = new System.Drawing.Point(0, 0);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(86, 20);
+			this.label10.TabIndex = 2;
+			this.label10.Text = "Permissions";
 			// 
 			// Form_usergroup
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(896, 613);
+			this.ClientSize = new System.Drawing.Size(1159, 770);
 			this.Controls.Add(this.splitContainer1);
 			this.Controls.Add(this.toolStrip1);
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F);

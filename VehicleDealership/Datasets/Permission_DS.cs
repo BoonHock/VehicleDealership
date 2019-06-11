@@ -61,5 +61,31 @@ namespace VehicleDealership.Datasets
 			}
 			return false;
 		}
+		public static void Insert_usergroup(string str_usergroup, string str_usergroup_desc)
+		{
+			try
+			{
+				QueriesTableAdapter().sp_insert_usergroup(str_usergroup, str_usergroup_desc);
+			}
+			catch (System.Exception e)
+			{
+				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
+					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
+					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+		public static void Update_usergroup(string str_usergroup_new, string str_usergroup_desc, string str_usergroup_old)
+		{
+			try
+			{
+				QueriesTableAdapter().sp_update_usergroup(str_usergroup_new, str_usergroup_desc, str_usergroup_old);
+			}
+			catch (System.Exception e)
+			{
+				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
+					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
+					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
 	}
 }

@@ -67,5 +67,29 @@ namespace VehicleDealership.View
 			MessageBox.Show("New user added");
 			Setup_grd_users();
 		}
+
+		private void Btn_remove_Click(object sender, EventArgs e)
+		{
+			if (Grd_users.SelectedCells.Count == 0)
+			{
+				MessageBox.Show("Select a user to delete.");
+				return;
+			}
+			if (MessageBox.Show("Are you sure?", "Confirm action", MessageBoxButtons.OKCancel, 
+				MessageBoxIcon.Warning) != DialogResult.OK) return;
+
+			DataGridViewRow grd_row = Grd_users.Rows[Grd_users.SelectedCells[0].RowIndex];
+
+			User_ds.Delete_user((int)grd_row.Cells["user"].Value);
+			Setup_grd_users();
+		}
+		private void Btn_activate_Click(object sender, EventArgs e)
+		{
+
+		}
+		private void Btn_deactivate_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

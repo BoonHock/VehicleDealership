@@ -142,6 +142,18 @@ namespace VehicleDealership.Datasets
 					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
-
+		public static void Delete_user(int int_user)
+		{
+			try
+			{
+				QueriesAdapter().sp_delete_user(int_user, Program.System_user.UserID);
+			}
+			catch (System.Exception e)
+			{
+				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
+					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
+					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
 	}
 }

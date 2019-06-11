@@ -19,27 +19,41 @@ namespace VehicleDealership.View
 		{
 			InitializeComponent();
 		}
-		public Form_edit_usergroup(string str_usergroup)
+		public Form_edit_usergroup(string str_usergroup, string str_usergroup_desc)
 		{
 			InitializeComponent();
 
 			EditUserGroup = str_usergroup;
+
+			txt_name.Text = str_usergroup;
+			txt_description.Text = str_usergroup_desc;
 		}
 
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
-			string str_name = txt_name.Text.Trim();
-			string str_description = txt_description.Text.Trim();
+			string str_usergroup = txt_name.Text.Trim();
+			string str_usergroup_description = txt_description.Text.Trim();
 
-			if (str_name.Length == 0)
+			if (str_usergroup.Length == 0)
 			{
 				MessageBox.Show("Usergroup name is required.", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-			if (!Permission_ds.Usergroup_available(str_name,EditUserGroup))
+			if (!Permission_ds.Usergroup_available(str_usergroup,EditUserGroup))
 			{
 				MessageBox.Show("Usergroup name already in use.", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
+			}
+
+			if (EditUserGroup == "")
+			{
+				// Adding new usergroup
+				Permission_ds.Insert_usergroup(str_usergroup, str_usergroup_description);
+			}
+			else
+			{
+				// editing existing usergroup
+				Permission_ds.Update_usergroup(str_usergroup, str_usergroup_description, EditUserGroup);
 			}
 
 			this.DialogResult = DialogResult.OK;
