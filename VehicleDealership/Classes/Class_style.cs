@@ -16,6 +16,7 @@ namespace VehicleDealership.Classes
 			{
 				grd.AllowUserToResizeRows = false;
 				grd.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+				grd.RowHeadersWidth = 15;
 			}
 		}
 	}

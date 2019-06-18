@@ -19,7 +19,7 @@ namespace VehicleDealership.Datasets
 		{
 			return new Permission_dsTableAdapters.QueriesTableAdapter();
 		}
-		public static Permission_ds.usergroupDataTable Select_usergroup()
+		public static usergroupDataTable Select_usergroup()
 		{
 			try
 			{
@@ -33,7 +33,7 @@ namespace VehicleDealership.Datasets
 			}
 			return new usergroupDataTable();
 		}
-		public static Permission_ds.permissionDataTable Select_permission_by_usergroup(string str_usergroup)
+		public static permissionDataTable Select_permission_by_usergroup(string str_usergroup)
 		{
 			try
 			{
@@ -45,6 +45,21 @@ namespace VehicleDealership.Datasets
 					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
 					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
+			return new permissionDataTable();
+		}
+		public static permissionDataTable Select_all_permission()
+		{
+			try
+			{
+				return PermissionTableAdapter().select_all_permission();
+			}
+			catch (System.Exception e)
+			{
+				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
+					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
+					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+
 			return new permissionDataTable();
 		}
 		public static bool Usergroup_available(string str_usergroup_to_check, string str_usergroup_to_exclude)
@@ -79,6 +94,32 @@ namespace VehicleDealership.Datasets
 			try
 			{
 				QueriesTableAdapter().sp_update_usergroup(str_usergroup_new, str_usergroup_desc, str_usergroup_old);
+			}
+			catch (System.Exception e)
+			{
+				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
+					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
+					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+		public static void Update_usergroup_permission(string str_usergroup, string str_permission_combine)
+		{
+			try
+			{
+				QueriesTableAdapter().sp_update_usergroup_permission(str_usergroup, str_permission_combine);
+			}
+			catch (System.Exception e)
+			{
+				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
+					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
+					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+		public static void Delete_usergroup(string str_usergroup)
+		{
+			try
+			{
+				QueriesTableAdapter().sp_delete_usergroup(str_usergroup);
 			}
 			catch (System.Exception e)
 			{

@@ -86,11 +86,11 @@ namespace VehicleDealership.Datasets
 			}
 			return new userDataTable();
 		}
-		public static sp_search_userDataTable Search_user(string str_search)
+		public static sp_search_userDataTable Search_user(string str_search, bool? is_active)
 		{
 			try
 			{
-				return Search_UserTableAdapter().GetData(str_search);
+				return Search_UserTableAdapter().GetData(str_search, is_active);
 			}
 			catch (System.Exception e)
 			{
@@ -142,11 +142,11 @@ namespace VehicleDealership.Datasets
 					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
-		public static void Delete_user(int int_user)
+		public static void Update_user_active (int int_user, bool is_active)
 		{
 			try
 			{
-				QueriesAdapter().sp_delete_user(int_user, Program.System_user.UserID);
+				QueriesAdapter().sp_update_user_active(int_user,is_active,Program.System_user.UserID);
 			}
 			catch (System.Exception e)
 			{

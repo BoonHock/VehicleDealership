@@ -359,7 +359,7 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columnic_no;
             
-            private global::System.Data.DataColumn columnis_activated;
+            private global::System.Data.DataColumn columnis_active;
             
             private global::System.Data.DataColumn columnjoin_date;
             
@@ -440,9 +440,9 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn is_activatedColumn {
+            public global::System.Data.DataColumn is_activeColumn {
                 get {
-                    return this.columnis_activated;
+                    return this.columnis_active;
                 }
             }
             
@@ -499,7 +499,7 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_search_userRow Addsp_search_userRow(string username, string name, string usergroup, string ic_no, bool is_activated, System.DateTime join_date, System.DateTime leave_date) {
+            public sp_search_userRow Addsp_search_userRow(string username, string name, string usergroup, string ic_no, bool is_active, System.DateTime join_date, System.DateTime leave_date) {
                 sp_search_userRow rowsp_search_userRow = ((sp_search_userRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -507,7 +507,7 @@ namespace VehicleDealership.Datasets {
                         name,
                         usergroup,
                         ic_no,
-                        is_activated,
+                        is_active,
                         join_date,
                         leave_date};
                 rowsp_search_userRow.ItemArray = columnValuesArray;
@@ -544,7 +544,7 @@ namespace VehicleDealership.Datasets {
                 this.columnname = base.Columns["name"];
                 this.columnusergroup = base.Columns["usergroup"];
                 this.columnic_no = base.Columns["ic_no"];
-                this.columnis_activated = base.Columns["is_activated"];
+                this.columnis_active = base.Columns["is_active"];
                 this.columnjoin_date = base.Columns["join_date"];
                 this.columnleave_date = base.Columns["leave_date"];
             }
@@ -562,8 +562,8 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columnusergroup);
                 this.columnic_no = new global::System.Data.DataColumn("ic_no", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnic_no);
-                this.columnis_activated = new global::System.Data.DataColumn("is_activated", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnis_activated);
+                this.columnis_active = new global::System.Data.DataColumn("is_active", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnis_active);
                 this.columnjoin_date = new global::System.Data.DataColumn("join_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnjoin_date);
                 this.columnleave_date = new global::System.Data.DataColumn("leave_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -583,7 +583,7 @@ namespace VehicleDealership.Datasets {
                 this.columnusergroup.MaxLength = 20;
                 this.columnic_no.AllowDBNull = false;
                 this.columnic_no.MaxLength = 30;
-                this.columnis_activated.AllowDBNull = false;
+                this.columnis_active.AllowDBNull = false;
                 this.columnjoin_date.AllowDBNull = false;
             }
             
@@ -718,7 +718,7 @@ namespace VehicleDealership.Datasets {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class sp_user_loginDataTable : global::System.Data.TypedTableBase<sp_user_loginRow> {
             
-            private global::System.Data.DataColumn columnis_activated;
+            private global::System.Data.DataColumn columnis_active;
             
             private global::System.Data.DataColumn columnpassword;
             
@@ -757,9 +757,9 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn is_activatedColumn {
+            public global::System.Data.DataColumn is_activeColumn {
                 get {
-                    return this.columnis_activated;
+                    return this.columnis_active;
                 }
             }
             
@@ -808,10 +808,10 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_user_loginRow Addsp_user_loginRow(bool is_activated, string password) {
+            public sp_user_loginRow Addsp_user_loginRow(bool is_active, string password) {
                 sp_user_loginRow rowsp_user_loginRow = ((sp_user_loginRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        is_activated,
+                        is_active,
                         password};
                 rowsp_user_loginRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_user_loginRow);
@@ -835,18 +835,18 @@ namespace VehicleDealership.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnis_activated = base.Columns["is_activated"];
+                this.columnis_active = base.Columns["is_active"];
                 this.columnpassword = base.Columns["password"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnis_activated = new global::System.Data.DataColumn("is_activated", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnis_activated);
+                this.columnis_active = new global::System.Data.DataColumn("is_active", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnis_active);
                 this.columnpassword = new global::System.Data.DataColumn("password", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpassword);
-                this.columnis_activated.AllowDBNull = false;
+                this.columnis_active.AllowDBNull = false;
                 this.columnpassword.AllowDBNull = false;
                 this.columnpassword.MaxLength = 2147483647;
             }
@@ -990,7 +990,7 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columnic_no;
             
-            private global::System.Data.DataColumn columnis_activated;
+            private global::System.Data.DataColumn columnis_active;
             
             private global::System.Data.DataColumn columnjoin_date;
             
@@ -1067,9 +1067,9 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn is_activatedColumn {
+            public global::System.Data.DataColumn is_activeColumn {
                 get {
-                    return this.columnis_activated;
+                    return this.columnis_active;
                 }
             }
             
@@ -1142,14 +1142,14 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public userRow AdduserRow(string username, string name, string ic_no, bool is_activated, System.DateTime join_date, System.DateTime leave_date, byte[] photo, string usergroup) {
+            public userRow AdduserRow(string username, string name, string ic_no, bool is_active, System.DateTime join_date, System.DateTime leave_date, byte[] photo, string usergroup) {
                 userRow rowuserRow = ((userRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         username,
                         name,
                         ic_no,
-                        is_activated,
+                        is_active,
                         join_date,
                         leave_date,
                         photo,
@@ -1187,7 +1187,7 @@ namespace VehicleDealership.Datasets {
                 this.columnusername = base.Columns["username"];
                 this.columnname = base.Columns["name"];
                 this.columnic_no = base.Columns["ic_no"];
-                this.columnis_activated = base.Columns["is_activated"];
+                this.columnis_active = base.Columns["is_active"];
                 this.columnjoin_date = base.Columns["join_date"];
                 this.columnleave_date = base.Columns["leave_date"];
                 this.columnphoto = base.Columns["photo"];
@@ -1205,8 +1205,8 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columnname);
                 this.columnic_no = new global::System.Data.DataColumn("ic_no", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnic_no);
-                this.columnis_activated = new global::System.Data.DataColumn("is_activated", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnis_activated);
+                this.columnis_active = new global::System.Data.DataColumn("is_active", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnis_active);
                 this.columnjoin_date = new global::System.Data.DataColumn("join_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnjoin_date);
                 this.columnleave_date = new global::System.Data.DataColumn("leave_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -1229,7 +1229,7 @@ namespace VehicleDealership.Datasets {
                 this.columnname.MaxLength = 200;
                 this.columnic_no.AllowDBNull = false;
                 this.columnic_no.MaxLength = 30;
-                this.columnis_activated.AllowDBNull = false;
+                this.columnis_active.AllowDBNull = false;
                 this.columnjoin_date.AllowDBNull = false;
                 this.columnusergroup.MaxLength = 20;
             }
@@ -1434,12 +1434,12 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool is_activated {
+            public bool is_active {
                 get {
-                    return ((bool)(this[this.tablesp_search_user.is_activatedColumn]));
+                    return ((bool)(this[this.tablesp_search_user.is_activeColumn]));
                 }
                 set {
-                    this[this.tablesp_search_user.is_activatedColumn] = value;
+                    this[this.tablesp_search_user.is_activeColumn] = value;
                 }
             }
             
@@ -1511,12 +1511,12 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool is_activated {
+            public bool is_active {
                 get {
-                    return ((bool)(this[this.tablesp_user_login.is_activatedColumn]));
+                    return ((bool)(this[this.tablesp_user_login.is_activeColumn]));
                 }
                 set {
-                    this[this.tablesp_user_login.is_activatedColumn] = value;
+                    this[this.tablesp_user_login.is_activeColumn] = value;
                 }
             }
             
@@ -1592,12 +1592,12 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool is_activated {
+            public bool is_active {
                 get {
-                    return ((bool)(this[this.tableuser.is_activatedColumn]));
+                    return ((bool)(this[this.tableuser.is_activeColumn]));
                 }
                 set {
-                    this[this.tableuser.is_activatedColumn] = value;
+                    this[this.tableuser.is_activeColumn] = value;
                 }
             }
             
@@ -1929,7 +1929,7 @@ namespace VehicleDealership.Datasets.User_dsTableAdapters {
             tableMapping.ColumnMappings.Add("name", "name");
             tableMapping.ColumnMappings.Add("usergroup", "usergroup");
             tableMapping.ColumnMappings.Add("ic_no", "ic_no");
-            tableMapping.ColumnMappings.Add("is_activated", "is_activated");
+            tableMapping.ColumnMappings.Add("is_active", "is_active");
             tableMapping.ColumnMappings.Add("join_date", "join_date");
             tableMapping.ColumnMappings.Add("leave_date", "leave_date");
             this._adapter.TableMappings.Add(tableMapping);
@@ -1952,19 +1952,26 @@ namespace VehicleDealership.Datasets.User_dsTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@search", global::System.Data.SqlDbType.NVarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@is_active", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual User_ds.sp_search_userDataTable GetData(string search) {
+        public virtual User_ds.sp_search_userDataTable GetData(string search, global::System.Nullable<bool> is_active) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((search == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(search));
+            }
+            if ((is_active.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((bool)(is_active.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             User_ds.sp_search_userDataTable dataTable = new User_ds.sp_search_userDataTable();
             this.Adapter.Fill(dataTable);
@@ -2093,7 +2100,7 @@ namespace VehicleDealership.Datasets.User_dsTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "sp_user_login";
-            tableMapping.ColumnMappings.Add("is_activated", "is_activated");
+            tableMapping.ColumnMappings.Add("is_active", "is_active");
             tableMapping.ColumnMappings.Add("password", "password");
             this._adapter.TableMappings.Add(tableMapping);
         }
@@ -2260,7 +2267,7 @@ namespace VehicleDealership.Datasets.User_dsTableAdapters {
             tableMapping.ColumnMappings.Add("username", "username");
             tableMapping.ColumnMappings.Add("name", "name");
             tableMapping.ColumnMappings.Add("ic_no", "ic_no");
-            tableMapping.ColumnMappings.Add("is_activated", "is_activated");
+            tableMapping.ColumnMappings.Add("is_active", "is_active");
             tableMapping.ColumnMappings.Add("join_date", "join_date");
             tableMapping.ColumnMappings.Add("leave_date", "leave_date");
             tableMapping.ColumnMappings.Add("photo", "photo");
@@ -2397,11 +2404,12 @@ namespace VehicleDealership.Datasets.User_dsTableAdapters {
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[3])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modified_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[4])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[4])).CommandText = "dbsecurity.sp_delete_user";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[4])).CommandText = "dbsecurity.sp_update_user_active";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[4])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[4])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[4])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[4])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@delete_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[4])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@is_active", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[4])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modified_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2627,7 +2635,7 @@ namespace VehicleDealership.Datasets.User_dsTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int sp_delete_user(global::System.Nullable<int> user, global::System.Nullable<int> delete_by) {
+        public virtual int sp_update_user_active(global::System.Nullable<int> user, global::System.Nullable<bool> is_active, global::System.Nullable<int> modified_by) {
             global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[4]));
             if ((user.HasValue == true)) {
                 command.Parameters[1].Value = ((int)(user.Value));
@@ -2635,11 +2643,17 @@ namespace VehicleDealership.Datasets.User_dsTableAdapters {
             else {
                 command.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((delete_by.HasValue == true)) {
-                command.Parameters[2].Value = ((int)(delete_by.Value));
+            if ((is_active.HasValue == true)) {
+                command.Parameters[2].Value = ((bool)(is_active.Value));
             }
             else {
                 command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((modified_by.HasValue == true)) {
+                command.Parameters[3].Value = ((int)(modified_by.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 

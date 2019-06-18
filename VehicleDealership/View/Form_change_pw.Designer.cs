@@ -1,6 +1,6 @@
 ﻿namespace VehicleDealership.View
 {
-	partial class Form_edit_usergroup
+	partial class Form_change_pw
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -29,40 +29,46 @@
 		private void InitializeComponent()
 		{
 			this.label1 = new System.Windows.Forms.Label();
-			this.txt_name = new System.Windows.Forms.TextBox();
-			this.txt_description = new System.Windows.Forms.TextBox();
+			this.txt_old_pw = new System.Windows.Forms.TextBox();
+			this.txt_new_pw = new System.Windows.Forms.TextBox();
+			this.label2 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.btn_cancel = new System.Windows.Forms.Button();
 			this.btn_ok = new System.Windows.Forms.Button();
-			this.label2 = new System.Windows.Forms.Label();
-			this.listview_permission = new System.Windows.Forms.ListView();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(12, 15);
+			this.label1.Location = new System.Drawing.Point(13, 15);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(52, 20);
+			this.label1.Size = new System.Drawing.Size(103, 20);
 			this.label1.TabIndex = 0;
-			this.label1.Text = "Name:";
+			this.label1.Text = "Old password:";
 			// 
-			// txt_name
+			// txt_old_pw
 			// 
-			this.txt_name.Location = new System.Drawing.Point(106, 12);
-			this.txt_name.MaxLength = 20;
-			this.txt_name.Name = "txt_name";
-			this.txt_name.Size = new System.Drawing.Size(298, 27);
-			this.txt_name.TabIndex = 1;
+			this.txt_old_pw.Location = new System.Drawing.Point(128, 12);
+			this.txt_old_pw.Name = "txt_old_pw";
+			this.txt_old_pw.Size = new System.Drawing.Size(260, 27);
+			this.txt_old_pw.TabIndex = 1;
 			// 
-			// txt_description
+			// txt_new_pw
 			// 
-			this.txt_description.Location = new System.Drawing.Point(106, 45);
-			this.txt_description.MaxLength = 150;
-			this.txt_description.Name = "txt_description";
-			this.txt_description.Size = new System.Drawing.Size(298, 27);
-			this.txt_description.TabIndex = 3;
+			this.txt_new_pw.Location = new System.Drawing.Point(128, 45);
+			this.txt_new_pw.Name = "txt_new_pw";
+			this.txt_new_pw.Size = new System.Drawing.Size(260, 27);
+			this.txt_new_pw.TabIndex = 3;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(13, 48);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(109, 20);
+			this.label2.TabIndex = 2;
+			this.label2.Text = "New password:";
 			// 
 			// tableLayoutPanel1
 			// 
@@ -72,12 +78,12 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.Controls.Add(this.btn_cancel, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.btn_ok, 0, 0);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(220, 575);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(171, 93);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(217, 41);
-			this.tableLayoutPanel1.TabIndex = 5;
+			this.tableLayoutPanel1.TabIndex = 4;
 			// 
 			// btn_cancel
 			// 
@@ -104,48 +110,21 @@
 			this.btn_ok.UseVisualStyleBackColor = true;
 			this.btn_ok.Click += new System.EventHandler(this.Btn_ok_Click);
 			// 
-			// label2
+			// Form_change_pw
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(12, 45);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(88, 20);
-			this.label2.TabIndex = 2;
-			this.label2.Text = "Description:";
-			// 
-			// listview_permission
-			// 
-			this.listview_permission.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.listview_permission.CheckBoxes = true;
-			this.listview_permission.GridLines = true;
-			this.listview_permission.Location = new System.Drawing.Point(12, 78);
-			this.listview_permission.Name = "listview_permission";
-			this.listview_permission.Size = new System.Drawing.Size(425, 491);
-			this.listview_permission.TabIndex = 4;
-			this.listview_permission.UseCompatibleStateImageBehavior = false;
-			this.listview_permission.View = System.Windows.Forms.View.Details;
-			// 
-			// Form_edit_usergroup
-			// 
-			this.AcceptButton = this.btn_ok;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.CancelButton = this.btn_cancel;
-			this.ClientSize = new System.Drawing.Size(449, 628);
-			this.Controls.Add(this.listview_permission);
-			this.Controls.Add(this.label2);
+			this.ClientSize = new System.Drawing.Size(400, 146);
 			this.Controls.Add(this.tableLayoutPanel1);
-			this.Controls.Add(this.txt_description);
-			this.Controls.Add(this.txt_name);
+			this.Controls.Add(this.txt_new_pw);
+			this.Controls.Add(this.label2);
+			this.Controls.Add(this.txt_old_pw);
 			this.Controls.Add(this.label1);
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.Name = "Form_edit_usergroup";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Usergroup";
-			this.Shown += new System.EventHandler(this.Form_edit_usergroup_Shown);
+			this.Name = "Form_change_pw";
+			this.Text = "Change password";
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			this.ResumeLayout(false);
@@ -156,12 +135,11 @@
 		#endregion
 
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox txt_name;
-		private System.Windows.Forms.TextBox txt_description;
+		private System.Windows.Forms.TextBox txt_old_pw;
+		private System.Windows.Forms.TextBox txt_new_pw;
+		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.Button btn_cancel;
 		private System.Windows.Forms.Button btn_ok;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.ListView listview_permission;
 	}
 }

@@ -22,7 +22,7 @@ namespace VehicleDealership.Classes
 
 			foreach (DataColumn dtcol in dttable.Columns)
 			{
-				lv_setup.Columns.Add(dtcol.Caption,dtcol.Caption);
+				lv_setup.Columns.Add(dtcol.Caption, dtcol.Caption);
 			}
 			for (int i = 0; i < dttable.Rows.Count; i++)
 			{
@@ -48,6 +48,22 @@ namespace VehicleDealership.Classes
 					if (cols_to_hide.Contains(dttable.Columns[i].Caption)) lv_setup.Columns[i].Width = 0;
 				}
 			}
+		}
+		public static string Get_checked_results_as_string(ListView lv, string str_value_col = "")
+		{
+			List<string> list_results = new List<string>();
+			int int_subitem_index = 0;
+
+			if (lv.Columns.ContainsKey(str_value_col))
+			{
+				int_subitem_index = lv.Columns[str_value_col].Index;
+			}
+			foreach (ListViewItem lv_item in lv.CheckedItems)
+			{
+				list_results.Add(lv_item.SubItems[int_subitem_index].Text);
+			}
+
+			return string.Join(",", list_results);
 		}
 	}
 }

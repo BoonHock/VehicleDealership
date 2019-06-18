@@ -29,5 +29,18 @@ namespace VehicleDealership.Classes
 				}
 			}
 		}
+		public static void MouseDown_select_cell(object sender, MouseEventArgs e)
+		{
+			DataGridView grd = (DataGridView)sender;
+
+			var hti = grd.HitTest(e.X, e.Y);
+
+			if (hti.RowIndex != -1)
+			{
+				grd.ClearSelection();
+				grd[hti.ColumnIndex, hti.RowIndex].Selected = true;
+				grd.CurrentCell = grd[hti.ColumnIndex, hti.RowIndex];
+			}
+		}
 	}
 }

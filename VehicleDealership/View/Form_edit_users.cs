@@ -16,17 +16,34 @@ namespace VehicleDealership.View
 	public partial class Form_edit_users : Form
 	{
 		private readonly User Obj_user;
-		private void Setup_form()
-		{
-			Class_style.Grd_style.Common_style(grd_permission);
-			Class_listview.Setup_listview(listview_usergroup, Permission_ds.Select_usergroup());
-		}
+		private bool already_init_tab_permission = false;
+
 		public Form_edit_users(int int_user)
 		{
 			InitializeComponent();
-			Setup_form();
 
 			Obj_user = new User(int_user);
+
+			if (int_user == 1)
+			{
+				grd_usergroup.Enabled = false;
+			}
+		}
+		private void Form_edit_users_Shown(object sender, EventArgs e)
+		{
+			if (!Program.System_user.Has_permission(User_permission.EDIT_USER))
+			{
+				MessageBox.Show("You do not have permission to edit users!", "PERMISSION DENIED",
+					MessageBoxButtons.OK, MessageBoxIcon.Error);
+				this.Close();
+			}
+
+			Class_style.Grd_style.Common_style(grd_permission);
+			Class_style.Grd_style.Common_style(grd_usergroup);
+
+			grd_usergroup.DataSource = Permission_ds.Select_usergroup();
+			grd_usergroup.ClearSelection();
+			grd_usergroup.CurrentCell = null;
 
 			txt_username.Text = Obj_user.Username;
 			txt_name.Text = Obj_user.Name;
@@ -48,18 +65,20 @@ namespace VehicleDealership.View
 			{
 				picbox_photo.Image = Image.FromStream(new MemoryStream(Obj_user.Photo));
 			}
-			if (Obj_user.UserGroup != null )
+			if (Obj_user.UserGroup != null)
 			{
-				foreach (ListViewItem lv_item in listview_usergroup.Items)
+				foreach (DataGridViewRow grd_row in grd_usergroup.Rows)
 				{
-					if (lv_item.Text == Obj_user.UserGroup)
+					if (grd_row.Cells["usergroup"].Value.ToString() == Obj_user.UserGroup)
 					{
-						listview_usergroup.SelectedItems.Clear();
-						lv_item.Selected = true;
+						grd_usergroup.ClearSelection();
+						grd_row.Cells["usergroup"].Selected = true;
+						grd_usergroup.CurrentCell = grd_row.Cells["usergroup"];
 						break;
 					}
 				}
 			}
+			grd_usergroup.RowEnter += Grd_usergroup_RowEnter;
 		}
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
@@ -70,14 +89,13 @@ namespace VehicleDealership.View
 				this.Close();
 				return;
 			}
-
-			Update_user_details();
-			Update_user_permissions();
-
-			this.DialogResult = DialogResult.OK;
-			this.Close();
+			if (Update_user_details())
+			{
+				this.DialogResult = DialogResult.OK;
+				this.Close();
+			}
 		}
-		private void Update_user_details()
+		private bool Update_user_details()
 		{
 			string str_username = txt_username.Text.Trim();
 			string str_name = txt_name.Text.Trim();
@@ -85,35 +103,34 @@ namespace VehicleDealership.View
 			DateTime date_join = dtp_join.Value;
 			DateTime? date_leave = (ch_empty_leave_date.Checked) ? (DateTime?)null : dtp_leave.Value;
 			byte[] byte_image = null;
-			string str_usergroup = "";
 
 			if (str_username.Length == 0 || str_name.Length == 0)
 			{
 				MessageBox.Show("Username and Name is required.", "Missing input", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
+				return false;
 			}
 			if (!User.Is_username_valid(str_username))
 			{
 				MessageBox.Show("Username is invalid. Only aphanumeric characters allowed for username. Please retry",
 					"Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
+				return false;
 			}
 			if (!User.Is_username_available(str_username, Obj_user.UserID))
 			{
 				MessageBox.Show("Username is taken.", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
+				return false;
 			}
 			if (date_leave != null && date_leave < date_join)
 			{
 				MessageBox.Show("Leave date cannot be before Join Date.", "Invalid input",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
+				return false;
 			}
-			if (listview_usergroup.SelectedItems.Count == 0)
+			if (grd_usergroup.SelectedRows.Count == 0)
 			{
 				MessageBox.Show("Usergroup is required. Please go to 'Permission' tab to select usergroup.", "Invalid input",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
+				return false;
 			}
 			if (picbox_photo.Image != null)
 			{
@@ -124,28 +141,14 @@ namespace VehicleDealership.View
 					byte_image = ms.ToArray();
 				}
 			}
-			str_usergroup = listview_usergroup.SelectedItems[0].Text;
+			string str_usergroup = grd_usergroup.SelectedRows[0].Cells["usergroup"].Value.ToString();
 
 			User_ds.Update_user(Obj_user.UserID, str_username, str_name, str_ic_no, date_join, date_leave, byte_image, str_usergroup);
 
 			if (Obj_user.UserID == Program.System_user.UserID)
 				Program.System_user = new User(Obj_user.UserID); // refresh current user details
-		}
-		private void Update_user_permissions()
-		{
-			//foreach (ListViewItem lv_item in listview_permissions.Items)
-			//{
-			//	if (Obj_user.Has_permission(lv_item.Text) && !lv_item.Checked)
-			//	{
-			//		// remove permission
-			//		User_permission_DS.DELETE_user_permission(Obj_user.UserID, lv_item.Text);
-			//	}
-			//	else if (!Obj_user.Has_permission(lv_item.Text) && lv_item.Checked)
-			//	{
-			//		// add permission
-			//		User_permission_DS.INSERT_user_permission(Obj_user.UserID, lv_item.Text);
-			//	}
-			//}
+
+			return true;
 		}
 		private void Btn_cancel_Click(object sender, EventArgs e)
 		{
@@ -167,26 +170,32 @@ namespace VehicleDealership.View
 		{
 			picbox_photo.Image = null;
 		}
-		private void Form_edit_users_Shown(object sender, EventArgs e)
+		private void Grd_usergroup_RowEnter(object sender, DataGridViewCellEventArgs e)
 		{
-			if (!Program.System_user.Has_permission(User_permission.EDIT_USER))
-			{
-				MessageBox.Show("You do not have permission to edit users!", "PERMISSION DENIED",
-					MessageBoxButtons.OK, MessageBoxIcon.Error);
-				this.Close();
-			}
+			Setup_grd_permission();
 		}
-		private void Listview_usergroup_SelectedIndexChanged(object sender, EventArgs e)
+		private void Setup_grd_permission()
 		{
-			if (listview_usergroup.Items.Count == 0 || listview_usergroup.SelectedIndices[0] < 0)
-			{
-				return;
-			}
+			if (grd_usergroup.SelectedCells.Count == 0) return;
+
+			string str_usergroup = grd_usergroup.SelectedRows[0].Cells["usergroup"].Value.ToString();
 
 			grd_permission.DataSource = null;
-			grd_permission.DataSource = Permission_ds.Select_permission_by_usergroup(listview_usergroup.SelectedItems[0].Text);
+			grd_permission.DataSource = Permission_ds.Select_permission_by_usergroup(str_usergroup);
 			grd_permission.Columns["permission"].Width = 160;
 			grd_permission.Columns["permission_desc"].Width = 200;
+		}
+		private void TabControl1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (tabControl1.SelectedTab == tab_permission && !already_init_tab_permission)
+			{
+				already_init_tab_permission = true;
+
+				grd_usergroup.AutoResizeColumns();
+				grd_permission.AutoResizeColumns();
+
+				Setup_grd_permission();
+			}
 		}
 	}
 }

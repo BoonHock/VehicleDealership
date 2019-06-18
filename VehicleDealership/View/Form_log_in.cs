@@ -41,7 +41,7 @@ namespace VehicleDealership.View
 
 			User_ds.sp_user_loginDataTable dttable_user = User_ds.Select_password(str_username);
 
-			if (dttable_user.Rows.Count == 0 || !((bool)dttable_user.Rows[0]["is_activated"])) return false;
+			if (dttable_user.Rows.Count == 0 || !((bool)dttable_user.Rows[0]["is_active"])) return false;
 
 			return VerifyHash(str_password, dttable_user.Rows[0]["password"].ToString());
 		}

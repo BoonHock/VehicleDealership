@@ -30,6 +30,7 @@
 		{
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.linklabel_change_password = new System.Windows.Forms.LinkLabel();
 			this.btn_remove_photo = new System.Windows.Forms.Button();
 			this.label9 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
@@ -47,9 +48,9 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.txt_username = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.tab_permission = new System.Windows.Forms.TabPage();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-			this.listview_usergroup = new System.Windows.Forms.ListView();
+			this.grd_usergroup = new System.Windows.Forms.DataGridView();
 			this.label11 = new System.Windows.Forms.Label();
 			this.grd_permission = new System.Windows.Forms.DataGridView();
 			this.label10 = new System.Windows.Forms.Label();
@@ -61,11 +62,12 @@
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picbox_photo)).BeginInit();
-			this.tabPage2.SuspendLayout();
+			this.tab_permission.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.grd_usergroup)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.grd_permission)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -74,16 +76,18 @@
 			// tabControl1
 			// 
 			this.tabControl1.Controls.Add(this.tabPage1);
-			this.tabControl1.Controls.Add(this.tabPage2);
+			this.tabControl1.Controls.Add(this.tab_permission);
 			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControl1.Location = new System.Drawing.Point(0, 0);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
 			this.tabControl1.Size = new System.Drawing.Size(975, 592);
 			this.tabControl1.TabIndex = 0;
+			this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.TabControl1_SelectedIndexChanged);
 			// 
 			// tabPage1
 			// 
+			this.tabPage1.Controls.Add(this.linklabel_change_password);
 			this.tabPage1.Controls.Add(this.btn_remove_photo);
 			this.tabPage1.Controls.Add(this.label9);
 			this.tabPage1.Controls.Add(this.label7);
@@ -108,6 +112,16 @@
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "General";
 			this.tabPage1.UseVisualStyleBackColor = true;
+			// 
+			// linklabel_change_password
+			// 
+			this.linklabel_change_password.AutoSize = true;
+			this.linklabel_change_password.Location = new System.Drawing.Point(6, 186);
+			this.linklabel_change_password.Name = "linklabel_change_password";
+			this.linklabel_change_password.Size = new System.Drawing.Size(126, 20);
+			this.linklabel_change_password.TabIndex = 19;
+			this.linklabel_change_password.TabStop = true;
+			this.linklabel_change_password.Text = "Change password";
 			// 
 			// btn_remove_photo
 			// 
@@ -267,16 +281,16 @@
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Username:";
 			// 
-			// tabPage2
+			// tab_permission
 			// 
-			this.tabPage2.Controls.Add(this.splitContainer1);
-			this.tabPage2.Location = new System.Drawing.Point(4, 29);
-			this.tabPage2.Name = "tabPage2";
-			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(967, 559);
-			this.tabPage2.TabIndex = 1;
-			this.tabPage2.Text = "Permissions";
-			this.tabPage2.UseVisualStyleBackColor = true;
+			this.tab_permission.Controls.Add(this.splitContainer1);
+			this.tab_permission.Location = new System.Drawing.Point(4, 29);
+			this.tab_permission.Name = "tab_permission";
+			this.tab_permission.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_permission.Size = new System.Drawing.Size(967, 559);
+			this.tab_permission.TabIndex = 1;
+			this.tab_permission.Text = "Permissions";
+			this.tab_permission.UseVisualStyleBackColor = true;
 			// 
 			// splitContainer1
 			// 
@@ -286,7 +300,7 @@
 			// 
 			// splitContainer1.Panel1
 			// 
-			this.splitContainer1.Panel1.Controls.Add(this.listview_usergroup);
+			this.splitContainer1.Panel1.Controls.Add(this.grd_usergroup);
 			this.splitContainer1.Panel1.Controls.Add(this.label11);
 			// 
 			// splitContainer1.Panel2
@@ -297,20 +311,21 @@
 			this.splitContainer1.SplitterDistance = 459;
 			this.splitContainer1.TabIndex = 2;
 			// 
-			// listview_usergroup
+			// grd_usergroup
 			// 
-			this.listview_usergroup.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listview_usergroup.FullRowSelect = true;
-			this.listview_usergroup.GridLines = true;
-			this.listview_usergroup.HideSelection = false;
-			this.listview_usergroup.Location = new System.Drawing.Point(0, 20);
-			this.listview_usergroup.MultiSelect = false;
-			this.listview_usergroup.Name = "listview_usergroup";
-			this.listview_usergroup.Size = new System.Drawing.Size(459, 533);
-			this.listview_usergroup.TabIndex = 0;
-			this.listview_usergroup.UseCompatibleStateImageBehavior = false;
-			this.listview_usergroup.View = System.Windows.Forms.View.Details;
-			this.listview_usergroup.SelectedIndexChanged += new System.EventHandler(this.Listview_usergroup_SelectedIndexChanged);
+			this.grd_usergroup.AllowUserToAddRows = false;
+			this.grd_usergroup.AllowUserToDeleteRows = false;
+			this.grd_usergroup.AllowUserToResizeRows = false;
+			this.grd_usergroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.grd_usergroup.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.grd_usergroup.Location = new System.Drawing.Point(0, 20);
+			this.grd_usergroup.MultiSelect = false;
+			this.grd_usergroup.Name = "grd_usergroup";
+			this.grd_usergroup.ReadOnly = true;
+			this.grd_usergroup.RowHeadersVisible = false;
+			this.grd_usergroup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.grd_usergroup.Size = new System.Drawing.Size(459, 533);
+			this.grd_usergroup.TabIndex = 4;
 			// 
 			// label11
 			// 
@@ -416,13 +431,14 @@
 			this.tabPage1.ResumeLayout(false);
 			this.tabPage1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picbox_photo)).EndInit();
-			this.tabPage2.ResumeLayout(false);
+			this.tab_permission.ResumeLayout(false);
 			this.splitContainer1.Panel1.ResumeLayout(false);
 			this.splitContainer1.Panel1.PerformLayout();
 			this.splitContainer1.Panel2.ResumeLayout(false);
 			this.splitContainer1.Panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.grd_usergroup)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.grd_permission)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
@@ -435,7 +451,7 @@
 
 		private System.Windows.Forms.TabControl tabControl1;
 		private System.Windows.Forms.TabPage tabPage1;
-		private System.Windows.Forms.TabPage tabPage2;
+		private System.Windows.Forms.TabPage tab_permission;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.Button btn_cancel;
@@ -458,10 +474,11 @@
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.OpenFileDialog filedlg_img;
 		private System.Windows.Forms.Button btn_remove_photo;
-		private System.Windows.Forms.ListView listview_usergroup;
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.DataGridView grd_permission;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.DataGridView grd_usergroup;
+		private System.Windows.Forms.LinkLabel linklabel_change_password;
 	}
 }

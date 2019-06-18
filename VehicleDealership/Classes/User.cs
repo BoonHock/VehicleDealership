@@ -14,7 +14,7 @@ namespace VehicleDealership.Classes
 		public string Username { get; private set; } = "";
 		public string Name { get; private set; } = "";
 		public string IcNo { get; private set; } = "";
-		public bool IsActivated { get; private set; } = true;
+		public bool IsActive { get; private set; } = true;
 		public DateTime JoinDate { get; private set; }
 		public DateTime? LeaveDate { get; private set; }
 		public byte[] Photo { get; private set; }
@@ -37,7 +37,7 @@ namespace VehicleDealership.Classes
 			Username = dt_row["username"].ToString();
 			Name = dt_row["name"].ToString();
 			IcNo = dt_row["ic_no"].ToString();
-			IsActivated = (bool)dt_row["is_activated"];
+			IsActive = (bool)dt_row["is_active"];
 			JoinDate = (DateTime)dt_row["join_date"];
 			LeaveDate = (dt_row["leave_date"] == DBNull.Value) ? (DateTime?)null : (DateTime)dt_row["Leave_date"];
 			Photo = (dt_row["Photo"] == DBNull.Value) ? null : (byte[])dt_row["Photo"];
