@@ -30,7 +30,6 @@
 		{
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
-			this.linklabel_change_password = new System.Windows.Forms.LinkLabel();
 			this.btn_remove_photo = new System.Windows.Forms.Button();
 			this.label9 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
@@ -59,6 +58,7 @@
 			this.btn_cancel = new System.Windows.Forms.Button();
 			this.btn_ok = new System.Windows.Forms.Button();
 			this.filedlg_img = new System.Windows.Forms.OpenFileDialog();
+			this.linklbl_change_password = new System.Windows.Forms.LinkLabel();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picbox_photo)).BeginInit();
@@ -87,7 +87,7 @@
 			// 
 			// tabPage1
 			// 
-			this.tabPage1.Controls.Add(this.linklabel_change_password);
+			this.tabPage1.Controls.Add(this.linklbl_change_password);
 			this.tabPage1.Controls.Add(this.btn_remove_photo);
 			this.tabPage1.Controls.Add(this.label9);
 			this.tabPage1.Controls.Add(this.label7);
@@ -112,16 +112,6 @@
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "General";
 			this.tabPage1.UseVisualStyleBackColor = true;
-			// 
-			// linklabel_change_password
-			// 
-			this.linklabel_change_password.AutoSize = true;
-			this.linklabel_change_password.Location = new System.Drawing.Point(6, 186);
-			this.linklabel_change_password.Name = "linklabel_change_password";
-			this.linklabel_change_password.Size = new System.Drawing.Size(126, 20);
-			this.linklabel_change_password.TabIndex = 19;
-			this.linklabel_change_password.TabStop = true;
-			this.linklabel_change_password.Text = "Change password";
 			// 
 			// btn_remove_photo
 			// 
@@ -413,6 +403,17 @@
 			// 
 			this.filedlg_img.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
 			// 
+			// linklbl_change_password
+			// 
+			this.linklbl_change_password.AutoSize = true;
+			this.linklbl_change_password.Location = new System.Drawing.Point(6, 186);
+			this.linklbl_change_password.Name = "linklbl_change_password";
+			this.linklbl_change_password.Size = new System.Drawing.Size(126, 20);
+			this.linklbl_change_password.TabIndex = 19;
+			this.linklbl_change_password.TabStop = true;
+			this.linklbl_change_password.Text = "Change password";
+			this.linklbl_change_password.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Linklabel_change_password_LinkClicked);
+			// 
 			// Form_edit_users
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -479,6 +480,6 @@
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.DataGridView grd_usergroup;
-		private System.Windows.Forms.LinkLabel linklabel_change_password;
+		private System.Windows.Forms.LinkLabel linklbl_change_password;
 	}
 }

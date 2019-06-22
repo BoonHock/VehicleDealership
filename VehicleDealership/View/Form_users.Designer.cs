@@ -31,7 +31,6 @@
 			this.components = new System.ComponentModel.Container();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.btn_edit = new System.Windows.Forms.ToolStripButton();
-			this.btn_change_pw = new System.Windows.Forms.ToolStripButton();
 			this.btn_add = new System.Windows.Forms.ToolStripButton();
 			this.btn_activate = new System.Windows.Forms.ToolStripButton();
 			this.btn_deactivate = new System.Windows.Forms.ToolStripButton();
@@ -42,7 +41,6 @@
 			this.grd_users = new System.Windows.Forms.DataGridView();
 			this.cms_user = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStrip1.SuspendLayout();
@@ -55,7 +53,6 @@
 			this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btn_edit,
-            this.btn_change_pw,
             this.btn_add,
             this.btn_activate,
             this.btn_deactivate,
@@ -78,16 +75,6 @@
 			this.btn_edit.Size = new System.Drawing.Size(23, 22);
 			this.btn_edit.Text = "Edit";
 			this.btn_edit.Click += new System.EventHandler(this.Edit_user);
-			// 
-			// btn_change_pw
-			// 
-			this.btn_change_pw.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_change_pw.Image = global::VehicleDealership.Properties.Resources.ChangePassword_16x;
-			this.btn_change_pw.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_change_pw.Name = "btn_change_pw";
-			this.btn_change_pw.Size = new System.Drawing.Size(23, 22);
-			this.btn_change_pw.Text = "Change password";
-			this.btn_change_pw.Click += new System.EventHandler(this.Btn_change_pw_Click);
 			// 
 			// btn_add
 			// 
@@ -160,37 +147,29 @@
 			// 
 			this.cms_user.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editToolStripMenuItem,
-            this.changePasswordToolStripMenuItem,
             this.addToolStripMenuItem,
             this.removeToolStripMenuItem});
 			this.cms_user.Name = "cms_user";
-			this.cms_user.Size = new System.Drawing.Size(181, 114);
+			this.cms_user.Size = new System.Drawing.Size(118, 70);
 			// 
 			// editToolStripMenuItem
 			// 
 			this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-			this.editToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+			this.editToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
 			this.editToolStripMenuItem.Text = "Edit";
 			this.editToolStripMenuItem.Click += new System.EventHandler(this.Edit_user);
-			// 
-			// changePasswordToolStripMenuItem
-			// 
-			this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-			this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.changePasswordToolStripMenuItem.Text = "Change password";
-			this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.Btn_change_pw_Click);
 			// 
 			// addToolStripMenuItem
 			// 
 			this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-			this.addToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+			this.addToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
 			this.addToolStripMenuItem.Text = "Add";
 			this.addToolStripMenuItem.Click += new System.EventHandler(this.Add_user);
 			// 
 			// removeToolStripMenuItem
 			// 
 			this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-			this.removeToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+			this.removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
 			this.removeToolStripMenuItem.Text = "Remove";
 			// 
 			// Form_users
@@ -230,7 +209,5 @@
 		private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel2;
 		private System.Windows.Forms.ToolStripComboBox cmb_is_active;
-		private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
-		private System.Windows.Forms.ToolStripButton btn_change_pw;
 	}
 }

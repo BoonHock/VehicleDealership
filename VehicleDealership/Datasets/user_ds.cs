@@ -142,11 +142,24 @@ namespace VehicleDealership.Datasets
 					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
-		public static void Update_user_active (int int_user, bool is_active)
+		public static void Update_user_active(int int_user, bool is_active)
 		{
 			try
 			{
-				QueriesAdapter().sp_update_user_active(int_user,is_active,Program.System_user.UserID);
+				QueriesAdapter().sp_update_user_active(int_user, is_active, Program.System_user.UserID);
+			}
+			catch (System.Exception e)
+			{
+				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
+					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
+					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+		public static void Update_user_password (string str_password)
+		{
+			try
+			{
+				QueriesAdapter().sp_update_user_password(str_password, Program.System_user.UserID);
 			}
 			catch (System.Exception e)
 			{

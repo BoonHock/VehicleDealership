@@ -19,6 +19,17 @@ namespace VehicleDealership.Classes
 		public DateTime? LeaveDate { get; private set; }
 		public byte[] Photo { get; private set; }
 		public string UserGroup { get; private set; }
+		public string Password
+		{
+			get
+			{
+				User_ds.sp_user_loginDataTable dttable_user = User_ds.Select_password(Username);
+
+				if (dttable_user.Rows.Count > 0) return User_ds.Select_password(Username).Rows[0]["password"].ToString();
+
+				return "";
+			}
+		}
 		public User(string str_username)
 		{
 			Init_obj(User_ds.Select_user(str_username));

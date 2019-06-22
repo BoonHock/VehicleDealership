@@ -10,8 +10,8 @@ namespace VehicleDealership.Classes
 	{
 		public static string ADMINISTRATOR { get { return "ADMINISTRATOR"; } }
 		public static string EDIT_USER { get { return "EDIT_USER"; } }
+		public static string EDIT_USERGROUP { get { return "EDIT_USERGROUP"; } }
 		public static string VIEW_USER { get { return "VIEW_USER"; } }
-
 		//private User_permission(string value) { Value = value; }
 		//public string Value { get; private set; }
 		//public static User_permission ADMINISTRATOR { get { return new User_permission("ADMINISTRATOR"); } }

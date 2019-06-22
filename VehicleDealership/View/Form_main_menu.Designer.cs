@@ -32,12 +32,13 @@
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.gODMODEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.simulateUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.administratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.administrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.userGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salesOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.userGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -45,7 +46,7 @@
 			// 
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gODMODEToolStripMenuItem,
-            this.administratorToolStripMenuItem,
+            this.administrationToolStripMenuItem,
             this.salesToolStripMenuItem,
             this.aboutToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -69,20 +70,27 @@
 			this.simulateUserToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
 			this.simulateUserToolStripMenuItem.Text = "Simulate user";
 			// 
-			// administratorToolStripMenuItem
+			// administrationToolStripMenuItem
 			// 
-			this.administratorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.administrationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usersToolStripMenuItem,
-            this.userGroupsToolStripMenuItem});
-			this.administratorToolStripMenuItem.Name = "administratorToolStripMenuItem";
-			this.administratorToolStripMenuItem.Size = new System.Drawing.Size(92, 19);
-			this.administratorToolStripMenuItem.Text = "Administrator";
+            this.userGroupsToolStripMenuItem,
+            this.changePasswordToolStripMenuItem});
+			this.administrationToolStripMenuItem.Name = "administrationToolStripMenuItem";
+			this.administrationToolStripMenuItem.Size = new System.Drawing.Size(98, 19);
+			this.administrationToolStripMenuItem.Text = "Administration";
 			// 
 			// usersToolStripMenuItem
 			// 
 			this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
 			this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.usersToolStripMenuItem.Text = "Users";
+			// 
+			// userGroupsToolStripMenuItem
+			// 
+			this.userGroupsToolStripMenuItem.Name = "userGroupsToolStripMenuItem";
+			this.userGroupsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.userGroupsToolStripMenuItem.Text = "Usergroups";
 			// 
 			// salesToolStripMenuItem
 			// 
@@ -95,7 +103,7 @@
 			// salesOrderToolStripMenuItem
 			// 
 			this.salesOrderToolStripMenuItem.Name = "salesOrderToolStripMenuItem";
-			this.salesOrderToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+			this.salesOrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.salesOrderToolStripMenuItem.Text = "Sales order";
 			// 
 			// aboutToolStripMenuItem
@@ -104,11 +112,11 @@
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 19);
 			this.aboutToolStripMenuItem.Text = "About";
 			// 
-			// userGroupsToolStripMenuItem
+			// changePasswordToolStripMenuItem
 			// 
-			this.userGroupsToolStripMenuItem.Name = "userGroupsToolStripMenuItem";
-			this.userGroupsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.userGroupsToolStripMenuItem.Text = "Usergroups";
+			this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+			this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.changePasswordToolStripMenuItem.Text = "Change password";
 			// 
 			// Form_main_menu
 			// 
@@ -135,7 +143,7 @@
 		#endregion
 
 		private System.Windows.Forms.MenuStrip menuStrip1;
-		private System.Windows.Forms.ToolStripMenuItem administratorToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem administrationToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem salesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem salesOrderToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
@@ -143,5 +151,6 @@
 		private System.Windows.Forms.ToolStripMenuItem gODMODEToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem simulateUserToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem userGroupsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
 	}
 }

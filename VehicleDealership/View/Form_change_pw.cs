@@ -7,26 +7,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VehicleDealership.Datasets;
 
 namespace VehicleDealership.View
 {
 	public partial class Form_change_pw : Form
 	{
-		public Form_change_pw(int int_user)
+		public Form_change_pw()
 		{
 			InitializeComponent();
-
-			txt_old_pw.Enabled = (Program.System_user.UserID == 1); // admin doesn't need to 
 		}
-
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
+			if (txt_new_pw.Text.Length == 0)
+			{
+				MessageBox.Show("New password cannot be empty.", "Input invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
 
+			if (!Form_log_in.VerifyHash(txt_old_pw.Text, Program.System_user.Password))
+			{
+				MessageBox.Show("Old password entered is invalid.", "Denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
+			User_ds.Update_user_password(Form_log_in.ComputeHash(txt_new_pw.Text,null));
+
+			MessageBox.Show("Password successfully changed.");
+
+			this.DialogResult = DialogResult.OK;
+			this.Close();
 		}
-
 		private void Btn_cancel_Click(object sender, EventArgs e)
 		{
-
+			this.DialogResult = DialogResult.Cancel;
+			this.Close();
+		}
+		private void Ch_display_text_CheckedChanged(object sender, EventArgs e)
+		{
+			txt_new_pw.PasswordChar = Ch_display_text.Checked ? '\0' : '*';
+			txt_old_pw.PasswordChar = Ch_display_text.Checked ? '\0' : '*';
 		}
 	}
 }

@@ -35,6 +35,7 @@
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.btn_cancel = new System.Windows.Forms.Button();
 			this.btn_ok = new System.Windows.Forms.Button();
+			this.Ch_display_text = new System.Windows.Forms.CheckBox();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -51,6 +52,7 @@
 			// 
 			this.txt_old_pw.Location = new System.Drawing.Point(128, 12);
 			this.txt_old_pw.Name = "txt_old_pw";
+			this.txt_old_pw.PasswordChar = '*';
 			this.txt_old_pw.Size = new System.Drawing.Size(260, 27);
 			this.txt_old_pw.TabIndex = 1;
 			// 
@@ -58,6 +60,7 @@
 			// 
 			this.txt_new_pw.Location = new System.Drawing.Point(128, 45);
 			this.txt_new_pw.Name = "txt_new_pw";
+			this.txt_new_pw.PasswordChar = '*';
 			this.txt_new_pw.Size = new System.Drawing.Size(260, 27);
 			this.txt_new_pw.TabIndex = 3;
 			// 
@@ -78,12 +81,12 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.Controls.Add(this.btn_cancel, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.btn_ok, 0, 0);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(171, 93);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(171, 132);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(217, 41);
-			this.tableLayoutPanel1.TabIndex = 4;
+			this.tableLayoutPanel1.TabIndex = 5;
 			// 
 			// btn_cancel
 			// 
@@ -93,7 +96,7 @@
 			this.btn_cancel.Location = new System.Drawing.Point(115, 5);
 			this.btn_cancel.Name = "btn_cancel";
 			this.btn_cancel.Size = new System.Drawing.Size(95, 30);
-			this.btn_cancel.TabIndex = 0;
+			this.btn_cancel.TabIndex = 1;
 			this.btn_cancel.Text = "Cancel";
 			this.btn_cancel.UseVisualStyleBackColor = true;
 			this.btn_cancel.Click += new System.EventHandler(this.Btn_cancel_Click);
@@ -105,16 +108,30 @@
 			this.btn_ok.Location = new System.Drawing.Point(6, 5);
 			this.btn_ok.Name = "btn_ok";
 			this.btn_ok.Size = new System.Drawing.Size(95, 30);
-			this.btn_ok.TabIndex = 1;
+			this.btn_ok.TabIndex = 0;
 			this.btn_ok.Text = "OK";
 			this.btn_ok.UseVisualStyleBackColor = true;
 			this.btn_ok.Click += new System.EventHandler(this.Btn_ok_Click);
 			// 
+			// Ch_display_text
+			// 
+			this.Ch_display_text.AutoSize = true;
+			this.Ch_display_text.Location = new System.Drawing.Point(128, 78);
+			this.Ch_display_text.Name = "Ch_display_text";
+			this.Ch_display_text.Size = new System.Drawing.Size(106, 24);
+			this.Ch_display_text.TabIndex = 4;
+			this.Ch_display_text.Text = "Display text";
+			this.Ch_display_text.UseVisualStyleBackColor = true;
+			this.Ch_display_text.CheckedChanged += new System.EventHandler(this.Ch_display_text_CheckedChanged);
+			// 
 			// Form_change_pw
 			// 
+			this.AcceptButton = this.btn_ok;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(400, 146);
+			this.CancelButton = this.btn_cancel;
+			this.ClientSize = new System.Drawing.Size(400, 185);
+			this.Controls.Add(this.Ch_display_text);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Controls.Add(this.txt_new_pw);
 			this.Controls.Add(this.label2);
@@ -124,6 +141,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "Form_change_pw";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Change password";
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
@@ -141,5 +159,6 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.Button btn_cancel;
 		private System.Windows.Forms.Button btn_ok;
+		private System.Windows.Forms.CheckBox Ch_display_text;
 	}
 }

@@ -34,6 +34,7 @@
 			this.btn_add = new System.Windows.Forms.ToolStripButton();
 			this.btn_remove = new System.Windows.Forms.ToolStripButton();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.grd_usergroup = new System.Windows.Forms.DataGridView();
 			this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,15 +42,14 @@
 			this.label11 = new System.Windows.Forms.Label();
 			this.grd_permission = new System.Windows.Forms.DataGridView();
 			this.label10 = new System.Windows.Forms.Label();
-			this.grd_usergroup = new System.Windows.Forms.DataGridView();
 			this.toolStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.grd_usergroup)).BeginInit();
 			this.cms.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_permission)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.grd_usergroup)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// toolStrip1
@@ -112,6 +112,22 @@
 			this.splitContainer1.SplitterDistance = 552;
 			this.splitContainer1.TabIndex = 3;
 			// 
+			// grd_usergroup
+			// 
+			this.grd_usergroup.AllowUserToAddRows = false;
+			this.grd_usergroup.AllowUserToDeleteRows = false;
+			this.grd_usergroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.grd_usergroup.ContextMenuStrip = this.cms;
+			this.grd_usergroup.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.grd_usergroup.Location = new System.Drawing.Point(0, 20);
+			this.grd_usergroup.MultiSelect = false;
+			this.grd_usergroup.Name = "grd_usergroup";
+			this.grd_usergroup.ReadOnly = true;
+			this.grd_usergroup.RowHeadersVisible = false;
+			this.grd_usergroup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.grd_usergroup.Size = new System.Drawing.Size(552, 725);
+			this.grd_usergroup.TabIndex = 1;
+			// 
 			// cms
 			// 
 			this.cms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -172,21 +188,6 @@
 			this.label10.TabIndex = 0;
 			this.label10.Text = "Permissions";
 			// 
-			// grd_usergroup
-			// 
-			this.grd_usergroup.AllowUserToAddRows = false;
-			this.grd_usergroup.AllowUserToDeleteRows = false;
-			this.grd_usergroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.grd_usergroup.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.grd_usergroup.Location = new System.Drawing.Point(0, 20);
-			this.grd_usergroup.MultiSelect = false;
-			this.grd_usergroup.Name = "grd_usergroup";
-			this.grd_usergroup.ReadOnly = true;
-			this.grd_usergroup.RowHeadersVisible = false;
-			this.grd_usergroup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.grd_usergroup.Size = new System.Drawing.Size(552, 725);
-			this.grd_usergroup.TabIndex = 1;
-			// 
 			// Form_usergroup
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -207,9 +208,9 @@
 			this.splitContainer1.Panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.grd_usergroup)).EndInit();
 			this.cms.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.grd_permission)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.grd_usergroup)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

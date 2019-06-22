@@ -79,6 +79,13 @@ namespace VehicleDealership.View
 
 			string str_usergroup = grd_usergroup.SelectedRows[0].Cells["usergroup"].Value.ToString();
 
+			bool is_administrator = str_usergroup == "ADMINISTRATOR";
+
+			editToolStripMenuItem.Enabled = !is_administrator;
+			btn_edit.Enabled = !is_administrator;
+			removeToolStripMenuItem.Enabled = !is_administrator;
+			btn_remove.Enabled = !is_administrator;
+
 			grd_permission.DataSource = null;
 			grd_permission.DataSource = Permission_ds.Select_permission_by_usergroup(str_usergroup);
 			grd_permission.Columns["permission"].Width = 160;
@@ -98,8 +105,8 @@ namespace VehicleDealership.View
 			// ADMINISTRATOR usergroup CANNOT be edited and removed
 			if (str_usergroup.ToUpper() == "ADMINISTRATOR")
 			{
-				MessageBox.Show("ADMINISTRATOR usergroup cannot be edited or deleted.", "", 
-					MessageBoxButtons.OK,MessageBoxIcon.Information);
+				MessageBox.Show("ADMINISTRATOR usergroup cannot be edited or deleted.", "",
+					MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return;
 			}
 
