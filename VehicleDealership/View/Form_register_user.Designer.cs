@@ -217,6 +217,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Register user";
 			this.Load += new System.EventHandler(this.Form_register_user_Load);
+			this.Shown += new System.EventHandler(this.Form_register_user_Shown);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

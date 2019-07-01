@@ -38,6 +38,26 @@ namespace VehicleDealership.View
 		}
 		private void Form_users_Load(object sender, EventArgs e)
 		{
+			btn_add.Visible = false;
+			addToolStripMenuItem.Visible = false;
+			btn_edit.Visible = false;
+			editToolStripMenuItem.Visible = false;
+			btn_activate.Visible = false;
+			btn_deactivate.Visible = false;
+
+			if (Program.System_user.Has_permission(User_permission.EDIT_USER))
+			{
+				btn_edit.Visible = true;
+				editToolStripMenuItem.Visible = true;
+				btn_activate.Visible = true;
+				btn_deactivate.Visible = true;
+			}
+			if (Program.System_user.Has_permission(User_permission.ADD_USER))
+			{
+				btn_add.Visible = true;
+				addToolStripMenuItem.Visible = true;
+			}
+
 			Setup_grd_users();
 
 			Class_style.Grd_style.Common_style(grd_users);
@@ -47,20 +67,22 @@ namespace VehicleDealership.View
 			grd_users.RowEnter -= Grd_users_RowEnter;
 			string str_search = txt_search.Text.Trim();
 
-			grd_users.DataSource = null;
+			DataTable dttable = new User_ds.sp_search_userDataTable();
 
 			switch ((int)cmb_is_active.ComboBox.SelectedValue)
 			{
 				case 0:
-					grd_users.DataSource = User_ds.Search_user(str_search, false);
+					dttable = User_ds.Search_user(str_search, false);
 					break;
 				case 1:
-					grd_users.DataSource = User_ds.Search_user(str_search, true);
+					dttable = User_ds.Search_user(str_search, true);
 					break;
 				default:
-					grd_users.DataSource = User_ds.Search_user(str_search, null);
+					dttable = User_ds.Search_user(str_search, null);
 					break;
 			}
+
+			Class_datagridview.Setup_and_preselect(grd_users, dttable, "user");
 
 			grd_users.AutoResizeColumns();
 
@@ -86,10 +108,6 @@ namespace VehicleDealership.View
 			Form_edit_users form_edit = new Form_edit_users(int_user);
 
 			if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_users();
-		}
-		private void Btn_change_pw_Click(object sender, EventArgs e)
-		{
-			// TODO
 		}
 		private void Add_user(object sender, EventArgs e)
 		{
@@ -136,7 +154,6 @@ namespace VehicleDealership.View
 			btn_deactivate.Enabled = !is_admin;
 			btn_activate.Enabled = !is_admin;
 			editToolStripMenuItem.Enabled = !is_admin;
-			removeToolStripMenuItem.Enabled = !is_admin;
 		}
 	}
 }

@@ -4,11 +4,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
 
 namespace VehicleDealership.Classes
 {
 	class Class_datagridview
 	{
+		public static void Setup_and_preselect(DataGridView grd, DataTable dttable, string value_col)
+		{
+			string cell_value = "";
+			string selected_col_name = "";
+			bool has_current_cell = false;
+
+			if (grd.Rows.Count > 0 && grd.CurrentCell != null)
+			{
+				has_current_cell = true;
+				cell_value = grd.Rows[grd.CurrentCell.RowIndex].Cells[value_col].Value.ToString();
+				selected_col_name = grd.Columns[grd.CurrentCell.ColumnIndex].Name;
+			}
+
+			grd.DataSource = null;
+			grd.DataSource = dttable;
+
+			if (has_current_cell)
+			{
+				foreach (DataGridViewRow grd_row in grd.Rows)
+				{
+					if (grd_row.Cells[value_col].Value.ToString() == cell_value)
+					{
+						grd.CurrentCell = null;
+						grd.ClearSelection();
+
+						grd_row.Cells[selected_col_name].Selected = true;
+						grd.CurrentCell = grd_row.Cells[selected_col_name];
+						break;
+					}
+				}
+			}
+
+		}
 		public static void Hide_columns(DataGridView grd, string[] cols_to_hide)
 		{
 			for (int i = 0, j = grd.Columns.Count - 1; i < j; i++)
@@ -23,7 +57,7 @@ namespace VehicleDealership.Classes
 		{
 			foreach (KeyValuePair<string, string> entry in change_pairs)
 			{
-				if(grd.Columns.Contains(entry.Key))
+				if (grd.Columns.Contains(entry.Key))
 				{
 					grd.Columns[entry.Key].HeaderText = entry.Value;
 				}

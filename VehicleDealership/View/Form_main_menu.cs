@@ -22,16 +22,20 @@ namespace VehicleDealership.View
 
 		private void Form_main_menu_Load(object sender, EventArgs e)
 		{
-			usersToolStripMenuItem.Enabled = Program.System_user.Has_permission(User_permission.EDIT_USER);
-			userGroupsToolStripMenuItem.Enabled = Program.System_user.Has_permission(User_permission.EDIT_USERGROUP);
-
-
 			simulateUserToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_simulate_user());
 			usersToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_users());
 			userGroupsToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_usergroup());
 			changePasswordToolStripMenuItem.Click += (sender2, e2) => (new Form_change_pw()).ShowDialog();
 
 			salesOrderToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_sales_order());
+		}
+		public void Setup_menustrip()
+		{
+			usersToolStripMenuItem.Enabled = (Program.System_user.Has_permission(User_permission.ADD_USER) ||
+				Program.System_user.Has_permission(User_permission.EDIT_USER));
+
+			userGroupsToolStripMenuItem.Enabled = (Program.System_user.Has_permission(User_permission.ADD_USERGROUP) ||
+				Program.System_user.Has_permission(User_permission.EDIT_USERGROUP));
 		}
 		private void Open_form(Form form_to_open, bool is_maximised = false, string form_tag = "")
 		{

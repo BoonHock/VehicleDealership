@@ -16,7 +16,7 @@ namespace VehicleDealership.View
 	public partial class Form_edit_users : Form
 	{
 		private readonly User Obj_user;
-		private bool already_init_tab_permission = false;
+		private bool _already_init_tab_permission = false;
 
 		public Form_edit_users(int int_user)
 		{
@@ -89,6 +89,7 @@ namespace VehicleDealership.View
 			}
 			if (Update_user_details())
 			{
+				
 				this.DialogResult = DialogResult.OK;
 				this.Close();
 			}
@@ -185,9 +186,9 @@ namespace VehicleDealership.View
 		}
 		private void TabControl1_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (tabControl1.SelectedTab == tab_permission && !already_init_tab_permission)
+			if (tabControl1.SelectedTab == tab_permission && !_already_init_tab_permission)
 			{
-				already_init_tab_permission = true;
+				_already_init_tab_permission = true;
 
 				grd_usergroup.AutoResizeColumns();
 				grd_permission.AutoResizeColumns();

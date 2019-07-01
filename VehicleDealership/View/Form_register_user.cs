@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using VehicleDealership.Classes;
 
 namespace VehicleDealership.View
 {
@@ -30,8 +31,26 @@ namespace VehicleDealership.View
 		{
 			dtp_join_date.MaxDate = DateTime.Today;
 		}
+		private void Form_register_user_Shown(object sender, EventArgs e)
+		{
+			if (!Program.System_user.Has_permission(User_permission.ADD_USER))
+			{
+				MessageBox.Show("You do not have permission to add users!", "PERMISSION DENIED",
+					MessageBoxButtons.OK, MessageBoxIcon.Error);
+				this.Close();
+				return;
+			}
+		}
 		private void Btn_register_Click(object sender, EventArgs e)
 		{
+			if (!Program.System_user.Has_permission(User_permission.ADD_USER))
+			{
+				MessageBox.Show("You do not have permission to add users!", "PERMISSION DENIED",
+					MessageBoxButtons.OK, MessageBoxIcon.Error);
+				this.Close();
+				return;
+			}
+
 			Username = txt_username.Text.Trim();
 			string str_password = txt_pw1.Text;
 			string str_name = txt_fullname.Text.Trim();
@@ -76,5 +95,6 @@ namespace VehicleDealership.View
 		{
 			this.DialogResult = DialogResult.Cancel;
 		}
+
 	}
 }

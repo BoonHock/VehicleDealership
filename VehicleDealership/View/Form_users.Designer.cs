@@ -42,7 +42,6 @@
 			this.cms_user = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_users)).BeginInit();
 			this.cms_user.SuspendLayout();
@@ -147,30 +146,23 @@
 			// 
 			this.cms_user.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editToolStripMenuItem,
-            this.addToolStripMenuItem,
-            this.removeToolStripMenuItem});
+            this.addToolStripMenuItem});
 			this.cms_user.Name = "cms_user";
-			this.cms_user.Size = new System.Drawing.Size(118, 70);
+			this.cms_user.Size = new System.Drawing.Size(97, 48);
 			// 
 			// editToolStripMenuItem
 			// 
 			this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-			this.editToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+			this.editToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
 			this.editToolStripMenuItem.Text = "Edit";
 			this.editToolStripMenuItem.Click += new System.EventHandler(this.Edit_user);
 			// 
 			// addToolStripMenuItem
 			// 
 			this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-			this.addToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+			this.addToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
 			this.addToolStripMenuItem.Text = "Add";
 			this.addToolStripMenuItem.Click += new System.EventHandler(this.Add_user);
-			// 
-			// removeToolStripMenuItem
-			// 
-			this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-			this.removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-			this.removeToolStripMenuItem.Text = "Remove";
 			// 
 			// Form_users
 			// 
@@ -206,7 +198,6 @@
 		private System.Windows.Forms.ToolStripButton btn_edit;
 		private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel2;
 		private System.Windows.Forms.ToolStripComboBox cmb_is_active;
 	}

@@ -55,12 +55,26 @@ namespace VehicleDealership.View
 			if (_usergroup == "")
 			{
 				// Adding new usergroup
+				if (!Program.System_user.Has_permission(User_permission.ADD_USERGROUP))
+				{
+					MessageBox.Show("You do not have permission to add usergroup!", "PERMISSION DENIED",
+						MessageBoxButtons.OK, MessageBoxIcon.Error);
+					this.Close();
+					return;
+				}
 				Permission_ds.Insert_usergroup(str_new_usergroup, str_usergroup_description);
 			}
 			else
 			{
-				string str_perm_combine = Class_listview.Get_checked_results_as_string(listview_permission, "permission");
 				// editing existing usergroup
+				if (!Program.System_user.Has_permission(User_permission.EDIT_USERGROUP))
+				{
+					MessageBox.Show("You do not have permission to edit usergroup!", "PERMISSION DENIED",
+						MessageBoxButtons.OK, MessageBoxIcon.Error);
+					this.Close();
+					return;
+				}
+				string str_perm_combine = Class_listview.Get_checked_results_as_string(listview_permission, "permission");
 				Permission_ds.Update_usergroup(str_new_usergroup, str_usergroup_description, _usergroup);
 			}
 
