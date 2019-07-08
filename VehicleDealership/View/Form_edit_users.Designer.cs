@@ -30,13 +30,14 @@
 		{
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
-			this.btn_remove_photo = new System.Windows.Forms.Button();
+			this.linklbl_change_password = new System.Windows.Forms.LinkLabel();
+			this.btn_remove_image = new System.Windows.Forms.Button();
 			this.label9 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.ch_empty_leave_date = new System.Windows.Forms.CheckBox();
-			this.btn_change_photo = new System.Windows.Forms.Button();
-			this.picbox_photo = new System.Windows.Forms.PictureBox();
+			this.btn_change_image = new System.Windows.Forms.Button();
+			this.picbox_image = new System.Windows.Forms.PictureBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.dtp_leave = new System.Windows.Forms.DateTimePicker();
 			this.label4 = new System.Windows.Forms.Label();
@@ -58,10 +59,9 @@
 			this.btn_cancel = new System.Windows.Forms.Button();
 			this.btn_ok = new System.Windows.Forms.Button();
 			this.filedlg_img = new System.Windows.Forms.OpenFileDialog();
-			this.linklbl_change_password = new System.Windows.Forms.LinkLabel();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.picbox_photo)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.picbox_image)).BeginInit();
 			this.tab_permission.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
@@ -88,13 +88,13 @@
 			// tabPage1
 			// 
 			this.tabPage1.Controls.Add(this.linklbl_change_password);
-			this.tabPage1.Controls.Add(this.btn_remove_photo);
+			this.tabPage1.Controls.Add(this.btn_remove_image);
 			this.tabPage1.Controls.Add(this.label9);
 			this.tabPage1.Controls.Add(this.label7);
 			this.tabPage1.Controls.Add(this.label6);
 			this.tabPage1.Controls.Add(this.ch_empty_leave_date);
-			this.tabPage1.Controls.Add(this.btn_change_photo);
-			this.tabPage1.Controls.Add(this.picbox_photo);
+			this.tabPage1.Controls.Add(this.btn_change_image);
+			this.tabPage1.Controls.Add(this.picbox_image);
 			this.tabPage1.Controls.Add(this.label5);
 			this.tabPage1.Controls.Add(this.dtp_leave);
 			this.tabPage1.Controls.Add(this.label4);
@@ -113,16 +113,27 @@
 			this.tabPage1.Text = "General";
 			this.tabPage1.UseVisualStyleBackColor = true;
 			// 
-			// btn_remove_photo
+			// linklbl_change_password
 			// 
-			this.btn_remove_photo.AutoSize = true;
-			this.btn_remove_photo.Location = new System.Drawing.Point(652, 167);
-			this.btn_remove_photo.Name = "btn_remove_photo";
-			this.btn_remove_photo.Size = new System.Drawing.Size(75, 30);
-			this.btn_remove_photo.TabIndex = 17;
-			this.btn_remove_photo.Text = "Remove";
-			this.btn_remove_photo.UseVisualStyleBackColor = true;
-			this.btn_remove_photo.Click += new System.EventHandler(this.Btn_remove_photo_Click);
+			this.linklbl_change_password.AutoSize = true;
+			this.linklbl_change_password.Location = new System.Drawing.Point(6, 186);
+			this.linklbl_change_password.Name = "linklbl_change_password";
+			this.linklbl_change_password.Size = new System.Drawing.Size(126, 20);
+			this.linklbl_change_password.TabIndex = 19;
+			this.linklbl_change_password.TabStop = true;
+			this.linklbl_change_password.Text = "Change password";
+			this.linklbl_change_password.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Linklabel_change_password_LinkClicked);
+			// 
+			// btn_remove_image
+			// 
+			this.btn_remove_image.AutoSize = true;
+			this.btn_remove_image.Location = new System.Drawing.Point(652, 167);
+			this.btn_remove_image.Name = "btn_remove_image";
+			this.btn_remove_image.Size = new System.Drawing.Size(75, 30);
+			this.btn_remove_image.TabIndex = 17;
+			this.btn_remove_image.Text = "Remove";
+			this.btn_remove_image.UseVisualStyleBackColor = true;
+			this.btn_remove_image.Click += new System.EventHandler(this.Btn_remove_image_Click);
 			// 
 			// label9
 			// 
@@ -165,26 +176,26 @@
 			this.ch_empty_leave_date.UseVisualStyleBackColor = true;
 			this.ch_empty_leave_date.CheckedChanged += new System.EventHandler(this.Ch_empty_leave_date_CheckedChanged);
 			// 
-			// btn_change_photo
+			// btn_change_image
 			// 
-			this.btn_change_photo.AutoSize = true;
-			this.btn_change_photo.Location = new System.Drawing.Point(568, 167);
-			this.btn_change_photo.Name = "btn_change_photo";
-			this.btn_change_photo.Size = new System.Drawing.Size(75, 30);
-			this.btn_change_photo.TabIndex = 11;
-			this.btn_change_photo.Text = "Change";
-			this.btn_change_photo.UseVisualStyleBackColor = true;
-			this.btn_change_photo.Click += new System.EventHandler(this.Btn_change_photo_Click);
+			this.btn_change_image.AutoSize = true;
+			this.btn_change_image.Location = new System.Drawing.Point(568, 167);
+			this.btn_change_image.Name = "btn_change_image";
+			this.btn_change_image.Size = new System.Drawing.Size(75, 30);
+			this.btn_change_image.TabIndex = 11;
+			this.btn_change_image.Text = "Change";
+			this.btn_change_image.UseVisualStyleBackColor = true;
+			this.btn_change_image.Click += new System.EventHandler(this.Btn_change_image_Click);
 			// 
-			// picbox_photo
+			// picbox_image
 			// 
-			this.picbox_photo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.picbox_photo.Location = new System.Drawing.Point(568, 6);
-			this.picbox_photo.Name = "picbox_photo";
-			this.picbox_photo.Size = new System.Drawing.Size(159, 155);
-			this.picbox_photo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.picbox_photo.TabIndex = 10;
-			this.picbox_photo.TabStop = false;
+			this.picbox_image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.picbox_image.Location = new System.Drawing.Point(568, 6);
+			this.picbox_image.Name = "picbox_image";
+			this.picbox_image.Size = new System.Drawing.Size(159, 155);
+			this.picbox_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.picbox_image.TabIndex = 10;
+			this.picbox_image.TabStop = false;
 			// 
 			// label5
 			// 
@@ -403,17 +414,6 @@
 			// 
 			this.filedlg_img.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
 			// 
-			// linklbl_change_password
-			// 
-			this.linklbl_change_password.AutoSize = true;
-			this.linklbl_change_password.Location = new System.Drawing.Point(6, 186);
-			this.linklbl_change_password.Name = "linklbl_change_password";
-			this.linklbl_change_password.Size = new System.Drawing.Size(126, 20);
-			this.linklbl_change_password.TabIndex = 19;
-			this.linklbl_change_password.TabStop = true;
-			this.linklbl_change_password.Text = "Change password";
-			this.linklbl_change_password.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Linklabel_change_password_LinkClicked);
-			// 
 			// Form_edit_users
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -431,7 +431,7 @@
 			this.tabControl1.ResumeLayout(false);
 			this.tabPage1.ResumeLayout(false);
 			this.tabPage1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.picbox_photo)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.picbox_image)).EndInit();
 			this.tab_permission.ResumeLayout(false);
 			this.splitContainer1.Panel1.ResumeLayout(false);
 			this.splitContainer1.Panel1.PerformLayout();
@@ -467,14 +467,14 @@
 		private System.Windows.Forms.DateTimePicker dtp_join;
 		private System.Windows.Forms.TextBox txt_ic_no;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.PictureBox picbox_photo;
-		private System.Windows.Forms.Button btn_change_photo;
+		private System.Windows.Forms.PictureBox picbox_image;
+		private System.Windows.Forms.Button btn_change_image;
 		private System.Windows.Forms.CheckBox ch_empty_leave_date;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.OpenFileDialog filedlg_img;
-		private System.Windows.Forms.Button btn_remove_photo;
+		private System.Windows.Forms.Button btn_remove_image;
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.DataGridView grd_permission;
 		private System.Windows.Forms.Label label10;

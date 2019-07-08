@@ -19,6 +19,10 @@ namespace VehicleDealership.Datasets
 		{
 			return new Permission_dsTableAdapters.QueriesTableAdapter();
 		}
+		/// <summary>
+		/// select all user group
+		/// </summary>
+		/// <returns></returns>
 		public static usergroupDataTable Select_usergroup()
 		{
 			try
@@ -33,6 +37,11 @@ namespace VehicleDealership.Datasets
 			}
 			return new usergroupDataTable();
 		}
+		/// <summary>
+		/// select usergroup's permissions
+		/// </summary>
+		/// <param name="str_usergroup">usergroup name</param>
+		/// <returns></returns>
 		public static permissionDataTable Select_permission_by_usergroup(string str_usergroup)
 		{
 			try
@@ -47,6 +56,10 @@ namespace VehicleDealership.Datasets
 			}
 			return new permissionDataTable();
 		}
+		/// <summary>
+		/// select all permissions
+		/// </summary>
+		/// <returns></returns>
 		public static permissionDataTable Select_all_permission()
 		{
 			try
@@ -62,6 +75,13 @@ namespace VehicleDealership.Datasets
 
 			return new permissionDataTable();
 		}
+		/// <summary>
+		/// check usergroup is available
+		/// </summary>
+		/// <param name="str_usergroup_to_check">usergroup to check if exists in database</param>
+		/// <param name="str_usergroup_to_exclude">usergroup to exclude in the check. 
+		/// useful if updating usergroup and user did not change usergroup name.</param>
+		/// <returns></returns>
 		public static bool Usergroup_available(string str_usergroup_to_check, string str_usergroup_to_exclude)
 		{
 			try
@@ -76,6 +96,11 @@ namespace VehicleDealership.Datasets
 			}
 			return false;
 		}
+		/// <summary>
+		/// insert new usergroup
+		/// </summary>
+		/// <param name="str_usergroup">usergroup name. primary key</param>
+		/// <param name="str_usergroup_desc">usergroup description</param>
 		public static void Insert_usergroup(string str_usergroup, string str_usergroup_desc)
 		{
 			try
@@ -89,6 +114,12 @@ namespace VehicleDealership.Datasets
 					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
+		/// <summary>
+		/// update usergroup
+		/// </summary>
+		/// <param name="str_usergroup_new">new usergroup name</param>
+		/// <param name="str_usergroup_desc">new usergroup description</param>
+		/// <param name="str_usergroup_old">old usergroup name</param>
 		public static void Update_usergroup(string str_usergroup_new, string str_usergroup_desc, string str_usergroup_old)
 		{
 			try
@@ -102,6 +133,11 @@ namespace VehicleDealership.Datasets
 					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
+		/// <summary>
+		/// update permissions of a usergroup
+		/// </summary>
+		/// <param name="str_usergroup">usergroup to update permission for.</param>
+		/// <param name="str_permission_combine">comma separated strings</param>
 		public static void Update_usergroup_permission(string str_usergroup, string str_permission_combine)
 		{
 			try
@@ -115,11 +151,31 @@ namespace VehicleDealership.Datasets
 					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
+		/// <summary>
+		///  delete usergroup
+		/// </summary>
+		/// <param name="str_usergroup"></param>
 		public static void Delete_usergroup(string str_usergroup)
 		{
 			try
 			{
 				QueriesTableAdapter().sp_delete_usergroup(str_usergroup);
+			}
+			catch (System.Exception e)
+			{
+				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
+					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
+					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+		/// <summary>
+		/// assign all permissions to the usergroup
+		/// </summary>
+		public static void Assign_all_permission_to_administrator()
+		{
+			try
+			{
+				QueriesTableAdapter().usp_assign_all_permission_to_administrator();
 			}
 			catch (System.Exception e)
 			{

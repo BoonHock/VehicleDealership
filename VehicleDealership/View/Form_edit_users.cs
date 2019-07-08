@@ -59,9 +59,9 @@ namespace VehicleDealership.View
 				dtp_leave.Enabled = false;
 				ch_empty_leave_date.Checked = true;
 			}
-			if (Obj_user.Photo != null)
+			if (Obj_user.UserImage != null)
 			{
-				picbox_photo.Image = Image.FromStream(new MemoryStream(Obj_user.Photo));
+				picbox_image.Image = Image.FromStream(new MemoryStream(Obj_user.UserImage));
 			}
 			if (Obj_user.UserGroup != null)
 			{
@@ -89,7 +89,7 @@ namespace VehicleDealership.View
 			}
 			if (Update_user_details())
 			{
-				
+
 				this.DialogResult = DialogResult.OK;
 				this.Close();
 			}
@@ -131,9 +131,9 @@ namespace VehicleDealership.View
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
 			}
-			if (picbox_photo.Image != null)
+			if (picbox_image.Image != null)
 			{
-				Image img = picbox_photo.Image;
+				Image img = picbox_image.Image;
 				using (MemoryStream ms = new MemoryStream())
 				{
 					img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
@@ -158,16 +158,36 @@ namespace VehicleDealership.View
 		{
 			dtp_leave.Enabled = !ch_empty_leave_date.Checked;
 		}
-		private void Btn_change_photo_Click(object sender, EventArgs e)
+		private void Btn_change_image_Click(object sender, EventArgs e)
 		{
 			if (filedlg_img.ShowDialog() != DialogResult.OK) return;
 
-			picbox_photo.ImageLocation = filedlg_img.FileName;
+			Image img = Image.FromFile(filedlg_img.FileName);
+
+			picbox_image.Image = Resized_image(img, 400);
+		}
+		/// <summary>
+		/// this should be plaed in miscellaneous class or something
+		/// </summary>
+		/// <param name="img"></param>
+		/// <param name="box_size"></param>
+		/// <param name="resize_only_if_bigger"></param>
+		/// <returns></returns>
+		private Image Resized_image(Image img, float box_size, bool resize_only_if_bigger = true)
+		{
+			if (resize_only_if_bigger && img.Height < box_size && img.Width < box_size) return img;
+
+			float scaleHeight = (float)box_size / (float)img.Height;
+			float scaleWidth = (float)box_size / (float)img.Width;
+
+			float scale = Math.Min(scaleHeight, scaleWidth);
+
+			return new Bitmap(img, (int)(img.Width * scale), (int)(img.Height * scale));
 
 		}
-		private void Btn_remove_photo_Click(object sender, EventArgs e)
+		private void Btn_remove_image_Click(object sender, EventArgs e)
 		{
-			picbox_photo.Image = null;
+			picbox_image.Image = null;
 		}
 		private void Grd_usergroup_RowEnter(object sender, DataGridViewCellEventArgs e)
 		{

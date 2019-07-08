@@ -10,12 +10,19 @@ namespace VehicleDealership.Classes
 {
 	class Class_datagridview
 	{
+		/// <summary>
+		/// setup datagridview. will select back cell after setting up based on @value_col
+		/// </summary>
+		/// <param name="grd"></param>
+		/// <param name="dttable"></param>
+		/// <param name="value_col"></param>
 		public static void Setup_and_preselect(DataGridView grd, DataTable dttable, string value_col)
 		{
 			string cell_value = "";
 			string selected_col_name = "";
 			bool has_current_cell = false;
 
+			// if datagridview has row and has current cell initially, store its value and position
 			if (grd.Rows.Count > 0 && grd.CurrentCell != null)
 			{
 				has_current_cell = true;
@@ -23,9 +30,11 @@ namespace VehicleDealership.Classes
 				selected_col_name = grd.Columns[grd.CurrentCell.ColumnIndex].Name;
 			}
 
+			// setup datagridview
 			grd.DataSource = null;
 			grd.DataSource = dttable;
 
+			// if previously has current cell, select same cell back.
 			if (has_current_cell)
 			{
 				foreach (DataGridViewRow grd_row in grd.Rows)
@@ -43,6 +52,11 @@ namespace VehicleDealership.Classes
 			}
 
 		}
+		/// <summary>
+		/// hide datagridview columns
+		/// </summary>
+		/// <param name="grd">datagridview to hide columns</param>
+		/// <param name="cols_to_hide">columns to hide</param>
 		public static void Hide_columns(DataGridView grd, string[] cols_to_hide)
 		{
 			for (int i = 0, j = grd.Columns.Count - 1; i < j; i++)
@@ -53,6 +67,11 @@ namespace VehicleDealership.Classes
 				}
 			}
 		}
+		/// <summary>
+		/// change header text
+		/// </summary>
+		/// <param name="grd">datagridview to process</param>
+		/// <param name="change_pairs">dictionary. key - column name, value - header text</param>
 		public static void Change_header_text(DataGridView grd, Dictionary<string, string> change_pairs)
 		{
 			foreach (KeyValuePair<string, string> entry in change_pairs)
@@ -63,6 +82,13 @@ namespace VehicleDealership.Classes
 				}
 			}
 		}
+		/// <summary>
+		/// right click will not select cell.
+		/// attach mousedown event of datagridview to this function to make right click also select cell.
+		/// this is so that if there is a context menu strip, right clicking a cell will select that cell for the cms.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		public static void MouseDown_select_cell(object sender, MouseEventArgs e)
 		{
 			DataGridView grd = (DataGridView)sender;

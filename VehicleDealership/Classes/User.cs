@@ -17,7 +17,7 @@ namespace VehicleDealership.Classes
 		public bool IsActive { get; private set; } = true;
 		public DateTime JoinDate { get; private set; }
 		public DateTime? LeaveDate { get; private set; }
-		public byte[] Photo { get; private set; }
+		public byte[] UserImage { get; private set; }
 		public string UserGroup { get; private set; }
 		public string Password
 		{
@@ -50,8 +50,8 @@ namespace VehicleDealership.Classes
 			IcNo = dt_row["ic_no"].ToString();
 			IsActive = (bool)dt_row["is_active"];
 			JoinDate = (DateTime)dt_row["join_date"];
-			LeaveDate = (dt_row["leave_date"] == DBNull.Value) ? (DateTime?)null : (DateTime)dt_row["Leave_date"];
-			Photo = (dt_row["Photo"] == DBNull.Value) ? null : (byte[])dt_row["Photo"];
+			LeaveDate = (dt_row["leave_date"] == DBNull.Value) ? (DateTime?)null : (DateTime)dt_row["leave_date"];
+			UserImage = (dt_row["image"] == DBNull.Value) ? null : (byte[])dt_row["image"];
 			UserGroup = (dt_row["usergroup"] == DBNull.Value) ? null : dt_row["usergroup"].ToString();
 		}
 		public bool Has_permission(string permission)

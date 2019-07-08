@@ -114,6 +114,12 @@
     <Compile Include="View\Form_change_pw.Designer.cs">
       <DependentUpon>Form_change_pw.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Form_datagridview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form_datagridview.Designer.cs">
+      <DependentUpon>Form_datagridview.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Form_edit_usergroup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,9 @@
     </Compile>
     <EmbeddedResource Include="View\Form_change_pw.resx">
       <DependentUpon>Form_change_pw.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Form_datagridview.resx">
+      <DependentUpon>Form_datagridview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form_edit_usergroup.resx">
       <DependentUpon>Form_edit_usergroup.cs</DependentUpon>

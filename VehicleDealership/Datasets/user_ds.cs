@@ -128,12 +128,12 @@ namespace VehicleDealership.Datasets
 			}
 		}
 		public static void Update_user(int int_user, string str_username, string str_name, string str_ic_no,
-			System.DateTime date_join, System.DateTime? date_leave, byte[] photo, string str_usergroup)
+			System.DateTime date_join, System.DateTime? date_leave, byte[] byte_image, string str_usergroup)
 		{
 			try
 			{
-				QueriesAdapter().sp_update_user(int_user, str_username, str_name, str_ic_no,
-					date_join, date_leave, photo, str_usergroup, Program.System_user.UserID);
+				userTableAdapter().sp_update_user(int_user, str_username, str_name, str_ic_no,
+					date_join, date_leave, byte_image, str_usergroup, Program.System_user.UserID);
 			}
 			catch (System.Exception e)
 			{
@@ -155,7 +155,7 @@ namespace VehicleDealership.Datasets
 					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
-		public static void Update_user_password (string str_password)
+		public static void Update_user_password(string str_password)
 		{
 			try
 			{

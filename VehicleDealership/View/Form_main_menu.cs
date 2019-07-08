@@ -22,8 +22,16 @@ namespace VehicleDealership.View
 
 		private void Form_main_menu_Load(object sender, EventArgs e)
 		{
+			if (Program.System_user.UserID == 1)
+			{
+				// temporary for development
+				// if user log in as admin, assign all permissions. just in case any permission not assigned
+				Datasets.Permission_ds.Assign_all_permission_to_administrator();
+			}
+
 			simulateUserToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_simulate_user());
-			usersToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_users());
+			//usersToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_users());
+			usersToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_datagridview(), false, "USER");
 			userGroupsToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_usergroup());
 			changePasswordToolStripMenuItem.Click += (sender2, e2) => (new Form_change_pw()).ShowDialog();
 
