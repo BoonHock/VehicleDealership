@@ -103,19 +103,80 @@ namespace VehicleDealership.View
 		}
 		private void Setup_grd_users(object sender = null, EventArgs e = null)
 		{
+			// setup grd_main
+			grd_main.RowEnter -= Grd_users_RowEnter;
+			string str_search = txt_search_user.Text.Trim();
 
+			DataTable dttable = new User_ds.sp_search_userDataTable();
+
+			switch ((int)cmb_is_active_user.ComboBox.SelectedValue)
+			{
+				case 0:
+					dttable = User_ds.Search_user(str_search, false);
+					break;
+				case 1:
+					dttable = User_ds.Search_user(str_search, true);
+					break;
+				default:
+					dttable = User_ds.Search_user(str_search, null);
+					break;
+			}
+
+			Class_datagridview.Setup_and_preselect(grd_main, dttable, "user");
+
+			grd_main.AutoResizeColumns();
+
+			Class_datagridview.Hide_columns(grd_main, new string[] { "user" });
+
+			Setup_buttons_enable();
+			grd_main.RowEnter += Grd_users_RowEnter;
 		}
 		private void Edit_user(object sender, EventArgs e)
 		{
+			if (grd_main.SelectedCells.Count == 0)
+			{
+				MessageBox.Show("Select a user to edit.");
+				return;
+			}
+			int int_user = (int)grd_main.Rows[grd_main.SelectedCells[0].RowIndex].Cells["user"].Value;
+			if (int_user == 1)
+			{
+				MessageBox.Show("ADMIN cannot be activated or deactivated", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return;
+			}
 
+			Form_edit_users form_edit = new Form_edit_users(int_user);
+
+			if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_users();
 		}
 		private void Add_user(object sender, EventArgs e)
 		{
+			string str_username = View.Form_register_user.Register_user();
 
+			if (str_username == null) return;
+
+			Setup_grd_users();
+			MessageBox.Show("New user added");
 		}
 		private void Btn_activate_deactivate_user_Click(object sender, EventArgs e)
 		{
+			if (grd_main.SelectedCells.Count == 0)
+			{
+				MessageBox.Show("Select a user to edit.");
+				return;
+			}
 
+			int int_user = (int)grd_main.Rows[grd_main.SelectedCells[0].RowIndex].Cells["user"].Value;
+			bool is_activate = ((ToolStripButton)sender == btn_activate_user) ? true : false;
+
+			if (int_user == 1)
+			{
+				MessageBox.Show("ADMIN cannot be activated or deactivated", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return;
+			}
+
+			User_ds.Update_user_active(int_user, is_activate);
+			Setup_grd_users();
 		}
 		private void Grd_users_RowEnter(object sender, DataGridViewCellEventArgs e)
 		{
@@ -156,10 +217,12 @@ namespace VehicleDealership.View
 			}
 
 			Setup_grd_vehicle_model();
+
+			txt_search_vehicle_model.TextChanged += Setup_grd_vehicle_model;
 		}
 		private void Setup_grd_vehicle_model(object sender = null, EventArgs e = null)
 		{
-
+			string str_search = txt_search_user.Text.Trim();
 		}
 
 		#endregion
