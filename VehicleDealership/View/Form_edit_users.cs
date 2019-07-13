@@ -162,28 +162,7 @@ namespace VehicleDealership.View
 		{
 			if (filedlg_img.ShowDialog() != DialogResult.OK) return;
 
-			Image img = Image.FromFile(filedlg_img.FileName);
-
-			picbox_image.Image = Resized_image(img, 400);
-		}
-		/// <summary>
-		/// this should be plaed in miscellaneous class or something
-		/// </summary>
-		/// <param name="img"></param>
-		/// <param name="box_size"></param>
-		/// <param name="resize_only_if_bigger"></param>
-		/// <returns></returns>
-		private Image Resized_image(Image img, float box_size, bool resize_only_if_bigger = true)
-		{
-			if (resize_only_if_bigger && img.Height < box_size && img.Width < box_size) return img;
-
-			float scaleHeight = (float)box_size / (float)img.Height;
-			float scaleWidth = (float)box_size / (float)img.Width;
-
-			float scale = Math.Min(scaleHeight, scaleWidth);
-
-			return new Bitmap(img, (int)(img.Width * scale), (int)(img.Height * scale));
-
+			picbox_image.Image = Class_misc.Resized_image(Image.FromFile(filedlg_img.FileName), 400);
 		}
 		private void Btn_remove_image_Click(object sender, EventArgs e)
 		{

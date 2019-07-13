@@ -22,20 +22,21 @@ namespace VehicleDealership.View
 
 		private void Form_main_menu_Load(object sender, EventArgs e)
 		{
-			if (Program.System_user.UserID == 1)
-			{
-				// temporary for development
-				// if user log in as admin, assign all permissions. just in case any permission not assigned
-				Datasets.Permission_ds.Assign_all_permission_to_administrator();
-			}
+			log_in_menustrip.Visible = true;
+			main_menu_strip.Visible = false;
+			ssl_username.Text = "";
+			ssl_usergroup.Text = "";
 
 			simulateUserToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_simulate_user());
-			//usersToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_users());
 			usersToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_datagridview(), false, "USER");
 			userGroupsToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_usergroup());
 			changePasswordToolStripMenuItem.Click += (sender2, e2) => (new Form_change_pw()).ShowDialog();
 
 			salesOrderToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_sales_order());
+		}
+		private void Form_main_menu_Shown(object sender, EventArgs e)
+		{
+			logInToolStripMenuItem.PerformClick();
 		}
 		public void Setup_menustrip()
 		{
@@ -66,5 +67,45 @@ namespace VehicleDealership.View
 			}
 			return false;
 		}
+
+		private void LogOutToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (this.MdiChildren.Count() != 0 && MessageBox.Show("Are you sure? Any changes will not be saved.", "Log out",
+				MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.OK) return;
+
+			foreach (Form frm in this.MdiChildren)
+			{
+				frm.Close();
+			}
+			this.main_menu_strip.Visible = false;
+			this.log_in_menustrip.Visible = true;
+			ssl_username.Text = "";
+			ssl_usergroup.Text = "";
+			Program.System_user = null;
+
+			logInToolStripMenuItem.PerformClick();
+		}
+
+		private void LogInToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Form_log_in form_login = new Form_log_in();
+			if (form_login.ShowDialog() != DialogResult.OK) return;
+
+			Program.System_user = new Classes.User(form_login.Username);
+
+			if (Program.System_user.UserID == 1)
+			{
+				// temporary for development
+				// if user log in as admin, assign all permissions. just in case any permission not assigned
+				Datasets.Permission_ds.Assign_all_permission_to_administrator();
+			}
+			Setup_menustrip();
+			ssl_username.Text = Program.System_user.Username;
+			ssl_usergroup.Text = Program.System_user.UserGroup;
+
+			log_in_menustrip.Visible = false;
+			main_menu_strip.Visible = true;
+		}
+
 	}
 }

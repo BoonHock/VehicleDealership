@@ -31,6 +31,33 @@ namespace VehicleDealership.View
 
 		private void Form_usergroup_Shown(object sender, EventArgs e)
 		{
+			if (!Program.System_user.Has_permission("ADD_USERGROUP") && !Program.System_user.Has_permission("EDIT_USERGROUP"))
+			{
+				MessageBox.Show("PERMISSION DENIED", "PERMISSION DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				this.Close();
+				return;
+			}
+
+			addToolStripMenuItem.Enabled = false;
+			btn_add.Enabled = false;
+			editToolStripMenuItem.Enabled = false;
+			btn_edit.Enabled = false;
+			btn_remove.Enabled = false;
+			removeToolStripMenuItem.Enabled = false;
+
+			if (Program.System_user.Has_permission("ADD_USERGROUP"))
+			{
+				addToolStripMenuItem.Enabled = true;
+				btn_add.Enabled = true;
+			}
+			if (Program.System_user.Has_permission("EDIT_USERGROUP"))
+			{
+				editToolStripMenuItem.Enabled = true;
+				btn_edit.Enabled = true;
+				btn_remove.Enabled = true;
+				removeToolStripMenuItem.Enabled = true;
+			}
+
 			Class_style.Grd_style.Common_style(grd_usergroup);
 			Class_style.Grd_style.Common_style(grd_permission);
 

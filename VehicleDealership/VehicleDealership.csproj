@@ -87,6 +87,7 @@
     <Compile Include="Classes\Class_datagridview.cs" />
     <Compile Include="Classes\Class_datatable.cs" />
     <Compile Include="Classes\Class_listview.cs" />
+    <Compile Include="Classes\Class_misc.cs" />
     <Compile Include="Classes\Class_style.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\User_permission.cs" />
@@ -168,12 +169,6 @@
     <Compile Include="View\Form_usergroup.Designer.cs">
       <DependentUpon>Form_usergroup.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Form_users.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Form_users.Designer.cs">
-      <DependentUpon>Form_users.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -213,9 +208,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form_usergroup.resx">
       <DependentUpon>Form_usergroup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Form_users.resx">
-      <DependentUpon>Form_users.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Datasets\Permission_ds.xsc">
       <DependentUpon>Permission_ds.xsd</DependentUpon>

@@ -105,7 +105,14 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				QueriesTableAdapter().sp_insert_usergroup(str_usergroup, str_usergroup_desc);
+				if (User_ds.Check_user_has_permission(Program.System_user.UserID, Classes.User_permission.ADD_USERGROUP))
+				{
+					QueriesTableAdapter().sp_insert_usergroup(str_usergroup, str_usergroup_desc);
+				}
+				else
+				{
+					MessageBox.Show("PERMISSION DENIED", "PERMISSION DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 			}
 			catch (System.Exception e)
 			{
@@ -124,7 +131,14 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				QueriesTableAdapter().sp_update_usergroup(str_usergroup_new, str_usergroup_desc, str_usergroup_old);
+				if (User_ds.Check_user_has_permission(Program.System_user.UserID, Classes.User_permission.EDIT_USERGROUP))
+				{
+					QueriesTableAdapter().sp_update_usergroup(str_usergroup_new, str_usergroup_desc, str_usergroup_old);
+				}
+				else
+				{
+					MessageBox.Show("PERMISSION DENIED", "PERMISSION DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 			}
 			catch (System.Exception e)
 			{
@@ -142,7 +156,14 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				QueriesTableAdapter().sp_update_usergroup_permission(str_usergroup, str_permission_combine);
+				if (User_ds.Check_user_has_permission(Program.System_user.UserID, Classes.User_permission.EDIT_USERGROUP))
+				{
+					QueriesTableAdapter().sp_update_usergroup_permission(str_usergroup, str_permission_combine);
+				}
+				else
+				{
+					MessageBox.Show("PERMISSION DENIED", "PERMISSION DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 			}
 			catch (System.Exception e)
 			{
@@ -159,7 +180,14 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				QueriesTableAdapter().sp_delete_usergroup(str_usergroup);
+				if (User_ds.Check_user_has_permission(Program.System_user.UserID, Classes.User_permission.EDIT_USERGROUP))
+				{
+					QueriesTableAdapter().sp_delete_usergroup(str_usergroup);
+				}
+				else
+				{
+					MessageBox.Show("PERMISSION DENIED", "PERMISSION DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 			}
 			catch (System.Exception e)
 			{

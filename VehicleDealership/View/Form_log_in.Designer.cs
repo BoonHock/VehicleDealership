@@ -35,6 +35,7 @@
 			this.txt_password = new System.Windows.Forms.TextBox();
 			this.btn_log_in = new System.Windows.Forms.Button();
 			this.lbl_invalid_login = new System.Windows.Forms.Label();
+			this.btn_cancel = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -76,7 +77,7 @@
 			// 
 			// btn_log_in
 			// 
-			this.btn_log_in.Location = new System.Drawing.Point(261, 84);
+			this.btn_log_in.Location = new System.Drawing.Point(177, 83);
 			this.btn_log_in.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btn_log_in.Name = "btn_log_in";
 			this.btn_log_in.Size = new System.Drawing.Size(67, 28);
@@ -96,12 +97,24 @@
 			this.lbl_invalid_login.Text = "Login invalid.";
 			this.lbl_invalid_login.Visible = false;
 			// 
+			// btn_cancel
+			// 
+			this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.btn_cancel.Location = new System.Drawing.Point(250, 84);
+			this.btn_cancel.Name = "btn_cancel";
+			this.btn_cancel.Size = new System.Drawing.Size(75, 28);
+			this.btn_cancel.TabIndex = 6;
+			this.btn_cancel.Text = "Cancel";
+			this.btn_cancel.UseVisualStyleBackColor = true;
+			// 
 			// Form_log_in
 			// 
 			this.AcceptButton = this.btn_log_in;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.CancelButton = this.btn_cancel;
 			this.ClientSize = new System.Drawing.Size(337, 124);
+			this.Controls.Add(this.btn_cancel);
 			this.Controls.Add(this.lbl_invalid_login);
 			this.Controls.Add(this.btn_log_in);
 			this.Controls.Add(this.txt_password);
@@ -111,7 +124,7 @@
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+			this.Margin = new System.Windows.Forms.Padding(5);
 			this.Name = "Form_log_in";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Log In";
@@ -128,5 +141,6 @@
 		private System.Windows.Forms.TextBox txt_password;
 		private System.Windows.Forms.Button btn_log_in;
 		private System.Windows.Forms.Label lbl_invalid_login;
+		private System.Windows.Forms.Button btn_cancel;
 	}
 }

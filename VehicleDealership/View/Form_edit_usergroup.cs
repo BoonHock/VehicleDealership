@@ -15,7 +15,7 @@ namespace VehicleDealership.View
 {
 	public partial class Form_edit_usergroup : Form
 	{
-		string _usergroup = "";
+		private string _usergroup = "";
 		public string Usergroup { get { return _usergroup; } }
 		public Form_edit_usergroup()
 		{
@@ -101,7 +101,25 @@ namespace VehicleDealership.View
 		}
 		private void Form_edit_usergroup_Shown(object sender, EventArgs e)
 		{
-			if (_usergroup != "") Select_listview_permission();
+			if (_usergroup == "")
+			{
+				if (!Program.System_user.Has_permission("ADD_USERGROUP"))
+				{
+					MessageBox.Show("PERMISSION DENIED", "PERMISSION DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					this.Close();
+					return;
+				}
+			}
+			else
+			{
+				if (!Program.System_user.Has_permission("EDIT_USERGROUP"))
+				{
+					MessageBox.Show("PERMISSION DENIED", "PERMISSION DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					this.Close();
+					return;
+				}
+				Select_listview_permission();
+			}
 		}
 		private void Select_listview_permission()
 		{
