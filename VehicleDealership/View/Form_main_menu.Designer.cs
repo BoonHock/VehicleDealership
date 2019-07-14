@@ -35,6 +35,9 @@
 			this.administrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.userGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.vehicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.modelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.brandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salesOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,14 +45,13 @@
 			this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.log_in_menustrip = new System.Windows.Forms.MenuStrip();
 			this.logInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.vehicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.modelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.brandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-			this.ssl_usergroup = new System.Windows.Forms.ToolStripStatusLabel();
-			this.ssl_username = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.ssl_username = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.ssl_usergroup = new System.Windows.Forms.ToolStripStatusLabel();
+			this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.ssl_status = new System.Windows.Forms.ToolStripStatusLabel();
 			this.main_menu_strip.SuspendLayout();
 			this.log_in_menustrip.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
@@ -107,6 +109,28 @@
 			this.userGroupsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.userGroupsToolStripMenuItem.Text = "Usergroups";
 			// 
+			// vehicleToolStripMenuItem
+			// 
+			this.vehicleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modelToolStripMenuItem,
+            this.brandToolStripMenuItem,
+            this.testToolStripMenuItem});
+			this.vehicleToolStripMenuItem.Name = "vehicleToolStripMenuItem";
+			this.vehicleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.vehicleToolStripMenuItem.Text = "Vehicle";
+			// 
+			// modelToolStripMenuItem
+			// 
+			this.modelToolStripMenuItem.Name = "modelToolStripMenuItem";
+			this.modelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.modelToolStripMenuItem.Text = "Model";
+			// 
+			// brandToolStripMenuItem
+			// 
+			this.brandToolStripMenuItem.Name = "brandToolStripMenuItem";
+			this.brandToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.brandToolStripMenuItem.Text = "Brand";
+			// 
 			// changePasswordToolStripMenuItem
 			// 
 			this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
@@ -157,59 +181,19 @@
 			this.logInToolStripMenuItem.Text = "Log in";
 			this.logInToolStripMenuItem.Click += new System.EventHandler(this.LogInToolStripMenuItem_Click);
 			// 
-			// vehicleToolStripMenuItem
-			// 
-			this.vehicleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.modelToolStripMenuItem,
-            this.brandToolStripMenuItem});
-			this.vehicleToolStripMenuItem.Name = "vehicleToolStripMenuItem";
-			this.vehicleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.vehicleToolStripMenuItem.Text = "Vehicle";
-			// 
-			// modelToolStripMenuItem
-			// 
-			this.modelToolStripMenuItem.Name = "modelToolStripMenuItem";
-			this.modelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.modelToolStripMenuItem.Text = "Model";
-			// 
-			// brandToolStripMenuItem
-			// 
-			this.brandToolStripMenuItem.Name = "brandToolStripMenuItem";
-			this.brandToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.brandToolStripMenuItem.Text = "Brand";
-			// 
 			// statusStrip1
 			// 
 			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.ssl_username,
             this.toolStripStatusLabel2,
-            this.ssl_usergroup});
+            this.ssl_usergroup,
+            this.ssl_status});
 			this.statusStrip1.Location = new System.Drawing.Point(0, 572);
 			this.statusStrip1.Name = "statusStrip1";
 			this.statusStrip1.Size = new System.Drawing.Size(841, 24);
 			this.statusStrip1.TabIndex = 5;
 			this.statusStrip1.Text = "statusStrip1";
-			// 
-			// ssl_usergroup
-			// 
-			this.ssl_usergroup.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-			this.ssl_usergroup.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenInner;
-			this.ssl_usergroup.Name = "ssl_usergroup";
-			this.ssl_usergroup.Size = new System.Drawing.Size(66, 19);
-			this.ssl_usergroup.Text = "Usergroup";
-			// 
-			// ssl_username
-			// 
-			this.ssl_username.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-			this.ssl_username.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenInner;
-			this.ssl_username.Name = "ssl_username";
-			this.ssl_username.Size = new System.Drawing.Size(64, 19);
-			this.ssl_username.Text = "Username";
 			// 
 			// toolStripStatusLabel1
 			// 
@@ -221,6 +205,16 @@
 			this.toolStripStatusLabel1.Size = new System.Drawing.Size(70, 19);
 			this.toolStripStatusLabel1.Text = "Username :";
 			// 
+			// ssl_username
+			// 
+			this.ssl_username.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+			this.ssl_username.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenInner;
+			this.ssl_username.Name = "ssl_username";
+			this.ssl_username.Size = new System.Drawing.Size(64, 19);
+			this.ssl_username.Text = "Username";
+			// 
 			// toolStripStatusLabel2
 			// 
 			this.toolStripStatusLabel2.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
@@ -230,6 +224,32 @@
 			this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
 			this.toolStripStatusLabel2.Size = new System.Drawing.Size(72, 19);
 			this.toolStripStatusLabel2.Text = "Usergroup :";
+			// 
+			// ssl_usergroup
+			// 
+			this.ssl_usergroup.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+			this.ssl_usergroup.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenInner;
+			this.ssl_usergroup.Name = "ssl_usergroup";
+			this.ssl_usergroup.Size = new System.Drawing.Size(66, 19);
+			this.ssl_usergroup.Text = "Usergroup";
+			// 
+			// testToolStripMenuItem
+			// 
+			this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+			this.testToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.testToolStripMenuItem.Text = "test";
+			// 
+			// ssl_status
+			// 
+			this.ssl_status.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+			this.ssl_status.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenInner;
+			this.ssl_status.Name = "ssl_status";
+			this.ssl_status.Size = new System.Drawing.Size(43, 19);
+			this.ssl_status.Text = "Ready";
 			// 
 			// Form_main_menu
 			// 
@@ -283,5 +303,7 @@
 		private System.Windows.Forms.ToolStripStatusLabel ssl_usergroup;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+		private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
+		private System.Windows.Forms.ToolStripStatusLabel ssl_status;
 	}
 }

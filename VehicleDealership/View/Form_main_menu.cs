@@ -31,6 +31,7 @@ namespace VehicleDealership.View
 			usersToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_datagridview(), false, "USER");
 			userGroupsToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_usergroup());
 			changePasswordToolStripMenuItem.Click += (sender2, e2) => (new Form_change_pw()).ShowDialog();
+			testToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_vehicle_template());
 
 			salesOrderToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_sales_order());
 		}
@@ -106,6 +107,5 @@ namespace VehicleDealership.View
 			log_in_menustrip.Visible = false;
 			main_menu_strip.Visible = true;
 		}
-
 	}
 }
