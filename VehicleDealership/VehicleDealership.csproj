@@ -89,8 +89,20 @@
     <Compile Include="Classes\Class_listview.cs" />
     <Compile Include="Classes\Class_misc.cs" />
     <Compile Include="Classes\Class_style.cs" />
+    <Compile Include="Classes\Class_treeview.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\User_permission.cs" />
+    <Compile Include="Datasets\Bulkcopy_table_ds.cs">
+      <DependentUpon>Bulkcopy_table_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Bulkcopy_table_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Bulkcopy_table_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Combobox_options_ds.cs">
+      <DependentUpon>Combobox_options_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\Combobox_options_ds.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -119,6 +131,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Vehicle_brand_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Vehicle_group_ds.cs">
+      <DependentUpon>Vehicle_group_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Vehicle_group_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Vehicle_group_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -249,6 +269,17 @@
     <EmbeddedResource Include="View\Form_vehicle_template1.resx">
       <DependentUpon>Form_vehicle_template1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Datasets\Bulkcopy_table_ds.xsc">
+      <DependentUpon>Bulkcopy_table_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Bulkcopy_table_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Bulkcopy_table_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Bulkcopy_table_ds.xss">
+      <DependentUpon>Bulkcopy_table_ds.xsd</DependentUpon>
+    </None>
     <None Include="Datasets\Combobox_options_ds.xsc">
       <DependentUpon>Combobox_options_ds.xsd</DependentUpon>
     </None>
@@ -292,6 +323,17 @@
     </None>
     <None Include="Datasets\Vehicle_brand_ds.xss">
       <DependentUpon>Vehicle_brand_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Vehicle_group_ds.xsc">
+      <DependentUpon>Vehicle_group_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Vehicle_group_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Vehicle_group_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Vehicle_group_ds.xss">
+      <DependentUpon>Vehicle_group_ds.xsd</DependentUpon>
     </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">

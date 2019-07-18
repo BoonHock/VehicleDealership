@@ -141,6 +141,7 @@
 			this.Controls.Add(this.txt_name);
 			this.Controls.Add(this.label1);
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "Form_edit_usergroup";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

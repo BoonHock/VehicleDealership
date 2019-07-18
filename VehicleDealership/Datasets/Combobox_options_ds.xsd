@@ -7,7 +7,7 @@
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="VehicleDealershipConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="VehicleDealershipConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.VehicleDealership.Properties.Settings.GlobalReference.Default.VehicleDealershipConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Combobox_optionsTableAdapter" GeneratorDataComponentClassName="Combobox_optionsTableAdapter" Name="Combobox_options" UserDataComponentName="Combobox_optionsTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="VehicleDealershipConnectionString (Settings)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="dummy" GetMethodModifier="Public" GetMethodName="dummy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="dummy" UserSourceName="dummy">
                 <SelectCommand>
@@ -33,7 +33,8 @@
 	country_name AS [display]
 
 FROM hr.country
-</CommandText>
+
+ORDER BY [country_name]</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -48,7 +49,7 @@ FROM hr.country
   <xs:element name="Combobox_options_ds" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Combobox_options_ds" msprop:Generator_UserDSName="Combobox_options_ds">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="Combobox_options" msprop:Generator_TableClassName="Combobox_optionsDataTable" msprop:Generator_TableVarName="tableCombobox_options" msprop:Generator_TablePropName="Combobox_options" msprop:Generator_RowDeletingName="Combobox_optionsRowDeleting" msprop:Generator_RowChangingName="Combobox_optionsRowChanging" msprop:Generator_RowEvHandlerName="Combobox_optionsRowChangeEventHandler" msprop:Generator_RowDeletedName="Combobox_optionsRowDeleted" msprop:Generator_UserTableName="Combobox_options" msprop:Generator_RowChangedName="Combobox_optionsRowChanged" msprop:Generator_RowEvArgName="Combobox_optionsRowChangeEvent" msprop:Generator_RowClassName="Combobox_optionsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="value" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnvalue" msprop:Generator_ColumnPropNameInRow="value" msprop:Generator_ColumnPropNameInTable="valueColumn" msprop:Generator_UserColumnName="value" type="xs:string" minOccurs="0" />
