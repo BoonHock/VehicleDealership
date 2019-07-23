@@ -1,6 +1,6 @@
 ﻿namespace VehicleDealership.View
 {
-	partial class Form_add_vehicle_brand
+	partial class Form_edit_vehicle_brand_group
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,18 +28,76 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.label3 = new System.Windows.Forms.Label();
+			this.grd_main = new System.Windows.Forms.DataGridView();
+			this.txt_name = new System.Windows.Forms.TextBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.cmb1 = new System.Windows.Forms.ComboBox();
+			this.label1 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.btn_cancel = new System.Windows.Forms.Button();
 			this.btn_ok = new System.Windows.Forms.Button();
-			this.label1 = new System.Windows.Forms.Label();
-			this.cmb_country = new System.Windows.Forms.ComboBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.txt_brand_name = new System.Windows.Forms.TextBox();
-			this.grd_group = new System.Windows.Forms.DataGridView();
-			this.label3 = new System.Windows.Forms.Label();
+			((System.ComponentModel.ISupportInitialize)(this.grd_main)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.grd_group)).BeginInit();
 			this.SuspendLayout();
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(11, 83);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(110, 20);
+			this.label3.TabIndex = 4;
+			this.label3.Text = "Vehicle groups:";
+			// 
+			// grd_main
+			// 
+			this.grd_main.AllowUserToResizeRows = false;
+			this.grd_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.grd_main.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+			this.grd_main.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.grd_main.Location = new System.Drawing.Point(11, 106);
+			this.grd_main.Name = "grd_main";
+			this.grd_main.Size = new System.Drawing.Size(366, 341);
+			this.grd_main.TabIndex = 5;
+			// 
+			// txt_name
+			// 
+			this.txt_name.Location = new System.Drawing.Point(132, 12);
+			this.txt_name.MaxLength = 20;
+			this.txt_name.Name = "txt_name";
+			this.txt_name.Size = new System.Drawing.Size(207, 27);
+			this.txt_name.TabIndex = 1;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(12, 15);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(94, 20);
+			this.label2.TabIndex = 0;
+			this.label2.Text = "Group name:";
+			// 
+			// cmb1
+			// 
+			this.cmb1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+			this.cmb1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+			this.cmb1.FormattingEnabled = true;
+			this.cmb1.Location = new System.Drawing.Point(132, 45);
+			this.cmb1.Name = "cmb1";
+			this.cmb1.Size = new System.Drawing.Size(207, 28);
+			this.cmb1.TabIndex = 3;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(11, 49);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(63, 20);
+			this.label1.TabIndex = 2;
+			this.label1.Text = "Country:";
 			// 
 			// tableLayoutPanel1
 			// 
@@ -49,7 +107,7 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.Controls.Add(this.btn_cancel, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.btn_ok, 0, 0);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(161, 468);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(158, 453);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -81,87 +139,29 @@
 			this.btn_ok.UseVisualStyleBackColor = true;
 			this.btn_ok.Click += new System.EventHandler(this.Btn_ok_Click);
 			// 
-			// label1
+			// Form_edit_vehicle_brand_group
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(12, 49);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(63, 20);
-			this.label1.TabIndex = 2;
-			this.label1.Text = "Country:";
-			// 
-			// cmb_country
-			// 
-			this.cmb_country.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-			this.cmb_country.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-			this.cmb_country.FormattingEnabled = true;
-			this.cmb_country.Location = new System.Drawing.Point(110, 45);
-			this.cmb_country.Name = "cmb_country";
-			this.cmb_country.Size = new System.Drawing.Size(207, 28);
-			this.cmb_country.TabIndex = 3;
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(12, 15);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(92, 20);
-			this.label2.TabIndex = 0;
-			this.label2.Text = "Brand name:";
-			// 
-			// txt_brand_name
-			// 
-			this.txt_brand_name.Location = new System.Drawing.Point(110, 12);
-			this.txt_brand_name.MaxLength = 20;
-			this.txt_brand_name.Name = "txt_brand_name";
-			this.txt_brand_name.Size = new System.Drawing.Size(207, 27);
-			this.txt_brand_name.TabIndex = 1;
-			// 
-			// grd_group
-			// 
-			this.grd_group.AllowUserToResizeRows = false;
-			this.grd_group.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.grd_group.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-			this.grd_group.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.grd_group.Location = new System.Drawing.Point(12, 106);
-			this.grd_group.Name = "grd_group";
-			this.grd_group.Size = new System.Drawing.Size(366, 356);
-			this.grd_group.TabIndex = 5;
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(12, 83);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(110, 20);
-			this.label3.TabIndex = 4;
-			this.label3.Text = "Vehicle groups:";
-			// 
-			// Form_add_vehicle_brand
-			// 
+			this.AcceptButton = this.btn_ok;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btn_cancel;
-			this.ClientSize = new System.Drawing.Size(390, 521);
+			this.ClientSize = new System.Drawing.Size(387, 506);
 			this.Controls.Add(this.label3);
-			this.Controls.Add(this.grd_group);
-			this.Controls.Add(this.txt_brand_name);
+			this.Controls.Add(this.grd_main);
+			this.Controls.Add(this.txt_name);
 			this.Controls.Add(this.label2);
-			this.Controls.Add(this.cmb_country);
+			this.Controls.Add(this.cmb1);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.Name = "Form_add_vehicle_brand";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Vehicle brand";
-			this.Load += new System.EventHandler(this.Form_add_vehicle_brand_Load);
+			this.Name = "Form_edit_vehicle_brand_group";
+			this.Text = "Edit";
+			this.Shown += new System.EventHandler(this.Form_edit_vehicle_brand_group_Shown);
+			((System.ComponentModel.ISupportInitialize)(this.grd_main)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.grd_group)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -169,14 +169,14 @@
 
 		#endregion
 
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.DataGridView grd_main;
+		private System.Windows.Forms.TextBox txt_name;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.ComboBox cmb1;
+		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.Button btn_cancel;
 		private System.Windows.Forms.Button btn_ok;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.ComboBox cmb_country;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.TextBox txt_brand_name;
-		private System.Windows.Forms.DataGridView grd_group;
-		private System.Windows.Forms.Label label3;
 	}
 }

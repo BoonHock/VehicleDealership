@@ -142,12 +142,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Form_add_vehicle_brand.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Form_add_vehicle_brand.Designer.cs">
-      <DependentUpon>Form_add_vehicle_brand.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Form_change_pw.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +165,12 @@
     </Compile>
     <Compile Include="View\Form_edit_users.Designer.cs">
       <DependentUpon>Form_edit_users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Form_edit_vehicle_brand_group.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form_edit_vehicle_brand_group.Designer.cs">
+      <DependentUpon>Form_edit_vehicle_brand_group.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Form_log_in.cs">
       <SubType>Form</SubType>
@@ -230,9 +230,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View\Form_add_vehicle_brand.resx">
-      <DependentUpon>Form_add_vehicle_brand.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\Form_change_pw.resx">
       <DependentUpon>Form_change_pw.cs</DependentUpon>
     </EmbeddedResource>
@@ -244,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form_edit_users.resx">
       <DependentUpon>Form_edit_users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Form_edit_vehicle_brand_group.resx">
+      <DependentUpon>Form_edit_vehicle_brand_group.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form_log_in.resx">
       <DependentUpon>Form_log_in.cs</DependentUpon>

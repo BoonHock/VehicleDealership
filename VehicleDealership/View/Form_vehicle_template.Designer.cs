@@ -34,13 +34,11 @@
 			this.editBrandGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.deleteBrandGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.addBrandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.addGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.btn_add_brand = new System.Windows.Forms.ToolStripButton();
-			this.btn_add_group = new System.Windows.Forms.ToolStripButton();
-			this.btn_edit = new System.Windows.Forms.ToolStripButton();
-			this.btn_delete = new System.Windows.Forms.ToolStripButton();
+			this.btn_edit_brand_group = new System.Windows.Forms.ToolStripButton();
+			this.btn_delete_brand_group = new System.Windows.Forms.ToolStripButton();
 			this.label2 = new System.Windows.Forms.Label();
 			this.grd_model = new System.Windows.Forms.DataGridView();
 			this.toolStrip2 = new System.Windows.Forms.ToolStrip();
@@ -74,36 +72,30 @@
 			this.cms_vehicle.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editBrandGroupToolStripMenuItem,
             this.deleteBrandGroupToolStripMenuItem,
-            this.addBrandToolStripMenuItem,
-            this.addGroupToolStripMenuItem});
+            this.addBrandToolStripMenuItem});
 			this.cms_vehicle.Name = "cms_vehicle";
-			this.cms_vehicle.Size = new System.Drawing.Size(132, 92);
+			this.cms_vehicle.Size = new System.Drawing.Size(131, 70);
 			// 
 			// editBrandGroupToolStripMenuItem
 			// 
 			this.editBrandGroupToolStripMenuItem.Name = "editBrandGroupToolStripMenuItem";
-			this.editBrandGroupToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+			this.editBrandGroupToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
 			this.editBrandGroupToolStripMenuItem.Text = "Edit";
+			this.editBrandGroupToolStripMenuItem.Click += new System.EventHandler(this.Btn_edit_brand_group_Click);
 			// 
 			// deleteBrandGroupToolStripMenuItem
 			// 
 			this.deleteBrandGroupToolStripMenuItem.Name = "deleteBrandGroupToolStripMenuItem";
-			this.deleteBrandGroupToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+			this.deleteBrandGroupToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
 			this.deleteBrandGroupToolStripMenuItem.Text = "Delete";
+			this.deleteBrandGroupToolStripMenuItem.Click += new System.EventHandler(this.Btn_delete_brand_group_Click);
 			// 
 			// addBrandToolStripMenuItem
 			// 
 			this.addBrandToolStripMenuItem.Name = "addBrandToolStripMenuItem";
-			this.addBrandToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+			this.addBrandToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
 			this.addBrandToolStripMenuItem.Text = "Add brand";
 			this.addBrandToolStripMenuItem.Click += new System.EventHandler(this.Add_brand);
-			// 
-			// addGroupToolStripMenuItem
-			// 
-			this.addGroupToolStripMenuItem.Name = "addGroupToolStripMenuItem";
-			this.addGroupToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-			this.addGroupToolStripMenuItem.Text = "Add group";
-			this.addGroupToolStripMenuItem.Click += new System.EventHandler(this.Add_group);
 			// 
 			// splitContainer1
 			// 
@@ -132,9 +124,8 @@
 			this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btn_add_brand,
-            this.btn_add_group,
-            this.btn_edit,
-            this.btn_delete});
+            this.btn_edit_brand_group,
+            this.btn_delete_brand_group});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 20);
 			this.toolStrip1.Name = "toolStrip1";
 			this.toolStrip1.Size = new System.Drawing.Size(262, 25);
@@ -151,37 +142,26 @@
 			this.btn_add_brand.ToolTipText = "Add brand";
 			this.btn_add_brand.Click += new System.EventHandler(this.Add_brand);
 			// 
-			// btn_add_group
+			// btn_edit_brand_group
 			// 
-			this.btn_add_group.Enabled = false;
-			this.btn_add_group.Image = global::VehicleDealership.Properties.Resources.Add_16x;
-			this.btn_add_group.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_add_group.Name = "btn_add_group";
-			this.btn_add_group.Size = new System.Drawing.Size(60, 22);
-			this.btn_add_group.Text = "Group";
-			this.btn_add_group.ToolTipText = "Add group";
-			this.btn_add_group.Click += new System.EventHandler(this.Add_group);
+			this.btn_edit_brand_group.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_edit_brand_group.Enabled = false;
+			this.btn_edit_brand_group.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
+			this.btn_edit_brand_group.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_edit_brand_group.Name = "btn_edit_brand_group";
+			this.btn_edit_brand_group.Size = new System.Drawing.Size(23, 22);
+			this.btn_edit_brand_group.Text = "Edit";
+			this.btn_edit_brand_group.Click += new System.EventHandler(this.Btn_edit_brand_group_Click);
 			// 
-			// btn_edit
+			// btn_delete_brand_group
 			// 
-			this.btn_edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_edit.Enabled = false;
-			this.btn_edit.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
-			this.btn_edit.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_edit.Name = "btn_edit";
-			this.btn_edit.Size = new System.Drawing.Size(23, 22);
-			this.btn_edit.Text = "Edit";
-			this.btn_edit.Click += new System.EventHandler(this.Btn_edit_Click);
-			// 
-			// btn_delete
-			// 
-			this.btn_delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_delete.Enabled = false;
-			this.btn_delete.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
-			this.btn_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_delete.Name = "btn_delete";
-			this.btn_delete.Size = new System.Drawing.Size(23, 22);
-			this.btn_delete.Text = "Delete";
+			this.btn_delete_brand_group.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_delete_brand_group.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
+			this.btn_delete_brand_group.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_delete_brand_group.Name = "btn_delete_brand_group";
+			this.btn_delete_brand_group.Size = new System.Drawing.Size(23, 22);
+			this.btn_delete_brand_group.Text = "Delete";
+			this.btn_delete_brand_group.Click += new System.EventHandler(this.Btn_delete_brand_group_Click);
 			// 
 			// label2
 			// 
@@ -289,13 +269,11 @@
 		private System.Windows.Forms.TreeView tv_vehicle;
 		private System.Windows.Forms.ContextMenuStrip cms_vehicle;
 		private System.Windows.Forms.ToolStripMenuItem addBrandToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem addGroupToolStripMenuItem;
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.ToolStrip toolStrip1;
 		private System.Windows.Forms.ToolStripButton btn_add_brand;
-		private System.Windows.Forms.ToolStripButton btn_edit;
-		private System.Windows.Forms.ToolStripButton btn_add_group;
-		private System.Windows.Forms.ToolStripButton btn_delete;
+		private System.Windows.Forms.ToolStripButton btn_edit_brand_group;
+		private System.Windows.Forms.ToolStripButton btn_delete_brand_group;
 		private System.Windows.Forms.ToolStrip toolStrip2;
 		private System.Windows.Forms.ToolStripButton toolStripButton3;
 		private System.Windows.Forms.ToolStripButton btn_edit_model;

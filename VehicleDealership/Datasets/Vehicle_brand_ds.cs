@@ -9,6 +9,27 @@ namespace VehicleDealership.Datasets
 		{
 			return new Vehicle_brand_dsTableAdapters.QueriesTableAdapter();
 		}
+		public static vehicle_brandDataTable Select_vehicle_brand()
+		{
+			try
+			{
+				return (new Vehicle_brand_dsTableAdapters.vehicle_brandTableAdapter).GetData();
+			}
+			catch (System.Exception e)
+			{
+				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
+					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
+					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+
+			return new vehicle_brandDataTable();
+		}
+		/// <summary>
+		/// check is vehicle brand name available. will exclude @int_brand provided
+		/// </summary>
+		/// <param name="str_brandname"></param>
+		/// <param name="int_brand"></param>
+		/// <returns></returns>
 		public static bool Is_vehicle_brand_name_available(string str_brandname, int int_brand)
 		{
 			try
