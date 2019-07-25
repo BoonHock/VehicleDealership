@@ -13,7 +13,7 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				return (new Vehicle_brand_dsTableAdapters.vehicle_brandTableAdapter).GetData();
+				return (new Vehicle_brand_dsTableAdapters.vehicle_brandTableAdapter()).GetData();
 			}
 			catch (System.Exception e)
 			{

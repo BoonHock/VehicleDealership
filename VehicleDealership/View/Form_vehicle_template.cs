@@ -129,7 +129,7 @@ namespace VehicleDealership.View
 		}
 		private void Setup_grd_model()
 		{
-
+			// TODO: setup grd model
 		}
 	}
 }

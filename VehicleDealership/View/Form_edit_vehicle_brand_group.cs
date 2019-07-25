@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using VehicleDealership.Datasets;
 
@@ -30,7 +26,12 @@ namespace VehicleDealership.View
 				return int.Parse(cmb1.SelectedValue.ToString());
 			}
 		}
-
+		/// <summary>
+		/// this form is used to edit vehicle brand or vehicle group
+		/// </summary>
+		/// <param name="is_brand">set true if editing vehicle brand, else false</param>
+		/// <param name="main_id">if editing vehicle brand, pass vehicle brand id, else pass vehicle group id</param>
+		/// <param name="cmb_value">combox value to preselect. will be overridden if editing instead of adding</param>
 		public Form_edit_vehicle_brand_group(bool is_brand, int main_id = 0, int cmb_value = 0)
 		{
 			InitializeComponent();
@@ -87,13 +88,25 @@ namespace VehicleDealership.View
 			cmb1.ValueMember = "vehicle_brand";
 			cmb1.DataSource = Vehicle_brand_ds.Select_vehicle_brand();
 
-			// TODO: continue
+			Vehicle_group_ds.sp_select_vehicle_group_n_modelDataTable dttable = Vehicle_group_ds.Select_vehicle_group_n_model(_int_main_id);
+			if (dttable.Rows.Count == 0) return;
+
+			txt_name.Text = dttable.Rows[0]["vehicle_group_name"].ToString();
+			cmb1.SelectedValue = dttable.Rows[0]["vehicle_brand"];
+
+			grd_main.DataSource = null;
+			grd_main.DataSource = dttable;
+			Classes.Class_datagridview.Hide_columns(grd_main, new string[] { "vehicle_group", "vehicle_group_name", "vehicle_brand", "vehicle_model" });
 		}
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
 			if (_is_brand)
 			{
 				if (!Save_form_brand()) return;
+			}
+			else
+			{
+				// TODO: save form group and models
 			}
 
 			this.DialogResult = DialogResult.OK;
