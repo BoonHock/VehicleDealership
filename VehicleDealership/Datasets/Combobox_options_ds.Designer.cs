@@ -780,7 +780,7 @@ namespace VehicleDealership.Datasets.Combobox_options_dsTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT\r\n\t\'\' AS [value],\r\n\t\'\' AS [display]";
@@ -790,6 +790,11 @@ namespace VehicleDealership.Datasets.Combobox_options_dsTableAdapters {
             this._commandCollection[1].CommandText = "SELECT\r\n\tcountry AS [value],\r\n\tcountry_name AS [display]\r\n\r\nFROM hr.country\r\n\r\nOR" +
                 "DER BY [country_name]";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "veh.sp_option_vehicle_brand";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -809,6 +814,17 @@ namespace VehicleDealership.Datasets.Combobox_options_dsTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual Combobox_options_ds.Combobox_optionsDataTable select_country() {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            Combobox_options_ds.Combobox_optionsDataTable dataTable = new Combobox_options_ds.Combobox_optionsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Combobox_options_ds.Combobox_optionsDataTable sp_option_vehicle_brand() {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             Combobox_options_ds.Combobox_optionsDataTable dataTable = new Combobox_options_ds.Combobox_optionsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

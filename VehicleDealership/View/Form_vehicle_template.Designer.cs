@@ -36,16 +36,16 @@
 			this.addBrandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-			this.btn_add_brand = new System.Windows.Forms.ToolStripButton();
-			this.btn_edit_brand_group = new System.Windows.Forms.ToolStripButton();
-			this.btn_delete_brand_group = new System.Windows.Forms.ToolStripButton();
 			this.label2 = new System.Windows.Forms.Label();
 			this.grd_model = new System.Windows.Forms.DataGridView();
 			this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-			this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+			this.label1 = new System.Windows.Forms.Label();
+			this.btn_add_brand = new System.Windows.Forms.ToolStripButton();
+			this.btn_edit_brand_group = new System.Windows.Forms.ToolStripButton();
+			this.btn_delete_brand_group = new System.Windows.Forms.ToolStripButton();
+			this.btn_add_model = new System.Windows.Forms.ToolStripButton();
 			this.btn_edit_model = new System.Windows.Forms.ToolStripButton();
 			this.btn_delete_model = new System.Windows.Forms.ToolStripButton();
-			this.label1 = new System.Windows.Forms.Label();
 			this.cms_vehicle.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
@@ -132,6 +132,53 @@
 			this.toolStrip1.TabIndex = 1;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+			this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Location = new System.Drawing.Point(0, 0);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(129, 20);
+			this.label2.TabIndex = 5;
+			this.label2.Text = "Brand and Group";
+			// 
+			// grd_model
+			// 
+			this.grd_model.AllowUserToAddRows = false;
+			this.grd_model.AllowUserToDeleteRows = false;
+			this.grd_model.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.grd_model.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.grd_model.Location = new System.Drawing.Point(0, 45);
+			this.grd_model.Name = "grd_model";
+			this.grd_model.ReadOnly = true;
+			this.grd_model.Size = new System.Drawing.Size(689, 498);
+			this.grd_model.TabIndex = 3;
+			// 
+			// toolStrip2
+			// 
+			this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+			this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_add_model,
+            this.btn_edit_model,
+            this.btn_delete_model});
+			this.toolStrip2.Location = new System.Drawing.Point(0, 20);
+			this.toolStrip2.Name = "toolStrip2";
+			this.toolStrip2.Size = new System.Drawing.Size(689, 25);
+			this.toolStrip2.TabIndex = 2;
+			this.toolStrip2.Text = "toolStrip2";
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(0, 0);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(53, 20);
+			this.label1.TabIndex = 4;
+			this.label1.Text = "Model";
+			// 
 			// btn_add_brand
 			// 
 			this.btn_add_brand.Image = global::VehicleDealership.Properties.Resources.Add_16x;
@@ -163,50 +210,15 @@
 			this.btn_delete_brand_group.Text = "Delete";
 			this.btn_delete_brand_group.Click += new System.EventHandler(this.Btn_delete_brand_group_Click);
 			// 
-			// label2
+			// btn_add_model
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-			this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(0, 0);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(129, 20);
-			this.label2.TabIndex = 5;
-			this.label2.Text = "Brand and Group";
-			// 
-			// grd_model
-			// 
-			this.grd_model.AllowUserToAddRows = false;
-			this.grd_model.AllowUserToDeleteRows = false;
-			this.grd_model.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.grd_model.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.grd_model.Location = new System.Drawing.Point(0, 45);
-			this.grd_model.Name = "grd_model";
-			this.grd_model.ReadOnly = true;
-			this.grd_model.Size = new System.Drawing.Size(689, 498);
-			this.grd_model.TabIndex = 3;
-			// 
-			// toolStrip2
-			// 
-			this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-			this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton3,
-            this.btn_edit_model,
-            this.btn_delete_model});
-			this.toolStrip2.Location = new System.Drawing.Point(0, 20);
-			this.toolStrip2.Name = "toolStrip2";
-			this.toolStrip2.Size = new System.Drawing.Size(689, 25);
-			this.toolStrip2.TabIndex = 2;
-			this.toolStrip2.Text = "toolStrip2";
-			// 
-			// toolStripButton3
-			// 
-			this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton3.Image = global::VehicleDealership.Properties.Resources.Add_16x;
-			this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton3.Name = "toolStripButton3";
-			this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton3.Text = "Add model";
+			this.btn_add_model.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_add_model.Image = global::VehicleDealership.Properties.Resources.Add_16x;
+			this.btn_add_model.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_add_model.Name = "btn_add_model";
+			this.btn_add_model.Size = new System.Drawing.Size(23, 22);
+			this.btn_add_model.Text = "Add model";
+			this.btn_add_model.Click += new System.EventHandler(this.Btn_add_model_Click);
 			// 
 			// btn_edit_model
 			// 
@@ -216,6 +228,7 @@
 			this.btn_edit_model.Name = "btn_edit_model";
 			this.btn_edit_model.Size = new System.Drawing.Size(23, 22);
 			this.btn_edit_model.Text = "Edit model";
+			this.btn_edit_model.Click += new System.EventHandler(this.Btn_edit_model_Click);
 			// 
 			// btn_delete_model
 			// 
@@ -225,17 +238,6 @@
 			this.btn_delete_model.Name = "btn_delete_model";
 			this.btn_delete_model.Size = new System.Drawing.Size(23, 22);
 			this.btn_delete_model.Text = "Delete model";
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(0, 0);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(53, 20);
-			this.label1.TabIndex = 4;
-			this.label1.Text = "Model";
 			// 
 			// Form_vehicle_template
 			// 
@@ -275,7 +277,7 @@
 		private System.Windows.Forms.ToolStripButton btn_edit_brand_group;
 		private System.Windows.Forms.ToolStripButton btn_delete_brand_group;
 		private System.Windows.Forms.ToolStrip toolStrip2;
-		private System.Windows.Forms.ToolStripButton toolStripButton3;
+		private System.Windows.Forms.ToolStripButton btn_add_model;
 		private System.Windows.Forms.ToolStripButton btn_edit_model;
 		private System.Windows.Forms.ToolStripButton btn_delete_model;
 		private System.Windows.Forms.DataGridView grd_model;

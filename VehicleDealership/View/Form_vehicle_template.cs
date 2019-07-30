@@ -81,45 +81,27 @@ namespace VehicleDealership.View
 			if (tv_vehicle.SelectedNode != null)
 				int_country = int.Parse(Class_treeview.Get_parent_node_by_level(tv_vehicle.SelectedNode, 0).Name);
 
-			Form_edit_vehicle_brand_group form_brand = new Form_edit_vehicle_brand_group(true, 0, int_country);
+			Form_edit_vehicle_brand form_brand = new Form_edit_vehicle_brand(0, int_country);
 
 			if (form_brand.ShowDialog() == DialogResult.OK)
 			{
 				Setup_tv_vehicle();
-				tv_vehicle.SelectedNode = tv_vehicle.Nodes[form_brand.ComboboxValue.ToString()].
-					Nodes[form_brand.MainID.ToString()];
+				tv_vehicle.SelectedNode = tv_vehicle.Nodes[form_brand.SelectedCountry.ToString()].
+					Nodes[form_brand.Brand_id.ToString()];
 			}
 		}
 		private void Btn_edit_brand_group_Click(object sender, EventArgs e)
 		{
 			if (tv_vehicle.SelectedNode == null || tv_vehicle.SelectedNode.Level < 1) return;
 
-			if (tv_vehicle.SelectedNode.Level == 1)
+			string str_brand_id = Class_treeview.Get_parent_node_by_level(tv_vehicle.SelectedNode, 1).Name;
+
+			Form_edit_vehicle_brand form_brand = new Form_edit_vehicle_brand(int.Parse(str_brand_id));
+
+			if (form_brand.ShowDialog() == DialogResult.OK)
 			{
-				string str_brand_id = tv_vehicle.SelectedNode.Name;
-
-				Form_edit_vehicle_brand_group form_brand = new Form_edit_vehicle_brand_group(true, int.Parse(str_brand_id));
-
-				if (form_brand.ShowDialog() == DialogResult.OK)
-				{
-					Setup_tv_vehicle();
-					tv_vehicle.SelectedNode = tv_vehicle.Nodes[form_brand.ComboboxValue.ToString()].Nodes[str_brand_id];
-
-				}
-			}
-			else if (tv_vehicle.SelectedNode.Level == 2)
-			{
-				string str_country_id = Class_treeview.Get_parent_node_by_level(tv_vehicle.SelectedNode, 0).Name;
-				string str_group_id = tv_vehicle.SelectedNode.Name;
-
-				Form_edit_vehicle_brand_group form_brand = new Form_edit_vehicle_brand_group(false, int.Parse(str_group_id));
-
-				if (form_brand.ShowDialog() == DialogResult.OK)
-				{
-					Setup_tv_vehicle();
-					tv_vehicle.SelectedNode = tv_vehicle.Nodes[str_country_id].
-						Nodes[form_brand.ComboboxValue.ToString()].Nodes[str_group_id];
-				}
+				Setup_tv_vehicle();
+				tv_vehicle.SelectedNode = tv_vehicle.Nodes[form_brand.SelectedCountry.ToString()].Nodes[str_brand_id];
 			}
 		}
 		private void Btn_delete_brand_group_Click(object sender, EventArgs e)
@@ -130,6 +112,29 @@ namespace VehicleDealership.View
 		private void Setup_grd_model()
 		{
 			// TODO: setup grd model
+		}
+
+		private void Btn_edit_model_Click(object sender, EventArgs e)
+		{
+
+		}
+		private void Btn_add_model_Click(object sender, EventArgs e)
+		{
+			Form form_model;
+
+			if (tv_vehicle.SelectedNode == null)
+			{
+				form_model = new Form_edit_vehicle_model(null, null);
+			}
+			else
+			{
+				form_model = new Form_edit_vehicle_model(null, 
+					int.Parse(Class_treeview.Get_child_at_level(tv_vehicle.SelectedNode, 2).Name));
+			}
+
+			if (form_model.ShowDialog() != DialogResult.OK) return;
+
+			Setup_grd_model();
 		}
 	}
 }

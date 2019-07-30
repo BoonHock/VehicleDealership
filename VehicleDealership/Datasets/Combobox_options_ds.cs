@@ -24,5 +24,19 @@ namespace VehicleDealership.Datasets
 			}
 			return new Combobox_optionsDataTable();
 		}
+		public static Combobox_optionsDataTable Option_vehicle_brand()
+		{
+			try
+			{
+				return ComboboxAdapter().sp_option_vehicle_brand();
+			}
+			catch (System.Exception e)
+			{
+				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
+					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
+					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			return new Combobox_optionsDataTable();
+		}
 	}
 }

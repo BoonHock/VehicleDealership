@@ -1,6 +1,6 @@
 ﻿namespace VehicleDealership.View
 {
-	partial class Form_edit_vehicle_brand_group
+	partial class Form_edit_vehicle_brand
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -76,9 +76,9 @@
 			this.label2.AutoSize = true;
 			this.label2.Location = new System.Drawing.Point(12, 15);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(94, 20);
+			this.label2.Size = new System.Drawing.Size(92, 20);
 			this.label2.TabIndex = 0;
-			this.label2.Text = "Group name:";
+			this.label2.Text = "Brand name:";
 			// 
 			// cmb1
 			// 
@@ -139,7 +139,7 @@
 			this.btn_ok.UseVisualStyleBackColor = true;
 			this.btn_ok.Click += new System.EventHandler(this.Btn_ok_Click);
 			// 
-			// Form_edit_vehicle_brand_group
+			// Form_edit_vehicle_brand
 			// 
 			this.AcceptButton = this.btn_ok;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -156,9 +156,9 @@
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.Name = "Form_edit_vehicle_brand_group";
+			this.Name = "Form_edit_vehicle_brand";
 			this.Text = "Edit";
-			this.Shown += new System.EventHandler(this.Form_edit_vehicle_brand_group_Shown);
+			this.Shown += new System.EventHandler(this.Form_edit_vehicle_brand_Shown);
 			((System.ComponentModel.ISupportInitialize)(this.grd_main)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
