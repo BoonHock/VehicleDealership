@@ -25,7 +25,6 @@ namespace VehicleDealership.View
 			Obj_user = new User(int_user);
 
 			grd_usergroup.Enabled = (int_user != 1);
-			linklbl_change_password.Visible = (int_user == Program.System_user.UserID);
 		}
 		private void Form_edit_users_Shown(object sender, EventArgs e)
 		{
@@ -194,10 +193,6 @@ namespace VehicleDealership.View
 
 				Setup_grd_permission();
 			}
-		}
-		private void Linklabel_change_password_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
-
 		}
 	}
 }

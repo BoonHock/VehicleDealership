@@ -38,5 +38,33 @@ namespace VehicleDealership.Datasets
 			}
 			return new Combobox_optionsDataTable();
 		}
+		public static Combobox_optionsDataTable Select_transmission()
+		{
+			try
+			{
+				return ComboboxAdapter().select_transmission();
+			}
+			catch (System.Exception e)
+			{
+				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
+					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
+					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			return new Combobox_optionsDataTable();
+		}
+		public static Combobox_optionsDataTable Select_fuel_type()
+		{
+			try
+			{
+				return ComboboxAdapter().select_fuel_type();
+			}
+			catch (System.Exception e)
+			{
+				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
+					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
+					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			return new Combobox_optionsDataTable();
+		}
 	}
 }

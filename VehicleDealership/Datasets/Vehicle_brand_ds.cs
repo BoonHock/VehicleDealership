@@ -9,21 +9,6 @@ namespace VehicleDealership.Datasets
 		{
 			return new Vehicle_brand_dsTableAdapters.QueriesTableAdapter();
 		}
-		public static vehicle_brandDataTable Select_vehicle_brand()
-		{
-			try
-			{
-				return (new Vehicle_brand_dsTableAdapters.vehicle_brandTableAdapter()).GetData();
-			}
-			catch (System.Exception e)
-			{
-				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
-					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
-					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-
-			return new vehicle_brandDataTable();
-		}
 		/// <summary>
 		/// check is vehicle brand name available. will exclude @int_brand provided
 		/// </summary>
@@ -71,6 +56,20 @@ namespace VehicleDealership.Datasets
 					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
 					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
+		}
+		public static vehicle_brandDataTable Select_veh_brand_by_veh_group(int vgroup)
+		{
+			try
+			{
+				return (new Vehicle_brand_dsTableAdapters.vehicle_brandTableAdapter()).sp_select_veh_brand_by_veh_group(vgroup);
+			}
+			catch (System.Exception e)
+			{
+				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
+					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
+					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			return new vehicle_brandDataTable();
 		}
 	}
 }

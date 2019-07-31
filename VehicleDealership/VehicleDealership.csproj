@@ -140,6 +140,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Vehicle_group_ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\vehicle_model_image_ds.cs">
+      <DependentUpon>vehicle_model_image_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\vehicle_model_image_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>vehicle_model_image_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Form_change_pw.cs">
@@ -343,6 +351,17 @@
     </None>
     <None Include="Datasets\Vehicle_group_ds.xss">
       <DependentUpon>Vehicle_group_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\vehicle_model_image_ds.xsc">
+      <DependentUpon>vehicle_model_image_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\vehicle_model_image_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>vehicle_model_image_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\vehicle_model_image_ds.xss">
+      <DependentUpon>vehicle_model_image_ds.xsd</DependentUpon>
     </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">

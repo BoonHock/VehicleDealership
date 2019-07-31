@@ -36,16 +36,16 @@
 			this.addBrandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-			this.label2 = new System.Windows.Forms.Label();
-			this.grd_model = new System.Windows.Forms.DataGridView();
-			this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-			this.label1 = new System.Windows.Forms.Label();
 			this.btn_add_brand = new System.Windows.Forms.ToolStripButton();
 			this.btn_edit_brand_group = new System.Windows.Forms.ToolStripButton();
 			this.btn_delete_brand_group = new System.Windows.Forms.ToolStripButton();
+			this.label2 = new System.Windows.Forms.Label();
+			this.grd_model = new System.Windows.Forms.DataGridView();
+			this.toolStrip2 = new System.Windows.Forms.ToolStrip();
 			this.btn_add_model = new System.Windows.Forms.ToolStripButton();
 			this.btn_edit_model = new System.Windows.Forms.ToolStripButton();
 			this.btn_delete_model = new System.Windows.Forms.ToolStripButton();
+			this.label1 = new System.Windows.Forms.Label();
 			this.cms_vehicle.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
@@ -132,6 +132,37 @@
 			this.toolStrip1.TabIndex = 1;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
+			// btn_add_brand
+			// 
+			this.btn_add_brand.Image = global::VehicleDealership.Properties.Resources.Add_16x;
+			this.btn_add_brand.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_add_brand.Name = "btn_add_brand";
+			this.btn_add_brand.Size = new System.Drawing.Size(58, 22);
+			this.btn_add_brand.Text = "Brand";
+			this.btn_add_brand.ToolTipText = "Add brand";
+			this.btn_add_brand.Click += new System.EventHandler(this.Add_brand);
+			// 
+			// btn_edit_brand_group
+			// 
+			this.btn_edit_brand_group.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_edit_brand_group.Enabled = false;
+			this.btn_edit_brand_group.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
+			this.btn_edit_brand_group.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_edit_brand_group.Name = "btn_edit_brand_group";
+			this.btn_edit_brand_group.Size = new System.Drawing.Size(23, 22);
+			this.btn_edit_brand_group.Text = "Edit";
+			this.btn_edit_brand_group.Click += new System.EventHandler(this.Btn_edit_brand_group_Click);
+			// 
+			// btn_delete_brand_group
+			// 
+			this.btn_delete_brand_group.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_delete_brand_group.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
+			this.btn_delete_brand_group.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_delete_brand_group.Name = "btn_delete_brand_group";
+			this.btn_delete_brand_group.Size = new System.Drawing.Size(23, 22);
+			this.btn_delete_brand_group.Text = "Delete";
+			this.btn_delete_brand_group.Click += new System.EventHandler(this.Btn_delete_brand_group_Click);
+			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
@@ -168,48 +199,6 @@
 			this.toolStrip2.TabIndex = 2;
 			this.toolStrip2.Text = "toolStrip2";
 			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(0, 0);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(53, 20);
-			this.label1.TabIndex = 4;
-			this.label1.Text = "Model";
-			// 
-			// btn_add_brand
-			// 
-			this.btn_add_brand.Image = global::VehicleDealership.Properties.Resources.Add_16x;
-			this.btn_add_brand.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_add_brand.Name = "btn_add_brand";
-			this.btn_add_brand.Size = new System.Drawing.Size(58, 22);
-			this.btn_add_brand.Text = "Brand";
-			this.btn_add_brand.ToolTipText = "Add brand";
-			this.btn_add_brand.Click += new System.EventHandler(this.Add_brand);
-			// 
-			// btn_edit_brand_group
-			// 
-			this.btn_edit_brand_group.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_edit_brand_group.Enabled = false;
-			this.btn_edit_brand_group.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
-			this.btn_edit_brand_group.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_edit_brand_group.Name = "btn_edit_brand_group";
-			this.btn_edit_brand_group.Size = new System.Drawing.Size(23, 22);
-			this.btn_edit_brand_group.Text = "Edit";
-			this.btn_edit_brand_group.Click += new System.EventHandler(this.Btn_edit_brand_group_Click);
-			// 
-			// btn_delete_brand_group
-			// 
-			this.btn_delete_brand_group.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_delete_brand_group.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
-			this.btn_delete_brand_group.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_delete_brand_group.Name = "btn_delete_brand_group";
-			this.btn_delete_brand_group.Size = new System.Drawing.Size(23, 22);
-			this.btn_delete_brand_group.Text = "Delete";
-			this.btn_delete_brand_group.Click += new System.EventHandler(this.Btn_delete_brand_group_Click);
-			// 
 			// btn_add_model
 			// 
 			this.btn_add_model.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -238,6 +227,17 @@
 			this.btn_delete_model.Name = "btn_delete_model";
 			this.btn_delete_model.Size = new System.Drawing.Size(23, 22);
 			this.btn_delete_model.Text = "Delete model";
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(0, 0);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(53, 20);
+			this.label1.TabIndex = 4;
+			this.label1.Text = "Model";
 			// 
 			// Form_vehicle_template
 			// 

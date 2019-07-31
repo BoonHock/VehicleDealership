@@ -749,22 +749,6 @@ namespace VehicleDealership.Datasets.Vehicle_brand_dsTableAdapters {
             tableMapping.ColumnMappings.Add("vehicle_brand", "vehicle_brand");
             tableMapping.ColumnMappings.Add("vehicle_brand_name", "vehicle_brand_name");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [veh].[vehicle_brand] WHERE (([vehicle_brand] = @Original_vehicle_bra" +
-                "nd) AND ([vehicle_brand_name] = @Original_vehicle_brand_name))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vehicle_brand", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vehicle_brand", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vehicle_brand_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vehicle_brand_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [veh].[vehicle_brand] SET [vehicle_brand_name] = @vehicle_brand_name WHERE (([vehicle_brand] = @Original_vehicle_brand) AND ([vehicle_brand_name] = @Original_vehicle_brand_name));
-SELECT vehicle_brand, vehicle_brand_name FROM veh.vehicle_brand WHERE (vehicle_brand = @vehicle_brand) ORDER BY vehicle_brand_name";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle_brand_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vehicle_brand_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vehicle_brand", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vehicle_brand", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vehicle_brand_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vehicle_brand_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle_brand", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "vehicle_brand", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -780,49 +764,27 @@ SELECT vehicle_brand, vehicle_brand_name FROM veh.vehicle_brand WHERE (vehicle_b
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT\r\n\tvehicle_brand,\r\n\tvehicle_brand_name\r\n\r\nFROM [veh].[vehicle_brand]\r\n\r\nORD" +
-                "ER BY vehicle_brand_name";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].CommandText = "veh.sp_select_veh_brand_by_veh_group";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vgroup", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Vehicle_brand_ds.vehicle_brandDataTable GetData() {
+        public virtual Vehicle_brand_ds.vehicle_brandDataTable sp_select_veh_brand_by_veh_group(global::System.Nullable<int> vgroup) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((vgroup.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(vgroup.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             Vehicle_brand_ds.vehicle_brandDataTable dataTable = new Vehicle_brand_ds.vehicle_brandDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Vehicle_brand_ds.vehicle_brandDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Vehicle_brand_ds dataSet) {
-            return this.Adapter.Update(dataSet, "vehicle_brand");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
         }
     }
     
@@ -1025,8 +987,6 @@ SELECT vehicle_brand, vehicle_brand_name FROM veh.vehicle_brand WHERE (vehicle_b
         
         private UpdateOrderOption _updateOrder;
         
-        private vehicle_brandTableAdapter _vehicle_brandTableAdapter;
-        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -1039,20 +999,6 @@ SELECT vehicle_brand, vehicle_brand_name FROM veh.vehicle_brand WHERE (vehicle_b
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public vehicle_brandTableAdapter vehicle_brandTableAdapter {
-            get {
-                return this._vehicle_brandTableAdapter;
-            }
-            set {
-                this._vehicle_brandTableAdapter = value;
             }
         }
         
@@ -1075,10 +1021,6 @@ SELECT vehicle_brand, vehicle_brand_name FROM veh.vehicle_brand WHERE (vehicle_b
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._vehicle_brandTableAdapter != null) 
-                            && (this._vehicle_brandTableAdapter.Connection != null))) {
-                    return this._vehicle_brandTableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -1092,9 +1034,6 @@ SELECT vehicle_brand, vehicle_brand_name FROM veh.vehicle_brand WHERE (vehicle_b
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._vehicle_brandTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 return count;
             }
         }
@@ -1106,15 +1045,6 @@ SELECT vehicle_brand, vehicle_brand_name FROM veh.vehicle_brand WHERE (vehicle_b
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(Vehicle_brand_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._vehicle_brandTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.vehicle_brand.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._vehicle_brandTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -1125,14 +1055,6 @@ SELECT vehicle_brand, vehicle_brand_name FROM veh.vehicle_brand WHERE (vehicle_b
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(Vehicle_brand_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._vehicle_brandTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.vehicle_brand.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._vehicle_brandTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -1143,14 +1065,6 @@ SELECT vehicle_brand, vehicle_brand_name FROM veh.vehicle_brand WHERE (vehicle_b
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(Vehicle_brand_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._vehicle_brandTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.vehicle_brand.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._vehicle_brandTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             return result;
         }
         
@@ -1190,11 +1104,6 @@ SELECT vehicle_brand, vehicle_brand_name FROM veh.vehicle_brand WHERE (vehicle_b
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._vehicle_brandTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._vehicle_brandTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
@@ -1227,15 +1136,6 @@ SELECT vehicle_brand, vehicle_brand_name FROM veh.vehicle_brand WHERE (vehicle_b
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._vehicle_brandTableAdapter != null)) {
-                    revertConnections.Add(this._vehicle_brandTableAdapter, this._vehicle_brandTableAdapter.Connection);
-                    this._vehicle_brandTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._vehicle_brandTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._vehicle_brandTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._vehicle_brandTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._vehicle_brandTableAdapter.Adapter);
-                    }
-                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -1293,10 +1193,6 @@ SELECT vehicle_brand, vehicle_brand_name FROM veh.vehicle_brand WHERE (vehicle_b
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._vehicle_brandTableAdapter != null)) {
-                    this._vehicle_brandTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._vehicle_brandTableAdapter]));
-                    this._vehicle_brandTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

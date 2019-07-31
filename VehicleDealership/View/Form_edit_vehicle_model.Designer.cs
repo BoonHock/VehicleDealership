@@ -54,15 +54,15 @@
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.grd_img = new System.Windows.Forms.DataGridView();
-			this.picbox = new System.Windows.Forms.PictureBox();
-			this.panel2 = new System.Windows.Forms.Panel();
-			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+			this.btn_edit_img_desc = new System.Windows.Forms.Button();
 			this.txt_img_caption = new System.Windows.Forms.TextBox();
+			this.panel2 = new System.Windows.Forms.Panel();
+			this.grd_img = new System.Windows.Forms.DataGridView();
+			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.btn_add_img = new System.Windows.Forms.ToolStripButton();
 			this.btn_delete_img = new System.Windows.Forms.ToolStripButton();
-			this.btn_edit_img_desc = new System.Windows.Forms.Button();
+			this.picbox = new System.Windows.Forms.PictureBox();
+			this.panel1 = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.num_engine)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_no_of_door)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_seat_capacity)).BeginInit();
@@ -70,11 +70,11 @@
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
-			this.panel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.grd_img)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.picbox)).BeginInit();
 			this.panel2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.grd_img)).BeginInit();
 			this.toolStrip1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.picbox)).BeginInit();
+			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -113,7 +113,6 @@
 			this.cmb_group.Name = "cmb_group";
 			this.cmb_group.Size = new System.Drawing.Size(175, 28);
 			this.cmb_group.TabIndex = 7;
-			this.cmb_group.SelectedIndexChanged += new System.EventHandler(this.Cmb_group_SelectedIndexChanged);
 			// 
 			// label2
 			// 
@@ -355,14 +354,34 @@
 			this.tabPage2.Text = "Images";
 			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
-			// panel1
+			// btn_edit_img_desc
 			// 
-			this.panel1.Controls.Add(this.tableLayoutPanel1);
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel1.Location = new System.Drawing.Point(0, 485);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(822, 59);
-			this.panel1.TabIndex = 23;
+			this.btn_edit_img_desc.AutoSize = true;
+			this.btn_edit_img_desc.Location = new System.Drawing.Point(376, 363);
+			this.btn_edit_img_desc.Name = "btn_edit_img_desc";
+			this.btn_edit_img_desc.Size = new System.Drawing.Size(55, 30);
+			this.btn_edit_img_desc.TabIndex = 4;
+			this.btn_edit_img_desc.Text = "Edit";
+			this.btn_edit_img_desc.UseVisualStyleBackColor = true;
+			// 
+			// txt_img_caption
+			// 
+			this.txt_img_caption.Location = new System.Drawing.Point(437, 363);
+			this.txt_img_caption.Multiline = true;
+			this.txt_img_caption.Name = "txt_img_caption";
+			this.txt_img_caption.ReadOnly = true;
+			this.txt_img_caption.Size = new System.Drawing.Size(359, 83);
+			this.txt_img_caption.TabIndex = 3;
+			// 
+			// panel2
+			// 
+			this.panel2.Controls.Add(this.grd_img);
+			this.panel2.Controls.Add(this.toolStrip1);
+			this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+			this.panel2.Location = new System.Drawing.Point(3, 3);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(367, 446);
+			this.panel2.TabIndex = 2;
 			// 
 			// grd_img
 			// 
@@ -376,24 +395,6 @@
 			this.grd_img.Size = new System.Drawing.Size(367, 421);
 			this.grd_img.TabIndex = 0;
 			// 
-			// picbox
-			// 
-			this.picbox.Location = new System.Drawing.Point(402, 6);
-			this.picbox.Name = "picbox";
-			this.picbox.Size = new System.Drawing.Size(380, 351);
-			this.picbox.TabIndex = 1;
-			this.picbox.TabStop = false;
-			// 
-			// panel2
-			// 
-			this.panel2.Controls.Add(this.grd_img);
-			this.panel2.Controls.Add(this.toolStrip1);
-			this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-			this.panel2.Location = new System.Drawing.Point(3, 3);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(367, 446);
-			this.panel2.TabIndex = 2;
-			// 
 			// toolStrip1
 			// 
 			this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
@@ -405,15 +406,6 @@
 			this.toolStrip1.Size = new System.Drawing.Size(367, 25);
 			this.toolStrip1.TabIndex = 0;
 			this.toolStrip1.Text = "toolStrip1";
-			// 
-			// txt_img_caption
-			// 
-			this.txt_img_caption.Location = new System.Drawing.Point(437, 363);
-			this.txt_img_caption.Multiline = true;
-			this.txt_img_caption.Name = "txt_img_caption";
-			this.txt_img_caption.ReadOnly = true;
-			this.txt_img_caption.Size = new System.Drawing.Size(359, 83);
-			this.txt_img_caption.TabIndex = 3;
 			// 
 			// btn_add_img
 			// 
@@ -433,15 +425,22 @@
 			this.btn_delete_img.Size = new System.Drawing.Size(23, 22);
 			this.btn_delete_img.Text = "Delete image";
 			// 
-			// btn_edit_img_desc
+			// picbox
 			// 
-			this.btn_edit_img_desc.AutoSize = true;
-			this.btn_edit_img_desc.Location = new System.Drawing.Point(376, 363);
-			this.btn_edit_img_desc.Name = "btn_edit_img_desc";
-			this.btn_edit_img_desc.Size = new System.Drawing.Size(55, 30);
-			this.btn_edit_img_desc.TabIndex = 4;
-			this.btn_edit_img_desc.Text = "Edit";
-			this.btn_edit_img_desc.UseVisualStyleBackColor = true;
+			this.picbox.Location = new System.Drawing.Point(402, 6);
+			this.picbox.Name = "picbox";
+			this.picbox.Size = new System.Drawing.Size(380, 351);
+			this.picbox.TabIndex = 1;
+			this.picbox.TabStop = false;
+			// 
+			// panel1
+			// 
+			this.panel1.Controls.Add(this.tableLayoutPanel1);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.panel1.Location = new System.Drawing.Point(0, 485);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(822, 59);
+			this.panel1.TabIndex = 23;
 			// 
 			// Form_edit_vehicle_model
 			// 
@@ -465,13 +464,13 @@
 			this.tabPage1.PerformLayout();
 			this.tabPage2.ResumeLayout(false);
 			this.tabPage2.PerformLayout();
-			this.panel1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.grd_img)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.picbox)).EndInit();
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.grd_img)).EndInit();
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.picbox)).EndInit();
+			this.panel1.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}

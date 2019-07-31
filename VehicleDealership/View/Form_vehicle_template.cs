@@ -124,12 +124,12 @@ namespace VehicleDealership.View
 
 			if (tv_vehicle.SelectedNode == null)
 			{
-				form_model = new Form_edit_vehicle_model(null, null);
+				form_model = new Form_edit_vehicle_model();
 			}
 			else
 			{
-				form_model = new Form_edit_vehicle_model(null, 
-					int.Parse(Class_treeview.Get_child_at_level(tv_vehicle.SelectedNode, 2).Name));
+				form_model = new Form_edit_vehicle_model(int.Parse(Class_treeview.
+					Get_child_at_level(tv_vehicle.SelectedNode, 2).Name));
 			}
 
 			if (form_model.ShowDialog() != DialogResult.OK) return;

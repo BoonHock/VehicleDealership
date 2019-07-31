@@ -21,15 +21,30 @@ namespace VehicleDealership.View
 				return _int_model_id;
 			}
 		}
-		public Form_edit_vehicle_model(int? int_model = 0, int? int_group = null)
+		public Form_edit_vehicle_model(int int_group = 0)
 		{
 			InitializeComponent();
-
-			if (int_model != null) _int_model_id = (int)int_model;
 
 			cmb_brand.DisplayMember = "display";
 			cmb_brand.ValueMember = "value";
 			cmb_brand.DataSource = Combobox_options_ds.Option_vehicle_brand();
+
+			cmb_fuel_type.DisplayMember = "display";
+			cmb_fuel_type.ValueMember = "value";
+			cmb_fuel_type.DataSource = Combobox_options_ds.Select_fuel_type();
+
+			cmb_transmission.DisplayMember = "display";
+			cmb_transmission.ValueMember = "value";
+			cmb_transmission.DataSource = Combobox_options_ds.Select_transmission();
+
+			Vehicle_brand_ds.vehicle_brandDataTable dttable_brand = Vehicle_brand_ds.Select_veh_brand_by_veh_group(int_group);
+
+			if (dttable_brand.Rows.Count > 0)
+				cmb_brand.SelectedValue = dttable_brand.Rows[0]["vehicle_brand"];
+
+			cmb_group.SelectedValue = int_group;
+
+			this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.Initilise_grd_img);
 		}
 
 		private void Btn_ok_Click(object sender, EventArgs e)
@@ -69,11 +84,18 @@ namespace VehicleDealership.View
 			cmb_group.DisplayMember = "display";
 			cmb_group.ValueMember = "value";
 			cmb_group.DataSource = dttable_group;
+
+			if (cmb_group.Items.Count > 0) cmb_group.SelectedIndex = 0;
 		}
 
-		private void Cmb_group_SelectedIndexChanged(object sender, EventArgs e)
+		private void Initilise_grd_img(object sender, EventArgs e)
 		{
+			// set up grd_image when image tab is selected for the first time after form loads
+			grd_img.DataSource = null;
+			grd_img.DataSource = vehicle_model_image_ds.Select_vehicle_model_image(_int_model_id);
 
+			// detach event handler after initilising images.
+			this.tabControl1.SelectedIndexChanged -= new System.EventHandler(this.Initilise_grd_img);
 		}
 	}
 }

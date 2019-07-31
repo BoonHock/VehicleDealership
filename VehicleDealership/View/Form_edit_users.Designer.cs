@@ -30,7 +30,6 @@
 		{
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
-			this.linklbl_change_password = new System.Windows.Forms.LinkLabel();
 			this.btn_remove_image = new System.Windows.Forms.Button();
 			this.label9 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
@@ -87,7 +86,6 @@
 			// 
 			// tabPage1
 			// 
-			this.tabPage1.Controls.Add(this.linklbl_change_password);
 			this.tabPage1.Controls.Add(this.btn_remove_image);
 			this.tabPage1.Controls.Add(this.label9);
 			this.tabPage1.Controls.Add(this.label7);
@@ -112,17 +110,6 @@
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "General";
 			this.tabPage1.UseVisualStyleBackColor = true;
-			// 
-			// linklbl_change_password
-			// 
-			this.linklbl_change_password.AutoSize = true;
-			this.linklbl_change_password.Location = new System.Drawing.Point(6, 186);
-			this.linklbl_change_password.Name = "linklbl_change_password";
-			this.linklbl_change_password.Size = new System.Drawing.Size(126, 20);
-			this.linklbl_change_password.TabIndex = 19;
-			this.linklbl_change_password.TabStop = true;
-			this.linklbl_change_password.Text = "Change password";
-			this.linklbl_change_password.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Linklabel_change_password_LinkClicked);
 			// 
 			// btn_remove_image
 			// 
@@ -480,6 +467,5 @@
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.DataGridView grd_usergroup;
-		private System.Windows.Forms.LinkLabel linklbl_change_password;
 	}
 }
