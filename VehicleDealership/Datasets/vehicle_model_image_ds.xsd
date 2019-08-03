@@ -25,6 +25,8 @@
               <Mapping SourceColumn="vehicle_model_image" DataSetColumn="vehicle_model_image" />
               <Mapping SourceColumn="image" DataSetColumn="image" />
               <Mapping SourceColumn="image_description" DataSetColumn="image_description" />
+              <Mapping SourceColumn="created_by" DataSetColumn="created_by" />
+              <Mapping SourceColumn="created_on" DataSetColumn="created_on" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -48,6 +50,14 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="created_by" msprop:Generator_ColumnVarNameInTable="columncreated_by" msprop:Generator_ColumnPropNameInRow="created_by" msprop:Generator_ColumnPropNameInTable="created_byColumn" msprop:Generator_UserColumnName="created_by">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="created_on" msprop:Generator_ColumnVarNameInTable="columncreated_on" msprop:Generator_ColumnPropNameInRow="created_on" msprop:Generator_ColumnPropNameInTable="created_onColumn" msprop:Generator_UserColumnName="created_on" type="xs:dateTime" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

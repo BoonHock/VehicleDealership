@@ -285,6 +285,10 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columnimage_description;
             
+            private global::System.Data.DataColumn columncreated_by;
+            
+            private global::System.Data.DataColumn columncreated_on;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public sp_select_vehicle_model_imageDataTable() {
@@ -344,6 +348,22 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn created_byColumn {
+                get {
+                    return this.columncreated_by;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn created_onColumn {
+                get {
+                    return this.columncreated_on;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -379,12 +399,14 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_vehicle_model_imageRow Addsp_select_vehicle_model_imageRow(byte[] image, string image_description) {
+            public sp_select_vehicle_model_imageRow Addsp_select_vehicle_model_imageRow(byte[] image, string image_description, string created_by, System.DateTime created_on) {
                 sp_select_vehicle_model_imageRow rowsp_select_vehicle_model_imageRow = ((sp_select_vehicle_model_imageRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         image,
-                        image_description};
+                        image_description,
+                        created_by,
+                        created_on};
                 rowsp_select_vehicle_model_imageRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_select_vehicle_model_imageRow);
                 return rowsp_select_vehicle_model_imageRow;
@@ -417,6 +439,8 @@ namespace VehicleDealership.Datasets {
                 this.columnvehicle_model_image = base.Columns["vehicle_model_image"];
                 this.columnimage = base.Columns["image"];
                 this.columnimage_description = base.Columns["image_description"];
+                this.columncreated_by = base.Columns["created_by"];
+                this.columncreated_on = base.Columns["created_on"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -428,6 +452,10 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columnimage);
                 this.columnimage_description = new global::System.Data.DataColumn("image_description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnimage_description);
+                this.columncreated_by = new global::System.Data.DataColumn("created_by", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncreated_by);
+                this.columncreated_on = new global::System.Data.DataColumn("created_on", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncreated_on);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnvehicle_model_image}, true));
                 this.columnvehicle_model_image.AutoIncrement = true;
@@ -439,6 +467,9 @@ namespace VehicleDealership.Datasets {
                 this.columnimage.AllowDBNull = false;
                 this.columnimage_description.AllowDBNull = false;
                 this.columnimage_description.MaxLength = 100;
+                this.columncreated_by.AllowDBNull = false;
+                this.columncreated_by.MaxLength = 200;
+                this.columncreated_on.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -611,6 +642,28 @@ namespace VehicleDealership.Datasets {
                     this[this.tablesp_select_vehicle_model_image.image_descriptionColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string created_by {
+                get {
+                    return ((string)(this[this.tablesp_select_vehicle_model_image.created_byColumn]));
+                }
+                set {
+                    this[this.tablesp_select_vehicle_model_image.created_byColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime created_on {
+                get {
+                    return ((global::System.DateTime)(this[this.tablesp_select_vehicle_model_image.created_onColumn]));
+                }
+                set {
+                    this[this.tablesp_select_vehicle_model_image.created_onColumn] = value;
+                }
+            }
         }
         
         /// <summary>
@@ -775,6 +828,8 @@ namespace VehicleDealership.Datasets.vehicle_model_image_dsTableAdapters {
             tableMapping.ColumnMappings.Add("vehicle_model_image", "vehicle_model_image");
             tableMapping.ColumnMappings.Add("image", "image");
             tableMapping.ColumnMappings.Add("image_description", "image_description");
+            tableMapping.ColumnMappings.Add("created_by", "created_by");
+            tableMapping.ColumnMappings.Add("created_on", "created_on");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

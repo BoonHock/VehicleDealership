@@ -58,6 +58,7 @@
 			this.btn_cancel = new System.Windows.Forms.Button();
 			this.btn_ok = new System.Windows.Forms.Button();
 			this.filedlg_img = new System.Windows.Forms.OpenFileDialog();
+			this.vehicle_model_image_ds1 = new VehicleDealership.Datasets.vehicle_model_image_ds();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picbox_image)).BeginInit();
@@ -70,6 +71,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.grd_permission)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.vehicle_model_image_ds1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tabControl1
@@ -401,6 +403,11 @@
 			// 
 			this.filedlg_img.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
 			// 
+			// vehicle_model_image_ds1
+			// 
+			this.vehicle_model_image_ds1.DataSetName = "vehicle_model_image_ds";
+			this.vehicle_model_image_ds1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			// 
 			// Form_edit_users
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -431,6 +438,7 @@
 			this.panel1.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.vehicle_model_image_ds1)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -467,5 +475,6 @@
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.DataGridView grd_usergroup;
+		private Datasets.vehicle_model_image_ds vehicle_model_image_ds1;
 	}
 }

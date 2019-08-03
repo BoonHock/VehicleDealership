@@ -92,13 +92,16 @@ namespace VehicleDealership.View
 			Form_log_in form_login = new Form_log_in();
 			if (form_login.ShowDialog() != DialogResult.OK) return;
 
-			Program.System_user = new Classes.User(form_login.Username);
+			Program.System_user = new User(form_login.Username);
 
 			if (Program.System_user.UserID == 1)
 			{
 				// temporary for development
 				// if user log in as admin, assign all permissions. just in case any permission not assigned
 				Datasets.Permission_ds.Assign_all_permission_to_administrator();
+
+				// developer is only availabe to user id 1
+				Program.System_user.IsDeveloper = form_login.IsDeveloper;
 			}
 			Setup_menustrip();
 			ssl_username.Text = Program.System_user.Username;

@@ -19,6 +19,7 @@ namespace VehicleDealership.View
 			InitializeComponent();
 		}
 		public string Username { get; private set; } = "";
+		public bool IsDeveloper { get; private set; } = false;
 		private void Btn_log_in_Click(object sender, EventArgs e)
 		{
 			Cursor.Current = Cursors.WaitCursor;
@@ -148,5 +149,21 @@ namespace VehicleDealership.View
 			return (hashValue == expectedHashString);
 		}
 
+		private void Txt_username_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.Control && e.Shift && e.KeyCode == Keys.D)
+			{
+				if (IsDeveloper)
+				{
+					IsDeveloper = false;
+					lbl_developer.Visible = false;
+				}
+				else
+				{
+					IsDeveloper = true;
+					lbl_developer.Visible = true;
+				}
+			}
+		}
 	}
 }

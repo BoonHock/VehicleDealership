@@ -36,6 +36,7 @@
 			this.btn_log_in = new System.Windows.Forms.Button();
 			this.lbl_invalid_login = new System.Windows.Forms.Label();
 			this.btn_cancel = new System.Windows.Forms.Button();
+			this.lbl_developer = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -65,6 +66,7 @@
 			this.txt_username.Name = "txt_username";
 			this.txt_username.Size = new System.Drawing.Size(234, 27);
 			this.txt_username.TabIndex = 2;
+			this.txt_username.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_username_KeyDown);
 			// 
 			// txt_password
 			// 
@@ -77,7 +79,7 @@
 			// 
 			// btn_log_in
 			// 
-			this.btn_log_in.Location = new System.Drawing.Point(177, 83);
+			this.btn_log_in.Location = new System.Drawing.Point(177, 105);
 			this.btn_log_in.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btn_log_in.Name = "btn_log_in";
 			this.btn_log_in.Size = new System.Drawing.Size(67, 28);
@@ -90,7 +92,7 @@
 			// 
 			this.lbl_invalid_login.AutoSize = true;
 			this.lbl_invalid_login.ForeColor = System.Drawing.Color.Red;
-			this.lbl_invalid_login.Location = new System.Drawing.Point(11, 94);
+			this.lbl_invalid_login.Location = new System.Drawing.Point(11, 109);
 			this.lbl_invalid_login.Name = "lbl_invalid_login";
 			this.lbl_invalid_login.Size = new System.Drawing.Size(97, 20);
 			this.lbl_invalid_login.TabIndex = 5;
@@ -100,12 +102,22 @@
 			// btn_cancel
 			// 
 			this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btn_cancel.Location = new System.Drawing.Point(250, 84);
+			this.btn_cancel.Location = new System.Drawing.Point(250, 106);
 			this.btn_cancel.Name = "btn_cancel";
 			this.btn_cancel.Size = new System.Drawing.Size(75, 28);
 			this.btn_cancel.TabIndex = 6;
 			this.btn_cancel.Text = "Cancel";
 			this.btn_cancel.UseVisualStyleBackColor = true;
+			// 
+			// lbl_developer
+			// 
+			this.lbl_developer.AutoSize = true;
+			this.lbl_developer.Location = new System.Drawing.Point(91, 76);
+			this.lbl_developer.Name = "lbl_developer";
+			this.lbl_developer.Size = new System.Drawing.Size(147, 20);
+			this.lbl_developer.TabIndex = 7;
+			this.lbl_developer.Text = "Developer mode ON";
+			this.lbl_developer.Visible = false;
 			// 
 			// Form_log_in
 			// 
@@ -113,7 +125,8 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btn_cancel;
-			this.ClientSize = new System.Drawing.Size(337, 124);
+			this.ClientSize = new System.Drawing.Size(337, 146);
+			this.Controls.Add(this.lbl_developer);
 			this.Controls.Add(this.btn_cancel);
 			this.Controls.Add(this.lbl_invalid_login);
 			this.Controls.Add(this.btn_log_in);
@@ -142,5 +155,6 @@
 		private System.Windows.Forms.Button btn_log_in;
 		private System.Windows.Forms.Label lbl_invalid_login;
 		private System.Windows.Forms.Button btn_cancel;
+		private System.Windows.Forms.Label lbl_developer;
 	}
 }

@@ -140,6 +140,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Vehicle_group_ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\Vehicle_model_ds.cs">
+      <DependentUpon>Vehicle_model_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Vehicle_model_ds1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Vehicle_model_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\vehicle_model_image_ds.cs">
       <DependentUpon>vehicle_model_image_ds.xsd</DependentUpon>
     </Compile>
@@ -352,6 +360,17 @@
     <None Include="Datasets\Vehicle_group_ds.xss">
       <DependentUpon>Vehicle_group_ds.xsd</DependentUpon>
     </None>
+    <None Include="Datasets\Vehicle_model_ds.xsc">
+      <DependentUpon>Vehicle_model_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Vehicle_model_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Vehicle_model_ds1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Vehicle_model_ds.xss">
+      <DependentUpon>Vehicle_model_ds.xsd</DependentUpon>
+    </None>
     <None Include="Datasets\vehicle_model_image_ds.xsc">
       <DependentUpon>vehicle_model_image_ds.xsd</DependentUpon>
     </None>
@@ -401,6 +420,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="green_car.ico" />
+    <None Include="Resources\AddImage_16x.png" />
     <None Include="Resources\ChangePassword_16x.png" />
     <None Include="Resources\Save_16x.png" />
     <None Include="Resources\StatusStop_16x.png" />

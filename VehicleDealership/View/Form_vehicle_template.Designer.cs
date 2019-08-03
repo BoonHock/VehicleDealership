@@ -34,6 +34,7 @@
 			this.editBrandGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.deleteBrandGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.addBrandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.addModelToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.btn_add_brand = new System.Windows.Forms.ToolStripButton();
@@ -41,6 +42,10 @@
 			this.btn_delete_brand_group = new System.Windows.Forms.ToolStripButton();
 			this.label2 = new System.Windows.Forms.Label();
 			this.grd_model = new System.Windows.Forms.DataGridView();
+			this.cms_model = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.editModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.addModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.deleteModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStrip2 = new System.Windows.Forms.ToolStrip();
 			this.btn_add_model = new System.Windows.Forms.ToolStripButton();
 			this.btn_edit_model = new System.Windows.Forms.ToolStripButton();
@@ -53,6 +58,7 @@
 			this.splitContainer1.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_model)).BeginInit();
+			this.cms_model.SuspendLayout();
 			this.toolStrip2.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -62,7 +68,7 @@
 			this.tv_vehicle.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tv_vehicle.Location = new System.Drawing.Point(0, 45);
 			this.tv_vehicle.Name = "tv_vehicle";
-			this.tv_vehicle.Size = new System.Drawing.Size(262, 498);
+			this.tv_vehicle.Size = new System.Drawing.Size(262, 737);
 			this.tv_vehicle.TabIndex = 0;
 			this.tv_vehicle.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Tv_vehicle_AfterSelect);
 			this.tv_vehicle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tv_vehicle_MouseDown);
@@ -72,30 +78,38 @@
 			this.cms_vehicle.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editBrandGroupToolStripMenuItem,
             this.deleteBrandGroupToolStripMenuItem,
-            this.addBrandToolStripMenuItem});
+            this.addBrandToolStripMenuItem,
+            this.addModelToolStripMenuItem1});
 			this.cms_vehicle.Name = "cms_vehicle";
-			this.cms_vehicle.Size = new System.Drawing.Size(131, 70);
+			this.cms_vehicle.Size = new System.Drawing.Size(134, 92);
 			// 
 			// editBrandGroupToolStripMenuItem
 			// 
 			this.editBrandGroupToolStripMenuItem.Name = "editBrandGroupToolStripMenuItem";
-			this.editBrandGroupToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+			this.editBrandGroupToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
 			this.editBrandGroupToolStripMenuItem.Text = "Edit";
 			this.editBrandGroupToolStripMenuItem.Click += new System.EventHandler(this.Btn_edit_brand_group_Click);
 			// 
 			// deleteBrandGroupToolStripMenuItem
 			// 
 			this.deleteBrandGroupToolStripMenuItem.Name = "deleteBrandGroupToolStripMenuItem";
-			this.deleteBrandGroupToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+			this.deleteBrandGroupToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
 			this.deleteBrandGroupToolStripMenuItem.Text = "Delete";
 			this.deleteBrandGroupToolStripMenuItem.Click += new System.EventHandler(this.Btn_delete_brand_group_Click);
 			// 
 			// addBrandToolStripMenuItem
 			// 
 			this.addBrandToolStripMenuItem.Name = "addBrandToolStripMenuItem";
-			this.addBrandToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+			this.addBrandToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
 			this.addBrandToolStripMenuItem.Text = "Add brand";
 			this.addBrandToolStripMenuItem.Click += new System.EventHandler(this.Add_brand);
+			// 
+			// addModelToolStripMenuItem1
+			// 
+			this.addModelToolStripMenuItem1.Name = "addModelToolStripMenuItem1";
+			this.addModelToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
+			this.addModelToolStripMenuItem1.Text = "Add model";
+			this.addModelToolStripMenuItem1.Click += new System.EventHandler(this.Btn_add_model_Click);
 			// 
 			// splitContainer1
 			// 
@@ -115,7 +129,7 @@
 			this.splitContainer1.Panel2.Controls.Add(this.grd_model);
 			this.splitContainer1.Panel2.Controls.Add(this.toolStrip2);
 			this.splitContainer1.Panel2.Controls.Add(this.label1);
-			this.splitContainer1.Size = new System.Drawing.Size(955, 543);
+			this.splitContainer1.Size = new System.Drawing.Size(1386, 782);
 			this.splitContainer1.SplitterDistance = 262;
 			this.splitContainer1.TabIndex = 3;
 			// 
@@ -179,12 +193,42 @@
 			this.grd_model.AllowUserToAddRows = false;
 			this.grd_model.AllowUserToDeleteRows = false;
 			this.grd_model.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.grd_model.ContextMenuStrip = this.cms_model;
 			this.grd_model.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.grd_model.Location = new System.Drawing.Point(0, 45);
 			this.grd_model.Name = "grd_model";
 			this.grd_model.ReadOnly = true;
-			this.grd_model.Size = new System.Drawing.Size(689, 498);
+			this.grd_model.Size = new System.Drawing.Size(1120, 737);
 			this.grd_model.TabIndex = 3;
+			// 
+			// cms_model
+			// 
+			this.cms_model.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editModelToolStripMenuItem,
+            this.addModelToolStripMenuItem,
+            this.deleteModelToolStripMenuItem});
+			this.cms_model.Name = "cms_model";
+			this.cms_model.Size = new System.Drawing.Size(108, 70);
+			// 
+			// editModelToolStripMenuItem
+			// 
+			this.editModelToolStripMenuItem.Name = "editModelToolStripMenuItem";
+			this.editModelToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+			this.editModelToolStripMenuItem.Text = "Edit";
+			this.editModelToolStripMenuItem.Click += new System.EventHandler(this.Btn_edit_model_Click);
+			// 
+			// addModelToolStripMenuItem
+			// 
+			this.addModelToolStripMenuItem.Name = "addModelToolStripMenuItem";
+			this.addModelToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+			this.addModelToolStripMenuItem.Text = "Add";
+			this.addModelToolStripMenuItem.Click += new System.EventHandler(this.AddModelToolStripMenuItem_Click);
+			// 
+			// deleteModelToolStripMenuItem
+			// 
+			this.deleteModelToolStripMenuItem.Name = "deleteModelToolStripMenuItem";
+			this.deleteModelToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+			this.deleteModelToolStripMenuItem.Text = "Delete";
 			// 
 			// toolStrip2
 			// 
@@ -195,7 +239,7 @@
             this.btn_delete_model});
 			this.toolStrip2.Location = new System.Drawing.Point(0, 20);
 			this.toolStrip2.Name = "toolStrip2";
-			this.toolStrip2.Size = new System.Drawing.Size(689, 25);
+			this.toolStrip2.Size = new System.Drawing.Size(1120, 25);
 			this.toolStrip2.TabIndex = 2;
 			this.toolStrip2.Text = "toolStrip2";
 			// 
@@ -243,7 +287,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(955, 543);
+			this.ClientSize = new System.Drawing.Size(1386, 782);
 			this.Controls.Add(this.splitContainer1);
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F);
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -260,6 +304,7 @@
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_model)).EndInit();
+			this.cms_model.ResumeLayout(false);
 			this.toolStrip2.ResumeLayout(false);
 			this.toolStrip2.PerformLayout();
 			this.ResumeLayout(false);
@@ -285,5 +330,10 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.ToolStripMenuItem editBrandGroupToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem deleteBrandGroupToolStripMenuItem;
+		private System.Windows.Forms.ContextMenuStrip cms_model;
+		private System.Windows.Forms.ToolStripMenuItem editModelToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem addModelToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem deleteModelToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem addModelToolStripMenuItem1;
 	}
 }

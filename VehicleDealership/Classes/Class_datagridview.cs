@@ -68,6 +68,21 @@ namespace VehicleDealership.Classes
 			}
 		}
 		/// <summary>
+		/// hide columns where column name not in @cols_to_view array
+		/// </summary>
+		/// <param name="grd"></param>
+		/// <param name="cols_to_view"></param>
+		public static void Hide_unnecessary_columns(DataGridView grd, string[] cols_to_view)
+		{
+			foreach (DataGridViewColumn grd_col in grd.Columns)
+			{
+				if (!cols_to_view.Contains(grd_col.Name, StringComparer.OrdinalIgnoreCase))
+				{
+					grd_col.Visible = false;
+				}
+			}
+		}
+		/// <summary>
 		/// change header text
 		/// </summary>
 		/// <param name="grd">datagridview to process</param>

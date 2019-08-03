@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.IO;
 
 namespace VehicleDealership.Classes
 {
@@ -27,6 +28,22 @@ namespace VehicleDealership.Classes
 
 			return new Bitmap(img, (int)(img.Width * scale), (int)(img.Height * scale));
 		}
-
+		public static byte[] Image_to_byte_array(Image img)
+		{
+			byte[] byte_image = null;
+			using (MemoryStream ms = new MemoryStream())
+			{
+				img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+				byte_image = ms.ToArray();
+			}
+			return byte_image;
+		}
+		public static Image Byte_array_to_image (byte[] byte_image)
+		{
+			using (var ms = new MemoryStream(byte_image))
+			{
+				return Image.FromStream(ms);
+			}
+		}
 	}
 }

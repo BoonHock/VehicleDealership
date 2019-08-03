@@ -10,6 +10,7 @@ namespace VehicleDealership.Classes
 {
 	class User
 	{
+		public bool IsDeveloper { get; set; } = false;
 		public int UserID { get; private set; } = 0;
 		public string Username { get; private set; } = "";
 		public string Name { get; private set; } = "";

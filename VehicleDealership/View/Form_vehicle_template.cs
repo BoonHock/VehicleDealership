@@ -17,10 +17,15 @@ namespace VehicleDealership.View
 		public Form_vehicle_template()
 		{
 			InitializeComponent();
+
+			// when user mousedown, even right click, select cell
+			grd_model.MouseDown += Class_datagridview.MouseDown_select_cell;
 		}
 
 		private void Form_vehicle_template_Load(object sender, EventArgs e)
 		{
+			Class_style.Grd_style.Common_style(grd_model);
+
 			Setup_tv_vehicle();
 		}
 		private void Setup_tv_vehicle()
@@ -109,32 +114,89 @@ namespace VehicleDealership.View
 			MessageBox.Show("work in progress");
 			// TODO. make sure check all other db tables not using group/brand. foreign key will prevent delete
 		}
-		private void Setup_grd_model()
+		private void Setup_grd_model(int int_vmodel = 0)
 		{
 			// TODO: setup grd model
+			if (tv_vehicle.SelectedNode == null) return;
+
+			int int_country = int.Parse(Class_treeview.Get_parent_node_by_level(tv_vehicle.SelectedNode, 0).Name);
+			int int_vbrand = -1;
+			int int_vgroup = -1;
+
+			if (tv_vehicle.SelectedNode.Level > 0)
+				int_vbrand = int.Parse(Class_treeview.Get_parent_node_by_level(tv_vehicle.SelectedNode, 1).Name);
+
+			if (tv_vehicle.SelectedNode.Level > 1)
+				int_vgroup = int.Parse(Class_treeview.Get_parent_node_by_level(tv_vehicle.SelectedNode, 2).Name);
+
+			grd_model.DataSource = null;
+			grd_model.DataSource = Vehicle_model_ds.Select_vehicle_model(int_country, int_vbrand, int_vgroup, -1);
+
+			if (!Program.System_user.IsDeveloper)
+			{
+				Class_datagridview.Hide_unnecessary_columns(grd_model, new string[] { "vehicle_model_name","engine_capacity","no_of_door",
+					"seat_capacity","fuel_type_name","transmission_name","vehicle_group_name", "vehicle_brand_name", "country_name" });
+			}
+			grd_model.AutoResizeColumns();
+
+			if (int_vmodel != 0)
+			{
+				foreach (DataGridViewRow grd_row in grd_model.Rows)
+				{
+					if (int.Parse(grd_row.Cells["vehicle_model"].Value.ToString()) == int_vmodel)
+					{
+						grd_model.ClearSelection();
+						grd_row.Cells["vehicle_model_name"].Selected = true;
+						grd_model.CurrentCell = grd_row.Cells["vehicle_model_name"];
+						break;
+					}
+				}
+			}
 		}
 
 		private void Btn_edit_model_Click(object sender, EventArgs e)
 		{
+			if (grd_model.SelectedCells.Count == 0) return;
 
-		}
-		private void Btn_add_model_Click(object sender, EventArgs e)
-		{
-			Form form_model;
+			int int_vmodel = int.Parse(grd_model.SelectedCells[0].OwningRow.Cells["vehicle_model"].Value.ToString());
 
-			if (tv_vehicle.SelectedNode == null)
-			{
-				form_model = new Form_edit_vehicle_model();
-			}
-			else
-			{
-				form_model = new Form_edit_vehicle_model(int.Parse(Class_treeview.
-					Get_child_at_level(tv_vehicle.SelectedNode, 2).Name));
-			}
+			Form_edit_vehicle_model form_model = new Form_edit_vehicle_model(0, int_vmodel);
 
 			if (form_model.ShowDialog() != DialogResult.OK) return;
 
-			Setup_grd_model();
+			Setup_grd_model(int_vmodel);
+		}
+		private void Btn_add_model_Click(object sender, EventArgs e)
+		{
+			int int_vgroup = 0; // default
+
+			// since vehicle group the last level, get child. no need to get parent.
+			if (tv_vehicle.SelectedNode != null)
+				int_vgroup = int.Parse(Class_treeview.Get_child_at_level(tv_vehicle.SelectedNode, 2).Name);
+
+			Add_model(int_vgroup);
+		}
+		private void Add_model(int int_vgroup)
+		{
+			// int group will preselect group in vehicle group combobox. 
+			// if 0 is passed, will select first item of combobox
+			Form_edit_vehicle_model form_model = new Form_edit_vehicle_model(int_group: int_vgroup);
+
+			if (form_model.ShowDialog() != DialogResult.OK) return;
+
+			Setup_grd_model(form_model.Model_id);
+		}
+
+		private void AddModelToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (grd_model.SelectedCells.Count == 0)
+			{
+				btn_add_model.PerformClick();
+			}
+			else
+			{
+				Add_model(int.Parse(grd_model.SelectedCells[0].OwningRow.Cells["vehicle_group"].Value.ToString()));
+			}
 		}
 	}
 }
