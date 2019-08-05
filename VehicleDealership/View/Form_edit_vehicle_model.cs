@@ -15,7 +15,7 @@ namespace VehicleDealership.View
 {
 	public partial class Form_edit_vehicle_model : Form
 	{
-		const int GRD_IMAGE_ROW_HEIGHT = 50;
+		const int GRD_IMAGE_ROW_HEIGHT = 60;
 
 		private string _str_ori_edit_model_name = "";
 		private vehicle_model_image_ds.sp_select_vehicle_model_imageDataTable dttable_img = new vehicle_model_image_ds.sp_select_vehicle_model_imageDataTable();
@@ -74,6 +74,8 @@ namespace VehicleDealership.View
 
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
+			bool has_error = false;
+
 			string str_model_name = txt_model_name.Text.Trim();
 			int int_group = int.Parse(cmb_group.SelectedValue.ToString());
 			int int_engine_cc = (int)num_engine.Value;
@@ -98,25 +100,61 @@ namespace VehicleDealership.View
 					return;
 				}
 			}
-			if (Model_id == 0)
+
+			try
 			{
-				// insert
-				Model_id = Vehicle_model_ds.Insert_vehicle_model(str_model_name, int_group,
-					int_engine_cc, int_door, int_seat, int_fuel, int_transmission, str_remarks);
+				Cursor = Cursors.WaitCursor;
 
-				// if _int_model_id is still 0 means insert got error. insert will return last inserted id which definitely isn't 0
-				if (Model_id == 0) return;
+				if (Model_id == 0)
+				{
+					// insert new model
+					Model_id = Vehicle_model_ds.Insert_vehicle_model(str_model_name, int_group,
+						int_engine_cc, int_door, int_seat, int_fuel, int_transmission, str_remarks);
+
+					// if _int_model_id is still 0 means insert got error. insert will return last inserted id which definitely isn't 0
+					if (Model_id == 0) throw new Exception("New vehicle model cannot be added.");
+				}
+				else
+				{
+					// edit existing model
+					if (!Vehicle_model_ds.Update_vehicle_model(str_model_name, int_group, int_engine_cc, int_door, int_seat, int_fuel, int_transmission, str_remarks, Model_id))
+						throw new Exception("Vehicle model cannot be updated.");
+				}
+
+				// TODO: save images/ update image description
+				foreach (DataRow dt_row in dttable_img.Rows)
+				{
+					int int_vmodel_image = int.Parse(dt_row["vehicle_model_image"].ToString());
+					string str_image_desc = dt_row["image_description"].ToString();
+
+					// id lesser than 0 is new image. more than 0 is existing image
+					if (int_vmodel_image <= 0)
+					{
+						if (!vehicle_model_image_ds.Insert_vehicle_model_image(Model_id,
+							(byte[])dt_row["image"], str_image_desc)) throw new Exception("Image cannot be saved.");
+					}
+					else
+					{
+						// update image description.
+						if (!vehicle_model_image_ds.Update_vehicle_model_image(str_image_desc, int_vmodel_image))
+							throw new Exception("Image description cannot be updated.");
+					}
+				}
 			}
-			else
+			catch (Exception ex)
 			{
-				// edit
-				if (!Vehicle_model_ds.Update_vehicle_model(str_model_name, int_group, int_engine_cc, int_door, int_seat, int_fuel, int_transmission, str_remarks, Model_id)) return;
+				MessageBox.Show("An error has occurred: " + ex.Message,
+					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				has_error = true;
 			}
 
-			// TODO: save images/ update image description
+			Cursor = Cursors.Default;
 
-			this.DialogResult = DialogResult.OK;
-			this.Close();
+			if (!has_error)
+			{
+				this.DialogResult = DialogResult.OK;
+				this.Close();
+			}
 		}
 
 		private void Btn_cancel_Click(object sender, EventArgs e)
@@ -163,10 +201,15 @@ namespace VehicleDealership.View
 
 			((DataGridViewImageColumn)grd_img.Columns["image"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
 
+			if (grd_img.Rows.Count == 0) return;
+
 			foreach (DataGridViewRow grd_row in grd_img.Rows)
 			{
 				grd_row.Height = GRD_IMAGE_ROW_HEIGHT;
 			}
+
+			grd_img.ClearSelection();
+			grd_img.CurrentCell = null;
 
 			// detach event handler after initilising images.
 			this.tabControl1.SelectedIndexChanged -= new System.EventHandler(this.Initilise_grd_img);
@@ -191,7 +234,7 @@ namespace VehicleDealership.View
 				int_new_id -= 1;
 
 				dttable_img.Rows.Add(int_new_id,
-					Class_misc.Image_to_byte_array(Class_misc.Resized_image(Image.FromFile(str_filename), 800)),
+					Class_misc.Image_to_byte_array(Class_misc.Resized_image(Image.FromFile(str_filename), 900)),
 					"", Program.System_user.Name, DateTime.Now);
 
 				grd_img.Rows[grd_img.Rows.Count - 1].Height = GRD_IMAGE_ROW_HEIGHT;
@@ -210,22 +253,37 @@ namespace VehicleDealership.View
 			txt_img_created_by.Text = grd_img.SelectedCells[0].OwningRow.Cells["created_by"].Value.ToString();
 			txt_img_created_on.Text = grd_img.SelectedCells[0].OwningRow.Cells["created_on"].Value.ToString();
 
-			// txt and btn was initialised to disabled so that only when image is loaded, there will something for user to edit
-			txt_img_description.ReadOnly = false;
+			// user must explicitly click update description to update description
+			txt_img_description.ReadOnly = true;
+			// button is set to false by default. set to true when image is displayed
+			btn_update_img_desc.Text = "Update description";
 			btn_update_img_desc.Enabled = true;
 		}
 
 		private void Btn_update_img_desc_Click(object sender, EventArgs e)
 		{
-			int int_image_id = int.Parse(grd_img.SelectedCells[0].OwningRow.Cells["vehicle_model_image"].Value.ToString());
-
-			foreach (DataRow dt_row in dttable_img.Rows)
+			if (txt_img_description.ReadOnly)
 			{
-				if ((int)dt_row["vehicle_model_image"] == int_image_id)
+				// txt and btn was initialised to disabled so that only when image is loaded, there will something for user to edit
+				txt_img_description.ReadOnly = false;
+				btn_update_img_desc.Text = "Done";
+				txt_img_description.Focus();
+			}
+			else
+			{
+				int int_image_id = int.Parse(grd_img.SelectedCells[0].OwningRow.Cells["vehicle_model_image"].Value.ToString());
+
+				foreach (DataRow dt_row in dttable_img.Rows)
 				{
-					dt_row["image_description"] = txt_img_description.Text;
-					break;
+					if ((int)dt_row["vehicle_model_image"] == int_image_id)
+					{
+						dt_row["image_description"] = txt_img_description.Text;
+						break;
+					}
 				}
+
+				txt_img_description.ReadOnly = true;
+				btn_update_img_desc.Text = "Update description";
 			}
 		}
 	}

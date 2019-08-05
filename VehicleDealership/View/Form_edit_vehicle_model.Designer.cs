@@ -54,21 +54,21 @@
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
-			this.btn_update_img_desc = new System.Windows.Forms.Button();
-			this.txt_img_description = new System.Windows.Forms.TextBox();
+			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.grd_img = new System.Windows.Forms.DataGridView();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.filedlg_img = new System.Windows.Forms.OpenFileDialog();
-			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-			this.splitContainer2 = new System.Windows.Forms.SplitContainer();
 			this.btn_add_img = new System.Windows.Forms.ToolStripButton();
 			this.btn_delete_img = new System.Windows.Forms.ToolStripButton();
+			this.splitContainer2 = new System.Windows.Forms.SplitContainer();
 			this.picbox = new System.Windows.Forms.PictureBox();
-			this.label11 = new System.Windows.Forms.Label();
-			this.txt_img_created_by = new System.Windows.Forms.TextBox();
-			this.label12 = new System.Windows.Forms.Label();
 			this.txt_img_created_on = new System.Windows.Forms.TextBox();
+			this.label12 = new System.Windows.Forms.Label();
+			this.txt_img_created_by = new System.Windows.Forms.TextBox();
+			this.label11 = new System.Windows.Forms.Label();
+			this.btn_update_img_desc = new System.Windows.Forms.Button();
+			this.txt_img_description = new System.Windows.Forms.TextBox();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.filedlg_img = new System.Windows.Forms.OpenFileDialog();
 			((System.ComponentModel.ISupportInitialize)(this.num_engine)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_no_of_door)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_seat_capacity)).BeginInit();
@@ -76,18 +76,18 @@
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.grd_img)).BeginInit();
-			this.toolStrip1.SuspendLayout();
-			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.grd_img)).BeginInit();
+			this.toolStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
 			this.splitContainer2.Panel1.SuspendLayout();
 			this.splitContainer2.Panel2.SuspendLayout();
 			this.splitContainer2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picbox)).BeginInit();
+			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -369,31 +369,29 @@
 			this.tabPage2.Text = "Images";
 			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
-			// btn_update_img_desc
+			// splitContainer1
 			// 
-			this.btn_update_img_desc.AutoSize = true;
-			this.btn_update_img_desc.Enabled = false;
-			this.btn_update_img_desc.Location = new System.Drawing.Point(3, 209);
-			this.btn_update_img_desc.Name = "btn_update_img_desc";
-			this.btn_update_img_desc.Size = new System.Drawing.Size(146, 30);
-			this.btn_update_img_desc.TabIndex = 4;
-			this.btn_update_img_desc.Text = "Update description";
-			this.btn_update_img_desc.UseVisualStyleBackColor = true;
-			this.btn_update_img_desc.Click += new System.EventHandler(this.Btn_update_img_desc_Click);
+			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+			this.splitContainer1.Name = "splitContainer1";
 			// 
-			// txt_img_description
+			// splitContainer1.Panel1
 			// 
-			this.txt_img_description.Location = new System.Drawing.Point(3, 39);
-			this.txt_img_description.Multiline = true;
-			this.txt_img_description.Name = "txt_img_description";
-			this.txt_img_description.ReadOnly = true;
-			this.txt_img_description.Size = new System.Drawing.Size(384, 164);
-			this.txt_img_description.TabIndex = 3;
+			this.splitContainer1.Panel1.Controls.Add(this.grd_img);
+			this.splitContainer1.Panel1.Controls.Add(this.toolStrip1);
+			// 
+			// splitContainer1.Panel2
+			// 
+			this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
+			this.splitContainer1.Size = new System.Drawing.Size(1164, 619);
+			this.splitContainer1.SplitterDistance = 220;
+			this.splitContainer1.TabIndex = 1;
 			// 
 			// grd_img
 			// 
 			this.grd_img.AllowUserToAddRows = false;
 			this.grd_img.AllowUserToDeleteRows = false;
+			this.grd_img.AllowUserToResizeRows = false;
 			this.grd_img.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.grd_img.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.grd_img.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -417,38 +415,24 @@
 			this.toolStrip1.TabIndex = 0;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
-			// panel1
+			// btn_add_img
 			// 
-			this.panel1.Controls.Add(this.tableLayoutPanel1);
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel1.Location = new System.Drawing.Point(0, 658);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1178, 59);
-			this.panel1.TabIndex = 23;
+			this.btn_add_img.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_add_img.Image = global::VehicleDealership.Properties.Resources.Add_16x;
+			this.btn_add_img.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_add_img.Name = "btn_add_img";
+			this.btn_add_img.Size = new System.Drawing.Size(23, 22);
+			this.btn_add_img.Text = "Add image";
+			this.btn_add_img.Click += new System.EventHandler(this.Btn_add_img_Click);
 			// 
-			// filedlg_img
+			// btn_delete_img
 			// 
-			this.filedlg_img.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
-			this.filedlg_img.Multiselect = true;
-			this.filedlg_img.Title = "Upload image";
-			// 
-			// splitContainer1
-			// 
-			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.splitContainer1.Location = new System.Drawing.Point(3, 3);
-			this.splitContainer1.Name = "splitContainer1";
-			// 
-			// splitContainer1.Panel1
-			// 
-			this.splitContainer1.Panel1.Controls.Add(this.grd_img);
-			this.splitContainer1.Panel1.Controls.Add(this.toolStrip1);
-			// 
-			// splitContainer1.Panel2
-			// 
-			this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-			this.splitContainer1.Size = new System.Drawing.Size(1164, 619);
-			this.splitContainer1.SplitterDistance = 220;
-			this.splitContainer1.TabIndex = 1;
+			this.btn_delete_img.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_delete_img.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
+			this.btn_delete_img.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_delete_img.Name = "btn_delete_img";
+			this.btn_delete_img.Size = new System.Drawing.Size(23, 22);
+			this.btn_delete_img.Text = "Delete image";
 			// 
 			// splitContainer2
 			// 
@@ -472,25 +456,6 @@
 			this.splitContainer2.SplitterDistance = 546;
 			this.splitContainer2.TabIndex = 5;
 			// 
-			// btn_add_img
-			// 
-			this.btn_add_img.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_add_img.Image = global::VehicleDealership.Properties.Resources.Add_16x;
-			this.btn_add_img.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_add_img.Name = "btn_add_img";
-			this.btn_add_img.Size = new System.Drawing.Size(23, 22);
-			this.btn_add_img.Text = "Add image";
-			this.btn_add_img.Click += new System.EventHandler(this.Btn_add_img_Click);
-			// 
-			// btn_delete_img
-			// 
-			this.btn_delete_img.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_delete_img.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
-			this.btn_delete_img.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_delete_img.Name = "btn_delete_img";
-			this.btn_delete_img.Size = new System.Drawing.Size(23, 22);
-			this.btn_delete_img.Text = "Delete image";
-			// 
 			// picbox
 			// 
 			this.picbox.BackColor = System.Drawing.Color.Black;
@@ -502,22 +467,13 @@
 			this.picbox.TabIndex = 1;
 			this.picbox.TabStop = false;
 			// 
-			// label11
+			// txt_img_created_on
 			// 
-			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(3, 276);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(84, 20);
-			this.label11.TabIndex = 5;
-			this.label11.Text = "Created by:";
-			// 
-			// txt_img_created_by
-			// 
-			this.txt_img_created_by.Location = new System.Drawing.Point(3, 299);
-			this.txt_img_created_by.Name = "txt_img_created_by";
-			this.txt_img_created_by.ReadOnly = true;
-			this.txt_img_created_by.Size = new System.Drawing.Size(297, 27);
-			this.txt_img_created_by.TabIndex = 6;
+			this.txt_img_created_on.Location = new System.Drawing.Point(3, 365);
+			this.txt_img_created_on.Name = "txt_img_created_on";
+			this.txt_img_created_on.ReadOnly = true;
+			this.txt_img_created_on.Size = new System.Drawing.Size(297, 27);
+			this.txt_img_created_on.TabIndex = 8;
 			// 
 			// label12
 			// 
@@ -528,13 +484,59 @@
 			this.label12.TabIndex = 7;
 			this.label12.Text = "Created on:";
 			// 
-			// txt_img_created_on
+			// txt_img_created_by
 			// 
-			this.txt_img_created_on.Location = new System.Drawing.Point(3, 365);
-			this.txt_img_created_on.Name = "txt_img_created_on";
-			this.txt_img_created_on.ReadOnly = true;
-			this.txt_img_created_on.Size = new System.Drawing.Size(297, 27);
-			this.txt_img_created_on.TabIndex = 8;
+			this.txt_img_created_by.Location = new System.Drawing.Point(3, 299);
+			this.txt_img_created_by.Name = "txt_img_created_by";
+			this.txt_img_created_by.ReadOnly = true;
+			this.txt_img_created_by.Size = new System.Drawing.Size(297, 27);
+			this.txt_img_created_by.TabIndex = 6;
+			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Location = new System.Drawing.Point(3, 276);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(84, 20);
+			this.label11.TabIndex = 5;
+			this.label11.Text = "Created by:";
+			// 
+			// btn_update_img_desc
+			// 
+			this.btn_update_img_desc.AutoSize = true;
+			this.btn_update_img_desc.Enabled = false;
+			this.btn_update_img_desc.Location = new System.Drawing.Point(3, 209);
+			this.btn_update_img_desc.Name = "btn_update_img_desc";
+			this.btn_update_img_desc.Size = new System.Drawing.Size(146, 30);
+			this.btn_update_img_desc.TabIndex = 4;
+			this.btn_update_img_desc.Text = "Update description";
+			this.btn_update_img_desc.UseVisualStyleBackColor = true;
+			this.btn_update_img_desc.Click += new System.EventHandler(this.Btn_update_img_desc_Click);
+			// 
+			// txt_img_description
+			// 
+			this.txt_img_description.Location = new System.Drawing.Point(3, 39);
+			this.txt_img_description.MaxLength = 100;
+			this.txt_img_description.Multiline = true;
+			this.txt_img_description.Name = "txt_img_description";
+			this.txt_img_description.ReadOnly = true;
+			this.txt_img_description.Size = new System.Drawing.Size(384, 164);
+			this.txt_img_description.TabIndex = 3;
+			// 
+			// panel1
+			// 
+			this.panel1.Controls.Add(this.tableLayoutPanel1);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.panel1.Location = new System.Drawing.Point(0, 658);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(1178, 59);
+			this.panel1.TabIndex = 23;
+			// 
+			// filedlg_img
+			// 
+			this.filedlg_img.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
+			this.filedlg_img.Multiselect = true;
+			this.filedlg_img.Title = "Upload image";
 			// 
 			// Form_edit_vehicle_model
 			// 
@@ -557,21 +559,21 @@
 			this.tabPage1.ResumeLayout(false);
 			this.tabPage1.PerformLayout();
 			this.tabPage2.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.grd_img)).EndInit();
-			this.toolStrip1.ResumeLayout(false);
-			this.toolStrip1.PerformLayout();
-			this.panel1.ResumeLayout(false);
 			this.splitContainer1.Panel1.ResumeLayout(false);
 			this.splitContainer1.Panel1.PerformLayout();
 			this.splitContainer1.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.grd_img)).EndInit();
+			this.toolStrip1.ResumeLayout(false);
+			this.toolStrip1.PerformLayout();
 			this.splitContainer2.Panel1.ResumeLayout(false);
 			this.splitContainer2.Panel2.ResumeLayout(false);
 			this.splitContainer2.Panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
 			this.splitContainer2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.picbox)).EndInit();
+			this.panel1.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}

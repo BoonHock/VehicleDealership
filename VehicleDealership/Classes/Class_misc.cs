@@ -38,12 +38,16 @@ namespace VehicleDealership.Classes
 			}
 			return byte_image;
 		}
-		public static Image Byte_array_to_image (byte[] byte_image)
+		public static Image Byte_array_to_image(byte[] byte_image)
 		{
 			using (var ms = new MemoryStream(byte_image))
 			{
 				return Image.FromStream(ms);
 			}
+		}
+		public static void Export_byte_array_to_jpeg_image(string path, byte[] byte_image)
+		{
+			File.WriteAllBytes(path + ".jpeg", byte_image);
 		}
 	}
 }
