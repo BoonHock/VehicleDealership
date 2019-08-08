@@ -108,6 +108,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Combobox_options_ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\Fuel_type_ds.cs">
+      <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Fuel_type_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\Permission_ds.cs">
       <DependentUpon>Permission_ds.xsd</DependentUpon>
     </Compile>
@@ -315,6 +323,17 @@
     </None>
     <None Include="Datasets\Combobox_options_ds.xss">
       <DependentUpon>Combobox_options_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Fuel_type_ds.xsc">
+      <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Fuel_type_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Fuel_type_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Fuel_type_ds.xss">
+      <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Permission_ds.xsc">
       <DependentUpon>Permission_ds.xsd</DependentUpon>

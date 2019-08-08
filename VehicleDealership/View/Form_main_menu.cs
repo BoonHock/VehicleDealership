@@ -31,7 +31,8 @@ namespace VehicleDealership.View
 			usersToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_datagridview(), false, "USER");
 			userGroupsToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_usergroup());
 			changePasswordToolStripMenuItem.Click += (sender2, e2) => (new Form_change_pw()).ShowDialog();
-			testToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_vehicle_template());
+			brandGroupModelToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_vehicle_template());
+			fuelTypeToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_datagridview(), false, "FUEL_TYPE");
 
 			salesOrderToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_sales_order());
 		}
@@ -46,6 +47,17 @@ namespace VehicleDealership.View
 
 			userGroupsToolStripMenuItem.Enabled = (Program.System_user.Has_permission(User_permission.ADD_USERGROUP) ||
 				Program.System_user.Has_permission(User_permission.EDIT_USERGROUP));
+
+			brandGroupModelToolStripMenuItem.Enabled = (
+				Program.System_user.Has_permission(User_permission.ADD_EDIT_VEHICLE_BRAND_GROUP_MODEL) || 
+				Program.System_user.Has_permission(User_permission.DELETE_VEHICLE_BRAND_GROUP_MODEL));
+			fuelTypeToolStripMenuItem.Enabled = (
+				Program.System_user.Has_permission(User_permission.ADD_EDIT_FUEL_TYPE) ||
+				Program.System_user.Has_permission(User_permission.DELETE_FUEL_TYPE));
+			transmissionTypeToolStripMenuItem.Enabled = (
+				Program.System_user.Has_permission(User_permission.ADD_EDIT_TRANSMISSION) ||
+				Program.System_user.Has_permission(User_permission.DELETE_TRANSMISSION));
+
 		}
 		private void Open_form(Form form_to_open, bool is_maximised = false, string form_tag = "")
 		{

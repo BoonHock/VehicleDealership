@@ -141,7 +141,6 @@ namespace VehicleDealership.View
 					{
 						MessageBox.Show("An error has occurred. Vehicle groups cannot be updated. \n\n Message: " +
 							ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
 					}
 				}
 				conn.Close();

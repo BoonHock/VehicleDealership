@@ -42,16 +42,13 @@
 			this.cms_grd_main = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.ts_vehicle_model = new System.Windows.Forms.ToolStrip();
-			this.btn_edit_vehicle_model = new System.Windows.Forms.ToolStripButton();
-			this.btn_add_vehicle_model = new System.Windows.Forms.ToolStripButton();
-			this.btn_delete_vehicle_model = new System.Windows.Forms.ToolStripButton();
+			this.ts_fuel_type = new System.Windows.Forms.ToolStrip();
+			this.btn_save_fuel_type = new System.Windows.Forms.ToolStripButton();
 			this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-			this.txt_search_vehicle_model = new System.Windows.Forms.ToolStripTextBox();
 			this.ts_user.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_main)).BeginInit();
 			this.cms_grd_main.SuspendLayout();
-			this.ts_vehicle_model.SuspendLayout();
+			this.ts_fuel_type.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// ts_user
@@ -140,6 +137,7 @@
 			// 
 			this.grd_main.AllowUserToAddRows = false;
 			this.grd_main.AllowUserToDeleteRows = false;
+			this.grd_main.AllowUserToResizeRows = false;
 			this.grd_main.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.grd_main.ContextMenuStrip = this.cms_grd_main;
 			this.grd_main.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -169,62 +167,34 @@
 			this.addToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
 			this.addToolStripMenuItem.Text = "Add";
 			// 
-			// ts_vehicle_model
+			// ts_fuel_type
 			// 
-			this.ts_vehicle_model.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-			this.ts_vehicle_model.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btn_edit_vehicle_model,
-            this.btn_add_vehicle_model,
-            this.btn_delete_vehicle_model,
-            this.toolStripLabel3,
-            this.txt_search_vehicle_model});
-			this.ts_vehicle_model.Location = new System.Drawing.Point(0, 25);
-			this.ts_vehicle_model.Name = "ts_vehicle_model";
-			this.ts_vehicle_model.Size = new System.Drawing.Size(1212, 25);
-			this.ts_vehicle_model.TabIndex = 3;
-			this.ts_vehicle_model.Text = "toolStrip2";
+			this.ts_fuel_type.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+			this.ts_fuel_type.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_save_fuel_type,
+            this.toolStripLabel3});
+			this.ts_fuel_type.Location = new System.Drawing.Point(0, 25);
+			this.ts_fuel_type.Name = "ts_fuel_type";
+			this.ts_fuel_type.Size = new System.Drawing.Size(1212, 25);
+			this.ts_fuel_type.TabIndex = 3;
+			this.ts_fuel_type.Text = "toolStrip1";
 			// 
-			// btn_edit_vehicle_model
+			// btn_save_fuel_type
 			// 
-			this.btn_edit_vehicle_model.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_edit_vehicle_model.Enabled = false;
-			this.btn_edit_vehicle_model.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
-			this.btn_edit_vehicle_model.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_edit_vehicle_model.Name = "btn_edit_vehicle_model";
-			this.btn_edit_vehicle_model.Size = new System.Drawing.Size(23, 22);
-			this.btn_edit_vehicle_model.Text = "Edit";
-			// 
-			// btn_add_vehicle_model
-			// 
-			this.btn_add_vehicle_model.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_add_vehicle_model.Enabled = false;
-			this.btn_add_vehicle_model.Image = global::VehicleDealership.Properties.Resources.Add_16x;
-			this.btn_add_vehicle_model.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_add_vehicle_model.Name = "btn_add_vehicle_model";
-			this.btn_add_vehicle_model.Size = new System.Drawing.Size(23, 22);
-			this.btn_add_vehicle_model.Text = "Add";
-			// 
-			// btn_delete_vehicle_model
-			// 
-			this.btn_delete_vehicle_model.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_delete_vehicle_model.Enabled = false;
-			this.btn_delete_vehicle_model.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
-			this.btn_delete_vehicle_model.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_delete_vehicle_model.Name = "btn_delete_vehicle_model";
-			this.btn_delete_vehicle_model.Size = new System.Drawing.Size(23, 22);
-			this.btn_delete_vehicle_model.Text = "Delete";
+			this.btn_save_fuel_type.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_save_fuel_type.Image = global::VehicleDealership.Properties.Resources.Save_16x;
+			this.btn_save_fuel_type.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_save_fuel_type.Name = "btn_save_fuel_type";
+			this.btn_save_fuel_type.Size = new System.Drawing.Size(23, 22);
+			this.btn_save_fuel_type.Text = "Save changes";
+			this.btn_save_fuel_type.Click += new System.EventHandler(this.Btn_save_fuel_type_Click);
 			// 
 			// toolStripLabel3
 			// 
 			this.toolStripLabel3.Name = "toolStripLabel3";
-			this.toolStripLabel3.Size = new System.Drawing.Size(45, 22);
-			this.toolStripLabel3.Text = "Search:";
-			// 
-			// txt_search_vehicle_model
-			// 
-			this.txt_search_vehicle_model.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.txt_search_vehicle_model.Name = "txt_search_vehicle_model";
-			this.txt_search_vehicle_model.Size = new System.Drawing.Size(150, 25);
+			this.toolStripLabel3.Size = new System.Drawing.Size(432, 22);
+			this.toolStripLabel3.Text = "Instruction: Edit directly to grid below and click save button to save any change" +
+    "s.";
 			// 
 			// Form_datagridview
 			// 
@@ -232,7 +202,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1212, 788);
 			this.Controls.Add(this.grd_main);
-			this.Controls.Add(this.ts_vehicle_model);
+			this.Controls.Add(this.ts_fuel_type);
 			this.Controls.Add(this.ts_user);
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F);
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -244,8 +214,8 @@
 			this.ts_user.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_main)).EndInit();
 			this.cms_grd_main.ResumeLayout(false);
-			this.ts_vehicle_model.ResumeLayout(false);
-			this.ts_vehicle_model.PerformLayout();
+			this.ts_fuel_type.ResumeLayout(false);
+			this.ts_fuel_type.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -266,11 +236,8 @@
 		private System.Windows.Forms.ContextMenuStrip cms_grd_main;
 		private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
-		private System.Windows.Forms.ToolStrip ts_vehicle_model;
-		private System.Windows.Forms.ToolStripButton btn_edit_vehicle_model;
-		private System.Windows.Forms.ToolStripButton btn_add_vehicle_model;
+		private System.Windows.Forms.ToolStrip ts_fuel_type;
+		private System.Windows.Forms.ToolStripButton btn_save_fuel_type;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel3;
-		private System.Windows.Forms.ToolStripTextBox txt_search_vehicle_model;
-		private System.Windows.Forms.ToolStripButton btn_delete_vehicle_model;
 	}
 }

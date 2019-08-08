@@ -14,6 +14,9 @@ namespace VehicleDealership.View
 {
 	public partial class Form_vehicle_template : Form
 	{
+		readonly bool can_add_edit = Program.System_user.Has_permission(User_permission.ADD_EDIT_VEHICLE_BRAND_GROUP_MODEL);
+		readonly bool can_delete = Program.System_user.Has_permission(User_permission.DELETE_VEHICLE_BRAND_GROUP_MODEL);
+
 		public Form_vehicle_template()
 		{
 			InitializeComponent();
@@ -22,8 +25,36 @@ namespace VehicleDealership.View
 			grd_model.MouseDown += Class_datagridview.MouseDown_select_cell;
 		}
 
-		private void Form_vehicle_template_Load(object sender, EventArgs e)
+		private void Form_vehicle_template_Shown(object sender, EventArgs e)
 		{
+			if (!can_add_edit && !can_delete)
+			{
+				MessageBox.Show("You do not have sufficient permission to perform this action!",
+					"PERMISSION DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				this.Close();
+				return;
+			}
+			// cms_vehicle
+			editBrandGroupToolStripMenuItem.Enabled = can_add_edit;
+			addBrandToolStripMenuItem.Enabled = can_add_edit;
+			addModelToolStripMenuItem1.Enabled = can_add_edit;
+
+			// cms_model
+			editModelToolStripMenuItem.Enabled = can_add_edit;
+			addModelToolStripMenuItem.Enabled = can_add_edit;
+
+			// toolstrip
+			btn_add_brand.Enabled = can_add_edit;
+			btn_edit_brand_group.Enabled = can_add_edit;
+			btn_add_model.Enabled = can_add_edit;
+			btn_edit_model.Enabled = can_add_edit;
+
+			// delete buttons
+			btn_delete_brand_group.Enabled = can_delete;
+			btn_delete_model.Enabled = can_delete;
+			deleteBrandGroupToolStripMenuItem.Enabled = can_delete;
+			deleteModelToolStripMenuItem.Enabled = can_delete;
+
 			Class_style.Grd_style.Common_style(grd_model);
 
 			Setup_tv_vehicle();
@@ -60,6 +91,8 @@ namespace VehicleDealership.View
 		}
 		private void Format_brand_group_buttons()
 		{
+			if (!can_add_edit) return;
+
 			btn_edit_brand_group.Enabled = false;
 			editBrandGroupToolStripMenuItem.Enabled = false;
 
@@ -198,5 +231,6 @@ namespace VehicleDealership.View
 				Add_model(int.Parse(grd_model.SelectedCells[0].OwningRow.Cells["vehicle_group"].Value.ToString()));
 			}
 		}
+
 	}
 }

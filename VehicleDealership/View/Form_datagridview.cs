@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,8 +26,6 @@ namespace VehicleDealership.View
 			{
 				if (ctrl is ToolStrip) ctrl.Visible = false;
 			}
-
-			Class_style.Grd_style.Common_style(grd_main);
 		}
 		private void Form_datagridview_Shown(object sender, EventArgs e)
 		{
@@ -35,19 +34,20 @@ namespace VehicleDealership.View
 			switch (this.Tag.ToString().ToUpper())
 			{
 				case "USER":
+					Class_style.Grd_style.Common_style(grd_main);
+
 					if (!Program.System_user.Has_permission(User_permission.ADD_USER) &&
 						!Program.System_user.Has_permission(User_permission.EDIT_USER))
 						permission_denied = true;
 					else
 						Setup_form_users();
 					break;
-				case "VEHICLE_MODEL":
-					if (!Program.System_user.Has_permission(User_permission.ADD_VEHICLE_MODEL) &&
-						!Program.System_user.Has_permission(User_permission.EDIT_VEHICLE_MODEL) &&
-						!Program.System_user.Has_permission(User_permission.DELETE_VEHICLE_MODEL))
+				case "FUEL_TYPE":
+					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_FUEL_TYPE) &&
+						!Program.System_user.Has_permission(User_permission.DELETE_FUEL_TYPE))
 						permission_denied = true;
 					else
-						Setup_form_vehicle_model();
+						Setup_form_fuel_type();
 					break;
 			}
 
@@ -196,35 +196,86 @@ namespace VehicleDealership.View
 			editToolStripMenuItem.Enabled = !is_admin;
 		}
 		#endregion
-		#region VEHICLE_MODEL
-		private void Setup_form_vehicle_model()
+		#region FUEL_TYPE
+		private void Setup_form_fuel_type()
 		{
-			ts_vehicle_model.Visible = true;
-
-			if (Program.System_user.Has_permission(User_permission.ADD_VEHICLE_MODEL))
-			{
-				btn_add_vehicle_model.Enabled = true;
-				addToolStripMenuItem.Enabled = true;
-			}
-			if (Program.System_user.Has_permission(User_permission.EDIT_VEHICLE_MODEL))
-			{
-				btn_edit_vehicle_model.Enabled = true;
-				editToolStripMenuItem.Enabled = true;
-			}
-			if (Program.System_user.Has_permission(User_permission.DELETE_VEHICLE_MODEL))
-			{
-				btn_delete_vehicle_model.Enabled = true;
-			}
-
-			Setup_grd_vehicle_model();
-
-			txt_search_vehicle_model.TextChanged += Setup_grd_vehicle_model;
+			ts_fuel_type.Visible = true;
+			Setup_grd_fuel_type();
 		}
-		private void Setup_grd_vehicle_model(object sender = null, EventArgs e = null)
+		private void Setup_grd_fuel_type()
 		{
-			string str_search = txt_search_user.Text.Trim();
-		}
+			Fuel_type_ds.sp_select_fuel_typeDataTable dttable = Fuel_type_ds.Select_fuel_type();
 
+			dttable.Columns["modified_by"].DefaultValue = Program.System_user.Name;
+			dttable.Columns["modified_by"].ReadOnly = true;
+
+			grd_main.DataSource = null;
+			grd_main.DataSource = dttable;
+			grd_main.AutoResizeColumns();
+
+			grd_main.Columns["modified_by"].DefaultCellStyle.BackColor = Color.LightGray;
+
+			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_FUEL_TYPE))
+			{
+				grd_main.ReadOnly = false;
+				grd_main.AllowUserToAddRows = true;
+			}
+			if (Program.System_user.Has_permission(User_permission.DELETE_FUEL_TYPE))
+			{
+				grd_main.AllowUserToDeleteRows = true;
+			}
+
+			if (!Program.System_user.IsDeveloper)
+				Class_datagridview.Hide_columns(grd_main, new string[] { "fuel_type" });
+		}
+		private void Btn_save_fuel_type_Click(object sender, EventArgs e)
+		{
+			int cell_row = grd_main.CurrentCell.RowIndex;
+			int cell_col = grd_main.CurrentCell.ColumnIndex;
+
+			grd_main.CurrentCell = null;
+			grd_main.CurrentCell = grd_main[cell_col, cell_row];
+
+			DataTable dttable = ((DataTable)grd_main.DataSource).Copy();
+
+			Class_datatable.Remove_unnecessary_columns(dttable, new string[] { "fuel_type", "fuel_type_name" });
+
+			DataColumn dt_col = new DataColumn("modified_by");
+			dt_col.DefaultValue = Program.System_user.UserID;
+
+			dttable.Columns.Add(dt_col);
+
+			Bulkcopy_table_ds.Delete_by_user();
+
+			using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.VehicleDealershipConnectionString))
+			{
+				conn.Open();
+
+				using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn))
+				{
+					bulkCopy.DestinationTableName = "[misc].[bulkcopy_table]";
+
+					try
+					{
+						bulkCopy.ColumnMappings.Add("fuel_type", "int1");
+						bulkCopy.ColumnMappings.Add("fuel_type_name", "nvarchar1");
+						bulkCopy.ColumnMappings.Add("modified_by", "created_by");
+						bulkCopy.WriteToServer(dttable);
+					}
+					catch (Exception ex)
+					{
+						MessageBox.Show("An error has occurred. Vehicle groups cannot be updated. \n\n Message: " +
+							ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
+				conn.Close();
+			}
+
+			// bulkcopy done. update fuel_type table!
+			Fuel_type_ds.Update_insert_fuel_type();
+
+			MessageBox.Show("All items have been saved successfully.", "Item saved", MessageBoxButtons.OK);
+		}
 		#endregion
 	}
 }

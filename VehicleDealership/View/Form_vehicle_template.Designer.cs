@@ -293,7 +293,7 @@
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "Form_vehicle_template";
 			this.Text = "Vehicle";
-			this.Load += new System.EventHandler(this.Form_vehicle_template_Load);
+			this.Shown += new System.EventHandler(this.Form_vehicle_template_Shown);
 			this.cms_vehicle.ResumeLayout(false);
 			this.splitContainer1.Panel1.ResumeLayout(false);
 			this.splitContainer1.Panel1.PerformLayout();

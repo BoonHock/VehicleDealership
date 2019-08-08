@@ -158,7 +158,8 @@ namespace VehicleDealership.Datasets
 			{
 				if (User_ds.Check_user_has_permission(Program.System_user.UserID, Classes.User_permission.EDIT_USERGROUP))
 				{
-					QueriesTableAdapter().sp_update_usergroup_permission(str_usergroup, str_permission_combine);
+					QueriesTableAdapter().sp_update_usergroup_permission(str_usergroup, 
+						str_permission_combine, Program.System_user.UserID);
 				}
 				else
 				{
