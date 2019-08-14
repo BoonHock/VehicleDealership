@@ -39,6 +39,8 @@ namespace VehicleDealership.Classes
 			{
 				foreach (DataGridViewRow grd_row in grd.Rows)
 				{
+					if (grd_row.IsNewRow) continue;
+
 					if (grd_row.Cells[value_col].Value.ToString() == cell_value)
 					{
 						grd.CurrentCell = null;

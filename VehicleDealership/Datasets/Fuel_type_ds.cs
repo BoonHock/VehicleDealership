@@ -7,7 +7,7 @@ namespace VehicleDealership.Datasets
 
 	partial class Fuel_type_ds
 	{
-		private static Fuel_type_dsTableAdapters.QueriesTableAdapter QueriesAdapter ()
+		private static Fuel_type_dsTableAdapters.QueriesTableAdapter QueriesAdapter()
 		{
 			return new Fuel_type_dsTableAdapters.QueriesTableAdapter();
 		}
@@ -25,7 +25,7 @@ namespace VehicleDealership.Datasets
 			}
 			return new sp_select_fuel_typeDataTable();
 		}
-		public static void Update_insert_fuel_type()
+		public static bool Update_insert_fuel_type()
 		{
 			try
 			{
@@ -36,7 +36,24 @@ namespace VehicleDealership.Datasets
 				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
 					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
 					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
 			}
+			return true;
+		}
+		public static bool Delete_fuel_type()
+		{
+			try
+			{
+				QueriesAdapter().sp_delete_fuel_type(Program.System_user.UserID);
+			}
+			catch (System.Exception e)
+			{
+				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
+					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
+					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
+			return true;
 		}
 	}
 }

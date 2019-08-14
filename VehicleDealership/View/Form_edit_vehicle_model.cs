@@ -121,7 +121,6 @@ namespace VehicleDealership.View
 						throw new Exception("Vehicle model cannot be updated.");
 				}
 
-				// TODO: save images/ update image description
 				foreach (DataRow dt_row in dttable_img.Rows)
 				{
 					int int_vmodel_image = int.Parse(dt_row["vehicle_model_image"].ToString());

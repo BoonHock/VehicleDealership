@@ -36,6 +36,8 @@
 			this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.userGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.vehicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.brandGroupModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.fuelTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salesOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,9 +51,7 @@
 			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ssl_usergroup = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ssl_status = new System.Windows.Forms.ToolStripStatusLabel();
-			this.brandGroupModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.transmissionTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.fuelTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.transmissionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.main_menu_strip.SuspendLayout();
 			this.log_in_menustrip.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
@@ -113,11 +113,23 @@
 			// 
 			this.vehicleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.brandGroupModelToolStripMenuItem,
-            this.transmissionTypeToolStripMenuItem,
+            this.transmissionToolStripMenuItem,
             this.fuelTypeToolStripMenuItem});
 			this.vehicleToolStripMenuItem.Name = "vehicleToolStripMenuItem";
 			this.vehicleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.vehicleToolStripMenuItem.Text = "Vehicle";
+			// 
+			// brandGroupModelToolStripMenuItem
+			// 
+			this.brandGroupModelToolStripMenuItem.Name = "brandGroupModelToolStripMenuItem";
+			this.brandGroupModelToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+			this.brandGroupModelToolStripMenuItem.Text = "Brand, group & model";
+			// 
+			// fuelTypeToolStripMenuItem
+			// 
+			this.fuelTypeToolStripMenuItem.Name = "fuelTypeToolStripMenuItem";
+			this.fuelTypeToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+			this.fuelTypeToolStripMenuItem.Text = "Fuel type";
 			// 
 			// changePasswordToolStripMenuItem
 			// 
@@ -233,23 +245,11 @@
 			this.ssl_status.Size = new System.Drawing.Size(43, 19);
 			this.ssl_status.Text = "Ready";
 			// 
-			// brandGroupModelToolStripMenuItem
+			// transmissionToolStripMenuItem
 			// 
-			this.brandGroupModelToolStripMenuItem.Name = "brandGroupModelToolStripMenuItem";
-			this.brandGroupModelToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-			this.brandGroupModelToolStripMenuItem.Text = "Brand, group & model";
-			// 
-			// transmissionTypeToolStripMenuItem
-			// 
-			this.transmissionTypeToolStripMenuItem.Name = "transmissionTypeToolStripMenuItem";
-			this.transmissionTypeToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-			this.transmissionTypeToolStripMenuItem.Text = "Transmission type";
-			// 
-			// fuelTypeToolStripMenuItem
-			// 
-			this.fuelTypeToolStripMenuItem.Name = "fuelTypeToolStripMenuItem";
-			this.fuelTypeToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-			this.fuelTypeToolStripMenuItem.Text = "Fuel type";
+			this.transmissionToolStripMenuItem.Name = "transmissionToolStripMenuItem";
+			this.transmissionToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+			this.transmissionToolStripMenuItem.Text = "Transmission";
 			// 
 			// Form_main_menu
 			// 
@@ -303,7 +303,7 @@
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
 		private System.Windows.Forms.ToolStripStatusLabel ssl_status;
 		private System.Windows.Forms.ToolStripMenuItem brandGroupModelToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem transmissionTypeToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem fuelTypeToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem transmissionToolStripMenuItem;
 	}
 }

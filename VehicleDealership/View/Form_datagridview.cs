@@ -31,6 +31,12 @@ namespace VehicleDealership.View
 		{
 			bool permission_denied = false;
 
+			if (this.Tag == null)
+			{
+				this.Close();
+				return;
+			}
+
 			switch (this.Tag.ToString().ToUpper())
 			{
 				case "USER":
@@ -48,6 +54,13 @@ namespace VehicleDealership.View
 						permission_denied = true;
 					else
 						Setup_form_fuel_type();
+					break;
+				case "TRANSMISSION":
+					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_TRANSMISSION) &&
+						!Program.System_user.Has_permission(User_permission.DELETE_TRANSMISSION))
+						permission_denied = true;
+					else
+						Setup_form_transmission();
 					break;
 			}
 
@@ -199,22 +212,6 @@ namespace VehicleDealership.View
 		#region FUEL_TYPE
 		private void Setup_form_fuel_type()
 		{
-			ts_fuel_type.Visible = true;
-			Setup_grd_fuel_type();
-		}
-		private void Setup_grd_fuel_type()
-		{
-			Fuel_type_ds.sp_select_fuel_typeDataTable dttable = Fuel_type_ds.Select_fuel_type();
-
-			dttable.Columns["modified_by"].DefaultValue = Program.System_user.Name;
-			dttable.Columns["modified_by"].ReadOnly = true;
-
-			grd_main.DataSource = null;
-			grd_main.DataSource = dttable;
-			grd_main.AutoResizeColumns();
-
-			grd_main.Columns["modified_by"].DefaultCellStyle.BackColor = Color.LightGray;
-
 			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_FUEL_TYPE))
 			{
 				grd_main.ReadOnly = false;
@@ -224,6 +221,24 @@ namespace VehicleDealership.View
 			{
 				grd_main.AllowUserToDeleteRows = true;
 			}
+
+			ts_save_only.Visible = true;
+			Setup_grd_fuel_type();
+
+			Btn_save.Click += Btn_save_fuel_type_Click;
+		}
+		private void Setup_grd_fuel_type()
+		{
+			Fuel_type_ds.sp_select_fuel_typeDataTable dttable = Fuel_type_ds.Select_fuel_type();
+
+			dttable.Columns["modified_by"].DefaultValue = Program.System_user.Name;
+			dttable.Columns["modified_by"].ReadOnly = true;
+
+			Class_datagridview.Setup_and_preselect(grd_main, dttable, "fuel_type_name");
+
+			grd_main.AutoResizeColumns();
+
+			grd_main.Columns["modified_by"].DefaultCellStyle.BackColor = Color.LightGray;
 
 			if (!Program.System_user.IsDeveloper)
 				Class_datagridview.Hide_columns(grd_main, new string[] { "fuel_type" });
@@ -239,6 +254,12 @@ namespace VehicleDealership.View
 			DataTable dttable = ((DataTable)grd_main.DataSource).Copy();
 
 			Class_datatable.Remove_unnecessary_columns(dttable, new string[] { "fuel_type", "fuel_type_name" });
+
+			if (dttable.Select().GroupBy(c => c["fuel_type_name"]).Where(c => c.Count() > 1).Count() > 0)
+			{
+				MessageBox.Show("Duplicate fuel names are not allowed", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
 
 			DataColumn dt_col = new DataColumn("modified_by");
 			dt_col.DefaultValue = Program.System_user.UserID;
@@ -266,15 +287,31 @@ namespace VehicleDealership.View
 					{
 						MessageBox.Show("An error has occurred. Vehicle groups cannot be updated. \n\n Message: " +
 							ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						conn.Close();
+						return;
 					}
 				}
 				conn.Close();
 			}
 
 			// bulkcopy done. update fuel_type table!
-			Fuel_type_ds.Update_insert_fuel_type();
+			bool is_updated = Fuel_type_ds.Update_insert_fuel_type();
+			bool is_deleted = Fuel_type_ds.Delete_fuel_type();
 
-			MessageBox.Show("All items have been saved successfully.", "Item saved", MessageBoxButtons.OK);
+			Setup_grd_fuel_type();
+
+			if (is_updated && is_deleted) MessageBox.Show("All items have been saved successfully.", "Item saved", MessageBoxButtons.OK);
+		}
+		#endregion
+		#region TRANSMISSION
+		private void Setup_form_transmission()
+		{
+			ts_save_only.Visible = true;
+
+		}
+		private void Setup_grd_transmission()
+		{
+
 		}
 		#endregion
 	}

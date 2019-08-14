@@ -42,13 +42,13 @@
 			this.cms_grd_main = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.ts_fuel_type = new System.Windows.Forms.ToolStrip();
-			this.btn_save_fuel_type = new System.Windows.Forms.ToolStripButton();
+			this.ts_save_only = new System.Windows.Forms.ToolStrip();
+			this.Btn_save = new System.Windows.Forms.ToolStripButton();
 			this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
 			this.ts_user.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_main)).BeginInit();
 			this.cms_grd_main.SuspendLayout();
-			this.ts_fuel_type.SuspendLayout();
+			this.ts_save_only.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// ts_user
@@ -167,27 +167,26 @@
 			this.addToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
 			this.addToolStripMenuItem.Text = "Add";
 			// 
-			// ts_fuel_type
+			// ts_save_only
 			// 
-			this.ts_fuel_type.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-			this.ts_fuel_type.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btn_save_fuel_type,
+			this.ts_save_only.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+			this.ts_save_only.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Btn_save,
             this.toolStripLabel3});
-			this.ts_fuel_type.Location = new System.Drawing.Point(0, 25);
-			this.ts_fuel_type.Name = "ts_fuel_type";
-			this.ts_fuel_type.Size = new System.Drawing.Size(1212, 25);
-			this.ts_fuel_type.TabIndex = 3;
-			this.ts_fuel_type.Text = "toolStrip1";
+			this.ts_save_only.Location = new System.Drawing.Point(0, 25);
+			this.ts_save_only.Name = "ts_save_only";
+			this.ts_save_only.Size = new System.Drawing.Size(1212, 25);
+			this.ts_save_only.TabIndex = 3;
+			this.ts_save_only.Text = "toolStrip1";
 			// 
-			// btn_save_fuel_type
+			// Btn_save
 			// 
-			this.btn_save_fuel_type.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_save_fuel_type.Image = global::VehicleDealership.Properties.Resources.Save_16x;
-			this.btn_save_fuel_type.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_save_fuel_type.Name = "btn_save_fuel_type";
-			this.btn_save_fuel_type.Size = new System.Drawing.Size(23, 22);
-			this.btn_save_fuel_type.Text = "Save changes";
-			this.btn_save_fuel_type.Click += new System.EventHandler(this.Btn_save_fuel_type_Click);
+			this.Btn_save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.Btn_save.Image = global::VehicleDealership.Properties.Resources.Save_16x;
+			this.Btn_save.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.Btn_save.Name = "Btn_save";
+			this.Btn_save.Size = new System.Drawing.Size(23, 22);
+			this.Btn_save.Text = "Save changes";
 			// 
 			// toolStripLabel3
 			// 
@@ -202,7 +201,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1212, 788);
 			this.Controls.Add(this.grd_main);
-			this.Controls.Add(this.ts_fuel_type);
+			this.Controls.Add(this.ts_save_only);
 			this.Controls.Add(this.ts_user);
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F);
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -214,8 +213,8 @@
 			this.ts_user.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_main)).EndInit();
 			this.cms_grd_main.ResumeLayout(false);
-			this.ts_fuel_type.ResumeLayout(false);
-			this.ts_fuel_type.PerformLayout();
+			this.ts_save_only.ResumeLayout(false);
+			this.ts_save_only.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -236,8 +235,8 @@
 		private System.Windows.Forms.ContextMenuStrip cms_grd_main;
 		private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
-		private System.Windows.Forms.ToolStrip ts_fuel_type;
-		private System.Windows.Forms.ToolStripButton btn_save_fuel_type;
+		private System.Windows.Forms.ToolStrip ts_save_only;
+		private System.Windows.Forms.ToolStripButton Btn_save;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel3;
 	}
 }
