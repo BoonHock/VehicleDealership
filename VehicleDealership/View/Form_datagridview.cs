@@ -18,6 +18,9 @@ namespace VehicleDealership.View
 		public Form_datagridview()
 		{
 			InitializeComponent();
+
+			// when user mousedown, even right click, select cell
+			grd_main.MouseDown += Class_datagridview.MouseDown_select_cell;
 		}
 		private void Form_datagridview_Load(object sender, EventArgs e)
 		{
@@ -71,10 +74,16 @@ namespace VehicleDealership.View
 				return;
 			}
 		}
+		private void Delete_grd_main_row(object sender, EventArgs e)
+		{
+			if (grd_main.CurrentCell != null)
+				grd_main.Rows.Remove(grd_main.CurrentCell.OwningRow);
+		}
 		#region USERS
 		private void Setup_form_users()
 		{
 			ts_user.Visible = true;
+			deleteToolStripMenuItem.Visible = false; // cannot delete user
 
 			DataTable dttable_active = new DataTable();
 			dttable_active.Columns.Add("display", typeof(string));
@@ -212,20 +221,23 @@ namespace VehicleDealership.View
 		#region FUEL_TYPE
 		private void Setup_form_fuel_type()
 		{
+			// user will be editing straight to cell so no need display these two
+			editToolStripMenuItem.Visible = false;
+			addToolStripMenuItem.Visible = false;
+
 			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_FUEL_TYPE))
 			{
 				grd_main.ReadOnly = false;
 				grd_main.AllowUserToAddRows = true;
 			}
-			if (Program.System_user.Has_permission(User_permission.DELETE_FUEL_TYPE))
-			{
-				grd_main.AllowUserToDeleteRows = true;
-			}
+			grd_main.AllowUserToDeleteRows =
+				Program.System_user.Has_permission(User_permission.DELETE_FUEL_TYPE);
 
 			ts_save_only.Visible = true;
 			Setup_grd_fuel_type();
 
-			Btn_save.Click += Btn_save_fuel_type_Click;
+			btn_save.Click += Btn_save_fuel_type_Click;
+			deleteToolStripMenuItem.Click += Delete_grd_main_row;
 		}
 		private void Setup_grd_fuel_type()
 		{
@@ -245,19 +257,16 @@ namespace VehicleDealership.View
 		}
 		private void Btn_save_fuel_type_Click(object sender, EventArgs e)
 		{
-			int cell_row = grd_main.CurrentCell.RowIndex;
-			int cell_col = grd_main.CurrentCell.ColumnIndex;
+			Class_datagridview.Apply_all_changes(grd_main);
 
-			grd_main.CurrentCell = null;
-			grd_main.CurrentCell = grd_main[cell_col, cell_row];
-
-			DataTable dttable = ((DataTable)grd_main.DataSource).Copy();
-
-			Class_datatable.Remove_unnecessary_columns(dttable, new string[] { "fuel_type", "fuel_type_name" });
+			DataTable dttable = Class_datatable.
+				Remove_unnecessary_columns(((DataTable)grd_main.DataSource).Copy(),
+				new string[] { "fuel_type", "fuel_type_name" });
 
 			if (dttable.Select().GroupBy(c => c["fuel_type_name"]).Where(c => c.Count() > 1).Count() > 0)
 			{
-				MessageBox.Show("Duplicate fuel names are not allowed", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Duplicate fuel names are not allowed", "Invalid input",
+					MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
@@ -285,8 +294,8 @@ namespace VehicleDealership.View
 					}
 					catch (Exception ex)
 					{
-						MessageBox.Show("An error has occurred. Vehicle groups cannot be updated. \n\n Message: " +
-							ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						MessageBox.Show("An error has occurred. \n\n Message: " + ex.Message,
+							"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 						conn.Close();
 						return;
 					}
@@ -295,23 +304,125 @@ namespace VehicleDealership.View
 			}
 
 			// bulkcopy done. update fuel_type table!
-			bool is_updated = Fuel_type_ds.Update_insert_fuel_type();
-			bool is_deleted = Fuel_type_ds.Delete_fuel_type();
+			bool is_deleted = true;
+			bool is_updated = true;
+
+			if (Program.System_user.Has_permission(User_permission.DELETE_FUEL_TYPE))
+				is_deleted = Fuel_type_ds.Delete_fuel_type();
+
+			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_FUEL_TYPE))
+				is_updated = Fuel_type_ds.Update_insert_fuel_type();
 
 			Setup_grd_fuel_type();
 
-			if (is_updated && is_deleted) MessageBox.Show("All items have been saved successfully.", "Item saved", MessageBoxButtons.OK);
+			if (!is_deleted)
+				MessageBox.Show("One or more fuel type cannot be deleted because there are vehicle models applying this fuel type",
+					"Some items cannot be deleted", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else if (is_updated && is_deleted) MessageBox.Show("All items have been saved successfully.", "Item saved", MessageBoxButtons.OK);
 		}
 		#endregion
 		#region TRANSMISSION
 		private void Setup_form_transmission()
 		{
+			// user will be editing straight to cell so no need display these two
+			editToolStripMenuItem.Visible = false;
+			addToolStripMenuItem.Visible = false;
+
+			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_TRANSMISSION))
+			{
+				grd_main.ReadOnly = false;
+				grd_main.AllowUserToAddRows = true;
+			}
+			grd_main.AllowUserToDeleteRows =
+				Program.System_user.Has_permission(User_permission.DELETE_TRANSMISSION);
+
 			ts_save_only.Visible = true;
 
+			Setup_grd_transmission();
+			btn_save.Click += Btn_save_transmission_Click;
+			deleteToolStripMenuItem.Click += Delete_grd_main_row;
 		}
 		private void Setup_grd_transmission()
 		{
+			Transmission_ds.sp_select_transmissionDataTable dttable = Transmission_ds.Select_transmission();
 
+			dttable.Columns["modified_by"].DefaultValue = Program.System_user.Name;
+			dttable.Columns["modified_by"].ReadOnly = true;
+
+			Class_datagridview.Setup_and_preselect(grd_main, dttable, "transmission_name");
+
+			grd_main.AutoResizeColumns();
+
+			grd_main.Columns["modified_by"].DefaultCellStyle.BackColor = Color.LightGray;
+
+			if (!Program.System_user.IsDeveloper)
+				Class_datagridview.Hide_columns(grd_main, new string[] { "transmission" });
+		}
+		private void Btn_save_transmission_Click(object sender, EventArgs e)
+		{
+			Class_datagridview.Apply_all_changes(grd_main);
+
+			DataTable dttable = Class_datatable.
+				Remove_unnecessary_columns(((DataTable)grd_main.DataSource).Copy(),
+				new string[] { "transmission", "transmission_name" });
+
+			if (dttable.Select().GroupBy(c => c["transmission_name"]).Where(c => c.Count() > 1).Count() > 0)
+			{
+				MessageBox.Show("Duplicate transmission names are not allowed", "Invalid input",
+					MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
+			DataColumn dt_col = new DataColumn("modified_by");
+			dt_col.DefaultValue = Program.System_user.UserID;
+
+			dttable.Columns.Add(dt_col);
+
+			Bulkcopy_table_ds.Delete_by_user();
+
+			using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.VehicleDealershipConnectionString))
+			{
+				conn.Open();
+
+				using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn))
+				{
+					bulkCopy.DestinationTableName = "[misc].[bulkcopy_table]";
+
+					try
+					{
+						bulkCopy.ColumnMappings.Add("transmission", "int1");
+						bulkCopy.ColumnMappings.Add("transmission_name", "nvarchar1");
+						bulkCopy.ColumnMappings.Add("modified_by", "created_by");
+						bulkCopy.WriteToServer(dttable);
+					}
+					catch (Exception ex)
+					{
+						MessageBox.Show("An error has occurred. \n\n Message: " + ex.Message,
+							"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						conn.Close();
+						return;
+					}
+				}
+				conn.Close();
+			}
+
+			// insert, update and delete transmission
+			bool is_deleted = true;
+			bool is_updated = true;
+
+			if (Program.System_user.Has_permission(User_permission.DELETE_TRANSMISSION))
+				is_deleted = Transmission_ds.Delete_transmission();
+
+			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_TRANSMISSION))
+				is_updated = Transmission_ds.Update_insert_transmission();
+
+			Setup_grd_transmission();
+
+			if (!is_deleted)
+				MessageBox.Show("One or more transmission cannot be deleted because there are vehicle models applying this transmission",
+					"Some items cannot be deleted", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else if (is_updated && is_deleted)
+				MessageBox.Show("All items have been saved successfully.", "Item saved", MessageBoxButtons.OK);
 		}
 		#endregion
 	}

@@ -119,5 +119,18 @@ namespace VehicleDealership.Classes
 				grd.CurrentCell = grd[hti.ColumnIndex, hti.RowIndex];
 			}
 		}
+		public static void Apply_all_changes(DataGridView grd)
+		{
+			if (grd.CurrentCell != null)
+			{
+				// store row and column index to set current cell to null and then back to the cell
+				// this will force dgv to "apply" changes in all edited cells
+				int cell_row = grd.CurrentCell.RowIndex;
+				int cell_col = grd.CurrentCell.ColumnIndex;
+
+				grd.CurrentCell = null;
+				grd.CurrentCell = grd[cell_col, cell_row];
+			}
+		}
 	}
 }

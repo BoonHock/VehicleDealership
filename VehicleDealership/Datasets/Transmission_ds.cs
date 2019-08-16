@@ -5,17 +5,21 @@ namespace VehicleDealership.Datasets
 {
 
 
-	partial class Fuel_type_ds
+	partial class Transmission_ds
 	{
-		private static Fuel_type_dsTableAdapters.QueriesTableAdapter QueriesAdapter()
+		private static Transmission_dsTableAdapters.sp_select_transmissionTableAdapter TransmissionTableAdapter()
 		{
-			return new Fuel_type_dsTableAdapters.QueriesTableAdapter();
+			return new Transmission_dsTableAdapters.sp_select_transmissionTableAdapter();
 		}
-		public static sp_select_fuel_typeDataTable Select_fuel_type()
+		private static Transmission_dsTableAdapters.QueriesTableAdapter QueriesAdapter()
+		{
+			return new Transmission_dsTableAdapters.QueriesTableAdapter();
+		}
+		public static sp_select_transmissionDataTable Select_transmission()
 		{
 			try
 			{
-				return (new Fuel_type_dsTableAdapters.sp_select_fuel_typeTableAdapter()).GetData();
+				return TransmissionTableAdapter().GetData();
 			}
 			catch (System.Exception e)
 			{
@@ -23,13 +27,13 @@ namespace VehicleDealership.Datasets
 					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
 					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
-			return new sp_select_fuel_typeDataTable();
+			return new sp_select_transmissionDataTable();
 		}
-		public static bool Update_insert_fuel_type()
+		public static bool Update_insert_transmission()
 		{
 			try
 			{
-				QueriesAdapter().sp_update_insert_fuel_type(Program.System_user.UserID);
+				QueriesAdapter().sp_update_insert_transmission(Program.System_user.UserID);
 			}
 			catch (System.Exception e)
 			{
@@ -40,11 +44,11 @@ namespace VehicleDealership.Datasets
 			}
 			return true;
 		}
-		public static bool Delete_fuel_type()
+		public static bool Delete_transmission()
 		{
 			try
 			{
-				return (int)QueriesAdapter().sp_delete_fuel_type(Program.System_user.UserID) == 0;
+				return (int)QueriesAdapter().sp_delete_transmission(Program.System_user.UserID) == 0;
 			}
 			catch (System.Exception e)
 			{

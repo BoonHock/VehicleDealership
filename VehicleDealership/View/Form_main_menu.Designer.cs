@@ -30,13 +30,12 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_main_menu));
 			this.main_menu_strip = new System.Windows.Forms.MenuStrip();
-			this.gODMODEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.simulateUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.administrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.userGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.vehicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.brandGroupModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.transmissionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.fuelTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +50,6 @@
 			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ssl_usergroup = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ssl_status = new System.Windows.Forms.ToolStripStatusLabel();
-			this.transmissionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.main_menu_strip.SuspendLayout();
 			this.log_in_menustrip.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
@@ -60,7 +58,6 @@
 			// main_menu_strip
 			// 
 			this.main_menu_strip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gODMODEToolStripMenuItem,
             this.administrationToolStripMenuItem,
             this.salesToolStripMenuItem,
             this.aboutToolStripMenuItem,
@@ -71,20 +68,6 @@
 			this.main_menu_strip.Size = new System.Drawing.Size(841, 25);
 			this.main_menu_strip.TabIndex = 1;
 			this.main_menu_strip.Text = "menuStrip1";
-			// 
-			// gODMODEToolStripMenuItem
-			// 
-			this.gODMODEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.simulateUserToolStripMenuItem});
-			this.gODMODEToolStripMenuItem.Name = "gODMODEToolStripMenuItem";
-			this.gODMODEToolStripMenuItem.Size = new System.Drawing.Size(81, 19);
-			this.gODMODEToolStripMenuItem.Text = "GOD MODE";
-			// 
-			// simulateUserToolStripMenuItem
-			// 
-			this.simulateUserToolStripMenuItem.Name = "simulateUserToolStripMenuItem";
-			this.simulateUserToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-			this.simulateUserToolStripMenuItem.Text = "Simulate user";
 			// 
 			// administrationToolStripMenuItem
 			// 
@@ -124,6 +107,12 @@
 			this.brandGroupModelToolStripMenuItem.Name = "brandGroupModelToolStripMenuItem";
 			this.brandGroupModelToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
 			this.brandGroupModelToolStripMenuItem.Text = "Brand, group & model";
+			// 
+			// transmissionToolStripMenuItem
+			// 
+			this.transmissionToolStripMenuItem.Name = "transmissionToolStripMenuItem";
+			this.transmissionToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+			this.transmissionToolStripMenuItem.Text = "Transmission";
 			// 
 			// fuelTypeToolStripMenuItem
 			// 
@@ -245,12 +234,6 @@
 			this.ssl_status.Size = new System.Drawing.Size(43, 19);
 			this.ssl_status.Text = "Ready";
 			// 
-			// transmissionToolStripMenuItem
-			// 
-			this.transmissionToolStripMenuItem.Name = "transmissionToolStripMenuItem";
-			this.transmissionToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-			this.transmissionToolStripMenuItem.Text = "Transmission";
-			// 
 			// Form_main_menu
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -288,8 +271,6 @@
 		private System.Windows.Forms.ToolStripMenuItem salesOrderToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem gODMODEToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem simulateUserToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem userGroupsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;

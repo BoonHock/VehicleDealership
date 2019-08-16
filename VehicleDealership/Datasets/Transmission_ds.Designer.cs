@@ -20,17 +20,17 @@ namespace VehicleDealership.Datasets {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("Fuel_type_ds")]
+    [global::System.Xml.Serialization.XmlRootAttribute("Transmission_ds")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class Fuel_type_ds : global::System.Data.DataSet {
+    public partial class Transmission_ds : global::System.Data.DataSet {
         
-        private sp_select_fuel_typeDataTable tablesp_select_fuel_type;
+        private sp_select_transmissionDataTable tablesp_select_transmission;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public Fuel_type_ds() {
+        public Transmission_ds() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace VehicleDealership.Datasets {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected Fuel_type_ds(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected Transmission_ds(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace VehicleDealership.Datasets {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["sp_select_fuel_type"] != null)) {
-                    base.Tables.Add(new sp_select_fuel_typeDataTable(ds.Tables["sp_select_fuel_type"]));
+                if ((ds.Tables["sp_select_transmission"] != null)) {
+                    base.Tables.Add(new sp_select_transmissionDataTable(ds.Tables["sp_select_transmission"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace VehicleDealership.Datasets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public sp_select_fuel_typeDataTable sp_select_fuel_type {
+        public sp_select_transmissionDataTable sp_select_transmission {
             get {
-                return this.tablesp_select_fuel_type;
+                return this.tablesp_select_transmission;
             }
         }
         
@@ -127,7 +127,7 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            Fuel_type_ds cln = ((Fuel_type_ds)(base.Clone()));
+            Transmission_ds cln = ((Transmission_ds)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace VehicleDealership.Datasets {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["sp_select_fuel_type"] != null)) {
-                    base.Tables.Add(new sp_select_fuel_typeDataTable(ds.Tables["sp_select_fuel_type"]));
+                if ((ds.Tables["sp_select_transmission"] != null)) {
+                    base.Tables.Add(new sp_select_transmissionDataTable(ds.Tables["sp_select_transmission"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablesp_select_fuel_type = ((sp_select_fuel_typeDataTable)(base.Tables["sp_select_fuel_type"]));
+            this.tablesp_select_transmission = ((sp_select_transmissionDataTable)(base.Tables["sp_select_transmission"]));
             if ((initTable == true)) {
-                if ((this.tablesp_select_fuel_type != null)) {
-                    this.tablesp_select_fuel_type.InitVars();
+                if ((this.tablesp_select_transmission != null)) {
+                    this.tablesp_select_transmission.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "Fuel_type_ds";
+            this.DataSetName = "Transmission_ds";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/Fuel_type_ds.xsd";
+            this.Namespace = "http://tempuri.org/Transmission_ds.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablesp_select_fuel_type = new sp_select_fuel_typeDataTable();
-            base.Tables.Add(this.tablesp_select_fuel_type);
+            this.tablesp_select_transmission = new sp_select_transmissionDataTable();
+            base.Tables.Add(this.tablesp_select_transmission);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializesp_select_fuel_type() {
+        private bool ShouldSerializesp_select_transmission() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            Fuel_type_ds ds = new Fuel_type_ds();
+            Transmission_ds ds = new Transmission_ds();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,25 +270,25 @@ namespace VehicleDealership.Datasets {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void sp_select_fuel_typeRowChangeEventHandler(object sender, sp_select_fuel_typeRowChangeEvent e);
+        public delegate void sp_select_transmissionRowChangeEventHandler(object sender, sp_select_transmissionRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class sp_select_fuel_typeDataTable : global::System.Data.TypedTableBase<sp_select_fuel_typeRow> {
+        public partial class sp_select_transmissionDataTable : global::System.Data.TypedTableBase<sp_select_transmissionRow> {
             
-            private global::System.Data.DataColumn columnfuel_type;
+            private global::System.Data.DataColumn columntransmission;
             
-            private global::System.Data.DataColumn columnfuel_type_name;
+            private global::System.Data.DataColumn columntransmission_name;
             
             private global::System.Data.DataColumn columnmodified_by;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_fuel_typeDataTable() {
-                this.TableName = "sp_select_fuel_type";
+            public sp_select_transmissionDataTable() {
+                this.TableName = "sp_select_transmission";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -296,7 +296,7 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal sp_select_fuel_typeDataTable(global::System.Data.DataTable table) {
+            internal sp_select_transmissionDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -313,24 +313,24 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected sp_select_fuel_typeDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected sp_select_transmissionDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn fuel_typeColumn {
+            public global::System.Data.DataColumn transmissionColumn {
                 get {
-                    return this.columnfuel_type;
+                    return this.columntransmission;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn fuel_type_nameColumn {
+            public global::System.Data.DataColumn transmission_nameColumn {
                 get {
-                    return this.columnfuel_type_name;
+                    return this.columntransmission_name;
                 }
             }
             
@@ -353,54 +353,54 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_fuel_typeRow this[int index] {
+            public sp_select_transmissionRow this[int index] {
                 get {
-                    return ((sp_select_fuel_typeRow)(this.Rows[index]));
+                    return ((sp_select_transmissionRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_fuel_typeRowChangeEventHandler sp_select_fuel_typeRowChanging;
+            public event sp_select_transmissionRowChangeEventHandler sp_select_transmissionRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_fuel_typeRowChangeEventHandler sp_select_fuel_typeRowChanged;
+            public event sp_select_transmissionRowChangeEventHandler sp_select_transmissionRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_fuel_typeRowChangeEventHandler sp_select_fuel_typeRowDeleting;
+            public event sp_select_transmissionRowChangeEventHandler sp_select_transmissionRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_fuel_typeRowChangeEventHandler sp_select_fuel_typeRowDeleted;
+            public event sp_select_transmissionRowChangeEventHandler sp_select_transmissionRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Addsp_select_fuel_typeRow(sp_select_fuel_typeRow row) {
+            public void Addsp_select_transmissionRow(sp_select_transmissionRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_fuel_typeRow Addsp_select_fuel_typeRow(string fuel_type_name, string modified_by) {
-                sp_select_fuel_typeRow rowsp_select_fuel_typeRow = ((sp_select_fuel_typeRow)(this.NewRow()));
+            public sp_select_transmissionRow Addsp_select_transmissionRow(string transmission_name, string modified_by) {
+                sp_select_transmissionRow rowsp_select_transmissionRow = ((sp_select_transmissionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        fuel_type_name,
+                        transmission_name,
                         modified_by};
-                rowsp_select_fuel_typeRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowsp_select_fuel_typeRow);
-                return rowsp_select_fuel_typeRow;
+                rowsp_select_transmissionRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowsp_select_transmissionRow);
+                return rowsp_select_transmissionRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_fuel_typeRow FindByfuel_type(int fuel_type) {
-                return ((sp_select_fuel_typeRow)(this.Rows.Find(new object[] {
-                            fuel_type})));
+            public sp_select_transmissionRow FindBytransmission(int transmission) {
+                return ((sp_select_transmissionRow)(this.Rows.Find(new object[] {
+                            transmission})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                sp_select_fuel_typeDataTable cln = ((sp_select_fuel_typeDataTable)(base.Clone()));
+                sp_select_transmissionDataTable cln = ((sp_select_transmissionDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -408,64 +408,64 @@ namespace VehicleDealership.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new sp_select_fuel_typeDataTable();
+                return new sp_select_transmissionDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnfuel_type = base.Columns["fuel_type"];
-                this.columnfuel_type_name = base.Columns["fuel_type_name"];
+                this.columntransmission = base.Columns["transmission"];
+                this.columntransmission_name = base.Columns["transmission_name"];
                 this.columnmodified_by = base.Columns["modified_by"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnfuel_type = new global::System.Data.DataColumn("fuel_type", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfuel_type);
-                this.columnfuel_type_name = new global::System.Data.DataColumn("fuel_type_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfuel_type_name);
+                this.columntransmission = new global::System.Data.DataColumn("transmission", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntransmission);
+                this.columntransmission_name = new global::System.Data.DataColumn("transmission_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntransmission_name);
                 this.columnmodified_by = new global::System.Data.DataColumn("modified_by", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmodified_by);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnfuel_type}, true));
-                this.columnfuel_type.AutoIncrement = true;
-                this.columnfuel_type.AutoIncrementSeed = -1;
-                this.columnfuel_type.AutoIncrementStep = -1;
-                this.columnfuel_type.AllowDBNull = false;
-                this.columnfuel_type.ReadOnly = true;
-                this.columnfuel_type.Unique = true;
-                this.columnfuel_type_name.AllowDBNull = false;
-                this.columnfuel_type_name.MaxLength = 20;
+                                this.columntransmission}, true));
+                this.columntransmission.AutoIncrement = true;
+                this.columntransmission.AutoIncrementSeed = -1;
+                this.columntransmission.AutoIncrementStep = -1;
+                this.columntransmission.AllowDBNull = false;
+                this.columntransmission.ReadOnly = true;
+                this.columntransmission.Unique = true;
+                this.columntransmission_name.AllowDBNull = false;
+                this.columntransmission_name.MaxLength = 20;
                 this.columnmodified_by.AllowDBNull = false;
                 this.columnmodified_by.MaxLength = 200;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_fuel_typeRow Newsp_select_fuel_typeRow() {
-                return ((sp_select_fuel_typeRow)(this.NewRow()));
+            public sp_select_transmissionRow Newsp_select_transmissionRow() {
+                return ((sp_select_transmissionRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new sp_select_fuel_typeRow(builder);
+                return new sp_select_transmissionRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(sp_select_fuel_typeRow);
+                return typeof(sp_select_transmissionRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.sp_select_fuel_typeRowChanged != null)) {
-                    this.sp_select_fuel_typeRowChanged(this, new sp_select_fuel_typeRowChangeEvent(((sp_select_fuel_typeRow)(e.Row)), e.Action));
+                if ((this.sp_select_transmissionRowChanged != null)) {
+                    this.sp_select_transmissionRowChanged(this, new sp_select_transmissionRowChangeEvent(((sp_select_transmissionRow)(e.Row)), e.Action));
                 }
             }
             
@@ -473,8 +473,8 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.sp_select_fuel_typeRowChanging != null)) {
-                    this.sp_select_fuel_typeRowChanging(this, new sp_select_fuel_typeRowChangeEvent(((sp_select_fuel_typeRow)(e.Row)), e.Action));
+                if ((this.sp_select_transmissionRowChanging != null)) {
+                    this.sp_select_transmissionRowChanging(this, new sp_select_transmissionRowChangeEvent(((sp_select_transmissionRow)(e.Row)), e.Action));
                 }
             }
             
@@ -482,8 +482,8 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.sp_select_fuel_typeRowDeleted != null)) {
-                    this.sp_select_fuel_typeRowDeleted(this, new sp_select_fuel_typeRowChangeEvent(((sp_select_fuel_typeRow)(e.Row)), e.Action));
+                if ((this.sp_select_transmissionRowDeleted != null)) {
+                    this.sp_select_transmissionRowDeleted(this, new sp_select_transmissionRowChangeEvent(((sp_select_transmissionRow)(e.Row)), e.Action));
                 }
             }
             
@@ -491,14 +491,14 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.sp_select_fuel_typeRowDeleting != null)) {
-                    this.sp_select_fuel_typeRowDeleting(this, new sp_select_fuel_typeRowChangeEvent(((sp_select_fuel_typeRow)(e.Row)), e.Action));
+                if ((this.sp_select_transmissionRowDeleting != null)) {
+                    this.sp_select_transmissionRowDeleting(this, new sp_select_transmissionRowChangeEvent(((sp_select_transmissionRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Removesp_select_fuel_typeRow(sp_select_fuel_typeRow row) {
+            public void Removesp_select_transmissionRow(sp_select_transmissionRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -507,7 +507,7 @@ namespace VehicleDealership.Datasets {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Fuel_type_ds ds = new Fuel_type_ds();
+                Transmission_ds ds = new Transmission_ds();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -525,7 +525,7 @@ namespace VehicleDealership.Datasets {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "sp_select_fuel_typeDataTable";
+                attribute2.FixedValue = "sp_select_transmissionDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -569,36 +569,36 @@ namespace VehicleDealership.Datasets {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class sp_select_fuel_typeRow : global::System.Data.DataRow {
+        public partial class sp_select_transmissionRow : global::System.Data.DataRow {
             
-            private sp_select_fuel_typeDataTable tablesp_select_fuel_type;
+            private sp_select_transmissionDataTable tablesp_select_transmission;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal sp_select_fuel_typeRow(global::System.Data.DataRowBuilder rb) : 
+            internal sp_select_transmissionRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablesp_select_fuel_type = ((sp_select_fuel_typeDataTable)(this.Table));
+                this.tablesp_select_transmission = ((sp_select_transmissionDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int fuel_type {
+            public int transmission {
                 get {
-                    return ((int)(this[this.tablesp_select_fuel_type.fuel_typeColumn]));
+                    return ((int)(this[this.tablesp_select_transmission.transmissionColumn]));
                 }
                 set {
-                    this[this.tablesp_select_fuel_type.fuel_typeColumn] = value;
+                    this[this.tablesp_select_transmission.transmissionColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string fuel_type_name {
+            public string transmission_name {
                 get {
-                    return ((string)(this[this.tablesp_select_fuel_type.fuel_type_nameColumn]));
+                    return ((string)(this[this.tablesp_select_transmission.transmission_nameColumn]));
                 }
                 set {
-                    this[this.tablesp_select_fuel_type.fuel_type_nameColumn] = value;
+                    this[this.tablesp_select_transmission.transmission_nameColumn] = value;
                 }
             }
             
@@ -606,10 +606,10 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string modified_by {
                 get {
-                    return ((string)(this[this.tablesp_select_fuel_type.modified_byColumn]));
+                    return ((string)(this[this.tablesp_select_transmission.modified_byColumn]));
                 }
                 set {
-                    this[this.tablesp_select_fuel_type.modified_byColumn] = value;
+                    this[this.tablesp_select_transmission.modified_byColumn] = value;
                 }
             }
         }
@@ -618,22 +618,22 @@ namespace VehicleDealership.Datasets {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class sp_select_fuel_typeRowChangeEvent : global::System.EventArgs {
+        public class sp_select_transmissionRowChangeEvent : global::System.EventArgs {
             
-            private sp_select_fuel_typeRow eventRow;
+            private sp_select_transmissionRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_fuel_typeRowChangeEvent(sp_select_fuel_typeRow row, global::System.Data.DataRowAction action) {
+            public sp_select_transmissionRowChangeEvent(sp_select_transmissionRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_fuel_typeRow Row {
+            public sp_select_transmissionRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -649,7 +649,7 @@ namespace VehicleDealership.Datasets {
         }
     }
 }
-namespace VehicleDealership.Datasets.Fuel_type_dsTableAdapters {
+namespace VehicleDealership.Datasets.Transmission_dsTableAdapters {
     
     
     /// <summary>
@@ -661,7 +661,7 @@ namespace VehicleDealership.Datasets.Fuel_type_dsTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class sp_select_fuel_typeTableAdapter : global::System.ComponentModel.Component {
+    public partial class sp_select_transmissionTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -675,7 +675,7 @@ namespace VehicleDealership.Datasets.Fuel_type_dsTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public sp_select_fuel_typeTableAdapter() {
+        public sp_select_transmissionTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -772,9 +772,9 @@ namespace VehicleDealership.Datasets.Fuel_type_dsTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "sp_select_fuel_type";
-            tableMapping.ColumnMappings.Add("fuel_type", "fuel_type");
-            tableMapping.ColumnMappings.Add("fuel_type_name", "fuel_type_name");
+            tableMapping.DataSetTable = "sp_select_transmission";
+            tableMapping.ColumnMappings.Add("transmission", "transmission");
+            tableMapping.ColumnMappings.Add("transmission_name", "transmission_name");
             tableMapping.ColumnMappings.Add("modified_by", "modified_by");
             this._adapter.TableMappings.Add(tableMapping);
         }
@@ -792,7 +792,7 @@ namespace VehicleDealership.Datasets.Fuel_type_dsTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "veh.sp_select_fuel_type";
+            this._commandCollection[0].CommandText = "veh.sp_select_transmission";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -801,9 +801,9 @@ namespace VehicleDealership.Datasets.Fuel_type_dsTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Fuel_type_ds.sp_select_fuel_typeDataTable GetData() {
+        public virtual Transmission_ds.sp_select_transmissionDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Fuel_type_ds.sp_select_fuel_typeDataTable dataTable = new Fuel_type_ds.sp_select_fuel_typeDataTable();
+            Transmission_ds.sp_select_transmissionDataTable dataTable = new Transmission_ds.sp_select_transmissionDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -839,13 +839,13 @@ namespace VehicleDealership.Datasets.Fuel_type_dsTableAdapters {
             this._commandCollection = new global::System.Data.IDbCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "veh.sp_update_insert_fuel_type";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "veh.sp_update_insert_transmission";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@uid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandText = "veh.sp_delete_fuel_type";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandText = "veh.sp_delete_transmission";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@uid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -854,7 +854,7 @@ namespace VehicleDealership.Datasets.Fuel_type_dsTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int sp_update_insert_fuel_type(global::System.Nullable<int> uid) {
+        public virtual object sp_update_insert_transmission(global::System.Nullable<int> uid) {
             global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
             if ((uid.HasValue == true)) {
                 command.Parameters[1].Value = ((int)(uid.Value));
@@ -867,22 +867,28 @@ namespace VehicleDealership.Datasets.Fuel_type_dsTableAdapters {
                         != global::System.Data.ConnectionState.Open)) {
                 command.Connection.Open();
             }
-            int returnValue;
+            object returnValue;
             try {
-                returnValue = command.ExecuteNonQuery();
+                returnValue = command.ExecuteScalar();
             }
             finally {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     command.Connection.Close();
                 }
             }
-            return returnValue;
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object sp_delete_fuel_type(global::System.Nullable<int> uid) {
+        public virtual object sp_delete_transmission(global::System.Nullable<int> uid) {
             global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[1]));
             if ((uid.HasValue == true)) {
                 command.Parameters[1].Value = ((int)(uid.Value));
@@ -982,7 +988,7 @@ namespace VehicleDealership.Datasets.Fuel_type_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(Fuel_type_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(Transmission_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -992,7 +998,7 @@ namespace VehicleDealership.Datasets.Fuel_type_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(Fuel_type_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(Transmission_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1002,7 +1008,7 @@ namespace VehicleDealership.Datasets.Fuel_type_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(Fuel_type_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(Transmission_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1036,7 +1042,7 @@ namespace VehicleDealership.Datasets.Fuel_type_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(Fuel_type_ds dataSet) {
+        public virtual int UpdateAll(Transmission_ds dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

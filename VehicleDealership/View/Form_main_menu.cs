@@ -28,7 +28,6 @@ namespace VehicleDealership.View
 			ssl_usergroup.Text = "";
 
 			//simulateUserToolStripMenuItem.Click += (sender2, e2) => Open_form(new Form_simulate_user());
-			simulateUserToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_simulate_user));
 			usersToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "USER");
 			userGroupsToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_usergroup));
 			changePasswordToolStripMenuItem.Click += (sender2, e2) => (new Form_change_pw()).ShowDialog();

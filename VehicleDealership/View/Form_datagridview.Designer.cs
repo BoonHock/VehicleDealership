@@ -43,8 +43,9 @@
 			this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ts_save_only = new System.Windows.Forms.ToolStrip();
-			this.Btn_save = new System.Windows.Forms.ToolStripButton();
+			this.btn_save = new System.Windows.Forms.ToolStripButton();
 			this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+			this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ts_user.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_main)).BeginInit();
 			this.cms_grd_main.SuspendLayout();
@@ -151,27 +152,28 @@
 			// 
 			this.cms_grd_main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editToolStripMenuItem,
-            this.addToolStripMenuItem});
+            this.addToolStripMenuItem,
+            this.deleteToolStripMenuItem});
 			this.cms_grd_main.Name = "cms_user";
-			this.cms_grd_main.Size = new System.Drawing.Size(97, 48);
+			this.cms_grd_main.Size = new System.Drawing.Size(108, 70);
 			// 
 			// editToolStripMenuItem
 			// 
 			this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-			this.editToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+			this.editToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
 			this.editToolStripMenuItem.Text = "Edit";
 			// 
 			// addToolStripMenuItem
 			// 
 			this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-			this.addToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+			this.addToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
 			this.addToolStripMenuItem.Text = "Add";
 			// 
 			// ts_save_only
 			// 
 			this.ts_save_only.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.ts_save_only.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Btn_save,
+            this.btn_save,
             this.toolStripLabel3});
 			this.ts_save_only.Location = new System.Drawing.Point(0, 25);
 			this.ts_save_only.Name = "ts_save_only";
@@ -179,14 +181,14 @@
 			this.ts_save_only.TabIndex = 3;
 			this.ts_save_only.Text = "toolStrip1";
 			// 
-			// Btn_save
+			// btn_save
 			// 
-			this.Btn_save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.Btn_save.Image = global::VehicleDealership.Properties.Resources.Save_16x;
-			this.Btn_save.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.Btn_save.Name = "Btn_save";
-			this.Btn_save.Size = new System.Drawing.Size(23, 22);
-			this.Btn_save.Text = "Save changes";
+			this.btn_save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_save.Image = global::VehicleDealership.Properties.Resources.Save_16x;
+			this.btn_save.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_save.Name = "btn_save";
+			this.btn_save.Size = new System.Drawing.Size(23, 22);
+			this.btn_save.Text = "Save changes";
 			// 
 			// toolStripLabel3
 			// 
@@ -194,6 +196,12 @@
 			this.toolStripLabel3.Size = new System.Drawing.Size(432, 22);
 			this.toolStripLabel3.Text = "Instruction: Edit directly to grid below and click save button to save any change" +
     "s.";
+			// 
+			// deleteToolStripMenuItem
+			// 
+			this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+			this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+			this.deleteToolStripMenuItem.Text = "Delete";
 			// 
 			// Form_datagridview
 			// 
@@ -236,7 +244,8 @@
 		private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
 		private System.Windows.Forms.ToolStrip ts_save_only;
-		private System.Windows.Forms.ToolStripButton Btn_save;
+		private System.Windows.Forms.ToolStripButton btn_save;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel3;
+		private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
 	}
 }
