@@ -112,7 +112,7 @@ namespace VehicleDealership.Classes
 
 			var hti = grd.HitTest(e.X, e.Y);
 
-			if (hti.RowIndex != -1)
+			if (hti.RowIndex != -1 && hti.ColumnIndex != -1)
 			{
 				grd.ClearSelection();
 				grd[hti.ColumnIndex, hti.RowIndex].Selected = true;

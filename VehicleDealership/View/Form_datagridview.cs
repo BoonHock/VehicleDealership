@@ -65,6 +65,13 @@ namespace VehicleDealership.View
 					else
 						Setup_form_transmission();
 					break;
+				case "COLOR":
+					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOR) &&
+						!Program.System_user.Has_permission(User_permission.DELETE_COLOR))
+						permission_denied = true;
+					else
+						Setup_form_color();
+					break;
 			}
 
 			if (permission_denied)
@@ -251,6 +258,7 @@ namespace VehicleDealership.View
 			grd_main.AutoResizeColumns();
 
 			grd_main.Columns["modified_by"].DefaultCellStyle.BackColor = Color.LightGray;
+			((DataGridViewTextBoxColumn)grd_main.Columns["fuel_type_name"]).MaxInputLength = 20;
 
 			if (!Program.System_user.IsDeveloper)
 				Class_datagridview.Hide_columns(grd_main, new string[] { "fuel_type" });
@@ -263,7 +271,7 @@ namespace VehicleDealership.View
 				Remove_unnecessary_columns(((DataTable)grd_main.DataSource).Copy(),
 				new string[] { "fuel_type", "fuel_type_name" });
 
-			if (dttable.Select().GroupBy(c => c["fuel_type_name"]).Where(c => c.Count() > 1).Count() > 0)
+			if (dttable.Select().GroupBy(c => c["fuel_type_name"].ToString().ToUpper()).Where(c => c.Count() > 1).Count() > 0)
 			{
 				MessageBox.Show("Duplicate fuel names are not allowed", "Invalid input",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -354,6 +362,7 @@ namespace VehicleDealership.View
 			grd_main.AutoResizeColumns();
 
 			grd_main.Columns["modified_by"].DefaultCellStyle.BackColor = Color.LightGray;
+			((DataGridViewTextBoxColumn)grd_main.Columns["transmission_name"]).MaxInputLength = 20;
 
 			if (!Program.System_user.IsDeveloper)
 				Class_datagridview.Hide_columns(grd_main, new string[] { "transmission" });
@@ -362,11 +371,10 @@ namespace VehicleDealership.View
 		{
 			Class_datagridview.Apply_all_changes(grd_main);
 
-			DataTable dttable = Class_datatable.
-				Remove_unnecessary_columns(((DataTable)grd_main.DataSource).Copy(),
+			DataTable dttable = Class_datatable.Remove_unnecessary_columns(((DataTable)grd_main.DataSource).Copy(),
 				new string[] { "transmission", "transmission_name" });
 
-			if (dttable.Select().GroupBy(c => c["transmission_name"]).Where(c => c.Count() > 1).Count() > 0)
+			if (dttable.Select().GroupBy(c => c["transmission_name"].ToString().ToUpper()).Where(c => c.Count() > 1).Count() > 0)
 			{
 				MessageBox.Show("Duplicate transmission names are not allowed", "Invalid input",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -423,6 +431,117 @@ namespace VehicleDealership.View
 					"Some items cannot be deleted", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else if (is_updated && is_deleted)
 				MessageBox.Show("All items have been saved successfully.", "Item saved", MessageBoxButtons.OK);
+		}
+		#endregion
+		#region COLOR
+		private void Setup_form_color()
+		{
+			// user will be editing straight to cell so no need display these two
+			editToolStripMenuItem.Visible = false;
+			addToolStripMenuItem.Visible = false;
+
+			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOR))
+			{
+				grd_main.ReadOnly = false;
+				grd_main.AllowUserToAddRows = true;
+			}
+			grd_main.AllowUserToDeleteRows =
+				Program.System_user.Has_permission(User_permission.DELETE_COLOR);
+
+			ts_save_only.Visible = true;
+
+			Setup_grd_color();
+			btn_save.Click += Btn_save_color_Click;
+			deleteToolStripMenuItem.Click += Delete_grd_main_row;
+		}
+		private void Setup_grd_color()
+		{
+			Color_ds.sp_select_colorDataTable dttable = Color_ds.Select_color();
+
+			dttable.Columns["modified_by"].DefaultValue = Program.System_user.Name;
+			dttable.Columns["modified_by"].ReadOnly = true;
+
+			Class_datagridview.Setup_and_preselect(grd_main, dttable, "color_name");
+
+			grd_main.AutoResizeColumns();
+
+			grd_main.Columns["modified_by"].DefaultCellStyle.BackColor = Color.LightGray;
+			((DataGridViewTextBoxColumn)grd_main.Columns["color_name"]).MaxInputLength = 20;
+
+			if (!Program.System_user.IsDeveloper)
+				Class_datagridview.Hide_columns(grd_main, new string[] { "color" });
+		}
+		private void Btn_save_color_Click(object sender, EventArgs e)
+		{
+			Class_datagridview.Apply_all_changes(grd_main);
+
+			DataTable dttable = Class_datatable.Remove_unnecessary_columns(((DataTable)grd_main.DataSource).Copy(),
+				new string[] { "color", "color_name" });
+
+			if (dttable.Select().GroupBy(c => c["color_name"].ToString().ToUpper()).Where(c => c.Count() > 1).Count() > 0)
+			{
+				MessageBox.Show("Duplicate color_names are not allowed", "Invalid input",
+					MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
+			DataColumn dt_col = new DataColumn("modified_by");
+			dt_col.DefaultValue = Program.System_user.UserID;
+
+			dttable.Columns.Add(dt_col);
+
+			Bulkcopy_table_ds.Delete_by_user();
+
+			using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.VehicleDealershipConnectionString))
+			{
+				conn.Open();
+
+				using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn))
+				{
+					bulkCopy.DestinationTableName = "[misc].[bulkcopy_table]";
+
+					try
+					{
+						bulkCopy.ColumnMappings.Add("color", "int1");
+						bulkCopy.ColumnMappings.Add("color_name", "nvarchar1");
+						bulkCopy.ColumnMappings.Add("modified_by", "created_by");
+						bulkCopy.WriteToServer(dttable);
+					}
+					catch (Exception ex)
+					{
+						MessageBox.Show("An error has occurred. \n\n Message: " + ex.Message,
+							"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						conn.Close();
+						return;
+					}
+				}
+				conn.Close();
+			}
+
+			// insert, update and delete transmission
+			bool is_deleted = true;
+			bool is_updated = true;
+
+			if (Program.System_user.Has_permission(User_permission.DELETE_COLOR))
+				is_deleted = Color_ds.Delete_color();
+
+			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOR))
+				is_updated = Color_ds.Update_insert_color();
+
+			Setup_grd_color();
+
+			if (!is_deleted)
+				MessageBox.Show("One or more color cannot be deleted because there are items applying this color.",
+					"Some items cannot be deleted", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else if (is_updated && is_deleted)
+				MessageBox.Show("All items have been saved successfully.", "Item saved", MessageBoxButtons.OK);
+
+		}
+		#endregion
+		#region FINANCE
+		private void Setup_form_finance()
+		{
+
 		}
 		#endregion
 	}

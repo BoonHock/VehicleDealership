@@ -100,6 +100,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Bulkcopy_table_ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\Color_ds.cs">
+      <DependentUpon>Color_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Color_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Color_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\Combobox_options_ds.cs">
       <DependentUpon>Combobox_options_ds.xsd</DependentUpon>
     </Compile>
@@ -240,6 +248,12 @@
     <Compile Include="View\Form_usergroup.Designer.cs">
       <DependentUpon>Form_usergroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Form_vehicle_purchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form_vehicle_purchase.Designer.cs">
+      <DependentUpon>Form_vehicle_purchase.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Form_vehicle_template.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -289,6 +303,9 @@
     <EmbeddedResource Include="View\Form_usergroup.resx">
       <DependentUpon>Form_usergroup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Form_vehicle_purchase.resx">
+      <DependentUpon>Form_vehicle_purchase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Form_vehicle_template.resx">
       <DependentUpon>Form_vehicle_template.cs</DependentUpon>
     </EmbeddedResource>
@@ -302,6 +319,17 @@
     </None>
     <None Include="Datasets\Bulkcopy_table_ds.xss">
       <DependentUpon>Bulkcopy_table_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Color_ds.xsc">
+      <DependentUpon>Color_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Color_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Color_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Color_ds.xss">
+      <DependentUpon>Color_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Combobox_options_ds.xsc">
       <DependentUpon>Combobox_options_ds.xsd</DependentUpon>
@@ -440,6 +468,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="green_car.ico" />
+    <None Include="Resources\Filter_16x.png" />
     <None Include="Resources\AddImage_16x.png" />
     <None Include="Resources\ChangePassword_16x.png" />
     <None Include="Resources\Save_16x.png" />

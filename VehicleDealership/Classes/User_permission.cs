@@ -19,6 +19,8 @@ namespace VehicleDealership.Classes
 		public static string DELETE_FUEL_TYPE { get { return "DELETE_FUEL_TYPE"; } }
 		public static string ADD_EDIT_TRANSMISSION { get { return "ADD_EDIT_TRANSMISSION"; } }
 		public static string DELETE_TRANSMISSION { get { return "DELETE_TRANSMISSION"; } }
+		public static string ADD_EDIT_COLOR { get { return "ADD_EDIT_COLOR"; } }
+		public static string DELETE_COLOR { get { return "DELETE_COLOR"; } }
 		//private User_permission(string value) { Value = value; }
 		//public string Value { get; private set; }
 		//public static User_permission ADMINISTRATOR { get { return new User_permission("ADMINISTRATOR"); } }

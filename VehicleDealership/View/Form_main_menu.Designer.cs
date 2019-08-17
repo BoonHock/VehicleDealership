@@ -38,6 +38,8 @@
 			this.transmissionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.fuelTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.vehicleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.purchaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salesOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,6 +52,7 @@
 			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ssl_usergroup = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ssl_status = new System.Windows.Forms.ToolStripStatusLabel();
+			this.colorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.main_menu_strip.SuspendLayout();
 			this.log_in_menustrip.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
@@ -59,6 +62,7 @@
 			// 
 			this.main_menu_strip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.administrationToolStripMenuItem,
+            this.vehicleToolStripMenuItem1,
             this.salesToolStripMenuItem,
             this.aboutToolStripMenuItem,
             this.logOutToolStripMenuItem});
@@ -75,6 +79,7 @@
             this.usersToolStripMenuItem,
             this.userGroupsToolStripMenuItem,
             this.vehicleToolStripMenuItem,
+            this.colorToolStripMenuItem,
             this.changePasswordToolStripMenuItem});
 			this.administrationToolStripMenuItem.Name = "administrationToolStripMenuItem";
 			this.administrationToolStripMenuItem.Size = new System.Drawing.Size(98, 19);
@@ -125,6 +130,20 @@
 			this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
 			this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.changePasswordToolStripMenuItem.Text = "Change password";
+			// 
+			// vehicleToolStripMenuItem1
+			// 
+			this.vehicleToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.purchaseToolStripMenuItem});
+			this.vehicleToolStripMenuItem1.Name = "vehicleToolStripMenuItem1";
+			this.vehicleToolStripMenuItem1.Size = new System.Drawing.Size(57, 19);
+			this.vehicleToolStripMenuItem1.Text = "Vehicle";
+			// 
+			// purchaseToolStripMenuItem
+			// 
+			this.purchaseToolStripMenuItem.Name = "purchaseToolStripMenuItem";
+			this.purchaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.purchaseToolStripMenuItem.Text = "Purchase";
 			// 
 			// salesToolStripMenuItem
 			// 
@@ -234,6 +253,12 @@
 			this.ssl_status.Size = new System.Drawing.Size(43, 19);
 			this.ssl_status.Text = "Ready";
 			// 
+			// colorToolStripMenuItem
+			// 
+			this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
+			this.colorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.colorToolStripMenuItem.Text = "Color";
+			// 
 			// Form_main_menu
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -286,5 +311,8 @@
 		private System.Windows.Forms.ToolStripMenuItem brandGroupModelToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem fuelTypeToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem transmissionToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem vehicleToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem purchaseToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem colorToolStripMenuItem;
 	}
 }

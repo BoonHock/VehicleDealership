@@ -34,6 +34,7 @@ namespace VehicleDealership.View
 			brandGroupModelToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_vehicle_template));
 			transmissionToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "TRANSMISSION");
 			fuelTypeToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "FUEL_TYPE");
+			colorToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "COLOR");
 
 			salesOrderToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_sales_order));
 		}
@@ -54,12 +55,15 @@ namespace VehicleDealership.View
 			brandGroupModelToolStripMenuItem.Enabled = (
 				Program.System_user.Has_permission(User_permission.ADD_EDIT_VEHICLE_BRAND_GROUP_MODEL) ||
 				Program.System_user.Has_permission(User_permission.DELETE_VEHICLE_BRAND_GROUP_MODEL));
-			fuelTypeToolStripMenuItem.Enabled = (
-				Program.System_user.Has_permission(User_permission.ADD_EDIT_FUEL_TYPE) ||
-				Program.System_user.Has_permission(User_permission.DELETE_FUEL_TYPE));
 			transmissionToolStripMenuItem.Enabled = (
 				Program.System_user.Has_permission(User_permission.ADD_EDIT_TRANSMISSION) ||
 				Program.System_user.Has_permission(User_permission.DELETE_TRANSMISSION));
+			fuelTypeToolStripMenuItem.Enabled = (
+				Program.System_user.Has_permission(User_permission.ADD_EDIT_FUEL_TYPE) ||
+				Program.System_user.Has_permission(User_permission.DELETE_FUEL_TYPE));
+			colorToolStripMenuItem.Enabled = (
+				Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOR) ||
+				Program.System_user.Has_permission(User_permission.DELETE_COLOR));
 
 		}
 		private void Open_form(Type f_type, bool is_maximised = false, string form_tag = "")
