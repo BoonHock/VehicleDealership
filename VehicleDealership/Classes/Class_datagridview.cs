@@ -114,6 +114,9 @@ namespace VehicleDealership.Classes
 
 			if (hti.RowIndex != -1 && hti.ColumnIndex != -1)
 			{
+				// if cell being right-clicked is already selected, then no need to clear selection and reselect
+				if (grd[hti.ColumnIndex, hti.RowIndex].Selected) return;
+
 				grd.ClearSelection();
 				grd[hti.ColumnIndex, hti.RowIndex].Selected = true;
 				grd.CurrentCell = grd[hti.ColumnIndex, hti.RowIndex];

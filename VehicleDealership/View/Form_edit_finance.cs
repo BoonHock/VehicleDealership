@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace VehicleDealership.View
 {
-	public partial class Form_vehicle_purchase : Form
+	public partial class Form_edit_finance : Form
 	{
-		public Form_vehicle_purchase()
+		public Form_edit_finance()
 		{
 			InitializeComponent();
 		}

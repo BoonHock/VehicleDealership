@@ -21,6 +21,8 @@ namespace VehicleDealership.Classes
 		public static string DELETE_TRANSMISSION { get { return "DELETE_TRANSMISSION"; } }
 		public static string ADD_EDIT_COLOR { get { return "ADD_EDIT_COLOR"; } }
 		public static string DELETE_COLOR { get { return "DELETE_COLOR"; } }
+		public static string ADD_EDIT_SALESPERSON { get { return "ADD_EDIT_SALESPERSON"; } }
+		public static string DELETE_SALESPERSON { get { return "DELETE_SALESPERSON"; } }
 		//private User_permission(string value) { Value = value; }
 		//public string Value { get; private set; }
 		//public static User_permission ADMINISTRATOR { get { return new User_permission("ADMINISTRATOR"); } }

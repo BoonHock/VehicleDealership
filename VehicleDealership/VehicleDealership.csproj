@@ -84,6 +84,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Class_combobox.cs" />
     <Compile Include="Classes\Class_datagridview.cs" />
     <Compile Include="Classes\Class_datatable.cs" />
     <Compile Include="Classes\Class_listview.cs" />
@@ -124,6 +125,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\Organisation_ds.cs">
+      <DependentUpon>Organisation_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Organisation_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Organisation_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\Permission_ds.cs">
       <DependentUpon>Permission_ds.xsd</DependentUpon>
     </Compile>
@@ -131,6 +140,46 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Permission_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Person_contact_info_DS.cs">
+      <DependentUpon>Person_contact_info_DS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Person_contact_info_DS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Person_contact_info_DS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Person_ds.cs">
+      <DependentUpon>Person_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Person_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Person_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Person_org_type_ds.cs">
+      <DependentUpon>Person_org_type_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Person_org_type_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Person_org_type_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Race_ds.cs">
+      <DependentUpon>Race_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Race_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Race_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Salesperson_ds.cs">
+      <DependentUpon>Salesperson_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Salesperson_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Salesperson_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\Transmission_ds.cs">
       <DependentUpon>Transmission_ds.xsd</DependentUpon>
@@ -194,6 +243,12 @@
     <Compile Include="View\Form_datagridview.Designer.cs">
       <DependentUpon>Form_datagridview.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Form_edit_finance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form_edit_finance.Designer.cs">
+      <DependentUpon>Form_edit_finance.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Form_edit_usergroup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,11 +285,29 @@
     <Compile Include="View\Form_main_menu.Designer.cs">
       <DependentUpon>Form_main_menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Form_person.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form_person.Designer.cs">
+      <DependentUpon>Form_person.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Form_person_organisation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form_person_organisation.Designer.cs">
+      <DependentUpon>Form_person_organisation.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Form_register_user.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Form_register_user.Designer.cs">
       <DependentUpon>Form_register_user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Form_edit_salesperson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form_edit_salesperson.Designer.cs">
+      <DependentUpon>Form_edit_salesperson.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Form_sales_order.cs">
       <SubType>Form</SubType>
@@ -247,12 +320,6 @@
     </Compile>
     <Compile Include="View\Form_usergroup.Designer.cs">
       <DependentUpon>Form_usergroup.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Form_vehicle_purchase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Form_vehicle_purchase.Designer.cs">
-      <DependentUpon>Form_vehicle_purchase.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Form_vehicle_template.cs">
       <SubType>Form</SubType>
@@ -276,6 +343,9 @@
     <EmbeddedResource Include="View\Form_datagridview.resx">
       <DependentUpon>Form_datagridview.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Form_edit_finance.resx">
+      <DependentUpon>Form_edit_finance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Form_edit_usergroup.resx">
       <DependentUpon>Form_edit_usergroup.cs</DependentUpon>
     </EmbeddedResource>
@@ -294,17 +364,23 @@
     <EmbeddedResource Include="View\Form_main_menu.resx">
       <DependentUpon>Form_main_menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Form_person.resx">
+      <DependentUpon>Form_person.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Form_person_organisation.resx">
+      <DependentUpon>Form_person_organisation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Form_register_user.resx">
       <DependentUpon>Form_register_user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Form_edit_salesperson.resx">
+      <DependentUpon>Form_edit_salesperson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form_sales_order.resx">
       <DependentUpon>Form_sales_order.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form_usergroup.resx">
       <DependentUpon>Form_usergroup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Form_vehicle_purchase.resx">
-      <DependentUpon>Form_vehicle_purchase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form_vehicle_template.resx">
       <DependentUpon>Form_vehicle_template.cs</DependentUpon>
@@ -353,6 +429,17 @@
     <None Include="Datasets\Fuel_type_ds.xss">
       <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
     </None>
+    <None Include="Datasets\Organisation_ds.xsc">
+      <DependentUpon>Organisation_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Organisation_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Organisation_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Organisation_ds.xss">
+      <DependentUpon>Organisation_ds.xsd</DependentUpon>
+    </None>
     <None Include="Datasets\Permission_ds.xsc">
       <DependentUpon>Permission_ds.xsd</DependentUpon>
     </None>
@@ -363,6 +450,61 @@
     </None>
     <None Include="Datasets\Permission_ds.xss">
       <DependentUpon>Permission_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Person_contact_info_DS.xsc">
+      <DependentUpon>Person_contact_info_DS.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Person_contact_info_DS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Person_contact_info_DS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Person_contact_info_DS.xss">
+      <DependentUpon>Person_contact_info_DS.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Person_ds.xsc">
+      <DependentUpon>Person_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Person_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Person_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Person_ds.xss">
+      <DependentUpon>Person_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Person_org_type_ds.xsc">
+      <DependentUpon>Person_org_type_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Person_org_type_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Person_org_type_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Person_org_type_ds.xss">
+      <DependentUpon>Person_org_type_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Race_ds.xsc">
+      <DependentUpon>Race_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Race_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Race_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Race_ds.xss">
+      <DependentUpon>Race_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Salesperson_ds.xsc">
+      <DependentUpon>Salesperson_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Salesperson_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Salesperson_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Salesperson_ds.xss">
+      <DependentUpon>Salesperson_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Transmission_ds.xsc">
       <DependentUpon>Transmission_ds.xsd</DependentUpon>

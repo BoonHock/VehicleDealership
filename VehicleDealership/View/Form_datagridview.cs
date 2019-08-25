@@ -72,6 +72,13 @@ namespace VehicleDealership.View
 					else
 						Setup_form_color();
 					break;
+				case "SALESPERSON":
+					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_SALESPERSON) &&
+						!Program.System_user.Has_permission(User_permission.DELETE_SALESPERSON))
+						permission_denied = true;
+					else
+						Setup_form_edit_salesperson();
+					break;
 			}
 
 			if (permission_denied)
@@ -86,12 +93,8 @@ namespace VehicleDealership.View
 			if (grd_main.CurrentCell != null)
 				grd_main.Rows.Remove(grd_main.CurrentCell.OwningRow);
 		}
-		#region USERS
-		private void Setup_form_users()
+		private void Setup_cmb_is_active()
 		{
-			ts_user.Visible = true;
-			deleteToolStripMenuItem.Visible = false; // cannot delete user
-
 			DataTable dttable_active = new DataTable();
 			dttable_active.Columns.Add("display", typeof(string));
 			dttable_active.Columns.Add("value", typeof(int));
@@ -103,7 +106,17 @@ namespace VehicleDealership.View
 			cmb_is_active_user.ComboBox.DisplayMember = "display";
 			cmb_is_active_user.ComboBox.ValueMember = "value";
 			cmb_is_active_user.ComboBox.DataSource = dttable_active;
-			cmb_is_active_user.ComboBox.SelectedValue = 1; // select active user as default
+			cmb_is_active_user.ComboBox.SelectedValue = 1; // select active as default
+		}
+		#region USERS
+		private void Setup_form_users()
+		{
+			ts_user.Visible = true;
+
+			deleteToolStripMenuItem.Visible = false; // cannot delete user
+			btn_delete_user.Visible = false;
+
+			Setup_cmb_is_active();
 
 			if (Program.System_user.Has_permission(User_permission.EDIT_USER))
 			{
@@ -122,7 +135,6 @@ namespace VehicleDealership.View
 
 			txt_search_user.TextChanged += Setup_grd_users;
 			cmb_is_active_user.ComboBox.SelectedIndexChanged += Setup_grd_users;
-			grd_main.MouseDown += Class_datagridview.MouseDown_select_cell;
 			btn_add_user.Click += Add_user;
 			addToolStripMenuItem.Click += Add_user;
 			btn_edit_user.Click += Edit_user;
@@ -538,8 +550,66 @@ namespace VehicleDealership.View
 
 		}
 		#endregion
+		#region SALESPERSON
+		private void Setup_form_edit_salesperson()
+		{
+			ts_user.Visible = true;
+			Setup_cmb_is_active();
+
+			bool has_add_edit_permission = Program.System_user.Has_permission(User_permission.ADD_EDIT_SALESPERSON);
+			bool has_delete_permission = Program.System_user.Has_permission(User_permission.ADD_USER);
+
+			btn_add.Enabled = has_add_edit_permission;
+			btn_edit.Enabled = has_add_edit_permission;
+			btn_delete.Enabled = has_add_edit_permission;
+
+			Setup_grd_salesperson();
+
+			txt_search.TextChanged += Setup_grd_salesperson;
+			cmb_status.ComboBox.SelectedIndexChanged += Setup_grd_salesperson;
+			btn_add.Click += Add_salesperson;
+			addToolStripMenuItem.Click += Add_salesperson;
+			btn_edit.Click += Edit_salesperson;
+			editToolStripMenuItem.Click += Edit_salesperson;
+		}
+		private void Setup_grd_salesperson(object sender = null, EventArgs e = null)
+		{
+			grd_main.DataSource = null;
+
+			Salesperson_ds.sp_select_salespersonDataTable dttable = Salesperson_ds.Select_salesperson();
+
+			string str_search = txt_search.Text.Trim();
+			if (str_search == "")
+				grd_main.DataSource = dttable;
+			else
+			{
+				var query = from row in dttable
+							where row.name.Contains(str_search) || row.registration_no.Contains(str_search) || row.location.Contains(str_search)
+							select row;
+
+				if (query.Count() > 0)
+					grd_main.DataSource = query.CopyToDataTable();
+				else
+					grd_main.DataSource = new Salesperson_ds.sp_select_salespersonDataTable();
+			}
+		}
+		private void Add_salesperson(object sender, EventArgs e)
+		{
+			Form_edit_salesperson form_Edit_Salesperson = new Form_edit_salesperson();
+
+			if (form_Edit_Salesperson.ShowDialog() != DialogResult.OK) return;
+		}
+		private void Edit_salesperson(object sender, EventArgs e)
+		{
+
+		}
+		#endregion
 		#region FINANCE
 		private void Setup_form_finance()
+		{
+
+		}
+		private void Txt_search_finance_TextChanged(object sender, EventArgs e)
 		{
 
 		}

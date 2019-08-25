@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.IO;
+using System.Windows.Forms;
 
 namespace VehicleDealership.Classes
 {
@@ -48,6 +49,12 @@ namespace VehicleDealership.Classes
 		public static void Export_byte_array_to_jpeg_image(string path, byte[] byte_image)
 		{
 			File.WriteAllBytes(path + ".jpeg", byte_image);
+		}
+
+		public static void Display_dataset_error(string class_name, string function_name, string error_msg)
+		{
+			MessageBox.Show("An error has occured. \n" + class_name + "." + function_name +
+				"\n Error:" + error_msg, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 	}
 }

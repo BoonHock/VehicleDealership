@@ -35,6 +35,8 @@ namespace VehicleDealership.View
 			transmissionToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "TRANSMISSION");
 			fuelTypeToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "FUEL_TYPE");
 			colorToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "COLOR");
+			peopleToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_person), false);
+			salespersonToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "SALESPERSON");
 
 			salesOrderToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_sales_order));
 		}
@@ -84,29 +86,6 @@ namespace VehicleDealership.View
 			form_to_open.Tag = form_tag;
 			form_to_open.Show();
 		}
-		//private void Open_form(Form form_to_open, bool is_maximised = false, string form_tag = "")
-		//{
-		//	if (Open_active_form(form_to_open, form_tag)) return;
-
-		//	form_to_open.MdiParent = this;
-		//	if (is_maximised) form_to_open.WindowState = FormWindowState.Maximized;
-		//	form_to_open.Tag = form_tag;
-		//	form_to_open.Show();
-		//}
-		//private bool Open_active_form(Form form_to_check, string form_tag)
-		//{
-		//	foreach (Form f in Application.OpenForms)
-		//	{
-		//		if (f.GetType() == form_to_check.GetType() && ((f.Tag == null && form_tag == "") ||
-		//			(f.Tag != null && f.Tag.ToString() == form_tag)))
-		//		{
-		//			f.Activate();
-		//			return true;
-		//		}
-		//	}
-		//	return false;
-		//}
-
 		private void LogOutToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			if (this.MdiChildren.Count() != 0 && MessageBox.Show("Are you sure? Any changes will not be saved.", "Log out",
@@ -124,7 +103,6 @@ namespace VehicleDealership.View
 
 			logInToolStripMenuItem.PerformClick();
 		}
-
 		private void LogInToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Form_log_in form_login = new Form_log_in();

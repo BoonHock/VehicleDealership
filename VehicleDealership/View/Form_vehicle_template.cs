@@ -149,7 +149,6 @@ namespace VehicleDealership.View
 		}
 		private void Setup_grd_model(int int_vmodel = 0)
 		{
-			// TODO: setup grd model
 			if (tv_vehicle.SelectedNode == null) return;
 
 			int int_country = int.Parse(Class_treeview.Get_parent_node_by_level(tv_vehicle.SelectedNode, 0).Name);

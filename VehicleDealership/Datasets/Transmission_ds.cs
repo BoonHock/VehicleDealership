@@ -23,9 +23,8 @@ namespace VehicleDealership.Datasets
 			}
 			catch (System.Exception e)
 			{
-				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
-					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
-					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(), 
+					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
 			return new sp_select_transmissionDataTable();
 		}
@@ -37,9 +36,8 @@ namespace VehicleDealership.Datasets
 			}
 			catch (System.Exception e)
 			{
-				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
-					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
-					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
 				return false;
 			}
 			return true;
@@ -52,9 +50,8 @@ namespace VehicleDealership.Datasets
 			}
 			catch (System.Exception e)
 			{
-				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
-					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
-					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
 			return false;
 		}
