@@ -133,6 +133,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Organisation_ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\Organisation_type_ds.cs">
+      <DependentUpon>Organisation_type_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Organisation_type_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Organisation_type_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\Permission_ds.cs">
       <DependentUpon>Permission_ds.xsd</DependentUpon>
     </Compile>
@@ -157,13 +165,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Person_ds.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\Person_org_type_ds.cs">
-      <DependentUpon>Person_org_type_ds.xsd</DependentUpon>
+    <Compile Include="Datasets\Person_type_ds.cs">
+      <DependentUpon>Person_type_ds.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\Person_org_type_ds.Designer.cs">
+    <Compile Include="Datasets\Person_type_ds.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Person_org_type_ds.xsd</DependentUpon>
+      <DependentUpon>Person_type_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\Race_ds.cs">
       <DependentUpon>Race_ds.xsd</DependentUpon>
@@ -180,6 +188,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Salesperson_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Salestarget_ds.cs">
+      <DependentUpon>Salestarget_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Salestarget_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Salestarget_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\Transmission_ds.cs">
       <DependentUpon>Transmission_ds.xsd</DependentUpon>
@@ -440,6 +456,17 @@
     <None Include="Datasets\Organisation_ds.xss">
       <DependentUpon>Organisation_ds.xsd</DependentUpon>
     </None>
+    <None Include="Datasets\Organisation_type_ds.xsc">
+      <DependentUpon>Organisation_type_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Organisation_type_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Organisation_type_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Organisation_type_ds.xss">
+      <DependentUpon>Organisation_type_ds.xsd</DependentUpon>
+    </None>
     <None Include="Datasets\Permission_ds.xsc">
       <DependentUpon>Permission_ds.xsd</DependentUpon>
     </None>
@@ -473,16 +500,16 @@
     <None Include="Datasets\Person_ds.xss">
       <DependentUpon>Person_ds.xsd</DependentUpon>
     </None>
-    <None Include="Datasets\Person_org_type_ds.xsc">
-      <DependentUpon>Person_org_type_ds.xsd</DependentUpon>
+    <None Include="Datasets\Person_type_ds.xsc">
+      <DependentUpon>Person_type_ds.xsd</DependentUpon>
     </None>
-    <None Include="Datasets\Person_org_type_ds.xsd">
+    <None Include="Datasets\Person_type_ds.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Person_org_type_ds.Designer.cs</LastGenOutput>
+      <LastGenOutput>Person_type_ds.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Datasets\Person_org_type_ds.xss">
-      <DependentUpon>Person_org_type_ds.xsd</DependentUpon>
+    <None Include="Datasets\Person_type_ds.xss">
+      <DependentUpon>Person_type_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Race_ds.xsc">
       <DependentUpon>Race_ds.xsd</DependentUpon>
@@ -505,6 +532,17 @@
     </None>
     <None Include="Datasets\Salesperson_ds.xss">
       <DependentUpon>Salesperson_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Salestarget_ds.xsc">
+      <DependentUpon>Salestarget_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Salestarget_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Salestarget_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Salestarget_ds.xss">
+      <DependentUpon>Salestarget_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Transmission_ds.xsc">
       <DependentUpon>Transmission_ds.xsd</DependentUpon>

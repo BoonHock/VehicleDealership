@@ -553,7 +553,7 @@ namespace VehicleDealership.View
 		#region SALESPERSON
 		private void Setup_form_edit_salesperson()
 		{
-			ts_user.Visible = true;
+			ts_add_edit_delete.Visible = true;
 			Setup_cmb_is_active();
 
 			bool has_add_edit_permission = Program.System_user.Has_permission(User_permission.ADD_EDIT_SALESPERSON);
@@ -565,14 +565,14 @@ namespace VehicleDealership.View
 
 			Setup_grd_salesperson();
 
-			txt_search.TextChanged += Setup_grd_salesperson;
-			cmb_status.ComboBox.SelectedIndexChanged += Setup_grd_salesperson;
+			txt_search.TextChanged += (sender2, e2) => Setup_grd_salesperson();
+			cmb_status.ComboBox.SelectedIndexChanged += (sender2, e2) => Setup_grd_salesperson();
 			btn_add.Click += Add_salesperson;
 			addToolStripMenuItem.Click += Add_salesperson;
 			btn_edit.Click += Edit_salesperson;
 			editToolStripMenuItem.Click += Edit_salesperson;
 		}
-		private void Setup_grd_salesperson(object sender = null, EventArgs e = null)
+		private void Setup_grd_salesperson(int int_salesperson = 0)
 		{
 			grd_main.DataSource = null;
 
@@ -592,12 +592,23 @@ namespace VehicleDealership.View
 				else
 					grd_main.DataSource = new Salesperson_ds.sp_select_salespersonDataTable();
 			}
+
+			if (int_salesperson != 0)
+				Class_datagridview.Select_row_by_value(grd_main, "salesperson", int_salesperson.ToString());
 		}
 		private void Add_salesperson(object sender, EventArgs e)
 		{
-			Form_edit_salesperson form_Edit_Salesperson = new Form_edit_salesperson();
+			Form_person_organisation form_select_person_org = new Form_person_organisation();
 
-			if (form_Edit_Salesperson.ShowDialog() != DialogResult.OK) return;
+			if (form_select_person_org.ShowDialog() != DialogResult.OK) return;
+
+			bool is_person = (form_select_person_org.SelectedType == "PERSON") ? true : false;
+
+			Form_edit_salesperson form_salesperson = new Form_edit_salesperson(form_select_person_org.SelectedID, is_person);
+
+			if (form_salesperson.ShowDialog() != DialogResult.OK) return;
+
+			Setup_grd_salesperson();
 		}
 		private void Edit_salesperson(object sender, EventArgs e)
 		{

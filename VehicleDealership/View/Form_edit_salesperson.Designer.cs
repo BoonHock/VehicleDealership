@@ -34,29 +34,29 @@
 			this.btn_ok = new System.Windows.Forms.Button();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tab_details_person = new System.Windows.Forms.TabPage();
-			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-			this.textBox4 = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.dtp_person_leave = new System.Windows.Forms.DateTimePicker();
+			this.txt_person_country = new System.Windows.Forms.TextBox();
+			this.txt_gender = new System.Windows.Forms.TextBox();
+			this.txt_race = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
-			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.dtp_person_join = new System.Windows.Forms.DateTimePicker();
 			this.label4 = new System.Windows.Forms.Label();
-			this.txt_name = new System.Windows.Forms.TextBox();
+			this.txt_person_name = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.txt_postcode = new System.Windows.Forms.TextBox();
+			this.txt_person_postcode = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label16 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.txt_person_type = new System.Windows.Forms.TextBox();
 			this.txt_ic_no = new System.Windows.Forms.TextBox();
 			this.label12 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.txt_driving_license = new System.Windows.Forms.TextBox();
-			this.txt_state = new System.Windows.Forms.TextBox();
+			this.txt_person_state = new System.Windows.Forms.TextBox();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
-			this.txt_city = new System.Windows.Forms.TextBox();
+			this.txt_person_city = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
-			this.txt_address = new System.Windows.Forms.TextBox();
+			this.txt_person_address = new System.Windows.Forms.TextBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
@@ -139,29 +139,29 @@
 			// 
 			// tab_details_person
 			// 
-			this.tab_details_person.Controls.Add(this.dateTimePicker2);
-			this.tab_details_person.Controls.Add(this.textBox4);
-			this.tab_details_person.Controls.Add(this.textBox2);
-			this.tab_details_person.Controls.Add(this.textBox3);
+			this.tab_details_person.Controls.Add(this.dtp_person_leave);
+			this.tab_details_person.Controls.Add(this.txt_person_country);
+			this.tab_details_person.Controls.Add(this.txt_gender);
+			this.tab_details_person.Controls.Add(this.txt_race);
 			this.tab_details_person.Controls.Add(this.label5);
-			this.tab_details_person.Controls.Add(this.dateTimePicker1);
+			this.tab_details_person.Controls.Add(this.dtp_person_join);
 			this.tab_details_person.Controls.Add(this.label4);
-			this.tab_details_person.Controls.Add(this.txt_name);
+			this.tab_details_person.Controls.Add(this.txt_person_name);
 			this.tab_details_person.Controls.Add(this.label1);
-			this.tab_details_person.Controls.Add(this.txt_postcode);
+			this.tab_details_person.Controls.Add(this.txt_person_postcode);
 			this.tab_details_person.Controls.Add(this.label2);
 			this.tab_details_person.Controls.Add(this.label16);
-			this.tab_details_person.Controls.Add(this.textBox1);
+			this.tab_details_person.Controls.Add(this.txt_person_type);
 			this.tab_details_person.Controls.Add(this.txt_ic_no);
 			this.tab_details_person.Controls.Add(this.label12);
 			this.tab_details_person.Controls.Add(this.label3);
 			this.tab_details_person.Controls.Add(this.txt_driving_license);
-			this.tab_details_person.Controls.Add(this.txt_state);
+			this.tab_details_person.Controls.Add(this.txt_person_state);
 			this.tab_details_person.Controls.Add(this.label11);
 			this.tab_details_person.Controls.Add(this.label6);
-			this.tab_details_person.Controls.Add(this.txt_city);
+			this.tab_details_person.Controls.Add(this.txt_person_city);
 			this.tab_details_person.Controls.Add(this.label10);
-			this.tab_details_person.Controls.Add(this.txt_address);
+			this.tab_details_person.Controls.Add(this.txt_person_address);
 			this.tab_details_person.Controls.Add(this.label7);
 			this.tab_details_person.Controls.Add(this.label9);
 			this.tab_details_person.Controls.Add(this.label8);
@@ -173,40 +173,40 @@
 			this.tab_details_person.Text = "Details";
 			this.tab_details_person.UseVisualStyleBackColor = true;
 			// 
-			// dateTimePicker2
+			// dtp_person_leave
 			// 
-			this.dateTimePicker2.Checked = false;
-			this.dateTimePicker2.CustomFormat = "";
-			this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dateTimePicker2.Location = new System.Drawing.Point(574, 39);
-			this.dateTimePicker2.Name = "dateTimePicker2";
-			this.dateTimePicker2.ShowCheckBox = true;
-			this.dateTimePicker2.Size = new System.Drawing.Size(187, 27);
-			this.dateTimePicker2.TabIndex = 49;
+			this.dtp_person_leave.Checked = false;
+			this.dtp_person_leave.CustomFormat = "";
+			this.dtp_person_leave.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtp_person_leave.Location = new System.Drawing.Point(574, 39);
+			this.dtp_person_leave.Name = "dtp_person_leave";
+			this.dtp_person_leave.ShowCheckBox = true;
+			this.dtp_person_leave.Size = new System.Drawing.Size(187, 27);
+			this.dtp_person_leave.TabIndex = 49;
 			// 
-			// textBox4
+			// txt_person_country
 			// 
-			this.textBox4.Location = new System.Drawing.Point(125, 450);
-			this.textBox4.MaxLength = 100;
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(236, 27);
-			this.textBox4.TabIndex = 48;
+			this.txt_person_country.Location = new System.Drawing.Point(125, 450);
+			this.txt_person_country.MaxLength = 100;
+			this.txt_person_country.Name = "txt_person_country";
+			this.txt_person_country.Size = new System.Drawing.Size(236, 27);
+			this.txt_person_country.TabIndex = 48;
 			// 
-			// textBox2
+			// txt_gender
 			// 
-			this.textBox2.Location = new System.Drawing.Point(125, 138);
-			this.textBox2.MaxLength = 10;
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(236, 27);
-			this.textBox2.TabIndex = 46;
+			this.txt_gender.Location = new System.Drawing.Point(125, 138);
+			this.txt_gender.MaxLength = 10;
+			this.txt_gender.Name = "txt_gender";
+			this.txt_gender.Size = new System.Drawing.Size(236, 27);
+			this.txt_gender.TabIndex = 46;
 			// 
-			// textBox3
+			// txt_race
 			// 
-			this.textBox3.Location = new System.Drawing.Point(125, 171);
-			this.textBox3.MaxLength = 50;
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(236, 27);
-			this.textBox3.TabIndex = 47;
+			this.txt_race.Location = new System.Drawing.Point(125, 171);
+			this.txt_race.MaxLength = 50;
+			this.txt_race.Name = "txt_race";
+			this.txt_race.Size = new System.Drawing.Size(236, 27);
+			this.txt_race.TabIndex = 47;
 			// 
 			// label5
 			// 
@@ -217,14 +217,14 @@
 			this.label5.TabIndex = 9;
 			this.label5.Text = "Date leave:";
 			// 
-			// dateTimePicker1
+			// dtp_person_join
 			// 
-			this.dateTimePicker1.CustomFormat = "";
-			this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dateTimePicker1.Location = new System.Drawing.Point(574, 6);
-			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(187, 27);
-			this.dateTimePicker1.TabIndex = 7;
+			this.dtp_person_join.CustomFormat = "";
+			this.dtp_person_join.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtp_person_join.Location = new System.Drawing.Point(574, 6);
+			this.dtp_person_join.Name = "dtp_person_join";
+			this.dtp_person_join.Size = new System.Drawing.Size(187, 27);
+			this.dtp_person_join.TabIndex = 7;
 			// 
 			// label4
 			// 
@@ -235,13 +235,13 @@
 			this.label4.TabIndex = 6;
 			this.label4.Text = "Date join:";
 			// 
-			// txt_name
+			// txt_person_name
 			// 
-			this.txt_name.Location = new System.Drawing.Point(125, 6);
-			this.txt_name.MaxLength = 100;
-			this.txt_name.Name = "txt_name";
-			this.txt_name.Size = new System.Drawing.Size(236, 27);
-			this.txt_name.TabIndex = 1;
+			this.txt_person_name.Location = new System.Drawing.Point(125, 6);
+			this.txt_person_name.MaxLength = 100;
+			this.txt_person_name.Name = "txt_person_name";
+			this.txt_person_name.Size = new System.Drawing.Size(236, 27);
+			this.txt_person_name.TabIndex = 1;
 			// 
 			// label1
 			// 
@@ -252,13 +252,13 @@
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Name:";
 			// 
-			// txt_postcode
+			// txt_person_postcode
 			// 
-			this.txt_postcode.Location = new System.Drawing.Point(125, 417);
-			this.txt_postcode.MaxLength = 10;
-			this.txt_postcode.Name = "txt_postcode";
-			this.txt_postcode.Size = new System.Drawing.Size(236, 27);
-			this.txt_postcode.TabIndex = 45;
+			this.txt_person_postcode.Location = new System.Drawing.Point(125, 417);
+			this.txt_person_postcode.MaxLength = 10;
+			this.txt_person_postcode.Name = "txt_person_postcode";
+			this.txt_person_postcode.Size = new System.Drawing.Size(236, 27);
+			this.txt_person_postcode.TabIndex = 45;
 			// 
 			// label2
 			// 
@@ -278,13 +278,13 @@
 			this.label16.TabIndex = 44;
 			this.label16.Text = "Postcode:";
 			// 
-			// textBox1
+			// txt_person_type
 			// 
-			this.textBox1.Location = new System.Drawing.Point(125, 72);
-			this.textBox1.MaxLength = 50;
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(236, 27);
-			this.textBox1.TabIndex = 3;
+			this.txt_person_type.Location = new System.Drawing.Point(125, 72);
+			this.txt_person_type.MaxLength = 50;
+			this.txt_person_type.Name = "txt_person_type";
+			this.txt_person_type.Size = new System.Drawing.Size(236, 27);
+			this.txt_person_type.TabIndex = 3;
 			// 
 			// txt_ic_no
 			// 
@@ -320,13 +320,13 @@
 			this.txt_driving_license.Size = new System.Drawing.Size(236, 27);
 			this.txt_driving_license.TabIndex = 19;
 			// 
-			// txt_state
+			// txt_person_state
 			// 
-			this.txt_state.Location = new System.Drawing.Point(125, 384);
-			this.txt_state.MaxLength = 15;
-			this.txt_state.Name = "txt_state";
-			this.txt_state.Size = new System.Drawing.Size(236, 27);
-			this.txt_state.TabIndex = 29;
+			this.txt_person_state.Location = new System.Drawing.Point(125, 384);
+			this.txt_person_state.MaxLength = 15;
+			this.txt_person_state.Name = "txt_person_state";
+			this.txt_person_state.Size = new System.Drawing.Size(236, 27);
+			this.txt_person_state.TabIndex = 29;
 			// 
 			// label11
 			// 
@@ -346,13 +346,13 @@
 			this.label6.TabIndex = 21;
 			this.label6.Text = "Type:";
 			// 
-			// txt_city
+			// txt_person_city
 			// 
-			this.txt_city.Location = new System.Drawing.Point(125, 351);
-			this.txt_city.MaxLength = 15;
-			this.txt_city.Name = "txt_city";
-			this.txt_city.Size = new System.Drawing.Size(236, 27);
-			this.txt_city.TabIndex = 27;
+			this.txt_person_city.Location = new System.Drawing.Point(125, 351);
+			this.txt_person_city.MaxLength = 15;
+			this.txt_person_city.Name = "txt_person_city";
+			this.txt_person_city.Size = new System.Drawing.Size(236, 27);
+			this.txt_person_city.TabIndex = 27;
 			// 
 			// label10
 			// 
@@ -363,14 +363,14 @@
 			this.label10.TabIndex = 26;
 			this.label10.Text = "City:";
 			// 
-			// txt_address
+			// txt_person_address
 			// 
-			this.txt_address.Location = new System.Drawing.Point(125, 204);
-			this.txt_address.MaxLength = 255;
-			this.txt_address.Multiline = true;
-			this.txt_address.Name = "txt_address";
-			this.txt_address.Size = new System.Drawing.Size(281, 141);
-			this.txt_address.TabIndex = 25;
+			this.txt_person_address.Location = new System.Drawing.Point(125, 204);
+			this.txt_person_address.MaxLength = 255;
+			this.txt_person_address.Multiline = true;
+			this.txt_person_address.Name = "txt_person_address";
+			this.txt_person_address.Size = new System.Drawing.Size(281, 141);
+			this.txt_person_address.TabIndex = 25;
 			// 
 			// label7
 			// 
@@ -485,35 +485,35 @@
 		private System.Windows.Forms.TabControl tabControl1;
 		private System.Windows.Forms.TabPage tab_details_person;
 		private System.Windows.Forms.TabPage tabPage2;
-		private System.Windows.Forms.DateTimePicker dateTimePicker1;
+		private System.Windows.Forms.DateTimePicker dtp_person_join;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.DataGridView grd_salestarget;
 		private System.Windows.Forms.TabPage tab_details_org;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox txt_postcode;
+		private System.Windows.Forms.TextBox txt_person_postcode;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label16;
 		private System.Windows.Forms.TextBox txt_ic_no;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox txt_driving_license;
-		private System.Windows.Forms.TextBox txt_state;
+		private System.Windows.Forms.TextBox txt_person_state;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.TextBox txt_city;
+		private System.Windows.Forms.TextBox txt_person_city;
 		private System.Windows.Forms.Label label10;
-		private System.Windows.Forms.TextBox txt_address;
+		private System.Windows.Forms.TextBox txt_person_address;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.TextBox textBox4;
-		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.DateTimePicker dateTimePicker2;
+		private System.Windows.Forms.TextBox txt_gender;
+		private System.Windows.Forms.TextBox txt_race;
+		private System.Windows.Forms.TextBox txt_person_type;
+		private System.Windows.Forms.DateTimePicker dtp_person_leave;
 		private System.Windows.Forms.TabPage tabPage1;
 		private System.Windows.Forms.DataGridView grd_contact_info;
-		private System.Windows.Forms.TextBox txt_name;
+		private System.Windows.Forms.TextBox txt_person_name;
+		private System.Windows.Forms.TextBox txt_person_country;
 	}
 }

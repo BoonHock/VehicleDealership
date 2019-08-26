@@ -32,27 +32,25 @@
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.btn_cancel = new System.Windows.Forms.Button();
 			this.btn_ok = new System.Windows.Forms.Button();
-			this.tabControl1 = new System.Windows.Forms.TabControl();
-			this.tab_person = new System.Windows.Forms.TabPage();
-			this.grd_person = new System.Windows.Forms.DataGridView();
-			this.tab_organisation = new System.Windows.Forms.TabPage();
-			this.grd_organisation = new System.Windows.Forms.DataGridView();
+			this.grd_main = new System.Windows.Forms.DataGridView();
+			this.toolStrip3 = new System.Windows.Forms.ToolStrip();
+			this.btn_add = new System.Windows.Forms.ToolStripButton();
+			this.btn_edit = new System.Windows.Forms.ToolStripButton();
+			this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+			this.cmb_type = new System.Windows.Forms.ToolStripComboBox();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
-			this.tabControl1.SuspendLayout();
-			this.tab_person.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.grd_person)).BeginInit();
-			this.tab_organisation.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.grd_organisation)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.grd_main)).BeginInit();
+			this.toolStrip3.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panel1
 			// 
 			this.panel1.Controls.Add(this.tableLayoutPanel1);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel1.Location = new System.Drawing.Point(0, 517);
+			this.panel1.Location = new System.Drawing.Point(0, 476);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(761, 59);
+			this.panel1.Size = new System.Drawing.Size(854, 59);
 			this.panel1.TabIndex = 3;
 			// 
 			// tableLayoutPanel1
@@ -63,7 +61,7 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.Controls.Add(this.btn_cancel, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.btn_ok, 0, 0);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(532, 6);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(625, 6);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -95,71 +93,71 @@
 			this.btn_ok.UseVisualStyleBackColor = true;
 			this.btn_ok.Click += new System.EventHandler(this.Btn_ok_Click);
 			// 
-			// tabControl1
+			// grd_main
 			// 
-			this.tabControl1.Controls.Add(this.tab_person);
-			this.tabControl1.Controls.Add(this.tab_organisation);
-			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabControl1.Location = new System.Drawing.Point(0, 0);
-			this.tabControl1.Name = "tabControl1";
-			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(761, 517);
-			this.tabControl1.TabIndex = 4;
+			this.grd_main.AllowUserToAddRows = false;
+			this.grd_main.AllowUserToDeleteRows = false;
+			this.grd_main.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.grd_main.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.grd_main.Location = new System.Drawing.Point(0, 25);
+			this.grd_main.MultiSelect = false;
+			this.grd_main.Name = "grd_main";
+			this.grd_main.ReadOnly = true;
+			this.grd_main.Size = new System.Drawing.Size(854, 451);
+			this.grd_main.TabIndex = 1;
 			// 
-			// tab_person
+			// toolStrip3
 			// 
-			this.tab_person.Controls.Add(this.grd_person);
-			this.tab_person.Location = new System.Drawing.Point(4, 29);
-			this.tab_person.Name = "tab_person";
-			this.tab_person.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_person.Size = new System.Drawing.Size(753, 484);
-			this.tab_person.TabIndex = 0;
-			this.tab_person.Text = "Person";
-			this.tab_person.UseVisualStyleBackColor = true;
+			this.toolStrip3.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+			this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_add,
+            this.btn_edit,
+            this.toolStripLabel1,
+            this.cmb_type});
+			this.toolStrip3.Location = new System.Drawing.Point(0, 0);
+			this.toolStrip3.Name = "toolStrip3";
+			this.toolStrip3.Size = new System.Drawing.Size(854, 25);
+			this.toolStrip3.TabIndex = 5;
+			this.toolStrip3.Text = "toolStrip3";
 			// 
-			// grd_person
+			// btn_add
 			// 
-			this.grd_person.AllowUserToAddRows = false;
-			this.grd_person.AllowUserToDeleteRows = false;
-			this.grd_person.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.grd_person.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.grd_person.Location = new System.Drawing.Point(3, 3);
-			this.grd_person.MultiSelect = false;
-			this.grd_person.Name = "grd_person";
-			this.grd_person.ReadOnly = true;
-			this.grd_person.Size = new System.Drawing.Size(747, 478);
-			this.grd_person.TabIndex = 1;
+			this.btn_add.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_add.Image = global::VehicleDealership.Properties.Resources.Add_16x;
+			this.btn_add.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_add.Name = "btn_add";
+			this.btn_add.Size = new System.Drawing.Size(23, 22);
+			this.btn_add.Text = "Add";
 			// 
-			// tab_organisation
+			// btn_edit
 			// 
-			this.tab_organisation.Controls.Add(this.grd_organisation);
-			this.tab_organisation.Location = new System.Drawing.Point(4, 29);
-			this.tab_organisation.Name = "tab_organisation";
-			this.tab_organisation.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_organisation.Size = new System.Drawing.Size(753, 484);
-			this.tab_organisation.TabIndex = 1;
-			this.tab_organisation.Text = "Organisation";
-			this.tab_organisation.UseVisualStyleBackColor = true;
+			this.btn_edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_edit.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
+			this.btn_edit.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_edit.Name = "btn_edit";
+			this.btn_edit.Size = new System.Drawing.Size(23, 22);
+			this.btn_edit.Text = "Edit";
 			// 
-			// grd_organisation
+			// toolStripLabel1
 			// 
-			this.grd_organisation.AllowUserToAddRows = false;
-			this.grd_organisation.AllowUserToDeleteRows = false;
-			this.grd_organisation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.grd_organisation.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.grd_organisation.Location = new System.Drawing.Point(3, 3);
-			this.grd_organisation.MultiSelect = false;
-			this.grd_organisation.Name = "grd_organisation";
-			this.grd_organisation.ReadOnly = true;
-			this.grd_organisation.Size = new System.Drawing.Size(747, 478);
-			this.grd_organisation.TabIndex = 0;
+			this.toolStripLabel1.Name = "toolStripLabel1";
+			this.toolStripLabel1.Size = new System.Drawing.Size(36, 22);
+			this.toolStripLabel1.Text = "Type:";
+			// 
+			// cmb_type
+			// 
+			this.cmb_type.Name = "cmb_type";
+			this.cmb_type.Size = new System.Drawing.Size(121, 25);
 			// 
 			// Form_person_organisation
 			// 
+			this.AcceptButton = this.btn_ok;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(761, 576);
-			this.Controls.Add(this.tabControl1);
+			this.CancelButton = this.btn_cancel;
+			this.ClientSize = new System.Drawing.Size(854, 535);
+			this.Controls.Add(this.grd_main);
+			this.Controls.Add(this.toolStrip3);
 			this.Controls.Add(this.panel1);
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F);
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -169,12 +167,11 @@
 			this.panel1.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
-			this.tabControl1.ResumeLayout(false);
-			this.tab_person.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.grd_person)).EndInit();
-			this.tab_organisation.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.grd_organisation)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.grd_main)).EndInit();
+			this.toolStrip3.ResumeLayout(false);
+			this.toolStrip3.PerformLayout();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -184,10 +181,11 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.Button btn_cancel;
 		private System.Windows.Forms.Button btn_ok;
-		private System.Windows.Forms.TabControl tabControl1;
-		private System.Windows.Forms.TabPage tab_person;
-		private System.Windows.Forms.TabPage tab_organisation;
-		private System.Windows.Forms.DataGridView grd_person;
-		private System.Windows.Forms.DataGridView grd_organisation;
+		private System.Windows.Forms.DataGridView grd_main;
+		private System.Windows.Forms.ToolStrip toolStrip3;
+		private System.Windows.Forms.ToolStripButton btn_add;
+		private System.Windows.Forms.ToolStripButton btn_edit;
+		private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+		private System.Windows.Forms.ToolStripComboBox cmb_type;
 	}
 }

@@ -8,7 +8,7 @@ namespace VehicleDealership.Classes
 {
 	class Class_combobox
 	{
-		public static void Setup_combobox(System.Windows.Forms.ComboBox cmb, System.Data.DataTable dttable, string value_col, string display_col)
+		public static void Setup_combobox(System.Windows.Forms.ComboBox cmb, System.Data.DataTable dttable, string display_col, string value_col)
 		{
 			cmb.DataSource = null;
 

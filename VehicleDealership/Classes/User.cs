@@ -31,6 +31,13 @@ namespace VehicleDealership.Classes
 				return "";
 			}
 		}
+		public bool Has_add_edit_person_org_permission
+		{
+			get
+			{
+				return Has_permission(User_permission.ADD_EDIT_SALESPERSON);
+			}
+		}
 		public User(string str_username)
 		{
 			Init_obj(User_ds.Select_user(str_username));
@@ -59,6 +66,7 @@ namespace VehicleDealership.Classes
 		{
 			return User_ds.Check_user_has_permission(UserID, permission);
 		}
+
 		#region static stuffs
 		public static bool Is_username_valid(string str_username)
 		{

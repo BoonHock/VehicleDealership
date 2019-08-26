@@ -10,9 +10,9 @@ namespace VehicleDealership.Datasets
 		{
 			return new Person_dsTableAdapters.sp_select_personTableAdapter();
 		}
-		private static Person_dsTableAdapters.sp_select_person1TableAdapter Select_Person1TableAdapter()
+		private static Person_dsTableAdapters.Person_simplifiedTableAdapter Select_Person1TableAdapter()
 		{
-			return new Person_dsTableAdapters.sp_select_person1TableAdapter();
+			return new Person_dsTableAdapters.Person_simplifiedTableAdapter();
 		}
 		private static Person_dsTableAdapters.QueriesTableAdapter QueriesTableAdapter()
 		{
@@ -36,34 +36,49 @@ namespace VehicleDealership.Datasets
 			}
 			return new sp_select_personDataTable();
 		}
-		public static bool Insert_person(string str_name, string str_ic_no, byte[] byte_img, int int_person_org_type, string str_driving_license, bool bool_gender,
-			int int_race, string str_address, string str_city, string str_state, string str_postcode, int int_country, string str_occupation, string str_company)
+		public static int Insert_person(string str_name, string str_ic_no, byte[] byte_img,
+			int int_person_type, string str_driving_license, bool bool_gender,
+			int int_race, string str_address, string str_city, string str_state,
+			string str_postcode, int int_country, string str_occupation, string str_company)
 		{
 			try
 			{
-				QueriesTableAdapter().sp_insert_person(str_name, str_ic_no, byte_img, int_person_org_type, str_driving_license, bool_gender, int_race,
-					str_address, str_city, str_state, str_postcode, (short)int_country, str_occupation, str_company, Program.System_user.UserID);
-				return true;
+				return (int)QueriesTableAdapter().sp_insert_person(str_name, str_ic_no, byte_img, int_person_type,
+					str_driving_license, bool_gender, int_race, str_address, str_city, str_state,
+					str_postcode, (short)int_country, str_occupation, str_company, Program.System_user.UserID);
 			}
 			catch (System.Exception e)
 			{
 				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
 					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
-			return false;
+			return 0;
 		}
-		public static sp_select_person1DataTable Select_person1()
+		public static Person_simplifiedDataTable Select_person1()
 		{
 			try
 			{
-				return Select_Person1TableAdapter().GetData();
+				return Select_Person1TableAdapter().sp_select_person1();
 			}
 			catch (System.Exception e)
 			{
 				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
 					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
-			return new sp_select_person1DataTable();
+			return new Person_simplifiedDataTable();
+		}
+		public static Person_simplifiedDataTable Select_person_not_salesperson()
+		{
+			try
+			{
+				return Select_Person1TableAdapter().sp_select_person_not_salesperson();
+			}
+			catch (System.Exception e)
+			{
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
+			}
+			return new Person_simplifiedDataTable();
 		}
 	}
 }

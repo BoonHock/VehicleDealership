@@ -52,7 +52,36 @@ namespace VehicleDealership.Classes
 					}
 				}
 			}
-
+		}
+		public static void Select_row_by_value(DataGridView grd, string value_col, string str_value)
+		{
+			foreach (DataGridViewRow grd_row in grd.Rows)
+			{
+				if (grd_row.Cells[value_col].Value != DBNull.Value && 
+					grd_row.Cells[value_col].Value.ToString() == str_value)
+				{
+					grd.ClearSelection();
+					grd_row.Selected = true;
+					Set_current_cell_to_first_visible_column(grd_row);
+					break;
+				}
+			}
+		}
+		/// <summary>
+		/// settting current cell to an invisible column will cause error. 
+		/// use this function to set current cell to row's first visible column
+		/// </summary>
+		/// <param name="grd_row"></param>
+		public static void Set_current_cell_to_first_visible_column(DataGridViewRow grd_row)
+		{
+			foreach (DataGridViewColumn grd_col in grd_row.DataGridView.Columns)
+			{
+				if (grd_col.Visible)
+				{
+					grd_row.DataGridView.CurrentCell = grd_row.Cells[grd_col.Index];
+					break;
+				}
+			}
 		}
 		/// <summary>
 		/// hide datagridview columns

@@ -281,8 +281,6 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columnperson_contact_info;
             
-            private global::System.Data.DataColumn columnperson;
-            
             private global::System.Data.DataColumn columncontact;
             
             private global::System.Data.DataColumn columnremark;
@@ -325,14 +323,6 @@ namespace VehicleDealership.Datasets {
             public global::System.Data.DataColumn person_contact_infoColumn {
                 get {
                     return this.columnperson_contact_info;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn personColumn {
-                get {
-                    return this.columnperson;
                 }
             }
             
@@ -389,11 +379,10 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_person_contact_infoRow Addsp_select_person_contact_infoRow(int person, string contact, string remark) {
+            public sp_select_person_contact_infoRow Addsp_select_person_contact_infoRow(string contact, string remark) {
                 sp_select_person_contact_infoRow rowsp_select_person_contact_infoRow = ((sp_select_person_contact_infoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        person,
                         contact,
                         remark};
                 rowsp_select_person_contact_infoRow.ItemArray = columnValuesArray;
@@ -426,7 +415,6 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnperson_contact_info = base.Columns["person_contact_info"];
-                this.columnperson = base.Columns["person"];
                 this.columncontact = base.Columns["contact"];
                 this.columnremark = base.Columns["remark"];
             }
@@ -436,8 +424,6 @@ namespace VehicleDealership.Datasets {
             private void InitClass() {
                 this.columnperson_contact_info = new global::System.Data.DataColumn("person_contact_info", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnperson_contact_info);
-                this.columnperson = new global::System.Data.DataColumn("person", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnperson);
                 this.columncontact = new global::System.Data.DataColumn("contact", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncontact);
                 this.columnremark = new global::System.Data.DataColumn("remark", typeof(string), null, global::System.Data.MappingType.Element);
@@ -450,7 +436,6 @@ namespace VehicleDealership.Datasets {
                 this.columnperson_contact_info.AllowDBNull = false;
                 this.columnperson_contact_info.ReadOnly = true;
                 this.columnperson_contact_info.Unique = true;
-                this.columnperson.AllowDBNull = false;
                 this.columncontact.AllowDBNull = false;
                 this.columncontact.MaxLength = 100;
                 this.columnremark.AllowDBNull = false;
@@ -603,17 +588,6 @@ namespace VehicleDealership.Datasets {
                 }
                 set {
                     this[this.tablesp_select_person_contact_info.person_contact_infoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int person {
-                get {
-                    return ((int)(this[this.tablesp_select_person_contact_info.personColumn]));
-                }
-                set {
-                    this[this.tablesp_select_person_contact_info.personColumn] = value;
                 }
             }
             
@@ -800,7 +774,6 @@ namespace VehicleDealership.Datasets.Person_contact_info_DSTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "sp_select_person_contact_info";
             tableMapping.ColumnMappings.Add("person_contact_info", "person_contact_info");
-            tableMapping.ColumnMappings.Add("person", "person");
             tableMapping.ColumnMappings.Add("contact", "contact");
             tableMapping.ColumnMappings.Add("remark", "remark");
             this._adapter.TableMappings.Add(tableMapping);
@@ -840,6 +813,78 @@ namespace VehicleDealership.Datasets.Person_contact_info_DSTableAdapters {
             Person_contact_info_DS.sp_select_person_contact_infoDataTable dataTable = new Person_contact_info_DS.sp_select_person_contact_infoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class QueriesTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.IDbCommand[] _commandCollection;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.IDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.IDbCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "hr.sp_update_insert_person_contact_info";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@person", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@uid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int sp_update_insert_person_contact_info(global::System.Nullable<int> person, global::System.Nullable<int> uid) {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
+            if ((person.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(person.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((uid.HasValue == true)) {
+                command.Parameters[2].Value = ((int)(uid.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

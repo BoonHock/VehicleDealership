@@ -156,6 +156,7 @@
 			// 
 			// cmb_type
 			// 
+			this.cmb_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmb_type.FormattingEnabled = true;
 			this.cmb_type.Location = new System.Drawing.Point(129, 78);
 			this.cmb_type.Name = "cmb_type";
@@ -182,6 +183,7 @@
 			// 
 			// cmb_gender
 			// 
+			this.cmb_gender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmb_gender.FormattingEnabled = true;
 			this.cmb_gender.Location = new System.Drawing.Point(129, 145);
 			this.cmb_gender.Name = "cmb_gender";
@@ -190,6 +192,7 @@
 			// 
 			// cmb_race
 			// 
+			this.cmb_race.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmb_race.FormattingEnabled = true;
 			this.cmb_race.Location = new System.Drawing.Point(129, 179);
 			this.cmb_race.Name = "cmb_race";
@@ -268,6 +271,7 @@
 			// 
 			// cmb_country
 			// 
+			this.cmb_country.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmb_country.FormattingEnabled = true;
 			this.cmb_country.Location = new System.Drawing.Point(129, 459);
 			this.cmb_country.Name = "cmb_country";
@@ -392,6 +396,8 @@
 			this.grd_contact.Name = "grd_contact";
 			this.grd_contact.Size = new System.Drawing.Size(399, 186);
 			this.grd_contact.TabIndex = 0;
+			this.grd_contact.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_contact_DataError);
+			this.grd_contact.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.Grd_contact_DefaultValuesNeeded);
 			// 
 			// filedlg_img
 			// 
