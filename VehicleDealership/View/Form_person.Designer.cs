@@ -86,7 +86,7 @@
 			this.txt_name.MaxLength = 100;
 			this.txt_name.Name = "txt_name";
 			this.txt_name.Size = new System.Drawing.Size(236, 27);
-			this.txt_name.TabIndex = 1;
+			this.txt_name.TabIndex = 0;
 			// 
 			// txt_ic_no
 			// 
@@ -94,7 +94,7 @@
 			this.txt_ic_no.MaxLength = 50;
 			this.txt_ic_no.Name = "txt_ic_no";
 			this.txt_ic_no.Size = new System.Drawing.Size(236, 27);
-			this.txt_ic_no.TabIndex = 3;
+			this.txt_ic_no.TabIndex = 1;
 			// 
 			// label2
 			// 
@@ -132,7 +132,7 @@
 			this.btn_remove_image.Location = new System.Drawing.Point(732, 48);
 			this.btn_remove_image.Name = "btn_remove_image";
 			this.btn_remove_image.Size = new System.Drawing.Size(75, 30);
-			this.btn_remove_image.TabIndex = 17;
+			this.btn_remove_image.TabIndex = 12;
 			this.btn_remove_image.Text = "Remove";
 			this.btn_remove_image.UseVisualStyleBackColor = true;
 			this.btn_remove_image.Click += new System.EventHandler(this.Btn_remove_image_Click);
@@ -143,7 +143,7 @@
 			this.txt_driving_license.MaxLength = 15;
 			this.txt_driving_license.Name = "txt_driving_license";
 			this.txt_driving_license.Size = new System.Drawing.Size(236, 27);
-			this.txt_driving_license.TabIndex = 19;
+			this.txt_driving_license.TabIndex = 3;
 			// 
 			// label3
 			// 
@@ -151,7 +151,7 @@
 			this.label3.Location = new System.Drawing.Point(12, 115);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(109, 20);
-			this.label3.TabIndex = 18;
+			this.label3.TabIndex = 6;
 			this.label3.Text = "Driving license:";
 			// 
 			// cmb_type
@@ -161,7 +161,7 @@
 			this.cmb_type.Location = new System.Drawing.Point(129, 78);
 			this.cmb_type.Name = "cmb_type";
 			this.cmb_type.Size = new System.Drawing.Size(236, 28);
-			this.cmb_type.TabIndex = 20;
+			this.cmb_type.TabIndex = 2;
 			// 
 			// label4
 			// 
@@ -169,7 +169,7 @@
 			this.label4.Location = new System.Drawing.Point(12, 82);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(44, 20);
-			this.label4.TabIndex = 21;
+			this.label4.TabIndex = 4;
 			this.label4.Text = "Type:";
 			// 
 			// label5
@@ -178,7 +178,7 @@
 			this.label5.Location = new System.Drawing.Point(12, 149);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(60, 20);
-			this.label5.TabIndex = 23;
+			this.label5.TabIndex = 8;
 			this.label5.Text = "Gender:";
 			// 
 			// cmb_gender
@@ -188,7 +188,7 @@
 			this.cmb_gender.Location = new System.Drawing.Point(129, 145);
 			this.cmb_gender.Name = "cmb_gender";
 			this.cmb_gender.Size = new System.Drawing.Size(236, 28);
-			this.cmb_gender.TabIndex = 22;
+			this.cmb_gender.TabIndex = 4;
 			// 
 			// cmb_race
 			// 
@@ -197,7 +197,7 @@
 			this.cmb_race.Location = new System.Drawing.Point(129, 179);
 			this.cmb_race.Name = "cmb_race";
 			this.cmb_race.Size = new System.Drawing.Size(236, 28);
-			this.cmb_race.TabIndex = 22;
+			this.cmb_race.TabIndex = 5;
 			// 
 			// label6
 			// 
@@ -205,7 +205,7 @@
 			this.label6.Location = new System.Drawing.Point(12, 183);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(44, 20);
-			this.label6.TabIndex = 23;
+			this.label6.TabIndex = 10;
 			this.label6.Text = "Race:";
 			// 
 			// txt_address
@@ -215,7 +215,7 @@
 			this.txt_address.Multiline = true;
 			this.txt_address.Name = "txt_address";
 			this.txt_address.Size = new System.Drawing.Size(281, 141);
-			this.txt_address.TabIndex = 25;
+			this.txt_address.TabIndex = 6;
 			// 
 			// label7
 			// 
@@ -223,7 +223,7 @@
 			this.label7.Location = new System.Drawing.Point(12, 216);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(65, 20);
-			this.label7.TabIndex = 24;
+			this.label7.TabIndex = 12;
 			this.label7.Text = "Address:";
 			// 
 			// txt_city
@@ -232,7 +232,7 @@
 			this.txt_city.MaxLength = 15;
 			this.txt_city.Name = "txt_city";
 			this.txt_city.Size = new System.Drawing.Size(236, 27);
-			this.txt_city.TabIndex = 27;
+			this.txt_city.TabIndex = 7;
 			// 
 			// label8
 			// 
@@ -240,7 +240,7 @@
 			this.label8.Location = new System.Drawing.Point(12, 363);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(37, 20);
-			this.label8.TabIndex = 26;
+			this.label8.TabIndex = 14;
 			this.label8.Text = "City:";
 			// 
 			// txt_state
@@ -249,7 +249,7 @@
 			this.txt_state.MaxLength = 15;
 			this.txt_state.Name = "txt_state";
 			this.txt_state.Size = new System.Drawing.Size(236, 27);
-			this.txt_state.TabIndex = 29;
+			this.txt_state.TabIndex = 8;
 			// 
 			// label9
 			// 
@@ -257,7 +257,7 @@
 			this.label9.Location = new System.Drawing.Point(12, 396);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(46, 20);
-			this.label9.TabIndex = 28;
+			this.label9.TabIndex = 16;
 			this.label9.Text = "State:";
 			// 
 			// label11
@@ -266,7 +266,7 @@
 			this.label11.Location = new System.Drawing.Point(12, 463);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(63, 20);
-			this.label11.TabIndex = 33;
+			this.label11.TabIndex = 20;
 			this.label11.Text = "Country:";
 			// 
 			// cmb_country
@@ -276,7 +276,7 @@
 			this.cmb_country.Location = new System.Drawing.Point(129, 459);
 			this.cmb_country.Name = "cmb_country";
 			this.cmb_country.Size = new System.Drawing.Size(236, 28);
-			this.cmb_country.TabIndex = 32;
+			this.cmb_country.TabIndex = 10;
 			// 
 			// txt_postcode
 			// 
@@ -284,7 +284,7 @@
 			this.txt_postcode.MaxLength = 10;
 			this.txt_postcode.Name = "txt_postcode";
 			this.txt_postcode.Size = new System.Drawing.Size(236, 27);
-			this.txt_postcode.TabIndex = 45;
+			this.txt_postcode.TabIndex = 9;
 			// 
 			// label16
 			// 
@@ -292,7 +292,7 @@
 			this.label16.Location = new System.Drawing.Point(12, 429);
 			this.label16.Name = "label16";
 			this.label16.Size = new System.Drawing.Size(73, 20);
-			this.label16.TabIndex = 44;
+			this.label16.TabIndex = 18;
 			this.label16.Text = "Postcode:";
 			// 
 			// txt_occupation
@@ -301,7 +301,7 @@
 			this.txt_occupation.MaxLength = 50;
 			this.txt_occupation.Name = "txt_occupation";
 			this.txt_occupation.Size = new System.Drawing.Size(316, 27);
-			this.txt_occupation.TabIndex = 47;
+			this.txt_occupation.TabIndex = 13;
 			// 
 			// label15
 			// 
@@ -318,7 +318,7 @@
 			this.txt_company.MaxLength = 50;
 			this.txt_company.Name = "txt_company";
 			this.txt_company.Size = new System.Drawing.Size(316, 27);
-			this.txt_company.TabIndex = 49;
+			this.txt_company.TabIndex = 14;
 			// 
 			// label17
 			// 
@@ -384,12 +384,13 @@
 			this.groupBox1.Location = new System.Drawing.Point(426, 275);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(405, 212);
-			this.groupBox1.TabIndex = 51;
+			this.groupBox1.TabIndex = 15;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Contact information";
 			// 
 			// grd_contact
 			// 
+			this.grd_contact.AllowUserToResizeRows = false;
 			this.grd_contact.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.grd_contact.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.grd_contact.Location = new System.Drawing.Point(3, 23);
@@ -442,6 +443,7 @@
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F);
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "Form_person";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Person";
 			this.Shown += new System.EventHandler(this.Form_person_Shown);
 			((System.ComponentModel.ISupportInitialize)(this.picbox_image)).EndInit();

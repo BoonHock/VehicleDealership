@@ -40,19 +40,20 @@ namespace VehicleDealership.View
 			grd_contact.Columns["person_contact_info"].Visible = Program.System_user.IsDeveloper; // hide if not in developer mode
 
 			Class_combobox.Setup_combobox(cmb_type, Person_type_ds.Select_person_type(), "person_type_description", "person_type");
+			cmb_type.SelectedValue = 1; // set default to INDIVIDUAL
 			Class_combobox.Setup_combobox(cmb_race, Race_ds.Select_race(), "race_description", "race");
-			Class_combobox.Setup_combobox(cmb_country, Combobox_options_ds.Select_country(), "display", "value");
+			Class_combobox.Setup_combobox(cmb_country, Country_ds.Select_country(), "country_name", "country");
 			cmb_country.SelectedValue = 133; // set default to malaysia
 
 			DataTable dttable_gender = new DataTable();
 			dttable_gender.Columns.Add("display");
 			dttable_gender.Columns.Add("value");
-			dttable_gender.Rows.Add("MALE", true);
-			dttable_gender.Rows.Add("FEMALE", false);
+			dttable_gender.Rows.Add("MALE", "MALE");
+			dttable_gender.Rows.Add("FEMALE", "FEMALE");
 
 			Class_combobox.Setup_combobox(cmb_gender, dttable_gender, "display", "value");
 
-			if (PersonID != 0) return; // if zero means adding new person instead of editing
+			if (PersonID == 0) return; // if zero means adding new person instead of editing
 
 			Person_ds.sp_select_personDataTable dttable_person = Person_ds.Select_person(PersonID);
 			if (dttable_person.Rows.Count == 0) return;
@@ -62,12 +63,12 @@ namespace VehicleDealership.View
 			txt_name.Text = dt_row["name"].ToString();
 			txt_ic_no.Text = dt_row["ic_no"].ToString();
 
-			if (dttable_person.Rows[0]["image"] != DBNull.Value)
-				picbox_image.Image = Image.FromStream(new MemoryStream((byte)dt_row["image"]));
+			if (dt_row["image"] != DBNull.Value)
+				picbox_image.Image = Image.FromStream(new MemoryStream((byte[])dt_row["image"]));
 
 			cmb_type.SelectedValue = dt_row["person_type"].ToString();
 			txt_driving_license.Text = dt_row["driving_license"].ToString();
-			cmb_gender.SelectedValue = dt_row["gender"];
+			cmb_gender.SelectedValue = ((bool)dt_row["gender"]) ? "MALE" : "FEMALE";
 			cmb_race.SelectedValue = dt_row["race"];
 			txt_address.Text = dt_row["address"].ToString();
 			txt_city.Text = dt_row["city"].ToString();
@@ -113,16 +114,30 @@ namespace VehicleDealership.View
 					byte_image = ms.ToArray();
 				}
 			}
-			PersonID = Person_ds.Insert_person(txt_name.Text.Trim(), txt_ic_no.Text.Trim(), byte_image,
-				(int)cmb_type.SelectedValue, txt_driving_license.Text.Trim(), (bool)cmb_gender.SelectedValue,
-				(int)cmb_race.SelectedValue, txt_address.Text.Trim(), txt_city.Text.Trim(), txt_state.Text.Trim(),
-				txt_postcode.Text.Trim(), (int)cmb_country.SelectedValue, txt_occupation.Text.Trim(),
-				txt_company.Text.Trim());
+			if (PersonID == 0)
+			{
+				PersonID = Person_ds.Insert_person(txt_name.Text.Trim(), txt_ic_no.Text.Trim(),
+					byte_image, (int)cmb_type.SelectedValue, txt_driving_license.Text.Trim(),
+					(cmb_gender.SelectedValue.ToString() == "MALE"), (int)cmb_race.SelectedValue,
+					txt_address.Text.Trim(), txt_city.Text.Trim(), txt_state.Text.Trim(),
+					txt_postcode.Text.Trim(), (short)cmb_country.SelectedValue, txt_occupation.Text.Trim(),
+					txt_company.Text.Trim());
+			}
+			else
+			{
+				// TODO: update person!
+				Person_ds.Update_person(PersonID, txt_name.Text.Trim(), txt_ic_no.Text.Trim(),
+					byte_image, (int)cmb_type.SelectedValue, txt_driving_license.Text.Trim(),
+					(cmb_gender.SelectedValue.ToString() == "MALE"), (int)cmb_race.SelectedValue,
+					txt_address.Text.Trim(), txt_city.Text.Trim(), txt_state.Text.Trim(),
+					txt_postcode.Text.Trim(), (short)cmb_country.SelectedValue, txt_occupation.Text.Trim(),
+					txt_company.Text.Trim());
+			}
 
 			if (PersonID == 0)
 			{
-				MessageBox.Show("An error has occurred. Person cannot be added.",
-					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("An error has occurred.", "ERROR",
+					MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 

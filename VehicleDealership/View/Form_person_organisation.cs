@@ -14,9 +14,10 @@ namespace VehicleDealership.View
 {
 	public partial class Form_person_organisation : Form
 	{
+		readonly string _select_for;
 		public string SelectedType { get; private set; }
 		public int SelectedID { get; private set; } = 0;
-		public Form_person_organisation()
+		public Form_person_organisation(string select_for)
 		{
 			InitializeComponent();
 
@@ -24,6 +25,18 @@ namespace VehicleDealership.View
 
 			btn_add.Enabled = has_add_edit_permission;
 			btn_edit.Enabled = has_add_edit_permission;
+
+			DataTable dttable = new DataTable();
+			dttable.Columns.Add("display", typeof(string));
+			dttable.Columns.Add("value", typeof(string));
+			dttable.Rows.Add("PERSON", "PERSON");
+			dttable.Rows.Add("ORGANISATION", "ORGANISATION");
+
+			cmb_type.ComboBox.DisplayMember = "display";
+			cmb_type.ComboBox.ValueMember = "value";
+			cmb_type.ComboBox.DataSource = dttable;
+
+			_select_for = select_for;
 		}
 		private void Form_person_organisation_Shown(object sender, EventArgs e)
 		{
@@ -69,36 +82,79 @@ namespace VehicleDealership.View
 		{
 			grd_main.DataSource = null;
 
+			if (_select_for == "SALESPERSON")
+			{
+				if (cmb_type.ComboBox.SelectedValue.ToString() == "PERSON")
+					grd_main.DataSource = Person_ds.Select_person_not_salesperson();
+				else
+					grd_main.DataSource = Organisation_ds.Select_organisation_not_salesperson();
+			}
+
 			if (cmb_type.ComboBox.SelectedValue.ToString() == "PERSON")
 			{
-				grd_main.DataSource = Person_ds.Select_person_not_salesperson();
-				grd_main.Columns["person"].Visible = false;
+				Class_datagridview.Hide_columns(grd_main, new string[] { "person" });
 
 				if (int_id != 0)
-				{
-					// TODO: PRESELECT AFTER ADDING
-				}
+					Class_datagridview.Select_row_by_value(grd_main, "person", int_id.ToString());
 			}
 			else
 			{
-				grd_main.DataSource = Organisation_ds.Select_organisation_not_salesperson();
-				grd_main.Columns["organisation"].Visible = false;
+				Class_datagridview.Hide_columns(grd_main, new string[] { "organisation" });
+
+				if (int_id != 0)
+					Class_datagridview.Select_row_by_value(grd_main, "organisation", int_id.ToString());
 			}
 			grd_main.AutoResizeColumns();
 		}
 
-		private void Btn_add_person_Click(object sender, EventArgs e)
+		private void Add_person()
 		{
-			Form_person form_p = new Form_person();
-
-			if (form_p.ShowDialog() == DialogResult.OK)
-			{
+			if ((new Form_person()).ShowDialog() == DialogResult.OK)
 				Setup_grd_main();
-			}
 		}
-		private void Btn_edit_person_Click(object sender, EventArgs e)
+		private void Add_organisation()
 		{
 
+		}
+		private void Edit_person()
+		{
+			if (grd_main.SelectedCells.Count == 0) return;
+
+			if ((new Form_person((int)grd_main.SelectedCells[0].OwningRow.Cells["person"].Value)).ShowDialog() == DialogResult.OK)
+				Setup_grd_main();
+		}
+		private void Edit_organisation()
+		{
+
+		}
+		private void Btn_add_Click(object sender, EventArgs e)
+		{
+			if (cmb_type.ComboBox.SelectedValue.ToString() == "PERSON")
+				Add_person();
+			else
+				Add_organisation();
+		}
+
+		private void Btn_edit_Click(object sender, EventArgs e)
+		{
+			if (cmb_type.ComboBox.SelectedValue.ToString() == "PERSON")
+				Edit_person();
+			else
+				Edit_organisation();
+		}
+
+		private void Cmb_type_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			Setup_grd_main();
+		}
+
+		private void Txt_search_TextChanged(object sender, EventArgs e)
+		{
+			string str_search = txt_search.Text.Trim();
+
+			if (cmb_type.ComboBox.SelectedValue.ToString() == "PERSON")
+				((DataTable)grd_main.DataSource).DefaultView.RowFilter = "[name] LIKE '%" +
+					str_search + "%' OR [ic_no] LIKE '%" + str_search + "%'";
 		}
 	}
 }

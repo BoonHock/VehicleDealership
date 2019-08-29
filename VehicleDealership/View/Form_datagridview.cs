@@ -598,7 +598,7 @@ namespace VehicleDealership.View
 		}
 		private void Add_salesperson(object sender, EventArgs e)
 		{
-			Form_person_organisation form_select_person_org = new Form_person_organisation();
+			Form_person_organisation form_select_person_org = new Form_person_organisation("SALESPERSON");
 
 			if (form_select_person_org.ShowDialog() != DialogResult.OK) return;
 

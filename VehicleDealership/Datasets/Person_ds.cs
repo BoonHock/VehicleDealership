@@ -39,13 +39,13 @@ namespace VehicleDealership.Datasets
 		public static int Insert_person(string str_name, string str_ic_no, byte[] byte_img,
 			int int_person_type, string str_driving_license, bool bool_gender,
 			int int_race, string str_address, string str_city, string str_state,
-			string str_postcode, int int_country, string str_occupation, string str_company)
+			string str_postcode, short short_country, string str_occupation, string str_company)
 		{
 			try
 			{
-				return (int)QueriesTableAdapter().sp_insert_person(str_name, str_ic_no, byte_img, int_person_type,
-					str_driving_license, bool_gender, int_race, str_address, str_city, str_state,
-					str_postcode, (short)int_country, str_occupation, str_company, Program.System_user.UserID);
+				return int.Parse(QueriesTableAdapter().sp_insert_person(str_name, str_ic_no, byte_img,
+					int_person_type, str_driving_license, bool_gender, int_race, str_address, str_city, str_state,
+					str_postcode, short_country, str_occupation, str_company, Program.System_user.UserID).ToString());
 			}
 			catch (System.Exception e)
 			{
@@ -53,6 +53,25 @@ namespace VehicleDealership.Datasets
 					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
 			return 0;
+		}
+		public static bool Update_person(int int_person, string str_name, string str_ic_no,
+			byte[] byte_img, int int_person_type, string str_driving_license, bool bool_gender,
+			int int_race, string str_address, string str_city, string str_state,
+			string str_postcode, short short_country, string str_occupation, string str_company)
+		{
+			try
+			{
+				QueriesTableAdapter().sp_update_person(int_person, str_name, str_ic_no, byte_img,
+					int_person_type, str_driving_license, bool_gender, int_race, str_address, str_city, str_state,
+					str_postcode, short_country, str_occupation, str_company, Program.System_user.UserID);
+				return true;
+			}
+			catch (System.Exception e)
+			{
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
+			}
+			return false;
 		}
 		public static Person_simplifiedDataTable Select_person1()
 		{

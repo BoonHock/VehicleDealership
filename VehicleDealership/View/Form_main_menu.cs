@@ -35,7 +35,6 @@ namespace VehicleDealership.View
 			transmissionToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "TRANSMISSION");
 			fuelTypeToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "FUEL_TYPE");
 			colorToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "COLOR");
-			peopleToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_person), false);
 			salespersonToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "SALESPERSON");
 
 			salesOrderToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_sales_order));

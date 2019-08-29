@@ -38,6 +38,8 @@
 			this.btn_edit = new System.Windows.Forms.ToolStripButton();
 			this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
 			this.cmb_type = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+			this.txt_search = new System.Windows.Forms.ToolStripTextBox();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_main)).BeginInit();
@@ -113,7 +115,9 @@
             this.btn_add,
             this.btn_edit,
             this.toolStripLabel1,
-            this.cmb_type});
+            this.cmb_type,
+            this.toolStripLabel2,
+            this.txt_search});
 			this.toolStrip3.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip3.Name = "toolStrip3";
 			this.toolStrip3.Size = new System.Drawing.Size(854, 25);
@@ -128,6 +132,7 @@
 			this.btn_add.Name = "btn_add";
 			this.btn_add.Size = new System.Drawing.Size(23, 22);
 			this.btn_add.Text = "Add";
+			this.btn_add.Click += new System.EventHandler(this.Btn_add_Click);
 			// 
 			// btn_edit
 			// 
@@ -137,6 +142,7 @@
 			this.btn_edit.Name = "btn_edit";
 			this.btn_edit.Size = new System.Drawing.Size(23, 22);
 			this.btn_edit.Text = "Edit";
+			this.btn_edit.Click += new System.EventHandler(this.Btn_edit_Click);
 			// 
 			// toolStripLabel1
 			// 
@@ -146,8 +152,23 @@
 			// 
 			// cmb_type
 			// 
+			this.cmb_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmb_type.Name = "cmb_type";
-			this.cmb_type.Size = new System.Drawing.Size(121, 25);
+			this.cmb_type.Size = new System.Drawing.Size(160, 25);
+			this.cmb_type.SelectedIndexChanged += new System.EventHandler(this.Cmb_type_SelectedIndexChanged);
+			// 
+			// toolStripLabel2
+			// 
+			this.toolStripLabel2.Name = "toolStripLabel2";
+			this.toolStripLabel2.Size = new System.Drawing.Size(45, 22);
+			this.toolStripLabel2.Text = "Search:";
+			// 
+			// txt_search
+			// 
+			this.txt_search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.txt_search.Name = "txt_search";
+			this.txt_search.Size = new System.Drawing.Size(180, 25);
+			this.txt_search.TextChanged += new System.EventHandler(this.Txt_search_TextChanged);
 			// 
 			// Form_person_organisation
 			// 
@@ -162,6 +183,7 @@
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F);
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "Form_person_organisation";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Select";
 			this.Shown += new System.EventHandler(this.Form_person_organisation_Shown);
 			this.panel1.ResumeLayout(false);
@@ -187,5 +209,7 @@
 		private System.Windows.Forms.ToolStripButton btn_edit;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel1;
 		private System.Windows.Forms.ToolStripComboBox cmb_type;
+		private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+		private System.Windows.Forms.ToolStripTextBox txt_search;
 	}
 }

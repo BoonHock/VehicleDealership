@@ -38,11 +38,14 @@
 			this.transmissionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.fuelTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.colorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.salespersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.vehicleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.purchaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salesOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.log_in_menustrip = new System.Windows.Forms.MenuStrip();
 			this.logInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,11 +55,6 @@
 			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ssl_usergroup = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ssl_status = new System.Windows.Forms.ToolStripStatusLabel();
-			this.peopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.organisationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.salespersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.main_menu_strip.SuspendLayout();
 			this.log_in_menustrip.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
@@ -85,8 +83,6 @@
             this.userGroupsToolStripMenuItem,
             this.vehicleToolStripMenuItem,
             this.colorToolStripMenuItem,
-            this.peopleToolStripMenuItem,
-            this.organisationsToolStripMenuItem,
             this.salespersonToolStripMenuItem});
 			this.administrationToolStripMenuItem.Name = "administrationToolStripMenuItem";
 			this.administrationToolStripMenuItem.Size = new System.Drawing.Size(98, 19);
@@ -138,6 +134,12 @@
 			this.colorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.colorToolStripMenuItem.Text = "Color";
 			// 
+			// salespersonToolStripMenuItem
+			// 
+			this.salespersonToolStripMenuItem.Name = "salespersonToolStripMenuItem";
+			this.salespersonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.salespersonToolStripMenuItem.Text = "Salesperson";
+			// 
 			// vehicleToolStripMenuItem1
 			// 
 			this.vehicleToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -171,6 +173,20 @@
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 19);
 			this.aboutToolStripMenuItem.Text = "About";
+			// 
+			// settingsToolStripMenuItem
+			// 
+			this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changePasswordToolStripMenuItem});
+			this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+			this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 19);
+			this.settingsToolStripMenuItem.Text = "Settings";
+			// 
+			// changePasswordToolStripMenuItem
+			// 
+			this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+			this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+			this.changePasswordToolStripMenuItem.Text = "Change password";
 			// 
 			// logOutToolStripMenuItem
 			// 
@@ -260,38 +276,6 @@
 			this.ssl_status.Size = new System.Drawing.Size(43, 19);
 			this.ssl_status.Text = "Ready";
 			// 
-			// peopleToolStripMenuItem
-			// 
-			this.peopleToolStripMenuItem.Name = "peopleToolStripMenuItem";
-			this.peopleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.peopleToolStripMenuItem.Text = "People";
-			// 
-			// organisationsToolStripMenuItem
-			// 
-			this.organisationsToolStripMenuItem.Name = "organisationsToolStripMenuItem";
-			this.organisationsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.organisationsToolStripMenuItem.Text = "Organisations";
-			// 
-			// settingsToolStripMenuItem
-			// 
-			this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.changePasswordToolStripMenuItem});
-			this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-			this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 19);
-			this.settingsToolStripMenuItem.Text = "Settings";
-			// 
-			// changePasswordToolStripMenuItem
-			// 
-			this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-			this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.changePasswordToolStripMenuItem.Text = "Change password";
-			// 
-			// salespersonToolStripMenuItem
-			// 
-			this.salespersonToolStripMenuItem.Name = "salespersonToolStripMenuItem";
-			this.salespersonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.salespersonToolStripMenuItem.Text = "Salesperson";
-			// 
 			// Form_main_menu
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -346,8 +330,6 @@
 		private System.Windows.Forms.ToolStripMenuItem vehicleToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem purchaseToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem colorToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem peopleToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem organisationsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem salespersonToolStripMenuItem;
