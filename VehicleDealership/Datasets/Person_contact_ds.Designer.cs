@@ -20,17 +20,17 @@ namespace VehicleDealership.Datasets {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("Person_contact_info_DS")]
+    [global::System.Xml.Serialization.XmlRootAttribute("Person_contact_ds")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class Person_contact_info_DS : global::System.Data.DataSet {
+    public partial class Person_contact_ds : global::System.Data.DataSet {
         
-        private sp_select_person_contact_infoDataTable tablesp_select_person_contact_info;
+        private sp_select_person_contactDataTable tablesp_select_person_contact;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public Person_contact_info_DS() {
+        public Person_contact_ds() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace VehicleDealership.Datasets {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected Person_contact_info_DS(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected Person_contact_ds(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace VehicleDealership.Datasets {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["sp_select_person_contact_info"] != null)) {
-                    base.Tables.Add(new sp_select_person_contact_infoDataTable(ds.Tables["sp_select_person_contact_info"]));
+                if ((ds.Tables["sp_select_person_contact"] != null)) {
+                    base.Tables.Add(new sp_select_person_contactDataTable(ds.Tables["sp_select_person_contact"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace VehicleDealership.Datasets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public sp_select_person_contact_infoDataTable sp_select_person_contact_info {
+        public sp_select_person_contactDataTable sp_select_person_contact {
             get {
-                return this.tablesp_select_person_contact_info;
+                return this.tablesp_select_person_contact;
             }
         }
         
@@ -127,7 +127,7 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            Person_contact_info_DS cln = ((Person_contact_info_DS)(base.Clone()));
+            Person_contact_ds cln = ((Person_contact_ds)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace VehicleDealership.Datasets {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["sp_select_person_contact_info"] != null)) {
-                    base.Tables.Add(new sp_select_person_contact_infoDataTable(ds.Tables["sp_select_person_contact_info"]));
+                if ((ds.Tables["sp_select_person_contact"] != null)) {
+                    base.Tables.Add(new sp_select_person_contactDataTable(ds.Tables["sp_select_person_contact"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablesp_select_person_contact_info = ((sp_select_person_contact_infoDataTable)(base.Tables["sp_select_person_contact_info"]));
+            this.tablesp_select_person_contact = ((sp_select_person_contactDataTable)(base.Tables["sp_select_person_contact"]));
             if ((initTable == true)) {
-                if ((this.tablesp_select_person_contact_info != null)) {
-                    this.tablesp_select_person_contact_info.InitVars();
+                if ((this.tablesp_select_person_contact != null)) {
+                    this.tablesp_select_person_contact.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "Person_contact_info_DS";
+            this.DataSetName = "Person_contact_ds";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/Person_contact_info_DS.xsd";
+            this.Namespace = "http://tempuri.org/Person_contact_ds.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablesp_select_person_contact_info = new sp_select_person_contact_infoDataTable();
-            base.Tables.Add(this.tablesp_select_person_contact_info);
+            this.tablesp_select_person_contact = new sp_select_person_contactDataTable();
+            base.Tables.Add(this.tablesp_select_person_contact);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializesp_select_person_contact_info() {
+        private bool ShouldSerializesp_select_person_contact() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            Person_contact_info_DS ds = new Person_contact_info_DS();
+            Person_contact_ds ds = new Person_contact_ds();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,16 +270,14 @@ namespace VehicleDealership.Datasets {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void sp_select_person_contact_infoRowChangeEventHandler(object sender, sp_select_person_contact_infoRowChangeEvent e);
+        public delegate void sp_select_person_contactRowChangeEventHandler(object sender, sp_select_person_contactRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class sp_select_person_contact_infoDataTable : global::System.Data.TypedTableBase<sp_select_person_contact_infoRow> {
-            
-            private global::System.Data.DataColumn columnperson_contact_info;
+        public partial class sp_select_person_contactDataTable : global::System.Data.TypedTableBase<sp_select_person_contactRow> {
             
             private global::System.Data.DataColumn columncontact;
             
@@ -287,8 +285,8 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_person_contact_infoDataTable() {
-                this.TableName = "sp_select_person_contact_info";
+            public sp_select_person_contactDataTable() {
+                this.TableName = "sp_select_person_contact";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -296,7 +294,7 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal sp_select_person_contact_infoDataTable(global::System.Data.DataTable table) {
+            internal sp_select_person_contactDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -313,17 +311,9 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected sp_select_person_contact_infoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected sp_select_person_contactDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn person_contact_infoColumn {
-                get {
-                    return this.columnperson_contact_info;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -353,54 +343,46 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_person_contact_infoRow this[int index] {
+            public sp_select_person_contactRow this[int index] {
                 get {
-                    return ((sp_select_person_contact_infoRow)(this.Rows[index]));
+                    return ((sp_select_person_contactRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_person_contact_infoRowChangeEventHandler sp_select_person_contact_infoRowChanging;
+            public event sp_select_person_contactRowChangeEventHandler sp_select_person_contactRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_person_contact_infoRowChangeEventHandler sp_select_person_contact_infoRowChanged;
+            public event sp_select_person_contactRowChangeEventHandler sp_select_person_contactRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_person_contact_infoRowChangeEventHandler sp_select_person_contact_infoRowDeleting;
+            public event sp_select_person_contactRowChangeEventHandler sp_select_person_contactRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_person_contact_infoRowChangeEventHandler sp_select_person_contact_infoRowDeleted;
+            public event sp_select_person_contactRowChangeEventHandler sp_select_person_contactRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Addsp_select_person_contact_infoRow(sp_select_person_contact_infoRow row) {
+            public void Addsp_select_person_contactRow(sp_select_person_contactRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_person_contact_infoRow Addsp_select_person_contact_infoRow(string contact, string remark) {
-                sp_select_person_contact_infoRow rowsp_select_person_contact_infoRow = ((sp_select_person_contact_infoRow)(this.NewRow()));
+            public sp_select_person_contactRow Addsp_select_person_contactRow(string contact, string remark) {
+                sp_select_person_contactRow rowsp_select_person_contactRow = ((sp_select_person_contactRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
                         contact,
                         remark};
-                rowsp_select_person_contact_infoRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowsp_select_person_contact_infoRow);
-                return rowsp_select_person_contact_infoRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_person_contact_infoRow FindByperson_contact_info(int person_contact_info) {
-                return ((sp_select_person_contact_infoRow)(this.Rows.Find(new object[] {
-                            person_contact_info})));
+                rowsp_select_person_contactRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowsp_select_person_contactRow);
+                return rowsp_select_person_contactRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                sp_select_person_contact_infoDataTable cln = ((sp_select_person_contact_infoDataTable)(base.Clone()));
+                sp_select_person_contactDataTable cln = ((sp_select_person_contactDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -408,13 +390,12 @@ namespace VehicleDealership.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new sp_select_person_contact_infoDataTable();
+                return new sp_select_person_contactDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnperson_contact_info = base.Columns["person_contact_info"];
                 this.columncontact = base.Columns["contact"];
                 this.columnremark = base.Columns["remark"];
             }
@@ -422,20 +403,10 @@ namespace VehicleDealership.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnperson_contact_info = new global::System.Data.DataColumn("person_contact_info", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnperson_contact_info);
                 this.columncontact = new global::System.Data.DataColumn("contact", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncontact);
                 this.columnremark = new global::System.Data.DataColumn("remark", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnremark);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnperson_contact_info}, true));
-                this.columnperson_contact_info.AutoIncrement = true;
-                this.columnperson_contact_info.AutoIncrementSeed = -1;
-                this.columnperson_contact_info.AutoIncrementStep = -1;
-                this.columnperson_contact_info.AllowDBNull = false;
-                this.columnperson_contact_info.ReadOnly = true;
-                this.columnperson_contact_info.Unique = true;
                 this.columncontact.AllowDBNull = false;
                 this.columncontact.MaxLength = 100;
                 this.columnremark.AllowDBNull = false;
@@ -444,28 +415,28 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_person_contact_infoRow Newsp_select_person_contact_infoRow() {
-                return ((sp_select_person_contact_infoRow)(this.NewRow()));
+            public sp_select_person_contactRow Newsp_select_person_contactRow() {
+                return ((sp_select_person_contactRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new sp_select_person_contact_infoRow(builder);
+                return new sp_select_person_contactRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(sp_select_person_contact_infoRow);
+                return typeof(sp_select_person_contactRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.sp_select_person_contact_infoRowChanged != null)) {
-                    this.sp_select_person_contact_infoRowChanged(this, new sp_select_person_contact_infoRowChangeEvent(((sp_select_person_contact_infoRow)(e.Row)), e.Action));
+                if ((this.sp_select_person_contactRowChanged != null)) {
+                    this.sp_select_person_contactRowChanged(this, new sp_select_person_contactRowChangeEvent(((sp_select_person_contactRow)(e.Row)), e.Action));
                 }
             }
             
@@ -473,8 +444,8 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.sp_select_person_contact_infoRowChanging != null)) {
-                    this.sp_select_person_contact_infoRowChanging(this, new sp_select_person_contact_infoRowChangeEvent(((sp_select_person_contact_infoRow)(e.Row)), e.Action));
+                if ((this.sp_select_person_contactRowChanging != null)) {
+                    this.sp_select_person_contactRowChanging(this, new sp_select_person_contactRowChangeEvent(((sp_select_person_contactRow)(e.Row)), e.Action));
                 }
             }
             
@@ -482,8 +453,8 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.sp_select_person_contact_infoRowDeleted != null)) {
-                    this.sp_select_person_contact_infoRowDeleted(this, new sp_select_person_contact_infoRowChangeEvent(((sp_select_person_contact_infoRow)(e.Row)), e.Action));
+                if ((this.sp_select_person_contactRowDeleted != null)) {
+                    this.sp_select_person_contactRowDeleted(this, new sp_select_person_contactRowChangeEvent(((sp_select_person_contactRow)(e.Row)), e.Action));
                 }
             }
             
@@ -491,14 +462,14 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.sp_select_person_contact_infoRowDeleting != null)) {
-                    this.sp_select_person_contact_infoRowDeleting(this, new sp_select_person_contact_infoRowChangeEvent(((sp_select_person_contact_infoRow)(e.Row)), e.Action));
+                if ((this.sp_select_person_contactRowDeleting != null)) {
+                    this.sp_select_person_contactRowDeleting(this, new sp_select_person_contactRowChangeEvent(((sp_select_person_contactRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Removesp_select_person_contact_infoRow(sp_select_person_contact_infoRow row) {
+            public void Removesp_select_person_contactRow(sp_select_person_contactRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -507,7 +478,7 @@ namespace VehicleDealership.Datasets {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Person_contact_info_DS ds = new Person_contact_info_DS();
+                Person_contact_ds ds = new Person_contact_ds();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -525,7 +496,7 @@ namespace VehicleDealership.Datasets {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "sp_select_person_contact_infoDataTable";
+                attribute2.FixedValue = "sp_select_person_contactDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -569,36 +540,25 @@ namespace VehicleDealership.Datasets {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class sp_select_person_contact_infoRow : global::System.Data.DataRow {
+        public partial class sp_select_person_contactRow : global::System.Data.DataRow {
             
-            private sp_select_person_contact_infoDataTable tablesp_select_person_contact_info;
+            private sp_select_person_contactDataTable tablesp_select_person_contact;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal sp_select_person_contact_infoRow(global::System.Data.DataRowBuilder rb) : 
+            internal sp_select_person_contactRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablesp_select_person_contact_info = ((sp_select_person_contact_infoDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int person_contact_info {
-                get {
-                    return ((int)(this[this.tablesp_select_person_contact_info.person_contact_infoColumn]));
-                }
-                set {
-                    this[this.tablesp_select_person_contact_info.person_contact_infoColumn] = value;
-                }
+                this.tablesp_select_person_contact = ((sp_select_person_contactDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string contact {
                 get {
-                    return ((string)(this[this.tablesp_select_person_contact_info.contactColumn]));
+                    return ((string)(this[this.tablesp_select_person_contact.contactColumn]));
                 }
                 set {
-                    this[this.tablesp_select_person_contact_info.contactColumn] = value;
+                    this[this.tablesp_select_person_contact.contactColumn] = value;
                 }
             }
             
@@ -606,10 +566,10 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string remark {
                 get {
-                    return ((string)(this[this.tablesp_select_person_contact_info.remarkColumn]));
+                    return ((string)(this[this.tablesp_select_person_contact.remarkColumn]));
                 }
                 set {
-                    this[this.tablesp_select_person_contact_info.remarkColumn] = value;
+                    this[this.tablesp_select_person_contact.remarkColumn] = value;
                 }
             }
         }
@@ -618,22 +578,22 @@ namespace VehicleDealership.Datasets {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class sp_select_person_contact_infoRowChangeEvent : global::System.EventArgs {
+        public class sp_select_person_contactRowChangeEvent : global::System.EventArgs {
             
-            private sp_select_person_contact_infoRow eventRow;
+            private sp_select_person_contactRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_person_contact_infoRowChangeEvent(sp_select_person_contact_infoRow row, global::System.Data.DataRowAction action) {
+            public sp_select_person_contactRowChangeEvent(sp_select_person_contactRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_person_contact_infoRow Row {
+            public sp_select_person_contactRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -649,7 +609,7 @@ namespace VehicleDealership.Datasets {
         }
     }
 }
-namespace VehicleDealership.Datasets.Person_contact_info_DSTableAdapters {
+namespace VehicleDealership.Datasets.Person_contact_dsTableAdapters {
     
     
     /// <summary>
@@ -661,7 +621,7 @@ namespace VehicleDealership.Datasets.Person_contact_info_DSTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class sp_select_person_contact_infoTableAdapter : global::System.ComponentModel.Component {
+    public partial class sp_select_person_contactTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -675,7 +635,7 @@ namespace VehicleDealership.Datasets.Person_contact_info_DSTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public sp_select_person_contact_infoTableAdapter() {
+        public sp_select_person_contactTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -772,8 +732,7 @@ namespace VehicleDealership.Datasets.Person_contact_info_DSTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "sp_select_person_contact_info";
-            tableMapping.ColumnMappings.Add("person_contact_info", "person_contact_info");
+            tableMapping.DataSetTable = "sp_select_person_contact";
             tableMapping.ColumnMappings.Add("contact", "contact");
             tableMapping.ColumnMappings.Add("remark", "remark");
             this._adapter.TableMappings.Add(tableMapping);
@@ -792,7 +751,7 @@ namespace VehicleDealership.Datasets.Person_contact_info_DSTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "hr.sp_select_person_contact_info";
+            this._commandCollection[0].CommandText = "hr.sp_select_person_contact";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@person", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -802,7 +761,7 @@ namespace VehicleDealership.Datasets.Person_contact_info_DSTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Person_contact_info_DS.sp_select_person_contact_infoDataTable GetData(global::System.Nullable<int> person) {
+        public virtual Person_contact_ds.sp_select_person_contactDataTable GetData(global::System.Nullable<int> person) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((person.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(person.Value));
@@ -810,7 +769,7 @@ namespace VehicleDealership.Datasets.Person_contact_info_DSTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            Person_contact_info_DS.sp_select_person_contact_infoDataTable dataTable = new Person_contact_info_DS.sp_select_person_contact_infoDataTable();
+            Person_contact_ds.sp_select_person_contactDataTable dataTable = new Person_contact_ds.sp_select_person_contactDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -846,7 +805,7 @@ namespace VehicleDealership.Datasets.Person_contact_info_DSTableAdapters {
             this._commandCollection = new global::System.Data.IDbCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "hr.sp_update_insert_person_contact_info";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "hr.sp_update_insert_person_contact";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@person", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -856,7 +815,7 @@ namespace VehicleDealership.Datasets.Person_contact_info_DSTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int sp_update_insert_person_contact_info(global::System.Nullable<int> person, global::System.Nullable<int> uid) {
+        public virtual int sp_update_insert_person_contact(global::System.Nullable<int> person, global::System.Nullable<int> uid) {
             global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
             if ((person.HasValue == true)) {
                 command.Parameters[1].Value = ((int)(person.Value));
@@ -956,7 +915,7 @@ namespace VehicleDealership.Datasets.Person_contact_info_DSTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(Person_contact_info_DS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(Person_contact_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -966,7 +925,7 @@ namespace VehicleDealership.Datasets.Person_contact_info_DSTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(Person_contact_info_DS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(Person_contact_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -976,7 +935,7 @@ namespace VehicleDealership.Datasets.Person_contact_info_DSTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(Person_contact_info_DS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(Person_contact_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1010,7 +969,7 @@ namespace VehicleDealership.Datasets.Person_contact_info_DSTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(Person_contact_info_DS dataSet) {
+        public virtual int UpdateAll(Person_contact_ds dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

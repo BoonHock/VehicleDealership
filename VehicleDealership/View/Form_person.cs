@@ -22,6 +22,8 @@ namespace VehicleDealership.View
 			InitializeComponent();
 
 			PersonID = int_person;
+
+			grd_contact.MouseDown += Class_datagridview.MouseDown_select_cell;
 		}
 		private void Btn_change_image_Click(object sender, EventArgs e)
 		{
@@ -35,9 +37,13 @@ namespace VehicleDealership.View
 		}
 		private void Form_person_Shown(object sender, EventArgs e)
 		{
-			grd_contact.DataSource = Person_contact_info_DS.Select_Person_Contact_Info(PersonID);
+			grd_contact.DataSource = Person_contact_ds.Select_person_contact(PersonID);
 			grd_contact.AutoResizeColumns();
-			grd_contact.Columns["person_contact_info"].Visible = Program.System_user.IsDeveloper; // hide if not in developer mode
+			// database column nvarchar length is 100
+			Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_contact, "contact");
+			Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_contact, "remark");
+			// allow dbnull because user is 
+			((DataTable)grd_contact.DataSource).Columns["remark"].AllowDBNull = true;
 
 			Class_combobox.Setup_combobox(cmb_type, Person_type_ds.Select_person_type(), "person_type_description", "person_type");
 			cmb_type.SelectedValue = 1; // set default to INDIVIDUAL
@@ -88,9 +94,20 @@ namespace VehicleDealership.View
 				return;
 			}
 
-			Class_datagridview.Apply_all_changes(grd_contact);
+			Person_contact_ds.sp_select_person_contactDataTable dttable_contact = (Person_contact_ds.sp_select_person_contactDataTable)grd_contact.DataSource;
+			dttable_contact.AcceptChanges();
 
-			Person_contact_info_DS.sp_select_person_contact_infoDataTable dttable_contact = (Person_contact_info_DS.sp_select_person_contact_infoDataTable)grd_contact.DataSource;
+			// must use row["remark"] instead of row.remark because row.remarks is string type and cannot be dbnull. row["remark"] is object type and can be dbnull
+			var query_check_empty = from row in dttable_contact
+									where row.contact.Trim() == "" && (row["remark"] != DBNull.Value && row.remark.Trim() != "")
+									select row;
+
+			if (query_check_empty.Count() > 0)
+			{
+				MessageBox.Show("Contact cannot be empty. Please check and retry.",
+					"Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
 
 			var query_contact = from row in dttable_contact
 								group row by row.contact into grp
@@ -104,6 +121,7 @@ namespace VehicleDealership.View
 				return;
 			}
 
+			// set byte image to null if no image. null value will set db column to null
 			byte[] byte_image = null;
 			if (picbox_image.Image != null)
 			{
@@ -114,8 +132,10 @@ namespace VehicleDealership.View
 					byte_image = ms.ToArray();
 				}
 			}
+
 			if (PersonID == 0)
 			{
+				// insert
 				PersonID = Person_ds.Insert_person(txt_name.Text.Trim(), txt_ic_no.Text.Trim(),
 					byte_image, (int)cmb_type.SelectedValue, txt_driving_license.Text.Trim(),
 					(cmb_gender.SelectedValue.ToString() == "MALE"), (int)cmb_race.SelectedValue,
@@ -125,7 +145,7 @@ namespace VehicleDealership.View
 			}
 			else
 			{
-				// TODO: update person!
+				// update
 				Person_ds.Update_person(PersonID, txt_name.Text.Trim(), txt_ic_no.Text.Trim(),
 					byte_image, (int)cmb_type.SelectedValue, txt_driving_license.Text.Trim(),
 					(cmb_gender.SelectedValue.ToString() == "MALE"), (int)cmb_race.SelectedValue,
@@ -133,14 +153,14 @@ namespace VehicleDealership.View
 					txt_postcode.Text.Trim(), (short)cmb_country.SelectedValue, txt_occupation.Text.Trim(),
 					txt_company.Text.Trim());
 			}
-
+			// at this point, personID must be positive integer. 
 			if (PersonID == 0)
 			{
 				MessageBox.Show("An error has occurred.", "ERROR",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-
+			// upload contact information
 			DataColumn dt_col1 = new DataColumn("modified_by", typeof(int));
 			dt_col1.DefaultValue = Program.System_user.UserID;
 			dttable_contact.Columns.Add(dt_col1);
@@ -157,7 +177,6 @@ namespace VehicleDealership.View
 
 					try
 					{
-						bulkCopy.ColumnMappings.Add("person_contact_info", "int1");
 						bulkCopy.ColumnMappings.Add("contact", "nvarchar1");
 						bulkCopy.ColumnMappings.Add("remark", "nvarchar2");
 						bulkCopy.ColumnMappings.Add("modified_by", "created_by");
@@ -172,7 +191,7 @@ namespace VehicleDealership.View
 				conn.Close();
 			}
 
-			Person_contact_info_DS.Update_insert_person_contact_info(PersonID);
+			Person_contact_ds.Update_insert_person_contact(PersonID);
 
 			this.DialogResult = DialogResult.OK;
 			this.Close();
@@ -193,6 +212,11 @@ namespace VehicleDealership.View
 		{
 			MessageBox.Show("Contact is required.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			e.Cancel = true;
+		}
+
+		private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Class_datagridview.Remove_row_of_selected_cells(grd_contact);
 		}
 	}
 }

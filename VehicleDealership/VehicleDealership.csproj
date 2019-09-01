@@ -133,6 +133,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\Organisation_contact_ds.cs">
+      <DependentUpon>Organisation_contact_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Organisation_contact_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Organisation_contact_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\Organisation_ds.cs">
       <DependentUpon>Organisation_ds.xsd</DependentUpon>
     </Compile>
@@ -157,13 +165,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Permission_ds.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\Person_contact_info_DS.cs">
-      <DependentUpon>Person_contact_info_DS.xsd</DependentUpon>
+    <Compile Include="Datasets\Person_contact_ds.cs">
+      <DependentUpon>Person_contact_ds.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\Person_contact_info_DS.Designer.cs">
+    <Compile Include="Datasets\Person_contact_ds.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Person_contact_info_DS.xsd</DependentUpon>
+      <DependentUpon>Person_contact_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\Person_ds.cs">
       <DependentUpon>Person_ds.xsd</DependentUpon>
@@ -309,6 +317,12 @@
     <Compile Include="View\Form_main_menu.Designer.cs">
       <DependentUpon>Form_main_menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Form_organisation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form_organisation.Designer.cs">
+      <DependentUpon>Form_organisation.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Form_person.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -388,6 +402,9 @@
     <EmbeddedResource Include="View\Form_main_menu.resx">
       <DependentUpon>Form_main_menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Form_organisation.resx">
+      <DependentUpon>Form_organisation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Form_person.resx">
       <DependentUpon>Form_person.cs</DependentUpon>
     </EmbeddedResource>
@@ -464,6 +481,17 @@
     <None Include="Datasets\Fuel_type_ds.xss">
       <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
     </None>
+    <None Include="Datasets\Organisation_contact_ds.xsc">
+      <DependentUpon>Organisation_contact_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Organisation_contact_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Organisation_contact_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Organisation_contact_ds.xss">
+      <DependentUpon>Organisation_contact_ds.xsd</DependentUpon>
+    </None>
     <None Include="Datasets\Organisation_ds.xsc">
       <DependentUpon>Organisation_ds.xsd</DependentUpon>
     </None>
@@ -497,16 +525,16 @@
     <None Include="Datasets\Permission_ds.xss">
       <DependentUpon>Permission_ds.xsd</DependentUpon>
     </None>
-    <None Include="Datasets\Person_contact_info_DS.xsc">
-      <DependentUpon>Person_contact_info_DS.xsd</DependentUpon>
+    <None Include="Datasets\Person_contact_ds.xsc">
+      <DependentUpon>Person_contact_ds.xsd</DependentUpon>
     </None>
-    <None Include="Datasets\Person_contact_info_DS.xsd">
+    <None Include="Datasets\Person_contact_ds.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Person_contact_info_DS.Designer.cs</LastGenOutput>
+      <LastGenOutput>Person_contact_ds.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Datasets\Person_contact_info_DS.xss">
-      <DependentUpon>Person_contact_info_DS.xsd</DependentUpon>
+    <None Include="Datasets\Person_contact_ds.xss">
+      <DependentUpon>Person_contact_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Person_ds.xsc">
       <DependentUpon>Person_ds.xsd</DependentUpon>

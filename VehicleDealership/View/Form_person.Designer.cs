@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.label1 = new System.Windows.Forms.Label();
 			this.txt_name = new System.Windows.Forms.TextBox();
 			this.txt_ic_no = new System.Windows.Forms.TextBox();
@@ -63,12 +64,15 @@
 			this.btn_ok = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.grd_contact = new System.Windows.Forms.DataGridView();
+			this.cms_contact = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.filedlg_img = new System.Windows.Forms.OpenFileDialog();
 			((System.ComponentModel.ISupportInitialize)(this.picbox_image)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_contact)).BeginInit();
+			this.cms_contact.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -91,7 +95,7 @@
 			// txt_ic_no
 			// 
 			this.txt_ic_no.Location = new System.Drawing.Point(129, 45);
-			this.txt_ic_no.MaxLength = 50;
+			this.txt_ic_no.MaxLength = 20;
 			this.txt_ic_no.Name = "txt_ic_no";
 			this.txt_ic_no.Size = new System.Drawing.Size(236, 27);
 			this.txt_ic_no.TabIndex = 1;
@@ -315,7 +319,7 @@
 			// txt_company
 			// 
 			this.txt_company.Location = new System.Drawing.Point(515, 242);
-			this.txt_company.MaxLength = 50;
+			this.txt_company.MaxLength = 100;
 			this.txt_company.Name = "txt_company";
 			this.txt_company.Size = new System.Drawing.Size(316, 27);
 			this.txt_company.TabIndex = 14;
@@ -370,6 +374,7 @@
 			// 
 			this.btn_ok.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.btn_ok.AutoSize = true;
+			this.btn_ok.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btn_ok.Location = new System.Drawing.Point(6, 5);
 			this.btn_ok.Name = "btn_ok";
 			this.btn_ok.Size = new System.Drawing.Size(95, 30);
@@ -392,6 +397,7 @@
 			// 
 			this.grd_contact.AllowUserToResizeRows = false;
 			this.grd_contact.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.grd_contact.ContextMenuStrip = this.cms_contact;
 			this.grd_contact.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.grd_contact.Location = new System.Drawing.Point(3, 23);
 			this.grd_contact.Name = "grd_contact";
@@ -399,6 +405,20 @@
 			this.grd_contact.TabIndex = 0;
 			this.grd_contact.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_contact_DataError);
 			this.grd_contact.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.Grd_contact_DefaultValuesNeeded);
+			// 
+			// cms_contact
+			// 
+			this.cms_contact.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem});
+			this.cms_contact.Name = "cms_contact";
+			this.cms_contact.Size = new System.Drawing.Size(108, 26);
+			// 
+			// deleteToolStripMenuItem
+			// 
+			this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+			this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+			this.deleteToolStripMenuItem.Text = "Delete";
+			this.deleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
 			// 
 			// filedlg_img
 			// 
@@ -441,6 +461,7 @@
 			this.Controls.Add(this.picbox_image);
 			this.Controls.Add(this.btn_change_image);
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "Form_person";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -452,6 +473,7 @@
 			this.tableLayoutPanel1.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.grd_contact)).EndInit();
+			this.cms_contact.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -495,5 +517,7 @@
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.DataGridView grd_contact;
 		private System.Windows.Forms.OpenFileDialog filedlg_img;
+		private System.Windows.Forms.ContextMenuStrip cms_contact;
+		private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
 	}
 }

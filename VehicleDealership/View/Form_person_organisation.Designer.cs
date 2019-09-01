@@ -28,11 +28,15 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.btn_cancel = new System.Windows.Forms.Button();
 			this.btn_ok = new System.Windows.Forms.Button();
 			this.grd_main = new System.Windows.Forms.DataGridView();
+			this.cms_grd_main = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStrip3 = new System.Windows.Forms.ToolStrip();
 			this.btn_add = new System.Windows.Forms.ToolStripButton();
 			this.btn_edit = new System.Windows.Forms.ToolStripButton();
@@ -43,6 +47,7 @@
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_main)).BeginInit();
+			this.cms_grd_main.SuspendLayout();
 			this.toolStrip3.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -100,6 +105,7 @@
 			this.grd_main.AllowUserToAddRows = false;
 			this.grd_main.AllowUserToDeleteRows = false;
 			this.grd_main.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.grd_main.ContextMenuStrip = this.cms_grd_main;
 			this.grd_main.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.grd_main.Location = new System.Drawing.Point(0, 25);
 			this.grd_main.MultiSelect = false;
@@ -107,6 +113,29 @@
 			this.grd_main.ReadOnly = true;
 			this.grd_main.Size = new System.Drawing.Size(854, 451);
 			this.grd_main.TabIndex = 1;
+			this.grd_main.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grd_main_CellContentClick);
+			// 
+			// cms_grd_main
+			// 
+			this.cms_grd_main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripMenuItem,
+            this.editToolStripMenuItem});
+			this.cms_grd_main.Name = "cms_grd_main";
+			this.cms_grd_main.Size = new System.Drawing.Size(97, 48);
+			// 
+			// addToolStripMenuItem
+			// 
+			this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+			this.addToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+			this.addToolStripMenuItem.Text = "Add";
+			this.addToolStripMenuItem.Click += new System.EventHandler(this.Add_Click);
+			// 
+			// editToolStripMenuItem
+			// 
+			this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+			this.editToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+			this.editToolStripMenuItem.Text = "Edit";
+			this.editToolStripMenuItem.Click += new System.EventHandler(this.Edit_Click);
 			// 
 			// toolStrip3
 			// 
@@ -132,7 +161,7 @@
 			this.btn_add.Name = "btn_add";
 			this.btn_add.Size = new System.Drawing.Size(23, 22);
 			this.btn_add.Text = "Add";
-			this.btn_add.Click += new System.EventHandler(this.Btn_add_Click);
+			this.btn_add.Click += new System.EventHandler(this.Add_Click);
 			// 
 			// btn_edit
 			// 
@@ -142,7 +171,7 @@
 			this.btn_edit.Name = "btn_edit";
 			this.btn_edit.Size = new System.Drawing.Size(23, 22);
 			this.btn_edit.Text = "Edit";
-			this.btn_edit.Click += new System.EventHandler(this.Btn_edit_Click);
+			this.btn_edit.Click += new System.EventHandler(this.Edit_Click);
 			// 
 			// toolStripLabel1
 			// 
@@ -190,6 +219,7 @@
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_main)).EndInit();
+			this.cms_grd_main.ResumeLayout(false);
 			this.toolStrip3.ResumeLayout(false);
 			this.toolStrip3.PerformLayout();
 			this.ResumeLayout(false);
@@ -211,5 +241,8 @@
 		private System.Windows.Forms.ToolStripComboBox cmb_type;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel2;
 		private System.Windows.Forms.ToolStripTextBox txt_search;
+		private System.Windows.Forms.ContextMenuStrip cms_grd_main;
+		private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
 	}
 }

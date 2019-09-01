@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -37,6 +38,8 @@ namespace VehicleDealership.View
 			cmb_type.ComboBox.DataSource = dttable;
 
 			_select_for = select_for;
+
+			grd_main.MouseDown += Class_datagridview.MouseDown_select_cell;
 		}
 		private void Form_person_organisation_Shown(object sender, EventArgs e)
 		{
@@ -101,48 +104,64 @@ namespace VehicleDealership.View
 			{
 				Class_datagridview.Hide_columns(grd_main, new string[] { "organisation" });
 
+				grd_main.Columns.Remove("url");
+
+				DataGridViewLinkColumn col_link = new DataGridViewLinkColumn();
+				col_link.DataPropertyName = "url";
+				col_link.Name = "url";
+				grd_main.Columns.Add(col_link);
+
 				if (int_id != 0)
 					Class_datagridview.Select_row_by_value(grd_main, "organisation", int_id.ToString());
 			}
 			grd_main.AutoResizeColumns();
+			Apply_search_filter_to_grd_main();
 		}
 
 		private void Add_person()
 		{
-			if ((new Form_person()).ShowDialog() == DialogResult.OK)
-				Setup_grd_main();
+			Form_person formPerson = new Form_person();
+
+			if (formPerson.ShowDialog() == DialogResult.OK)
+				Setup_grd_main(formPerson.PersonID);
 		}
 		private void Add_organisation()
 		{
+			Form_organisation formOrg = new Form_organisation();
 
+			if (formOrg.ShowDialog() == DialogResult.OK)
+				Setup_grd_main(formOrg.OrganisationID);
 		}
 		private void Edit_person()
 		{
 			if (grd_main.SelectedCells.Count == 0) return;
 
-			if ((new Form_person((int)grd_main.SelectedCells[0].OwningRow.Cells["person"].Value)).ShowDialog() == DialogResult.OK)
-				Setup_grd_main();
+			int int_person = (int)grd_main.SelectedCells[0].OwningRow.Cells["person"].Value;
+			if ((new Form_person(int_person)).ShowDialog() == DialogResult.OK)
+				Setup_grd_main(int_person);
 		}
 		private void Edit_organisation()
 		{
+			if (grd_main.SelectedCells.Count == 0) return;
 
+			int int_org = (int)grd_main.SelectedCells[0].OwningRow.Cells["organisation"].Value;
+			if ((new Form_organisation(int_org)).ShowDialog() == DialogResult.OK)
+				Setup_grd_main(int_org);
 		}
-		private void Btn_add_Click(object sender, EventArgs e)
+		private void Add_Click(object sender, EventArgs e)
 		{
 			if (cmb_type.ComboBox.SelectedValue.ToString() == "PERSON")
 				Add_person();
 			else
 				Add_organisation();
 		}
-
-		private void Btn_edit_Click(object sender, EventArgs e)
+		private void Edit_Click(object sender, EventArgs e)
 		{
 			if (cmb_type.ComboBox.SelectedValue.ToString() == "PERSON")
 				Edit_person();
 			else
 				Edit_organisation();
 		}
-
 		private void Cmb_type_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			Setup_grd_main();
@@ -150,11 +169,34 @@ namespace VehicleDealership.View
 
 		private void Txt_search_TextChanged(object sender, EventArgs e)
 		{
+			Apply_search_filter_to_grd_main();
+		}
+		private void Apply_search_filter_to_grd_main()
+		{
+			if (grd_main.DataSource == null) return;
+
 			string str_search = txt_search.Text.Trim();
 
 			if (cmb_type.ComboBox.SelectedValue.ToString() == "PERSON")
+			{
 				((DataTable)grd_main.DataSource).DefaultView.RowFilter = "[name] LIKE '%" +
 					str_search + "%' OR [ic_no] LIKE '%" + str_search + "%'";
+			}
+			else
+			{
+				((DataTable)grd_main.DataSource).DefaultView.RowFilter = "[name] LIKE '%" +
+					str_search + "%' OR [registration_no] LIKE '%" + str_search + "%'";
+			}
+		}
+
+		private void Grd_main_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+			if (grd_main.Columns[e.ColumnIndex].Name.ToUpper() == "URL")
+			{
+				Cursor = Cursors.WaitCursor;
+				Class_misc.Go_url(grd_main[e.ColumnIndex, e.RowIndex].Value.ToString());
+				Cursor = Cursors.Default;
+			}
 		}
 	}
 }

@@ -57,7 +57,7 @@ namespace VehicleDealership.Classes
 		{
 			foreach (DataGridViewRow grd_row in grd.Rows)
 			{
-				if (grd_row.Cells[value_col].Value != DBNull.Value && 
+				if (grd_row.Cells[value_col].Value != DBNull.Value &&
 					grd_row.Cells[value_col].Value.ToString() == str_value)
 				{
 					grd.ClearSelection();
@@ -137,18 +137,25 @@ namespace VehicleDealership.Classes
 		/// <param name="e"></param>
 		public static void MouseDown_select_cell(object sender, MouseEventArgs e)
 		{
-			DataGridView grd = (DataGridView)sender;
-
-			var hti = grd.HitTest(e.X, e.Y);
-
-			if (hti.RowIndex != -1 && hti.ColumnIndex != -1)
+			try
 			{
-				// if cell being right-clicked is already selected, then no need to clear selection and reselect
-				if (grd[hti.ColumnIndex, hti.RowIndex].Selected) return;
+				DataGridView grd = (DataGridView)sender;
 
-				grd.ClearSelection();
-				grd[hti.ColumnIndex, hti.RowIndex].Selected = true;
-				grd.CurrentCell = grd[hti.ColumnIndex, hti.RowIndex];
+				var hti = grd.HitTest(e.X, e.Y);
+
+				if (hti.RowIndex != -1 && hti.ColumnIndex != -1)
+				{
+					// if cell being right-clicked is already selected, then no need to clear selection and reselect
+					if (grd[hti.ColumnIndex, hti.RowIndex].Selected) return;
+
+					grd.ClearSelection();
+					grd[hti.ColumnIndex, hti.RowIndex].Selected = true;
+					grd.CurrentCell = grd[hti.ColumnIndex, hti.RowIndex];
+				}
+			}
+			catch (Exception ex)
+			{
+				// ignore error
 			}
 		}
 		public static void Apply_all_changes(DataGridView grd)
@@ -163,6 +170,41 @@ namespace VehicleDealership.Classes
 				grd.CurrentCell = null;
 				grd.CurrentCell = grd[cell_col, cell_row];
 			}
+		}
+		/// <summary>
+		/// remove rows where cells are selected. will skip new row for editing
+		/// </summary>
+		/// <param name="grd"></param>
+		public static void Remove_row_of_selected_cells(DataGridView grd)
+		{
+			if (grd.SelectedCells.Count == 0) return;
+
+			List<int> list_int = new List<int>();
+
+			foreach (DataGridViewCell grd_cell in grd.SelectedCells)
+			{
+				if (grd_cell.OwningRow.IsNewRow) continue;
+
+				list_int.Add(grd_cell.RowIndex);
+			}
+
+			list_int = list_int.Distinct().ToList();
+			list_int.Sort();
+			list_int.Reverse();
+
+			foreach (int i in list_int)
+			{
+				if (!grd.Rows[i].IsNewRow) grd.Rows.RemoveAt(i);
+			}
+		}
+		/// <summary>
+		/// set DataGridViewTextBoxColumn column max length to be similar with datatable column
+		/// </summary>
+		/// <param name="grd"></param>
+		/// <param name="str_col_name"></param>
+		public static void Set_max_length_grd_col_same_with_datatable_col(DataGridView grd, string str_col_name)
+		{
+			((DataGridViewTextBoxColumn)grd.Columns[str_col_name]).MaxInputLength = ((DataTable)grd.DataSource).Columns[str_col_name].MaxLength;
 		}
 	}
 }
