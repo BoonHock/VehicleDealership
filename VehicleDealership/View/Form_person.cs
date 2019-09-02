@@ -24,6 +24,32 @@ namespace VehicleDealership.View
 			PersonID = int_person;
 
 			grd_contact.MouseDown += Class_datagridview.MouseDown_select_cell;
+
+			if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_PERSON))
+			{
+				// no permission to add/edit
+
+				txt_name.ReadOnly = true;
+				txt_ic_no.ReadOnly = true;
+				txt_driving_license.ReadOnly = true;
+				txt_address.ReadOnly = true;
+				txt_city.ReadOnly = true;
+				txt_state.ReadOnly = true;
+				txt_postcode.ReadOnly = true;
+				txt_occupation.ReadOnly = true;
+				txt_company.ReadOnly = true;
+				txt_url.ReadOnly = true;
+				grd_contact.ReadOnly = true;
+
+				cmb_type.Enabled = false;
+				cmb_gender.Enabled = false;
+				cmb_race.Enabled = false;
+				cmb_country.Enabled = false;
+				btn_change_image.Enabled = false;
+				btn_remove_image.Enabled = false;
+
+				btn_ok.Visible = false;
+			}
 		}
 		private void Btn_change_image_Click(object sender, EventArgs e)
 		{
@@ -37,6 +63,14 @@ namespace VehicleDealership.View
 		}
 		private void Form_person_Shown(object sender, EventArgs e)
 		{
+			if (!Program.System_user.Has_permission(User_permission.VIEW_PERSON) && !Program.System_user.Has_permission(User_permission.ADD_EDIT_PERSON))
+			{
+				MessageBox.Show("You do not have sufficient permission to perform this action!",
+					"ACCESS DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				this.Close();
+				return;
+			}
+
 			grd_contact.DataSource = Person_contact_ds.Select_person_contact(PersonID);
 			grd_contact.AutoResizeColumns();
 			// database column nvarchar length is 100
@@ -64,29 +98,34 @@ namespace VehicleDealership.View
 			Person_ds.sp_select_personDataTable dttable_person = Person_ds.Select_person(PersonID);
 			if (dttable_person.Rows.Count == 0) return;
 
-			DataRow dt_row = dttable_person.Rows[0];
+			txt_name.Text = dttable_person[0].name;
+			txt_ic_no.Text = dttable_person[0].ic_no;
 
-			txt_name.Text = dt_row["name"].ToString();
-			txt_ic_no.Text = dt_row["ic_no"].ToString();
+			if (dttable_person.Rows[0]["image"] != DBNull.Value)
+				picbox_image.Image = Image.FromStream(new MemoryStream(dttable_person[0].image));
 
-			if (dt_row["image"] != DBNull.Value)
-				picbox_image.Image = Image.FromStream(new MemoryStream((byte[])dt_row["image"]));
-
-			cmb_type.SelectedValue = dt_row["person_type"].ToString();
-			txt_driving_license.Text = dt_row["driving_license"].ToString();
-			cmb_gender.SelectedValue = ((bool)dt_row["gender"]) ? "MALE" : "FEMALE";
-			cmb_race.SelectedValue = dt_row["race"];
-			txt_address.Text = dt_row["address"].ToString();
-			txt_city.Text = dt_row["city"].ToString();
-			txt_state.Text = dt_row["state"].ToString();
-			txt_postcode.Text = dt_row["postcode"].ToString();
-			cmb_country.SelectedValue = dt_row["country"];
-			txt_occupation.Text = dt_row["occupation"].ToString();
-			txt_company.Text = dt_row["company"].ToString();
+			cmb_type.SelectedValue = dttable_person[0].person_type;
+			txt_driving_license.Text = dttable_person[0].driving_license;
+			cmb_gender.SelectedValue = (dttable_person[0].gender) ? "MALE" : "FEMALE";
+			cmb_race.SelectedValue = dttable_person[0].race;
+			txt_address.Text = dttable_person[0].address;
+			txt_city.Text = dttable_person[0].city;
+			txt_state.Text = dttable_person[0].state;
+			txt_postcode.Text = dttable_person[0].postcode;
+			cmb_country.SelectedValue = dttable_person[0].country;
+			txt_occupation.Text = dttable_person[0].occupation;
+			txt_company.Text = dttable_person[0].company;
+			txt_url.Text = dttable_person[0].url;
 		}
 
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
+			if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_PERSON))
+			{
+				this.DialogResult = DialogResult.Cancel;
+				this.Close();
+				return;
+			}
 
 			if (txt_name.Text.Trim() == "" || txt_ic_no.Text.Trim() == "")
 			{
@@ -141,7 +180,7 @@ namespace VehicleDealership.View
 					(cmb_gender.SelectedValue.ToString() == "MALE"), (int)cmb_race.SelectedValue,
 					txt_address.Text.Trim(), txt_city.Text.Trim(), txt_state.Text.Trim(),
 					txt_postcode.Text.Trim(), (short)cmb_country.SelectedValue, txt_occupation.Text.Trim(),
-					txt_company.Text.Trim());
+					txt_company.Text.Trim(), txt_url.Text.Trim());
 			}
 			else
 			{
@@ -151,7 +190,7 @@ namespace VehicleDealership.View
 					(cmb_gender.SelectedValue.ToString() == "MALE"), (int)cmb_race.SelectedValue,
 					txt_address.Text.Trim(), txt_city.Text.Trim(), txt_state.Text.Trim(),
 					txt_postcode.Text.Trim(), (short)cmb_country.SelectedValue, txt_occupation.Text.Trim(),
-					txt_company.Text.Trim());
+					txt_company.Text.Trim(), txt_url.Text.Trim());
 			}
 			// at this point, personID must be positive integer. 
 			if (PersonID == 0)

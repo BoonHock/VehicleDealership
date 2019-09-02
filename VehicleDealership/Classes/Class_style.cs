@@ -12,11 +12,11 @@ namespace VehicleDealership.Classes
 	{
 		public class Grd_style
 		{
-			public static void Common_style(DataGridView grd)
+			public static void Common_style(DataGridView grd, int row_header_width = 15)
 			{
 				grd.AllowUserToResizeRows = false;
 				grd.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
-				grd.RowHeadersWidth = 15;
+				if (row_header_width > 0) grd.RowHeadersWidth = row_header_width;
 			}
 		}
 	}

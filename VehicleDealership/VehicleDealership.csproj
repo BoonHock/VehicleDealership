@@ -205,14 +205,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Salesperson_ds.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\Salestarget_ds.cs">
-      <DependentUpon>Salestarget_ds.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Datasets\Salestarget_ds.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Salestarget_ds.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Datasets\Transmission_ds.cs">
       <DependentUpon>Transmission_ds.xsd</DependentUpon>
     </Compile>
@@ -579,17 +571,6 @@
     </None>
     <None Include="Datasets\Salesperson_ds.xss">
       <DependentUpon>Salesperson_ds.xsd</DependentUpon>
-    </None>
-    <None Include="Datasets\Salestarget_ds.xsc">
-      <DependentUpon>Salestarget_ds.xsd</DependentUpon>
-    </None>
-    <None Include="Datasets\Salestarget_ds.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Salestarget_ds.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Datasets\Salestarget_ds.xss">
-      <DependentUpon>Salestarget_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Transmission_ds.xsc">
       <DependentUpon>Transmission_ds.xsd</DependentUpon>

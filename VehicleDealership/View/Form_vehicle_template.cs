@@ -30,7 +30,7 @@ namespace VehicleDealership.View
 			if (!can_add_edit && !can_delete)
 			{
 				MessageBox.Show("You do not have sufficient permission to perform this action!",
-					"PERMISSION DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					"ACCESS DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				this.Close();
 				return;
 			}

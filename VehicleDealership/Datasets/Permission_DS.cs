@@ -111,7 +111,7 @@ namespace VehicleDealership.Datasets
 				}
 				else
 				{
-					MessageBox.Show("PERMISSION DENIED", "PERMISSION DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show("ACCESS DENIED", "ACCESS DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 			catch (System.Exception e)
@@ -137,7 +137,7 @@ namespace VehicleDealership.Datasets
 				}
 				else
 				{
-					MessageBox.Show("PERMISSION DENIED", "PERMISSION DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show("ACCESS DENIED", "ACCESS DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 			catch (System.Exception e)
@@ -163,7 +163,7 @@ namespace VehicleDealership.Datasets
 				}
 				else
 				{
-					MessageBox.Show("PERMISSION DENIED", "PERMISSION DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show("ACCESS DENIED", "ACCESS DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 			catch (System.Exception e)
@@ -187,7 +187,7 @@ namespace VehicleDealership.Datasets
 				}
 				else
 				{
-					MessageBox.Show("PERMISSION DENIED", "PERMISSION DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show("ACCESS DENIED", "ACCESS DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 			catch (System.Exception e)

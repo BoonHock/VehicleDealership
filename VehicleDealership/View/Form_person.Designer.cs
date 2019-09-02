@@ -67,6 +67,8 @@
 			this.cms_contact = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.filedlg_img = new System.Windows.Forms.OpenFileDialog();
+			this.txt_url = new System.Windows.Forms.TextBox();
+			this.label10 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.picbox_image)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -114,7 +116,7 @@
 			this.picbox_image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.picbox_image.Location = new System.Drawing.Point(515, 12);
 			this.picbox_image.Name = "picbox_image";
-			this.picbox_image.Size = new System.Drawing.Size(211, 191);
+			this.picbox_image.Size = new System.Drawing.Size(211, 195);
 			this.picbox_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.picbox_image.TabIndex = 10;
 			this.picbox_image.TabStop = false;
@@ -301,7 +303,7 @@
 			// 
 			// txt_occupation
 			// 
-			this.txt_occupation.Location = new System.Drawing.Point(515, 209);
+			this.txt_occupation.Location = new System.Drawing.Point(514, 213);
 			this.txt_occupation.MaxLength = 50;
 			this.txt_occupation.Name = "txt_occupation";
 			this.txt_occupation.Size = new System.Drawing.Size(316, 27);
@@ -310,7 +312,7 @@
 			// label15
 			// 
 			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(422, 212);
+			this.label15.Location = new System.Drawing.Point(421, 216);
 			this.label15.Name = "label15";
 			this.label15.Size = new System.Drawing.Size(88, 20);
 			this.label15.TabIndex = 46;
@@ -318,7 +320,7 @@
 			// 
 			// txt_company
 			// 
-			this.txt_company.Location = new System.Drawing.Point(515, 242);
+			this.txt_company.Location = new System.Drawing.Point(514, 246);
 			this.txt_company.MaxLength = 100;
 			this.txt_company.Name = "txt_company";
 			this.txt_company.Size = new System.Drawing.Size(316, 27);
@@ -327,7 +329,7 @@
 			// label17
 			// 
 			this.label17.AutoSize = true;
-			this.label17.Location = new System.Drawing.Point(422, 245);
+			this.label17.Location = new System.Drawing.Point(421, 249);
 			this.label17.Name = "label17";
 			this.label17.Size = new System.Drawing.Size(75, 20);
 			this.label17.TabIndex = 48;
@@ -386,9 +388,9 @@
 			// groupBox1
 			// 
 			this.groupBox1.Controls.Add(this.grd_contact);
-			this.groupBox1.Location = new System.Drawing.Point(426, 275);
+			this.groupBox1.Location = new System.Drawing.Point(416, 317);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(405, 212);
+			this.groupBox1.Size = new System.Drawing.Size(415, 170);
 			this.groupBox1.TabIndex = 15;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Contact information";
@@ -401,7 +403,7 @@
 			this.grd_contact.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.grd_contact.Location = new System.Drawing.Point(3, 23);
 			this.grd_contact.Name = "grd_contact";
-			this.grd_contact.Size = new System.Drawing.Size(399, 186);
+			this.grd_contact.Size = new System.Drawing.Size(409, 144);
 			this.grd_contact.TabIndex = 0;
 			this.grd_contact.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_contact_DataError);
 			this.grd_contact.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.Grd_contact_DefaultValuesNeeded);
@@ -424,11 +426,30 @@
 			// 
 			this.filedlg_img.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
 			// 
+			// txt_url
+			// 
+			this.txt_url.Location = new System.Drawing.Point(514, 279);
+			this.txt_url.MaxLength = 100;
+			this.txt_url.Name = "txt_url";
+			this.txt_url.Size = new System.Drawing.Size(316, 27);
+			this.txt_url.TabIndex = 51;
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(421, 282);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(38, 20);
+			this.label10.TabIndex = 52;
+			this.label10.Text = "URL:";
+			// 
 			// Form_person
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(842, 558);
+			this.Controls.Add(this.txt_url);
+			this.Controls.Add(this.label10);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.txt_company);
@@ -519,5 +540,7 @@
 		private System.Windows.Forms.OpenFileDialog filedlg_img;
 		private System.Windows.Forms.ContextMenuStrip cms_contact;
 		private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+		private System.Windows.Forms.TextBox txt_url;
+		private System.Windows.Forms.Label label10;
 	}
 }

@@ -40,11 +40,11 @@ namespace VehicleDealership.View
 				return;
 			}
 
+			Class_style.Grd_style.Common_style(grd_main);
+
 			switch (this.Tag.ToString().ToUpper())
 			{
 				case "USER":
-					Class_style.Grd_style.Common_style(grd_main);
-
 					if (!Program.System_user.Has_permission(User_permission.ADD_USER) &&
 						!Program.System_user.Has_permission(User_permission.EDIT_USER))
 						permission_denied = true;
@@ -74,7 +74,7 @@ namespace VehicleDealership.View
 					break;
 				case "SALESPERSON":
 					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_SALESPERSON) &&
-						!Program.System_user.Has_permission(User_permission.DELETE_SALESPERSON))
+						!Program.System_user.Has_permission(User_permission.VIEW_SALESPERSON))
 						permission_denied = true;
 					else
 						Setup_form_edit_salesperson();
@@ -83,7 +83,7 @@ namespace VehicleDealership.View
 
 			if (permission_denied)
 			{
-				MessageBox.Show("PERMISSION DENIED", "PERMISSION DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("ACCESS DENIED", "ACCESS DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				this.Close();
 				return;
 			}
@@ -93,7 +93,7 @@ namespace VehicleDealership.View
 			if (grd_main.CurrentCell != null)
 				grd_main.Rows.Remove(grd_main.CurrentCell.OwningRow);
 		}
-		private void Setup_cmb_is_active()
+		private void Setup_cmb_is_active(ComboBox cmb)
 		{
 			DataTable dttable_active = new DataTable();
 			dttable_active.Columns.Add("display", typeof(string));
@@ -103,10 +103,10 @@ namespace VehicleDealership.View
 			dttable_active.Rows.Add("Active", 1);
 			dttable_active.Rows.Add("Inactive", 0);
 
-			cmb_is_active_user.ComboBox.DisplayMember = "display";
-			cmb_is_active_user.ComboBox.ValueMember = "value";
-			cmb_is_active_user.ComboBox.DataSource = dttable_active;
-			cmb_is_active_user.ComboBox.SelectedValue = 1; // select active as default
+			cmb.DisplayMember = "display";
+			cmb.ValueMember = "value";
+			cmb.DataSource = dttable_active;
+			cmb.SelectedValue = 1; // select active as default
 		}
 		#region USERS
 		private void Setup_form_users()
@@ -116,7 +116,7 @@ namespace VehicleDealership.View
 			deleteToolStripMenuItem.Visible = false; // cannot delete user
 			btn_delete_user.Visible = false;
 
-			Setup_cmb_is_active();
+			Setup_cmb_is_active(cmb_is_active_user.ComboBox);
 
 			if (Program.System_user.Has_permission(User_permission.EDIT_USER))
 			{
@@ -554,19 +554,20 @@ namespace VehicleDealership.View
 		private void Setup_form_edit_salesperson()
 		{
 			ts_add_edit_delete.Visible = true;
-			Setup_cmb_is_active();
+			Setup_cmb_is_active(cmb_status.ComboBox);
 
 			bool has_add_edit_permission = Program.System_user.Has_permission(User_permission.ADD_EDIT_SALESPERSON);
 			bool has_delete_permission = Program.System_user.Has_permission(User_permission.ADD_USER);
 
 			btn_add.Enabled = has_add_edit_permission;
 			btn_edit.Enabled = has_add_edit_permission;
-			btn_delete.Enabled = has_add_edit_permission;
+			btn_delete.Visible = false; // salesperson cannot be deleted
+			deleteToolStripMenuItem.Visible = false;
 
 			Setup_grd_salesperson();
 
-			txt_search.TextChanged += (sender2, e2) => Setup_grd_salesperson();
-			cmb_status.ComboBox.SelectedIndexChanged += (sender2, e2) => Setup_grd_salesperson();
+			txt_search.TextChanged += (sender2, e2) => Apply_filter_salesperson();
+			cmb_status.ComboBox.SelectedIndexChanged += (sender2, e2) => Apply_filter_salesperson();
 			btn_add.Click += Add_salesperson;
 			addToolStripMenuItem.Click += Add_salesperson;
 			btn_edit.Click += Edit_salesperson;
@@ -576,22 +577,15 @@ namespace VehicleDealership.View
 		{
 			grd_main.DataSource = null;
 
-			Salesperson_ds.sp_select_salespersonDataTable dttable = Salesperson_ds.Select_salesperson();
+			Salesperson_ds.sp_select_salespersonDataTable dttable = Salesperson_ds.Select_salesperson(-1);
 
-			string str_search = txt_search.Text.Trim();
-			if (str_search == "")
-				grd_main.DataSource = dttable;
-			else
-			{
-				var query = from row in dttable
-							where row.name.Contains(str_search) || row.registration_no.Contains(str_search) || row.location.Contains(str_search)
-							select row;
+			grd_main.DataSource = dttable;
 
-				if (query.Count() > 0)
-					grd_main.DataSource = query.CopyToDataTable();
-				else
-					grd_main.DataSource = new Salesperson_ds.sp_select_salespersonDataTable();
-			}
+			Class_datagridview.Hide_unnecessary_columns(grd_main, new string[] { "name",
+				"registration_no", "location", "date_join", "date_leave", "remark" });
+
+			grd_main.AutoResizeColumns();
+			Apply_filter_salesperson();
 
 			if (int_salesperson != 0)
 				Class_datagridview.Select_row_by_value(grd_main, "salesperson", int_salesperson.ToString());
@@ -604,15 +598,42 @@ namespace VehicleDealership.View
 
 			bool is_person = (form_select_person_org.SelectedType == "PERSON") ? true : false;
 
-			Form_edit_salesperson form_salesperson = new Form_edit_salesperson(form_select_person_org.SelectedID, is_person);
+			Form_edit_salesperson form_edit = new Form_edit_salesperson(form_select_person_org.SelectedID, is_person);
 
-			if (form_salesperson.ShowDialog() != DialogResult.OK) return;
-
-			Setup_grd_salesperson();
+			if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_salesperson(form_edit.SalespersonID);
 		}
 		private void Edit_salesperson(object sender, EventArgs e)
 		{
+			if (grd_main.SelectedCells.Count == 0) return;
 
+			Form_edit_salesperson form_edit = new Form_edit_salesperson((int)grd_main.SelectedCells[0].OwningRow.Cells["salesperson"].Value);
+
+			if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_salesperson(form_edit.SalespersonID);
+		}
+		private void Apply_filter_salesperson()
+		{
+			if (grd_main.DataSource == null) return;
+
+			string str_search = txt_search.Text.Trim();
+
+			string str_filter = "[name] LIKE '%" + str_search + "%' OR [registration_no] LIKE '%" +
+				str_search + "%' OR [location] LIKE '%" + str_search +
+				"%' OR [remark] LIKE '%" + str_search + "%'";
+
+			string str_today = DateTime.Today.ToShortDateString();
+
+			if ((int)cmb_status.ComboBox.SelectedValue == 1)
+			{
+				str_filter = "(" + str_filter + ") AND [date_join] <= '" + str_today +
+					"' AND ('" + str_today + "' < [date_leave] OR [date_leave] IS NULL) ";
+			}
+			else if ((int)cmb_status.ComboBox.SelectedValue == 0)
+			{
+				str_filter = "(" + str_filter + ") AND ('" + str_today +
+					"' < [date_join] OR [date_leave] <= '" + str_today + "')";
+			}
+
+			((DataTable)grd_main.DataSource).DefaultView.RowFilter = str_filter;
 		}
 		#endregion
 		#region FINANCE

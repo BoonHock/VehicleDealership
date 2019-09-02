@@ -30,7 +30,7 @@ namespace VehicleDealership.View
 		{
 			if (!Program.System_user.Has_permission(User_permission.EDIT_USER))
 			{
-				MessageBox.Show("You do not have permission to edit users!", "PERMISSION DENIED",
+				MessageBox.Show("You do not have permission to edit users!", "ACCESS DENIED",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
 				this.Close();
 			}
@@ -81,7 +81,7 @@ namespace VehicleDealership.View
 		{
 			if (!Program.System_user.Has_permission(User_permission.EDIT_USER))
 			{
-				MessageBox.Show("You do not have permission to edit users!", "PERMISSION DENIED",
+				MessageBox.Show("You do not have permission to edit users!", "ACCESS DENIED",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
 				this.Close();
 				return;

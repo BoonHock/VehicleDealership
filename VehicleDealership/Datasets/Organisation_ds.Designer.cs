@@ -336,6 +336,8 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columncountry;
             
+            private global::System.Data.DataColumn columncountry_name;
+            
             private global::System.Data.DataColumn columnurl;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -461,6 +463,14 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn country_nameColumn {
+                get {
+                    return this.columncountry_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn urlColumn {
                 get {
                     return this.columnurl;
@@ -504,7 +514,7 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_organisationRow Addsp_select_organisationRow(int organisation, string name, string registration_no, int organisation_type, string organisation_type_description, string branch, string address, string city, string state, string postcode, short country, string url) {
+            public sp_select_organisationRow Addsp_select_organisationRow(int organisation, string name, string registration_no, int organisation_type, string organisation_type_description, string branch, string address, string city, string state, string postcode, short country, string country_name, string url) {
                 sp_select_organisationRow rowsp_select_organisationRow = ((sp_select_organisationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         organisation,
@@ -518,6 +528,7 @@ namespace VehicleDealership.Datasets {
                         state,
                         postcode,
                         country,
+                        country_name,
                         url};
                 rowsp_select_organisationRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_select_organisationRow);
@@ -559,6 +570,7 @@ namespace VehicleDealership.Datasets {
                 this.columnstate = base.Columns["state"];
                 this.columnpostcode = base.Columns["postcode"];
                 this.columncountry = base.Columns["country"];
+                this.columncountry_name = base.Columns["country_name"];
                 this.columnurl = base.Columns["url"];
             }
             
@@ -587,6 +599,8 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columnpostcode);
                 this.columncountry = new global::System.Data.DataColumn("country", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncountry);
+                this.columncountry_name = new global::System.Data.DataColumn("country_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncountry_name);
                 this.columnurl = new global::System.Data.DataColumn("url", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnurl);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -611,6 +625,8 @@ namespace VehicleDealership.Datasets {
                 this.columnpostcode.AllowDBNull = false;
                 this.columnpostcode.MaxLength = 10;
                 this.columncountry.AllowDBNull = false;
+                this.columncountry_name.AllowDBNull = false;
+                this.columncountry_name.MaxLength = 100;
                 this.columnurl.AllowDBNull = false;
                 this.columnurl.MaxLength = 2083;
             }
@@ -1182,6 +1198,17 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string country_name {
+                get {
+                    return ((string)(this[this.tablesp_select_organisation.country_nameColumn]));
+                }
+                set {
+                    this[this.tablesp_select_organisation.country_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string url {
                 get {
                     return ((string)(this[this.tablesp_select_organisation.urlColumn]));
@@ -1455,6 +1482,7 @@ namespace VehicleDealership.Datasets.Organisation_dsTableAdapters {
             tableMapping.ColumnMappings.Add("state", "state");
             tableMapping.ColumnMappings.Add("postcode", "postcode");
             tableMapping.ColumnMappings.Add("country", "country");
+            tableMapping.ColumnMappings.Add("country_name", "country_name");
             tableMapping.ColumnMappings.Add("url", "url");
             this._adapter.TableMappings.Add(tableMapping);
         }

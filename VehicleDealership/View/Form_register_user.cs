@@ -35,7 +35,7 @@ namespace VehicleDealership.View
 		{
 			if (!Program.System_user.Has_permission(User_permission.ADD_USER))
 			{
-				MessageBox.Show("You do not have permission to add users!", "PERMISSION DENIED",
+				MessageBox.Show("You do not have permission to add users!", "ACCESS DENIED",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
 				this.Close();
 				return;
@@ -45,7 +45,7 @@ namespace VehicleDealership.View
 		{
 			if (!Program.System_user.Has_permission(User_permission.ADD_USER))
 			{
-				MessageBox.Show("You do not have permission to add users!", "PERMISSION DENIED",
+				MessageBox.Show("You do not have permission to add users!", "ACCESS DENIED",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
 				this.Close();
 				return;

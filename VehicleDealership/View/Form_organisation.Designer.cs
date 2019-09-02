@@ -35,6 +35,8 @@
 			this.btn_ok = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.grd_contact = new System.Windows.Forms.DataGridView();
+			this.cms_contact = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.txt_postcode = new System.Windows.Forms.TextBox();
 			this.label16 = new System.Windows.Forms.Label();
 			this.label11 = new System.Windows.Forms.Label();
@@ -55,8 +57,6 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.txt_url = new System.Windows.Forms.TextBox();
-			this.cms_contact = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
@@ -116,10 +116,10 @@
 			// groupBox1
 			// 
 			this.groupBox1.Controls.Add(this.grd_contact);
-			this.groupBox1.Location = new System.Drawing.Point(421, 128);
+			this.groupBox1.Location = new System.Drawing.Point(421, 112);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(427, 224);
-			this.groupBox1.TabIndex = 9;
+			this.groupBox1.Size = new System.Drawing.Size(427, 240);
+			this.groupBox1.TabIndex = 10;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Contact information";
 			// 
@@ -131,10 +131,24 @@
 			this.grd_contact.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.grd_contact.Location = new System.Drawing.Point(3, 23);
 			this.grd_contact.Name = "grd_contact";
-			this.grd_contact.Size = new System.Drawing.Size(421, 198);
+			this.grd_contact.Size = new System.Drawing.Size(421, 214);
 			this.grd_contact.TabIndex = 0;
 			this.grd_contact.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_contact_DataError);
 			this.grd_contact.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.Grd_contact_DefaultValuesNeeded);
+			// 
+			// cms_contact
+			// 
+			this.cms_contact.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem});
+			this.cms_contact.Name = "cms_contact";
+			this.cms_contact.Size = new System.Drawing.Size(108, 26);
+			// 
+			// deleteToolStripMenuItem
+			// 
+			this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+			this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+			this.deleteToolStripMenuItem.Text = "Delete";
+			this.deleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
 			// 
 			// txt_postcode
 			// 
@@ -307,21 +321,7 @@
 			this.txt_url.MaxLength = 2083;
 			this.txt_url.Name = "txt_url";
 			this.txt_url.Size = new System.Drawing.Size(353, 27);
-			this.txt_url.TabIndex = 77;
-			// 
-			// cms_contact
-			// 
-			this.cms_contact.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deleteToolStripMenuItem});
-			this.cms_contact.Name = "cms_contact";
-			this.cms_contact.Size = new System.Drawing.Size(108, 26);
-			// 
-			// deleteToolStripMenuItem
-			// 
-			this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-			this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.deleteToolStripMenuItem.Text = "Delete";
-			this.deleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
+			this.txt_url.TabIndex = 9;
 			// 
 			// Form_organisation
 			// 

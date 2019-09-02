@@ -22,7 +22,11 @@ namespace VehicleDealership.Classes
 		public static string ADD_EDIT_COLOR { get { return "ADD_EDIT_COLOR"; } }
 		public static string DELETE_COLOR { get { return "DELETE_COLOR"; } }
 		public static string ADD_EDIT_SALESPERSON { get { return "ADD_EDIT_SALESPERSON"; } }
-		public static string DELETE_SALESPERSON { get { return "DELETE_SALESPERSON"; } }
+		public static string VIEW_SALESPERSON { get { return "VIEW_SALESPERSON"; } }
+		public static string VIEW_PERSON { get { return "VIEW_PERSON"; } }
+		public static string VIEW_ORGANISATION { get { return "VIEW_ORGANISATION"; } }
+		public static string ADD_EDIT_PERSON { get { return "ADD_EDIT_PERSON"; } }
+		public static string ADD_EDIT_ORGANISATION { get { return "ADD_EDIT_ORGANISATION"; } }
 		//private User_permission(string value) { Value = value; }
 		//public string Value { get; private set; }
 		//public static User_permission ADMINISTRATOR { get { return new User_permission("ADMINISTRATOR"); } }

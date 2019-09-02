@@ -350,6 +350,8 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columncompany;
             
+            private global::System.Data.DataColumn columnurl;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public sp_select_personDataTable() {
@@ -529,6 +531,14 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn urlColumn {
+                get {
+                    return this.columnurl;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -581,7 +591,8 @@ namespace VehicleDealership.Datasets {
                         short country, 
                         string country_name, 
                         string occupation, 
-                        string company) {
+                        string company, 
+                        string url) {
                 sp_select_personRow rowsp_select_personRow = ((sp_select_personRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -601,7 +612,8 @@ namespace VehicleDealership.Datasets {
                         country,
                         country_name,
                         occupation,
-                        company};
+                        company,
+                        url};
                 rowsp_select_personRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_select_personRow);
                 return rowsp_select_personRow;
@@ -649,6 +661,7 @@ namespace VehicleDealership.Datasets {
                 this.columncountry_name = base.Columns["country_name"];
                 this.columnoccupation = base.Columns["occupation"];
                 this.columncompany = base.Columns["company"];
+                this.columnurl = base.Columns["url"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -690,6 +703,8 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columnoccupation);
                 this.columncompany = new global::System.Data.DataColumn("company", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncompany);
+                this.columnurl = new global::System.Data.DataColumn("url", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnurl);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnperson}, true));
                 this.columnperson.AutoIncrement = true;
@@ -726,6 +741,8 @@ namespace VehicleDealership.Datasets {
                 this.columnoccupation.MaxLength = 50;
                 this.columncompany.AllowDBNull = false;
                 this.columncompany.MaxLength = 100;
+                this.columnurl.AllowDBNull = false;
+                this.columnurl.MaxLength = 2083;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -865,6 +882,8 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columnic_no;
             
+            private global::System.Data.DataColumn columnurl;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public Person_simplifiedDataTable() {
@@ -924,6 +943,14 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn urlColumn {
+                get {
+                    return this.columnurl;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -959,12 +986,13 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Person_simplifiedRow AddPerson_simplifiedRow(string name, string ic_no) {
+            public Person_simplifiedRow AddPerson_simplifiedRow(string name, string ic_no, string url) {
                 Person_simplifiedRow rowPerson_simplifiedRow = ((Person_simplifiedRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         name,
-                        ic_no};
+                        ic_no,
+                        url};
                 rowPerson_simplifiedRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPerson_simplifiedRow);
                 return rowPerson_simplifiedRow;
@@ -997,6 +1025,7 @@ namespace VehicleDealership.Datasets {
                 this.columnperson = base.Columns["person"];
                 this.columnname = base.Columns["name"];
                 this.columnic_no = base.Columns["ic_no"];
+                this.columnurl = base.Columns["url"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1008,6 +1037,8 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columnname);
                 this.columnic_no = new global::System.Data.DataColumn("ic_no", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnic_no);
+                this.columnurl = new global::System.Data.DataColumn("url", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnurl);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnperson}, true));
                 this.columnperson.AutoIncrement = true;
@@ -1020,6 +1051,8 @@ namespace VehicleDealership.Datasets {
                 this.columnname.MaxLength = 100;
                 this.columnic_no.AllowDBNull = false;
                 this.columnic_no.MaxLength = 20;
+                this.columnurl.AllowDBNull = false;
+                this.columnurl.MaxLength = 2083;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1365,6 +1398,17 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string url {
+                get {
+                    return ((string)(this[this.tablesp_select_person.urlColumn]));
+                }
+                set {
+                    this[this.tablesp_select_person.urlColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsimageNull() {
                 return this.IsNull(this.tablesp_select_person.imageColumn);
             }
@@ -1420,6 +1464,17 @@ namespace VehicleDealership.Datasets {
                 }
                 set {
                     this[this.tablePerson_simplified.ic_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string url {
+                get {
+                    return ((string)(this[this.tablePerson_simplified.urlColumn]));
+                }
+                set {
+                    this[this.tablePerson_simplified.urlColumn] = value;
                 }
             }
         }
@@ -1635,6 +1690,7 @@ namespace VehicleDealership.Datasets.Person_dsTableAdapters {
             tableMapping.ColumnMappings.Add("country_name", "country_name");
             tableMapping.ColumnMappings.Add("occupation", "occupation");
             tableMapping.ColumnMappings.Add("company", "company");
+            tableMapping.ColumnMappings.Add("url", "url");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1799,6 +1855,7 @@ namespace VehicleDealership.Datasets.Person_dsTableAdapters {
             tableMapping.ColumnMappings.Add("person", "person");
             tableMapping.ColumnMappings.Add("name", "name");
             tableMapping.ColumnMappings.Add("ic_no", "ic_no");
+            tableMapping.ColumnMappings.Add("url", "url");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1866,7 +1923,7 @@ namespace VehicleDealership.Datasets.Person_dsTableAdapters {
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ic_no", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ic_no", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@image", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@person_type", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@driving_license", global::System.Data.SqlDbType.NVarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1879,6 +1936,7 @@ namespace VehicleDealership.Datasets.Person_dsTableAdapters {
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@country", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 5, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@occupation", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@company", global::System.Data.SqlDbType.NVarChar, 150, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@url", global::System.Data.SqlDbType.NVarChar, 2083, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modified_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
@@ -1900,13 +1958,30 @@ namespace VehicleDealership.Datasets.Person_dsTableAdapters {
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@country", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 5, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@occupation", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@company", global::System.Data.SqlDbType.NVarChar, 150, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@url", global::System.Data.SqlDbType.NVarChar, 2083, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modified_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object sp_insert_person(string name, string ic_no, byte[] image, global::System.Nullable<int> person_type, string driving_license, global::System.Nullable<bool> gender, global::System.Nullable<int> race, string address, string city, string state, string postcode, global::System.Nullable<short> country, string occupation, string company, global::System.Nullable<int> modified_by) {
+        public virtual object sp_insert_person(
+                    string name, 
+                    string ic_no, 
+                    byte[] image, 
+                    global::System.Nullable<int> person_type, 
+                    string driving_license, 
+                    global::System.Nullable<bool> gender, 
+                    global::System.Nullable<int> race, 
+                    string address, 
+                    string city, 
+                    string state, 
+                    string postcode, 
+                    global::System.Nullable<short> country, 
+                    string occupation, 
+                    string company, 
+                    string url, 
+                    global::System.Nullable<int> modified_by) {
             global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
             if ((name == null)) {
                 command.Parameters[1].Value = global::System.DBNull.Value;
@@ -1992,11 +2067,17 @@ namespace VehicleDealership.Datasets.Person_dsTableAdapters {
             else {
                 command.Parameters[14].Value = ((string)(company));
             }
-            if ((modified_by.HasValue == true)) {
-                command.Parameters[15].Value = ((int)(modified_by.Value));
+            if ((url == null)) {
+                command.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[15].Value = global::System.DBNull.Value;
+                command.Parameters[15].Value = ((string)(url));
+            }
+            if ((modified_by.HasValue == true)) {
+                command.Parameters[16].Value = ((int)(modified_by.Value));
+            }
+            else {
+                command.Parameters[16].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2024,7 +2105,7 @@ namespace VehicleDealership.Datasets.Person_dsTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int sp_update_person(
+        public virtual object sp_update_person(
                     global::System.Nullable<int> person, 
                     string name, 
                     string ic_no, 
@@ -2040,6 +2121,7 @@ namespace VehicleDealership.Datasets.Person_dsTableAdapters {
                     global::System.Nullable<short> country, 
                     string occupation, 
                     string company, 
+                    string url, 
                     global::System.Nullable<int> modified_by) {
             global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[1]));
             if ((person.HasValue == true)) {
@@ -2132,27 +2214,39 @@ namespace VehicleDealership.Datasets.Person_dsTableAdapters {
             else {
                 command.Parameters[15].Value = ((string)(company));
             }
-            if ((modified_by.HasValue == true)) {
-                command.Parameters[16].Value = ((int)(modified_by.Value));
+            if ((url == null)) {
+                command.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[16].Value = global::System.DBNull.Value;
+                command.Parameters[16].Value = ((string)(url));
+            }
+            if ((modified_by.HasValue == true)) {
+                command.Parameters[17].Value = ((int)(modified_by.Value));
+            }
+            else {
+                command.Parameters[17].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
                 command.Connection.Open();
             }
-            int returnValue;
+            object returnValue;
             try {
-                returnValue = command.ExecuteNonQuery();
+                returnValue = command.ExecuteScalar();
             }
             finally {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     command.Connection.Close();
                 }
             }
-            return returnValue;
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
         }
     }
     

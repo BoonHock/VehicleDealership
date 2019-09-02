@@ -16,12 +16,38 @@ namespace VehicleDealership.View
 	public partial class Form_person_organisation : Form
 	{
 		readonly string _select_for;
-		public string SelectedType { get; private set; }
-		public int SelectedID { get; private set; } = 0;
+		public string SelectedType
+		{
+			get
+			{
+				return cmb_type.ComboBox.SelectedValue.ToString().ToUpper();
+			}
+		}
+		public int SelectedID
+		{
+			get
+			{
+				int int_result = 0;
+
+				if (cmb_type.ComboBox.SelectedValue.ToString().ToUpper() == "PERSON")
+				{
+					if (grd_main.SelectedCells.Count > 0)
+						int_result = int.Parse(grd_main.SelectedCells[0].OwningRow.Cells["person"].Value.ToString());
+				}
+				else
+				{
+					if (grd_main.SelectedCells.Count > 0)
+						int_result = int.Parse(grd_main.SelectedCells[0].OwningRow.Cells["organisation"].Value.ToString());
+				}
+
+				return int_result;
+			}
+		}
 		public Form_person_organisation(string select_for)
 		{
 			InitializeComponent();
 
+			_select_for = select_for;
 			bool has_add_edit_permission = Program.System_user.Has_add_edit_person_org_permission;
 
 			btn_add.Enabled = has_add_edit_permission;
@@ -37,8 +63,7 @@ namespace VehicleDealership.View
 			cmb_type.ComboBox.ValueMember = "value";
 			cmb_type.ComboBox.DataSource = dttable;
 
-			_select_for = select_for;
-
+			cmb_type.SelectedIndexChanged += Cmb_type_SelectedIndexChanged;
 			grd_main.MouseDown += Class_datagridview.MouseDown_select_cell;
 		}
 		private void Form_person_organisation_Shown(object sender, EventArgs e)
@@ -50,28 +75,11 @@ namespace VehicleDealership.View
 		}
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
-			if (cmb_type.ComboBox.SelectedValue.ToString().ToUpper() == "PERSON")
+			if (grd_main.SelectedCells.Count == 0)
 			{
-				if (grd_main.SelectedCells.Count == 0)
-				{
-					MessageBox.Show("No person selected.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					return;
-				}
-
-				if (grd_main.SelectedCells.Count > 0)
-					SelectedID = int.Parse(grd_main.SelectedCells[0].OwningRow.Cells["person"].Value.ToString());
+				MessageBox.Show("No item selected.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
 			}
-			else
-			{
-				if (grd_main.SelectedCells.Count == 0)
-				{
-					MessageBox.Show("No organisation selected.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					return;
-				}
-				if (grd_main.SelectedCells.Count > 0)
-					SelectedID = int.Parse(grd_main.SelectedCells[0].OwningRow.Cells["organisation"].Value.ToString());
-			}
-
 
 			this.DialogResult = DialogResult.OK;
 			this.Close();
@@ -99,25 +107,26 @@ namespace VehicleDealership.View
 
 				if (int_id != 0)
 					Class_datagridview.Select_row_by_value(grd_main, "person", int_id.ToString());
+
+				btn_add.Enabled = Program.System_user.Has_permission(User_permission.ADD_EDIT_PERSON);
+				btn_edit.Enabled = Program.System_user.Has_permission(User_permission.ADD_EDIT_PERSON);
 			}
 			else
 			{
 				Class_datagridview.Hide_columns(grd_main, new string[] { "organisation" });
 
-				grd_main.Columns.Remove("url");
-
-				DataGridViewLinkColumn col_link = new DataGridViewLinkColumn();
-				col_link.DataPropertyName = "url";
-				col_link.Name = "url";
-				grd_main.Columns.Add(col_link);
-
 				if (int_id != 0)
 					Class_datagridview.Select_row_by_value(grd_main, "organisation", int_id.ToString());
+
+				btn_add.Enabled = Program.System_user.Has_permission(User_permission.ADD_EDIT_ORGANISATION);
+				btn_edit.Enabled = Program.System_user.Has_permission(User_permission.ADD_EDIT_ORGANISATION);
 			}
+
+			Class_datagridview.Convert_column_to_link_column(grd_main, "url", "url");
+
 			grd_main.AutoResizeColumns();
 			Apply_search_filter_to_grd_main();
 		}
-
 		private void Add_person()
 		{
 			Form_person formPerson = new Form_person();
@@ -188,7 +197,6 @@ namespace VehicleDealership.View
 					str_search + "%' OR [registration_no] LIKE '%" + str_search + "%'";
 			}
 		}
-
 		private void Grd_main_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
 			if (grd_main.Columns[e.ColumnIndex].Name.ToUpper() == "URL")

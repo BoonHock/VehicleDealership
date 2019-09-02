@@ -281,6 +281,10 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columnsalesperson;
             
+            private global::System.Data.DataColumn columnperson;
+            
+            private global::System.Data.DataColumn columnorganisation;
+            
             private global::System.Data.DataColumn columnname;
             
             private global::System.Data.DataColumn columnregistration_no;
@@ -290,6 +294,8 @@ namespace VehicleDealership.Datasets {
             private global::System.Data.DataColumn columndate_join;
             
             private global::System.Data.DataColumn columndate_leave;
+            
+            private global::System.Data.DataColumn columnremark;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -329,6 +335,22 @@ namespace VehicleDealership.Datasets {
             public global::System.Data.DataColumn salespersonColumn {
                 get {
                     return this.columnsalesperson;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn personColumn {
+                get {
+                    return this.columnperson;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn organisationColumn {
+                get {
+                    return this.columnorganisation;
                 }
             }
             
@@ -374,6 +396,14 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn remarkColumn {
+                get {
+                    return this.columnremark;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -409,15 +439,18 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_salespersonRow Addsp_select_salespersonRow(int salesperson, string name, string registration_no, string location, System.DateTime date_join, System.DateTime date_leave) {
+            public sp_select_salespersonRow Addsp_select_salespersonRow(int salesperson, int person, int organisation, string name, string registration_no, string location, System.DateTime date_join, System.DateTime date_leave, string remark) {
                 sp_select_salespersonRow rowsp_select_salespersonRow = ((sp_select_salespersonRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         salesperson,
+                        person,
+                        organisation,
                         name,
                         registration_no,
                         location,
                         date_join,
-                        date_leave};
+                        date_leave,
+                        remark};
                 rowsp_select_salespersonRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_select_salespersonRow);
                 return rowsp_select_salespersonRow;
@@ -441,11 +474,14 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnsalesperson = base.Columns["salesperson"];
+                this.columnperson = base.Columns["person"];
+                this.columnorganisation = base.Columns["organisation"];
                 this.columnname = base.Columns["name"];
                 this.columnregistration_no = base.Columns["registration_no"];
                 this.columnlocation = base.Columns["location"];
                 this.columndate_join = base.Columns["date_join"];
                 this.columndate_leave = base.Columns["date_leave"];
+                this.columnremark = base.Columns["remark"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -453,6 +489,10 @@ namespace VehicleDealership.Datasets {
             private void InitClass() {
                 this.columnsalesperson = new global::System.Data.DataColumn("salesperson", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsalesperson);
+                this.columnperson = new global::System.Data.DataColumn("person", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnperson);
+                this.columnorganisation = new global::System.Data.DataColumn("organisation", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnorganisation);
                 this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnname);
                 this.columnregistration_no = new global::System.Data.DataColumn("registration_no", typeof(string), null, global::System.Data.MappingType.Element);
@@ -463,15 +503,21 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columndate_join);
                 this.columndate_leave = new global::System.Data.DataColumn("date_leave", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate_leave);
+                this.columnremark = new global::System.Data.DataColumn("remark", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnremark);
                 this.columnsalesperson.ReadOnly = true;
+                this.columnperson.ReadOnly = true;
+                this.columnorganisation.ReadOnly = true;
                 this.columnname.ReadOnly = true;
-                this.columnname.MaxLength = 150;
+                this.columnname.MaxLength = 100;
                 this.columnregistration_no.ReadOnly = true;
-                this.columnregistration_no.MaxLength = 50;
+                this.columnregistration_no.MaxLength = 20;
                 this.columnlocation.ReadOnly = true;
-                this.columnlocation.MaxLength = 255;
+                this.columnlocation.MaxLength = 50;
                 this.columndate_join.ReadOnly = true;
                 this.columndate_leave.ReadOnly = true;
+                this.columnremark.ReadOnly = true;
+                this.columnremark.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -630,6 +676,38 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int person {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_select_salesperson.personColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'person\' in table \'sp_select_salesperson\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_select_salesperson.personColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int organisation {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_select_salesperson.organisationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'organisation\' in table \'sp_select_salesperson\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_select_salesperson.organisationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string name {
                 get {
                     try {
@@ -711,6 +789,22 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string remark {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_select_salesperson.remarkColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'remark\' in table \'sp_select_salesperson\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_select_salesperson.remarkColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IssalespersonNull() {
                 return this.IsNull(this.tablesp_select_salesperson.salespersonColumn);
             }
@@ -719,6 +813,30 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetsalespersonNull() {
                 this[this.tablesp_select_salesperson.salespersonColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IspersonNull() {
+                return this.IsNull(this.tablesp_select_salesperson.personColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetpersonNull() {
+                this[this.tablesp_select_salesperson.personColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsorganisationNull() {
+                return this.IsNull(this.tablesp_select_salesperson.organisationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetorganisationNull() {
+                this[this.tablesp_select_salesperson.organisationColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -779,6 +897,18 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setdate_leaveNull() {
                 this[this.tablesp_select_salesperson.date_leaveColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsremarkNull() {
+                return this.IsNull(this.tablesp_select_salesperson.remarkColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetremarkNull() {
+                this[this.tablesp_select_salesperson.remarkColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -942,11 +1072,14 @@ namespace VehicleDealership.Datasets.Salesperson_dsTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "sp_select_salesperson";
             tableMapping.ColumnMappings.Add("salesperson", "salesperson");
+            tableMapping.ColumnMappings.Add("person", "person");
+            tableMapping.ColumnMappings.Add("organisation", "organisation");
             tableMapping.ColumnMappings.Add("name", "name");
             tableMapping.ColumnMappings.Add("registration_no", "registration_no");
             tableMapping.ColumnMappings.Add("location", "location");
             tableMapping.ColumnMappings.Add("date_join", "date_join");
             tableMapping.ColumnMappings.Add("date_leave", "date_leave");
+            tableMapping.ColumnMappings.Add("remark", "remark");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -966,17 +1099,206 @@ namespace VehicleDealership.Datasets.Salesperson_dsTableAdapters {
             this._commandCollection[0].CommandText = "hr.sp_select_salesperson";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@salesperson", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Salesperson_ds.sp_select_salespersonDataTable GetData() {
+        public virtual Salesperson_ds.sp_select_salespersonDataTable GetData(global::System.Nullable<int> salesperson) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((salesperson.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(salesperson.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             Salesperson_ds.sp_select_salespersonDataTable dataTable = new Salesperson_ds.sp_select_salespersonDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class QueriesTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.IDbCommand[] _commandCollection;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.IDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.IDbCommand[2];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "hr.sp_insert_salesperson";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@person_org", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@is_person", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@location", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date_join", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date_leave", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@remark", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modified_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandText = "hr.sp_update_salesperson";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandType = global::System.Data.CommandType.StoredProcedure;
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@salesperson", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@location", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date_join", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date_leave", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@remark", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modified_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object sp_insert_salesperson(global::System.Nullable<int> person_org, global::System.Nullable<bool> is_person, string location, global::System.Nullable<global::System.DateTime> date_join, global::System.Nullable<global::System.DateTime> date_leave, string remark, global::System.Nullable<int> modified_by) {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
+            if ((person_org.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(person_org.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((is_person.HasValue == true)) {
+                command.Parameters[2].Value = ((bool)(is_person.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((location == null)) {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[3].Value = ((string)(location));
+            }
+            if ((date_join.HasValue == true)) {
+                command.Parameters[4].Value = ((System.DateTime)(date_join.Value));
+            }
+            else {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((date_leave.HasValue == true)) {
+                command.Parameters[5].Value = ((System.DateTime)(date_leave.Value));
+            }
+            else {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((remark == null)) {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[6].Value = ((string)(remark));
+            }
+            if ((modified_by.HasValue == true)) {
+                command.Parameters[7].Value = ((int)(modified_by.Value));
+            }
+            else {
+                command.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int sp_update_salesperson(global::System.Nullable<int> salesperson, string location, global::System.Nullable<global::System.DateTime> date_join, global::System.Nullable<global::System.DateTime> date_leave, string remark, global::System.Nullable<int> modified_by) {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[1]));
+            if ((salesperson.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(salesperson.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((location == null)) {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[2].Value = ((string)(location));
+            }
+            if ((date_join.HasValue == true)) {
+                command.Parameters[3].Value = ((System.DateTime)(date_join.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((date_leave.HasValue == true)) {
+                command.Parameters[4].Value = ((System.DateTime)(date_leave.Value));
+            }
+            else {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((remark == null)) {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[5].Value = ((string)(remark));
+            }
+            if ((modified_by.HasValue == true)) {
+                command.Parameters[6].Value = ((int)(modified_by.Value));
+            }
+            else {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

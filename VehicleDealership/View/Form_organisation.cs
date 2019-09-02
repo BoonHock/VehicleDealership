@@ -22,9 +22,34 @@ namespace VehicleDealership.View
 
 			OrganisationID = int_org;
 			grd_contact.MouseDown += Class_datagridview.MouseDown_select_cell;
+
+			if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_ORGANISATION))
+			{
+				// no permission to add/edit
+				txt_name.ReadOnly = true;
+				txt_registration_no.ReadOnly = true;
+				txt_address.ReadOnly = true;
+				txt_city.ReadOnly = true;
+				txt_state.ReadOnly = true;
+				txt_postcode.ReadOnly = true;
+				txt_branch.ReadOnly = true;
+				txt_url.ReadOnly = true;
+				grd_contact.ReadOnly = true;
+
+				cmb_country.Enabled = false;
+				cmb_type.Enabled = false;
+				btn_ok.Visible = false;
+			}
 		}
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
+			if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_ORGANISATION))
+			{
+				this.DialogResult = DialogResult.Cancel;
+				this.Close();
+				return;
+			}
+
 			if (txt_name.Text.Trim() == "" || txt_registration_no.Text.Trim() == "")
 			{
 				MessageBox.Show("Name and registration no. are required.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -123,6 +148,15 @@ namespace VehicleDealership.View
 		}
 		private void Form_organisation_Shown(object sender, EventArgs e)
 		{
+			if (!Program.System_user.Has_permission(User_permission.VIEW_ORGANISATION) &&
+				!Program.System_user.Has_permission(User_permission.ADD_EDIT_ORGANISATION))
+			{
+				MessageBox.Show("You do not have sufficient permission to perform this action!",
+					"ACCESS DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				this.Close();
+				return;
+			}
+
 			grd_contact.DataSource = Organisation_contact_ds.Select_organisation_contact(OrganisationID);
 			grd_contact.AutoResizeColumns();
 			// database column nvarchar length is 100

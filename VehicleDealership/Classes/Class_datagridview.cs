@@ -206,5 +206,16 @@ namespace VehicleDealership.Classes
 		{
 			((DataGridViewTextBoxColumn)grd.Columns[str_col_name]).MaxInputLength = ((DataTable)grd.DataSource).Columns[str_col_name].MaxLength;
 		}
+		public static void Convert_column_to_link_column(DataGridView grd, string str_data_property_name, string str_col_name)
+		{
+			if (!grd.Columns.Contains(str_col_name)) return;
+
+			grd.Columns.Remove(str_col_name);
+
+			DataGridViewLinkColumn col_link = new DataGridViewLinkColumn();
+			col_link.DataPropertyName = str_data_property_name;
+			col_link.Name = str_col_name;
+			grd.Columns.Add(col_link);
+		}
 	}
 }

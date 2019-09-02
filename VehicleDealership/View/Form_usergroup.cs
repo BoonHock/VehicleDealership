@@ -33,7 +33,7 @@ namespace VehicleDealership.View
 		{
 			if (!Program.System_user.Has_permission("ADD_USERGROUP") && !Program.System_user.Has_permission("EDIT_USERGROUP"))
 			{
-				MessageBox.Show("PERMISSION DENIED", "PERMISSION DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("ACCESS DENIED", "ACCESS DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				this.Close();
 				return;
 			}
