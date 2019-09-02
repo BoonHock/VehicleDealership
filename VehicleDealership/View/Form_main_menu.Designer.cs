@@ -31,8 +31,6 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_main_menu));
 			this.main_menu_strip = new System.Windows.Forms.MenuStrip();
 			this.administrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.userGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.vehicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.brandGroupModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.transmissionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,6 +53,10 @@
 			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ssl_usergroup = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ssl_status = new System.Windows.Forms.ToolStripStatusLabel();
+			this.financeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.permissionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.userGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.main_menu_strip.SuspendLayout();
 			this.log_in_menustrip.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
@@ -79,26 +81,14 @@
 			// administrationToolStripMenuItem
 			// 
 			this.administrationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.usersToolStripMenuItem,
-            this.userGroupsToolStripMenuItem,
+            this.permissionToolStripMenuItem,
             this.vehicleToolStripMenuItem,
             this.colorToolStripMenuItem,
-            this.salespersonToolStripMenuItem});
+            this.salespersonToolStripMenuItem,
+            this.financeToolStripMenuItem});
 			this.administrationToolStripMenuItem.Name = "administrationToolStripMenuItem";
 			this.administrationToolStripMenuItem.Size = new System.Drawing.Size(98, 19);
 			this.administrationToolStripMenuItem.Text = "Administration";
-			// 
-			// usersToolStripMenuItem
-			// 
-			this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-			this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.usersToolStripMenuItem.Text = "Users";
-			// 
-			// userGroupsToolStripMenuItem
-			// 
-			this.userGroupsToolStripMenuItem.Name = "userGroupsToolStripMenuItem";
-			this.userGroupsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.userGroupsToolStripMenuItem.Text = "Usergroups";
 			// 
 			// vehicleToolStripMenuItem
 			// 
@@ -276,6 +266,33 @@
 			this.ssl_status.Size = new System.Drawing.Size(43, 19);
 			this.ssl_status.Text = "Ready";
 			// 
+			// financeToolStripMenuItem
+			// 
+			this.financeToolStripMenuItem.Name = "financeToolStripMenuItem";
+			this.financeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.financeToolStripMenuItem.Text = "Finance";
+			// 
+			// permissionToolStripMenuItem
+			// 
+			this.permissionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usersToolStripMenuItem,
+            this.userGroupsToolStripMenuItem});
+			this.permissionToolStripMenuItem.Name = "permissionToolStripMenuItem";
+			this.permissionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.permissionToolStripMenuItem.Text = "Permission";
+			// 
+			// usersToolStripMenuItem
+			// 
+			this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+			this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.usersToolStripMenuItem.Text = "Users";
+			// 
+			// userGroupsToolStripMenuItem
+			// 
+			this.userGroupsToolStripMenuItem.Name = "userGroupsToolStripMenuItem";
+			this.userGroupsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.userGroupsToolStripMenuItem.Text = "Usergroups";
+			// 
 			// Form_main_menu
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -311,9 +328,7 @@
 		private System.Windows.Forms.ToolStripMenuItem administrationToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem salesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem salesOrderToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem userGroupsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
 		private System.Windows.Forms.MenuStrip log_in_menustrip;
 		private System.Windows.Forms.ToolStripMenuItem logInToolStripMenuItem;
@@ -333,5 +348,9 @@
 		private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem salespersonToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem permissionToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem userGroupsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem financeToolStripMenuItem;
 	}
 }

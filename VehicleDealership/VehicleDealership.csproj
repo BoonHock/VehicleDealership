@@ -125,6 +125,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Country_ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\Finance_ds.cs">
+      <DependentUpon>Finance_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Finance_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Finance_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\Fuel_type_ds.cs">
       <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
     </Compile>
@@ -461,6 +469,17 @@
     </None>
     <None Include="Datasets\Country_ds.xss">
       <DependentUpon>Country_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Finance_ds.xsc">
+      <DependentUpon>Finance_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Finance_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Finance_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Finance_ds.xss">
+      <DependentUpon>Finance_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Fuel_type_ds.xsc">
       <DependentUpon>Fuel_type_ds.xsd</DependentUpon>

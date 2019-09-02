@@ -77,7 +77,13 @@ namespace VehicleDealership.View
 						!Program.System_user.Has_permission(User_permission.VIEW_SALESPERSON))
 						permission_denied = true;
 					else
-						Setup_form_edit_salesperson();
+						Setup_form_salesperson();
+					break;
+				case "FINANCE":
+					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE))
+						permission_denied = true;
+					else
+						Setup_form_finance();
 					break;
 			}
 
@@ -551,16 +557,18 @@ namespace VehicleDealership.View
 		}
 		#endregion
 		#region SALESPERSON
-		private void Setup_form_edit_salesperson()
+		private void Setup_form_salesperson()
 		{
 			ts_add_edit_delete.Visible = true;
 			Setup_cmb_is_active(cmb_status.ComboBox);
 
 			bool has_add_edit_permission = Program.System_user.Has_permission(User_permission.ADD_EDIT_SALESPERSON);
-			bool has_delete_permission = Program.System_user.Has_permission(User_permission.ADD_USER);
 
 			btn_add.Enabled = has_add_edit_permission;
 			btn_edit.Enabled = has_add_edit_permission;
+			addToolStripMenuItem.Enabled = has_add_edit_permission;
+			editToolStripMenuItem.Enabled = has_add_edit_permission;
+
 			btn_delete.Visible = false; // salesperson cannot be deleted
 			deleteToolStripMenuItem.Visible = false;
 
@@ -634,6 +642,70 @@ namespace VehicleDealership.View
 			}
 
 			((DataTable)grd_main.DataSource).DefaultView.RowFilter = str_filter;
+		}
+		#endregion
+		#region FINANCE
+		private void Setup_form_finance()
+		{
+			ts_add_edit_delete.Visible = true;
+
+			// finance does not have active or inactive
+			lbl_status.Visible = false;
+			cmb_status.Visible = false;
+
+			btn_delete.Visible = false; // finance cannot be deleted
+			deleteToolStripMenuItem.Visible = false;
+
+			bool has_add_edit_permission = Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE);
+
+			btn_add.Enabled = has_add_edit_permission;
+			btn_edit.Enabled = has_add_edit_permission;
+			addToolStripMenuItem.Enabled = has_add_edit_permission;
+			editToolStripMenuItem.Enabled = has_add_edit_permission;
+
+			Setup_grd_finance();
+
+			txt_search.TextChanged += (sender2, e2) => Apply_filter_finance();
+			btn_add.Click += Add_finance;
+			addToolStripMenuItem.Click += Add_finance;
+			btn_edit.Click += Edit_finance;
+			editToolStripMenuItem.Click += Edit_finance;
+		}
+		private void Setup_grd_finance(int int_finance = 0)
+		{
+			grd_main.DataSource = null;
+
+			Finance_ds.sp_select_financeDataTable dttable = Finance_ds.Select_finance(-1);
+
+			grd_main.DataSource = dttable;
+
+			Class_datagridview.Hide_unnecessary_columns(grd_main, new string[] { "name",
+				"registration_no", "branch", "remark" });
+			grd_main.AutoResizeColumns();
+			Apply_filter_finance();
+
+			if (int_finance != 0)
+				Class_datagridview.Select_row_by_value(grd_main, "finance", int_finance.ToString());
+		}
+		private void Apply_filter_finance()
+		{
+			if (grd_main.DataSource == null) return;
+
+			string str_search = txt_search.Text.Trim();
+
+			string str_filter = "[name] LIKE '%" + str_search + "%' OR [registration_no] LIKE '%" +
+				str_search + "%' OR [branch] LIKE '%" + str_search +
+				"%' OR [remark] LIKE '%" + str_search + "%'";
+
+			((DataTable)grd_main.DataSource).DefaultView.RowFilter = str_filter;
+		}
+		private void Add_finance(object sender, EventArgs e)
+		{
+			// TODO
+		}
+		private void Edit_finance(object sender, EventArgs e)
+		{
+			// TODO
 		}
 		#endregion
 	}

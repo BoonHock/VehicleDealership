@@ -36,6 +36,7 @@ namespace VehicleDealership.View
 			fuelTypeToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "FUEL_TYPE");
 			colorToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "COLOR");
 			salespersonToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "SALESPERSON");
+			financeToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "FINANCE");
 
 			salesOrderToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_sales_order));
 		}
@@ -65,6 +66,9 @@ namespace VehicleDealership.View
 			colorToolStripMenuItem.Enabled = (
 				Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOR) ||
 				Program.System_user.Has_permission(User_permission.DELETE_COLOR));
+			salespersonToolStripMenuItem.Enabled = (
+				Program.System_user.Has_permission(User_permission.ADD_EDIT_SALESPERSON) ||
+				Program.System_user.Has_permission(User_permission.VIEW_SALESPERSON));
 
 		}
 		private void Open_form(Type f_type, bool is_maximised = false, string form_tag = "")

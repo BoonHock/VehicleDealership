@@ -53,7 +53,7 @@
 			this.btn_delete = new System.Windows.Forms.ToolStripButton();
 			this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
 			this.txt_search = new System.Windows.Forms.ToolStripTextBox();
-			this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
+			this.lbl_status = new System.Windows.Forms.ToolStripLabel();
 			this.cmb_status = new System.Windows.Forms.ToolStripComboBox();
 			this.ts_user.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_main)).BeginInit();
@@ -233,7 +233,7 @@
             this.btn_delete,
             this.toolStripLabel4,
             this.txt_search,
-            this.toolStripLabel5,
+            this.lbl_status,
             this.cmb_status});
 			this.ts_add_edit_delete.Location = new System.Drawing.Point(0, 50);
 			this.ts_add_edit_delete.Name = "ts_add_edit_delete";
@@ -280,11 +280,11 @@
 			this.txt_search.Name = "txt_search";
 			this.txt_search.Size = new System.Drawing.Size(150, 25);
 			// 
-			// toolStripLabel5
+			// lbl_status
 			// 
-			this.toolStripLabel5.Name = "toolStripLabel5";
-			this.toolStripLabel5.Size = new System.Drawing.Size(42, 22);
-			this.toolStripLabel5.Text = "Status:";
+			this.lbl_status.Name = "lbl_status";
+			this.lbl_status.Size = new System.Drawing.Size(42, 22);
+			this.lbl_status.Text = "Status:";
 			// 
 			// cmb_status
 			// 
@@ -346,7 +346,7 @@
 		private System.Windows.Forms.ToolStripButton btn_delete_user;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel4;
 		private System.Windows.Forms.ToolStripTextBox txt_search;
-		private System.Windows.Forms.ToolStripLabel toolStripLabel5;
+		private System.Windows.Forms.ToolStripLabel lbl_status;
 		private System.Windows.Forms.ToolStripComboBox cmb_status;
 	}
 }

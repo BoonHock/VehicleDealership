@@ -27,6 +27,8 @@ namespace VehicleDealership.Classes
 		public static string VIEW_ORGANISATION { get { return "VIEW_ORGANISATION"; } }
 		public static string ADD_EDIT_PERSON { get { return "ADD_EDIT_PERSON"; } }
 		public static string ADD_EDIT_ORGANISATION { get { return "ADD_EDIT_ORGANISATION"; } }
+		public static string ADD_EDIT_FINANCE { get { return "ADD_EDIT_FINANCE"; } }
+
 		//private User_permission(string value) { Value = value; }
 		//public string Value { get; private set; }
 		//public static User_permission ADMINISTRATOR { get { return new User_permission("ADMINISTRATOR"); } }
