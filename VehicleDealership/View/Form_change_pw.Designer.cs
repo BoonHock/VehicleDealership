@@ -52,17 +52,17 @@
 			// 
 			this.txt_old_pw.Location = new System.Drawing.Point(128, 12);
 			this.txt_old_pw.Name = "txt_old_pw";
-			this.txt_old_pw.PasswordChar = '*';
 			this.txt_old_pw.Size = new System.Drawing.Size(260, 27);
 			this.txt_old_pw.TabIndex = 1;
+			this.txt_old_pw.UseSystemPasswordChar = true;
 			// 
 			// txt_new_pw
 			// 
 			this.txt_new_pw.Location = new System.Drawing.Point(128, 45);
 			this.txt_new_pw.Name = "txt_new_pw";
-			this.txt_new_pw.PasswordChar = '*';
 			this.txt_new_pw.Size = new System.Drawing.Size(260, 27);
 			this.txt_new_pw.TabIndex = 3;
+			this.txt_new_pw.UseSystemPasswordChar = true;
 			// 
 			// label2
 			// 

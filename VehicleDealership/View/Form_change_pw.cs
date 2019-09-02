@@ -45,8 +45,8 @@ namespace VehicleDealership.View
 		}
 		private void Ch_display_text_CheckedChanged(object sender, EventArgs e)
 		{
-			txt_new_pw.PasswordChar = Ch_display_text.Checked ? '\0' : '*';
-			txt_old_pw.PasswordChar = Ch_display_text.Checked ? '\0' : '*';
+			txt_old_pw.UseSystemPasswordChar = !Ch_display_text.Checked;
+			txt_new_pw.UseSystemPasswordChar = !Ch_display_text.Checked;
 		}
 	}
 }

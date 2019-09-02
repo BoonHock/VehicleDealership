@@ -73,9 +73,9 @@
 			this.txt_password.Location = new System.Drawing.Point(91, 45);
 			this.txt_password.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.txt_password.Name = "txt_password";
-			this.txt_password.PasswordChar = '*';
 			this.txt_password.Size = new System.Drawing.Size(234, 27);
 			this.txt_password.TabIndex = 3;
+			this.txt_password.UseSystemPasswordChar = true;
 			// 
 			// btn_log_in
 			// 

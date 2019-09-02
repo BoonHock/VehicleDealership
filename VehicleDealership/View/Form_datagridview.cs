@@ -636,15 +636,5 @@ namespace VehicleDealership.View
 			((DataTable)grd_main.DataSource).DefaultView.RowFilter = str_filter;
 		}
 		#endregion
-		#region FINANCE
-		private void Setup_form_finance()
-		{
-
-		}
-		private void Txt_search_finance_TextChanged(object sender, EventArgs e)
-		{
-
-		}
-		#endregion
 	}
 }

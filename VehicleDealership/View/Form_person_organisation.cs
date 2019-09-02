@@ -48,10 +48,6 @@ namespace VehicleDealership.View
 			InitializeComponent();
 
 			_select_for = select_for;
-			bool has_add_edit_permission = Program.System_user.Has_add_edit_person_org_permission;
-
-			btn_add.Enabled = has_add_edit_permission;
-			btn_edit.Enabled = has_add_edit_permission;
 
 			DataTable dttable = new DataTable();
 			dttable.Columns.Add("display", typeof(string));
@@ -109,7 +105,9 @@ namespace VehicleDealership.View
 					Class_datagridview.Select_row_by_value(grd_main, "person", int_id.ToString());
 
 				btn_add.Enabled = Program.System_user.Has_permission(User_permission.ADD_EDIT_PERSON);
-				btn_edit.Enabled = Program.System_user.Has_permission(User_permission.ADD_EDIT_PERSON);
+				addToolStripMenuItem.Enabled = Program.System_user.Has_permission(User_permission.ADD_EDIT_PERSON);
+				btn_edit.Enabled = Program.System_user.Has_permission(User_permission.ADD_EDIT_PERSON) ||
+					Program.System_user.Has_permission(User_permission.VIEW_PERSON);
 			}
 			else
 			{
@@ -119,7 +117,9 @@ namespace VehicleDealership.View
 					Class_datagridview.Select_row_by_value(grd_main, "organisation", int_id.ToString());
 
 				btn_add.Enabled = Program.System_user.Has_permission(User_permission.ADD_EDIT_ORGANISATION);
-				btn_edit.Enabled = Program.System_user.Has_permission(User_permission.ADD_EDIT_ORGANISATION);
+				addToolStripMenuItem.Enabled = Program.System_user.Has_permission(User_permission.ADD_EDIT_ORGANISATION);
+				btn_edit.Enabled = Program.System_user.Has_permission(User_permission.ADD_EDIT_ORGANISATION) ||
+					Program.System_user.Has_permission(User_permission.VIEW_ORGANISATION);
 			}
 
 			Class_datagridview.Convert_column_to_link_column(grd_main, "url", "url");

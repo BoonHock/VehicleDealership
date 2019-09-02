@@ -31,13 +31,6 @@ namespace VehicleDealership.Classes
 				return "";
 			}
 		}
-		public bool Has_add_edit_person_org_permission
-		{
-			get
-			{
-				return Has_permission(User_permission.ADD_EDIT_SALESPERSON);
-			}
-		}
 		public User(string str_username)
 		{
 			Init_obj(User_ds.Select_user(str_username));

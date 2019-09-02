@@ -36,7 +36,7 @@
 			this.grd_main = new System.Windows.Forms.DataGridView();
 			this.cms_grd_main = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.viewEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStrip3 = new System.Windows.Forms.ToolStrip();
 			this.btn_add = new System.Windows.Forms.ToolStripButton();
 			this.btn_edit = new System.Windows.Forms.ToolStripButton();
@@ -119,23 +119,23 @@
 			// 
 			this.cms_grd_main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripMenuItem,
-            this.editToolStripMenuItem});
+            this.viewEditToolStripMenuItem});
 			this.cms_grd_main.Name = "cms_grd_main";
-			this.cms_grd_main.Size = new System.Drawing.Size(97, 48);
+			this.cms_grd_main.Size = new System.Drawing.Size(181, 70);
 			// 
 			// addToolStripMenuItem
 			// 
 			this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-			this.addToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+			this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.addToolStripMenuItem.Text = "Add";
 			this.addToolStripMenuItem.Click += new System.EventHandler(this.Add_Click);
 			// 
-			// editToolStripMenuItem
+			// viewEditToolStripMenuItem
 			// 
-			this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-			this.editToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
-			this.editToolStripMenuItem.Text = "Edit";
-			this.editToolStripMenuItem.Click += new System.EventHandler(this.Edit_Click);
+			this.viewEditToolStripMenuItem.Name = "viewEditToolStripMenuItem";
+			this.viewEditToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.viewEditToolStripMenuItem.Text = "View/edit";
+			this.viewEditToolStripMenuItem.Click += new System.EventHandler(this.Edit_Click);
 			// 
 			// toolStrip3
 			// 
@@ -170,7 +170,7 @@
 			this.btn_edit.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.btn_edit.Name = "btn_edit";
 			this.btn_edit.Size = new System.Drawing.Size(23, 22);
-			this.btn_edit.Text = "Edit";
+			this.btn_edit.Text = "View/edit";
 			this.btn_edit.Click += new System.EventHandler(this.Edit_Click);
 			// 
 			// toolStripLabel1
@@ -242,6 +242,6 @@
 		private System.Windows.Forms.ToolStripTextBox txt_search;
 		private System.Windows.Forms.ContextMenuStrip cms_grd_main;
 		private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem viewEditToolStripMenuItem;
 	}
 }
