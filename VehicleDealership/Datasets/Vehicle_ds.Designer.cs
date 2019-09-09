@@ -20,17 +20,17 @@ namespace VehicleDealership.Datasets {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("Finance_ds")]
+    [global::System.Xml.Serialization.XmlRootAttribute("Vehicle_ds")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class Finance_ds : global::System.Data.DataSet {
+    public partial class Vehicle_ds : global::System.Data.DataSet {
         
-        private sp_select_financeDataTable tablesp_select_finance;
+        private sp_select_vehicleDataTable tablesp_select_vehicle;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public Finance_ds() {
+        public Vehicle_ds() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace VehicleDealership.Datasets {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected Finance_ds(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected Vehicle_ds(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace VehicleDealership.Datasets {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["sp_select_finance"] != null)) {
-                    base.Tables.Add(new sp_select_financeDataTable(ds.Tables["sp_select_finance"]));
+                if ((ds.Tables["sp_select_vehicle"] != null)) {
+                    base.Tables.Add(new sp_select_vehicleDataTable(ds.Tables["sp_select_vehicle"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace VehicleDealership.Datasets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public sp_select_financeDataTable sp_select_finance {
+        public sp_select_vehicleDataTable sp_select_vehicle {
             get {
-                return this.tablesp_select_finance;
+                return this.tablesp_select_vehicle;
             }
         }
         
@@ -127,7 +127,7 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            Finance_ds cln = ((Finance_ds)(base.Clone()));
+            Vehicle_ds cln = ((Vehicle_ds)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace VehicleDealership.Datasets {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["sp_select_finance"] != null)) {
-                    base.Tables.Add(new sp_select_financeDataTable(ds.Tables["sp_select_finance"]));
+                if ((ds.Tables["sp_select_vehicle"] != null)) {
+                    base.Tables.Add(new sp_select_vehicleDataTable(ds.Tables["sp_select_vehicle"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablesp_select_finance = ((sp_select_financeDataTable)(base.Tables["sp_select_finance"]));
+            this.tablesp_select_vehicle = ((sp_select_vehicleDataTable)(base.Tables["sp_select_vehicle"]));
             if ((initTable == true)) {
-                if ((this.tablesp_select_finance != null)) {
-                    this.tablesp_select_finance.InitVars();
+                if ((this.tablesp_select_vehicle != null)) {
+                    this.tablesp_select_vehicle.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "Finance_ds";
+            this.DataSetName = "Vehicle_ds";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/Finance_ds.xsd";
+            this.Namespace = "http://tempuri.org/Vehicle_ds.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablesp_select_finance = new sp_select_financeDataTable();
-            base.Tables.Add(this.tablesp_select_finance);
+            this.tablesp_select_vehicle = new sp_select_vehicleDataTable();
+            base.Tables.Add(this.tablesp_select_vehicle);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializesp_select_finance() {
+        private bool ShouldSerializesp_select_vehicle() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            Finance_ds ds = new Finance_ds();
+            Vehicle_ds ds = new Vehicle_ds();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,29 +270,43 @@ namespace VehicleDealership.Datasets {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void sp_select_financeRowChangeEventHandler(object sender, sp_select_financeRowChangeEvent e);
+        public delegate void sp_select_vehicleRowChangeEventHandler(object sender, sp_select_vehicleRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class sp_select_financeDataTable : global::System.Data.TypedTableBase<sp_select_financeRow> {
+        public partial class sp_select_vehicleDataTable : global::System.Data.TypedTableBase<sp_select_vehicleRow> {
             
-            private global::System.Data.DataColumn columnfinance;
-            
-            private global::System.Data.DataColumn columnname;
+            private global::System.Data.DataColumn columnvehicle;
             
             private global::System.Data.DataColumn columnregistration_no;
             
-            private global::System.Data.DataColumn columnbranch;
+            private global::System.Data.DataColumn columnSeller_name;
             
-            private global::System.Data.DataColumn columnremark;
+            private global::System.Data.DataColumn columnvehicle_model;
+            
+            private global::System.Data.DataColumn columnpurchase_date;
+            
+            private global::System.Data.DataColumn columnlocation;
+            
+            private global::System.Data.DataColumn columnchassis_no;
+            
+            private global::System.Data.DataColumn columnengine_no;
+            
+            private global::System.Data.DataColumn columnyear_make;
+            
+            private global::System.Data.DataColumn columnacquire_method;
+            
+            private global::System.Data.DataColumn columnvehicle_status;
+            
+            private global::System.Data.DataColumn columnmodified_by;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_financeDataTable() {
-                this.TableName = "sp_select_finance";
+            public sp_select_vehicleDataTable() {
+                this.TableName = "sp_select_vehicle";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -300,7 +314,7 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal sp_select_financeDataTable(global::System.Data.DataTable table) {
+            internal sp_select_vehicleDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -317,24 +331,16 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected sp_select_financeDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected sp_select_vehicleDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn financeColumn {
+            public global::System.Data.DataColumn vehicleColumn {
                 get {
-                    return this.columnfinance;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn nameColumn {
-                get {
-                    return this.columnname;
+                    return this.columnvehicle;
                 }
             }
             
@@ -348,17 +354,81 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn branchColumn {
+            public global::System.Data.DataColumn Seller_nameColumn {
                 get {
-                    return this.columnbranch;
+                    return this.columnSeller_name;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn remarkColumn {
+            public global::System.Data.DataColumn vehicle_modelColumn {
                 get {
-                    return this.columnremark;
+                    return this.columnvehicle_model;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn purchase_dateColumn {
+                get {
+                    return this.columnpurchase_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn locationColumn {
+                get {
+                    return this.columnlocation;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn chassis_noColumn {
+                get {
+                    return this.columnchassis_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn engine_noColumn {
+                get {
+                    return this.columnengine_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn year_makeColumn {
+                get {
+                    return this.columnyear_make;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn acquire_methodColumn {
+                get {
+                    return this.columnacquire_method;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn vehicle_statusColumn {
+                get {
+                    return this.columnvehicle_status;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn modified_byColumn {
+                get {
+                    return this.columnmodified_by;
                 }
             }
             
@@ -373,56 +443,63 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_financeRow this[int index] {
+            public sp_select_vehicleRow this[int index] {
                 get {
-                    return ((sp_select_financeRow)(this.Rows[index]));
+                    return ((sp_select_vehicleRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_financeRowChangeEventHandler sp_select_financeRowChanging;
+            public event sp_select_vehicleRowChangeEventHandler sp_select_vehicleRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_financeRowChangeEventHandler sp_select_financeRowChanged;
+            public event sp_select_vehicleRowChangeEventHandler sp_select_vehicleRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_financeRowChangeEventHandler sp_select_financeRowDeleting;
+            public event sp_select_vehicleRowChangeEventHandler sp_select_vehicleRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_financeRowChangeEventHandler sp_select_financeRowDeleted;
+            public event sp_select_vehicleRowChangeEventHandler sp_select_vehicleRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Addsp_select_financeRow(sp_select_financeRow row) {
+            public void Addsp_select_vehicleRow(sp_select_vehicleRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_financeRow Addsp_select_financeRow(int finance, string name, string registration_no, string branch, string remark) {
-                sp_select_financeRow rowsp_select_financeRow = ((sp_select_financeRow)(this.NewRow()));
+            public sp_select_vehicleRow Addsp_select_vehicleRow(string registration_no, string Seller_name, string vehicle_model, System.DateTime purchase_date, string location, string chassis_no, string engine_no, short year_make, string acquire_method, string vehicle_status, string modified_by) {
+                sp_select_vehicleRow rowsp_select_vehicleRow = ((sp_select_vehicleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        finance,
-                        name,
+                        null,
                         registration_no,
-                        branch,
-                        remark};
-                rowsp_select_financeRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowsp_select_financeRow);
-                return rowsp_select_financeRow;
+                        Seller_name,
+                        vehicle_model,
+                        purchase_date,
+                        location,
+                        chassis_no,
+                        engine_no,
+                        year_make,
+                        acquire_method,
+                        vehicle_status,
+                        modified_by};
+                rowsp_select_vehicleRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowsp_select_vehicleRow);
+                return rowsp_select_vehicleRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_financeRow FindByfinance(int finance) {
-                return ((sp_select_financeRow)(this.Rows.Find(new object[] {
-                            finance})));
+            public sp_select_vehicleRow FindByvehicle(int vehicle) {
+                return ((sp_select_vehicleRow)(this.Rows.Find(new object[] {
+                            vehicle})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                sp_select_financeDataTable cln = ((sp_select_financeDataTable)(base.Clone()));
+                sp_select_vehicleDataTable cln = ((sp_select_vehicleDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -430,70 +507,107 @@ namespace VehicleDealership.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new sp_select_financeDataTable();
+                return new sp_select_vehicleDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnfinance = base.Columns["finance"];
-                this.columnname = base.Columns["name"];
+                this.columnvehicle = base.Columns["vehicle"];
                 this.columnregistration_no = base.Columns["registration_no"];
-                this.columnbranch = base.Columns["branch"];
-                this.columnremark = base.Columns["remark"];
+                this.columnSeller_name = base.Columns["Seller_name"];
+                this.columnvehicle_model = base.Columns["vehicle_model"];
+                this.columnpurchase_date = base.Columns["purchase_date"];
+                this.columnlocation = base.Columns["location"];
+                this.columnchassis_no = base.Columns["chassis_no"];
+                this.columnengine_no = base.Columns["engine_no"];
+                this.columnyear_make = base.Columns["year_make"];
+                this.columnacquire_method = base.Columns["acquire_method"];
+                this.columnvehicle_status = base.Columns["vehicle_status"];
+                this.columnmodified_by = base.Columns["modified_by"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnfinance = new global::System.Data.DataColumn("finance", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfinance);
-                this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnname);
+                this.columnvehicle = new global::System.Data.DataColumn("vehicle", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvehicle);
                 this.columnregistration_no = new global::System.Data.DataColumn("registration_no", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnregistration_no);
-                this.columnbranch = new global::System.Data.DataColumn("branch", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnbranch);
-                this.columnremark = new global::System.Data.DataColumn("remark", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnremark);
+                this.columnSeller_name = new global::System.Data.DataColumn("Seller_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSeller_name);
+                this.columnvehicle_model = new global::System.Data.DataColumn("vehicle_model", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvehicle_model);
+                this.columnpurchase_date = new global::System.Data.DataColumn("purchase_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpurchase_date);
+                this.columnlocation = new global::System.Data.DataColumn("location", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlocation);
+                this.columnchassis_no = new global::System.Data.DataColumn("chassis_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnchassis_no);
+                this.columnengine_no = new global::System.Data.DataColumn("engine_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnengine_no);
+                this.columnyear_make = new global::System.Data.DataColumn("year_make", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnyear_make);
+                this.columnacquire_method = new global::System.Data.DataColumn("acquire_method", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnacquire_method);
+                this.columnvehicle_status = new global::System.Data.DataColumn("vehicle_status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvehicle_status);
+                this.columnmodified_by = new global::System.Data.DataColumn("modified_by", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmodified_by);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnfinance}, true));
-                this.columnfinance.AllowDBNull = false;
-                this.columnfinance.Unique = true;
-                this.columnname.AllowDBNull = false;
-                this.columnname.MaxLength = 100;
+                                this.columnvehicle}, true));
+                this.columnvehicle.AutoIncrement = true;
+                this.columnvehicle.AutoIncrementSeed = -1;
+                this.columnvehicle.AutoIncrementStep = -1;
+                this.columnvehicle.AllowDBNull = false;
+                this.columnvehicle.ReadOnly = true;
+                this.columnvehicle.Unique = true;
                 this.columnregistration_no.AllowDBNull = false;
-                this.columnregistration_no.MaxLength = 20;
-                this.columnbranch.AllowDBNull = false;
-                this.columnbranch.MaxLength = 20;
-                this.columnremark.AllowDBNull = false;
-                this.columnremark.MaxLength = 255;
+                this.columnregistration_no.MaxLength = 10;
+                this.columnSeller_name.ReadOnly = true;
+                this.columnSeller_name.MaxLength = 100;
+                this.columnvehicle_model.AllowDBNull = false;
+                this.columnvehicle_model.MaxLength = 50;
+                this.columnpurchase_date.AllowDBNull = false;
+                this.columnlocation.AllowDBNull = false;
+                this.columnlocation.MaxLength = 50;
+                this.columnchassis_no.AllowDBNull = false;
+                this.columnchassis_no.MaxLength = 20;
+                this.columnengine_no.AllowDBNull = false;
+                this.columnengine_no.MaxLength = 20;
+                this.columnyear_make.AllowDBNull = false;
+                this.columnacquire_method.ReadOnly = true;
+                this.columnacquire_method.MaxLength = 11;
+                this.columnvehicle_status.ReadOnly = true;
+                this.columnvehicle_status.MaxLength = 8;
+                this.columnmodified_by.AllowDBNull = false;
+                this.columnmodified_by.MaxLength = 200;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_financeRow Newsp_select_financeRow() {
-                return ((sp_select_financeRow)(this.NewRow()));
+            public sp_select_vehicleRow Newsp_select_vehicleRow() {
+                return ((sp_select_vehicleRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new sp_select_financeRow(builder);
+                return new sp_select_vehicleRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(sp_select_financeRow);
+                return typeof(sp_select_vehicleRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.sp_select_financeRowChanged != null)) {
-                    this.sp_select_financeRowChanged(this, new sp_select_financeRowChangeEvent(((sp_select_financeRow)(e.Row)), e.Action));
+                if ((this.sp_select_vehicleRowChanged != null)) {
+                    this.sp_select_vehicleRowChanged(this, new sp_select_vehicleRowChangeEvent(((sp_select_vehicleRow)(e.Row)), e.Action));
                 }
             }
             
@@ -501,8 +615,8 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.sp_select_financeRowChanging != null)) {
-                    this.sp_select_financeRowChanging(this, new sp_select_financeRowChangeEvent(((sp_select_financeRow)(e.Row)), e.Action));
+                if ((this.sp_select_vehicleRowChanging != null)) {
+                    this.sp_select_vehicleRowChanging(this, new sp_select_vehicleRowChangeEvent(((sp_select_vehicleRow)(e.Row)), e.Action));
                 }
             }
             
@@ -510,8 +624,8 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.sp_select_financeRowDeleted != null)) {
-                    this.sp_select_financeRowDeleted(this, new sp_select_financeRowChangeEvent(((sp_select_financeRow)(e.Row)), e.Action));
+                if ((this.sp_select_vehicleRowDeleted != null)) {
+                    this.sp_select_vehicleRowDeleted(this, new sp_select_vehicleRowChangeEvent(((sp_select_vehicleRow)(e.Row)), e.Action));
                 }
             }
             
@@ -519,14 +633,14 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.sp_select_financeRowDeleting != null)) {
-                    this.sp_select_financeRowDeleting(this, new sp_select_financeRowChangeEvent(((sp_select_financeRow)(e.Row)), e.Action));
+                if ((this.sp_select_vehicleRowDeleting != null)) {
+                    this.sp_select_vehicleRowDeleting(this, new sp_select_vehicleRowChangeEvent(((sp_select_vehicleRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Removesp_select_financeRow(sp_select_financeRow row) {
+            public void Removesp_select_vehicleRow(sp_select_vehicleRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -535,7 +649,7 @@ namespace VehicleDealership.Datasets {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Finance_ds ds = new Finance_ds();
+                Vehicle_ds ds = new Vehicle_ds();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -553,7 +667,7 @@ namespace VehicleDealership.Datasets {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "sp_select_financeDataTable";
+                attribute2.FixedValue = "sp_select_vehicleDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -597,36 +711,25 @@ namespace VehicleDealership.Datasets {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class sp_select_financeRow : global::System.Data.DataRow {
+        public partial class sp_select_vehicleRow : global::System.Data.DataRow {
             
-            private sp_select_financeDataTable tablesp_select_finance;
+            private sp_select_vehicleDataTable tablesp_select_vehicle;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal sp_select_financeRow(global::System.Data.DataRowBuilder rb) : 
+            internal sp_select_vehicleRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablesp_select_finance = ((sp_select_financeDataTable)(this.Table));
+                this.tablesp_select_vehicle = ((sp_select_vehicleDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int finance {
+            public int vehicle {
                 get {
-                    return ((int)(this[this.tablesp_select_finance.financeColumn]));
+                    return ((int)(this[this.tablesp_select_vehicle.vehicleColumn]));
                 }
                 set {
-                    this[this.tablesp_select_finance.financeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string name {
-                get {
-                    return ((string)(this[this.tablesp_select_finance.nameColumn]));
-                }
-                set {
-                    this[this.tablesp_select_finance.nameColumn] = value;
+                    this[this.tablesp_select_vehicle.vehicleColumn] = value;
                 }
             }
             
@@ -634,33 +737,172 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string registration_no {
                 get {
-                    return ((string)(this[this.tablesp_select_finance.registration_noColumn]));
+                    return ((string)(this[this.tablesp_select_vehicle.registration_noColumn]));
                 }
                 set {
-                    this[this.tablesp_select_finance.registration_noColumn] = value;
+                    this[this.tablesp_select_vehicle.registration_noColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string branch {
+            public string Seller_name {
                 get {
-                    return ((string)(this[this.tablesp_select_finance.branchColumn]));
+                    try {
+                        return ((string)(this[this.tablesp_select_vehicle.Seller_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Seller_name\' in table \'sp_select_vehicle\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tablesp_select_finance.branchColumn] = value;
+                    this[this.tablesp_select_vehicle.Seller_nameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string remark {
+            public string vehicle_model {
                 get {
-                    return ((string)(this[this.tablesp_select_finance.remarkColumn]));
+                    return ((string)(this[this.tablesp_select_vehicle.vehicle_modelColumn]));
                 }
                 set {
-                    this[this.tablesp_select_finance.remarkColumn] = value;
+                    this[this.tablesp_select_vehicle.vehicle_modelColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime purchase_date {
+                get {
+                    return ((global::System.DateTime)(this[this.tablesp_select_vehicle.purchase_dateColumn]));
+                }
+                set {
+                    this[this.tablesp_select_vehicle.purchase_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string location {
+                get {
+                    return ((string)(this[this.tablesp_select_vehicle.locationColumn]));
+                }
+                set {
+                    this[this.tablesp_select_vehicle.locationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string chassis_no {
+                get {
+                    return ((string)(this[this.tablesp_select_vehicle.chassis_noColumn]));
+                }
+                set {
+                    this[this.tablesp_select_vehicle.chassis_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string engine_no {
+                get {
+                    return ((string)(this[this.tablesp_select_vehicle.engine_noColumn]));
+                }
+                set {
+                    this[this.tablesp_select_vehicle.engine_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public short year_make {
+                get {
+                    return ((short)(this[this.tablesp_select_vehicle.year_makeColumn]));
+                }
+                set {
+                    this[this.tablesp_select_vehicle.year_makeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string acquire_method {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_select_vehicle.acquire_methodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'acquire_method\' in table \'sp_select_vehicle\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_select_vehicle.acquire_methodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string vehicle_status {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_select_vehicle.vehicle_statusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'vehicle_status\' in table \'sp_select_vehicle\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_select_vehicle.vehicle_statusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string modified_by {
+                get {
+                    return ((string)(this[this.tablesp_select_vehicle.modified_byColumn]));
+                }
+                set {
+                    this[this.tablesp_select_vehicle.modified_byColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSeller_nameNull() {
+                return this.IsNull(this.tablesp_select_vehicle.Seller_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSeller_nameNull() {
+                this[this.tablesp_select_vehicle.Seller_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isacquire_methodNull() {
+                return this.IsNull(this.tablesp_select_vehicle.acquire_methodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setacquire_methodNull() {
+                this[this.tablesp_select_vehicle.acquire_methodColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isvehicle_statusNull() {
+                return this.IsNull(this.tablesp_select_vehicle.vehicle_statusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setvehicle_statusNull() {
+                this[this.tablesp_select_vehicle.vehicle_statusColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -668,22 +910,22 @@ namespace VehicleDealership.Datasets {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class sp_select_financeRowChangeEvent : global::System.EventArgs {
+        public class sp_select_vehicleRowChangeEvent : global::System.EventArgs {
             
-            private sp_select_financeRow eventRow;
+            private sp_select_vehicleRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_financeRowChangeEvent(sp_select_financeRow row, global::System.Data.DataRowAction action) {
+            public sp_select_vehicleRowChangeEvent(sp_select_vehicleRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_financeRow Row {
+            public sp_select_vehicleRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -699,7 +941,7 @@ namespace VehicleDealership.Datasets {
         }
     }
 }
-namespace VehicleDealership.Datasets.Finance_dsTableAdapters {
+namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
     
     
     /// <summary>
@@ -711,7 +953,7 @@ namespace VehicleDealership.Datasets.Finance_dsTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class sp_select_financeTableAdapter : global::System.ComponentModel.Component {
+    public partial class sp_select_vehicleTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -725,7 +967,7 @@ namespace VehicleDealership.Datasets.Finance_dsTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public sp_select_financeTableAdapter() {
+        public sp_select_vehicleTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -822,12 +1064,19 @@ namespace VehicleDealership.Datasets.Finance_dsTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "sp_select_finance";
-            tableMapping.ColumnMappings.Add("finance", "finance");
-            tableMapping.ColumnMappings.Add("name", "name");
+            tableMapping.DataSetTable = "sp_select_vehicle";
+            tableMapping.ColumnMappings.Add("vehicle", "vehicle");
             tableMapping.ColumnMappings.Add("registration_no", "registration_no");
-            tableMapping.ColumnMappings.Add("branch", "branch");
-            tableMapping.ColumnMappings.Add("remark", "remark");
+            tableMapping.ColumnMappings.Add("Seller_name", "Seller_name");
+            tableMapping.ColumnMappings.Add("vehicle_model", "vehicle_model");
+            tableMapping.ColumnMappings.Add("purchase_date", "purchase_date");
+            tableMapping.ColumnMappings.Add("location", "location");
+            tableMapping.ColumnMappings.Add("chassis_no", "chassis_no");
+            tableMapping.ColumnMappings.Add("engine_no", "engine_no");
+            tableMapping.ColumnMappings.Add("year_make", "year_make");
+            tableMapping.ColumnMappings.Add("acquire_method", "acquire_method");
+            tableMapping.ColumnMappings.Add("vehicle_status", "vehicle_status");
+            tableMapping.ColumnMappings.Add("modified_by", "modified_by");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -844,106 +1093,20 @@ namespace VehicleDealership.Datasets.Finance_dsTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "hr.sp_select_finance";
+            this._commandCollection[0].CommandText = "veh.sp_select_vehicle";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@finance", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Finance_ds.sp_select_financeDataTable GetData(global::System.Nullable<int> finance) {
+        public virtual Vehicle_ds.sp_select_vehicleDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((finance.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(finance.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            Finance_ds.sp_select_financeDataTable dataTable = new Finance_ds.sp_select_financeDataTable();
+            Vehicle_ds.sp_select_vehicleDataTable dataTable = new Vehicle_ds.sp_select_vehicleDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class QueriesTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.IDbCommand[] _commandCollection;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.IDbCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.IDbCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "hr.sp_update_insert_finance";
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@org_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@remark", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modified_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int sp_update_insert_finance(global::System.Nullable<int> org_id, string remark, global::System.Nullable<int> modified_by) {
-            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
-            if ((org_id.HasValue == true)) {
-                command.Parameters[1].Value = ((int)(org_id.Value));
-            }
-            else {
-                command.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((remark == null)) {
-                command.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[2].Value = ((string)(remark));
-            }
-            if ((modified_by.HasValue == true)) {
-                command.Parameters[3].Value = ((int)(modified_by.Value));
-            }
-            else {
-                command.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
         }
     }
     
@@ -1015,7 +1178,7 @@ namespace VehicleDealership.Datasets.Finance_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(Finance_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(Vehicle_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1025,7 +1188,7 @@ namespace VehicleDealership.Datasets.Finance_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(Finance_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(Vehicle_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1035,7 +1198,7 @@ namespace VehicleDealership.Datasets.Finance_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(Finance_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(Vehicle_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1069,7 +1232,7 @@ namespace VehicleDealership.Datasets.Finance_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(Finance_ds dataSet) {
+        public virtual int UpdateAll(Vehicle_ds dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

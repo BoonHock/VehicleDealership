@@ -24,10 +24,15 @@ namespace VehicleDealership.Classes
 		public static string ADD_EDIT_SALESPERSON { get { return "ADD_EDIT_SALESPERSON"; } }
 		public static string VIEW_SALESPERSON { get { return "VIEW_SALESPERSON"; } }
 		public static string VIEW_PERSON { get { return "VIEW_PERSON"; } }
-		public static string VIEW_ORGANISATION { get { return "VIEW_ORGANISATION"; } }
 		public static string ADD_EDIT_PERSON { get { return "ADD_EDIT_PERSON"; } }
+		public static string VIEW_ORGANISATION { get { return "VIEW_ORGANISATION"; } }
 		public static string ADD_EDIT_ORGANISATION { get { return "ADD_EDIT_ORGANISATION"; } }
 		public static string ADD_EDIT_FINANCE { get { return "ADD_EDIT_FINANCE"; } }
+		public static string VIEW_FINANCE { get { return "VIEW_FINANCE"; } }
+		public static string VEHICLE_ADD_EDIT { get { return "ADD_EDIT_VEHICLE"; } }
+		public static string VEHICLE_DELETE { get { return "DELETE_VEHICLE"; } }
+		public static string VEHICLE_VIEW { get { return "VEHICLE_VIEW"; } }
+
 
 		//private User_permission(string value) { Value = value; }
 		//public string Value { get; private set; }

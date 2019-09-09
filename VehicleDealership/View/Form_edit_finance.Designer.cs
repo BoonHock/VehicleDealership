@@ -28,244 +28,59 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.label1 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.label3 = new System.Windows.Forms.Label();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.label4 = new System.Windows.Forms.Label();
-			this.textBox4 = new System.Windows.Forms.TextBox();
-			this.label5 = new System.Windows.Forms.Label();
-			this.textBox6 = new System.Windows.Forms.TextBox();
-			this.label6 = new System.Windows.Forms.Label();
-			this.label7 = new System.Windows.Forms.Label();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
-			this.label8 = new System.Windows.Forms.Label();
-			this.label9 = new System.Windows.Forms.Label();
-			this.label12 = new System.Windows.Forms.Label();
-			this.label13 = new System.Windows.Forms.Label();
-			this.textBox7 = new System.Windows.Forms.TextBox();
-			this.textBox8 = new System.Windows.Forms.TextBox();
-			this.textBox9 = new System.Windows.Forms.TextBox();
-			this.textBox10 = new System.Windows.Forms.TextBox();
-			this.label10 = new System.Windows.Forms.Label();
-			this.textBox11 = new System.Windows.Forms.TextBox();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.btn_view_edit = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.btn_cancel = new System.Windows.Forms.Button();
 			this.btn_ok = new System.Windows.Forms.Button();
-			this.textBox12 = new System.Windows.Forms.TextBox();
+			this.txt_country = new System.Windows.Forms.TextBox();
+			this.txt_name = new System.Windows.Forms.TextBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.txt_postcode = new System.Windows.Forms.TextBox();
+			this.lbl_ic_reg = new System.Windows.Forms.Label();
+			this.label16 = new System.Windows.Forms.Label();
+			this.txt_type = new System.Windows.Forms.TextBox();
+			this.txt_ic_reg = new System.Windows.Forms.TextBox();
+			this.label12 = new System.Windows.Forms.Label();
+			this.txt_state = new System.Windows.Forms.TextBox();
 			this.label11 = new System.Windows.Forms.Label();
-			this.textBox13 = new System.Windows.Forms.TextBox();
-			this.label14 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.txt_city = new System.Windows.Forms.TextBox();
+			this.label10 = new System.Windows.Forms.Label();
+			this.txt_address = new System.Windows.Forms.TextBox();
+			this.label9 = new System.Windows.Forms.Label();
+			this.link_lbl_url = new System.Windows.Forms.LinkLabel();
+			this.lbl_url = new System.Windows.Forms.Label();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.grd_contact = new System.Windows.Forms.DataGridView();
+			this.txt_remark = new System.Windows.Forms.TextBox();
+			this.label17 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
+			this.groupBox1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.grd_contact)).BeginInit();
 			this.SuspendLayout();
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(12, 15);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(52, 20);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Name:";
-			// 
-			// textBox1
-			// 
-			this.textBox1.Location = new System.Drawing.Point(112, 12);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(394, 27);
-			this.textBox1.TabIndex = 1;
-			// 
-			// textBox5
-			// 
-			this.textBox5.Location = new System.Drawing.Point(654, 12);
-			this.textBox5.Name = "textBox5";
-			this.textBox5.Size = new System.Drawing.Size(300, 27);
-			this.textBox5.TabIndex = 5;
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(520, 15);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(128, 20);
-			this.label2.TabIndex = 6;
-			this.label2.Text = "Company reg. no.:";
-			// 
-			// textBox2
-			// 
-			this.textBox2.Location = new System.Drawing.Point(654, 45);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(300, 27);
-			this.textBox2.TabIndex = 8;
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(520, 48);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(57, 20);
-			this.label3.TabIndex = 7;
-			this.label3.Text = "Branch:";
-			// 
-			// textBox3
-			// 
-			this.textBox3.Location = new System.Drawing.Point(654, 78);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(300, 27);
-			this.textBox3.TabIndex = 12;
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(520, 81);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(37, 20);
-			this.label4.TabIndex = 11;
-			this.label4.Text = "City:";
-			// 
-			// textBox4
-			// 
-			this.textBox4.Location = new System.Drawing.Point(112, 45);
-			this.textBox4.Multiline = true;
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(394, 127);
-			this.textBox4.TabIndex = 10;
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(12, 48);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(65, 20);
-			this.label5.TabIndex = 9;
-			this.label5.Text = "Address:";
-			// 
-			// textBox6
-			// 
-			this.textBox6.Location = new System.Drawing.Point(654, 144);
-			this.textBox6.Name = "textBox6";
-			this.textBox6.Size = new System.Drawing.Size(300, 27);
-			this.textBox6.TabIndex = 14;
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(520, 147);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(46, 20);
-			this.label6.TabIndex = 13;
-			this.label6.Text = "State:";
-			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(520, 181);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(63, 20);
-			this.label7.TabIndex = 15;
-			this.label7.Text = "Country:";
-			// 
-			// comboBox1
-			// 
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(654, 177);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(300, 28);
-			this.comboBox1.TabIndex = 16;
-			// 
-			// label8
-			// 
-			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(9, 181);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(71, 20);
-			this.label8.TabIndex = 17;
-			this.label8.Text = "Tel. no. 1:";
-			// 
-			// label9
-			// 
-			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(9, 214);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(71, 20);
-			this.label9.TabIndex = 19;
-			this.label9.Text = "Tel. no. 2:";
-			// 
-			// label12
-			// 
-			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(520, 247);
-			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(61, 20);
-			this.label12.TabIndex = 25;
-			this.label12.Text = "Email 2:";
-			// 
-			// label13
-			// 
-			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(520, 214);
-			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(61, 20);
-			this.label13.TabIndex = 23;
-			this.label13.Text = "Email 1:";
-			// 
-			// textBox7
-			// 
-			this.textBox7.Location = new System.Drawing.Point(112, 178);
-			this.textBox7.Name = "textBox7";
-			this.textBox7.Size = new System.Drawing.Size(300, 27);
-			this.textBox7.TabIndex = 8;
-			// 
-			// textBox8
-			// 
-			this.textBox8.Location = new System.Drawing.Point(112, 211);
-			this.textBox8.Name = "textBox8";
-			this.textBox8.Size = new System.Drawing.Size(300, 27);
-			this.textBox8.TabIndex = 12;
-			// 
-			// textBox9
-			// 
-			this.textBox9.Location = new System.Drawing.Point(654, 244);
-			this.textBox9.Name = "textBox9";
-			this.textBox9.Size = new System.Drawing.Size(300, 27);
-			this.textBox9.TabIndex = 27;
-			// 
-			// textBox10
-			// 
-			this.textBox10.Location = new System.Drawing.Point(654, 211);
-			this.textBox10.Name = "textBox10";
-			this.textBox10.Size = new System.Drawing.Size(300, 27);
-			this.textBox10.TabIndex = 26;
-			// 
-			// label10
-			// 
-			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(9, 247);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(38, 20);
-			this.label10.TabIndex = 29;
-			this.label10.Text = "URL:";
-			// 
-			// textBox11
-			// 
-			this.textBox11.Location = new System.Drawing.Point(112, 244);
-			this.textBox11.Name = "textBox11";
-			this.textBox11.Size = new System.Drawing.Size(394, 27);
-			this.textBox11.TabIndex = 28;
 			// 
 			// panel1
 			// 
+			this.panel1.Controls.Add(this.btn_view_edit);
 			this.panel1.Controls.Add(this.tableLayoutPanel1);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel1.Location = new System.Drawing.Point(0, 633);
+			this.panel1.Location = new System.Drawing.Point(0, 435);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(985, 59);
+			this.panel1.Size = new System.Drawing.Size(902, 59);
 			this.panel1.TabIndex = 30;
+			// 
+			// btn_view_edit
+			// 
+			this.btn_view_edit.AutoSize = true;
+			this.btn_view_edit.Location = new System.Drawing.Point(12, 11);
+			this.btn_view_edit.Name = "btn_view_edit";
+			this.btn_view_edit.Size = new System.Drawing.Size(91, 36);
+			this.btn_view_edit.TabIndex = 2;
+			this.btn_view_edit.Text = "View/edit";
+			this.btn_view_edit.UseVisualStyleBackColor = true;
+			this.btn_view_edit.Click += new System.EventHandler(this.Btn_view_edit_Click);
 			// 
 			// tableLayoutPanel1
 			// 
@@ -275,7 +90,7 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.Controls.Add(this.btn_cancel, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.btn_ok, 0, 0);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(756, 6);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(673, 6);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -293,6 +108,7 @@
 			this.btn_cancel.TabIndex = 0;
 			this.btn_cancel.Text = "Cancel";
 			this.btn_cancel.UseVisualStyleBackColor = true;
+			this.btn_cancel.Click += new System.EventHandler(this.Btn_cancel_Click);
 			// 
 			// btn_ok
 			// 
@@ -304,119 +120,285 @@
 			this.btn_ok.TabIndex = 1;
 			this.btn_ok.Text = "OK";
 			this.btn_ok.UseVisualStyleBackColor = true;
+			this.btn_ok.Click += new System.EventHandler(this.Btn_ok_Click);
 			// 
-			// textBox12
+			// txt_country
 			// 
-			this.textBox12.Location = new System.Drawing.Point(654, 111);
-			this.textBox12.Name = "textBox12";
-			this.textBox12.Size = new System.Drawing.Size(300, 27);
-			this.textBox12.TabIndex = 32;
+			this.txt_country.Location = new System.Drawing.Point(134, 357);
+			this.txt_country.MaxLength = 100;
+			this.txt_country.Name = "txt_country";
+			this.txt_country.ReadOnly = true;
+			this.txt_country.Size = new System.Drawing.Size(236, 27);
+			this.txt_country.TabIndex = 8;
+			// 
+			// txt_name
+			// 
+			this.txt_name.Location = new System.Drawing.Point(134, 12);
+			this.txt_name.MaxLength = 100;
+			this.txt_name.Name = "txt_name";
+			this.txt_name.ReadOnly = true;
+			this.txt_name.Size = new System.Drawing.Size(236, 27);
+			this.txt_name.TabIndex = 1;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(12, 15);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(52, 20);
+			this.label1.TabIndex = 49;
+			this.label1.Text = "Name:";
+			// 
+			// txt_postcode
+			// 
+			this.txt_postcode.Location = new System.Drawing.Point(134, 324);
+			this.txt_postcode.MaxLength = 10;
+			this.txt_postcode.Name = "txt_postcode";
+			this.txt_postcode.ReadOnly = true;
+			this.txt_postcode.Size = new System.Drawing.Size(236, 27);
+			this.txt_postcode.TabIndex = 7;
+			// 
+			// lbl_ic_reg
+			// 
+			this.lbl_ic_reg.AutoSize = true;
+			this.lbl_ic_reg.Location = new System.Drawing.Point(12, 48);
+			this.lbl_ic_reg.Name = "lbl_ic_reg";
+			this.lbl_ic_reg.Size = new System.Drawing.Size(116, 20);
+			this.lbl_ic_reg.TabIndex = 51;
+			this.lbl_ic_reg.Text = "Registration no.:";
+			// 
+			// label16
+			// 
+			this.label16.AutoSize = true;
+			this.label16.Location = new System.Drawing.Point(12, 327);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(73, 20);
+			this.label16.TabIndex = 62;
+			this.label16.Text = "Postcode:";
+			// 
+			// txt_type
+			// 
+			this.txt_type.Location = new System.Drawing.Point(134, 78);
+			this.txt_type.MaxLength = 50;
+			this.txt_type.Name = "txt_type";
+			this.txt_type.ReadOnly = true;
+			this.txt_type.Size = new System.Drawing.Size(236, 27);
+			this.txt_type.TabIndex = 3;
+			// 
+			// txt_ic_reg
+			// 
+			this.txt_ic_reg.Location = new System.Drawing.Point(134, 45);
+			this.txt_ic_reg.MaxLength = 50;
+			this.txt_ic_reg.Name = "txt_ic_reg";
+			this.txt_ic_reg.ReadOnly = true;
+			this.txt_ic_reg.Size = new System.Drawing.Size(236, 27);
+			this.txt_ic_reg.TabIndex = 2;
+			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Location = new System.Drawing.Point(12, 360);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(63, 20);
+			this.label12.TabIndex = 61;
+			this.label12.Text = "Country:";
+			// 
+			// txt_state
+			// 
+			this.txt_state.Location = new System.Drawing.Point(134, 291);
+			this.txt_state.MaxLength = 15;
+			this.txt_state.Name = "txt_state";
+			this.txt_state.ReadOnly = true;
+			this.txt_state.Size = new System.Drawing.Size(236, 27);
+			this.txt_state.TabIndex = 6;
 			// 
 			// label11
 			// 
 			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(520, 114);
+			this.label11.Location = new System.Drawing.Point(12, 294);
 			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(73, 20);
-			this.label11.TabIndex = 31;
-			this.label11.Text = "Postcode:";
+			this.label11.Size = new System.Drawing.Size(46, 20);
+			this.label11.TabIndex = 59;
+			this.label11.Text = "State:";
 			// 
-			// textBox13
+			// label6
 			// 
-			this.textBox13.Location = new System.Drawing.Point(112, 277);
-			this.textBox13.Multiline = true;
-			this.textBox13.Name = "textBox13";
-			this.textBox13.Size = new System.Drawing.Size(394, 200);
-			this.textBox13.TabIndex = 34;
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(12, 81);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(44, 20);
+			this.label6.TabIndex = 54;
+			this.label6.Text = "Type:";
 			// 
-			// label14
+			// txt_city
 			// 
-			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(12, 280);
-			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(62, 20);
-			this.label14.TabIndex = 33;
-			this.label14.Text = "Remark:";
+			this.txt_city.Location = new System.Drawing.Point(134, 258);
+			this.txt_city.MaxLength = 15;
+			this.txt_city.Name = "txt_city";
+			this.txt_city.ReadOnly = true;
+			this.txt_city.Size = new System.Drawing.Size(236, 27);
+			this.txt_city.TabIndex = 5;
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(12, 261);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(37, 20);
+			this.label10.TabIndex = 57;
+			this.label10.Text = "City:";
+			// 
+			// txt_address
+			// 
+			this.txt_address.Location = new System.Drawing.Point(134, 111);
+			this.txt_address.MaxLength = 255;
+			this.txt_address.Multiline = true;
+			this.txt_address.Name = "txt_address";
+			this.txt_address.ReadOnly = true;
+			this.txt_address.Size = new System.Drawing.Size(281, 141);
+			this.txt_address.TabIndex = 4;
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(12, 114);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(65, 20);
+			this.label9.TabIndex = 55;
+			this.label9.Text = "Address:";
+			// 
+			// link_lbl_url
+			// 
+			this.link_lbl_url.AutoSize = true;
+			this.link_lbl_url.Location = new System.Drawing.Point(134, 393);
+			this.link_lbl_url.Name = "link_lbl_url";
+			this.link_lbl_url.Size = new System.Drawing.Size(76, 20);
+			this.link_lbl_url.TabIndex = 9;
+			this.link_lbl_url.TabStop = true;
+			this.link_lbl_url.Text = "linkLabel1";
+			this.link_lbl_url.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Link_lbl_url_LinkClicked);
+			// 
+			// lbl_url
+			// 
+			this.lbl_url.AutoSize = true;
+			this.lbl_url.Location = new System.Drawing.Point(12, 393);
+			this.lbl_url.Name = "lbl_url";
+			this.lbl_url.Size = new System.Drawing.Size(38, 20);
+			this.lbl_url.TabIndex = 66;
+			this.lbl_url.Text = "URL:";
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.grd_contact);
+			this.groupBox1.Location = new System.Drawing.Point(421, 125);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(469, 288);
+			this.groupBox1.TabIndex = 10;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "Contact information";
+			// 
+			// grd_contact
+			// 
+			this.grd_contact.AllowUserToAddRows = false;
+			this.grd_contact.AllowUserToDeleteRows = false;
+			this.grd_contact.AllowUserToResizeRows = false;
+			this.grd_contact.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.grd_contact.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.grd_contact.Location = new System.Drawing.Point(3, 23);
+			this.grd_contact.Name = "grd_contact";
+			this.grd_contact.ReadOnly = true;
+			this.grd_contact.Size = new System.Drawing.Size(463, 262);
+			this.grd_contact.TabIndex = 1;
+			// 
+			// txt_remark
+			// 
+			this.txt_remark.Location = new System.Drawing.Point(489, 12);
+			this.txt_remark.MaxLength = 255;
+			this.txt_remark.Multiline = true;
+			this.txt_remark.Name = "txt_remark";
+			this.txt_remark.Size = new System.Drawing.Size(401, 107);
+			this.txt_remark.TabIndex = 0;
+			// 
+			// label17
+			// 
+			this.label17.AutoSize = true;
+			this.label17.Location = new System.Drawing.Point(421, 15);
+			this.label17.Name = "label17";
+			this.label17.Size = new System.Drawing.Size(62, 20);
+			this.label17.TabIndex = 72;
+			this.label17.Text = "Remark:";
 			// 
 			// Form_edit_finance
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(985, 692);
-			this.Controls.Add(this.textBox13);
-			this.Controls.Add(this.label14);
-			this.Controls.Add(this.textBox12);
-			this.Controls.Add(this.label11);
-			this.Controls.Add(this.panel1);
-			this.Controls.Add(this.label10);
-			this.Controls.Add(this.textBox11);
-			this.Controls.Add(this.textBox9);
-			this.Controls.Add(this.textBox10);
-			this.Controls.Add(this.label12);
-			this.Controls.Add(this.label13);
-			this.Controls.Add(this.label9);
-			this.Controls.Add(this.label8);
-			this.Controls.Add(this.comboBox1);
-			this.Controls.Add(this.label7);
-			this.Controls.Add(this.textBox6);
-			this.Controls.Add(this.label6);
-			this.Controls.Add(this.textBox8);
-			this.Controls.Add(this.textBox3);
-			this.Controls.Add(this.label4);
-			this.Controls.Add(this.textBox4);
-			this.Controls.Add(this.label5);
-			this.Controls.Add(this.textBox7);
-			this.Controls.Add(this.textBox2);
-			this.Controls.Add(this.label3);
-			this.Controls.Add(this.label2);
-			this.Controls.Add(this.textBox5);
-			this.Controls.Add(this.textBox1);
+			this.ClientSize = new System.Drawing.Size(902, 494);
+			this.Controls.Add(this.txt_remark);
+			this.Controls.Add(this.label17);
+			this.Controls.Add(this.groupBox1);
+			this.Controls.Add(this.link_lbl_url);
+			this.Controls.Add(this.lbl_url);
+			this.Controls.Add(this.txt_country);
+			this.Controls.Add(this.txt_name);
 			this.Controls.Add(this.label1);
+			this.Controls.Add(this.txt_postcode);
+			this.Controls.Add(this.lbl_ic_reg);
+			this.Controls.Add(this.label16);
+			this.Controls.Add(this.txt_type);
+			this.Controls.Add(this.txt_ic_reg);
+			this.Controls.Add(this.label12);
+			this.Controls.Add(this.txt_state);
+			this.Controls.Add(this.label11);
+			this.Controls.Add(this.label6);
+			this.Controls.Add(this.txt_city);
+			this.Controls.Add(this.label10);
+			this.Controls.Add(this.txt_address);
+			this.Controls.Add(this.label9);
+			this.Controls.Add(this.panel1);
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F);
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "Form_edit_finance";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Finance";
+			this.Shown += new System.EventHandler(this.Form_edit_finance_Shown);
 			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
+			this.groupBox1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.grd_contact)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
 		}
 
 		#endregion
-
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.TextBox textBox5;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.TextBox textBox4;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.TextBox textBox6;
-		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.ComboBox comboBox1;
-		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.Label label12;
-		private System.Windows.Forms.Label label13;
-		private System.Windows.Forms.TextBox textBox7;
-		private System.Windows.Forms.TextBox textBox8;
-		private System.Windows.Forms.TextBox textBox9;
-		private System.Windows.Forms.TextBox textBox10;
-		private System.Windows.Forms.Label label10;
-		private System.Windows.Forms.TextBox textBox11;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.Button btn_cancel;
 		private System.Windows.Forms.Button btn_ok;
-		private System.Windows.Forms.TextBox textBox12;
+		private System.Windows.Forms.TextBox txt_country;
+		private System.Windows.Forms.TextBox txt_name;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.TextBox txt_postcode;
+		private System.Windows.Forms.Label lbl_ic_reg;
+		private System.Windows.Forms.Label label16;
+		private System.Windows.Forms.TextBox txt_type;
+		private System.Windows.Forms.TextBox txt_ic_reg;
+		private System.Windows.Forms.Label label12;
+		private System.Windows.Forms.TextBox txt_state;
 		private System.Windows.Forms.Label label11;
-		private System.Windows.Forms.TextBox textBox13;
-		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.TextBox txt_city;
+		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.TextBox txt_address;
+		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.LinkLabel link_lbl_url;
+		private System.Windows.Forms.Label lbl_url;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.DataGridView grd_contact;
+		private System.Windows.Forms.TextBox txt_remark;
+		private System.Windows.Forms.Label label17;
+		private System.Windows.Forms.Button btn_view_edit;
 	}
 }

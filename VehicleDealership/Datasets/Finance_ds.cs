@@ -10,6 +10,10 @@ namespace VehicleDealership.Datasets
 		{
 			return new Finance_dsTableAdapters.sp_select_financeTableAdapter();
 		}
+		private static Finance_dsTableAdapters.QueriesTableAdapter QueriesTableAdapter()
+		{
+			return new Finance_dsTableAdapters.QueriesTableAdapter();
+		}
 		/// <summary>
 		/// 
 		/// </summary>
@@ -27,6 +31,18 @@ namespace VehicleDealership.Datasets
 					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
 			return new sp_select_financeDataTable();
+		}
+		public static void Update_insert_finance(int int_org,string str_remark)
+		{
+			try
+			{
+				QueriesTableAdapter().sp_update_insert_finance(int_org, str_remark, Program.System_user.UserID);
+			}
+			catch (System.Exception e)
+			{
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
+			}
 		}
 	}
 }

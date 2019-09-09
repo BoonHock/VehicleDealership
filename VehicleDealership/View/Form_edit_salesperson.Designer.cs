@@ -35,6 +35,10 @@
 			this.btn_ok = new System.Windows.Forms.Button();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tab_details = new System.Windows.Forms.TabPage();
+			this.txt_remark = new System.Windows.Forms.TextBox();
+			this.label17 = new System.Windows.Forms.Label();
+			this.txt_location = new System.Windows.Forms.TextBox();
+			this.label15 = new System.Windows.Forms.Label();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.grd_contact = new System.Windows.Forms.DataGridView();
 			this.link_lbl_url = new System.Windows.Forms.LinkLabel();
@@ -72,10 +76,6 @@
 			this.label14 = new System.Windows.Forms.Label();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.label2 = new System.Windows.Forms.Label();
-			this.txt_location = new System.Windows.Forms.TextBox();
-			this.label15 = new System.Windows.Forms.Label();
-			this.txt_remark = new System.Windows.Forms.TextBox();
-			this.label17 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
@@ -200,6 +200,41 @@
 			this.tab_details.TabIndex = 0;
 			this.tab_details.Text = "Details";
 			this.tab_details.UseVisualStyleBackColor = true;
+			// 
+			// txt_remark
+			// 
+			this.txt_remark.Location = new System.Drawing.Point(535, 105);
+			this.txt_remark.MaxLength = 255;
+			this.txt_remark.Multiline = true;
+			this.txt_remark.Name = "txt_remark";
+			this.txt_remark.Size = new System.Drawing.Size(312, 107);
+			this.txt_remark.TabIndex = 69;
+			// 
+			// label17
+			// 
+			this.label17.AutoSize = true;
+			this.label17.Location = new System.Drawing.Point(446, 108);
+			this.label17.Name = "label17";
+			this.label17.Size = new System.Drawing.Size(62, 20);
+			this.label17.TabIndex = 70;
+			this.label17.Text = "Remark:";
+			// 
+			// txt_location
+			// 
+			this.txt_location.Location = new System.Drawing.Point(535, 72);
+			this.txt_location.MaxLength = 50;
+			this.txt_location.Name = "txt_location";
+			this.txt_location.Size = new System.Drawing.Size(312, 27);
+			this.txt_location.TabIndex = 67;
+			// 
+			// label15
+			// 
+			this.label15.AutoSize = true;
+			this.label15.Location = new System.Drawing.Point(446, 75);
+			this.label15.Name = "label15";
+			this.label15.Size = new System.Drawing.Size(69, 20);
+			this.label15.TabIndex = 68;
+			this.label15.Text = "Location:";
 			// 
 			// groupBox1
 			// 
@@ -528,7 +563,7 @@
 			this.tab_target.Location = new System.Drawing.Point(4, 29);
 			this.tab_target.Name = "tab_target";
 			this.tab_target.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_target.Size = new System.Drawing.Size(1018, 567);
+			this.tab_target.Size = new System.Drawing.Size(903, 567);
 			this.tab_target.TabIndex = 1;
 			this.tab_target.Text = "Target";
 			this.tab_target.UseVisualStyleBackColor = true;
@@ -551,7 +586,7 @@
 			this.tabPage1.Location = new System.Drawing.Point(4, 29);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(1018, 567);
+			this.tabPage1.Size = new System.Drawing.Size(903, 567);
 			this.tabPage1.TabIndex = 2;
 			this.tabPage1.Text = "Sales";
 			this.tabPage1.UseVisualStyleBackColor = true;
@@ -567,41 +602,6 @@
 			this.label2.Size = new System.Drawing.Size(221, 30);
 			this.label2.TabIndex = 0;
 			this.label2.Text = "WORK IN PROGRESS";
-			// 
-			// txt_location
-			// 
-			this.txt_location.Location = new System.Drawing.Point(535, 72);
-			this.txt_location.MaxLength = 50;
-			this.txt_location.Name = "txt_location";
-			this.txt_location.Size = new System.Drawing.Size(312, 27);
-			this.txt_location.TabIndex = 67;
-			// 
-			// label15
-			// 
-			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(446, 75);
-			this.label15.Name = "label15";
-			this.label15.Size = new System.Drawing.Size(69, 20);
-			this.label15.TabIndex = 68;
-			this.label15.Text = "Location:";
-			// 
-			// txt_remark
-			// 
-			this.txt_remark.Location = new System.Drawing.Point(535, 105);
-			this.txt_remark.MaxLength = 255;
-			this.txt_remark.Multiline = true;
-			this.txt_remark.Name = "txt_remark";
-			this.txt_remark.Size = new System.Drawing.Size(312, 107);
-			this.txt_remark.TabIndex = 69;
-			// 
-			// label17
-			// 
-			this.label17.AutoSize = true;
-			this.label17.Location = new System.Drawing.Point(446, 108);
-			this.label17.Name = "label17";
-			this.label17.Size = new System.Drawing.Size(62, 20);
-			this.label17.TabIndex = 70;
-			this.label17.Text = "Remark:";
 			// 
 			// Form_edit_salesperson
 			// 

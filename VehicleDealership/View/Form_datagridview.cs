@@ -85,6 +85,14 @@ namespace VehicleDealership.View
 					else
 						Setup_form_finance();
 					break;
+				case "VEHICLE":
+					if (!Program.System_user.Has_permission(User_permission.VEHICLE_VIEW) &&
+						!Program.System_user.Has_permission(User_permission.VEHICLE_ADD_EDIT) &&
+						!Program.System_user.Has_permission(User_permission.VEHICLE_DELETE))
+						permission_denied = true;
+					else
+						Setup_form_vehicle();
+					break;
 			}
 
 			if (permission_denied)
@@ -296,8 +304,10 @@ namespace VehicleDealership.View
 				return;
 			}
 
-			DataColumn dt_col = new DataColumn("modified_by");
-			dt_col.DefaultValue = Program.System_user.UserID;
+			DataColumn dt_col = new DataColumn("modified_by")
+			{
+				DefaultValue = Program.System_user.UserID
+			};
 
 			dttable.Columns.Add(dt_col);
 
@@ -399,10 +409,7 @@ namespace VehicleDealership.View
 				return;
 			}
 
-			DataColumn dt_col = new DataColumn("modified_by");
-			dt_col.DefaultValue = Program.System_user.UserID;
-
-			dttable.Columns.Add(dt_col);
+			dttable.Columns.Add(new DataColumn("modified_by") { DefaultValue = Program.System_user.UserID });
 
 			Bulkcopy_table_ds.Delete_by_user();
 
@@ -503,10 +510,7 @@ namespace VehicleDealership.View
 				return;
 			}
 
-			DataColumn dt_col = new DataColumn("modified_by");
-			dt_col.DefaultValue = Program.System_user.UserID;
-
-			dttable.Columns.Add(dt_col);
+			dttable.Columns.Add(new DataColumn("modified_by") { DefaultValue = Program.System_user.UserID });
 
 			Bulkcopy_table_ds.Delete_by_user();
 
@@ -675,9 +679,7 @@ namespace VehicleDealership.View
 		{
 			grd_main.DataSource = null;
 
-			Finance_ds.sp_select_financeDataTable dttable = Finance_ds.Select_finance(-1);
-
-			grd_main.DataSource = dttable;
+			grd_main.DataSource = Finance_ds.Select_finance(-1);
 
 			Class_datagridview.Hide_unnecessary_columns(grd_main, new string[] { "name",
 				"registration_no", "branch", "remark" });
@@ -701,11 +703,76 @@ namespace VehicleDealership.View
 		}
 		private void Add_finance(object sender, EventArgs e)
 		{
-			// TODO
+			Form_person_organisation form_select_person_org = new Form_person_organisation("FINANCE");
+
+			if (form_select_person_org.ShowDialog() != DialogResult.OK) return;
+
+			Form_edit_finance form_edit = new Form_edit_finance(form_select_person_org.SelectedID);
+
+			if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_finance(form_select_person_org.SelectedID);
 		}
 		private void Edit_finance(object sender, EventArgs e)
 		{
-			// TODO
+			if (grd_main.SelectedCells.Count == 0) return;
+
+			int int_org_id = (int)grd_main.SelectedCells[0].OwningRow.Cells["finance"].Value;
+
+			Form_edit_finance form_edit = new Form_edit_finance(int_org_id);
+
+			if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_finance(int_org_id);
+		}
+		#endregion
+		#region VEHICLE
+		private void Setup_form_vehicle()
+		{
+			ts_vehicle.Visible = true;
+
+			cmb_vehicle_status.SelectedItem = "ALL";
+
+			bool has_add_edit_permission = Program.System_user.Has_permission(User_permission.VEHICLE_ADD_EDIT);
+			bool has_delete_permission = Program.System_user.Has_permission(User_permission.VEHICLE_DELETE);
+
+			btn_add_vehicle.Enabled = has_add_edit_permission;
+			btn_edit_vehicle.Enabled = has_add_edit_permission;
+			btn_delete_vehicle.Enabled = has_delete_permission;
+
+			addToolStripMenuItem.Enabled = has_add_edit_permission;
+			editToolStripMenuItem.Enabled = has_add_edit_permission;
+			deleteToolStripMenuItem.Enabled = has_delete_permission;
+
+			Setup_grd_vehicle();
+
+			txt_search_vehicle.TextChanged += (sender2, e2) => Apply_filter_vehicle();
+			btn_add_vehicle.Click += Add_vehicle;
+			addToolStripMenuItem.Click += Add_vehicle;
+			btn_edit_vehicle.Click += Edit_vehicle;
+			editToolStripMenuItem.Click += Edit_vehicle;
+			btn_delete_vehicle.Click += Delete_vehicle;
+			deleteToolStripMenuItem.Click += Delete_vehicle;
+		}
+		private void Setup_grd_vehicle(int int_vehicle = 0)
+		{
+			grd_main.DataSource = null;
+			grd_main.DataSource = Vehicle_ds.Select_vehicle();
+
+			Class_datagridview.Hide_columns(grd_main, new string[] { "vehicle" });
+
+		}
+		private void Apply_filter_vehicle()
+		{
+
+		}
+		private void Add_vehicle(object sender, EventArgs e)
+		{
+
+		}
+		private void Edit_vehicle(object sender, EventArgs e)
+		{
+
+		}
+		private void Delete_vehicle(object sender, EventArgs e)
+		{
+
 		}
 		#endregion
 	}

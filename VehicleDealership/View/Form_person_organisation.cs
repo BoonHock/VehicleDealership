@@ -96,6 +96,13 @@ namespace VehicleDealership.View
 				else
 					grd_main.DataSource = Organisation_ds.Select_organisation_not_salesperson();
 			}
+			else if (_select_for == "FINANCE")
+			{
+				cmb_type.ComboBox.SelectedValue = "ORGANISATION";
+				cmb_type.Enabled = false; // ONLY organisation allowed for finance
+
+				grd_main.DataSource = Organisation_ds.Select_organisation_not_finance();
+			}
 
 			if (cmb_type.ComboBox.SelectedValue.ToString() == "PERSON")
 			{

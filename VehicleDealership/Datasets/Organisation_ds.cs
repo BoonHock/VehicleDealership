@@ -31,6 +31,19 @@ namespace VehicleDealership.Datasets
 			}
 			return new Organisation_simplifiedDataTable();
 		}
+		public static Organisation_simplifiedDataTable Select_organisation_not_finance()
+		{
+			try
+			{
+				return Organisation_SimplifiedTableAdapter().sp_select_organisation_not_finance();
+			}
+			catch (System.Exception e)
+			{
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
+			}
+			return new Organisation_simplifiedDataTable();
+		}
 		public static sp_select_organisationDataTable Select_organisation(int int_org)
 		{
 			try

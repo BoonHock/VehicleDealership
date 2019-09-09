@@ -237,6 +237,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Vehicle_brand_ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\Vehicle_ds.cs">
+      <DependentUpon>Vehicle_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Vehicle_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Vehicle_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\Vehicle_group_ds.cs">
       <DependentUpon>Vehicle_group_ds.xsd</DependentUpon>
     </Compile>
@@ -292,6 +300,12 @@
     </Compile>
     <Compile Include="View\Form_edit_users.Designer.cs">
       <DependentUpon>Form_edit_users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Form_edit_vehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form_edit_vehicle.Designer.cs">
+      <DependentUpon>Form_edit_vehicle.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Form_edit_vehicle_brand.cs">
       <SubType>Form</SubType>
@@ -389,6 +403,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form_edit_users.resx">
       <DependentUpon>Form_edit_users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Form_edit_vehicle.resx">
+      <DependentUpon>Form_edit_vehicle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form_edit_vehicle_brand.resx">
       <DependentUpon>Form_edit_vehicle_brand.cs</DependentUpon>
@@ -624,6 +641,17 @@
     <None Include="Datasets\Vehicle_brand_ds.xss">
       <DependentUpon>Vehicle_brand_ds.xsd</DependentUpon>
     </None>
+    <None Include="Datasets\Vehicle_ds.xsc">
+      <DependentUpon>Vehicle_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Vehicle_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Vehicle_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Vehicle_ds.xss">
+      <DependentUpon>Vehicle_ds.xsd</DependentUpon>
+    </None>
     <None Include="Datasets\Vehicle_group_ds.xsc">
       <DependentUpon>Vehicle_group_ds.xsd</DependentUpon>
     </None>
@@ -695,6 +723,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="green_car.ico" />
+    <None Include="Resources\Print_16x.png" />
     <None Include="Resources\Filter_16x.png" />
     <None Include="Resources\AddImage_16x.png" />
     <None Include="Resources\ChangePassword_16x.png" />

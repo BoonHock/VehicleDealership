@@ -80,6 +80,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
+			this.label1.BackColor = System.Drawing.Color.Yellow;
 			this.label1.Location = new System.Drawing.Point(12, 15);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(52, 20);
@@ -105,6 +106,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
+			this.label2.BackColor = System.Drawing.Color.Yellow;
 			this.label2.Location = new System.Drawing.Point(12, 48);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(49, 20);
