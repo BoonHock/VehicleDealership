@@ -74,8 +74,7 @@ namespace VehicleDealership.View
 			grd_contact.DataSource = Person_contact_ds.Select_person_contact(PersonID);
 			grd_contact.AutoResizeColumns();
 			// database column nvarchar length is 100
-			Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_contact, "contact");
-			Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_contact, "remark");
+			Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_contact, "contact", "remark");
 			// allow dbnull because user is 
 			((DataTable)grd_contact.DataSource).Columns["remark"].AllowDBNull = true;
 

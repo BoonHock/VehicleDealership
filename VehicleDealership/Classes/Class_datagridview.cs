@@ -153,7 +153,7 @@ namespace VehicleDealership.Classes
 					grd.CurrentCell = grd[hti.ColumnIndex, hti.RowIndex];
 				}
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				// ignore error
 			}
@@ -202,9 +202,13 @@ namespace VehicleDealership.Classes
 		/// </summary>
 		/// <param name="grd"></param>
 		/// <param name="str_col_name"></param>
-		public static void Set_max_length_grd_col_same_with_datatable_col(DataGridView grd, string str_col_name)
+		public static void Set_max_length_grd_col_same_with_datatable_col(DataGridView grd, params string[] arr_col_name)
 		{
-			((DataGridViewTextBoxColumn)grd.Columns[str_col_name]).MaxInputLength = ((DataTable)grd.DataSource).Columns[str_col_name].MaxLength;
+			foreach (string str_tmp in arr_col_name)
+			{
+				((DataGridViewTextBoxColumn)grd.Columns[str_tmp]).MaxInputLength =
+					((DataTable)grd.DataSource).Columns[str_tmp].MaxLength;
+			}
 		}
 		public static void Convert_column_to_link_column(DataGridView grd, string str_data_property_name, string str_col_name)
 		{
@@ -212,10 +216,29 @@ namespace VehicleDealership.Classes
 
 			grd.Columns.Remove(str_col_name);
 
-			DataGridViewLinkColumn col_link = new DataGridViewLinkColumn();
-			col_link.DataPropertyName = str_data_property_name;
-			col_link.Name = str_col_name;
+			DataGridViewLinkColumn col_link = new DataGridViewLinkColumn
+			{
+				DataPropertyName = str_data_property_name,
+				Name = str_col_name
+			};
 			grd.Columns.Add(col_link);
+		}
+		public static void Replace_column_with_combobox_column(DataGridView grd, string str_col_name,
+			DataTable dttable, string str_display_member, string str_value_member)
+		{
+			int col_index = grd.Columns[str_col_name].Index;
+
+			DataGridViewComboBoxColumn grd_col = new DataGridViewComboBoxColumn
+			{
+				DataSource = dttable,
+				DisplayMember = str_display_member,
+				ValueMember = str_value_member,
+				Name = str_col_name,
+				DataPropertyName = str_col_name
+			};
+
+			grd.Columns.RemoveAt(col_index);
+			grd.Columns.Insert(col_index, grd_col);
 		}
 	}
 }

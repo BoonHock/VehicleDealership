@@ -25,6 +25,8 @@
               <Mapping SourceColumn="salesperson" DataSetColumn="salesperson" />
               <Mapping SourceColumn="person" DataSetColumn="person" />
               <Mapping SourceColumn="organisation" DataSetColumn="organisation" />
+              <Mapping SourceColumn="organisation_branch" DataSetColumn="organisation_branch" />
+              <Mapping SourceColumn="branch_name" DataSetColumn="branch_name" />
               <Mapping SourceColumn="name" DataSetColumn="name" />
               <Mapping SourceColumn="registration_no" DataSetColumn="registration_no" />
               <Mapping SourceColumn="location" DataSetColumn="location" />
@@ -76,12 +78,20 @@
   <xs:element name="Salesperson_ds" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Salesperson_ds" msprop:Generator_UserDSName="Salesperson_ds">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="sp_select_salesperson" msprop:Generator_TableClassName="sp_select_salespersonDataTable" msprop:Generator_TableVarName="tablesp_select_salesperson" msprop:Generator_RowChangedName="sp_select_salespersonRowChanged" msprop:Generator_TablePropName="sp_select_salesperson" msprop:Generator_RowDeletingName="sp_select_salespersonRowDeleting" msprop:Generator_RowChangingName="sp_select_salespersonRowChanging" msprop:Generator_RowEvHandlerName="sp_select_salespersonRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_select_salespersonRowDeleted" msprop:Generator_RowClassName="sp_select_salespersonRow" msprop:Generator_UserTableName="sp_select_salesperson" msprop:Generator_RowEvArgName="sp_select_salespersonRowChangeEvent">
+        <xs:element name="sp_select_salesperson" msprop:Generator_TableClassName="sp_select_salespersonDataTable" msprop:Generator_TableVarName="tablesp_select_salesperson" msprop:Generator_TablePropName="sp_select_salesperson" msprop:Generator_RowDeletingName="sp_select_salespersonRowDeleting" msprop:Generator_RowChangingName="sp_select_salespersonRowChanging" msprop:Generator_RowEvHandlerName="sp_select_salespersonRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_select_salespersonRowDeleted" msprop:Generator_UserTableName="sp_select_salesperson" msprop:Generator_RowChangedName="sp_select_salespersonRowChanged" msprop:Generator_RowEvArgName="sp_select_salespersonRowChangeEvent" msprop:Generator_RowClassName="sp_select_salespersonRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="salesperson" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsalesperson" msprop:Generator_ColumnPropNameInRow="salesperson" msprop:Generator_ColumnPropNameInTable="salespersonColumn" msprop:Generator_UserColumnName="salesperson" type="xs:int" minOccurs="0" />
               <xs:element name="person" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnperson" msprop:Generator_ColumnPropNameInRow="person" msprop:Generator_ColumnPropNameInTable="personColumn" msprop:Generator_UserColumnName="person" type="xs:int" minOccurs="0" />
               <xs:element name="organisation" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnorganisation" msprop:Generator_ColumnPropNameInRow="organisation" msprop:Generator_ColumnPropNameInTable="organisationColumn" msprop:Generator_UserColumnName="organisation" type="xs:int" minOccurs="0" />
+              <xs:element name="organisation_branch" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnorganisation_branch" msprop:Generator_ColumnPropNameInRow="organisation_branch" msprop:Generator_ColumnPropNameInTable="organisation_branchColumn" msprop:Generator_UserColumnName="organisation_branch" type="xs:int" minOccurs="0" />
+              <xs:element name="branch_name" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnbranch_name" msprop:Generator_ColumnPropNameInRow="branch_name" msprop:Generator_ColumnPropNameInTable="branch_nameColumn" msprop:Generator_UserColumnName="branch_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="name" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">

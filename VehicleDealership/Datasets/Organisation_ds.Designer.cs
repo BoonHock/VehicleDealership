@@ -324,16 +324,6 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columnorganisation_type_description;
             
-            private global::System.Data.DataColumn columnbranch;
-            
-            private global::System.Data.DataColumn columnaddress;
-            
-            private global::System.Data.DataColumn columncity;
-            
-            private global::System.Data.DataColumn columnstate;
-            
-            private global::System.Data.DataColumn columnpostcode;
-            
             private global::System.Data.DataColumn columncountry;
             
             private global::System.Data.DataColumn columncountry_name;
@@ -415,46 +405,6 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn branchColumn {
-                get {
-                    return this.columnbranch;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn addressColumn {
-                get {
-                    return this.columnaddress;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn cityColumn {
-                get {
-                    return this.columncity;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn stateColumn {
-                get {
-                    return this.columnstate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn postcodeColumn {
-                get {
-                    return this.columnpostcode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn countryColumn {
                 get {
                     return this.columncountry;
@@ -514,7 +464,7 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_organisationRow Addsp_select_organisationRow(int organisation, string name, string registration_no, int organisation_type, string organisation_type_description, string branch, string address, string city, string state, string postcode, short country, string country_name, string url) {
+            public sp_select_organisationRow Addsp_select_organisationRow(int organisation, string name, string registration_no, int organisation_type, string organisation_type_description, short country, string country_name, string url) {
                 sp_select_organisationRow rowsp_select_organisationRow = ((sp_select_organisationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         organisation,
@@ -522,11 +472,6 @@ namespace VehicleDealership.Datasets {
                         registration_no,
                         organisation_type,
                         organisation_type_description,
-                        branch,
-                        address,
-                        city,
-                        state,
-                        postcode,
                         country,
                         country_name,
                         url};
@@ -564,11 +509,6 @@ namespace VehicleDealership.Datasets {
                 this.columnregistration_no = base.Columns["registration_no"];
                 this.columnorganisation_type = base.Columns["organisation_type"];
                 this.columnorganisation_type_description = base.Columns["organisation_type_description"];
-                this.columnbranch = base.Columns["branch"];
-                this.columnaddress = base.Columns["address"];
-                this.columncity = base.Columns["city"];
-                this.columnstate = base.Columns["state"];
-                this.columnpostcode = base.Columns["postcode"];
                 this.columncountry = base.Columns["country"];
                 this.columncountry_name = base.Columns["country_name"];
                 this.columnurl = base.Columns["url"];
@@ -587,16 +527,6 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columnorganisation_type);
                 this.columnorganisation_type_description = new global::System.Data.DataColumn("organisation_type_description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnorganisation_type_description);
-                this.columnbranch = new global::System.Data.DataColumn("branch", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnbranch);
-                this.columnaddress = new global::System.Data.DataColumn("address", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnaddress);
-                this.columncity = new global::System.Data.DataColumn("city", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncity);
-                this.columnstate = new global::System.Data.DataColumn("state", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstate);
-                this.columnpostcode = new global::System.Data.DataColumn("postcode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpostcode);
                 this.columncountry = new global::System.Data.DataColumn("country", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncountry);
                 this.columncountry_name = new global::System.Data.DataColumn("country_name", typeof(string), null, global::System.Data.MappingType.Element);
@@ -614,16 +544,6 @@ namespace VehicleDealership.Datasets {
                 this.columnorganisation_type.AllowDBNull = false;
                 this.columnorganisation_type_description.AllowDBNull = false;
                 this.columnorganisation_type_description.MaxLength = 50;
-                this.columnbranch.AllowDBNull = false;
-                this.columnbranch.MaxLength = 20;
-                this.columnaddress.AllowDBNull = false;
-                this.columnaddress.MaxLength = 200;
-                this.columncity.AllowDBNull = false;
-                this.columncity.MaxLength = 15;
-                this.columnstate.AllowDBNull = false;
-                this.columnstate.MaxLength = 15;
-                this.columnpostcode.AllowDBNull = false;
-                this.columnpostcode.MaxLength = 10;
                 this.columncountry.AllowDBNull = false;
                 this.columncountry_name.AllowDBNull = false;
                 this.columncountry_name.MaxLength = 100;
@@ -1132,61 +1052,6 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string branch {
-                get {
-                    return ((string)(this[this.tablesp_select_organisation.branchColumn]));
-                }
-                set {
-                    this[this.tablesp_select_organisation.branchColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string address {
-                get {
-                    return ((string)(this[this.tablesp_select_organisation.addressColumn]));
-                }
-                set {
-                    this[this.tablesp_select_organisation.addressColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string city {
-                get {
-                    return ((string)(this[this.tablesp_select_organisation.cityColumn]));
-                }
-                set {
-                    this[this.tablesp_select_organisation.cityColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string state {
-                get {
-                    return ((string)(this[this.tablesp_select_organisation.stateColumn]));
-                }
-                set {
-                    this[this.tablesp_select_organisation.stateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string postcode {
-                get {
-                    return ((string)(this[this.tablesp_select_organisation.postcodeColumn]));
-                }
-                set {
-                    this[this.tablesp_select_organisation.postcodeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public short country {
                 get {
                     return ((short)(this[this.tablesp_select_organisation.countryColumn]));
@@ -1476,11 +1341,6 @@ namespace VehicleDealership.Datasets.Organisation_dsTableAdapters {
             tableMapping.ColumnMappings.Add("registration_no", "registration_no");
             tableMapping.ColumnMappings.Add("organisation_type", "organisation_type");
             tableMapping.ColumnMappings.Add("organisation_type_description", "organisation_type_description");
-            tableMapping.ColumnMappings.Add("branch", "branch");
-            tableMapping.ColumnMappings.Add("address", "address");
-            tableMapping.ColumnMappings.Add("city", "city");
-            tableMapping.ColumnMappings.Add("state", "state");
-            tableMapping.ColumnMappings.Add("postcode", "postcode");
             tableMapping.ColumnMappings.Add("country", "country");
             tableMapping.ColumnMappings.Add("country_name", "country_name");
             tableMapping.ColumnMappings.Add("url", "url");
@@ -1734,11 +1594,6 @@ namespace VehicleDealership.Datasets.Organisation_dsTableAdapters {
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@registration_no", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@org_type", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@branch", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address", global::System.Data.SqlDbType.NVarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@city", global::System.Data.SqlDbType.NVarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@state", global::System.Data.SqlDbType.NVarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@postcode", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@country", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 5, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@url", global::System.Data.SqlDbType.NVarChar, 2083, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modified_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1751,11 +1606,6 @@ namespace VehicleDealership.Datasets.Organisation_dsTableAdapters {
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@registration_no", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@org_type", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@branch", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address", global::System.Data.SqlDbType.NVarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@city", global::System.Data.SqlDbType.NVarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@state", global::System.Data.SqlDbType.NVarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@postcode", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@country", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 5, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@url", global::System.Data.SqlDbType.NVarChar, 2083, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modified_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1764,7 +1614,7 @@ namespace VehicleDealership.Datasets.Organisation_dsTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object sp_insert_organisation(string name, string registration_no, global::System.Nullable<int> org_type, string branch, string address, string city, string state, string postcode, global::System.Nullable<short> country, string url, global::System.Nullable<int> modified_by) {
+        public virtual object sp_insert_organisation(string name, string registration_no, global::System.Nullable<int> org_type, global::System.Nullable<short> country, string url, global::System.Nullable<int> modified_by) {
             global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
             if ((name == null)) {
                 command.Parameters[1].Value = global::System.DBNull.Value;
@@ -1784,53 +1634,23 @@ namespace VehicleDealership.Datasets.Organisation_dsTableAdapters {
             else {
                 command.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((branch == null)) {
-                command.Parameters[4].Value = global::System.DBNull.Value;
+            if ((country.HasValue == true)) {
+                command.Parameters[4].Value = ((short)(country.Value));
             }
             else {
-                command.Parameters[4].Value = ((string)(branch));
+                command.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((address == null)) {
+            if ((url == null)) {
                 command.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[5].Value = ((string)(address));
-            }
-            if ((city == null)) {
-                command.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[6].Value = ((string)(city));
-            }
-            if ((state == null)) {
-                command.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[7].Value = ((string)(state));
-            }
-            if ((postcode == null)) {
-                command.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[8].Value = ((string)(postcode));
-            }
-            if ((country.HasValue == true)) {
-                command.Parameters[9].Value = ((short)(country.Value));
-            }
-            else {
-                command.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((url == null)) {
-                command.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[10].Value = ((string)(url));
+                command.Parameters[5].Value = ((string)(url));
             }
             if ((modified_by.HasValue == true)) {
-                command.Parameters[11].Value = ((int)(modified_by.Value));
+                command.Parameters[6].Value = ((int)(modified_by.Value));
             }
             else {
-                command.Parameters[11].Value = global::System.DBNull.Value;
+                command.Parameters[6].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1858,7 +1678,7 @@ namespace VehicleDealership.Datasets.Organisation_dsTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int sp_update_organisation(global::System.Nullable<int> org, string name, string registration_no, global::System.Nullable<int> org_type, string branch, string address, string city, string state, string postcode, global::System.Nullable<short> country, string url, global::System.Nullable<int> modified_by) {
+        public virtual object sp_update_organisation(global::System.Nullable<int> org, string name, string registration_no, global::System.Nullable<int> org_type, global::System.Nullable<short> country, string url, global::System.Nullable<int> modified_by) {
             global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[1]));
             if ((org.HasValue == true)) {
                 command.Parameters[1].Value = ((int)(org.Value));
@@ -1884,69 +1704,45 @@ namespace VehicleDealership.Datasets.Organisation_dsTableAdapters {
             else {
                 command.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((branch == null)) {
-                command.Parameters[5].Value = global::System.DBNull.Value;
+            if ((country.HasValue == true)) {
+                command.Parameters[5].Value = ((short)(country.Value));
             }
             else {
-                command.Parameters[5].Value = ((string)(branch));
+                command.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((address == null)) {
+            if ((url == null)) {
                 command.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[6].Value = ((string)(address));
-            }
-            if ((city == null)) {
-                command.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[7].Value = ((string)(city));
-            }
-            if ((state == null)) {
-                command.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[8].Value = ((string)(state));
-            }
-            if ((postcode == null)) {
-                command.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[9].Value = ((string)(postcode));
-            }
-            if ((country.HasValue == true)) {
-                command.Parameters[10].Value = ((short)(country.Value));
-            }
-            else {
-                command.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((url == null)) {
-                command.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[11].Value = ((string)(url));
+                command.Parameters[6].Value = ((string)(url));
             }
             if ((modified_by.HasValue == true)) {
-                command.Parameters[12].Value = ((int)(modified_by.Value));
+                command.Parameters[7].Value = ((int)(modified_by.Value));
             }
             else {
-                command.Parameters[12].Value = global::System.DBNull.Value;
+                command.Parameters[7].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
                 command.Connection.Open();
             }
-            int returnValue;
+            object returnValue;
             try {
-                returnValue = command.ExecuteNonQuery();
+                returnValue = command.ExecuteScalar();
             }
             finally {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     command.Connection.Close();
                 }
             }
-            return returnValue;
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
         }
     }
     

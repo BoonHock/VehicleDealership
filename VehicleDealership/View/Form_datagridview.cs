@@ -727,6 +727,7 @@ namespace VehicleDealership.View
 		{
 			ts_vehicle.Visible = true;
 
+			cmb_vehicle_acquire.SelectedItem = "ALL";
 			cmb_vehicle_status.SelectedItem = "ALL";
 
 			bool has_add_edit_permission = Program.System_user.Has_permission(User_permission.VEHICLE_ADD_EDIT);
@@ -743,6 +744,9 @@ namespace VehicleDealership.View
 			Setup_grd_vehicle();
 
 			txt_search_vehicle.TextChanged += (sender2, e2) => Apply_filter_vehicle();
+			cmb_vehicle_acquire.ComboBox.SelectedIndexChanged += (sender2, e2) => Apply_filter_vehicle();
+			cmb_vehicle_status.ComboBox.SelectedIndexChanged += (sender2, e2) => Apply_filter_vehicle();
+
 			btn_add_vehicle.Click += Add_vehicle;
 			addToolStripMenuItem.Click += Add_vehicle;
 			btn_edit_vehicle.Click += Edit_vehicle;
@@ -756,11 +760,34 @@ namespace VehicleDealership.View
 			grd_main.DataSource = Vehicle_ds.Select_vehicle();
 
 			Class_datagridview.Hide_columns(grd_main, new string[] { "vehicle" });
+			grd_main.AutoResizeColumns();
 
+			Apply_filter_vehicle();
+
+			if (int_vehicle != 0)
+				Class_datagridview.Select_row_by_value(grd_main, "vehicle", int_vehicle.ToString());
 		}
 		private void Apply_filter_vehicle()
 		{
+			if (grd_main.DataSource == null) return;
 
+			string str_search = txt_search_vehicle.Text.Trim();
+
+			string str_filter = "[registration_no] LIKE '%" + str_search +
+				"%' OR [seller_name] LIKE '%" + str_search + "%' OR [vehicle_model] LIKE '%" + str_search +
+				"%' OR [location] LIKE '%" + str_search + "%' OR [chassis_no] LIKE '%" + str_search +
+				"%' OR [engine_no] LIKE '%" + str_search + "%'";
+
+			// if specific vehicle acquire method selected, filter dgv
+			if (cmb_vehicle_acquire.SelectedItem.ToString() != "ALL")
+				str_filter = "(" + str_filter + ") AND [acquire_method] = '" +
+					cmb_vehicle_acquire.SelectedItem.ToString() + "'";
+
+			if (cmb_vehicle_status.SelectedItem.ToString() != "ALL")
+				str_filter = "(" + str_filter + ") AND [vehicle_status] = '" +
+					cmb_vehicle_status.SelectedItem.ToString() + "'";
+
+			((DataTable)grd_main.DataSource).DefaultView.RowFilter = str_filter;
 		}
 		private void Add_vehicle(object sender, EventArgs e)
 		{

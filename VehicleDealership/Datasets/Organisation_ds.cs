@@ -72,14 +72,12 @@ namespace VehicleDealership.Datasets
 		/// <param name="str_url"></param>
 		/// <returns>last inserted id</returns>
 		public static int Insert_organisation(string str_name, string str_registration_no,
-			int int_org_type, string str_branch, string str_address, string str_city,
-			string str_state, string str_postcode, short short_country, string str_url)
+			int int_org_type, short short_country, string str_url)
 		{
 			try
 			{
 				return int.Parse(QueriesTableAdapter().sp_insert_organisation(str_name,
-					str_registration_no, int_org_type, str_branch, str_address, str_city, str_state,
-					str_postcode, short_country, str_url, Program.System_user.UserID).ToString());
+					str_registration_no, int_org_type, short_country, str_url, Program.System_user.UserID).ToString());
 			}
 			catch (System.Exception e)
 			{
@@ -88,15 +86,13 @@ namespace VehicleDealership.Datasets
 			}
 			return 0;
 		}
-		public static bool Update_organisation(int int_org, string str_name, string str_registration_no,
-			int int_org_type, string str_branch, string str_address, string str_city,
-			string str_state, string str_postcode, short short_country, string str_url)
+		public static bool Update_organisation(int int_org, string str_name,
+			string str_registration_no, int int_org_type, short short_country, string str_url)
 		{
 			try
 			{
 				QueriesTableAdapter().sp_update_organisation(int_org, str_name,
-					str_registration_no, int_org_type, str_branch, str_address, str_city, str_state,
-					str_postcode, short_country, str_url, Program.System_user.UserID);
+					str_registration_no, int_org_type, short_country, str_url, Program.System_user.UserID);
 				return true;
 			}
 			catch (System.Exception e)

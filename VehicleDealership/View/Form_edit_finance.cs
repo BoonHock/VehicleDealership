@@ -63,10 +63,10 @@ namespace VehicleDealership.View
 			txt_name.Text = dttable_org[0].name;
 			txt_ic_reg.Text = dttable_org[0].registration_no;
 			txt_type.Text = dttable_org[0].organisation_type_description;
-			txt_address.Text = dttable_org[0].address;
-			txt_city.Text = dttable_org[0].city;
-			txt_state.Text = dttable_org[0].state;
-			txt_postcode.Text = dttable_org[0].postcode;
+			//txt_address.Text = dttable_org[0].address;
+			//txt_city.Text = dttable_org[0].city;
+			//txt_state.Text = dttable_org[0].state;
+			//txt_postcode.Text = dttable_org[0].postcode;
 			txt_country.Text = dttable_org[0].country_name;
 			link_lbl_url.Text = dttable_org[0].url;
 

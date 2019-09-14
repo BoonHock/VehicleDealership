@@ -141,6 +141,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\Organisation_branch_ds.cs">
+      <DependentUpon>Organisation_branch_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Organisation_branch_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Organisation_branch_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\Organisation_contact_ds.cs">
       <DependentUpon>Organisation_contact_ds.xsd</DependentUpon>
     </Compile>
@@ -289,6 +297,12 @@
     <Compile Include="View\Form_edit_finance.Designer.cs">
       <DependentUpon>Form_edit_finance.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Form_edit_payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form_edit_payment.Designer.cs">
+      <DependentUpon>Form_edit_payment.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Form_edit_usergroup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -397,6 +411,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form_edit_finance.resx">
       <DependentUpon>Form_edit_finance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Form_edit_payment.resx">
+      <DependentUpon>Form_edit_payment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form_edit_usergroup.resx">
       <DependentUpon>Form_edit_usergroup.cs</DependentUpon>
@@ -508,6 +525,17 @@
     </None>
     <None Include="Datasets\Fuel_type_ds.xss">
       <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Organisation_branch_ds.xsc">
+      <DependentUpon>Organisation_branch_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Organisation_branch_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Organisation_branch_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Organisation_branch_ds.xss">
+      <DependentUpon>Organisation_branch_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Organisation_contact_ds.xsc">
       <DependentUpon>Organisation_contact_ds.xsd</DependentUpon>

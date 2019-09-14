@@ -38,7 +38,7 @@ namespace VehicleDealership.View
 			salespersonToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "SALESPERSON");
 			financeToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "FINANCE");
 
-			vehicleToolStripMenuItem2.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "VEHICLE_IN");
+			vehicleToolStripMenuItem2.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "VEHICLE");
 
 			salesOrderToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_sales_order));
 		}
