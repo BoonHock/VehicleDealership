@@ -610,7 +610,7 @@ namespace VehicleDealership.View
 
 			bool is_person = (form_select_person_org.SelectedType == "PERSON") ? true : false;
 
-			Form_edit_salesperson form_edit = new Form_edit_salesperson(form_select_person_org.SelectedID, is_person);
+			Form_edit_salesperson form_edit = new Form_edit_salesperson(is_person ? form_select_person_org.SelectedID : form_select_person_org.SelectedBranchID, is_person);
 
 			if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_salesperson(form_edit.SalespersonID);
 		}
@@ -681,8 +681,9 @@ namespace VehicleDealership.View
 
 			grd_main.DataSource = Finance_ds.Select_finance(-1);
 
-			Class_datagridview.Hide_unnecessary_columns(grd_main, new string[] { "name",
-				"registration_no", "branch", "remark" });
+			Class_datagridview.Hide_unnecessary_columns(grd_main, "name", "branch_name", "registration_no",
+				"address", "city", "state", "postcode", "country_name", "url", "remark");
+
 			grd_main.AutoResizeColumns();
 			Apply_filter_finance();
 
@@ -696,7 +697,7 @@ namespace VehicleDealership.View
 			string str_search = txt_search.Text.Trim();
 
 			string str_filter = "[name] LIKE '%" + str_search + "%' OR [registration_no] LIKE '%" +
-				str_search + "%' OR [branch] LIKE '%" + str_search +
+				str_search + "%' OR [branch_name] LIKE '%" + str_search +
 				"%' OR [remark] LIKE '%" + str_search + "%'";
 
 			((DataTable)grd_main.DataSource).DefaultView.RowFilter = str_filter;
@@ -707,9 +708,9 @@ namespace VehicleDealership.View
 
 			if (form_select_person_org.ShowDialog() != DialogResult.OK) return;
 
-			Form_edit_finance form_edit = new Form_edit_finance(form_select_person_org.SelectedID);
+			Form_edit_finance form_edit = new Form_edit_finance(form_select_person_org.SelectedBranchID);
 
-			if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_finance(form_select_person_org.SelectedID);
+			if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_finance(form_select_person_org.SelectedBranchID);
 		}
 		private void Edit_finance(object sender, EventArgs e)
 		{

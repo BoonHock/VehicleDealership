@@ -29,7 +29,6 @@
 		private void InitializeComponent()
 		{
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.btn_view_edit = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.btn_cancel = new System.Windows.Forms.Button();
 			this.btn_ok = new System.Windows.Forms.Button();
@@ -92,24 +91,12 @@
 			// 
 			// panel1
 			// 
-			this.panel1.Controls.Add(this.btn_view_edit);
 			this.panel1.Controls.Add(this.tableLayoutPanel1);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel1.Location = new System.Drawing.Point(0, 600);
+			this.panel1.Location = new System.Drawing.Point(0, 609);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(911, 59);
+			this.panel1.Size = new System.Drawing.Size(911, 50);
 			this.panel1.TabIndex = 2;
-			// 
-			// btn_view_edit
-			// 
-			this.btn_view_edit.AutoSize = true;
-			this.btn_view_edit.Location = new System.Drawing.Point(12, 11);
-			this.btn_view_edit.Name = "btn_view_edit";
-			this.btn_view_edit.Size = new System.Drawing.Size(91, 36);
-			this.btn_view_edit.TabIndex = 1;
-			this.btn_view_edit.Text = "View/edit";
-			this.btn_view_edit.UseVisualStyleBackColor = true;
-			this.btn_view_edit.Click += new System.EventHandler(this.Btn_view_edit_Click);
 			// 
 			// tableLayoutPanel1
 			// 
@@ -119,7 +106,7 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.Controls.Add(this.btn_cancel, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.btn_ok, 0, 0);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(682, 6);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(691, 6);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -160,7 +147,7 @@
 			this.tabControl1.Location = new System.Drawing.Point(0, 0);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(911, 600);
+			this.tabControl1.Size = new System.Drawing.Size(911, 609);
 			this.tabControl1.TabIndex = 3;
 			// 
 			// tab_details
@@ -196,7 +183,7 @@
 			this.tab_details.Location = new System.Drawing.Point(4, 29);
 			this.tab_details.Name = "tab_details";
 			this.tab_details.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_details.Size = new System.Drawing.Size(903, 567);
+			this.tab_details.Size = new System.Drawing.Size(903, 576);
 			this.tab_details.TabIndex = 0;
 			this.tab_details.Text = "Details";
 			this.tab_details.UseVisualStyleBackColor = true;
@@ -563,7 +550,7 @@
 			this.tab_target.Location = new System.Drawing.Point(4, 29);
 			this.tab_target.Name = "tab_target";
 			this.tab_target.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_target.Size = new System.Drawing.Size(903, 567);
+			this.tab_target.Size = new System.Drawing.Size(903, 576);
 			this.tab_target.TabIndex = 1;
 			this.tab_target.Text = "Target";
 			this.tab_target.UseVisualStyleBackColor = true;
@@ -586,7 +573,7 @@
 			this.tabPage1.Location = new System.Drawing.Point(4, 29);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(903, 567);
+			this.tabPage1.Size = new System.Drawing.Size(903, 576);
 			this.tabPage1.TabIndex = 2;
 			this.tabPage1.Text = "Sales";
 			this.tabPage1.UseVisualStyleBackColor = true;
@@ -607,6 +594,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.CancelButton = this.btn_cancel;
 			this.ClientSize = new System.Drawing.Size(911, 659);
 			this.Controls.Add(this.tabControl1);
 			this.Controls.Add(this.panel1);
@@ -617,7 +605,6 @@
 			this.Text = "Salesperson";
 			this.Shown += new System.EventHandler(this.Form_edit_salesperson_Shown);
 			this.panel1.ResumeLayout(false);
-			this.panel1.PerformLayout();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			this.tabControl1.ResumeLayout(false);
@@ -678,7 +665,6 @@
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.LinkLabel link_lbl_url;
 		private System.Windows.Forms.Label lbl_url;
-		private System.Windows.Forms.Button btn_view_edit;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.DataGridView grd_contact;
 		private System.Windows.Forms.TabPage tabPage1;

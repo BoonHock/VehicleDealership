@@ -43,6 +43,20 @@ namespace VehicleDealership.View
 				return int_result;
 			}
 		}
+		public int SelectedBranchID
+		{
+			get
+			{
+				int int_result = 0;
+
+				if (cmb_type.ComboBox.SelectedValue.ToString().ToUpper() == "ORGANISATION" && grd_main.SelectedCells.Count > 0)
+				{
+					int_result = int.Parse(grd_main.SelectedCells[0].OwningRow.Cells["organisation_branch"].Value.ToString());
+				}
+
+				return int_result;
+			}
+		}
 		public Form_person_organisation(string select_for)
 		{
 			InitializeComponent();
@@ -94,14 +108,14 @@ namespace VehicleDealership.View
 				if (cmb_type.ComboBox.SelectedValue.ToString() == "PERSON")
 					grd_main.DataSource = Person_ds.Select_person_not_salesperson();
 				else
-					grd_main.DataSource = Organisation_ds.Select_organisation_not_salesperson();
+					grd_main.DataSource = Organisation_branch_ds.Select_organisation_not_salesperson();
 			}
 			else if (_select_for == "FINANCE")
 			{
 				cmb_type.ComboBox.SelectedValue = "ORGANISATION";
 				cmb_type.Enabled = false; // ONLY organisation allowed for finance
 
-				grd_main.DataSource = Organisation_ds.Select_organisation_not_finance();
+				grd_main.DataSource = Organisation_branch_ds.Select_organisation_not_finance();
 			}
 
 			if (cmb_type.ComboBox.SelectedValue.ToString() == "PERSON")
@@ -118,7 +132,7 @@ namespace VehicleDealership.View
 			}
 			else
 			{
-				Class_datagridview.Hide_columns(grd_main, new string[] { "organisation" });
+				Class_datagridview.Hide_columns(grd_main, new string[] { "organisation_branch", "organisation" });
 
 				if (int_id != 0)
 					Class_datagridview.Select_row_by_value(grd_main, "organisation", int_id.ToString());
@@ -131,7 +145,9 @@ namespace VehicleDealership.View
 
 			Class_datagridview.Convert_column_to_link_column(grd_main, "url", "url");
 
+			grd_main.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
 			grd_main.AutoResizeColumns();
+			grd_main.AutoResizeRows();
 			Apply_search_filter_to_grd_main();
 		}
 		private void Add_person()
@@ -162,7 +178,7 @@ namespace VehicleDealership.View
 
 			int int_org = (int)grd_main.SelectedCells[0].OwningRow.Cells["organisation"].Value;
 			if ((new Form_organisation(int_org)).ShowDialog() == DialogResult.OK)
-				Setup_grd_main(int_org);
+				Setup_grd_main((int)grd_main.SelectedCells[0].OwningRow.Cells["organisation_branch"].Value);
 		}
 		private void Add_Click(object sender, EventArgs e)
 		{
@@ -212,6 +228,11 @@ namespace VehicleDealership.View
 				Class_misc.Go_url(grd_main[e.ColumnIndex, e.RowIndex].Value.ToString());
 				Cursor = Cursors.Default;
 			}
+		}
+
+		private void Grd_main_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			btn_ok.PerformClick();
 		}
 	}
 }

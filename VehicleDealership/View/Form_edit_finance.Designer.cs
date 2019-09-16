@@ -39,12 +39,10 @@
 			this.txt_postcode = new System.Windows.Forms.TextBox();
 			this.lbl_ic_reg = new System.Windows.Forms.Label();
 			this.label16 = new System.Windows.Forms.Label();
-			this.txt_type = new System.Windows.Forms.TextBox();
 			this.txt_ic_reg = new System.Windows.Forms.TextBox();
 			this.label12 = new System.Windows.Forms.Label();
 			this.txt_state = new System.Windows.Forms.TextBox();
 			this.label11 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
 			this.txt_city = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
 			this.txt_address = new System.Windows.Forms.TextBox();
@@ -66,15 +64,15 @@
 			this.panel1.Controls.Add(this.btn_view_edit);
 			this.panel1.Controls.Add(this.tableLayoutPanel1);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel1.Location = new System.Drawing.Point(0, 435);
+			this.panel1.Location = new System.Drawing.Point(0, 395);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(902, 59);
+			this.panel1.Size = new System.Drawing.Size(883, 50);
 			this.panel1.TabIndex = 30;
 			// 
 			// btn_view_edit
 			// 
 			this.btn_view_edit.AutoSize = true;
-			this.btn_view_edit.Location = new System.Drawing.Point(12, 11);
+			this.btn_view_edit.Location = new System.Drawing.Point(12, 8);
 			this.btn_view_edit.Name = "btn_view_edit";
 			this.btn_view_edit.Size = new System.Drawing.Size(91, 36);
 			this.btn_view_edit.TabIndex = 2;
@@ -90,7 +88,7 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.Controls.Add(this.btn_cancel, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.btn_ok, 0, 0);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(673, 6);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(663, 6);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -124,7 +122,7 @@
 			// 
 			// txt_country
 			// 
-			this.txt_country.Location = new System.Drawing.Point(134, 357);
+			this.txt_country.Location = new System.Drawing.Point(134, 324);
 			this.txt_country.MaxLength = 100;
 			this.txt_country.Name = "txt_country";
 			this.txt_country.ReadOnly = true;
@@ -151,7 +149,7 @@
 			// 
 			// txt_postcode
 			// 
-			this.txt_postcode.Location = new System.Drawing.Point(134, 324);
+			this.txt_postcode.Location = new System.Drawing.Point(134, 291);
 			this.txt_postcode.MaxLength = 10;
 			this.txt_postcode.Name = "txt_postcode";
 			this.txt_postcode.ReadOnly = true;
@@ -170,20 +168,11 @@
 			// label16
 			// 
 			this.label16.AutoSize = true;
-			this.label16.Location = new System.Drawing.Point(12, 327);
+			this.label16.Location = new System.Drawing.Point(12, 294);
 			this.label16.Name = "label16";
 			this.label16.Size = new System.Drawing.Size(73, 20);
 			this.label16.TabIndex = 62;
 			this.label16.Text = "Postcode:";
-			// 
-			// txt_type
-			// 
-			this.txt_type.Location = new System.Drawing.Point(134, 78);
-			this.txt_type.MaxLength = 50;
-			this.txt_type.Name = "txt_type";
-			this.txt_type.ReadOnly = true;
-			this.txt_type.Size = new System.Drawing.Size(236, 27);
-			this.txt_type.TabIndex = 3;
 			// 
 			// txt_ic_reg
 			// 
@@ -197,7 +186,7 @@
 			// label12
 			// 
 			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(12, 360);
+			this.label12.Location = new System.Drawing.Point(12, 327);
 			this.label12.Name = "label12";
 			this.label12.Size = new System.Drawing.Size(63, 20);
 			this.label12.TabIndex = 61;
@@ -205,7 +194,7 @@
 			// 
 			// txt_state
 			// 
-			this.txt_state.Location = new System.Drawing.Point(134, 291);
+			this.txt_state.Location = new System.Drawing.Point(134, 258);
 			this.txt_state.MaxLength = 15;
 			this.txt_state.Name = "txt_state";
 			this.txt_state.ReadOnly = true;
@@ -215,24 +204,15 @@
 			// label11
 			// 
 			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(12, 294);
+			this.label11.Location = new System.Drawing.Point(12, 261);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(46, 20);
 			this.label11.TabIndex = 59;
 			this.label11.Text = "State:";
 			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(12, 81);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(44, 20);
-			this.label6.TabIndex = 54;
-			this.label6.Text = "Type:";
-			// 
 			// txt_city
 			// 
-			this.txt_city.Location = new System.Drawing.Point(134, 258);
+			this.txt_city.Location = new System.Drawing.Point(134, 225);
 			this.txt_city.MaxLength = 15;
 			this.txt_city.Name = "txt_city";
 			this.txt_city.ReadOnly = true;
@@ -242,7 +222,7 @@
 			// label10
 			// 
 			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(12, 261);
+			this.label10.Location = new System.Drawing.Point(12, 228);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(37, 20);
 			this.label10.TabIndex = 57;
@@ -250,7 +230,7 @@
 			// 
 			// txt_address
 			// 
-			this.txt_address.Location = new System.Drawing.Point(134, 111);
+			this.txt_address.Location = new System.Drawing.Point(134, 78);
 			this.txt_address.MaxLength = 255;
 			this.txt_address.Multiline = true;
 			this.txt_address.Name = "txt_address";
@@ -261,7 +241,7 @@
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(12, 114);
+			this.label9.Location = new System.Drawing.Point(12, 81);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(65, 20);
 			this.label9.TabIndex = 55;
@@ -270,7 +250,7 @@
 			// link_lbl_url
 			// 
 			this.link_lbl_url.AutoSize = true;
-			this.link_lbl_url.Location = new System.Drawing.Point(134, 393);
+			this.link_lbl_url.Location = new System.Drawing.Point(134, 360);
 			this.link_lbl_url.Name = "link_lbl_url";
 			this.link_lbl_url.Size = new System.Drawing.Size(76, 20);
 			this.link_lbl_url.TabIndex = 9;
@@ -281,7 +261,7 @@
 			// lbl_url
 			// 
 			this.lbl_url.AutoSize = true;
-			this.lbl_url.Location = new System.Drawing.Point(12, 393);
+			this.lbl_url.Location = new System.Drawing.Point(12, 360);
 			this.lbl_url.Name = "lbl_url";
 			this.lbl_url.Size = new System.Drawing.Size(38, 20);
 			this.lbl_url.TabIndex = 66;
@@ -289,10 +269,12 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.groupBox1.Controls.Add(this.grd_contact);
 			this.groupBox1.Location = new System.Drawing.Point(421, 125);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(469, 288);
+			this.groupBox1.Size = new System.Drawing.Size(450, 255);
 			this.groupBox1.TabIndex = 10;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Contact information";
@@ -307,16 +289,18 @@
 			this.grd_contact.Location = new System.Drawing.Point(3, 23);
 			this.grd_contact.Name = "grd_contact";
 			this.grd_contact.ReadOnly = true;
-			this.grd_contact.Size = new System.Drawing.Size(463, 262);
+			this.grd_contact.Size = new System.Drawing.Size(444, 229);
 			this.grd_contact.TabIndex = 1;
 			// 
 			// txt_remark
 			// 
+			this.txt_remark.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.txt_remark.Location = new System.Drawing.Point(489, 12);
 			this.txt_remark.MaxLength = 255;
 			this.txt_remark.Multiline = true;
 			this.txt_remark.Name = "txt_remark";
-			this.txt_remark.Size = new System.Drawing.Size(401, 107);
+			this.txt_remark.Size = new System.Drawing.Size(382, 107);
 			this.txt_remark.TabIndex = 0;
 			// 
 			// label17
@@ -332,7 +316,8 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(902, 494);
+			this.CancelButton = this.btn_cancel;
+			this.ClientSize = new System.Drawing.Size(883, 445);
 			this.Controls.Add(this.txt_remark);
 			this.Controls.Add(this.label17);
 			this.Controls.Add(this.groupBox1);
@@ -344,12 +329,10 @@
 			this.Controls.Add(this.txt_postcode);
 			this.Controls.Add(this.lbl_ic_reg);
 			this.Controls.Add(this.label16);
-			this.Controls.Add(this.txt_type);
 			this.Controls.Add(this.txt_ic_reg);
 			this.Controls.Add(this.label12);
 			this.Controls.Add(this.txt_state);
 			this.Controls.Add(this.label11);
-			this.Controls.Add(this.label6);
 			this.Controls.Add(this.txt_city);
 			this.Controls.Add(this.label10);
 			this.Controls.Add(this.txt_address);
@@ -383,12 +366,10 @@
 		private System.Windows.Forms.TextBox txt_postcode;
 		private System.Windows.Forms.Label lbl_ic_reg;
 		private System.Windows.Forms.Label label16;
-		private System.Windows.Forms.TextBox txt_type;
 		private System.Windows.Forms.TextBox txt_ic_reg;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.TextBox txt_state;
 		private System.Windows.Forms.Label label11;
-		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.TextBox txt_city;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.TextBox txt_address;

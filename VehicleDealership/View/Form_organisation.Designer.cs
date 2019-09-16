@@ -35,8 +35,8 @@
 			this.btn_ok = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.grd_contact = new System.Windows.Forms.DataGridView();
-			this.cms_delete = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.cms_delete_contact = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.deleteContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.label11 = new System.Windows.Forms.Label();
 			this.cmb_country = new System.Windows.Forms.ComboBox();
 			this.label4 = new System.Windows.Forms.Label();
@@ -49,14 +49,17 @@
 			this.txt_url = new System.Windows.Forms.TextBox();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.grd_branch = new System.Windows.Forms.DataGridView();
+			this.cms_delete_branch = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.deleteBranchtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.label3 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_contact)).BeginInit();
-			this.cms_delete.SuspendLayout();
+			this.cms_delete_contact.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_branch)).BeginInit();
+			this.cms_delete_branch.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panel1
@@ -65,7 +68,7 @@
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.panel1.Location = new System.Drawing.Point(0, 452);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(942, 50);
+			this.panel1.Size = new System.Drawing.Size(806, 50);
 			this.panel1.TabIndex = 51;
 			// 
 			// tableLayoutPanel1
@@ -76,7 +79,7 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.Controls.Add(this.btn_cancel, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.btn_ok, 0, 0);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(722, 6);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(586, 6);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -115,7 +118,7 @@
 			this.groupBox1.Controls.Add(this.grd_contact);
 			this.groupBox1.Location = new System.Drawing.Point(376, 12);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(554, 162);
+			this.groupBox1.Size = new System.Drawing.Size(418, 162);
 			this.groupBox1.TabIndex = 6;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Contact information";
@@ -124,28 +127,29 @@
 			// 
 			this.grd_contact.AllowUserToResizeRows = false;
 			this.grd_contact.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.grd_contact.ContextMenuStrip = this.cms_delete;
+			this.grd_contact.ContextMenuStrip = this.cms_delete_contact;
 			this.grd_contact.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.grd_contact.Location = new System.Drawing.Point(3, 23);
 			this.grd_contact.Name = "grd_contact";
-			this.grd_contact.Size = new System.Drawing.Size(548, 136);
+			this.grd_contact.Size = new System.Drawing.Size(412, 136);
 			this.grd_contact.TabIndex = 0;
 			this.grd_contact.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_contact_DataError);
 			this.grd_contact.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.Grd_contact_DefaultValuesNeeded);
 			// 
-			// cms_delete
+			// cms_delete_contact
 			// 
-			this.cms_delete.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deleteToolStripMenuItem});
-			this.cms_delete.Name = "cms_contact";
-			this.cms_delete.Size = new System.Drawing.Size(108, 26);
+			this.cms_delete_contact.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteContactToolStripMenuItem});
+			this.cms_delete_contact.Name = "cms_contact";
+			this.cms_delete_contact.Size = new System.Drawing.Size(108, 26);
+			this.cms_delete_contact.Tag = "";
 			// 
-			// deleteToolStripMenuItem
+			// deleteContactToolStripMenuItem
 			// 
-			this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-			this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.deleteToolStripMenuItem.Text = "Delete";
-			this.deleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
+			this.deleteContactToolStripMenuItem.Name = "deleteContactToolStripMenuItem";
+			this.deleteContactToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+			this.deleteContactToolStripMenuItem.Text = "Delete";
+			this.deleteContactToolStripMenuItem.Click += new System.EventHandler(this.DeleteContactToolStripMenuItem_Click);
 			// 
 			// label11
 			// 
@@ -245,7 +249,7 @@
 			this.groupBox2.Controls.Add(this.label3);
 			this.groupBox2.Location = new System.Drawing.Point(12, 180);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(914, 266);
+			this.groupBox2.Size = new System.Drawing.Size(778, 266);
 			this.groupBox2.TabIndex = 7;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Branch";
@@ -253,14 +257,29 @@
 			// grd_branch
 			// 
 			this.grd_branch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.grd_branch.ContextMenuStrip = this.cms_delete;
+			this.grd_branch.ContextMenuStrip = this.cms_delete_branch;
 			this.grd_branch.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.grd_branch.Location = new System.Drawing.Point(3, 40);
 			this.grd_branch.Name = "grd_branch";
-			this.grd_branch.Size = new System.Drawing.Size(908, 223);
+			this.grd_branch.Size = new System.Drawing.Size(772, 223);
 			this.grd_branch.TabIndex = 7;
 			this.grd_branch.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_branch_DataError);
 			this.grd_branch.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.Grd_branch_DefaultValuesNeeded);
+			// 
+			// cms_delete_branch
+			// 
+			this.cms_delete_branch.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteBranchtoolStripMenuItem});
+			this.cms_delete_branch.Name = "cms_contact";
+			this.cms_delete_branch.Size = new System.Drawing.Size(108, 26);
+			this.cms_delete_branch.Tag = "test";
+			// 
+			// deleteBranchtoolStripMenuItem
+			// 
+			this.deleteBranchtoolStripMenuItem.Name = "deleteBranchtoolStripMenuItem";
+			this.deleteBranchtoolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.deleteBranchtoolStripMenuItem.Text = "Delete";
+			this.deleteBranchtoolStripMenuItem.Click += new System.EventHandler(this.DeleteBranchtoolStripMenuItem_Click);
 			// 
 			// label3
 			// 
@@ -277,7 +296,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(942, 502);
+			this.ClientSize = new System.Drawing.Size(806, 502);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.txt_url);
@@ -292,8 +311,9 @@
 			this.Controls.Add(this.cmb_type);
 			this.Controls.Add(this.label4);
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.MinimumSize = new System.Drawing.Size(822, 541);
 			this.Name = "Form_organisation";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Organisation";
@@ -303,10 +323,11 @@
 			this.tableLayoutPanel1.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.grd_contact)).EndInit();
-			this.cms_delete.ResumeLayout(false);
+			this.cms_delete_contact.ResumeLayout(false);
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_branch)).EndInit();
+			this.cms_delete_branch.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -330,10 +351,12 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.TextBox txt_url;
-		private System.Windows.Forms.ContextMenuStrip cms_delete;
-		private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+		private System.Windows.Forms.ContextMenuStrip cms_delete_contact;
+		private System.Windows.Forms.ToolStripMenuItem deleteContactToolStripMenuItem;
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.DataGridView grd_branch;
 		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.ContextMenuStrip cms_delete_branch;
+		private System.Windows.Forms.ToolStripMenuItem deleteBranchtoolStripMenuItem;
 	}
 }

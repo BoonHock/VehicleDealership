@@ -32,11 +32,11 @@ namespace VehicleDealership.Datasets
 			}
 			return new sp_select_financeDataTable();
 		}
-		public static void Update_insert_finance(int int_org,string str_remark)
+		public static void Update_insert_finance(int int_orgbranch, string str_remark)
 		{
 			try
 			{
-				QueriesTableAdapter().sp_update_insert_finance(int_org, str_remark, Program.System_user.UserID);
+				QueriesTableAdapter().sp_update_insert_finance(int_orgbranch, str_remark, Program.System_user.UserID);
 			}
 			catch (System.Exception e)
 			{

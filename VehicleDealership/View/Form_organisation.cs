@@ -22,6 +22,7 @@ namespace VehicleDealership.View
 
 			OrganisationID = int_org;
 			grd_contact.MouseDown += Class_datagridview.MouseDown_select_cell;
+			grd_branch.MouseDown += Class_datagridview.MouseDown_select_cell;
 
 			if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_ORGANISATION))
 			{
@@ -36,6 +37,65 @@ namespace VehicleDealership.View
 				cmb_type.Enabled = false;
 				btn_ok.Visible = false;
 			}
+		}
+		private void Form_organisation_Shown(object sender, EventArgs e)
+		{
+			if (!Program.System_user.Has_permission(User_permission.VIEW_ORGANISATION) &&
+				!Program.System_user.Has_permission(User_permission.ADD_EDIT_ORGANISATION))
+			{
+				MessageBox.Show("You do not have sufficient permission to perform this action!",
+					"ACCESS DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				this.Close();
+				return;
+			}
+
+			// ##################### GRD_CONTACT #####################
+			grd_contact.DataSource = Organisation_contact_ds.Select_organisation_contact(OrganisationID);
+			grd_contact.AutoResizeColumns();
+			// database column nvarchar length is 100
+			Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_contact, "contact", "remark");
+			// allow dbnull because empty string will enter dbnull to datagridviewcolumn
+			((DataTable)grd_contact.DataSource).Columns["remark"].AllowDBNull = true;
+			// ##################### END GRD_CONTACT #####################
+
+			Country_ds.sp_select_countryDataTable dttable_country = Country_ds.Select_country();
+
+			// ##################### GRD_BRANCH #####################
+			Organisation_branch_ds.sp_select_organisation_branch_by_orgDataTable dttable_branch = Organisation_branch_ds.Select_organisation_branch_by_org(OrganisationID);
+
+			dttable_branch.Columns["address"].AllowDBNull = true;
+			dttable_branch.Columns["city"].AllowDBNull = true;
+			dttable_branch.Columns["state"].AllowDBNull = true;
+			dttable_branch.Columns["postcode"].AllowDBNull = true;
+			dttable_branch.Columns.Remove("modified_by");// no need show this
+
+			grd_branch.DataSource = dttable_branch;
+			grd_branch.Columns["organisation_branch"].Visible = false;
+			grd_branch.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
+			grd_branch.AutoResizeColumns();
+			grd_branch.AutoResizeRows();
+
+			Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_branch, "branch_name", "address", "city", "state", "postcode");
+			Class_datagridview.Replace_column_with_combobox_column(grd_branch, "country", dttable_country.Copy(), "country_name", "country");
+			grd_branch.Columns["address"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+			// ##################### END GRD_BRANCH #####################
+
+			Class_combobox.Setup_combobox(cmb_type, Organisation_type_ds.Select_organisation_type(),
+				"organisation_type_description", "organisation_type");
+			cmb_type.SelectedValue = 1; // set default value to CORPORATE
+			Class_combobox.Setup_combobox(cmb_country, dttable_country.Copy(), "country_name", "country");
+			cmb_country.SelectedValue = 133; // set default to malaysia
+
+			if (OrganisationID == 0) return; // zero means adding new org
+
+			Organisation_ds.sp_select_organisationDataTable dttable_org = Organisation_ds.Select_organisation(OrganisationID);
+			if (dttable_org.Rows.Count == 0) return;
+
+			txt_name.Text = dttable_org[0].name;
+			txt_registration_no.Text = dttable_org[0].registration_no;
+			cmb_country.SelectedValue = dttable_org[0].country;
+			cmb_type.SelectedValue = dttable_org[0].organisation_type;
+			txt_url.Text = dttable_org[0].url;
 		}
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
@@ -54,7 +114,7 @@ namespace VehicleDealership.View
 
 			Organisation_contact_ds.sp_select_organisation_contactDataTable dttable_contact = (Organisation_contact_ds.sp_select_organisation_contactDataTable)grd_contact.DataSource;
 			dttable_contact.AcceptChanges();
-			Organisation_branch_ds.sp_select_organisation_branchDataTable dttable_branch = (Organisation_branch_ds.sp_select_organisation_branchDataTable)grd_branch.DataSource;
+			Organisation_branch_ds.sp_select_organisation_branch_by_orgDataTable dttable_branch = (Organisation_branch_ds.sp_select_organisation_branch_by_orgDataTable)grd_branch.DataSource;
 			dttable_branch.AcceptChanges();
 
 			if (dttable_branch.Rows.Count == 0)
@@ -123,6 +183,16 @@ namespace VehicleDealership.View
 				return;
 			}
 
+			Update_contact();
+			Update_branch();
+
+			this.DialogResult = DialogResult.OK;
+			this.Close();
+		}
+		private void Update_contact()
+		{
+			DataTable dttable_contact = (DataTable)grd_contact.DataSource;
+
 			using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.VehicleDealershipConnectionString))
 			{
 				conn.Open();
@@ -131,7 +201,6 @@ namespace VehicleDealership.View
 				{
 					bulkCopy.DestinationTableName = "[misc].[bulkcopy_table]";
 
-					// upload contact information
 					Bulkcopy_table_ds.Delete_by_user();
 					try
 					{
@@ -151,6 +220,21 @@ namespace VehicleDealership.View
 						MessageBox.Show("An error has occurred. Contact cannot be updated. \n\n Message: " +
 							ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					}
+				}
+				conn.Close();
+			}
+		}
+		private void Update_branch()
+		{
+			DataTable dttable_branch = (DataTable)grd_branch.DataSource;
+
+			using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.VehicleDealershipConnectionString))
+			{
+				conn.Open();
+
+				using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn))
+				{
+					bulkCopy.DestinationTableName = "[misc].[bulkcopy_table]";
 
 					// upload branch information
 					Bulkcopy_table_ds.Delete_by_user();
@@ -160,6 +244,7 @@ namespace VehicleDealership.View
 						dt_col1.DefaultValue = Program.System_user.UserID;
 						dttable_branch.Columns.Add(dt_col1);
 
+						bulkCopy.ColumnMappings.Clear();
 						bulkCopy.ColumnMappings.Add("branch_name", "nvarchar1");
 						bulkCopy.ColumnMappings.Add("address", "nvarchar2");
 						bulkCopy.ColumnMappings.Add("city", "nvarchar3");
@@ -168,7 +253,7 @@ namespace VehicleDealership.View
 						bulkCopy.ColumnMappings.Add("organisation_branch", "int1");
 						bulkCopy.ColumnMappings.Add("country", "int2");
 						bulkCopy.ColumnMappings.Add("modified_by", "created_by");
-						bulkCopy.WriteToServer(dttable_contact);
+						bulkCopy.WriteToServer(dttable_branch);
 
 						Organisation_branch_ds.Update_insert_organisation_branch(OrganisationID);
 					}
@@ -180,90 +265,29 @@ namespace VehicleDealership.View
 				}
 				conn.Close();
 			}
-
-			this.DialogResult = DialogResult.OK;
-			this.Close();
 		}
 		private void Btn_cancel_Click(object sender, EventArgs e)
 		{
 			this.DialogResult = DialogResult.Cancel;
 			this.Close();
 		}
-
-		private void Form_organisation_Shown(object sender, EventArgs e)
-		{
-			if (!Program.System_user.Has_permission(User_permission.VIEW_ORGANISATION) &&
-				!Program.System_user.Has_permission(User_permission.ADD_EDIT_ORGANISATION))
-			{
-				MessageBox.Show("You do not have sufficient permission to perform this action!",
-					"ACCESS DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				this.Close();
-				return;
-			}
-
-			// ##################### GRD_CONTACT #####################
-			grd_contact.DataSource = Organisation_contact_ds.Select_organisation_contact(OrganisationID);
-			grd_contact.AutoResizeColumns();
-			// database column nvarchar length is 100
-			Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_contact, "contact", "remark");
-			// allow dbnull because empty string will enter dbnull to datagridviewcolumn
-			((DataTable)grd_contact.DataSource).Columns["remark"].AllowDBNull = true;
-			// ##################### END GRD_CONTACT #####################
-
-			Country_ds.sp_select_countryDataTable dttable_country = Country_ds.Select_country();
-
-			// ##################### GRD_BRANCH #####################
-			Organisation_branch_ds.sp_select_organisation_branchDataTable dttable_branch = Organisation_branch_ds.Select_organisation_branch(OrganisationID);
-
-			dttable_branch.Columns["address"].AllowDBNull = true;
-			dttable_branch.Columns["city"].AllowDBNull = true;
-			dttable_branch.Columns["state"].AllowDBNull = true;
-			dttable_branch.Columns["postcode"].AllowDBNull = true;
-			dttable_branch.Columns.Remove("modified_by");// no need show this
-
-			grd_branch.DataSource = dttable_branch;
-			grd_branch.Columns["organisation_branch"].Visible = false;
-			grd_branch.AutoResizeColumns();
-			grd_branch.AutoResizeRows();
-
-			Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_branch, "branch_name", "address", "city", "state", "postcode");
-			Class_datagridview.Replace_column_with_combobox_column(grd_branch, "country", dttable_country.Copy(), "country_name", "country");
-			grd_branch.Columns["address"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-			// ##################### END GRD_BRANCH #####################
-
-			Class_combobox.Setup_combobox(cmb_type, Organisation_type_ds.Select_organisation_type(),
-				"organisation_type_description", "organisation_type");
-			cmb_type.SelectedValue = 1; // set default value to CORPORATE
-			Class_combobox.Setup_combobox(cmb_country, dttable_country.Copy(), "country_name", "country");
-			cmb_country.SelectedValue = 133; // set default to malaysia
-
-			if (OrganisationID == 0) return; // zero means adding new org
-
-			Organisation_ds.sp_select_organisationDataTable dttable_org = Organisation_ds.Select_organisation(OrganisationID);
-			if (dttable_org.Rows.Count == 0) return;
-
-			txt_name.Text = dttable_org[0].name;
-			txt_registration_no.Text = dttable_org[0].registration_no;
-			cmb_country.SelectedValue = dttable_org[0].country;
-			cmb_type.SelectedValue = dttable_org[0].organisation_type;
-			txt_url.Text = dttable_org[0].url;
-		}
 		private void Grd_contact_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
 		{
 			e.Row.Cells["remark"].Value = "";
 		}
-
 		private void Grd_contact_DataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
 			MessageBox.Show("Contact is required.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			e.Cancel = true;
 		}
-
-		private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
+		private void DeleteContactToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Class_datagridview.Remove_row_of_selected_cells((DataGridView)sender);
+			Class_datagridview.Remove_row_of_selected_cells(grd_contact);
 		}
-
+		private void DeleteBranchtoolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Class_datagridview.Remove_row_of_selected_cells(grd_branch);
+		}
 		private void Grd_branch_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
 		{
 			e.Row.Cells["branch_name"].Value = "";

@@ -31,12 +31,12 @@ namespace VehicleDealership.Datasets
 			}
 			return new sp_select_salespersonDataTable();
 		}
-		public static int Insert_salesperson(int int_person_org, bool is_person, string str_location,
+		public static int Insert_salesperson(int int_person_orgbranch, bool is_person, string str_location,
 			DateTime date_join, DateTime? date_leave, string str_remark)
 		{
 			try
 			{
-				return int.Parse(QueriesTableAdapter().sp_insert_salesperson(int_person_org, is_person,
+				return int.Parse(QueriesTableAdapter().sp_insert_salesperson(int_person_orgbranch, is_person,
 					str_location, date_join, date_leave, str_remark, Program.System_user.UserID).ToString());
 			}
 			catch (System.Exception e)

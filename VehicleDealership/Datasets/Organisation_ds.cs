@@ -6,10 +6,6 @@ namespace VehicleDealership.Datasets
 
 	partial class Organisation_ds
 	{
-		private static Organisation_dsTableAdapters.Organisation_simplifiedTableAdapter Organisation_SimplifiedTableAdapter()
-		{
-			return new Organisation_dsTableAdapters.Organisation_simplifiedTableAdapter();
-		}
 		private static Organisation_dsTableAdapters.sp_select_organisationTableAdapter Select_OrganisationTableAdapter()
 		{
 			return new Organisation_dsTableAdapters.sp_select_organisationTableAdapter();
@@ -17,32 +13,6 @@ namespace VehicleDealership.Datasets
 		private static Organisation_dsTableAdapters.QueriesTableAdapter QueriesTableAdapter()
 		{
 			return new Organisation_dsTableAdapters.QueriesTableAdapter();
-		}
-		public static Organisation_simplifiedDataTable Select_organisation_not_salesperson()
-		{
-			try
-			{
-				return Organisation_SimplifiedTableAdapter().sp_select_organisation_not_salesperson();
-			}
-			catch (System.Exception e)
-			{
-				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
-					MethodBase.GetCurrentMethod().Name, e.Message);
-			}
-			return new Organisation_simplifiedDataTable();
-		}
-		public static Organisation_simplifiedDataTable Select_organisation_not_finance()
-		{
-			try
-			{
-				return Organisation_SimplifiedTableAdapter().sp_select_organisation_not_finance();
-			}
-			catch (System.Exception e)
-			{
-				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
-					MethodBase.GetCurrentMethod().Name, e.Message);
-			}
-			return new Organisation_simplifiedDataTable();
 		}
 		public static sp_select_organisationDataTable Select_organisation(int int_org)
 		{

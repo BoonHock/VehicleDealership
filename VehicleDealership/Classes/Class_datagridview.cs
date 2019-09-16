@@ -103,7 +103,7 @@ namespace VehicleDealership.Classes
 		/// </summary>
 		/// <param name="grd"></param>
 		/// <param name="cols_to_view"></param>
-		public static void Hide_unnecessary_columns(DataGridView grd, string[] cols_to_view)
+		public static void Hide_unnecessary_columns(DataGridView grd, params string[] cols_to_view)
 		{
 			foreach (DataGridViewColumn grd_col in grd.Columns)
 			{
