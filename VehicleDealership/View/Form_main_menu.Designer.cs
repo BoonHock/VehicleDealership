@@ -38,10 +38,11 @@
 			this.brandGroupModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.transmissionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.fuelTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.colorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.colourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salespersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.financeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.vehicleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.vehicleToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salesOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +57,7 @@
 			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ssl_usergroup = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ssl_status = new System.Windows.Forms.ToolStripStatusLabel();
-			this.vehicleToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.locationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.main_menu_strip.SuspendLayout();
 			this.log_in_menustrip.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
@@ -83,9 +84,10 @@
 			this.administrationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.permissionToolStripMenuItem,
             this.vehicleToolStripMenuItem,
-            this.colorToolStripMenuItem,
+            this.colourToolStripMenuItem,
             this.salespersonToolStripMenuItem,
-            this.financeToolStripMenuItem});
+            this.financeToolStripMenuItem,
+            this.locationToolStripMenuItem});
 			this.administrationToolStripMenuItem.Name = "administrationToolStripMenuItem";
 			this.administrationToolStripMenuItem.Size = new System.Drawing.Size(98, 19);
 			this.administrationToolStripMenuItem.Text = "Administration";
@@ -96,7 +98,7 @@
             this.usersToolStripMenuItem,
             this.userGroupsToolStripMenuItem});
 			this.permissionToolStripMenuItem.Name = "permissionToolStripMenuItem";
-			this.permissionToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+			this.permissionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.permissionToolStripMenuItem.Text = "Permission";
 			// 
 			// usersToolStripMenuItem
@@ -118,7 +120,7 @@
             this.transmissionToolStripMenuItem,
             this.fuelTypeToolStripMenuItem});
 			this.vehicleToolStripMenuItem.Name = "vehicleToolStripMenuItem";
-			this.vehicleToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+			this.vehicleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.vehicleToolStripMenuItem.Text = "Vehicle";
 			// 
 			// brandGroupModelToolStripMenuItem
@@ -139,22 +141,22 @@
 			this.fuelTypeToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
 			this.fuelTypeToolStripMenuItem.Text = "Fuel type";
 			// 
-			// colorToolStripMenuItem
+			// colourToolStripMenuItem
 			// 
-			this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
-			this.colorToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-			this.colorToolStripMenuItem.Text = "Color";
+			this.colourToolStripMenuItem.Name = "colourToolStripMenuItem";
+			this.colourToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.colourToolStripMenuItem.Text = "Colour";
 			// 
 			// salespersonToolStripMenuItem
 			// 
 			this.salespersonToolStripMenuItem.Name = "salespersonToolStripMenuItem";
-			this.salespersonToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+			this.salespersonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.salespersonToolStripMenuItem.Text = "Salesperson";
 			// 
 			// financeToolStripMenuItem
 			// 
 			this.financeToolStripMenuItem.Name = "financeToolStripMenuItem";
-			this.financeToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+			this.financeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.financeToolStripMenuItem.Text = "Finance";
 			// 
 			// vehicleToolStripMenuItem1
@@ -164,6 +166,12 @@
 			this.vehicleToolStripMenuItem1.Name = "vehicleToolStripMenuItem1";
 			this.vehicleToolStripMenuItem1.Size = new System.Drawing.Size(57, 19);
 			this.vehicleToolStripMenuItem1.Text = "Vehicle";
+			// 
+			// vehicleToolStripMenuItem2
+			// 
+			this.vehicleToolStripMenuItem2.Name = "vehicleToolStripMenuItem2";
+			this.vehicleToolStripMenuItem2.Size = new System.Drawing.Size(112, 22);
+			this.vehicleToolStripMenuItem2.Text = "Vehicle";
 			// 
 			// salesToolStripMenuItem
 			// 
@@ -287,11 +295,11 @@
 			this.ssl_status.Size = new System.Drawing.Size(43, 19);
 			this.ssl_status.Text = "Ready";
 			// 
-			// vehicleToolStripMenuItem2
+			// locationToolStripMenuItem
 			// 
-			this.vehicleToolStripMenuItem2.Name = "vehicleToolStripMenuItem2";
-			this.vehicleToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-			this.vehicleToolStripMenuItem2.Text = "Vehicle";
+			this.locationToolStripMenuItem.Name = "locationToolStripMenuItem";
+			this.locationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.locationToolStripMenuItem.Text = "Location";
 			// 
 			// Form_main_menu
 			// 
@@ -343,7 +351,7 @@
 		private System.Windows.Forms.ToolStripMenuItem fuelTypeToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem transmissionToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem vehicleToolStripMenuItem1;
-		private System.Windows.Forms.ToolStripMenuItem colorToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem colourToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem salespersonToolStripMenuItem;
@@ -352,5 +360,6 @@
 		private System.Windows.Forms.ToolStripMenuItem userGroupsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem financeToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem vehicleToolStripMenuItem2;
+		private System.Windows.Forms.ToolStripMenuItem locationToolStripMenuItem;
 	}
 }

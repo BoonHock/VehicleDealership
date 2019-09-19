@@ -20,17 +20,17 @@ namespace VehicleDealership.Datasets {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("Color_ds")]
+    [global::System.Xml.Serialization.XmlRootAttribute("Location_ds")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class Color_ds : global::System.Data.DataSet {
+    public partial class Location_ds : global::System.Data.DataSet {
         
-        private sp_select_colorDataTable tablesp_select_color;
+        private sp_select_locationDataTable tablesp_select_location;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public Color_ds() {
+        public Location_ds() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace VehicleDealership.Datasets {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected Color_ds(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected Location_ds(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace VehicleDealership.Datasets {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["sp_select_color"] != null)) {
-                    base.Tables.Add(new sp_select_colorDataTable(ds.Tables["sp_select_color"]));
+                if ((ds.Tables["sp_select_location"] != null)) {
+                    base.Tables.Add(new sp_select_locationDataTable(ds.Tables["sp_select_location"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace VehicleDealership.Datasets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public sp_select_colorDataTable sp_select_color {
+        public sp_select_locationDataTable sp_select_location {
             get {
-                return this.tablesp_select_color;
+                return this.tablesp_select_location;
             }
         }
         
@@ -127,7 +127,7 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            Color_ds cln = ((Color_ds)(base.Clone()));
+            Location_ds cln = ((Location_ds)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace VehicleDealership.Datasets {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["sp_select_color"] != null)) {
-                    base.Tables.Add(new sp_select_colorDataTable(ds.Tables["sp_select_color"]));
+                if ((ds.Tables["sp_select_location"] != null)) {
+                    base.Tables.Add(new sp_select_locationDataTable(ds.Tables["sp_select_location"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablesp_select_color = ((sp_select_colorDataTable)(base.Tables["sp_select_color"]));
+            this.tablesp_select_location = ((sp_select_locationDataTable)(base.Tables["sp_select_location"]));
             if ((initTable == true)) {
-                if ((this.tablesp_select_color != null)) {
-                    this.tablesp_select_color.InitVars();
+                if ((this.tablesp_select_location != null)) {
+                    this.tablesp_select_location.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "Color_ds";
+            this.DataSetName = "Location_ds";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/Color_ds.xsd";
+            this.Namespace = "http://tempuri.org/Location_ds.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablesp_select_color = new sp_select_colorDataTable();
-            base.Tables.Add(this.tablesp_select_color);
+            this.tablesp_select_location = new sp_select_locationDataTable();
+            base.Tables.Add(this.tablesp_select_location);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializesp_select_color() {
+        private bool ShouldSerializesp_select_location() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            Color_ds ds = new Color_ds();
+            Location_ds ds = new Location_ds();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,25 +270,25 @@ namespace VehicleDealership.Datasets {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void sp_select_colorRowChangeEventHandler(object sender, sp_select_colorRowChangeEvent e);
+        public delegate void sp_select_locationRowChangeEventHandler(object sender, sp_select_locationRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class sp_select_colorDataTable : global::System.Data.TypedTableBase<sp_select_colorRow> {
+        public partial class sp_select_locationDataTable : global::System.Data.TypedTableBase<sp_select_locationRow> {
             
-            private global::System.Data.DataColumn columncolor;
+            private global::System.Data.DataColumn columnlocation;
             
-            private global::System.Data.DataColumn columncolor_name;
+            private global::System.Data.DataColumn columnlocation_name;
             
             private global::System.Data.DataColumn columnmodified_by;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_colorDataTable() {
-                this.TableName = "sp_select_color";
+            public sp_select_locationDataTable() {
+                this.TableName = "sp_select_location";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -296,7 +296,7 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal sp_select_colorDataTable(global::System.Data.DataTable table) {
+            internal sp_select_locationDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -313,24 +313,24 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected sp_select_colorDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected sp_select_locationDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn colorColumn {
+            public global::System.Data.DataColumn locationColumn {
                 get {
-                    return this.columncolor;
+                    return this.columnlocation;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn color_nameColumn {
+            public global::System.Data.DataColumn location_nameColumn {
                 get {
-                    return this.columncolor_name;
+                    return this.columnlocation_name;
                 }
             }
             
@@ -353,54 +353,54 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_colorRow this[int index] {
+            public sp_select_locationRow this[int index] {
                 get {
-                    return ((sp_select_colorRow)(this.Rows[index]));
+                    return ((sp_select_locationRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_colorRowChangeEventHandler sp_select_colorRowChanging;
+            public event sp_select_locationRowChangeEventHandler sp_select_locationRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_colorRowChangeEventHandler sp_select_colorRowChanged;
+            public event sp_select_locationRowChangeEventHandler sp_select_locationRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_colorRowChangeEventHandler sp_select_colorRowDeleting;
+            public event sp_select_locationRowChangeEventHandler sp_select_locationRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_colorRowChangeEventHandler sp_select_colorRowDeleted;
+            public event sp_select_locationRowChangeEventHandler sp_select_locationRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Addsp_select_colorRow(sp_select_colorRow row) {
+            public void Addsp_select_locationRow(sp_select_locationRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_colorRow Addsp_select_colorRow(string color_name, string modified_by) {
-                sp_select_colorRow rowsp_select_colorRow = ((sp_select_colorRow)(this.NewRow()));
+            public sp_select_locationRow Addsp_select_locationRow(string location_name, int modified_by) {
+                sp_select_locationRow rowsp_select_locationRow = ((sp_select_locationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        color_name,
+                        location_name,
                         modified_by};
-                rowsp_select_colorRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowsp_select_colorRow);
-                return rowsp_select_colorRow;
+                rowsp_select_locationRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowsp_select_locationRow);
+                return rowsp_select_locationRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_colorRow FindBycolor(int color) {
-                return ((sp_select_colorRow)(this.Rows.Find(new object[] {
-                            color})));
+            public sp_select_locationRow FindBylocation(int location) {
+                return ((sp_select_locationRow)(this.Rows.Find(new object[] {
+                            location})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                sp_select_colorDataTable cln = ((sp_select_colorDataTable)(base.Clone()));
+                sp_select_locationDataTable cln = ((sp_select_locationDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -408,64 +408,63 @@ namespace VehicleDealership.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new sp_select_colorDataTable();
+                return new sp_select_locationDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columncolor = base.Columns["color"];
-                this.columncolor_name = base.Columns["color_name"];
+                this.columnlocation = base.Columns["location"];
+                this.columnlocation_name = base.Columns["location_name"];
                 this.columnmodified_by = base.Columns["modified_by"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columncolor = new global::System.Data.DataColumn("color", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncolor);
-                this.columncolor_name = new global::System.Data.DataColumn("color_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncolor_name);
-                this.columnmodified_by = new global::System.Data.DataColumn("modified_by", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnlocation = new global::System.Data.DataColumn("location", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlocation);
+                this.columnlocation_name = new global::System.Data.DataColumn("location_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlocation_name);
+                this.columnmodified_by = new global::System.Data.DataColumn("modified_by", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmodified_by);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columncolor}, true));
-                this.columncolor.AutoIncrement = true;
-                this.columncolor.AutoIncrementSeed = -1;
-                this.columncolor.AutoIncrementStep = -1;
-                this.columncolor.AllowDBNull = false;
-                this.columncolor.ReadOnly = true;
-                this.columncolor.Unique = true;
-                this.columncolor_name.AllowDBNull = false;
-                this.columncolor_name.MaxLength = 20;
+                                this.columnlocation}, true));
+                this.columnlocation.AutoIncrement = true;
+                this.columnlocation.AutoIncrementSeed = -1;
+                this.columnlocation.AutoIncrementStep = -1;
+                this.columnlocation.AllowDBNull = false;
+                this.columnlocation.ReadOnly = true;
+                this.columnlocation.Unique = true;
+                this.columnlocation_name.AllowDBNull = false;
+                this.columnlocation_name.MaxLength = 50;
                 this.columnmodified_by.AllowDBNull = false;
-                this.columnmodified_by.MaxLength = 200;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_colorRow Newsp_select_colorRow() {
-                return ((sp_select_colorRow)(this.NewRow()));
+            public sp_select_locationRow Newsp_select_locationRow() {
+                return ((sp_select_locationRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new sp_select_colorRow(builder);
+                return new sp_select_locationRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(sp_select_colorRow);
+                return typeof(sp_select_locationRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.sp_select_colorRowChanged != null)) {
-                    this.sp_select_colorRowChanged(this, new sp_select_colorRowChangeEvent(((sp_select_colorRow)(e.Row)), e.Action));
+                if ((this.sp_select_locationRowChanged != null)) {
+                    this.sp_select_locationRowChanged(this, new sp_select_locationRowChangeEvent(((sp_select_locationRow)(e.Row)), e.Action));
                 }
             }
             
@@ -473,8 +472,8 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.sp_select_colorRowChanging != null)) {
-                    this.sp_select_colorRowChanging(this, new sp_select_colorRowChangeEvent(((sp_select_colorRow)(e.Row)), e.Action));
+                if ((this.sp_select_locationRowChanging != null)) {
+                    this.sp_select_locationRowChanging(this, new sp_select_locationRowChangeEvent(((sp_select_locationRow)(e.Row)), e.Action));
                 }
             }
             
@@ -482,8 +481,8 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.sp_select_colorRowDeleted != null)) {
-                    this.sp_select_colorRowDeleted(this, new sp_select_colorRowChangeEvent(((sp_select_colorRow)(e.Row)), e.Action));
+                if ((this.sp_select_locationRowDeleted != null)) {
+                    this.sp_select_locationRowDeleted(this, new sp_select_locationRowChangeEvent(((sp_select_locationRow)(e.Row)), e.Action));
                 }
             }
             
@@ -491,14 +490,14 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.sp_select_colorRowDeleting != null)) {
-                    this.sp_select_colorRowDeleting(this, new sp_select_colorRowChangeEvent(((sp_select_colorRow)(e.Row)), e.Action));
+                if ((this.sp_select_locationRowDeleting != null)) {
+                    this.sp_select_locationRowDeleting(this, new sp_select_locationRowChangeEvent(((sp_select_locationRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Removesp_select_colorRow(sp_select_colorRow row) {
+            public void Removesp_select_locationRow(sp_select_locationRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -507,7 +506,7 @@ namespace VehicleDealership.Datasets {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Color_ds ds = new Color_ds();
+                Location_ds ds = new Location_ds();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -525,7 +524,7 @@ namespace VehicleDealership.Datasets {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "sp_select_colorDataTable";
+                attribute2.FixedValue = "sp_select_locationDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -569,47 +568,47 @@ namespace VehicleDealership.Datasets {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class sp_select_colorRow : global::System.Data.DataRow {
+        public partial class sp_select_locationRow : global::System.Data.DataRow {
             
-            private sp_select_colorDataTable tablesp_select_color;
+            private sp_select_locationDataTable tablesp_select_location;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal sp_select_colorRow(global::System.Data.DataRowBuilder rb) : 
+            internal sp_select_locationRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablesp_select_color = ((sp_select_colorDataTable)(this.Table));
+                this.tablesp_select_location = ((sp_select_locationDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int color {
+            public int location {
                 get {
-                    return ((int)(this[this.tablesp_select_color.colorColumn]));
+                    return ((int)(this[this.tablesp_select_location.locationColumn]));
                 }
                 set {
-                    this[this.tablesp_select_color.colorColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string color_name {
-                get {
-                    return ((string)(this[this.tablesp_select_color.color_nameColumn]));
-                }
-                set {
-                    this[this.tablesp_select_color.color_nameColumn] = value;
+                    this[this.tablesp_select_location.locationColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string modified_by {
+            public string location_name {
                 get {
-                    return ((string)(this[this.tablesp_select_color.modified_byColumn]));
+                    return ((string)(this[this.tablesp_select_location.location_nameColumn]));
                 }
                 set {
-                    this[this.tablesp_select_color.modified_byColumn] = value;
+                    this[this.tablesp_select_location.location_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int modified_by {
+                get {
+                    return ((int)(this[this.tablesp_select_location.modified_byColumn]));
+                }
+                set {
+                    this[this.tablesp_select_location.modified_byColumn] = value;
                 }
             }
         }
@@ -618,22 +617,22 @@ namespace VehicleDealership.Datasets {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class sp_select_colorRowChangeEvent : global::System.EventArgs {
+        public class sp_select_locationRowChangeEvent : global::System.EventArgs {
             
-            private sp_select_colorRow eventRow;
+            private sp_select_locationRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_colorRowChangeEvent(sp_select_colorRow row, global::System.Data.DataRowAction action) {
+            public sp_select_locationRowChangeEvent(sp_select_locationRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_colorRow Row {
+            public sp_select_locationRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -649,7 +648,7 @@ namespace VehicleDealership.Datasets {
         }
     }
 }
-namespace VehicleDealership.Datasets.Color_dsTableAdapters {
+namespace VehicleDealership.Datasets.Location_dsTableAdapters {
     
     
     /// <summary>
@@ -661,7 +660,7 @@ namespace VehicleDealership.Datasets.Color_dsTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class sp_select_colorTableAdapter : global::System.ComponentModel.Component {
+    public partial class sp_select_locationTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -675,7 +674,7 @@ namespace VehicleDealership.Datasets.Color_dsTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public sp_select_colorTableAdapter() {
+        public sp_select_locationTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -772,9 +771,9 @@ namespace VehicleDealership.Datasets.Color_dsTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "sp_select_color";
-            tableMapping.ColumnMappings.Add("color", "color");
-            tableMapping.ColumnMappings.Add("color_name", "color_name");
+            tableMapping.DataSetTable = "sp_select_location";
+            tableMapping.ColumnMappings.Add("location", "location");
+            tableMapping.ColumnMappings.Add("location_name", "location_name");
             tableMapping.ColumnMappings.Add("modified_by", "modified_by");
             this._adapter.TableMappings.Add(tableMapping);
         }
@@ -792,7 +791,7 @@ namespace VehicleDealership.Datasets.Color_dsTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "misc.sp_select_color";
+            this._commandCollection[0].CommandText = "misc.sp_select_location";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -801,9 +800,9 @@ namespace VehicleDealership.Datasets.Color_dsTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Color_ds.sp_select_colorDataTable GetData() {
+        public virtual Location_ds.sp_select_locationDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Color_ds.sp_select_colorDataTable dataTable = new Color_ds.sp_select_colorDataTable();
+            Location_ds.sp_select_locationDataTable dataTable = new Location_ds.sp_select_locationDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -839,13 +838,13 @@ namespace VehicleDealership.Datasets.Color_dsTableAdapters {
             this._commandCollection = new global::System.Data.IDbCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "misc.sp_delete_color";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "misc.sp_delete_location";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@uid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandText = "misc.sp_update_insert_color";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandText = "misc.sp_update_insert_location";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@uid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -854,7 +853,7 @@ namespace VehicleDealership.Datasets.Color_dsTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int sp_delete_color(global::System.Nullable<int> uid) {
+        public virtual int sp_delete_location(global::System.Nullable<int> uid) {
             global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
             if ((uid.HasValue == true)) {
                 command.Parameters[1].Value = ((int)(uid.Value));
@@ -882,7 +881,7 @@ namespace VehicleDealership.Datasets.Color_dsTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int sp_update_insert_color(global::System.Nullable<int> uid) {
+        public virtual int sp_update_insert_location(global::System.Nullable<int> uid) {
             global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[1]));
             if ((uid.HasValue == true)) {
                 command.Parameters[1].Value = ((int)(uid.Value));
@@ -976,7 +975,7 @@ namespace VehicleDealership.Datasets.Color_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(Color_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(Location_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -986,7 +985,7 @@ namespace VehicleDealership.Datasets.Color_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(Color_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(Location_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -996,7 +995,7 @@ namespace VehicleDealership.Datasets.Color_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(Color_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(Location_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1030,7 +1029,7 @@ namespace VehicleDealership.Datasets.Color_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(Color_ds dataSet) {
+        public virtual int UpdateAll(Location_ds dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

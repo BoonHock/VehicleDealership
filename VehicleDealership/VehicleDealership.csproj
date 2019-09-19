@@ -101,13 +101,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Bulkcopy_table_ds.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\Color_ds.cs">
-      <DependentUpon>Color_ds.xsd</DependentUpon>
+    <Compile Include="Datasets\Colour_ds.cs">
+      <DependentUpon>Colour_ds.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\Color_ds.Designer.cs">
+    <Compile Include="Datasets\Colour_ds.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Color_ds.xsd</DependentUpon>
+      <DependentUpon>Colour_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\Combobox_options_ds.cs">
       <DependentUpon>Combobox_options_ds.xsd</DependentUpon>
@@ -140,6 +140,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Location_ds.cs">
+      <DependentUpon>Location_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Location_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Location_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\Organisation_branch_ds.cs">
       <DependentUpon>Organisation_branch_ds.xsd</DependentUpon>
@@ -291,6 +299,12 @@
     <Compile Include="View\Form_datagridview.Designer.cs">
       <DependentUpon>Form_datagridview.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Form_datagridview_select.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form_datagridview_select.Designer.cs">
+      <DependentUpon>Form_datagridview_select.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Form_edit_finance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -409,6 +423,9 @@
     <EmbeddedResource Include="View\Form_datagridview.resx">
       <DependentUpon>Form_datagridview.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Form_datagridview_select.resx">
+      <DependentUpon>Form_datagridview_select.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Form_edit_finance.resx">
       <DependentUpon>Form_edit_finance.cs</DependentUpon>
     </EmbeddedResource>
@@ -471,16 +488,16 @@
     <None Include="Datasets\Bulkcopy_table_ds.xss">
       <DependentUpon>Bulkcopy_table_ds.xsd</DependentUpon>
     </None>
-    <None Include="Datasets\Color_ds.xsc">
-      <DependentUpon>Color_ds.xsd</DependentUpon>
+    <None Include="Datasets\Colour_ds.xsc">
+      <DependentUpon>Colour_ds.xsd</DependentUpon>
     </None>
-    <None Include="Datasets\Color_ds.xsd">
+    <None Include="Datasets\Colour_ds.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Color_ds.Designer.cs</LastGenOutput>
+      <LastGenOutput>Colour_ds.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Datasets\Color_ds.xss">
-      <DependentUpon>Color_ds.xsd</DependentUpon>
+    <None Include="Datasets\Colour_ds.xss">
+      <DependentUpon>Colour_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Combobox_options_ds.xsc">
       <DependentUpon>Combobox_options_ds.xsd</DependentUpon>
@@ -525,6 +542,17 @@
     </None>
     <None Include="Datasets\Fuel_type_ds.xss">
       <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Location_ds.xsc">
+      <DependentUpon>Location_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Location_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Location_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Location_ds.xss">
+      <DependentUpon>Location_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Organisation_branch_ds.xsc">
       <DependentUpon>Organisation_branch_ds.xsd</DependentUpon>

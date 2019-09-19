@@ -34,9 +34,10 @@ namespace VehicleDealership.View
 			brandGroupModelToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_vehicle_template));
 			transmissionToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "TRANSMISSION");
 			fuelTypeToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "FUEL_TYPE");
-			colorToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "COLOR");
+			colourToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "COLOUR");
 			salespersonToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "SALESPERSON");
 			financeToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "FINANCE");
+			locationToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "LOCATION");
 
 			vehicleToolStripMenuItem2.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "VEHICLE");
 
@@ -65,9 +66,9 @@ namespace VehicleDealership.View
 			fuelTypeToolStripMenuItem.Enabled = (
 				Program.System_user.Has_permission(User_permission.ADD_EDIT_FUEL_TYPE) ||
 				Program.System_user.Has_permission(User_permission.DELETE_FUEL_TYPE));
-			colorToolStripMenuItem.Enabled = (
-				Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOR) ||
-				Program.System_user.Has_permission(User_permission.DELETE_COLOR));
+			colourToolStripMenuItem.Enabled = (
+				Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOUR) ||
+				Program.System_user.Has_permission(User_permission.DELETE_COLOUR));
 			salespersonToolStripMenuItem.Enabled = (
 				Program.System_user.Has_permission(User_permission.ADD_EDIT_SALESPERSON) ||
 				Program.System_user.Has_permission(User_permission.VIEW_SALESPERSON));

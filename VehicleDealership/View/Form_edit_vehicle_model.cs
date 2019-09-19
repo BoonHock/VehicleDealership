@@ -17,7 +17,7 @@ namespace VehicleDealership.View
 	{
 		const int GRD_IMAGE_ROW_HEIGHT = 60;
 
-		private string _str_ori_edit_model_name = "";
+		readonly string _str_ori_edit_model_name = "";
 		private vehicle_model_image_ds.sp_select_vehicle_model_imageDataTable dttable_img = new vehicle_model_image_ds.sp_select_vehicle_model_imageDataTable();
 
 		public int Model_id { private set; get; } = 0;
@@ -78,6 +78,7 @@ namespace VehicleDealership.View
 
 			string str_model_name = txt_model_name.Text.Trim();
 			int int_group = int.Parse(cmb_group.SelectedValue.ToString());
+			int int_year_make = (int)num_year_make.Value;
 			int int_engine_cc = (int)num_engine.Value;
 			int int_door = (int)num_no_of_door.Value;
 			int int_seat = (int)num_seat_capacity.Value;
@@ -108,7 +109,7 @@ namespace VehicleDealership.View
 				if (Model_id == 0)
 				{
 					// insert new model
-					Model_id = Vehicle_model_ds.Insert_vehicle_model(str_model_name, int_group,
+					Model_id = Vehicle_model_ds.Insert_vehicle_model(str_model_name, int_group, int_year_make,
 						int_engine_cc, int_door, int_seat, int_fuel, int_transmission, str_remarks);
 
 					// if _int_model_id is still 0 means insert got error. insert will return last inserted id which definitely isn't 0
@@ -117,7 +118,8 @@ namespace VehicleDealership.View
 				else
 				{
 					// edit existing model
-					if (!Vehicle_model_ds.Update_vehicle_model(str_model_name, int_group, int_engine_cc, int_door, int_seat, int_fuel, int_transmission, str_remarks, Model_id))
+					if (!Vehicle_model_ds.Update_vehicle_model(str_model_name, int_group, int_year_make,
+						int_engine_cc, int_door, int_seat, int_fuel, int_transmission, str_remarks, Model_id))
 						throw new Exception("Vehicle model cannot be updated.");
 				}
 

@@ -69,6 +69,8 @@
 			this.txt_img_description = new System.Windows.Forms.TextBox();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.filedlg_img = new System.Windows.Forms.OpenFileDialog();
+			this.num_year_make = new System.Windows.Forms.NumericUpDown();
+			this.label13 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.num_engine)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_no_of_door)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_seat_capacity)).BeginInit();
@@ -88,6 +90,7 @@
 			this.splitContainer2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picbox)).BeginInit();
 			this.panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_year_make)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -102,7 +105,7 @@
 			// 
 			// txt_model_name
 			// 
-			this.txt_model_name.Location = new System.Drawing.Point(191, 6);
+			this.txt_model_name.Location = new System.Drawing.Point(169, 6);
 			this.txt_model_name.MaxLength = 50;
 			this.txt_model_name.Name = "txt_model_name";
 			this.txt_model_name.Size = new System.Drawing.Size(446, 27);
@@ -112,7 +115,7 @@
 			// 
 			this.cmb_brand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmb_brand.FormattingEnabled = true;
-			this.cmb_brand.Location = new System.Drawing.Point(191, 39);
+			this.cmb_brand.Location = new System.Drawing.Point(169, 39);
 			this.cmb_brand.Name = "cmb_brand";
 			this.cmb_brand.Size = new System.Drawing.Size(175, 28);
 			this.cmb_brand.TabIndex = 3;
@@ -122,7 +125,7 @@
 			// 
 			this.cmb_group.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmb_group.FormattingEnabled = true;
-			this.cmb_group.Location = new System.Drawing.Point(191, 73);
+			this.cmb_group.Location = new System.Drawing.Point(169, 73);
 			this.cmb_group.Name = "cmb_group";
 			this.cmb_group.Size = new System.Drawing.Size(175, 28);
 			this.cmb_group.TabIndex = 7;
@@ -149,7 +152,7 @@
 			// 
 			// num_engine
 			// 
-			this.num_engine.Location = new System.Drawing.Point(191, 107);
+			this.num_engine.Location = new System.Drawing.Point(169, 140);
 			this.num_engine.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -162,7 +165,7 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(7, 110);
+			this.label4.Location = new System.Drawing.Point(7, 143);
 			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(144, 20);
@@ -171,7 +174,7 @@
 			// 
 			// num_no_of_door
 			// 
-			this.num_no_of_door.Location = new System.Drawing.Point(191, 140);
+			this.num_no_of_door.Location = new System.Drawing.Point(169, 173);
 			this.num_no_of_door.Name = "num_no_of_door";
 			this.num_no_of_door.Size = new System.Drawing.Size(123, 27);
 			this.num_no_of_door.TabIndex = 11;
@@ -179,7 +182,7 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(7, 143);
+			this.label5.Location = new System.Drawing.Point(7, 176);
 			this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(89, 20);
@@ -189,7 +192,7 @@
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(7, 176);
+			this.label6.Location = new System.Drawing.Point(7, 209);
 			this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(100, 20);
@@ -199,7 +202,7 @@
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(7, 210);
+			this.label7.Location = new System.Drawing.Point(7, 243);
 			this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(72, 20);
@@ -209,7 +212,7 @@
 			// label8
 			// 
 			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(7, 244);
+			this.label8.Location = new System.Drawing.Point(7, 277);
 			this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(97, 20);
@@ -219,7 +222,7 @@
 			// label10
 			// 
 			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(7, 277);
+			this.label10.Location = new System.Drawing.Point(7, 310);
 			this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(68, 20);
@@ -228,7 +231,7 @@
 			// 
 			// num_seat_capacity
 			// 
-			this.num_seat_capacity.Location = new System.Drawing.Point(191, 173);
+			this.num_seat_capacity.Location = new System.Drawing.Point(169, 206);
 			this.num_seat_capacity.Name = "num_seat_capacity";
 			this.num_seat_capacity.Size = new System.Drawing.Size(123, 27);
 			this.num_seat_capacity.TabIndex = 13;
@@ -237,23 +240,23 @@
 			// 
 			this.cmb_fuel_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmb_fuel_type.FormattingEnabled = true;
-			this.cmb_fuel_type.Location = new System.Drawing.Point(191, 206);
+			this.cmb_fuel_type.Location = new System.Drawing.Point(169, 239);
 			this.cmb_fuel_type.Name = "cmb_fuel_type";
-			this.cmb_fuel_type.Size = new System.Drawing.Size(264, 28);
+			this.cmb_fuel_type.Size = new System.Drawing.Size(175, 28);
 			this.cmb_fuel_type.TabIndex = 15;
 			// 
 			// cmb_transmission
 			// 
 			this.cmb_transmission.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmb_transmission.FormattingEnabled = true;
-			this.cmb_transmission.Location = new System.Drawing.Point(191, 240);
+			this.cmb_transmission.Location = new System.Drawing.Point(169, 273);
 			this.cmb_transmission.Name = "cmb_transmission";
-			this.cmb_transmission.Size = new System.Drawing.Size(264, 28);
+			this.cmb_transmission.Size = new System.Drawing.Size(175, 28);
 			this.cmb_transmission.TabIndex = 17;
 			// 
 			// txt_remarks
 			// 
-			this.txt_remarks.Location = new System.Drawing.Point(191, 274);
+			this.txt_remarks.Location = new System.Drawing.Point(169, 307);
 			this.txt_remarks.Multiline = true;
 			this.txt_remarks.Name = "txt_remarks";
 			this.txt_remarks.Size = new System.Drawing.Size(446, 172);
@@ -302,7 +305,7 @@
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(373, 42);
+			this.label9.Location = new System.Drawing.Point(351, 42);
 			this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(63, 20);
@@ -311,7 +314,7 @@
 			// 
 			// txt_country
 			// 
-			this.txt_country.Location = new System.Drawing.Point(443, 39);
+			this.txt_country.Location = new System.Drawing.Point(421, 39);
 			this.txt_country.Name = "txt_country";
 			this.txt_country.ReadOnly = true;
 			this.txt_country.Size = new System.Drawing.Size(194, 27);
@@ -345,8 +348,10 @@
 			this.tabPage1.Controls.Add(this.label8);
 			this.tabPage1.Controls.Add(this.label3);
 			this.tabPage1.Controls.Add(this.label7);
+			this.tabPage1.Controls.Add(this.label13);
 			this.tabPage1.Controls.Add(this.label4);
 			this.tabPage1.Controls.Add(this.label6);
+			this.tabPage1.Controls.Add(this.num_year_make);
 			this.tabPage1.Controls.Add(this.num_engine);
 			this.tabPage1.Controls.Add(this.label5);
 			this.tabPage1.Controls.Add(this.num_no_of_door);
@@ -538,6 +543,28 @@
 			this.filedlg_img.Multiselect = true;
 			this.filedlg_img.Title = "Upload image";
 			// 
+			// num_year_make
+			// 
+			this.num_year_make.Location = new System.Drawing.Point(169, 107);
+			this.num_year_make.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+			this.num_year_make.Name = "num_year_make";
+			this.num_year_make.Size = new System.Drawing.Size(123, 27);
+			this.num_year_make.TabIndex = 9;
+			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.Location = new System.Drawing.Point(7, 110);
+			this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(81, 20);
+			this.label13.TabIndex = 8;
+			this.label13.Text = "Year make:";
+			// 
 			// Form_edit_vehicle_model
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -574,6 +601,7 @@
 			this.splitContainer2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.picbox)).EndInit();
 			this.panel1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.num_year_make)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -621,5 +649,7 @@
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.TextBox txt_img_created_by;
 		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.NumericUpDown num_year_make;
 	}
 }

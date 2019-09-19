@@ -19,8 +19,8 @@ namespace VehicleDealership.Classes
 		public static string DELETE_FUEL_TYPE { get { return "DELETE_FUEL_TYPE"; } }
 		public static string ADD_EDIT_TRANSMISSION { get { return "ADD_EDIT_TRANSMISSION"; } }
 		public static string DELETE_TRANSMISSION { get { return "DELETE_TRANSMISSION"; } }
-		public static string ADD_EDIT_COLOR { get { return "ADD_EDIT_COLOR"; } }
-		public static string DELETE_COLOR { get { return "DELETE_COLOR"; } }
+		public static string ADD_EDIT_COLOUR { get { return "ADD_EDIT_COLOUR"; } }
+		public static string DELETE_COLOUR { get { return "DELETE_COLOUR"; } }
 		public static string ADD_EDIT_SALESPERSON { get { return "ADD_EDIT_SALESPERSON"; } }
 		public static string VIEW_SALESPERSON { get { return "VIEW_SALESPERSON"; } }
 		public static string VIEW_PERSON { get { return "VIEW_PERSON"; } }
@@ -29,10 +29,12 @@ namespace VehicleDealership.Classes
 		public static string ADD_EDIT_ORGANISATION { get { return "ADD_EDIT_ORGANISATION"; } }
 		public static string ADD_EDIT_FINANCE { get { return "ADD_EDIT_FINANCE"; } }
 		public static string VIEW_FINANCE { get { return "VIEW_FINANCE"; } }
-		public static string VEHICLE_ADD_EDIT { get { return "ADD_EDIT_VEHICLE"; } }
-		public static string VEHICLE_DELETE { get { return "DELETE_VEHICLE"; } }
+		public static string VEHICLE_ADD_EDIT { get { return "VEHICLE_ADD_EDIT"; } }
+		public static string VEHICLE_DELETE { get { return "VEHICLE_DELETE"; } }
 		public static string VEHICLE_VIEW { get { return "VEHICLE_VIEW"; } }
-
+		public static string LOCATION_ADD_EDIT { get { return "LOCATION_ADD_EDIT"; } }
+		public static string LOCATION_DELETE { get { return "LOCATION_DELETE"; } }
+		
 
 		//private User_permission(string value) { Value = value; }
 		//public string Value { get; private set; }

@@ -15,6 +15,7 @@ namespace VehicleDealership.View
 {
 	public partial class Form_datagridview : Form
 	{
+
 		public Form_datagridview()
 		{
 			InitializeComponent();
@@ -65,12 +66,12 @@ namespace VehicleDealership.View
 					else
 						Setup_form_transmission();
 					break;
-				case "COLOR":
-					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOR) &&
-						!Program.System_user.Has_permission(User_permission.DELETE_COLOR))
+				case "COLOUR":
+					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOUR) &&
+						!Program.System_user.Has_permission(User_permission.DELETE_COLOUR))
 						permission_denied = true;
 					else
-						Setup_form_color();
+						Setup_form_colour();
 					break;
 				case "SALESPERSON":
 					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_SALESPERSON) &&
@@ -92,6 +93,13 @@ namespace VehicleDealership.View
 						permission_denied = true;
 					else
 						Setup_form_vehicle();
+					break;
+				case "LOCATION":
+					if (!Program.System_user.Has_permission(User_permission.LOCATION_ADD_EDIT) &&
+						!Program.System_user.Has_permission(User_permission.LOCATION_DELETE))
+						permission_denied = true;
+					else
+						Setup_form_location();
 					break;
 			}
 
@@ -458,54 +466,51 @@ namespace VehicleDealership.View
 				MessageBox.Show("All items have been saved successfully.", "Item saved", MessageBoxButtons.OK);
 		}
 		#endregion
-		#region COLOR
-		private void Setup_form_color()
+		#region COLOUR
+		private void Setup_form_colour()
 		{
 			// user will be editing straight to cell so no need display these two
 			editToolStripMenuItem.Visible = false;
 			addToolStripMenuItem.Visible = false;
 
-			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOR))
+			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOUR))
 			{
 				grd_main.ReadOnly = false;
 				grd_main.AllowUserToAddRows = true;
 			}
 			grd_main.AllowUserToDeleteRows =
-				Program.System_user.Has_permission(User_permission.DELETE_COLOR);
+				Program.System_user.Has_permission(User_permission.DELETE_COLOUR);
 
 			ts_save_only.Visible = true;
 
-			Setup_grd_color();
-			btn_save.Click += Btn_save_color_Click;
+			Setup_grd_colour();
+			btn_save.Click += Btn_save_colour_Click;
 			deleteToolStripMenuItem.Click += Delete_grd_main_row;
 		}
-		private void Setup_grd_color()
+		private void Setup_grd_colour()
 		{
-			Color_ds.sp_select_colorDataTable dttable = Color_ds.Select_color();
+			Colour_ds.sp_select_colourDataTable dttable = Colour_ds.Select_colour();
+			dttable.Columns.Remove("modified_by"); // no need this
 
-			dttable.Columns["modified_by"].DefaultValue = Program.System_user.Name;
-			dttable.Columns["modified_by"].ReadOnly = true;
-
-			Class_datagridview.Setup_and_preselect(grd_main, dttable, "color_name");
+			Class_datagridview.Setup_and_preselect(grd_main, dttable, "colour_name");
 
 			grd_main.AutoResizeColumns();
 
-			grd_main.Columns["modified_by"].DefaultCellStyle.BackColor = Color.LightGray;
-			((DataGridViewTextBoxColumn)grd_main.Columns["color_name"]).MaxInputLength = 20;
+			((DataGridViewTextBoxColumn)grd_main.Columns["colour_name"]).MaxInputLength = 20;
 
 			if (!Program.System_user.IsDeveloper)
-				Class_datagridview.Hide_columns(grd_main, new string[] { "color" });
+				Class_datagridview.Hide_columns(grd_main, new string[] { "colour" });
 		}
-		private void Btn_save_color_Click(object sender, EventArgs e)
+		private void Btn_save_colour_Click(object sender, EventArgs e)
 		{
 			Class_datagridview.Apply_all_changes(grd_main);
 
 			DataTable dttable = Class_datatable.Remove_unnecessary_columns(((DataTable)grd_main.DataSource).Copy(),
-				new string[] { "color", "color_name" });
+				new string[] { "colour", "colour_name" });
 
-			if (dttable.Select().GroupBy(c => c["color_name"].ToString().ToUpper()).Where(c => c.Count() > 1).Count() > 0)
+			if (dttable.Select().GroupBy(c => c["colour_name"].ToString().ToUpper()).Where(c => c.Count() > 1).Count() > 0)
 			{
-				MessageBox.Show("Duplicate color_names are not allowed", "Invalid input",
+				MessageBox.Show("Duplicate colour names are not allowed", "Invalid input",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
@@ -524,8 +529,8 @@ namespace VehicleDealership.View
 
 					try
 					{
-						bulkCopy.ColumnMappings.Add("color", "int1");
-						bulkCopy.ColumnMappings.Add("color_name", "nvarchar1");
+						bulkCopy.ColumnMappings.Add("colour", "int1");
+						bulkCopy.ColumnMappings.Add("colour_name", "nvarchar1");
 						bulkCopy.ColumnMappings.Add("modified_by", "created_by");
 						bulkCopy.WriteToServer(dttable);
 					}
@@ -544,16 +549,16 @@ namespace VehicleDealership.View
 			bool is_deleted = true;
 			bool is_updated = true;
 
-			if (Program.System_user.Has_permission(User_permission.DELETE_COLOR))
-				is_deleted = Color_ds.Delete_color();
+			if (Program.System_user.Has_permission(User_permission.DELETE_COLOUR))
+				is_deleted = Colour_ds.Delete_colour();
 
-			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOR))
-				is_updated = Color_ds.Update_insert_color();
+			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOUR))
+				is_updated = Colour_ds.Update_insert_colour();
 
-			Setup_grd_color();
+			Setup_grd_colour();
 
 			if (!is_deleted)
-				MessageBox.Show("One or more color cannot be deleted because there are items applying this color.",
+				MessageBox.Show("One or more colour cannot be deleted because there are items applying this colour.",
 					"Some items cannot be deleted", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else if (is_updated && is_deleted)
 				MessageBox.Show("All items have been saved successfully.", "Item saved", MessageBoxButtons.OK);
@@ -758,7 +763,7 @@ namespace VehicleDealership.View
 		private void Setup_grd_vehicle(int int_vehicle = 0)
 		{
 			grd_main.DataSource = null;
-			grd_main.DataSource = Vehicle_ds.Select_vehicle();
+			grd_main.DataSource = Vehicle_ds.Select_vehicle_simplified();
 
 			Class_datagridview.Hide_columns(grd_main, new string[] { "vehicle" });
 			grd_main.AutoResizeColumns();
@@ -792,7 +797,12 @@ namespace VehicleDealership.View
 		}
 		private void Add_vehicle(object sender, EventArgs e)
 		{
+			Form_edit_vehicle form_edit = new Form_edit_vehicle();
 
+			if (form_edit.ShowDialog() == DialogResult.OK)
+			{
+				Setup_grd_vehicle(form_edit.VehicleID);
+			}
 		}
 		private void Edit_vehicle(object sender, EventArgs e)
 		{
@@ -801,6 +811,103 @@ namespace VehicleDealership.View
 		private void Delete_vehicle(object sender, EventArgs e)
 		{
 
+		}
+		#endregion
+		#region LOCATION
+		private void Setup_form_location()
+		{
+			// user will be editing straight to cell so no need display these two
+			editToolStripMenuItem.Visible = false;
+			addToolStripMenuItem.Visible = false;
+
+			if (Program.System_user.Has_permission(User_permission.LOCATION_ADD_EDIT))
+			{
+				grd_main.ReadOnly = false;
+				grd_main.AllowUserToAddRows = true;
+			}
+			if (Program.System_user.Has_permission(User_permission.LOCATION_DELETE))
+			{
+				grd_main.AllowUserToDeleteRows = true;
+				deleteToolStripMenuItem.Visible = true;
+			}
+
+			ts_save_only.Visible = true;
+			Setup_grd_location();
+			btn_save.Click += Btn_save_location_Click;
+			deleteToolStripMenuItem.Click += Delete_grd_main_row;
+		}
+		private void Setup_grd_location()
+		{
+			Location_ds.sp_select_locationDataTable dttable = Location_ds.Select_location();
+			dttable.Columns.Remove("modified_by"); // no need this
+
+			Class_datagridview.Setup_and_preselect(grd_main, dttable, "location");
+
+			grd_main.AutoResizeColumns();
+			((DataGridViewTextBoxColumn)grd_main.Columns["location_name"]).MaxInputLength = 50;
+
+			if (!Program.System_user.IsDeveloper)
+				Class_datagridview.Hide_columns(grd_main, new string[] { "location" });
+		}
+		private void Btn_save_location_Click(object sender, EventArgs e)
+		{
+			Class_datagridview.Apply_all_changes(grd_main);
+
+			DataTable dttable = Class_datatable.Remove_unnecessary_columns(((DataTable)grd_main.DataSource).Copy(),
+				new string[] { "location", "location_name" });
+
+			if (dttable.Select().GroupBy(c => c["location_name"].ToString().ToUpper()).Where(c => c.Count() > 1).Count() > 0)
+			{
+				MessageBox.Show("Duplicate location names are not allowed", "Invalid",
+					MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			dttable.Columns.Add(new DataColumn("modified_by") { DefaultValue = Program.System_user.UserID });
+
+			Bulkcopy_table_ds.Delete_by_user();
+
+			using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.VehicleDealershipConnectionString))
+			{
+				conn.Open();
+
+				using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn))
+				{
+					bulkCopy.DestinationTableName = "[misc].[bulkcopy_table]";
+
+					try
+					{
+						bulkCopy.ColumnMappings.Add("location", "int1");
+						bulkCopy.ColumnMappings.Add("location_name", "nvarchar1");
+						bulkCopy.ColumnMappings.Add("modified_by", "created_by");
+						bulkCopy.WriteToServer(dttable);
+					}
+					catch (Exception ex)
+					{
+						MessageBox.Show("An error has occurred. \n\n Message: " + ex.Message,
+							"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						conn.Close();
+						return;
+					}
+				}
+				conn.Close();
+			}
+			// insert, update and delete transmission
+			bool is_deleted = true;
+			bool is_updated = true;
+
+			if (Program.System_user.Has_permission(User_permission.DELETE_COLOUR))
+				is_deleted = Location_ds.Delete_location();
+
+			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOUR))
+				is_updated = Location_ds.Update_insert_location();
+
+			Setup_grd_location();
+
+			if (!is_deleted)
+				MessageBox.Show("One or more location cannot be deleted because there are items applying this location.",
+					"Some items cannot be deleted", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else if (is_updated && is_deleted)
+				MessageBox.Show("All items have been saved successfully.", "Item saved", MessageBoxButtons.OK);
 		}
 		#endregion
 	}

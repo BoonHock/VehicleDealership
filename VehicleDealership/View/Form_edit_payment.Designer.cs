@@ -90,6 +90,11 @@
 			// numericUpDown1
 			// 
 			this.numericUpDown1.Location = new System.Drawing.Point(149, 111);
+			this.numericUpDown1.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
 			this.numericUpDown1.Name = "numericUpDown1";
 			this.numericUpDown1.Size = new System.Drawing.Size(138, 27);
 			this.numericUpDown1.TabIndex = 3;
@@ -110,9 +115,9 @@
 			this.flowLayoutPanel1.AutoSize = true;
 			this.flowLayoutPanel1.Controls.Add(this.radioButton1);
 			this.flowLayoutPanel1.Controls.Add(this.radioButton2);
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(149, 343);
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(80, 343);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(141, 31);
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(122, 31);
 			this.flowLayoutPanel1.TabIndex = 4;
 			// 
 			// radioButton1
@@ -212,16 +217,16 @@
 			this.radioButton3.Checked = true;
 			this.radioButton3.Location = new System.Drawing.Point(3, 3);
 			this.radioButton3.Name = "radioButton3";
-			this.radioButton3.Size = new System.Drawing.Size(100, 24);
+			this.radioButton3.Size = new System.Drawing.Size(141, 24);
 			this.radioButton3.TabIndex = 0;
 			this.radioButton3.TabStop = true;
-			this.radioButton3.Text = "Credit card";
+			this.radioButton3.Text = "Credit/debit card";
 			this.radioButton3.UseVisualStyleBackColor = true;
 			// 
 			// radioButton4
 			// 
 			this.radioButton4.AutoSize = true;
-			this.radioButton4.Location = new System.Drawing.Point(109, 3);
+			this.radioButton4.Location = new System.Drawing.Point(150, 3);
 			this.radioButton4.Name = "radioButton4";
 			this.radioButton4.Size = new System.Drawing.Size(77, 24);
 			this.radioButton4.TabIndex = 1;
@@ -231,7 +236,7 @@
 			// radioButton5
 			// 
 			this.radioButton5.AutoSize = true;
-			this.radioButton5.Location = new System.Drawing.Point(192, 3);
+			this.radioButton5.Location = new System.Drawing.Point(233, 3);
 			this.radioButton5.Name = "radioButton5";
 			this.radioButton5.Size = new System.Drawing.Size(64, 24);
 			this.radioButton5.TabIndex = 2;
@@ -340,11 +345,11 @@
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(149, 380);
+			this.textBox1.Location = new System.Drawing.Point(80, 380);
 			this.textBox1.MaxLength = 100;
 			this.textBox1.Multiline = true;
 			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(256, 128);
+			this.textBox1.Size = new System.Drawing.Size(325, 128);
 			this.textBox1.TabIndex = 8;
 			// 
 			// textBox3

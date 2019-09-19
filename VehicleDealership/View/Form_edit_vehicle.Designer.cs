@@ -29,163 +29,208 @@
 		private void InitializeComponent()
 		{
 			this.tabControl1 = new System.Windows.Forms.TabControl();
-			this.tabPage5 = new System.Windows.Forms.TabPage();
-			this.groupBox6 = new System.Windows.Forms.GroupBox();
-			this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-			this.label40 = new System.Windows.Forms.Label();
-			this.label41 = new System.Windows.Forms.Label();
-			this.button6 = new System.Windows.Forms.Button();
-			this.button7 = new System.Windows.Forms.Button();
-			this.textBox24 = new System.Windows.Forms.TextBox();
-			this.textBox25 = new System.Windows.Forms.TextBox();
-			this.label44 = new System.Windows.Forms.Label();
-			this.comboBox4 = new System.Windows.Forms.ComboBox();
-			this.label39 = new System.Windows.Forms.Label();
-			this.button10 = new System.Windows.Forms.Button();
-			this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
-			this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
-			this.textBox26 = new System.Windows.Forms.TextBox();
-			this.label43 = new System.Windows.Forms.Label();
-			this.label42 = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-			this.label2 = new System.Windows.Forms.Label();
-			this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-			this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-			this.label5 = new System.Windows.Forms.Label();
-			this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
-			this.label3 = new System.Windows.Forms.Label();
-			this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
-			this.label9 = new System.Windows.Forms.Label();
-			this.numericUpDown11 = new System.Windows.Forms.NumericUpDown();
-			this.numericUpDown12 = new System.Windows.Forms.NumericUpDown();
-			this.label10 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this.numericUpDown13 = new System.Windows.Forms.NumericUpDown();
-			this.numericUpDown14 = new System.Windows.Forms.NumericUpDown();
+			this.tabPage4 = new System.Windows.Forms.TabPage();
+			this.groupBox10 = new System.Windows.Forms.GroupBox();
+			this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+			this.num_purchase_price = new System.Windows.Forms.NumericUpDown();
+			this.label56 = new System.Windows.Forms.Label();
+			this.num_net_purchase = new System.Windows.Forms.NumericUpDown();
+			this.label57 = new System.Windows.Forms.Label();
+			this.label58 = new System.Windows.Forms.Label();
+			this.num_total_cost = new System.Windows.Forms.NumericUpDown();
+			this.label59 = new System.Windows.Forms.Label();
+			this.label60 = new System.Windows.Forms.Label();
+			this.num_expenses = new System.Windows.Forms.NumericUpDown();
+			this.num_overtrade = new System.Windows.Forms.NumericUpDown();
+			this.num_list_price = new System.Windows.Forms.NumericUpDown();
+			this.num_gross_profit = new System.Windows.Forms.NumericUpDown();
+			this.label61 = new System.Windows.Forms.Label();
+			this.label62 = new System.Windows.Forms.Label();
+			this.label63 = new System.Windows.Forms.Label();
+			this.num_loan_balance_readonly = new System.Windows.Forms.NumericUpDown();
+			this.label64 = new System.Windows.Forms.Label();
+			this.num_paid = new System.Windows.Forms.NumericUpDown();
+			this.num_to_pay_seller = new System.Windows.Forms.NumericUpDown();
+			this.label65 = new System.Windows.Forms.Label();
+			this.label86 = new System.Windows.Forms.Label();
+			this.num_to_pay = new System.Windows.Forms.NumericUpDown();
+			this.groupBox9 = new System.Windows.Forms.GroupBox();
+			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+			this.label47 = new System.Windows.Forms.Label();
+			this.btn_seller = new System.Windows.Forms.Button();
+			this.txt_seller_name = new System.Windows.Forms.TextBox();
+			this.label49 = new System.Windows.Forms.Label();
+			this.txt_invoice_no = new System.Windows.Forms.TextBox();
+			this.txt_checked_by = new System.Windows.Forms.TextBox();
+			this.label54 = new System.Windows.Forms.Label();
+			this.btn_checked_by = new System.Windows.Forms.Button();
+			this.txt_seller_branch = new System.Windows.Forms.TextBox();
+			this.label55 = new System.Windows.Forms.Label();
+			this.label53 = new System.Windows.Forms.Label();
+			this.dtp_purchase_date = new System.Windows.Forms.DateTimePicker();
+			this.dtp_date_received = new System.Windows.Forms.DateTimePicker();
+			this.label52 = new System.Windows.Forms.Label();
+			this.label51 = new System.Windows.Forms.Label();
+			this.label50 = new System.Windows.Forms.Label();
+			this.txt_sales_order = new System.Windows.Forms.TextBox();
+			this.btn_sales_order = new System.Windows.Forms.Button();
+			this.cmb_acquire_method = new System.Windows.Forms.ComboBox();
+			this.num_seller_id = new System.Windows.Forms.NumericUpDown();
+			this.num_checked_by_id = new System.Windows.Forms.NumericUpDown();
+			this.txt_seller_type = new System.Windows.Forms.TextBox();
+			this.groupBox11 = new System.Windows.Forms.GroupBox();
+			this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+			this.label66 = new System.Windows.Forms.Label();
+			this.label67 = new System.Windows.Forms.Label();
+			this.label74 = new System.Windows.Forms.Label();
+			this.txt_reg_no = new System.Windows.Forms.TextBox();
+			this.btn_vehicle_location = new System.Windows.Forms.Button();
+			this.txt_chassis = new System.Windows.Forms.TextBox();
+			this.label80 = new System.Windows.Forms.Label();
+			this.txt_vehicle_model = new System.Windows.Forms.TextBox();
+			this.btn_vehicle_model = new System.Windows.Forms.Button();
+			this.num_year_registered = new System.Windows.Forms.NumericUpDown();
+			this.txt_vehicle_group = new System.Windows.Forms.TextBox();
+			this.label81 = new System.Windows.Forms.Label();
+			this.txt_engine_no = new System.Windows.Forms.TextBox();
+			this.label72 = new System.Windows.Forms.Label();
+			this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+			this.rad_vehicle_new = new System.Windows.Forms.RadioButton();
+			this.rad_vehicle_old = new System.Windows.Forms.RadioButton();
+			this.label78 = new System.Windows.Forms.Label();
+			this.txt_ignition_key = new System.Windows.Forms.TextBox();
+			this.txt_year_make = new System.Windows.Forms.TextBox();
+			this.cmb_vehicle_colour = new System.Windows.Forms.ComboBox();
+			this.label79 = new System.Windows.Forms.Label();
+			this.num_road_tax_amount = new System.Windows.Forms.NumericUpDown();
+			this.label71 = new System.Windows.Forms.Label();
+			this.txt_vehicle_location = new System.Windows.Forms.TextBox();
+			this.label69 = new System.Windows.Forms.Label();
+			this.dtp_road_tax_expiry = new System.Windows.Forms.DateTimePicker();
+			this.label73 = new System.Windows.Forms.Label();
+			this.num_mileage = new System.Windows.Forms.NumericUpDown();
+			this.label75 = new System.Windows.Forms.Label();
+			this.label70 = new System.Windows.Forms.Label();
+			this.num_engine_cc = new System.Windows.Forms.NumericUpDown();
+			this.txt_vehicle_brand = new System.Windows.Forms.TextBox();
+			this.label87 = new System.Windows.Forms.Label();
+			this.label68 = new System.Windows.Forms.Label();
+			this.label76 = new System.Windows.Forms.Label();
+			this.label77 = new System.Windows.Forms.Label();
+			this.txt_door_key = new System.Windows.Forms.TextBox();
+			this.num_vehicle_model_id = new System.Windows.Forms.NumericUpDown();
+			this.num_vehicle_location = new System.Windows.Forms.NumericUpDown();
+			this.txt_status = new System.Windows.Forms.TextBox();
+			this.label82 = new System.Windows.Forms.Label();
+			this.textBox41 = new System.Windows.Forms.TextBox();
+			this.label83 = new System.Windows.Forms.Label();
+			this.label84 = new System.Windows.Forms.Label();
+			this.txt_ref_no = new System.Windows.Forms.TextBox();
+			this.txt_last_modified_by = new System.Windows.Forms.TextBox();
+			this.label85 = new System.Windows.Forms.Label();
+			this.tabPage3 = new System.Windows.Forms.TabPage();
+			this.btn_loan_finance = new System.Windows.Forms.Button();
+			this.dtp_settlement_date = new System.Windows.Forms.DateTimePicker();
+			this.txt_loan_branch = new System.Windows.Forms.TextBox();
+			this.num_installment_day = new System.Windows.Forms.NumericUpDown();
+			this.num_installment_amount = new System.Windows.Forms.NumericUpDown();
+			this.num_loan_finance_id = new System.Windows.Forms.NumericUpDown();
+			this.num_loan_balance = new System.Windows.Forms.NumericUpDown();
+			this.txt_loan_agreement_no = new System.Windows.Forms.TextBox();
+			this.txt_loan_finance = new System.Windows.Forms.TextBox();
+			this.label20 = new System.Windows.Forms.Label();
+			this.label19 = new System.Windows.Forms.Label();
+			this.label18 = new System.Windows.Forms.Label();
+			this.label17 = new System.Windows.Forms.Label();
+			this.label16 = new System.Windows.Forms.Label();
+			this.label15 = new System.Windows.Forms.Label();
 			this.label11 = new System.Windows.Forms.Label();
-			this.label12 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.groupBox5 = new System.Windows.Forms.GroupBox();
-			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-			this.label33 = new System.Windows.Forms.Label();
-			this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-			this.label34 = new System.Windows.Forms.Label();
-			this.label35 = new System.Windows.Forms.Label();
-			this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-			this.label25 = new System.Windows.Forms.Label();
-			this.label26 = new System.Windows.Forms.Label();
-			this.label27 = new System.Windows.Forms.Label();
-			this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-			this.label37 = new System.Windows.Forms.Label();
-			this.label28 = new System.Windows.Forms.Label();
-			this.label38 = new System.Windows.Forms.Label();
-			this.label31 = new System.Windows.Forms.Label();
-			this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-			this.label32 = new System.Windows.Forms.Label();
-			this.textBox16 = new System.Windows.Forms.TextBox();
-			this.label36 = new System.Windows.Forms.Label();
-			this.label30 = new System.Windows.Forms.Label();
-			this.label29 = new System.Windows.Forms.Label();
-			this.textBox19 = new System.Windows.Forms.TextBox();
-			this.button8 = new System.Windows.Forms.Button();
-			this.comboBox3 = new System.Windows.Forms.ComboBox();
-			this.button9 = new System.Windows.Forms.Button();
-			this.textBox18 = new System.Windows.Forms.TextBox();
-			this.textBox22 = new System.Windows.Forms.TextBox();
-			this.textBox21 = new System.Windows.Forms.TextBox();
-			this.textBox17 = new System.Windows.Forms.TextBox();
-			this.textBox23 = new System.Windows.Forms.TextBox();
-			this.textBox20 = new System.Windows.Forms.TextBox();
-			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-			this.radioButton3 = new System.Windows.Forms.RadioButton();
-			this.radioButton4 = new System.Windows.Forms.RadioButton();
-			this.label13 = new System.Windows.Forms.Label();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.textBox14 = new System.Windows.Forms.TextBox();
-			this.label23 = new System.Windows.Forms.Label();
-			this.textBox27 = new System.Windows.Forms.TextBox();
-			this.label45 = new System.Windows.Forms.Label();
-			this.textBox28 = new System.Windows.Forms.TextBox();
-			this.label46 = new System.Windows.Forms.Label();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
-			this.dataGridView2 = new System.Windows.Forms.DataGridView();
+			this.grd_payment = new System.Windows.Forms.DataGridView();
 			this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-			this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+			this.btn_add_payment = new System.Windows.Forms.ToolStripButton();
+			this.btn_edit_payment = new System.Windows.Forms.ToolStripButton();
+			this.btn_delete_payment = new System.Windows.Forms.ToolStripButton();
 			this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-			this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
+			this.lbl_total_payment = new System.Windows.Forms.ToolStripLabel();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.grd_expenses = new System.Windows.Forms.DataGridView();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+			this.btn_add_expenses = new System.Windows.Forms.ToolStripButton();
+			this.btn_edit_expenses = new System.Windows.Forms.ToolStripButton();
+			this.btn_delete_expenses = new System.Windows.Forms.ToolStripButton();
 			this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-			this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+			this.lbl_total_expenses = new System.Windows.Forms.ToolStripLabel();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
-			this.groupBox8 = new System.Windows.Forms.GroupBox();
-			this.dataGridView4 = new System.Windows.Forms.DataGridView();
-			this.toolStrip4 = new System.Windows.Forms.ToolStrip();
-			this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
-			this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
+			this.txt_image_description = new System.Windows.Forms.TextBox();
+			this.picbox_image = new System.Windows.Forms.PictureBox();
 			this.groupBox7 = new System.Windows.Forms.GroupBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.txt_remark = new System.Windows.Forms.TextBox();
+			this.groupBox8 = new System.Windows.Forms.GroupBox();
+			this.grd_image = new System.Windows.Forms.DataGridView();
+			this.toolStrip4 = new System.Windows.Forms.ToolStrip();
+			this.btn_add_image = new System.Windows.Forms.ToolStripButton();
+			this.btn_delete_image = new System.Windows.Forms.ToolStripButton();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
-			this.dataGridView3 = new System.Windows.Forms.DataGridView();
+			this.grd_file_attachment = new System.Windows.Forms.DataGridView();
 			this.toolStrip3 = new System.Windows.Forms.ToolStrip();
-			this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+			this.btn_add_attachment = new System.Windows.Forms.ToolStripButton();
+			this.btn_delete_attachment = new System.Windows.Forms.ToolStripButton();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.btn_cancel = new System.Windows.Forms.Button();
 			this.btn_ok = new System.Windows.Forms.Button();
 			this.tabControl1.SuspendLayout();
-			this.tabPage5.SuspendLayout();
-			this.groupBox6.SuspendLayout();
-			this.tableLayoutPanel7.SuspendLayout();
-			this.groupBox2.SuspendLayout();
-			this.tableLayoutPanel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).BeginInit();
-			this.groupBox5.SuspendLayout();
-			this.tableLayoutPanel3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-			this.flowLayoutPanel1.SuspendLayout();
+			this.tabPage4.SuspendLayout();
+			this.groupBox10.SuspendLayout();
+			this.tableLayoutPanel6.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_purchase_price)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_net_purchase)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_total_cost)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_expenses)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_overtrade)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_list_price)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_gross_profit)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_loan_balance_readonly)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_paid)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_to_pay_seller)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_to_pay)).BeginInit();
+			this.groupBox9.SuspendLayout();
+			this.tableLayoutPanel5.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_seller_id)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_checked_by_id)).BeginInit();
+			this.groupBox11.SuspendLayout();
+			this.tableLayoutPanel8.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_year_registered)).BeginInit();
+			this.flowLayoutPanel2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_road_tax_amount)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_mileage)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_engine_cc)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_vehicle_model_id)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_vehicle_location)).BeginInit();
+			this.tabPage3.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_installment_day)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_installment_amount)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_loan_finance_id)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_loan_balance)).BeginInit();
 			this.tabPage2.SuspendLayout();
 			this.tableLayoutPanel4.SuspendLayout();
 			this.groupBox4.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.grd_payment)).BeginInit();
 			this.toolStrip2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.grd_expenses)).BeginInit();
 			this.toolStrip1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
-			this.groupBox8.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-			this.toolStrip4.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.picbox_image)).BeginInit();
 			this.groupBox7.SuspendLayout();
+			this.groupBox8.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.grd_image)).BeginInit();
+			this.toolStrip4.SuspendLayout();
 			this.groupBox3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.grd_file_attachment)).BeginInit();
 			this.toolStrip3.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
@@ -193,1007 +238,1507 @@
 			// 
 			// tabControl1
 			// 
-			this.tabControl1.Controls.Add(this.tabPage5);
+			this.tabControl1.Controls.Add(this.tabPage4);
+			this.tabControl1.Controls.Add(this.tabPage3);
 			this.tabControl1.Controls.Add(this.tabPage2);
 			this.tabControl1.Controls.Add(this.tabPage1);
 			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControl1.Location = new System.Drawing.Point(0, 0);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(943, 539);
+			this.tabControl1.Size = new System.Drawing.Size(943, 572);
 			this.tabControl1.TabIndex = 0;
 			// 
-			// tabPage5
+			// tabPage4
 			// 
-			this.tabPage5.Controls.Add(this.groupBox6);
-			this.tabPage5.Controls.Add(this.groupBox2);
-			this.tabPage5.Controls.Add(this.groupBox5);
-			this.tabPage5.Controls.Add(this.textBox14);
-			this.tabPage5.Controls.Add(this.label23);
-			this.tabPage5.Controls.Add(this.textBox27);
-			this.tabPage5.Controls.Add(this.label45);
-			this.tabPage5.Controls.Add(this.textBox28);
-			this.tabPage5.Controls.Add(this.label46);
-			this.tabPage5.Location = new System.Drawing.Point(4, 26);
-			this.tabPage5.Name = "tabPage5";
-			this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage5.Size = new System.Drawing.Size(935, 509);
-			this.tabPage5.TabIndex = 4;
-			this.tabPage5.Text = "Home";
-			this.tabPage5.UseVisualStyleBackColor = true;
+			this.tabPage4.Controls.Add(this.groupBox10);
+			this.tabPage4.Controls.Add(this.groupBox9);
+			this.tabPage4.Controls.Add(this.groupBox11);
+			this.tabPage4.Controls.Add(this.txt_status);
+			this.tabPage4.Controls.Add(this.label82);
+			this.tabPage4.Controls.Add(this.textBox41);
+			this.tabPage4.Controls.Add(this.label83);
+			this.tabPage4.Controls.Add(this.label84);
+			this.tabPage4.Controls.Add(this.txt_ref_no);
+			this.tabPage4.Controls.Add(this.txt_last_modified_by);
+			this.tabPage4.Controls.Add(this.label85);
+			this.tabPage4.Location = new System.Drawing.Point(4, 26);
+			this.tabPage4.Name = "tabPage4";
+			this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage4.Size = new System.Drawing.Size(935, 542);
+			this.tabPage4.TabIndex = 7;
+			this.tabPage4.Text = "Home";
+			this.tabPage4.UseVisualStyleBackColor = true;
 			// 
-			// groupBox6
+			// groupBox10
 			// 
-			this.groupBox6.Controls.Add(this.tableLayoutPanel7);
-			this.groupBox6.Location = new System.Drawing.Point(378, 41);
-			this.groupBox6.Name = "groupBox6";
-			this.groupBox6.Size = new System.Drawing.Size(551, 142);
-			this.groupBox6.TabIndex = 38;
-			this.groupBox6.TabStop = false;
-			this.groupBox6.Text = "Acquire details";
+			this.groupBox10.Controls.Add(this.tableLayoutPanel6);
+			this.groupBox10.Location = new System.Drawing.Point(378, 277);
+			this.groupBox10.Name = "groupBox10";
+			this.groupBox10.Size = new System.Drawing.Size(551, 255);
+			this.groupBox10.TabIndex = 40;
+			this.groupBox10.TabStop = false;
+			this.groupBox10.Text = "Finance (All amounts in MYR)";
 			// 
-			// tableLayoutPanel7
+			// tableLayoutPanel6
 			// 
-			this.tableLayoutPanel7.ColumnCount = 6;
-			this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.94392F));
-			this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.05608F));
-			this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel7.Controls.Add(this.label40, 0, 0);
-			this.tableLayoutPanel7.Controls.Add(this.label41, 0, 1);
-			this.tableLayoutPanel7.Controls.Add(this.button6, 2, 1);
-			this.tableLayoutPanel7.Controls.Add(this.button7, 2, 0);
-			this.tableLayoutPanel7.Controls.Add(this.textBox24, 1, 0);
-			this.tableLayoutPanel7.Controls.Add(this.textBox25, 1, 1);
-			this.tableLayoutPanel7.Controls.Add(this.label44, 3, 0);
-			this.tableLayoutPanel7.Controls.Add(this.comboBox4, 1, 2);
-			this.tableLayoutPanel7.Controls.Add(this.label39, 0, 2);
-			this.tableLayoutPanel7.Controls.Add(this.button10, 5, 2);
-			this.tableLayoutPanel7.Controls.Add(this.dateTimePicker6, 4, 0);
-			this.tableLayoutPanel7.Controls.Add(this.dateTimePicker5, 4, 1);
-			this.tableLayoutPanel7.Controls.Add(this.textBox26, 4, 2);
-			this.tableLayoutPanel7.Controls.Add(this.label43, 3, 2);
-			this.tableLayoutPanel7.Controls.Add(this.label42, 3, 1);
-			this.tableLayoutPanel7.Controls.Add(this.label1, 0, 3);
-			this.tableLayoutPanel7.Controls.Add(this.textBox1, 1, 3);
-			this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 21);
-			this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-			this.tableLayoutPanel7.RowCount = 5;
-			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel7.Size = new System.Drawing.Size(545, 118);
-			this.tableLayoutPanel7.TabIndex = 27;
+			this.tableLayoutPanel6.ColumnCount = 4;
+			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel6.Controls.Add(this.num_purchase_price, 1, 0);
+			this.tableLayoutPanel6.Controls.Add(this.label56, 0, 0);
+			this.tableLayoutPanel6.Controls.Add(this.num_net_purchase, 1, 2);
+			this.tableLayoutPanel6.Controls.Add(this.label57, 0, 4);
+			this.tableLayoutPanel6.Controls.Add(this.label58, 0, 3);
+			this.tableLayoutPanel6.Controls.Add(this.num_total_cost, 1, 4);
+			this.tableLayoutPanel6.Controls.Add(this.label59, 0, 2);
+			this.tableLayoutPanel6.Controls.Add(this.label60, 0, 1);
+			this.tableLayoutPanel6.Controls.Add(this.num_expenses, 1, 3);
+			this.tableLayoutPanel6.Controls.Add(this.num_overtrade, 1, 1);
+			this.tableLayoutPanel6.Controls.Add(this.num_list_price, 1, 5);
+			this.tableLayoutPanel6.Controls.Add(this.num_gross_profit, 1, 6);
+			this.tableLayoutPanel6.Controls.Add(this.label61, 0, 5);
+			this.tableLayoutPanel6.Controls.Add(this.label62, 0, 6);
+			this.tableLayoutPanel6.Controls.Add(this.label63, 2, 0);
+			this.tableLayoutPanel6.Controls.Add(this.num_loan_balance_readonly, 3, 0);
+			this.tableLayoutPanel6.Controls.Add(this.label64, 2, 2);
+			this.tableLayoutPanel6.Controls.Add(this.num_paid, 3, 2);
+			this.tableLayoutPanel6.Controls.Add(this.num_to_pay_seller, 3, 1);
+			this.tableLayoutPanel6.Controls.Add(this.label65, 2, 1);
+			this.tableLayoutPanel6.Controls.Add(this.label86, 2, 3);
+			this.tableLayoutPanel6.Controls.Add(this.num_to_pay, 3, 3);
+			this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 21);
+			this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+			this.tableLayoutPanel6.RowCount = 8;
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.Size = new System.Drawing.Size(545, 231);
+			this.tableLayoutPanel6.TabIndex = 0;
 			// 
-			// label40
+			// num_purchase_price
 			// 
-			this.label40.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label40.AutoSize = true;
-			this.label40.Location = new System.Drawing.Point(3, 6);
-			this.label40.Name = "label40";
-			this.label40.Size = new System.Drawing.Size(43, 17);
-			this.label40.TabIndex = 8;
-			this.label40.Text = "Seller:";
+			this.num_purchase_price.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_purchase_price.Location = new System.Drawing.Point(144, 2);
+			this.num_purchase_price.Margin = new System.Windows.Forms.Padding(2);
+			this.num_purchase_price.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_purchase_price.Name = "num_purchase_price";
+			this.num_purchase_price.Size = new System.Drawing.Size(126, 25);
+			this.num_purchase_price.TabIndex = 0;
+			this.num_purchase_price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_purchase_price.ThousandsSeparator = true;
+			this.num_purchase_price.ValueChanged += new System.EventHandler(this.Num_purchase_price_ValueChanged);
 			// 
-			// label41
+			// label56
 			// 
-			this.label41.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label41.AutoSize = true;
-			this.label41.Location = new System.Drawing.Point(3, 35);
-			this.label41.Name = "label41";
-			this.label41.Size = new System.Drawing.Size(78, 17);
-			this.label41.TabIndex = 22;
-			this.label41.Text = "Checked by:";
+			this.label56.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label56.AutoSize = true;
+			this.label56.Location = new System.Drawing.Point(3, 6);
+			this.label56.Name = "label56";
+			this.label56.Size = new System.Drawing.Size(111, 17);
+			this.label56.TabIndex = 1;
+			this.label56.Text = "A. Purchase price:";
 			// 
-			// button6
+			// num_net_purchase
 			// 
-			this.button6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.button6.Location = new System.Drawing.Point(262, 31);
-			this.button6.Margin = new System.Windows.Forms.Padding(2);
-			this.button6.Name = "button6";
-			this.button6.Size = new System.Drawing.Size(25, 25);
-			this.button6.TabIndex = 28;
-			this.button6.Text = "...";
-			this.button6.UseVisualStyleBackColor = true;
+			this.num_net_purchase.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_net_purchase.Location = new System.Drawing.Point(144, 60);
+			this.num_net_purchase.Margin = new System.Windows.Forms.Padding(2);
+			this.num_net_purchase.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_net_purchase.Name = "num_net_purchase";
+			this.num_net_purchase.ReadOnly = true;
+			this.num_net_purchase.Size = new System.Drawing.Size(126, 25);
+			this.num_net_purchase.TabIndex = 2;
+			this.num_net_purchase.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_net_purchase.ThousandsSeparator = true;
 			// 
-			// button7
+			// label57
 			// 
-			this.button7.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.button7.Location = new System.Drawing.Point(262, 2);
-			this.button7.Margin = new System.Windows.Forms.Padding(2);
-			this.button7.Name = "button7";
-			this.button7.Size = new System.Drawing.Size(25, 25);
-			this.button7.TabIndex = 27;
-			this.button7.Text = "...";
-			this.button7.UseVisualStyleBackColor = true;
+			this.label57.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label57.AutoSize = true;
+			this.label57.Location = new System.Drawing.Point(3, 122);
+			this.label57.Name = "label57";
+			this.label57.Size = new System.Drawing.Size(120, 17);
+			this.label57.TabIndex = 2;
+			this.label57.Text = "E. Total cost (C+D):";
 			// 
-			// textBox24
+			// label58
 			// 
-			this.textBox24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox24.Location = new System.Drawing.Point(86, 2);
-			this.textBox24.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox24.MaxLength = 10;
-			this.textBox24.Name = "textBox24";
-			this.textBox24.ReadOnly = true;
-			this.textBox24.Size = new System.Drawing.Size(172, 25);
-			this.textBox24.TabIndex = 13;
+			this.label58.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label58.AutoSize = true;
+			this.label58.Location = new System.Drawing.Point(3, 93);
+			this.label58.Name = "label58";
+			this.label58.Size = new System.Drawing.Size(81, 17);
+			this.label58.TabIndex = 2;
+			this.label58.Text = "D. Expenses:";
 			// 
-			// textBox25
+			// num_total_cost
 			// 
-			this.textBox25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox25.Location = new System.Drawing.Point(86, 31);
-			this.textBox25.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox25.MaxLength = 10;
-			this.textBox25.Name = "textBox25";
-			this.textBox25.ReadOnly = true;
-			this.textBox25.Size = new System.Drawing.Size(172, 25);
-			this.textBox25.TabIndex = 23;
+			this.num_total_cost.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_total_cost.Location = new System.Drawing.Point(144, 118);
+			this.num_total_cost.Margin = new System.Windows.Forms.Padding(2);
+			this.num_total_cost.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_total_cost.Name = "num_total_cost";
+			this.num_total_cost.ReadOnly = true;
+			this.num_total_cost.Size = new System.Drawing.Size(126, 25);
+			this.num_total_cost.TabIndex = 4;
+			this.num_total_cost.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_total_cost.ThousandsSeparator = true;
 			// 
-			// label44
+			// label59
 			// 
-			this.label44.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label44.AutoSize = true;
-			this.label44.Location = new System.Drawing.Point(292, 6);
-			this.label44.Name = "label44";
-			this.label44.Size = new System.Drawing.Size(93, 17);
-			this.label44.TabIndex = 30;
-			this.label44.Text = "Purchase date:";
+			this.label59.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label59.AutoSize = true;
+			this.label59.Location = new System.Drawing.Point(3, 64);
+			this.label59.Name = "label59";
+			this.label59.Size = new System.Drawing.Size(136, 17);
+			this.label59.TabIndex = 2;
+			this.label59.Text = "C. Net purchase (A-B):";
 			// 
-			// comboBox4
+			// label60
 			// 
-			this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBox4.FormattingEnabled = true;
-			this.comboBox4.Items.AddRange(new object[] {
-            "PURCHASE",
+			this.label60.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label60.AutoSize = true;
+			this.label60.Location = new System.Drawing.Point(3, 35);
+			this.label60.Name = "label60";
+			this.label60.Size = new System.Drawing.Size(84, 17);
+			this.label60.TabIndex = 2;
+			this.label60.Text = "B. Overtrade:";
+			// 
+			// num_expenses
+			// 
+			this.num_expenses.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_expenses.Location = new System.Drawing.Point(144, 89);
+			this.num_expenses.Margin = new System.Windows.Forms.Padding(2);
+			this.num_expenses.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_expenses.Name = "num_expenses";
+			this.num_expenses.ReadOnly = true;
+			this.num_expenses.Size = new System.Drawing.Size(126, 25);
+			this.num_expenses.TabIndex = 3;
+			this.num_expenses.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_expenses.ThousandsSeparator = true;
+			// 
+			// num_overtrade
+			// 
+			this.num_overtrade.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_overtrade.Location = new System.Drawing.Point(144, 31);
+			this.num_overtrade.Margin = new System.Windows.Forms.Padding(2);
+			this.num_overtrade.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_overtrade.Name = "num_overtrade";
+			this.num_overtrade.Size = new System.Drawing.Size(126, 25);
+			this.num_overtrade.TabIndex = 1;
+			this.num_overtrade.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_overtrade.ThousandsSeparator = true;
+			this.num_overtrade.ValueChanged += new System.EventHandler(this.Num_overtrade_ValueChanged);
+			// 
+			// num_list_price
+			// 
+			this.num_list_price.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_list_price.Location = new System.Drawing.Point(144, 147);
+			this.num_list_price.Margin = new System.Windows.Forms.Padding(2);
+			this.num_list_price.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_list_price.Name = "num_list_price";
+			this.num_list_price.Size = new System.Drawing.Size(126, 25);
+			this.num_list_price.TabIndex = 5;
+			this.num_list_price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_list_price.ThousandsSeparator = true;
+			this.num_list_price.ValueChanged += new System.EventHandler(this.Num_list_price_ValueChanged);
+			// 
+			// num_gross_profit
+			// 
+			this.num_gross_profit.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_gross_profit.Location = new System.Drawing.Point(144, 176);
+			this.num_gross_profit.Margin = new System.Windows.Forms.Padding(2);
+			this.num_gross_profit.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_gross_profit.Name = "num_gross_profit";
+			this.num_gross_profit.ReadOnly = true;
+			this.num_gross_profit.Size = new System.Drawing.Size(126, 25);
+			this.num_gross_profit.TabIndex = 6;
+			this.num_gross_profit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_gross_profit.ThousandsSeparator = true;
+			// 
+			// label61
+			// 
+			this.label61.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label61.AutoSize = true;
+			this.label61.Location = new System.Drawing.Point(3, 151);
+			this.label61.Name = "label61";
+			this.label61.Size = new System.Drawing.Size(76, 17);
+			this.label61.TabIndex = 2;
+			this.label61.Text = "F. List price:";
+			// 
+			// label62
+			// 
+			this.label62.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label62.AutoSize = true;
+			this.label62.Location = new System.Drawing.Point(3, 180);
+			this.label62.Name = "label62";
+			this.label62.Size = new System.Drawing.Size(127, 17);
+			this.label62.TabIndex = 2;
+			this.label62.Text = "G. Gross profit (F-E):";
+			// 
+			// label63
+			// 
+			this.label63.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label63.AutoSize = true;
+			this.label63.Location = new System.Drawing.Point(279, 6);
+			this.label63.Name = "label63";
+			this.label63.Size = new System.Drawing.Size(104, 17);
+			this.label63.TabIndex = 2;
+			this.label63.Text = "H. Loan balance:";
+			// 
+			// num_loan_balance_readonly
+			// 
+			this.num_loan_balance_readonly.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_loan_balance_readonly.Location = new System.Drawing.Point(413, 2);
+			this.num_loan_balance_readonly.Margin = new System.Windows.Forms.Padding(2);
+			this.num_loan_balance_readonly.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_loan_balance_readonly.Name = "num_loan_balance_readonly";
+			this.num_loan_balance_readonly.ReadOnly = true;
+			this.num_loan_balance_readonly.Size = new System.Drawing.Size(127, 25);
+			this.num_loan_balance_readonly.TabIndex = 7;
+			this.num_loan_balance_readonly.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_loan_balance_readonly.ThousandsSeparator = true;
+			// 
+			// label64
+			// 
+			this.label64.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label64.AutoSize = true;
+			this.label64.Location = new System.Drawing.Point(279, 64);
+			this.label64.Name = "label64";
+			this.label64.Size = new System.Drawing.Size(48, 17);
+			this.label64.TabIndex = 2;
+			this.label64.Text = "J. Paid:";
+			// 
+			// num_paid
+			// 
+			this.num_paid.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_paid.Location = new System.Drawing.Point(413, 60);
+			this.num_paid.Margin = new System.Windows.Forms.Padding(2);
+			this.num_paid.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_paid.Name = "num_paid";
+			this.num_paid.ReadOnly = true;
+			this.num_paid.Size = new System.Drawing.Size(127, 25);
+			this.num_paid.TabIndex = 9;
+			this.num_paid.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_paid.ThousandsSeparator = true;
+			// 
+			// num_to_pay_seller
+			// 
+			this.num_to_pay_seller.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_to_pay_seller.Location = new System.Drawing.Point(413, 31);
+			this.num_to_pay_seller.Margin = new System.Windows.Forms.Padding(2);
+			this.num_to_pay_seller.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_to_pay_seller.Name = "num_to_pay_seller";
+			this.num_to_pay_seller.ReadOnly = true;
+			this.num_to_pay_seller.Size = new System.Drawing.Size(127, 25);
+			this.num_to_pay_seller.TabIndex = 8;
+			this.num_to_pay_seller.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_to_pay_seller.ThousandsSeparator = true;
+			// 
+			// label65
+			// 
+			this.label65.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label65.AutoSize = true;
+			this.label65.Location = new System.Drawing.Point(279, 35);
+			this.label65.Name = "label65";
+			this.label65.Size = new System.Drawing.Size(129, 17);
+			this.label65.TabIndex = 2;
+			this.label65.Text = "I. To pay seller (E-H):";
+			// 
+			// label86
+			// 
+			this.label86.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label86.AutoSize = true;
+			this.label86.Location = new System.Drawing.Point(279, 93);
+			this.label86.Name = "label86";
+			this.label86.Size = new System.Drawing.Size(91, 17);
+			this.label86.TabIndex = 2;
+			this.label86.Text = "K. To pay (I-J):";
+			// 
+			// num_to_pay
+			// 
+			this.num_to_pay.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_to_pay.Location = new System.Drawing.Point(413, 89);
+			this.num_to_pay.Margin = new System.Windows.Forms.Padding(2);
+			this.num_to_pay.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_to_pay.Name = "num_to_pay";
+			this.num_to_pay.ReadOnly = true;
+			this.num_to_pay.Size = new System.Drawing.Size(127, 25);
+			this.num_to_pay.TabIndex = 10;
+			this.num_to_pay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_to_pay.ThousandsSeparator = true;
+			// 
+			// groupBox9
+			// 
+			this.groupBox9.Controls.Add(this.tableLayoutPanel5);
+			this.groupBox9.Location = new System.Drawing.Point(6, 277);
+			this.groupBox9.Name = "groupBox9";
+			this.groupBox9.Size = new System.Drawing.Size(363, 259);
+			this.groupBox9.TabIndex = 39;
+			this.groupBox9.TabStop = false;
+			this.groupBox9.Text = "Acquire details";
+			// 
+			// tableLayoutPanel5
+			// 
+			this.tableLayoutPanel5.ColumnCount = 4;
+			this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel5.Controls.Add(this.label47, 0, 0);
+			this.tableLayoutPanel5.Controls.Add(this.btn_seller, 2, 0);
+			this.tableLayoutPanel5.Controls.Add(this.txt_seller_name, 1, 0);
+			this.tableLayoutPanel5.Controls.Add(this.label49, 0, 3);
+			this.tableLayoutPanel5.Controls.Add(this.txt_invoice_no, 1, 3);
+			this.tableLayoutPanel5.Controls.Add(this.txt_checked_by, 1, 2);
+			this.tableLayoutPanel5.Controls.Add(this.label54, 0, 2);
+			this.tableLayoutPanel5.Controls.Add(this.btn_checked_by, 2, 2);
+			this.tableLayoutPanel5.Controls.Add(this.txt_seller_branch, 1, 1);
+			this.tableLayoutPanel5.Controls.Add(this.label55, 0, 1);
+			this.tableLayoutPanel5.Controls.Add(this.label53, 0, 5);
+			this.tableLayoutPanel5.Controls.Add(this.dtp_purchase_date, 1, 6);
+			this.tableLayoutPanel5.Controls.Add(this.dtp_date_received, 1, 7);
+			this.tableLayoutPanel5.Controls.Add(this.label52, 0, 6);
+			this.tableLayoutPanel5.Controls.Add(this.label51, 0, 7);
+			this.tableLayoutPanel5.Controls.Add(this.label50, 0, 8);
+			this.tableLayoutPanel5.Controls.Add(this.txt_sales_order, 1, 8);
+			this.tableLayoutPanel5.Controls.Add(this.btn_sales_order, 2, 8);
+			this.tableLayoutPanel5.Controls.Add(this.cmb_acquire_method, 1, 5);
+			this.tableLayoutPanel5.Controls.Add(this.num_seller_id, 2, 1);
+			this.tableLayoutPanel5.Controls.Add(this.num_checked_by_id, 2, 3);
+			this.tableLayoutPanel5.Controls.Add(this.txt_seller_type, 2, 5);
+			this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 21);
+			this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+			this.tableLayoutPanel5.RowCount = 10;
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel5.Size = new System.Drawing.Size(357, 235);
+			this.tableLayoutPanel5.TabIndex = 27;
+			// 
+			// label47
+			// 
+			this.label47.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label47.AutoSize = true;
+			this.label47.BackColor = System.Drawing.Color.Yellow;
+			this.label47.Location = new System.Drawing.Point(3, 6);
+			this.label47.Name = "label47";
+			this.label47.Size = new System.Drawing.Size(43, 17);
+			this.label47.TabIndex = 8;
+			this.label47.Text = "Seller:";
+			// 
+			// btn_seller
+			// 
+			this.btn_seller.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.btn_seller.Location = new System.Drawing.Point(329, 2);
+			this.btn_seller.Margin = new System.Windows.Forms.Padding(2);
+			this.btn_seller.Name = "btn_seller";
+			this.btn_seller.Size = new System.Drawing.Size(25, 25);
+			this.btn_seller.TabIndex = 1;
+			this.btn_seller.Text = "...";
+			this.btn_seller.UseVisualStyleBackColor = true;
+			this.btn_seller.Click += new System.EventHandler(this.Btn_seller_Click);
+			// 
+			// txt_seller_name
+			// 
+			this.txt_seller_name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_seller_name.Location = new System.Drawing.Point(101, 2);
+			this.txt_seller_name.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_seller_name.MaxLength = 10;
+			this.txt_seller_name.Name = "txt_seller_name";
+			this.txt_seller_name.ReadOnly = true;
+			this.txt_seller_name.Size = new System.Drawing.Size(224, 25);
+			this.txt_seller_name.TabIndex = 0;
+			// 
+			// label49
+			// 
+			this.label49.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label49.AutoSize = true;
+			this.label49.Location = new System.Drawing.Point(3, 93);
+			this.label49.Name = "label49";
+			this.label49.Size = new System.Drawing.Size(73, 17);
+			this.label49.TabIndex = 0;
+			this.label49.Text = "Invoice no.:";
+			// 
+			// txt_invoice_no
+			// 
+			this.txt_invoice_no.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_invoice_no.Location = new System.Drawing.Point(101, 89);
+			this.txt_invoice_no.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_invoice_no.MaxLength = 20;
+			this.txt_invoice_no.Name = "txt_invoice_no";
+			this.txt_invoice_no.Size = new System.Drawing.Size(224, 25);
+			this.txt_invoice_no.TabIndex = 5;
+			// 
+			// txt_checked_by
+			// 
+			this.txt_checked_by.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_checked_by.Location = new System.Drawing.Point(101, 60);
+			this.txt_checked_by.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_checked_by.MaxLength = 10;
+			this.txt_checked_by.Name = "txt_checked_by";
+			this.txt_checked_by.ReadOnly = true;
+			this.txt_checked_by.Size = new System.Drawing.Size(224, 25);
+			this.txt_checked_by.TabIndex = 3;
+			// 
+			// label54
+			// 
+			this.label54.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label54.AutoSize = true;
+			this.label54.BackColor = System.Drawing.Color.Yellow;
+			this.label54.Location = new System.Drawing.Point(3, 64);
+			this.label54.Name = "label54";
+			this.label54.Size = new System.Drawing.Size(78, 17);
+			this.label54.TabIndex = 22;
+			this.label54.Text = "Checked by:";
+			// 
+			// btn_checked_by
+			// 
+			this.btn_checked_by.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.btn_checked_by.Location = new System.Drawing.Point(329, 60);
+			this.btn_checked_by.Margin = new System.Windows.Forms.Padding(2);
+			this.btn_checked_by.Name = "btn_checked_by";
+			this.btn_checked_by.Size = new System.Drawing.Size(25, 25);
+			this.btn_checked_by.TabIndex = 4;
+			this.btn_checked_by.Text = "...";
+			this.btn_checked_by.UseVisualStyleBackColor = true;
+			this.btn_checked_by.Click += new System.EventHandler(this.Btn_checked_by_Click);
+			// 
+			// txt_seller_branch
+			// 
+			this.txt_seller_branch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_seller_branch.Location = new System.Drawing.Point(101, 31);
+			this.txt_seller_branch.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_seller_branch.MaxLength = 10;
+			this.txt_seller_branch.Name = "txt_seller_branch";
+			this.txt_seller_branch.ReadOnly = true;
+			this.txt_seller_branch.Size = new System.Drawing.Size(224, 25);
+			this.txt_seller_branch.TabIndex = 2;
+			// 
+			// label55
+			// 
+			this.label55.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label55.AutoSize = true;
+			this.label55.Location = new System.Drawing.Point(3, 35);
+			this.label55.Name = "label55";
+			this.label55.Size = new System.Drawing.Size(50, 17);
+			this.label55.TabIndex = 8;
+			this.label55.Text = "Branch:";
+			// 
+			// label53
+			// 
+			this.label53.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label53.AutoSize = true;
+			this.label53.Location = new System.Drawing.Point(3, 123);
+			this.label53.Name = "label53";
+			this.label53.Size = new System.Drawing.Size(57, 17);
+			this.label53.TabIndex = 0;
+			this.label53.Text = "Method:";
+			// 
+			// dtp_purchase_date
+			// 
+			this.dtp_purchase_date.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.dtp_purchase_date.CustomFormat = "";
+			this.dtp_purchase_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtp_purchase_date.Location = new System.Drawing.Point(101, 149);
+			this.dtp_purchase_date.Margin = new System.Windows.Forms.Padding(2);
+			this.dtp_purchase_date.Name = "dtp_purchase_date";
+			this.dtp_purchase_date.Size = new System.Drawing.Size(123, 25);
+			this.dtp_purchase_date.TabIndex = 7;
+			// 
+			// dtp_date_received
+			// 
+			this.dtp_date_received.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.dtp_date_received.CustomFormat = "";
+			this.dtp_date_received.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtp_date_received.Location = new System.Drawing.Point(101, 178);
+			this.dtp_date_received.Margin = new System.Windows.Forms.Padding(2);
+			this.dtp_date_received.Name = "dtp_date_received";
+			this.dtp_date_received.Size = new System.Drawing.Size(123, 25);
+			this.dtp_date_received.TabIndex = 8;
+			// 
+			// label52
+			// 
+			this.label52.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label52.AutoSize = true;
+			this.label52.Location = new System.Drawing.Point(3, 153);
+			this.label52.Name = "label52";
+			this.label52.Size = new System.Drawing.Size(93, 17);
+			this.label52.TabIndex = 30;
+			this.label52.Text = "Purchase date:";
+			// 
+			// label51
+			// 
+			this.label51.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label51.AutoSize = true;
+			this.label51.Location = new System.Drawing.Point(3, 182);
+			this.label51.Name = "label51";
+			this.label51.Size = new System.Drawing.Size(91, 17);
+			this.label51.TabIndex = 26;
+			this.label51.Text = "Date received:";
+			// 
+			// label50
+			// 
+			this.label50.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label50.AutoSize = true;
+			this.label50.Location = new System.Drawing.Point(3, 211);
+			this.label50.Name = "label50";
+			this.label50.Size = new System.Drawing.Size(78, 17);
+			this.label50.TabIndex = 22;
+			this.label50.Text = "Sales order:";
+			// 
+			// txt_sales_order
+			// 
+			this.txt_sales_order.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_sales_order.Location = new System.Drawing.Point(101, 207);
+			this.txt_sales_order.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_sales_order.MaxLength = 10;
+			this.txt_sales_order.Name = "txt_sales_order";
+			this.txt_sales_order.ReadOnly = true;
+			this.txt_sales_order.Size = new System.Drawing.Size(224, 25);
+			this.txt_sales_order.TabIndex = 9;
+			// 
+			// btn_sales_order
+			// 
+			this.btn_sales_order.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.btn_sales_order.Location = new System.Drawing.Point(329, 207);
+			this.btn_sales_order.Margin = new System.Windows.Forms.Padding(2);
+			this.btn_sales_order.Name = "btn_sales_order";
+			this.btn_sales_order.Size = new System.Drawing.Size(25, 25);
+			this.btn_sales_order.TabIndex = 10;
+			this.btn_sales_order.Text = "...";
+			this.btn_sales_order.UseVisualStyleBackColor = true;
+			this.btn_sales_order.Click += new System.EventHandler(this.Btn_sales_order_Click);
+			// 
+			// cmb_acquire_method
+			// 
+			this.cmb_acquire_method.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.cmb_acquire_method.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cmb_acquire_method.FormattingEnabled = true;
+			this.cmb_acquire_method.Items.AddRange(new object[] {
             "CONSIGNMENT",
             "MORTGAGE",
+            "PURCHASE",
             "TRADE-IN"});
-			this.comboBox4.Location = new System.Drawing.Point(86, 62);
-			this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
-			this.comboBox4.Name = "comboBox4";
-			this.comboBox4.Size = new System.Drawing.Size(172, 25);
-			this.comboBox4.TabIndex = 25;
+			this.cmb_acquire_method.Location = new System.Drawing.Point(101, 119);
+			this.cmb_acquire_method.Margin = new System.Windows.Forms.Padding(2);
+			this.cmb_acquire_method.Name = "cmb_acquire_method";
+			this.cmb_acquire_method.Size = new System.Drawing.Size(224, 25);
+			this.cmb_acquire_method.TabIndex = 6;
 			// 
-			// label39
+			// num_seller_id
 			// 
-			this.label39.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label39.AutoSize = true;
-			this.label39.Location = new System.Drawing.Point(3, 64);
-			this.label39.Name = "label39";
-			this.label39.Size = new System.Drawing.Size(57, 17);
-			this.label39.TabIndex = 0;
-			this.label39.Text = "Method:";
+			this.num_seller_id.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_seller_id.Location = new System.Drawing.Point(329, 31);
+			this.num_seller_id.Margin = new System.Windows.Forms.Padding(2);
+			this.num_seller_id.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_seller_id.Name = "num_seller_id";
+			this.num_seller_id.Size = new System.Drawing.Size(26, 25);
+			this.num_seller_id.TabIndex = 12;
+			this.num_seller_id.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_seller_id.ThousandsSeparator = true;
+			this.num_seller_id.Visible = false;
 			// 
-			// button10
+			// num_checked_by_id
 			// 
-			this.button10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.button10.Location = new System.Drawing.Point(517, 60);
-			this.button10.Margin = new System.Windows.Forms.Padding(2);
-			this.button10.Name = "button10";
-			this.button10.Size = new System.Drawing.Size(25, 25);
-			this.button10.TabIndex = 28;
-			this.button10.Text = "...";
-			this.button10.UseVisualStyleBackColor = true;
+			this.num_checked_by_id.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_checked_by_id.Location = new System.Drawing.Point(329, 89);
+			this.num_checked_by_id.Margin = new System.Windows.Forms.Padding(2);
+			this.num_checked_by_id.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_checked_by_id.Name = "num_checked_by_id";
+			this.num_checked_by_id.Size = new System.Drawing.Size(26, 25);
+			this.num_checked_by_id.TabIndex = 12;
+			this.num_checked_by_id.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_checked_by_id.ThousandsSeparator = true;
+			this.num_checked_by_id.Visible = false;
 			// 
-			// dateTimePicker6
+			// txt_seller_type
 			// 
-			this.dateTimePicker6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.dateTimePicker6.CustomFormat = "";
-			this.dateTimePicker6.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dateTimePicker6.Location = new System.Drawing.Point(390, 2);
-			this.dateTimePicker6.Margin = new System.Windows.Forms.Padding(2);
-			this.dateTimePicker6.Name = "dateTimePicker6";
-			this.dateTimePicker6.Size = new System.Drawing.Size(123, 25);
-			this.dateTimePicker6.TabIndex = 25;
+			this.txt_seller_type.Location = new System.Drawing.Point(330, 119);
+			this.txt_seller_type.Name = "txt_seller_type";
+			this.txt_seller_type.Size = new System.Drawing.Size(10, 25);
+			this.txt_seller_type.TabIndex = 31;
+			this.txt_seller_type.Visible = false;
 			// 
-			// dateTimePicker5
+			// groupBox11
 			// 
-			this.dateTimePicker5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.dateTimePicker5.CustomFormat = "";
-			this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dateTimePicker5.Location = new System.Drawing.Point(390, 31);
-			this.dateTimePicker5.Margin = new System.Windows.Forms.Padding(2);
-			this.dateTimePicker5.Name = "dateTimePicker5";
-			this.dateTimePicker5.Size = new System.Drawing.Size(123, 25);
-			this.dateTimePicker5.TabIndex = 29;
+			this.groupBox11.Controls.Add(this.tableLayoutPanel8);
+			this.groupBox11.Location = new System.Drawing.Point(6, 68);
+			this.groupBox11.Name = "groupBox11";
+			this.groupBox11.Size = new System.Drawing.Size(923, 203);
+			this.groupBox11.TabIndex = 36;
+			this.groupBox11.TabStop = false;
+			this.groupBox11.Text = "Vehicle details";
 			// 
-			// textBox26
+			// tableLayoutPanel8
 			// 
-			this.textBox26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox26.Location = new System.Drawing.Point(390, 60);
-			this.textBox26.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox26.MaxLength = 10;
-			this.textBox26.Name = "textBox26";
-			this.textBox26.ReadOnly = true;
-			this.textBox26.Size = new System.Drawing.Size(123, 25);
-			this.textBox26.TabIndex = 23;
+			this.tableLayoutPanel8.ColumnCount = 7;
+			this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 169F));
+			this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 168F));
+			this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 139F));
+			this.tableLayoutPanel8.Controls.Add(this.label66, 0, 0);
+			this.tableLayoutPanel8.Controls.Add(this.label67, 0, 1);
+			this.tableLayoutPanel8.Controls.Add(this.label74, 0, 5);
+			this.tableLayoutPanel8.Controls.Add(this.txt_reg_no, 1, 0);
+			this.tableLayoutPanel8.Controls.Add(this.btn_vehicle_location, 2, 5);
+			this.tableLayoutPanel8.Controls.Add(this.txt_chassis, 1, 1);
+			this.tableLayoutPanel8.Controls.Add(this.label80, 0, 2);
+			this.tableLayoutPanel8.Controls.Add(this.txt_vehicle_model, 1, 2);
+			this.tableLayoutPanel8.Controls.Add(this.btn_vehicle_model, 2, 2);
+			this.tableLayoutPanel8.Controls.Add(this.num_year_registered, 6, 3);
+			this.tableLayoutPanel8.Controls.Add(this.txt_vehicle_group, 1, 3);
+			this.tableLayoutPanel8.Controls.Add(this.label81, 0, 3);
+			this.tableLayoutPanel8.Controls.Add(this.txt_engine_no, 4, 0);
+			this.tableLayoutPanel8.Controls.Add(this.label72, 5, 1);
+			this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel2, 6, 1);
+			this.tableLayoutPanel8.Controls.Add(this.label78, 3, 1);
+			this.tableLayoutPanel8.Controls.Add(this.txt_ignition_key, 4, 1);
+			this.tableLayoutPanel8.Controls.Add(this.txt_year_make, 6, 2);
+			this.tableLayoutPanel8.Controls.Add(this.cmb_vehicle_colour, 4, 3);
+			this.tableLayoutPanel8.Controls.Add(this.label79, 5, 2);
+			this.tableLayoutPanel8.Controls.Add(this.num_road_tax_amount, 6, 5);
+			this.tableLayoutPanel8.Controls.Add(this.label71, 5, 5);
+			this.tableLayoutPanel8.Controls.Add(this.txt_vehicle_location, 1, 5);
+			this.tableLayoutPanel8.Controls.Add(this.label69, 5, 3);
+			this.tableLayoutPanel8.Controls.Add(this.dtp_road_tax_expiry, 6, 4);
+			this.tableLayoutPanel8.Controls.Add(this.label73, 5, 4);
+			this.tableLayoutPanel8.Controls.Add(this.num_mileage, 4, 5);
+			this.tableLayoutPanel8.Controls.Add(this.label75, 3, 5);
+			this.tableLayoutPanel8.Controls.Add(this.label70, 3, 4);
+			this.tableLayoutPanel8.Controls.Add(this.num_engine_cc, 4, 4);
+			this.tableLayoutPanel8.Controls.Add(this.txt_vehicle_brand, 1, 4);
+			this.tableLayoutPanel8.Controls.Add(this.label87, 0, 4);
+			this.tableLayoutPanel8.Controls.Add(this.label68, 3, 0);
+			this.tableLayoutPanel8.Controls.Add(this.label76, 3, 2);
+			this.tableLayoutPanel8.Controls.Add(this.label77, 3, 3);
+			this.tableLayoutPanel8.Controls.Add(this.txt_door_key, 4, 2);
+			this.tableLayoutPanel8.Controls.Add(this.num_vehicle_model_id, 2, 1);
+			this.tableLayoutPanel8.Controls.Add(this.num_vehicle_location, 2, 4);
+			this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 21);
+			this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+			this.tableLayoutPanel8.RowCount = 7;
+			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel8.Size = new System.Drawing.Size(917, 179);
+			this.tableLayoutPanel8.TabIndex = 35;
 			// 
-			// label43
+			// label66
 			// 
-			this.label43.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label43.AutoSize = true;
-			this.label43.Location = new System.Drawing.Point(292, 64);
-			this.label43.Name = "label43";
-			this.label43.Size = new System.Drawing.Size(78, 17);
-			this.label43.TabIndex = 22;
-			this.label43.Text = "Sales order:";
+			this.label66.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label66.AutoSize = true;
+			this.label66.BackColor = System.Drawing.Color.Yellow;
+			this.label66.Location = new System.Drawing.Point(3, 6);
+			this.label66.Name = "label66";
+			this.label66.Size = new System.Drawing.Size(103, 17);
+			this.label66.TabIndex = 0;
+			this.label66.Text = "Registration no.:";
 			// 
-			// label42
+			// label67
 			// 
-			this.label42.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label42.AutoSize = true;
-			this.label42.Location = new System.Drawing.Point(292, 35);
-			this.label42.Name = "label42";
-			this.label42.Size = new System.Drawing.Size(91, 17);
-			this.label42.TabIndex = 26;
-			this.label42.Text = "Date received:";
+			this.label67.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label67.AutoSize = true;
+			this.label67.BackColor = System.Drawing.Color.Yellow;
+			this.label67.Location = new System.Drawing.Point(3, 36);
+			this.label67.Name = "label67";
+			this.label67.Size = new System.Drawing.Size(54, 17);
+			this.label67.TabIndex = 2;
+			this.label67.Text = "Chassis:";
 			// 
-			// label1
+			// label74
 			// 
-			this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(3, 93);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(73, 17);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Invoice no.:";
+			this.label74.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label74.AutoSize = true;
+			this.label74.Location = new System.Drawing.Point(3, 156);
+			this.label74.Name = "label74";
+			this.label74.Size = new System.Drawing.Size(60, 17);
+			this.label74.TabIndex = 6;
+			this.label74.Text = "Location:";
 			// 
-			// textBox1
+			// txt_reg_no
 			// 
-			this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox1.Location = new System.Drawing.Point(86, 89);
-			this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox1.MaxLength = 10;
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(172, 25);
-			this.textBox1.TabIndex = 1;
+			this.txt_reg_no.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_reg_no.Location = new System.Drawing.Point(111, 2);
+			this.txt_reg_no.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_reg_no.MaxLength = 10;
+			this.txt_reg_no.Name = "txt_reg_no";
+			this.txt_reg_no.Size = new System.Drawing.Size(204, 25);
+			this.txt_reg_no.TabIndex = 0;
+			this.txt_reg_no.Leave += new System.EventHandler(this.Txt_reg_no_Leave);
 			// 
-			// groupBox2
+			// btn_vehicle_location
 			// 
-			this.groupBox2.Controls.Add(this.tableLayoutPanel1);
-			this.groupBox2.Location = new System.Drawing.Point(378, 189);
-			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(551, 314);
-			this.groupBox2.TabIndex = 37;
-			this.groupBox2.TabStop = false;
-			this.groupBox2.Text = "Finance (All amounts are in MYR)";
+			this.btn_vehicle_location.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.btn_vehicle_location.Location = new System.Drawing.Point(320, 152);
+			this.btn_vehicle_location.Name = "btn_vehicle_location";
+			this.btn_vehicle_location.Size = new System.Drawing.Size(25, 25);
+			this.btn_vehicle_location.TabIndex = 7;
+			this.btn_vehicle_location.Text = "...";
+			this.btn_vehicle_location.UseVisualStyleBackColor = true;
+			this.btn_vehicle_location.Click += new System.EventHandler(this.Btn_vehicle_location_Click);
 			// 
-			// tableLayoutPanel1
+			// txt_chassis
 			// 
-			this.tableLayoutPanel1.ColumnCount = 4;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.Controls.Add(this.numericUpDown1, 1, 0);
-			this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.numericUpDown2, 1, 1);
-			this.tableLayoutPanel1.Controls.Add(this.numericUpDown3, 1, 2);
-			this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
-			this.tableLayoutPanel1.Controls.Add(this.numericUpDown7, 1, 3);
-			this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
-			this.tableLayoutPanel1.Controls.Add(this.numericUpDown8, 1, 4);
-			this.tableLayoutPanel1.Controls.Add(this.label9, 2, 0);
-			this.tableLayoutPanel1.Controls.Add(this.numericUpDown11, 3, 0);
-			this.tableLayoutPanel1.Controls.Add(this.numericUpDown12, 3, 1);
-			this.tableLayoutPanel1.Controls.Add(this.label10, 2, 1);
-			this.tableLayoutPanel1.Controls.Add(this.label6, 0, 2);
-			this.tableLayoutPanel1.Controls.Add(this.numericUpDown13, 3, 2);
-			this.tableLayoutPanel1.Controls.Add(this.numericUpDown14, 3, 3);
-			this.tableLayoutPanel1.Controls.Add(this.label11, 2, 2);
-			this.tableLayoutPanel1.Controls.Add(this.label12, 2, 3);
-			this.tableLayoutPanel1.Controls.Add(this.label4, 0, 1);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 21);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 6;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(545, 290);
-			this.tableLayoutPanel1.TabIndex = 0;
+			this.txt_chassis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_chassis.Location = new System.Drawing.Point(111, 32);
+			this.txt_chassis.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_chassis.MaxLength = 20;
+			this.txt_chassis.Name = "txt_chassis";
+			this.txt_chassis.Size = new System.Drawing.Size(204, 25);
+			this.txt_chassis.TabIndex = 1;
+			this.txt_chassis.Leave += new System.EventHandler(this.Txt_chassis_Leave);
 			// 
-			// numericUpDown1
+			// label80
 			// 
-			this.numericUpDown1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.numericUpDown1.Location = new System.Drawing.Point(137, 2);
-			this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2);
-			this.numericUpDown1.Name = "numericUpDown1";
-			this.numericUpDown1.Size = new System.Drawing.Size(127, 25);
-			this.numericUpDown1.TabIndex = 0;
-			this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.numericUpDown1.ThousandsSeparator = true;
+			this.label80.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label80.AutoSize = true;
+			this.label80.BackColor = System.Drawing.Color.Yellow;
+			this.label80.Location = new System.Drawing.Point(3, 67);
+			this.label80.Name = "label80";
+			this.label80.Size = new System.Drawing.Size(49, 17);
+			this.label80.TabIndex = 2;
+			this.label80.Text = "Model:";
 			// 
-			// label2
+			// txt_vehicle_model
 			// 
-			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(3, 6);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(111, 17);
-			this.label2.TabIndex = 1;
-			this.label2.Text = "A. Purchase price:";
+			this.txt_vehicle_model.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_vehicle_model.Location = new System.Drawing.Point(111, 63);
+			this.txt_vehicle_model.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_vehicle_model.MaxLength = 10;
+			this.txt_vehicle_model.Name = "txt_vehicle_model";
+			this.txt_vehicle_model.ReadOnly = true;
+			this.txt_vehicle_model.Size = new System.Drawing.Size(204, 25);
+			this.txt_vehicle_model.TabIndex = 2;
 			// 
-			// numericUpDown2
+			// btn_vehicle_model
 			// 
-			this.numericUpDown2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.numericUpDown2.Location = new System.Drawing.Point(137, 31);
-			this.numericUpDown2.Margin = new System.Windows.Forms.Padding(2);
-			this.numericUpDown2.Name = "numericUpDown2";
-			this.numericUpDown2.ReadOnly = true;
-			this.numericUpDown2.Size = new System.Drawing.Size(127, 25);
-			this.numericUpDown2.TabIndex = 0;
-			this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.numericUpDown2.ThousandsSeparator = true;
+			this.btn_vehicle_model.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.btn_vehicle_model.Location = new System.Drawing.Point(320, 63);
+			this.btn_vehicle_model.Name = "btn_vehicle_model";
+			this.btn_vehicle_model.Size = new System.Drawing.Size(25, 25);
+			this.btn_vehicle_model.TabIndex = 3;
+			this.btn_vehicle_model.Text = "...";
+			this.btn_vehicle_model.UseVisualStyleBackColor = true;
+			this.btn_vehicle_model.Click += new System.EventHandler(this.Btn_vehicle_model_Click);
 			// 
-			// numericUpDown3
+			// num_year_registered
 			// 
-			this.numericUpDown3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.numericUpDown3.Location = new System.Drawing.Point(137, 60);
-			this.numericUpDown3.Margin = new System.Windows.Forms.Padding(2);
-			this.numericUpDown3.Name = "numericUpDown3";
-			this.numericUpDown3.ReadOnly = true;
-			this.numericUpDown3.Size = new System.Drawing.Size(127, 25);
-			this.numericUpDown3.TabIndex = 0;
-			this.numericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.numericUpDown3.ThousandsSeparator = true;
+			this.num_year_registered.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_year_registered.Location = new System.Drawing.Point(780, 93);
+			this.num_year_registered.Margin = new System.Windows.Forms.Padding(2);
+			this.num_year_registered.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+			this.num_year_registered.Name = "num_year_registered";
+			this.num_year_registered.Size = new System.Drawing.Size(126, 25);
+			this.num_year_registered.TabIndex = 15;
 			// 
-			// label5
+			// txt_vehicle_group
 			// 
-			this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(3, 122);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(129, 17);
-			this.label5.TabIndex = 2;
-			this.label5.Text = "E. Gross profit (D-C):";
+			this.txt_vehicle_group.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_vehicle_group.Location = new System.Drawing.Point(111, 93);
+			this.txt_vehicle_group.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_vehicle_group.MaxLength = 10;
+			this.txt_vehicle_group.Name = "txt_vehicle_group";
+			this.txt_vehicle_group.ReadOnly = true;
+			this.txt_vehicle_group.Size = new System.Drawing.Size(204, 25);
+			this.txt_vehicle_group.TabIndex = 4;
 			// 
-			// numericUpDown7
+			// label81
 			// 
-			this.numericUpDown7.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.numericUpDown7.Location = new System.Drawing.Point(137, 89);
-			this.numericUpDown7.Margin = new System.Windows.Forms.Padding(2);
-			this.numericUpDown7.Name = "numericUpDown7";
-			this.numericUpDown7.Size = new System.Drawing.Size(127, 25);
-			this.numericUpDown7.TabIndex = 0;
-			this.numericUpDown7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.numericUpDown7.ThousandsSeparator = true;
+			this.label81.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label81.AutoSize = true;
+			this.label81.Location = new System.Drawing.Point(3, 97);
+			this.label81.Name = "label81";
+			this.label81.Size = new System.Drawing.Size(48, 17);
+			this.label81.TabIndex = 2;
+			this.label81.Text = "Group:";
 			// 
-			// label3
+			// txt_engine_no
 			// 
-			this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(3, 93);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(79, 17);
-			this.label3.TabIndex = 2;
-			this.label3.Text = "D. List price:";
+			this.txt_engine_no.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_engine_no.Location = new System.Drawing.Point(443, 2);
+			this.txt_engine_no.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_engine_no.MaxLength = 20;
+			this.txt_engine_no.Name = "txt_engine_no";
+			this.txt_engine_no.Size = new System.Drawing.Size(165, 25);
+			this.txt_engine_no.TabIndex = 8;
 			// 
-			// numericUpDown8
+			// label72
 			// 
-			this.numericUpDown8.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.numericUpDown8.Location = new System.Drawing.Point(137, 118);
-			this.numericUpDown8.Margin = new System.Windows.Forms.Padding(2);
-			this.numericUpDown8.Name = "numericUpDown8";
-			this.numericUpDown8.ReadOnly = true;
-			this.numericUpDown8.Size = new System.Drawing.Size(127, 25);
-			this.numericUpDown8.TabIndex = 0;
-			this.numericUpDown8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.numericUpDown8.ThousandsSeparator = true;
+			this.label72.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label72.AutoSize = true;
+			this.label72.Location = new System.Drawing.Point(613, 36);
+			this.label72.Name = "label72";
+			this.label72.Size = new System.Drawing.Size(78, 17);
+			this.label72.TabIndex = 20;
+			this.label72.Text = "New / used:";
 			// 
-			// label9
+			// flowLayoutPanel2
 			// 
-			this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(272, 6);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(83, 17);
-			this.label9.TabIndex = 2;
-			this.label9.Text = "F. Overtrade:";
+			this.flowLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.flowLayoutPanel2.AutoSize = true;
+			this.flowLayoutPanel2.Controls.Add(this.rad_vehicle_new);
+			this.flowLayoutPanel2.Controls.Add(this.rad_vehicle_old);
+			this.flowLayoutPanel2.Location = new System.Drawing.Point(780, 31);
+			this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
+			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+			this.flowLayoutPanel2.Size = new System.Drawing.Size(111, 27);
+			this.flowLayoutPanel2.TabIndex = 35;
 			// 
-			// numericUpDown11
+			// rad_vehicle_new
 			// 
-			this.numericUpDown11.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.numericUpDown11.Location = new System.Drawing.Point(413, 2);
-			this.numericUpDown11.Margin = new System.Windows.Forms.Padding(2);
-			this.numericUpDown11.Name = "numericUpDown11";
-			this.numericUpDown11.Size = new System.Drawing.Size(127, 25);
-			this.numericUpDown11.TabIndex = 0;
-			this.numericUpDown11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.numericUpDown11.ThousandsSeparator = true;
+			this.rad_vehicle_new.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.rad_vehicle_new.AutoSize = true;
+			this.rad_vehicle_new.Checked = true;
+			this.rad_vehicle_new.Location = new System.Drawing.Point(3, 3);
+			this.rad_vehicle_new.Name = "rad_vehicle_new";
+			this.rad_vehicle_new.Size = new System.Drawing.Size(52, 21);
+			this.rad_vehicle_new.TabIndex = 0;
+			this.rad_vehicle_new.TabStop = true;
+			this.rad_vehicle_new.Text = "New";
+			this.rad_vehicle_new.UseVisualStyleBackColor = true;
 			// 
-			// numericUpDown12
+			// rad_vehicle_old
 			// 
-			this.numericUpDown12.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.numericUpDown12.Location = new System.Drawing.Point(413, 31);
-			this.numericUpDown12.Margin = new System.Windows.Forms.Padding(2);
-			this.numericUpDown12.Name = "numericUpDown12";
-			this.numericUpDown12.ReadOnly = true;
-			this.numericUpDown12.Size = new System.Drawing.Size(127, 25);
-			this.numericUpDown12.TabIndex = 0;
-			this.numericUpDown12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.numericUpDown12.ThousandsSeparator = true;
+			this.rad_vehicle_old.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.rad_vehicle_old.AutoSize = true;
+			this.rad_vehicle_old.Location = new System.Drawing.Point(61, 3);
+			this.rad_vehicle_old.Name = "rad_vehicle_old";
+			this.rad_vehicle_old.Size = new System.Drawing.Size(47, 21);
+			this.rad_vehicle_old.TabIndex = 1;
+			this.rad_vehicle_old.Text = "Old";
+			this.rad_vehicle_old.UseVisualStyleBackColor = true;
 			// 
-			// label10
+			// label78
 			// 
-			this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(272, 35);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(136, 17);
-			this.label10.TabIndex = 2;
-			this.label10.Text = "G. Net purchase (A-F):";
+			this.label78.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label78.AutoSize = true;
+			this.label78.Location = new System.Drawing.Point(351, 36);
+			this.label78.Name = "label78";
+			this.label78.Size = new System.Drawing.Size(77, 17);
+			this.label78.TabIndex = 33;
+			this.label78.Text = "Ignition key:";
 			// 
-			// label6
+			// txt_ignition_key
 			// 
-			this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(3, 64);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(119, 17);
-			this.label6.TabIndex = 2;
-			this.label6.Text = "C. Total cost (A+B):";
+			this.txt_ignition_key.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_ignition_key.Location = new System.Drawing.Point(443, 32);
+			this.txt_ignition_key.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_ignition_key.MaxLength = 20;
+			this.txt_ignition_key.Name = "txt_ignition_key";
+			this.txt_ignition_key.Size = new System.Drawing.Size(165, 25);
+			this.txt_ignition_key.TabIndex = 9;
 			// 
-			// numericUpDown13
+			// txt_year_make
 			// 
-			this.numericUpDown13.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.numericUpDown13.Location = new System.Drawing.Point(413, 60);
-			this.numericUpDown13.Margin = new System.Windows.Forms.Padding(2);
-			this.numericUpDown13.Name = "numericUpDown13";
-			this.numericUpDown13.ReadOnly = true;
-			this.numericUpDown13.Size = new System.Drawing.Size(127, 25);
-			this.numericUpDown13.TabIndex = 0;
-			this.numericUpDown13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.numericUpDown13.ThousandsSeparator = true;
+			this.txt_year_make.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_year_make.Location = new System.Drawing.Point(780, 63);
+			this.txt_year_make.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_year_make.MaxLength = 10;
+			this.txt_year_make.Name = "txt_year_make";
+			this.txt_year_make.ReadOnly = true;
+			this.txt_year_make.Size = new System.Drawing.Size(135, 25);
+			this.txt_year_make.TabIndex = 14;
 			// 
-			// numericUpDown14
+			// cmb_vehicle_colour
 			// 
-			this.numericUpDown14.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.numericUpDown14.Location = new System.Drawing.Point(413, 89);
-			this.numericUpDown14.Margin = new System.Windows.Forms.Padding(2);
-			this.numericUpDown14.Name = "numericUpDown14";
-			this.numericUpDown14.ReadOnly = true;
-			this.numericUpDown14.Size = new System.Drawing.Size(127, 25);
-			this.numericUpDown14.TabIndex = 0;
-			this.numericUpDown14.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.numericUpDown14.ThousandsSeparator = true;
+			this.cmb_vehicle_colour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.cmb_vehicle_colour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cmb_vehicle_colour.FormattingEnabled = true;
+			this.cmb_vehicle_colour.Location = new System.Drawing.Point(443, 95);
+			this.cmb_vehicle_colour.Margin = new System.Windows.Forms.Padding(2);
+			this.cmb_vehicle_colour.Name = "cmb_vehicle_colour";
+			this.cmb_vehicle_colour.Size = new System.Drawing.Size(165, 25);
+			this.cmb_vehicle_colour.TabIndex = 11;
+			// 
+			// label79
+			// 
+			this.label79.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label79.AutoSize = true;
+			this.label79.Location = new System.Drawing.Point(613, 67);
+			this.label79.Name = "label79";
+			this.label79.Size = new System.Drawing.Size(72, 17);
+			this.label79.TabIndex = 31;
+			this.label79.Text = "Year make:";
+			// 
+			// num_road_tax_amount
+			// 
+			this.num_road_tax_amount.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_road_tax_amount.Location = new System.Drawing.Point(780, 152);
+			this.num_road_tax_amount.Margin = new System.Windows.Forms.Padding(2);
+			this.num_road_tax_amount.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_road_tax_amount.Name = "num_road_tax_amount";
+			this.num_road_tax_amount.Size = new System.Drawing.Size(127, 25);
+			this.num_road_tax_amount.TabIndex = 17;
+			this.num_road_tax_amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_road_tax_amount.ThousandsSeparator = true;
+			// 
+			// label71
+			// 
+			this.label71.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label71.AutoSize = true;
+			this.label71.Location = new System.Drawing.Point(613, 156);
+			this.label71.Name = "label71";
+			this.label71.Size = new System.Drawing.Size(150, 17);
+			this.label71.TabIndex = 28;
+			this.label71.Text = "Road tax amount (MYR):";
+			// 
+			// txt_vehicle_location
+			// 
+			this.txt_vehicle_location.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_vehicle_location.Location = new System.Drawing.Point(111, 152);
+			this.txt_vehicle_location.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_vehicle_location.MaxLength = 10;
+			this.txt_vehicle_location.Name = "txt_vehicle_location";
+			this.txt_vehicle_location.ReadOnly = true;
+			this.txt_vehicle_location.Size = new System.Drawing.Size(204, 25);
+			this.txt_vehicle_location.TabIndex = 6;
+			// 
+			// label69
+			// 
+			this.label69.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label69.AutoSize = true;
+			this.label69.Location = new System.Drawing.Point(613, 97);
+			this.label69.Name = "label69";
+			this.label69.Size = new System.Drawing.Size(101, 17);
+			this.label69.TabIndex = 31;
+			this.label69.Text = "Year registered:";
+			// 
+			// dtp_road_tax_expiry
+			// 
+			this.dtp_road_tax_expiry.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.dtp_road_tax_expiry.CustomFormat = "";
+			this.dtp_road_tax_expiry.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtp_road_tax_expiry.Location = new System.Drawing.Point(780, 122);
+			this.dtp_road_tax_expiry.Margin = new System.Windows.Forms.Padding(2);
+			this.dtp_road_tax_expiry.Name = "dtp_road_tax_expiry";
+			this.dtp_road_tax_expiry.Size = new System.Drawing.Size(108, 25);
+			this.dtp_road_tax_expiry.TabIndex = 16;
+			// 
+			// label73
+			// 
+			this.label73.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label73.AutoSize = true;
+			this.label73.Location = new System.Drawing.Point(613, 126);
+			this.label73.Name = "label73";
+			this.label73.Size = new System.Drawing.Size(102, 17);
+			this.label73.TabIndex = 26;
+			this.label73.Text = "Road tax expiry:";
+			// 
+			// num_mileage
+			// 
+			this.num_mileage.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_mileage.Location = new System.Drawing.Point(443, 152);
+			this.num_mileage.Margin = new System.Windows.Forms.Padding(2);
+			this.num_mileage.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_mileage.Name = "num_mileage";
+			this.num_mileage.Size = new System.Drawing.Size(127, 25);
+			this.num_mileage.TabIndex = 13;
+			this.num_mileage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_mileage.ThousandsSeparator = true;
+			// 
+			// label75
+			// 
+			this.label75.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label75.AutoSize = true;
+			this.label75.Location = new System.Drawing.Point(351, 156);
+			this.label75.Name = "label75";
+			this.label75.Size = new System.Drawing.Size(87, 17);
+			this.label75.TabIndex = 24;
+			this.label75.Text = "Mileage (km):";
+			// 
+			// label70
+			// 
+			this.label70.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label70.AutoSize = true;
+			this.label70.Location = new System.Drawing.Point(351, 126);
+			this.label70.Name = "label70";
+			this.label70.Size = new System.Drawing.Size(70, 17);
+			this.label70.TabIndex = 30;
+			this.label70.Text = "Engine CC:";
+			// 
+			// num_engine_cc
+			// 
+			this.num_engine_cc.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_engine_cc.Location = new System.Drawing.Point(443, 122);
+			this.num_engine_cc.Margin = new System.Windows.Forms.Padding(2);
+			this.num_engine_cc.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_engine_cc.Name = "num_engine_cc";
+			this.num_engine_cc.Size = new System.Drawing.Size(127, 25);
+			this.num_engine_cc.TabIndex = 12;
+			this.num_engine_cc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_engine_cc.ThousandsSeparator = true;
+			// 
+			// txt_vehicle_brand
+			// 
+			this.txt_vehicle_brand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_vehicle_brand.Location = new System.Drawing.Point(111, 122);
+			this.txt_vehicle_brand.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_vehicle_brand.MaxLength = 10;
+			this.txt_vehicle_brand.Name = "txt_vehicle_brand";
+			this.txt_vehicle_brand.ReadOnly = true;
+			this.txt_vehicle_brand.Size = new System.Drawing.Size(204, 25);
+			this.txt_vehicle_brand.TabIndex = 5;
+			// 
+			// label87
+			// 
+			this.label87.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label87.AutoSize = true;
+			this.label87.Location = new System.Drawing.Point(3, 126);
+			this.label87.Name = "label87";
+			this.label87.Size = new System.Drawing.Size(45, 17);
+			this.label87.TabIndex = 2;
+			this.label87.Text = "Brand:";
+			// 
+			// label68
+			// 
+			this.label68.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label68.AutoSize = true;
+			this.label68.BackColor = System.Drawing.Color.Yellow;
+			this.label68.Location = new System.Drawing.Point(351, 6);
+			this.label68.Name = "label68";
+			this.label68.Size = new System.Drawing.Size(72, 17);
+			this.label68.TabIndex = 18;
+			this.label68.Text = "Engine no.:";
+			// 
+			// label76
+			// 
+			this.label76.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label76.AutoSize = true;
+			this.label76.Location = new System.Drawing.Point(351, 67);
+			this.label76.Name = "label76";
+			this.label76.Size = new System.Drawing.Size(64, 17);
+			this.label76.TabIndex = 33;
+			this.label76.Text = "Door key:";
+			// 
+			// label77
+			// 
+			this.label77.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label77.AutoSize = true;
+			this.label77.Location = new System.Drawing.Point(351, 97);
+			this.label77.Name = "label77";
+			this.label77.Size = new System.Drawing.Size(50, 17);
+			this.label77.TabIndex = 4;
+			this.label77.Text = "Colour:";
+			// 
+			// txt_door_key
+			// 
+			this.txt_door_key.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_door_key.Location = new System.Drawing.Point(443, 63);
+			this.txt_door_key.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_door_key.MaxLength = 20;
+			this.txt_door_key.Name = "txt_door_key";
+			this.txt_door_key.Size = new System.Drawing.Size(165, 25);
+			this.txt_door_key.TabIndex = 10;
+			// 
+			// num_vehicle_model_id
+			// 
+			this.num_vehicle_model_id.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_vehicle_model_id.Location = new System.Drawing.Point(319, 32);
+			this.num_vehicle_model_id.Margin = new System.Windows.Forms.Padding(2);
+			this.num_vehicle_model_id.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_vehicle_model_id.Name = "num_vehicle_model_id";
+			this.num_vehicle_model_id.Size = new System.Drawing.Size(26, 25);
+			this.num_vehicle_model_id.TabIndex = 12;
+			this.num_vehicle_model_id.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_vehicle_model_id.ThousandsSeparator = true;
+			this.num_vehicle_model_id.Visible = false;
+			// 
+			// num_vehicle_location
+			// 
+			this.num_vehicle_location.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_vehicle_location.Location = new System.Drawing.Point(319, 122);
+			this.num_vehicle_location.Margin = new System.Windows.Forms.Padding(2);
+			this.num_vehicle_location.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_vehicle_location.Name = "num_vehicle_location";
+			this.num_vehicle_location.Size = new System.Drawing.Size(26, 25);
+			this.num_vehicle_location.TabIndex = 12;
+			this.num_vehicle_location.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_vehicle_location.ThousandsSeparator = true;
+			this.num_vehicle_location.Visible = false;
+			// 
+			// txt_status
+			// 
+			this.txt_status.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txt_status.Location = new System.Drawing.Point(83, 6);
+			this.txt_status.MaxLength = 10;
+			this.txt_status.Name = "txt_status";
+			this.txt_status.ReadOnly = true;
+			this.txt_status.Size = new System.Drawing.Size(161, 29);
+			this.txt_status.TabIndex = 0;
+			// 
+			// label82
+			// 
+			this.label82.AutoSize = true;
+			this.label82.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label82.Location = new System.Drawing.Point(5, 8);
+			this.label82.Name = "label82";
+			this.label82.Size = new System.Drawing.Size(72, 25);
+			this.label82.TabIndex = 27;
+			this.label82.Text = "Status:";
+			// 
+			// textBox41
+			// 
+			this.textBox41.Location = new System.Drawing.Point(805, 6);
+			this.textBox41.MaxLength = 10;
+			this.textBox41.Name = "textBox41";
+			this.textBox41.ReadOnly = true;
+			this.textBox41.Size = new System.Drawing.Size(124, 25);
+			this.textBox41.TabIndex = 3;
+			// 
+			// label83
+			// 
+			this.label83.AutoSize = true;
+			this.label83.Location = new System.Drawing.Point(338, 41);
+			this.label83.Name = "label83";
+			this.label83.Size = new System.Drawing.Size(91, 17);
+			this.label83.TabIndex = 20;
+			this.label83.Text = "Reference no.:";
+			// 
+			// label84
+			// 
+			this.label84.AutoSize = true;
+			this.label84.Location = new System.Drawing.Point(685, 9);
+			this.label84.Name = "label84";
+			this.label84.Size = new System.Drawing.Size(109, 17);
+			this.label84.TabIndex = 20;
+			this.label84.Text = "Last modified on:";
+			// 
+			// txt_ref_no
+			// 
+			this.txt_ref_no.Location = new System.Drawing.Point(451, 37);
+			this.txt_ref_no.MaxLength = 10;
+			this.txt_ref_no.Name = "txt_ref_no";
+			this.txt_ref_no.ReadOnly = true;
+			this.txt_ref_no.Size = new System.Drawing.Size(229, 25);
+			this.txt_ref_no.TabIndex = 2;
+			// 
+			// txt_last_modified_by
+			// 
+			this.txt_last_modified_by.Location = new System.Drawing.Point(451, 6);
+			this.txt_last_modified_by.MaxLength = 10;
+			this.txt_last_modified_by.Name = "txt_last_modified_by";
+			this.txt_last_modified_by.ReadOnly = true;
+			this.txt_last_modified_by.Size = new System.Drawing.Size(229, 25);
+			this.txt_last_modified_by.TabIndex = 1;
+			// 
+			// label85
+			// 
+			this.label85.AutoSize = true;
+			this.label85.Location = new System.Drawing.Point(338, 9);
+			this.label85.Name = "label85";
+			this.label85.Size = new System.Drawing.Size(108, 17);
+			this.label85.TabIndex = 18;
+			this.label85.Text = "Last modified by:";
+			// 
+			// tabPage3
+			// 
+			this.tabPage3.Controls.Add(this.btn_loan_finance);
+			this.tabPage3.Controls.Add(this.dtp_settlement_date);
+			this.tabPage3.Controls.Add(this.txt_loan_branch);
+			this.tabPage3.Controls.Add(this.num_installment_day);
+			this.tabPage3.Controls.Add(this.num_installment_amount);
+			this.tabPage3.Controls.Add(this.num_loan_finance_id);
+			this.tabPage3.Controls.Add(this.num_loan_balance);
+			this.tabPage3.Controls.Add(this.txt_loan_agreement_no);
+			this.tabPage3.Controls.Add(this.txt_loan_finance);
+			this.tabPage3.Controls.Add(this.label20);
+			this.tabPage3.Controls.Add(this.label19);
+			this.tabPage3.Controls.Add(this.label18);
+			this.tabPage3.Controls.Add(this.label17);
+			this.tabPage3.Controls.Add(this.label16);
+			this.tabPage3.Controls.Add(this.label15);
+			this.tabPage3.Controls.Add(this.label11);
+			this.tabPage3.Location = new System.Drawing.Point(4, 26);
+			this.tabPage3.Name = "tabPage3";
+			this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage3.Size = new System.Drawing.Size(935, 542);
+			this.tabPage3.TabIndex = 6;
+			this.tabPage3.Text = "Loan details";
+			this.tabPage3.UseVisualStyleBackColor = true;
+			// 
+			// btn_loan_finance
+			// 
+			this.btn_loan_finance.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.btn_loan_finance.Location = new System.Drawing.Point(401, 35);
+			this.btn_loan_finance.Name = "btn_loan_finance";
+			this.btn_loan_finance.Size = new System.Drawing.Size(25, 25);
+			this.btn_loan_finance.TabIndex = 13;
+			this.btn_loan_finance.Text = "...";
+			this.btn_loan_finance.UseVisualStyleBackColor = true;
+			this.btn_loan_finance.Click += new System.EventHandler(this.Btn_loan_finance_Click);
+			// 
+			// dtp_settlement_date
+			// 
+			this.dtp_settlement_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtp_settlement_date.Location = new System.Drawing.Point(171, 155);
+			this.dtp_settlement_date.Name = "dtp_settlement_date";
+			this.dtp_settlement_date.Size = new System.Drawing.Size(126, 25);
+			this.dtp_settlement_date.TabIndex = 4;
+			// 
+			// txt_loan_branch
+			// 
+			this.txt_loan_branch.Location = new System.Drawing.Point(171, 66);
+			this.txt_loan_branch.Name = "txt_loan_branch";
+			this.txt_loan_branch.ReadOnly = true;
+			this.txt_loan_branch.Size = new System.Drawing.Size(224, 25);
+			this.txt_loan_branch.TabIndex = 3;
+			// 
+			// num_installment_day
+			// 
+			this.num_installment_day.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_installment_day.Location = new System.Drawing.Point(171, 125);
+			this.num_installment_day.Margin = new System.Windows.Forms.Padding(2);
+			this.num_installment_day.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+			this.num_installment_day.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.num_installment_day.Name = "num_installment_day";
+			this.num_installment_day.Size = new System.Drawing.Size(126, 25);
+			this.num_installment_day.TabIndex = 2;
+			this.num_installment_day.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_installment_day.ThousandsSeparator = true;
+			this.num_installment_day.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			// 
+			// num_installment_amount
+			// 
+			this.num_installment_amount.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_installment_amount.Location = new System.Drawing.Point(171, 96);
+			this.num_installment_amount.Margin = new System.Windows.Forms.Padding(2);
+			this.num_installment_amount.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_installment_amount.Name = "num_installment_amount";
+			this.num_installment_amount.Size = new System.Drawing.Size(126, 25);
+			this.num_installment_amount.TabIndex = 2;
+			this.num_installment_amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_installment_amount.ThousandsSeparator = true;
+			// 
+			// num_loan_finance_id
+			// 
+			this.num_loan_finance_id.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_loan_finance_id.Location = new System.Drawing.Point(431, 37);
+			this.num_loan_finance_id.Margin = new System.Windows.Forms.Padding(2);
+			this.num_loan_finance_id.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_loan_finance_id.Name = "num_loan_finance_id";
+			this.num_loan_finance_id.Size = new System.Drawing.Size(43, 25);
+			this.num_loan_finance_id.TabIndex = 2;
+			this.num_loan_finance_id.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_loan_finance_id.ThousandsSeparator = true;
+			this.num_loan_finance_id.Visible = false;
+			this.num_loan_finance_id.ValueChanged += new System.EventHandler(this.Num_loan_finance_id_ValueChanged);
+			// 
+			// num_loan_balance
+			// 
+			this.num_loan_balance.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_loan_balance.Location = new System.Drawing.Point(171, 5);
+			this.num_loan_balance.Margin = new System.Windows.Forms.Padding(2);
+			this.num_loan_balance.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_loan_balance.Name = "num_loan_balance";
+			this.num_loan_balance.Size = new System.Drawing.Size(126, 25);
+			this.num_loan_balance.TabIndex = 2;
+			this.num_loan_balance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_loan_balance.ThousandsSeparator = true;
+			// 
+			// txt_loan_agreement_no
+			// 
+			this.txt_loan_agreement_no.Location = new System.Drawing.Point(171, 186);
+			this.txt_loan_agreement_no.MaxLength = 30;
+			this.txt_loan_agreement_no.Name = "txt_loan_agreement_no";
+			this.txt_loan_agreement_no.Size = new System.Drawing.Size(224, 25);
+			this.txt_loan_agreement_no.TabIndex = 1;
+			// 
+			// txt_loan_finance
+			// 
+			this.txt_loan_finance.Location = new System.Drawing.Point(171, 35);
+			this.txt_loan_finance.Name = "txt_loan_finance";
+			this.txt_loan_finance.ReadOnly = true;
+			this.txt_loan_finance.Size = new System.Drawing.Size(224, 25);
+			this.txt_loan_finance.TabIndex = 1;
+			// 
+			// label20
+			// 
+			this.label20.AutoSize = true;
+			this.label20.Location = new System.Drawing.Point(6, 190);
+			this.label20.Name = "label20";
+			this.label20.Size = new System.Drawing.Size(128, 17);
+			this.label20.TabIndex = 0;
+			this.label20.Text = "Loan agreement no.:";
+			// 
+			// label19
+			// 
+			this.label19.AutoSize = true;
+			this.label19.Location = new System.Drawing.Point(6, 159);
+			this.label19.Name = "label19";
+			this.label19.Size = new System.Drawing.Size(102, 17);
+			this.label19.TabIndex = 0;
+			this.label19.Text = "Settlement date:";
+			// 
+			// label18
+			// 
+			this.label18.AutoSize = true;
+			this.label18.Location = new System.Drawing.Point(6, 129);
+			this.label18.Name = "label18";
+			this.label18.Size = new System.Drawing.Size(155, 17);
+			this.label18.TabIndex = 0;
+			this.label18.Text = "Installment day of month:";
+			// 
+			// label17
+			// 
+			this.label17.AutoSize = true;
+			this.label17.Location = new System.Drawing.Point(6, 100);
+			this.label17.Name = "label17";
+			this.label17.Size = new System.Drawing.Size(160, 17);
+			this.label17.TabIndex = 0;
+			this.label17.Text = "Installment amount (MYR):";
+			// 
+			// label16
+			// 
+			this.label16.AutoSize = true;
+			this.label16.Location = new System.Drawing.Point(6, 70);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(50, 17);
+			this.label16.TabIndex = 0;
+			this.label16.Text = "Branch:";
+			// 
+			// label15
+			// 
+			this.label15.AutoSize = true;
+			this.label15.Location = new System.Drawing.Point(6, 39);
+			this.label15.Name = "label15";
+			this.label15.Size = new System.Drawing.Size(54, 17);
+			this.label15.TabIndex = 0;
+			this.label15.Text = "Finance:";
 			// 
 			// label11
 			// 
-			this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(272, 64);
+			this.label11.Location = new System.Drawing.Point(6, 9);
 			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(86, 17);
-			this.label11.TabIndex = 2;
-			this.label11.Text = "H. Total paid:";
-			// 
-			// label12
-			// 
-			this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(272, 93);
-			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(95, 17);
-			this.label12.TabIndex = 2;
-			this.label12.Text = "I. To pay (A-H):";
-			// 
-			// label4
-			// 
-			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(3, 35);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(112, 17);
-			this.label4.TabIndex = 2;
-			this.label4.Text = "B. Total expenses:";
-			// 
-			// groupBox5
-			// 
-			this.groupBox5.Controls.Add(this.tableLayoutPanel3);
-			this.groupBox5.Location = new System.Drawing.Point(5, 41);
-			this.groupBox5.Name = "groupBox5";
-			this.groupBox5.Size = new System.Drawing.Size(367, 462);
-			this.groupBox5.TabIndex = 36;
-			this.groupBox5.TabStop = false;
-			this.groupBox5.Text = "Vehicle details";
-			// 
-			// tableLayoutPanel3
-			// 
-			this.tableLayoutPanel3.ColumnCount = 3;
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel3.Controls.Add(this.label33, 0, 0);
-			this.tableLayoutPanel3.Controls.Add(this.numericUpDown4, 1, 14);
-			this.tableLayoutPanel3.Controls.Add(this.label34, 0, 1);
-			this.tableLayoutPanel3.Controls.Add(this.label35, 0, 3);
-			this.tableLayoutPanel3.Controls.Add(this.numericUpDown5, 1, 11);
-			this.tableLayoutPanel3.Controls.Add(this.label25, 0, 9);
-			this.tableLayoutPanel3.Controls.Add(this.label26, 0, 11);
-			this.tableLayoutPanel3.Controls.Add(this.label27, 0, 14);
-			this.tableLayoutPanel3.Controls.Add(this.dateTimePicker4, 1, 13);
-			this.tableLayoutPanel3.Controls.Add(this.label37, 0, 4);
-			this.tableLayoutPanel3.Controls.Add(this.label28, 0, 13);
-			this.tableLayoutPanel3.Controls.Add(this.label38, 0, 5);
-			this.tableLayoutPanel3.Controls.Add(this.label31, 0, 12);
-			this.tableLayoutPanel3.Controls.Add(this.numericUpDown6, 1, 12);
-			this.tableLayoutPanel3.Controls.Add(this.label32, 0, 6);
-			this.tableLayoutPanel3.Controls.Add(this.textBox16, 1, 9);
-			this.tableLayoutPanel3.Controls.Add(this.label36, 0, 10);
-			this.tableLayoutPanel3.Controls.Add(this.label30, 0, 7);
-			this.tableLayoutPanel3.Controls.Add(this.label29, 0, 8);
-			this.tableLayoutPanel3.Controls.Add(this.textBox19, 1, 0);
-			this.tableLayoutPanel3.Controls.Add(this.button8, 2, 1);
-			this.tableLayoutPanel3.Controls.Add(this.comboBox3, 1, 10);
-			this.tableLayoutPanel3.Controls.Add(this.button9, 2, 5);
-			this.tableLayoutPanel3.Controls.Add(this.textBox18, 1, 8);
-			this.tableLayoutPanel3.Controls.Add(this.textBox22, 1, 3);
-			this.tableLayoutPanel3.Controls.Add(this.textBox21, 1, 1);
-			this.tableLayoutPanel3.Controls.Add(this.textBox17, 1, 7);
-			this.tableLayoutPanel3.Controls.Add(this.textBox23, 1, 5);
-			this.tableLayoutPanel3.Controls.Add(this.textBox20, 1, 6);
-			this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel1, 1, 4);
-			this.tableLayoutPanel3.Controls.Add(this.label13, 0, 2);
-			this.tableLayoutPanel3.Controls.Add(this.textBox3, 1, 2);
-			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 21);
-			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-			this.tableLayoutPanel3.RowCount = 16;
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(361, 438);
-			this.tableLayoutPanel3.TabIndex = 35;
-			// 
-			// label33
-			// 
-			this.label33.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label33.AutoSize = true;
-			this.label33.Location = new System.Drawing.Point(3, 6);
-			this.label33.Name = "label33";
-			this.label33.Size = new System.Drawing.Size(103, 17);
-			this.label33.TabIndex = 0;
-			this.label33.Text = "Registration no.:";
-			// 
-			// numericUpDown4
-			// 
-			this.numericUpDown4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.numericUpDown4.Location = new System.Drawing.Point(158, 410);
-			this.numericUpDown4.Margin = new System.Windows.Forms.Padding(2);
-			this.numericUpDown4.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-			this.numericUpDown4.Name = "numericUpDown4";
-			this.numericUpDown4.Size = new System.Drawing.Size(127, 25);
-			this.numericUpDown4.TabIndex = 27;
-			this.numericUpDown4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.numericUpDown4.ThousandsSeparator = true;
-			// 
-			// label34
-			// 
-			this.label34.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label34.AutoSize = true;
-			this.label34.Location = new System.Drawing.Point(3, 35);
-			this.label34.Name = "label34";
-			this.label34.Size = new System.Drawing.Size(54, 17);
-			this.label34.TabIndex = 2;
-			this.label34.Text = "Chassis:";
-			// 
-			// label35
-			// 
-			this.label35.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label35.AutoSize = true;
-			this.label35.Location = new System.Drawing.Point(3, 93);
-			this.label35.Name = "label35";
-			this.label35.Size = new System.Drawing.Size(72, 17);
-			this.label35.TabIndex = 18;
-			this.label35.Text = "Engine no.:";
-			// 
-			// numericUpDown5
-			// 
-			this.numericUpDown5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.numericUpDown5.Location = new System.Drawing.Point(158, 323);
-			this.numericUpDown5.Margin = new System.Windows.Forms.Padding(2);
-			this.numericUpDown5.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-			this.numericUpDown5.Name = "numericUpDown5";
-			this.numericUpDown5.Size = new System.Drawing.Size(127, 25);
-			this.numericUpDown5.TabIndex = 29;
-			this.numericUpDown5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.numericUpDown5.ThousandsSeparator = true;
-			// 
-			// label25
-			// 
-			this.label25.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label25.AutoSize = true;
-			this.label25.Location = new System.Drawing.Point(3, 269);
-			this.label25.Name = "label25";
-			this.label25.Size = new System.Drawing.Size(101, 17);
-			this.label25.TabIndex = 31;
-			this.label25.Text = "Year registered:";
-			// 
-			// label26
-			// 
-			this.label26.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label26.AutoSize = true;
-			this.label26.Location = new System.Drawing.Point(3, 327);
-			this.label26.Name = "label26";
-			this.label26.Size = new System.Drawing.Size(70, 17);
-			this.label26.TabIndex = 30;
-			this.label26.Text = "Engine CC:";
-			// 
-			// label27
-			// 
-			this.label27.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label27.AutoSize = true;
-			this.label27.Location = new System.Drawing.Point(3, 414);
-			this.label27.Name = "label27";
-			this.label27.Size = new System.Drawing.Size(150, 17);
-			this.label27.TabIndex = 28;
-			this.label27.Text = "Road tax amount (MYR):";
-			// 
-			// dateTimePicker4
-			// 
-			this.dateTimePicker4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.dateTimePicker4.CustomFormat = "";
-			this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dateTimePicker4.Location = new System.Drawing.Point(158, 381);
-			this.dateTimePicker4.Margin = new System.Windows.Forms.Padding(2);
-			this.dateTimePicker4.Name = "dateTimePicker4";
-			this.dateTimePicker4.Size = new System.Drawing.Size(127, 25);
-			this.dateTimePicker4.TabIndex = 25;
-			// 
-			// label37
-			// 
-			this.label37.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label37.AutoSize = true;
-			this.label37.Location = new System.Drawing.Point(3, 123);
-			this.label37.Name = "label37";
-			this.label37.Size = new System.Drawing.Size(78, 17);
-			this.label37.TabIndex = 20;
-			this.label37.Text = "New / used:";
-			// 
-			// label28
-			// 
-			this.label28.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label28.AutoSize = true;
-			this.label28.Location = new System.Drawing.Point(3, 385);
-			this.label28.Name = "label28";
-			this.label28.Size = new System.Drawing.Size(102, 17);
-			this.label28.TabIndex = 26;
-			this.label28.Text = "Road tax expiry:";
-			// 
-			// label38
-			// 
-			this.label38.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label38.AutoSize = true;
-			this.label38.Location = new System.Drawing.Point(3, 153);
-			this.label38.Name = "label38";
-			this.label38.Size = new System.Drawing.Size(60, 17);
-			this.label38.TabIndex = 6;
-			this.label38.Text = "Location:";
-			// 
-			// label31
-			// 
-			this.label31.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label31.AutoSize = true;
-			this.label31.Location = new System.Drawing.Point(3, 356);
-			this.label31.Name = "label31";
-			this.label31.Size = new System.Drawing.Size(58, 17);
-			this.label31.TabIndex = 24;
-			this.label31.Text = "Mileage:";
-			// 
-			// numericUpDown6
-			// 
-			this.numericUpDown6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.numericUpDown6.Location = new System.Drawing.Point(158, 352);
-			this.numericUpDown6.Margin = new System.Windows.Forms.Padding(2);
-			this.numericUpDown6.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-			this.numericUpDown6.Name = "numericUpDown6";
-			this.numericUpDown6.Size = new System.Drawing.Size(127, 25);
-			this.numericUpDown6.TabIndex = 23;
-			this.numericUpDown6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.numericUpDown6.ThousandsSeparator = true;
-			// 
-			// label32
-			// 
-			this.label32.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label32.AutoSize = true;
-			this.label32.Location = new System.Drawing.Point(3, 182);
-			this.label32.Name = "label32";
-			this.label32.Size = new System.Drawing.Size(64, 17);
-			this.label32.TabIndex = 33;
-			this.label32.Text = "Door key:";
-			// 
-			// textBox16
-			// 
-			this.textBox16.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBox16.Location = new System.Drawing.Point(158, 265);
-			this.textBox16.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox16.MaxLength = 10;
-			this.textBox16.Name = "textBox16";
-			this.textBox16.ReadOnly = true;
-			this.textBox16.Size = new System.Drawing.Size(127, 25);
-			this.textBox16.TabIndex = 32;
-			// 
-			// label36
-			// 
-			this.label36.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label36.AutoSize = true;
-			this.label36.Location = new System.Drawing.Point(3, 298);
-			this.label36.Name = "label36";
-			this.label36.Size = new System.Drawing.Size(50, 17);
-			this.label36.TabIndex = 4;
-			this.label36.Text = "Colour:";
-			// 
-			// label30
-			// 
-			this.label30.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label30.AutoSize = true;
-			this.label30.Location = new System.Drawing.Point(3, 211);
-			this.label30.Name = "label30";
-			this.label30.Size = new System.Drawing.Size(77, 17);
-			this.label30.TabIndex = 33;
-			this.label30.Text = "Ignition key:";
-			// 
-			// label29
-			// 
-			this.label29.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label29.AutoSize = true;
-			this.label29.Location = new System.Drawing.Point(3, 240);
-			this.label29.Name = "label29";
-			this.label29.Size = new System.Drawing.Size(72, 17);
-			this.label29.TabIndex = 31;
-			this.label29.Text = "Year make:";
-			// 
-			// textBox19
-			// 
-			this.textBox19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox19.Location = new System.Drawing.Point(158, 2);
-			this.textBox19.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox19.MaxLength = 10;
-			this.textBox19.Name = "textBox19";
-			this.textBox19.Size = new System.Drawing.Size(170, 25);
-			this.textBox19.TabIndex = 1;
-			// 
-			// button8
-			// 
-			this.button8.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.button8.Location = new System.Drawing.Point(333, 32);
-			this.button8.Name = "button8";
-			this.button8.Size = new System.Drawing.Size(25, 23);
-			this.button8.TabIndex = 12;
-			this.button8.Text = "...";
-			this.button8.UseVisualStyleBackColor = true;
-			// 
-			// comboBox3
-			// 
-			this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBox3.FormattingEnabled = true;
-			this.comboBox3.Location = new System.Drawing.Point(158, 294);
-			this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
-			this.comboBox3.Name = "comboBox3";
-			this.comboBox3.Size = new System.Drawing.Size(127, 25);
-			this.comboBox3.TabIndex = 17;
-			// 
-			// button9
-			// 
-			this.button9.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.button9.Location = new System.Drawing.Point(333, 150);
-			this.button9.Name = "button9";
-			this.button9.Size = new System.Drawing.Size(25, 23);
-			this.button9.TabIndex = 16;
-			this.button9.Text = "...";
-			this.button9.UseVisualStyleBackColor = true;
-			// 
-			// textBox18
-			// 
-			this.textBox18.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBox18.Location = new System.Drawing.Point(158, 236);
-			this.textBox18.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox18.MaxLength = 10;
-			this.textBox18.Name = "textBox18";
-			this.textBox18.ReadOnly = true;
-			this.textBox18.Size = new System.Drawing.Size(127, 25);
-			this.textBox18.TabIndex = 32;
-			// 
-			// textBox22
-			// 
-			this.textBox22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox22.Location = new System.Drawing.Point(158, 89);
-			this.textBox22.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox22.MaxLength = 10;
-			this.textBox22.Name = "textBox22";
-			this.textBox22.Size = new System.Drawing.Size(170, 25);
-			this.textBox22.TabIndex = 19;
-			// 
-			// textBox21
-			// 
-			this.textBox21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox21.Location = new System.Drawing.Point(158, 31);
-			this.textBox21.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox21.MaxLength = 10;
-			this.textBox21.Name = "textBox21";
-			this.textBox21.ReadOnly = true;
-			this.textBox21.Size = new System.Drawing.Size(170, 25);
-			this.textBox21.TabIndex = 3;
-			// 
-			// textBox17
-			// 
-			this.textBox17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox17.Location = new System.Drawing.Point(158, 207);
-			this.textBox17.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox17.MaxLength = 10;
-			this.textBox17.Name = "textBox17";
-			this.textBox17.Size = new System.Drawing.Size(170, 25);
-			this.textBox17.TabIndex = 34;
-			// 
-			// textBox23
-			// 
-			this.textBox23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox23.Location = new System.Drawing.Point(158, 149);
-			this.textBox23.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox23.MaxLength = 10;
-			this.textBox23.Name = "textBox23";
-			this.textBox23.ReadOnly = true;
-			this.textBox23.Size = new System.Drawing.Size(170, 25);
-			this.textBox23.TabIndex = 15;
-			// 
-			// textBox20
-			// 
-			this.textBox20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox20.Location = new System.Drawing.Point(158, 178);
-			this.textBox20.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox20.MaxLength = 10;
-			this.textBox20.Name = "textBox20";
-			this.textBox20.Size = new System.Drawing.Size(170, 25);
-			this.textBox20.TabIndex = 34;
-			// 
-			// flowLayoutPanel1
-			// 
-			this.flowLayoutPanel1.AutoSize = true;
-			this.flowLayoutPanel1.Controls.Add(this.radioButton3);
-			this.flowLayoutPanel1.Controls.Add(this.radioButton4);
-			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(158, 118);
-			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
-			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(170, 27);
-			this.flowLayoutPanel1.TabIndex = 35;
-			// 
-			// radioButton3
-			// 
-			this.radioButton3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.radioButton3.AutoSize = true;
-			this.radioButton3.Checked = true;
-			this.radioButton3.Location = new System.Drawing.Point(3, 3);
-			this.radioButton3.Name = "radioButton3";
-			this.radioButton3.Size = new System.Drawing.Size(52, 21);
-			this.radioButton3.TabIndex = 21;
-			this.radioButton3.TabStop = true;
-			this.radioButton3.Text = "New";
-			this.radioButton3.UseVisualStyleBackColor = true;
-			// 
-			// radioButton4
-			// 
-			this.radioButton4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.radioButton4.AutoSize = true;
-			this.radioButton4.Location = new System.Drawing.Point(61, 3);
-			this.radioButton4.Name = "radioButton4";
-			this.radioButton4.Size = new System.Drawing.Size(47, 21);
-			this.radioButton4.TabIndex = 22;
-			this.radioButton4.Text = "Old";
-			this.radioButton4.UseVisualStyleBackColor = true;
-			// 
-			// label13
-			// 
-			this.label13.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(3, 64);
-			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(49, 17);
-			this.label13.TabIndex = 2;
-			this.label13.Text = "Model:";
-			// 
-			// textBox3
-			// 
-			this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox3.Location = new System.Drawing.Point(158, 60);
-			this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox3.MaxLength = 10;
-			this.textBox3.Name = "textBox3";
-			this.textBox3.ReadOnly = true;
-			this.textBox3.Size = new System.Drawing.Size(170, 25);
-			this.textBox3.TabIndex = 3;
-			// 
-			// textBox14
-			// 
-			this.textBox14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox14.Location = new System.Drawing.Point(83, 6);
-			this.textBox14.MaxLength = 10;
-			this.textBox14.Name = "textBox14";
-			this.textBox14.ReadOnly = true;
-			this.textBox14.Size = new System.Drawing.Size(161, 29);
-			this.textBox14.TabIndex = 28;
-			// 
-			// label23
-			// 
-			this.label23.AutoSize = true;
-			this.label23.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label23.Location = new System.Drawing.Point(5, 8);
-			this.label23.Name = "label23";
-			this.label23.Size = new System.Drawing.Size(72, 25);
-			this.label23.TabIndex = 27;
-			this.label23.Text = "Status:";
-			// 
-			// textBox27
-			// 
-			this.textBox27.Location = new System.Drawing.Point(799, 6);
-			this.textBox27.MaxLength = 10;
-			this.textBox27.Name = "textBox27";
-			this.textBox27.ReadOnly = true;
-			this.textBox27.Size = new System.Drawing.Size(124, 25);
-			this.textBox27.TabIndex = 21;
-			// 
-			// label45
-			// 
-			this.label45.AutoSize = true;
-			this.label45.Location = new System.Drawing.Point(685, 9);
-			this.label45.Name = "label45";
-			this.label45.Size = new System.Drawing.Size(109, 17);
-			this.label45.TabIndex = 20;
-			this.label45.Text = "Last modified on:";
-			// 
-			// textBox28
-			// 
-			this.textBox28.Location = new System.Drawing.Point(451, 6);
-			this.textBox28.MaxLength = 10;
-			this.textBox28.Name = "textBox28";
-			this.textBox28.ReadOnly = true;
-			this.textBox28.Size = new System.Drawing.Size(229, 25);
-			this.textBox28.TabIndex = 19;
-			// 
-			// label46
-			// 
-			this.label46.AutoSize = true;
-			this.label46.Location = new System.Drawing.Point(338, 9);
-			this.label46.Name = "label46";
-			this.label46.Size = new System.Drawing.Size(108, 17);
-			this.label46.TabIndex = 18;
-			this.label46.Text = "Last modified by:";
+			this.label11.Size = new System.Drawing.Size(127, 17);
+			this.label11.TabIndex = 0;
+			this.label11.Text = "Loan balance (MYR):";
 			// 
 			// tabPage2
 			// 
@@ -1201,7 +1746,7 @@
 			this.tabPage2.Location = new System.Drawing.Point(4, 26);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(935, 509);
+			this.tabPage2.Size = new System.Drawing.Size(935, 542);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Expenses & payment";
 			this.tabPage2.UseVisualStyleBackColor = true;
@@ -1218,74 +1763,74 @@
 			this.tableLayoutPanel4.RowCount = 2;
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel4.Size = new System.Drawing.Size(929, 503);
+			this.tableLayoutPanel4.Size = new System.Drawing.Size(929, 536);
 			this.tableLayoutPanel4.TabIndex = 3;
 			// 
 			// groupBox4
 			// 
-			this.groupBox4.Controls.Add(this.dataGridView2);
+			this.groupBox4.Controls.Add(this.grd_payment);
 			this.groupBox4.Controls.Add(this.toolStrip2);
 			this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBox4.Location = new System.Drawing.Point(3, 254);
+			this.groupBox4.Location = new System.Drawing.Point(3, 271);
 			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(923, 246);
+			this.groupBox4.Size = new System.Drawing.Size(923, 262);
 			this.groupBox4.TabIndex = 2;
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "Payment";
 			// 
-			// dataGridView2
+			// grd_payment
 			// 
-			this.dataGridView2.AllowUserToAddRows = false;
-			this.dataGridView2.AllowUserToDeleteRows = false;
-			this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView2.Location = new System.Drawing.Point(3, 46);
-			this.dataGridView2.Name = "dataGridView2";
-			this.dataGridView2.ReadOnly = true;
-			this.dataGridView2.Size = new System.Drawing.Size(917, 197);
-			this.dataGridView2.TabIndex = 2;
+			this.grd_payment.AllowUserToAddRows = false;
+			this.grd_payment.AllowUserToDeleteRows = false;
+			this.grd_payment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.grd_payment.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.grd_payment.Location = new System.Drawing.Point(3, 46);
+			this.grd_payment.Name = "grd_payment";
+			this.grd_payment.ReadOnly = true;
+			this.grd_payment.Size = new System.Drawing.Size(917, 213);
+			this.grd_payment.TabIndex = 2;
 			// 
 			// toolStrip2
 			// 
 			this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton4,
-            this.toolStripButton5,
-            this.toolStripButton6,
+            this.btn_add_payment,
+            this.btn_edit_payment,
+            this.btn_delete_payment,
             this.toolStripLabel3,
-            this.toolStripLabel4});
+            this.lbl_total_payment});
 			this.toolStrip2.Location = new System.Drawing.Point(3, 21);
 			this.toolStrip2.Name = "toolStrip2";
 			this.toolStrip2.Size = new System.Drawing.Size(917, 25);
 			this.toolStrip2.TabIndex = 1;
 			this.toolStrip2.Text = "toolStrip2";
 			// 
-			// toolStripButton4
+			// btn_add_payment
 			// 
-			this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton4.Image = global::VehicleDealership.Properties.Resources.Add_16x;
-			this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton4.Name = "toolStripButton4";
-			this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton4.Text = "toolStripButton1";
+			this.btn_add_payment.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_add_payment.Image = global::VehicleDealership.Properties.Resources.Add_16x;
+			this.btn_add_payment.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_add_payment.Name = "btn_add_payment";
+			this.btn_add_payment.Size = new System.Drawing.Size(23, 22);
+			this.btn_add_payment.Text = "Add";
 			// 
-			// toolStripButton5
+			// btn_edit_payment
 			// 
-			this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton5.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
-			this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton5.Name = "toolStripButton5";
-			this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton5.Text = "toolStripButton2";
+			this.btn_edit_payment.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_edit_payment.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
+			this.btn_edit_payment.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_edit_payment.Name = "btn_edit_payment";
+			this.btn_edit_payment.Size = new System.Drawing.Size(23, 22);
+			this.btn_edit_payment.Text = "Edit";
 			// 
-			// toolStripButton6
+			// btn_delete_payment
 			// 
-			this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton6.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
-			this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton6.Name = "toolStripButton6";
-			this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton6.Text = "toolStripButton3";
+			this.btn_delete_payment.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_delete_payment.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
+			this.btn_delete_payment.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_delete_payment.Name = "btn_delete_payment";
+			this.btn_delete_payment.Size = new System.Drawing.Size(23, 22);
+			this.btn_delete_payment.Text = "Delete";
 			// 
 			// toolStripLabel3
 			// 
@@ -1293,77 +1838,77 @@
 			this.toolStripLabel3.Size = new System.Drawing.Size(141, 22);
 			this.toolStripLabel3.Text = "TOTAL PAYMENT (MYR):";
 			// 
-			// toolStripLabel4
+			// lbl_total_payment
 			// 
-			this.toolStripLabel4.Name = "toolStripLabel4";
-			this.toolStripLabel4.Size = new System.Drawing.Size(13, 22);
-			this.toolStripLabel4.Text = "0";
+			this.lbl_total_payment.Name = "lbl_total_payment";
+			this.lbl_total_payment.Size = new System.Drawing.Size(13, 22);
+			this.lbl_total_payment.Text = "0";
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.Controls.Add(this.dataGridView1);
+			this.groupBox1.Controls.Add(this.grd_expenses);
 			this.groupBox1.Controls.Add(this.toolStrip1);
 			this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.groupBox1.Location = new System.Drawing.Point(3, 3);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(923, 245);
+			this.groupBox1.Size = new System.Drawing.Size(923, 262);
 			this.groupBox1.TabIndex = 1;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Expenses";
 			// 
-			// dataGridView1
+			// grd_expenses
 			// 
-			this.dataGridView1.AllowUserToAddRows = false;
-			this.dataGridView1.AllowUserToDeleteRows = false;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView1.Location = new System.Drawing.Point(3, 46);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.Size = new System.Drawing.Size(917, 196);
-			this.dataGridView1.TabIndex = 2;
+			this.grd_expenses.AllowUserToAddRows = false;
+			this.grd_expenses.AllowUserToDeleteRows = false;
+			this.grd_expenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.grd_expenses.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.grd_expenses.Location = new System.Drawing.Point(3, 46);
+			this.grd_expenses.Name = "grd_expenses";
+			this.grd_expenses.ReadOnly = true;
+			this.grd_expenses.Size = new System.Drawing.Size(917, 213);
+			this.grd_expenses.TabIndex = 2;
 			// 
 			// toolStrip1
 			// 
 			this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3,
+            this.btn_add_expenses,
+            this.btn_edit_expenses,
+            this.btn_delete_expenses,
             this.toolStripLabel1,
-            this.toolStripLabel2});
+            this.lbl_total_expenses});
 			this.toolStrip1.Location = new System.Drawing.Point(3, 21);
 			this.toolStrip1.Name = "toolStrip1";
 			this.toolStrip1.Size = new System.Drawing.Size(917, 25);
 			this.toolStrip1.TabIndex = 1;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
-			// toolStripButton1
+			// btn_add_expenses
 			// 
-			this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton1.Image = global::VehicleDealership.Properties.Resources.Add_16x;
-			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton1.Name = "toolStripButton1";
-			this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton1.Text = "toolStripButton1";
+			this.btn_add_expenses.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_add_expenses.Image = global::VehicleDealership.Properties.Resources.Add_16x;
+			this.btn_add_expenses.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_add_expenses.Name = "btn_add_expenses";
+			this.btn_add_expenses.Size = new System.Drawing.Size(23, 22);
+			this.btn_add_expenses.Text = "Add";
 			// 
-			// toolStripButton2
+			// btn_edit_expenses
 			// 
-			this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton2.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
-			this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton2.Name = "toolStripButton2";
-			this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton2.Text = "toolStripButton2";
+			this.btn_edit_expenses.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_edit_expenses.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
+			this.btn_edit_expenses.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_edit_expenses.Name = "btn_edit_expenses";
+			this.btn_edit_expenses.Size = new System.Drawing.Size(23, 22);
+			this.btn_edit_expenses.Text = "Edit";
 			// 
-			// toolStripButton3
+			// btn_delete_expenses
 			// 
-			this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton3.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
-			this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton3.Name = "toolStripButton3";
-			this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton3.Text = "toolStripButton3";
+			this.btn_delete_expenses.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_delete_expenses.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
+			this.btn_delete_expenses.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_delete_expenses.Name = "btn_delete_expenses";
+			this.btn_delete_expenses.Size = new System.Drawing.Size(23, 22);
+			this.btn_delete_expenses.Text = "Delete";
 			// 
 			// toolStripLabel1
 			// 
@@ -1371,190 +1916,174 @@
 			this.toolStripLabel1.Size = new System.Drawing.Size(139, 22);
 			this.toolStripLabel1.Text = "TOTAL EXPENSES (MYR):";
 			// 
-			// toolStripLabel2
+			// lbl_total_expenses
 			// 
-			this.toolStripLabel2.Name = "toolStripLabel2";
-			this.toolStripLabel2.Size = new System.Drawing.Size(13, 22);
-			this.toolStripLabel2.Text = "0";
+			this.lbl_total_expenses.Name = "lbl_total_expenses";
+			this.lbl_total_expenses.Size = new System.Drawing.Size(13, 22);
+			this.lbl_total_expenses.Text = "0";
 			// 
 			// tabPage1
 			// 
-			this.tabPage1.Controls.Add(this.groupBox8);
+			this.tabPage1.Controls.Add(this.txt_image_description);
+			this.tabPage1.Controls.Add(this.picbox_image);
 			this.tabPage1.Controls.Add(this.groupBox7);
+			this.tabPage1.Controls.Add(this.groupBox8);
 			this.tabPage1.Controls.Add(this.groupBox3);
 			this.tabPage1.Location = new System.Drawing.Point(4, 26);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(935, 509);
+			this.tabPage1.Size = new System.Drawing.Size(935, 542);
 			this.tabPage1.TabIndex = 5;
 			this.tabPage1.Text = "Other info";
 			this.tabPage1.UseVisualStyleBackColor = true;
 			// 
+			// txt_image_description
+			// 
+			this.txt_image_description.Location = new System.Drawing.Point(652, 27);
+			this.txt_image_description.Multiline = true;
+			this.txt_image_description.Name = "txt_image_description";
+			this.txt_image_description.ReadOnly = true;
+			this.txt_image_description.Size = new System.Drawing.Size(277, 132);
+			this.txt_image_description.TabIndex = 5;
+			// 
+			// picbox_image
+			// 
+			this.picbox_image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.picbox_image.Location = new System.Drawing.Point(467, 7);
+			this.picbox_image.Name = "picbox_image";
+			this.picbox_image.Size = new System.Drawing.Size(179, 189);
+			this.picbox_image.TabIndex = 4;
+			this.picbox_image.TabStop = false;
+			// 
+			// groupBox7
+			// 
+			this.groupBox7.Controls.Add(this.txt_remark);
+			this.groupBox7.Location = new System.Drawing.Point(6, 6);
+			this.groupBox7.Name = "groupBox7";
+			this.groupBox7.Size = new System.Drawing.Size(395, 190);
+			this.groupBox7.TabIndex = 3;
+			this.groupBox7.TabStop = false;
+			this.groupBox7.Text = "Remark";
+			// 
+			// txt_remark
+			// 
+			this.txt_remark.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.txt_remark.Location = new System.Drawing.Point(3, 21);
+			this.txt_remark.MaxLength = 255;
+			this.txt_remark.Multiline = true;
+			this.txt_remark.Name = "txt_remark";
+			this.txt_remark.Size = new System.Drawing.Size(389, 166);
+			this.txt_remark.TabIndex = 2;
+			// 
 			// groupBox8
 			// 
-			this.groupBox8.Controls.Add(this.dataGridView4);
+			this.groupBox8.Controls.Add(this.grd_image);
 			this.groupBox8.Controls.Add(this.toolStrip4);
-			this.groupBox8.Location = new System.Drawing.Point(6, 6);
+			this.groupBox8.Location = new System.Drawing.Point(461, 202);
 			this.groupBox8.Name = "groupBox8";
-			this.groupBox8.Size = new System.Drawing.Size(923, 259);
-			this.groupBox8.TabIndex = 4;
+			this.groupBox8.Size = new System.Drawing.Size(468, 301);
+			this.groupBox8.TabIndex = 0;
 			this.groupBox8.TabStop = false;
-			this.groupBox8.Text = "Profit sharing";
+			this.groupBox8.Text = "Images";
 			// 
-			// dataGridView4
+			// grd_image
 			// 
-			this.dataGridView4.AllowUserToAddRows = false;
-			this.dataGridView4.AllowUserToDeleteRows = false;
-			this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView4.Location = new System.Drawing.Point(3, 46);
-			this.dataGridView4.Name = "dataGridView4";
-			this.dataGridView4.ReadOnly = true;
-			this.dataGridView4.Size = new System.Drawing.Size(917, 210);
-			this.dataGridView4.TabIndex = 4;
+			this.grd_image.AllowUserToAddRows = false;
+			this.grd_image.AllowUserToDeleteRows = false;
+			this.grd_image.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.grd_image.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.grd_image.Location = new System.Drawing.Point(3, 46);
+			this.grd_image.Name = "grd_image";
+			this.grd_image.Size = new System.Drawing.Size(462, 252);
+			this.grd_image.TabIndex = 3;
 			// 
 			// toolStrip4
 			// 
 			this.toolStrip4.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton10,
-            this.toolStripButton11,
-            this.toolStripButton12,
-            this.toolStripLabel5,
-            this.toolStripLabel6});
+            this.btn_add_image,
+            this.btn_delete_image});
 			this.toolStrip4.Location = new System.Drawing.Point(3, 21);
 			this.toolStrip4.Name = "toolStrip4";
-			this.toolStrip4.Size = new System.Drawing.Size(917, 25);
-			this.toolStrip4.TabIndex = 3;
-			this.toolStrip4.Text = "toolStrip4";
+			this.toolStrip4.Size = new System.Drawing.Size(462, 25);
+			this.toolStrip4.TabIndex = 2;
+			this.toolStrip4.Text = "toolStrip3";
 			// 
-			// toolStripButton10
+			// btn_add_image
 			// 
-			this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton10.Image = global::VehicleDealership.Properties.Resources.Add_16x;
-			this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton10.Name = "toolStripButton10";
-			this.toolStripButton10.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton10.Text = "toolStripButton1";
+			this.btn_add_image.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_add_image.Image = global::VehicleDealership.Properties.Resources.Add_16x;
+			this.btn_add_image.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_add_image.Name = "btn_add_image";
+			this.btn_add_image.Size = new System.Drawing.Size(23, 22);
+			this.btn_add_image.Text = "toolStripButton1";
 			// 
-			// toolStripButton11
+			// btn_delete_image
 			// 
-			this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton11.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
-			this.toolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton11.Name = "toolStripButton11";
-			this.toolStripButton11.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton11.Text = "toolStripButton2";
-			// 
-			// toolStripButton12
-			// 
-			this.toolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton12.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
-			this.toolStripButton12.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton12.Name = "toolStripButton12";
-			this.toolStripButton12.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton12.Text = "toolStripButton3";
-			// 
-			// toolStripLabel5
-			// 
-			this.toolStripLabel5.Name = "toolStripLabel5";
-			this.toolStripLabel5.Size = new System.Drawing.Size(116, 22);
-			this.toolStripLabel5.Text = "YOUR SHARE (MYR):";
-			// 
-			// toolStripLabel6
-			// 
-			this.toolStripLabel6.Name = "toolStripLabel6";
-			this.toolStripLabel6.Size = new System.Drawing.Size(13, 22);
-			this.toolStripLabel6.Text = "0";
-			// 
-			// groupBox7
-			// 
-			this.groupBox7.Controls.Add(this.textBox2);
-			this.groupBox7.Location = new System.Drawing.Point(6, 274);
-			this.groupBox7.Name = "groupBox7";
-			this.groupBox7.Size = new System.Drawing.Size(461, 229);
-			this.groupBox7.TabIndex = 3;
-			this.groupBox7.TabStop = false;
-			this.groupBox7.Text = "Remark";
-			// 
-			// textBox2
-			// 
-			this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox2.Location = new System.Drawing.Point(3, 21);
-			this.textBox2.MaxLength = 255;
-			this.textBox2.Multiline = true;
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(455, 205);
-			this.textBox2.TabIndex = 2;
+			this.btn_delete_image.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_delete_image.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
+			this.btn_delete_image.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_delete_image.Name = "btn_delete_image";
+			this.btn_delete_image.Size = new System.Drawing.Size(23, 22);
+			this.btn_delete_image.Text = "toolStripButton3";
 			// 
 			// groupBox3
 			// 
-			this.groupBox3.Controls.Add(this.dataGridView3);
+			this.groupBox3.Controls.Add(this.grd_file_attachment);
 			this.groupBox3.Controls.Add(this.toolStrip3);
-			this.groupBox3.Location = new System.Drawing.Point(473, 271);
+			this.groupBox3.Location = new System.Drawing.Point(6, 202);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(456, 232);
+			this.groupBox3.Size = new System.Drawing.Size(449, 301);
 			this.groupBox3.TabIndex = 0;
 			this.groupBox3.TabStop = false;
-			this.groupBox3.Text = "Attachment";
+			this.groupBox3.Text = "File attachments";
 			// 
-			// dataGridView3
+			// grd_file_attachment
 			// 
-			this.dataGridView3.AllowUserToAddRows = false;
-			this.dataGridView3.AllowUserToDeleteRows = false;
-			this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView3.Location = new System.Drawing.Point(3, 46);
-			this.dataGridView3.Name = "dataGridView3";
-			this.dataGridView3.ReadOnly = true;
-			this.dataGridView3.Size = new System.Drawing.Size(450, 183);
-			this.dataGridView3.TabIndex = 3;
+			this.grd_file_attachment.AllowUserToAddRows = false;
+			this.grd_file_attachment.AllowUserToDeleteRows = false;
+			this.grd_file_attachment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.grd_file_attachment.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.grd_file_attachment.Location = new System.Drawing.Point(3, 46);
+			this.grd_file_attachment.Name = "grd_file_attachment";
+			this.grd_file_attachment.Size = new System.Drawing.Size(443, 252);
+			this.grd_file_attachment.TabIndex = 3;
 			// 
 			// toolStrip3
 			// 
 			this.toolStrip3.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton7,
-            this.toolStripButton8,
-            this.toolStripButton9});
+            this.btn_add_attachment,
+            this.btn_delete_attachment});
 			this.toolStrip3.Location = new System.Drawing.Point(3, 21);
 			this.toolStrip3.Name = "toolStrip3";
-			this.toolStrip3.Size = new System.Drawing.Size(450, 25);
+			this.toolStrip3.Size = new System.Drawing.Size(443, 25);
 			this.toolStrip3.TabIndex = 2;
 			this.toolStrip3.Text = "toolStrip3";
 			// 
-			// toolStripButton7
+			// btn_add_attachment
 			// 
-			this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton7.Image = global::VehicleDealership.Properties.Resources.Add_16x;
-			this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton7.Name = "toolStripButton7";
-			this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton7.Text = "toolStripButton1";
+			this.btn_add_attachment.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_add_attachment.Image = global::VehicleDealership.Properties.Resources.Add_16x;
+			this.btn_add_attachment.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_add_attachment.Name = "btn_add_attachment";
+			this.btn_add_attachment.Size = new System.Drawing.Size(23, 22);
+			this.btn_add_attachment.Text = "toolStripButton1";
 			// 
-			// toolStripButton8
+			// btn_delete_attachment
 			// 
-			this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton8.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
-			this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton8.Name = "toolStripButton8";
-			this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton8.Text = "toolStripButton2";
-			// 
-			// toolStripButton9
-			// 
-			this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton9.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
-			this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton9.Name = "toolStripButton9";
-			this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton9.Text = "toolStripButton3";
+			this.btn_delete_attachment.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_delete_attachment.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
+			this.btn_delete_attachment.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_delete_attachment.Name = "btn_delete_attachment";
+			this.btn_delete_attachment.Size = new System.Drawing.Size(23, 22);
+			this.btn_delete_attachment.Text = "toolStripButton3";
 			// 
 			// panel1
 			// 
 			this.panel1.Controls.Add(this.tableLayoutPanel2);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel1.Location = new System.Drawing.Point(0, 539);
+			this.panel1.Location = new System.Drawing.Point(0, 572);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(943, 42);
 			this.panel1.TabIndex = 3;
@@ -1585,6 +2114,7 @@
 			this.btn_cancel.TabIndex = 0;
 			this.btn_cancel.Text = "Cancel";
 			this.btn_cancel.UseVisualStyleBackColor = true;
+			this.btn_cancel.Click += new System.EventHandler(this.Btn_cancel_Click);
 			// 
 			// btn_ok
 			// 
@@ -1596,67 +2126,84 @@
 			this.btn_ok.TabIndex = 1;
 			this.btn_ok.Text = "OK";
 			this.btn_ok.UseVisualStyleBackColor = true;
+			this.btn_ok.Click += new System.EventHandler(this.Btn_ok_Click);
 			// 
 			// Form_edit_vehicle
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(943, 581);
+			this.ClientSize = new System.Drawing.Size(943, 614);
 			this.Controls.Add(this.tabControl1);
 			this.Controls.Add(this.panel1);
 			this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "Form_edit_vehicle";
 			this.Text = "Edit vehicle";
+			this.Shown += new System.EventHandler(this.Form_edit_vehicle_Shown);
 			this.tabControl1.ResumeLayout(false);
-			this.tabPage5.ResumeLayout(false);
-			this.tabPage5.PerformLayout();
-			this.groupBox6.ResumeLayout(false);
-			this.tableLayoutPanel7.ResumeLayout(false);
-			this.tableLayoutPanel7.PerformLayout();
-			this.groupBox2.ResumeLayout(false);
-			this.tableLayoutPanel1.ResumeLayout(false);
-			this.tableLayoutPanel1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).EndInit();
-			this.groupBox5.ResumeLayout(false);
-			this.tableLayoutPanel3.ResumeLayout(false);
-			this.tableLayoutPanel3.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-			this.flowLayoutPanel1.ResumeLayout(false);
-			this.flowLayoutPanel1.PerformLayout();
+			this.tabPage4.ResumeLayout(false);
+			this.tabPage4.PerformLayout();
+			this.groupBox10.ResumeLayout(false);
+			this.tableLayoutPanel6.ResumeLayout(false);
+			this.tableLayoutPanel6.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_purchase_price)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_net_purchase)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_total_cost)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_expenses)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_overtrade)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_list_price)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_gross_profit)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_loan_balance_readonly)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_paid)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_to_pay_seller)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_to_pay)).EndInit();
+			this.groupBox9.ResumeLayout(false);
+			this.tableLayoutPanel5.ResumeLayout(false);
+			this.tableLayoutPanel5.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_seller_id)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_checked_by_id)).EndInit();
+			this.groupBox11.ResumeLayout(false);
+			this.tableLayoutPanel8.ResumeLayout(false);
+			this.tableLayoutPanel8.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_year_registered)).EndInit();
+			this.flowLayoutPanel2.ResumeLayout(false);
+			this.flowLayoutPanel2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_road_tax_amount)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_mileage)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_engine_cc)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_vehicle_model_id)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_vehicle_location)).EndInit();
+			this.tabPage3.ResumeLayout(false);
+			this.tabPage3.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_installment_day)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_installment_amount)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_loan_finance_id)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_loan_balance)).EndInit();
 			this.tabPage2.ResumeLayout(false);
 			this.tableLayoutPanel4.ResumeLayout(false);
 			this.groupBox4.ResumeLayout(false);
 			this.groupBox4.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.grd_payment)).EndInit();
 			this.toolStrip2.ResumeLayout(false);
 			this.toolStrip2.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.grd_expenses)).EndInit();
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
 			this.tabPage1.ResumeLayout(false);
-			this.groupBox8.ResumeLayout(false);
-			this.groupBox8.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-			this.toolStrip4.ResumeLayout(false);
-			this.toolStrip4.PerformLayout();
+			this.tabPage1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.picbox_image)).EndInit();
 			this.groupBox7.ResumeLayout(false);
 			this.groupBox7.PerformLayout();
+			this.groupBox8.ResumeLayout(false);
+			this.groupBox8.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.grd_image)).EndInit();
+			this.toolStrip4.ResumeLayout(false);
+			this.toolStrip4.PerformLayout();
 			this.groupBox3.ResumeLayout(false);
 			this.groupBox3.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.grd_file_attachment)).EndInit();
 			this.toolStrip3.ResumeLayout(false);
 			this.toolStrip3.PerformLayout();
 			this.panel1.ResumeLayout(false);
@@ -1671,124 +2218,156 @@
 		private System.Windows.Forms.TabControl tabControl1;
 		private System.Windows.Forms.TabPage tabPage2;
 		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView grd_expenses;
 		private System.Windows.Forms.ToolStrip toolStrip1;
-		private System.Windows.Forms.ToolStripButton toolStripButton1;
-		private System.Windows.Forms.ToolStripButton toolStripButton2;
-		private System.Windows.Forms.ToolStripButton toolStripButton3;
+		private System.Windows.Forms.ToolStripButton btn_add_expenses;
+		private System.Windows.Forms.ToolStripButton btn_edit_expenses;
+		private System.Windows.Forms.ToolStripButton btn_delete_expenses;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.Button btn_cancel;
 		private System.Windows.Forms.Button btn_ok;
 		private System.Windows.Forms.GroupBox groupBox4;
-		private System.Windows.Forms.DataGridView dataGridView2;
+		private System.Windows.Forms.DataGridView grd_payment;
 		private System.Windows.Forms.ToolStrip toolStrip2;
-		private System.Windows.Forms.ToolStripButton toolStripButton4;
-		private System.Windows.Forms.ToolStripButton toolStripButton5;
-		private System.Windows.Forms.ToolStripButton toolStripButton6;
-		private System.Windows.Forms.TabPage tabPage5;
-		private System.Windows.Forms.TextBox textBox14;
-		private System.Windows.Forms.Label label23;
-		private System.Windows.Forms.NumericUpDown numericUpDown4;
-		private System.Windows.Forms.NumericUpDown numericUpDown5;
-		private System.Windows.Forms.DateTimePicker dateTimePicker4;
-		private System.Windows.Forms.TextBox textBox16;
-		private System.Windows.Forms.NumericUpDown numericUpDown6;
-		private System.Windows.Forms.TextBox textBox17;
-		private System.Windows.Forms.TextBox textBox18;
-		private System.Windows.Forms.Label label25;
-		private System.Windows.Forms.ComboBox comboBox3;
-		private System.Windows.Forms.Label label26;
-		private System.Windows.Forms.Label label27;
-		private System.Windows.Forms.TextBox textBox19;
-		private System.Windows.Forms.TextBox textBox20;
-		private System.Windows.Forms.Label label28;
-		private System.Windows.Forms.Label label29;
-		private System.Windows.Forms.Label label30;
-		private System.Windows.Forms.Label label31;
-		private System.Windows.Forms.Label label32;
-		private System.Windows.Forms.Label label33;
-		private System.Windows.Forms.Label label34;
-		private System.Windows.Forms.Label label35;
-		private System.Windows.Forms.Label label36;
-		private System.Windows.Forms.Label label37;
-		private System.Windows.Forms.Label label38;
-		private System.Windows.Forms.TextBox textBox21;
-		private System.Windows.Forms.Button button8;
-		private System.Windows.Forms.TextBox textBox22;
-		private System.Windows.Forms.RadioButton radioButton3;
-		private System.Windows.Forms.RadioButton radioButton4;
-		private System.Windows.Forms.TextBox textBox23;
-		private System.Windows.Forms.Button button9;
-		private System.Windows.Forms.TextBox textBox27;
-		private System.Windows.Forms.Label label45;
-		private System.Windows.Forms.TextBox textBox28;
-		private System.Windows.Forms.Label label46;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-		private System.Windows.Forms.GroupBox groupBox5;
-		private System.Windows.Forms.GroupBox groupBox2;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private System.Windows.Forms.NumericUpDown numericUpDown1;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.NumericUpDown numericUpDown2;
-		private System.Windows.Forms.NumericUpDown numericUpDown3;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.NumericUpDown numericUpDown7;
-		private System.Windows.Forms.GroupBox groupBox6;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-		private System.Windows.Forms.Label label40;
-		private System.Windows.Forms.Label label41;
-		private System.Windows.Forms.Button button6;
-		private System.Windows.Forms.Button button7;
-		private System.Windows.Forms.TextBox textBox24;
-		private System.Windows.Forms.TextBox textBox25;
-		private System.Windows.Forms.Label label44;
-		private System.Windows.Forms.ComboBox comboBox4;
-		private System.Windows.Forms.Label label39;
-		private System.Windows.Forms.Button button10;
-		private System.Windows.Forms.DateTimePicker dateTimePicker6;
-		private System.Windows.Forms.DateTimePicker dateTimePicker5;
-		private System.Windows.Forms.TextBox textBox26;
-		private System.Windows.Forms.Label label43;
-		private System.Windows.Forms.Label label42;
+		private System.Windows.Forms.ToolStripButton btn_add_payment;
+		private System.Windows.Forms.ToolStripButton btn_edit_payment;
+		private System.Windows.Forms.ToolStripButton btn_delete_payment;
 		private System.Windows.Forms.TabPage tabPage1;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.NumericUpDown numericUpDown8;
-		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.NumericUpDown numericUpDown11;
-		private System.Windows.Forms.NumericUpDown numericUpDown12;
-		private System.Windows.Forms.Label label10;
-		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
 		private System.Windows.Forms.GroupBox groupBox3;
-		private System.Windows.Forms.DataGridView dataGridView3;
+		private System.Windows.Forms.DataGridView grd_file_attachment;
 		private System.Windows.Forms.ToolStrip toolStrip3;
-		private System.Windows.Forms.ToolStripButton toolStripButton7;
-		private System.Windows.Forms.ToolStripButton toolStripButton8;
-		private System.Windows.Forms.ToolStripButton toolStripButton9;
-		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.ToolStripButton btn_add_attachment;
+		private System.Windows.Forms.ToolStripButton btn_delete_attachment;
+		private System.Windows.Forms.TextBox txt_remark;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel3;
-		private System.Windows.Forms.ToolStripLabel toolStripLabel4;
+		private System.Windows.Forms.ToolStripLabel lbl_total_payment;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-		private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+		private System.Windows.Forms.ToolStripLabel lbl_total_expenses;
 		private System.Windows.Forms.GroupBox groupBox7;
-		private System.Windows.Forms.GroupBox groupBox8;
-		private System.Windows.Forms.DataGridView dataGridView4;
-		private System.Windows.Forms.ToolStrip toolStrip4;
-		private System.Windows.Forms.ToolStripButton toolStripButton10;
-		private System.Windows.Forms.ToolStripButton toolStripButton11;
-		private System.Windows.Forms.ToolStripButton toolStripButton12;
-		private System.Windows.Forms.ToolStripLabel toolStripLabel5;
-		private System.Windows.Forms.ToolStripLabel toolStripLabel6;
-		private System.Windows.Forms.NumericUpDown numericUpDown13;
-		private System.Windows.Forms.NumericUpDown numericUpDown14;
+		private System.Windows.Forms.TabPage tabPage3;
+		private System.Windows.Forms.NumericUpDown num_loan_balance;
+		private System.Windows.Forms.TextBox txt_loan_finance;
 		private System.Windows.Forms.Label label11;
-		private System.Windows.Forms.Label label12;
-		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-		private System.Windows.Forms.Label label13;
-		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.DateTimePicker dtp_settlement_date;
+		private System.Windows.Forms.TextBox txt_loan_branch;
+		private System.Windows.Forms.NumericUpDown num_installment_day;
+		private System.Windows.Forms.NumericUpDown num_installment_amount;
+		private System.Windows.Forms.TextBox txt_loan_agreement_no;
+		private System.Windows.Forms.Label label20;
+		private System.Windows.Forms.Label label19;
+		private System.Windows.Forms.Label label18;
+		private System.Windows.Forms.Label label17;
+		private System.Windows.Forms.Label label16;
+		private System.Windows.Forms.Label label15;
+		private System.Windows.Forms.Button btn_loan_finance;
+		private System.Windows.Forms.PictureBox picbox_image;
+		private System.Windows.Forms.GroupBox groupBox8;
+		private System.Windows.Forms.DataGridView grd_image;
+		private System.Windows.Forms.ToolStrip toolStrip4;
+		private System.Windows.Forms.ToolStripButton btn_add_image;
+		private System.Windows.Forms.ToolStripButton btn_delete_image;
+		private System.Windows.Forms.TextBox txt_image_description;
+		private System.Windows.Forms.TabPage tabPage4;
+		private System.Windows.Forms.GroupBox groupBox11;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+		private System.Windows.Forms.Label label66;
+		private System.Windows.Forms.NumericUpDown num_road_tax_amount;
+		private System.Windows.Forms.Label label67;
+		private System.Windows.Forms.Label label68;
+		private System.Windows.Forms.NumericUpDown num_engine_cc;
+		private System.Windows.Forms.Label label69;
+		private System.Windows.Forms.Label label70;
+		private System.Windows.Forms.Label label71;
+		private System.Windows.Forms.DateTimePicker dtp_road_tax_expiry;
+		private System.Windows.Forms.Label label72;
+		private System.Windows.Forms.Label label73;
+		private System.Windows.Forms.Label label74;
+		private System.Windows.Forms.Label label75;
+		private System.Windows.Forms.NumericUpDown num_mileage;
+		private System.Windows.Forms.Label label76;
+		private System.Windows.Forms.Label label77;
+		private System.Windows.Forms.Label label78;
+		private System.Windows.Forms.Label label79;
+		private System.Windows.Forms.TextBox txt_reg_no;
+		private System.Windows.Forms.ComboBox cmb_acquire_method;
+		private System.Windows.Forms.Button btn_vehicle_location;
+		private System.Windows.Forms.TextBox txt_year_make;
+		private System.Windows.Forms.TextBox txt_door_key;
+		private System.Windows.Forms.TextBox txt_chassis;
+		private System.Windows.Forms.TextBox txt_ignition_key;
+		private System.Windows.Forms.TextBox txt_vehicle_location;
+		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+		private System.Windows.Forms.RadioButton rad_vehicle_new;
+		private System.Windows.Forms.RadioButton rad_vehicle_old;
+		private System.Windows.Forms.Label label80;
+		private System.Windows.Forms.TextBox txt_vehicle_model;
+		private System.Windows.Forms.Button btn_vehicle_model;
+		private System.Windows.Forms.TextBox txt_vehicle_group;
+		private System.Windows.Forms.Label label81;
+		private System.Windows.Forms.TextBox txt_status;
+		private System.Windows.Forms.Label label82;
+		private System.Windows.Forms.TextBox textBox41;
+		private System.Windows.Forms.Label label83;
+		private System.Windows.Forms.Label label84;
+		private System.Windows.Forms.TextBox txt_ref_no;
+		private System.Windows.Forms.TextBox txt_last_modified_by;
+		private System.Windows.Forms.Label label85;
+		private System.Windows.Forms.GroupBox groupBox10;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+		private System.Windows.Forms.NumericUpDown num_purchase_price;
+		private System.Windows.Forms.Label label56;
+		private System.Windows.Forms.NumericUpDown num_net_purchase;
+		private System.Windows.Forms.Label label57;
+		private System.Windows.Forms.Label label58;
+		private System.Windows.Forms.NumericUpDown num_total_cost;
+		private System.Windows.Forms.Label label59;
+		private System.Windows.Forms.Label label60;
+		private System.Windows.Forms.NumericUpDown num_expenses;
+		private System.Windows.Forms.NumericUpDown num_overtrade;
+		private System.Windows.Forms.NumericUpDown num_list_price;
+		private System.Windows.Forms.NumericUpDown num_gross_profit;
+		private System.Windows.Forms.Label label61;
+		private System.Windows.Forms.Label label62;
+		private System.Windows.Forms.Label label63;
+		private System.Windows.Forms.NumericUpDown num_loan_balance_readonly;
+		private System.Windows.Forms.Label label64;
+		private System.Windows.Forms.NumericUpDown num_paid;
+		private System.Windows.Forms.NumericUpDown num_to_pay_seller;
+		private System.Windows.Forms.Label label65;
+		private System.Windows.Forms.Label label86;
+		private System.Windows.Forms.NumericUpDown num_to_pay;
+		private System.Windows.Forms.GroupBox groupBox9;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+		private System.Windows.Forms.Label label47;
+		private System.Windows.Forms.Button btn_seller;
+		private System.Windows.Forms.TextBox txt_seller_name;
+		private System.Windows.Forms.Label label49;
+		private System.Windows.Forms.TextBox txt_invoice_no;
+		private System.Windows.Forms.TextBox txt_checked_by;
+		private System.Windows.Forms.Label label54;
+		private System.Windows.Forms.Button btn_checked_by;
+		private System.Windows.Forms.TextBox txt_seller_branch;
+		private System.Windows.Forms.Label label55;
+		private System.Windows.Forms.Label label53;
+		private System.Windows.Forms.DateTimePicker dtp_purchase_date;
+		private System.Windows.Forms.DateTimePicker dtp_date_received;
+		private System.Windows.Forms.Label label52;
+		private System.Windows.Forms.Label label51;
+		private System.Windows.Forms.Label label50;
+		private System.Windows.Forms.TextBox txt_sales_order;
+		private System.Windows.Forms.Button btn_sales_order;
+		private System.Windows.Forms.TextBox txt_engine_no;
+		private System.Windows.Forms.TextBox txt_vehicle_brand;
+		private System.Windows.Forms.Label label87;
+		private System.Windows.Forms.NumericUpDown num_year_registered;
+		private System.Windows.Forms.ComboBox cmb_vehicle_colour;
+		private System.Windows.Forms.NumericUpDown num_vehicle_model_id;
+		private System.Windows.Forms.NumericUpDown num_seller_id;
+		private System.Windows.Forms.NumericUpDown num_checked_by_id;
+		private System.Windows.Forms.NumericUpDown num_loan_finance_id;
+		private System.Windows.Forms.NumericUpDown num_vehicle_location;
+		private System.Windows.Forms.TextBox txt_seller_type;
 	}
 }

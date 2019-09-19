@@ -16,40 +16,68 @@ namespace VehicleDealership.Classes
 		/// <param name="grd"></param>
 		/// <param name="dttable"></param>
 		/// <param name="value_col"></param>
-		public static void Setup_and_preselect(DataGridView grd, DataTable dttable, string value_col)
-		{
-			string cell_value = "";
-			string selected_col_name = "";
-			bool has_current_cell = false;
+		//public static void Setup_and_preselect(DataGridView grd, DataTable dttable, string value_col)
+		//{
+		//	string cell_value = "";
+		//	string selected_col_name = "";
+		//	bool has_current_cell = false;
 
-			// if datagridview has row and has current cell initially, store its value and position
-			if (grd.Rows.Count > 0 && grd.CurrentCell != null)
+		//	// if datagridview has row and has current cell initially, store its value and position
+		//	if (grd.Rows.Count > 0 && grd.CurrentCell != null)
+		//	{
+		//		has_current_cell = true;
+		//		cell_value = grd.Rows[grd.CurrentCell.RowIndex].Cells[value_col].Value.ToString();
+		//		selected_col_name = grd.Columns[grd.CurrentCell.ColumnIndex].Name;
+		//	}
+
+		//	// setup datagridview
+		//	grd.DataSource = null;
+		//	grd.DataSource = dttable;
+
+		//	// if previously has current cell, select same cell back.
+		//	if (has_current_cell)
+		//	{
+		//		foreach (DataGridViewRow grd_row in grd.Rows)
+		//		{
+		//			if (grd_row.IsNewRow) continue;
+
+		//			if (grd_row.Cells[value_col].Value.ToString() == cell_value)
+		//			{
+		//				grd.CurrentCell = null;
+		//				grd.ClearSelection();
+
+		//				grd_row.Cells[selected_col_name].Selected = true;
+		//				grd.CurrentCell = grd_row.Cells[selected_col_name];
+		//				break;
+		//			}
+		//		}
+		//	}
+		//}
+		public static void Setup_and_preselect(DataGridView grd, DataTable dttable, string value_col, string[] cols_to_view = null, string preselect_value = "")
+		{
+			string cell_value = preselect_value;
+
+			if (grd.Rows.Count > 0 && grd.CurrentCell != null && preselect_value == "")
 			{
-				has_current_cell = true;
+				// if datagridview has row and has current cell initially, store its value and position
 				cell_value = grd.Rows[grd.CurrentCell.RowIndex].Cells[value_col].Value.ToString();
-				selected_col_name = grd.Columns[grd.CurrentCell.ColumnIndex].Name;
 			}
 
 			// setup datagridview
 			grd.DataSource = null;
 			grd.DataSource = dttable;
 
-			// if previously has current cell, select same cell back.
-			if (has_current_cell)
+			if (cols_to_view != null)
+				Class_datagridview.Hide_unnecessary_columns(grd, cols_to_view);
+
+			foreach (DataGridViewRow grd_row in grd.Rows)
 			{
-				foreach (DataGridViewRow grd_row in grd.Rows)
+				if (grd_row.IsNewRow) continue;
+
+				if (grd_row.Cells[value_col].Value.ToString() == cell_value)
 				{
-					if (grd_row.IsNewRow) continue;
-
-					if (grd_row.Cells[value_col].Value.ToString() == cell_value)
-					{
-						grd.CurrentCell = null;
-						grd.ClearSelection();
-
-						grd_row.Cells[selected_col_name].Selected = true;
-						grd.CurrentCell = grd_row.Cells[selected_col_name];
-						break;
-					}
+					Set_current_cell_to_first_visible_column(grd_row);
+					break;
 				}
 			}
 		}
@@ -78,6 +106,10 @@ namespace VehicleDealership.Classes
 			{
 				if (grd_col.Visible)
 				{
+					grd_row.DataGridView.ClearSelection();
+					grd_row.DataGridView.CurrentCell = null;
+
+					grd_row.Cells[grd_col.Index].Selected = true;
 					grd_row.DataGridView.CurrentCell = grd_row.Cells[grd_col.Index];
 					break;
 				}
@@ -88,7 +120,7 @@ namespace VehicleDealership.Classes
 		/// </summary>
 		/// <param name="grd">datagridview to hide columns</param>
 		/// <param name="cols_to_hide">columns to hide</param>
-		public static void Hide_columns(DataGridView grd, string[] cols_to_hide)
+		public static void Hide_columns(DataGridView grd, params string[] cols_to_hide)
 		{
 			for (int i = 0, j = grd.Columns.Count - 1; i < j; i++)
 			{

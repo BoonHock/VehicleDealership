@@ -166,7 +166,7 @@ namespace VehicleDealership.View
 
 			if (!Program.System_user.IsDeveloper)
 			{
-				Class_datagridview.Hide_unnecessary_columns(grd_model, new string[] { "vehicle_model_name","engine_capacity","no_of_door",
+				Class_datagridview.Hide_unnecessary_columns(grd_model, new string[] { "vehicle_model_name","year_make","engine_capacity","no_of_door",
 					"seat_capacity","fuel_type_name","transmission_name","vehicle_group_name", "vehicle_brand_name", "country_name" });
 			}
 			grd_model.AutoResizeColumns();

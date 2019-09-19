@@ -38,6 +38,7 @@ namespace VehicleDealership.Datasets
 		/// </summary>
 		/// <param name="str_model_name"></param>
 		/// <param name="int_vgroup"></param>
+		/// <param name="int_year_make"></param>
 		/// <param name="int_engine_capacity"></param>
 		/// <param name="int_no_of_door"></param>
 		/// <param name="int_seat_capacity"></param>
@@ -45,18 +46,21 @@ namespace VehicleDealership.Datasets
 		/// <param name="int_transmission"></param>
 		/// <param name="str_remarks"></param>
 		/// <returns>newly inserted vehicle id</returns>
-		public static int Insert_vehicle_model(string str_model_name, int int_vgroup, int int_engine_capacity,
-			int int_no_of_door, int int_seat_capacity, int int_fuel_type, int int_transmission, string str_remarks)
+		public static int Insert_vehicle_model(string str_model_name, int int_vgroup,
+			int int_year_make, int int_engine_capacity, int int_no_of_door, int int_seat_capacity,
+			int int_fuel_type, int int_transmission, string str_remarks)
 		{
 			try
 			{
-				return int.Parse(QueriesAdapter().sp_insert_vehicle_model(str_model_name, int_vgroup, (short)int_engine_capacity, (byte)int_no_of_door, (byte)int_seat_capacity, int_fuel_type, int_transmission, str_remarks, Program.System_user.UserID).ToString());
+				return int.Parse(QueriesAdapter().sp_insert_vehicle_model(str_model_name, int_vgroup,
+					(short)int_year_make, (short)int_engine_capacity, (byte)int_no_of_door,
+					(byte)int_seat_capacity, int_fuel_type, int_transmission, str_remarks,
+					Program.System_user.UserID).ToString());
 			}
 			catch (System.Exception e)
 			{
-				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
-					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
-					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
 			return 0;
 		}
@@ -66,8 +70,10 @@ namespace VehicleDealership.Datasets
 		/// <param name="int_country">country id. -1 to select all</param>
 		/// <param name="int_vbrand">vehicle brand id. -1 to select all</param>
 		/// <param name="int_vgroup">vehicle group id. -1 to select all</param>
+		/// <param name="int_vmodel">vehicle group id. -1 to select all</param>
 		/// <returns></returns>
-		public static sp_select_vehicle_modelDataTable Select_vehicle_model(int int_country, int int_vbrand, int int_vgroup, int int_vmodel)
+		public static sp_select_vehicle_modelDataTable Select_vehicle_model(int int_country, int int_vbrand,
+			int int_vgroup, int int_vmodel)
 		{
 			try
 			{
@@ -75,25 +81,24 @@ namespace VehicleDealership.Datasets
 			}
 			catch (System.Exception e)
 			{
-				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
-					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
-					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
 			return new sp_select_vehicle_modelDataTable();
 		}
-		public static bool Update_vehicle_model(string str_model_name, int int_vgroup, int int_engine_capacity,
-			int int_no_of_door, int int_seat_capacity, int int_fuel_type, int int_transmission, string str_remarks, int int_vmodel)
+		public static bool Update_vehicle_model(string str_model_name, int int_vgroup, int int_year_make,
+			int int_engine_capacity, int int_no_of_door, int int_seat_capacity, int int_fuel_type,
+			int int_transmission, string str_remarks, int int_vmodel)
 		{
 			try
 			{
-				QueriesAdapter().sp_update_vehicle_model(str_model_name, int_vgroup, (short)int_engine_capacity, (byte)int_no_of_door, 
+				QueriesAdapter().sp_update_vehicle_model(str_model_name, int_vgroup, (short)int_year_make, (short)int_engine_capacity, (byte)int_no_of_door,
 					(byte)int_seat_capacity, int_fuel_type, int_transmission, str_remarks, int_vmodel, Program.System_user.UserID);
 			}
 			catch (System.Exception e)
 			{
-				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
-					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
-					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
 				return false;
 			}
 			return true;

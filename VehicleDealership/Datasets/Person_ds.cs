@@ -86,5 +86,18 @@ namespace VehicleDealership.Datasets
 			}
 			return new Person_simplifiedDataTable();
 		}
+		public static Person_simplifiedDataTable Select_person_simplified()
+		{
+			try
+			{
+				return Select_Person1TableAdapter().sp_select_person_simplified();
+			}
+			catch (System.Exception e)
+			{
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
+			}
+			return new Person_simplifiedDataTable();
+		}
 	}
 }
