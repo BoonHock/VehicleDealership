@@ -17,6 +17,7 @@ namespace VehicleDealership.View
 		readonly string _form_type = "";
 		readonly string _preselect_value = "";
 
+		private string SearchString { get { return txt_search.Text.Trim(); } }
 		public Form_datagridview_select(string form_type, string preselect_value = "", bool select_multiple = false)
 		{
 			InitializeComponent();
@@ -36,15 +37,21 @@ namespace VehicleDealership.View
 			switch (_form_type)
 			{
 				case "VEHICLE_MODEL":
-					Setup_vehicle_model_form(_preselect_value);
+					Setup_vehicle_model_form();
 					break;
 				case "LOCATION":
-					Setup_location_form(_preselect_value);
+					Setup_location_form();
 					break;
 				case "PERSON_ORGANISATION":
 					lbl_type.Visible = true;
 					cmb_type.Visible = true;
 					Setup_person_organisation_form();
+					break;
+				case "USER":
+					Setup_user_form();
+					break;
+				case "FINANCE":
+					Setup_finance_form();
 					break;
 			}
 		}
@@ -67,7 +74,10 @@ namespace VehicleDealership.View
 			this.DialogResult = DialogResult.Cancel;
 			this.Close();
 		}
-
+		private void Grd_main_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			btn_ok.PerformClick();
+		}
 		public int Get_selected_value_as_int(string str_value_col)
 		{
 			if (grd_main.SelectedCells.Count > 0)
@@ -83,12 +93,12 @@ namespace VehicleDealership.View
 			return "";
 		}
 		#region VEHICLE_MODEL
-		private void Setup_vehicle_model_form(string preselect_value)
+		private void Setup_vehicle_model_form()
 		{
 			Class_datagridview.Setup_and_preselect(grd_main, Vehicle_model_ds.Select_vehicle_model(-1, -1, -1, -1),
 				"vehicle_model", new string[] { "vehicle_model_name", "year_make", "engine_capacity",
 					"no_of_door","seat_capacity", "fuel_type_name", "transmission_name",
-					"vehicle_group_name", "vehicle_brand_name"}, preselect_value);
+					"vehicle_group_name", "vehicle_brand_name"}, _preselect_value);
 
 			grd_main.AutoResizeColumns();
 
@@ -98,20 +108,18 @@ namespace VehicleDealership.View
 		{
 			if (grd_main.DataSource == null) return;
 
-			string str_search = txt_search.Text.Trim();
-
-			((DataTable)grd_main.DataSource).DefaultView.RowFilter = "[vehicle_model_name] LIKE '%" + str_search +
-				"%' OR CONVERT([year_make], System.String) LIKE '%" + str_search +
-				"%' OR [fuel_type_name] LIKE '%" + str_search +
-				"%' OR [transmission_name] LIKE '%" + str_search +
-				"%' OR [vehicle_group_name] LIKE '%" + str_search +
-				"%' OR [vehicle_brand_name] LIKE '%" + str_search + "%'";
+			((DataTable)grd_main.DataSource).DefaultView.RowFilter = "[vehicle_model_name] LIKE '%" + SearchString +
+				"%' OR CONVERT([year_make], System.String) LIKE '%" + SearchString +
+				"%' OR [fuel_type_name] LIKE '%" + SearchString +
+				"%' OR [transmission_name] LIKE '%" + SearchString +
+				"%' OR [vehicle_group_name] LIKE '%" + SearchString +
+				"%' OR [vehicle_brand_name] LIKE '%" + SearchString + "%'";
 		}
 		#endregion
 		#region LOCATION
-		private void Setup_location_form(string preselect_value)
+		private void Setup_location_form()
 		{
-			Class_datagridview.Setup_and_preselect(grd_main, Location_ds.Select_location(), "location", new string[] { "location_name" }, preselect_value);
+			Class_datagridview.Setup_and_preselect(grd_main, Location_ds.Select_location(), "location", new string[] { "location_name" }, _preselect_value);
 
 			grd_main.AutoResizeColumns();
 
@@ -121,9 +129,7 @@ namespace VehicleDealership.View
 		{
 			if (grd_main.DataSource == null) return;
 
-			string str_search = txt_search.Text.Trim();
-
-			((DataTable)grd_main.DataSource).DefaultView.RowFilter = "[location_name] LIKE '%" + str_search + "%'";
+			((DataTable)grd_main.DataSource).DefaultView.RowFilter = "[location_name] LIKE '%" + SearchString + "%'";
 		}
 		#endregion
 		#region PERSON_ORGANISATION
@@ -161,21 +167,62 @@ namespace VehicleDealership.View
 		{
 			if (grd_main.DataSource == null) return;
 
-			string str_search = txt_search.Text.Trim();
-
 			if (cmb_type.SelectedItem.ToString().ToUpper() == "PERSON")
 			{
-				((DataTable)grd_main.DataSource).DefaultView.RowFilter = "[name] LIKE '%" + str_search +
-					"%' OR [ic_no] LIKE '%" + str_search + "%'";
+				((DataTable)grd_main.DataSource).DefaultView.RowFilter = "[name] LIKE '%" + SearchString +
+					"%' OR [ic_no] LIKE '%" + SearchString + "%'";
 			}
 			else
 			{
-				((DataTable)grd_main.DataSource).DefaultView.RowFilter = "[name] LIKE '%" + str_search +
-					"%' OR [branch_name] LIKE '%" + str_search +
-					"%' OR [registration_no] LIKE '%" + str_search + "%'";
+				((DataTable)grd_main.DataSource).DefaultView.RowFilter = "[name] LIKE '%" + SearchString +
+					"%' OR [branch_name] LIKE '%" + SearchString +
+					"%' OR [registration_no] LIKE '%" + SearchString + "%'";
 			}
 		}
 		#endregion
+		#region USER
+		private void Setup_user_form()
+		{
+			Class_datagridview.Setup_and_preselect(grd_main, User_ds.Select_user_all(), "user",
+				new string[] {"name", "usergroup", "ic_no",
+					"is_active", "join_date", "leave_date" }, _preselect_value);
 
+			grd_main.AutoResizeColumns();
+
+			txt_search.TextChanged += (sender2, e2) => Apply_filter_user();
+		}
+		private void Apply_filter_user()
+		{
+			if (grd_main.DataSource == null) return;
+
+			((DataTable)grd_main.DataSource).DefaultView.RowFilter = "[name] LIKE '%" + SearchString +
+				"%' OR [usergroup] LIKE '%" + SearchString + "%' OR [ic_no] LIKE '%" + SearchString + "%'";
+		}
+		#endregion
+		#region FINANCE
+		private void Setup_finance_form()
+		{
+			Class_datagridview.Setup_and_preselect(grd_main, Finance_ds.Select_finance(-1), "finance",
+				new string[] { "name", "branch_name", "registration_no", "address", "city", "state", "postcode", "country_name", "url", "remark" }, _preselect_value);
+
+			grd_main.AutoResizeColumns();
+
+			txt_search.TextChanged += (sender2, e2) => Apply_filter_finance();
+		}
+		private void Apply_filter_finance()
+		{
+			if (grd_main.DataSource == null) return;
+
+			((DataTable)grd_main.DataSource).DefaultView.RowFilter = "[name] LIKE '%" + SearchString +
+				"%' OR [branch_name] LIKE '%" + SearchString +
+				"%' OR [registration_no] LIKE '%" + SearchString +
+				"%' OR [address] LIKE '%" + SearchString +
+				"%' OR [city] LIKE '%" + SearchString +
+				"%' OR [state] LIKE '%" + SearchString +
+				"%' OR [postcode] LIKE '%" + SearchString +
+				"%' OR [country_name] LIKE '%" + SearchString +
+				"%' OR [remark] LIKE '%" + SearchString + "%'";
+		}
+		#endregion
 	}
 }

@@ -134,11 +134,10 @@ namespace VehicleDealership.View
 		private void Setup_form_users()
 		{
 			ts_user.Visible = true;
+			cmb_is_active_user.SelectedIndex = 0;
 
 			deleteToolStripMenuItem.Visible = false; // cannot delete user
 			btn_delete_user.Visible = false;
-
-			Setup_cmb_is_active(cmb_is_active_user.ComboBox);
 
 			if (Program.System_user.Has_permission(User_permission.EDIT_USER))
 			{
@@ -155,8 +154,9 @@ namespace VehicleDealership.View
 
 			Setup_grd_users();
 
-			txt_search_user.TextChanged += Setup_grd_users;
-			cmb_is_active_user.ComboBox.SelectedIndexChanged += Setup_grd_users;
+			txt_search_user.TextChanged += (sender2, e2) => Apply_filter_user();
+			cmb_is_active_user.ComboBox.SelectedIndexChanged += (sender2, e2) => Apply_filter_user();
+
 			btn_add_user.Click += Add_user;
 			addToolStripMenuItem.Click += Add_user;
 			btn_edit_user.Click += Edit_user;
@@ -168,31 +168,40 @@ namespace VehicleDealership.View
 		{
 			// setup grd_main
 			grd_main.RowEnter -= Grd_users_RowEnter;
-			string str_search = txt_search_user.Text.Trim();
 
-			DataTable dttable = new User_ds.sp_search_userDataTable();
-
-			switch ((int)cmb_is_active_user.ComboBox.SelectedValue)
+			if (Program.System_user.IsDeveloper)
 			{
-				case 0:
-					dttable = User_ds.Search_user(str_search, false);
-					break;
-				case 1:
-					dttable = User_ds.Search_user(str_search, true);
-					break;
-				default:
-					dttable = User_ds.Search_user(str_search, null);
-					break;
+				Class_datagridview.Setup_and_preselect(grd_main, User_ds.Select_user_all(), "user");
+			}
+			else
+			{
+				Class_datagridview.Setup_and_preselect(grd_main, User_ds.Select_user_all(), "user",
+					new string[] { "username", "name", "ic_no", "usergroup",
+						"ic_no", "is_active", "join_date", "leave_date" });
 			}
 
-			Class_datagridview.Setup_and_preselect(grd_main, dttable, "user");
-
+			//Apply_filter_user();
 			grd_main.AutoResizeColumns();
-
-			Class_datagridview.Hide_columns(grd_main, new string[] { "user" });
 
 			Setup_buttons_enable();
 			grd_main.RowEnter += Grd_users_RowEnter;
+		}
+		private void Apply_filter_user()
+		{
+			string str_search = txt_search_user.Text.Trim();
+
+			string str_filter = "[username] LIKE '%" + str_search +
+				"%' OR [name] LIKE '%" + str_search +
+				"%' OR [usergroup] LIKE '%" + str_search +
+				"%' OR [ic_no] LIKE '%" + str_search + "%'";
+
+			if (cmb_is_active_user.ComboBox.SelectedItem.ToString() != "ALL")
+			{
+				str_filter = "(" + str_filter + ") AND [is_active] = '" +
+					cmb_is_active_user.ComboBox.SelectedItem.ToString() + "'";
+			}
+
+			((DataTable)grd_main.DataSource).DefaultView.RowFilter = str_filter;
 		}
 		private void Edit_user(object sender, EventArgs e)
 		{

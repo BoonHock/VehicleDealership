@@ -167,6 +167,10 @@
 			// cmb_is_active_user
 			// 
 			this.cmb_is_active_user.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cmb_is_active_user.Items.AddRange(new object[] {
+            "ALL",
+            "ACTIVE",
+            "INACTIVE"});
 			this.cmb_is_active_user.Name = "cmb_is_active_user";
 			this.cmb_is_active_user.Size = new System.Drawing.Size(121, 25);
 			// 

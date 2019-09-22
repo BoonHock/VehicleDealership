@@ -7,13 +7,13 @@ namespace VehicleDealership.Datasets
 
 	partial class User_ds
 	{
-		private static User_dsTableAdapters.userTableAdapter userTableAdapter()
+		private static User_dsTableAdapters.userTableAdapter UserTableAdapter()
 		{
 			return new User_dsTableAdapters.userTableAdapter();
 		}
-		private static User_dsTableAdapters.sp_search_userTableAdapter Search_UserTableAdapter()
+		private static User_dsTableAdapters.sp_select_user_allTableAdapter Select_User_AllTableAdapter()
 		{
-			return new User_dsTableAdapters.sp_search_userTableAdapter();
+			return new User_dsTableAdapters.sp_select_user_allTableAdapter();
 		}
 		private static User_dsTableAdapters.QueriesTableAdapter QueriesAdapter()
 		{
@@ -32,9 +32,8 @@ namespace VehicleDealership.Datasets
 			}
 			catch (System.Exception e)
 			{
-				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
-					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
-					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
 			return false;
 		}
@@ -46,9 +45,8 @@ namespace VehicleDealership.Datasets
 			}
 			catch (System.Exception e)
 			{
-				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
-					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
-					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
 			return false;
 		}
@@ -62,13 +60,12 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				return userTableAdapter().sp_select_user_by_username(str_username);
+				return UserTableAdapter().sp_select_user_by_username(str_username);
 			}
 			catch (System.Exception e)
 			{
-				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
-					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
-					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
 			return new userDataTable();
 		}
@@ -76,29 +73,27 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				return userTableAdapter().sp_select_user(int_user);
+				return UserTableAdapter().sp_select_user(int_user);
 			}
 			catch (System.Exception e)
 			{
-				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
-					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
-					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
 			return new userDataTable();
 		}
-		public static sp_search_userDataTable Search_user(string str_search, bool? is_active)
+		public static sp_select_user_allDataTable Select_user_all()
 		{
 			try
 			{
-				return Search_UserTableAdapter().GetData(str_search, is_active);
+				return Select_User_AllTableAdapter().GetData();
 			}
 			catch (System.Exception e)
 			{
-				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
-					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
-					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
-			return new sp_search_userDataTable();
+			return new sp_select_user_allDataTable();
 		}
 		public static sp_user_loginDataTable Select_password(string str_username)
 		{
@@ -142,7 +137,7 @@ namespace VehicleDealership.Datasets
 			{
 				if (User_ds.Check_user_has_permission(Program.System_user.UserID, Classes.User_permission.EDIT_USER))
 				{
-					userTableAdapter().sp_update_user(int_user, str_username, str_name, str_ic_no,
+					UserTableAdapter().sp_update_user(int_user, str_username, str_name, str_ic_no,
 						date_join, date_leave, byte_image, str_usergroup, Program.System_user.UserID);
 				}
 				else
@@ -186,9 +181,8 @@ namespace VehicleDealership.Datasets
 			}
 			catch (System.Exception e)
 			{
-				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
-					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
-					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
 		}
 	}

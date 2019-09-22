@@ -770,6 +770,8 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columnchassis;
             
+            private global::System.Data.DataColumn columnchassis_no;
+            
             private global::System.Data.DataColumn columnvehicle_model;
             
             private global::System.Data.DataColumn columnvehicle_model_name;
@@ -948,6 +950,14 @@ namespace VehicleDealership.Datasets {
             public global::System.Data.DataColumn chassisColumn {
                 get {
                     return this.columnchassis;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn chassis_noColumn {
+                get {
+                    return this.columnchassis_no;
                 }
             }
             
@@ -1270,6 +1280,7 @@ namespace VehicleDealership.Datasets {
                         string branch_name, 
                         string registration_no, 
                         int chassis, 
+                        string chassis_no, 
                         int vehicle_model, 
                         string vehicle_model_name, 
                         int vehicle_group, 
@@ -1316,6 +1327,7 @@ namespace VehicleDealership.Datasets {
                         branch_name,
                         registration_no,
                         chassis,
+                        chassis_no,
                         vehicle_model,
                         vehicle_model_name,
                         vehicle_group,
@@ -1389,6 +1401,7 @@ namespace VehicleDealership.Datasets {
                 this.columnbranch_name = base.Columns["branch_name"];
                 this.columnregistration_no = base.Columns["registration_no"];
                 this.columnchassis = base.Columns["chassis"];
+                this.columnchassis_no = base.Columns["chassis_no"];
                 this.columnvehicle_model = base.Columns["vehicle_model"];
                 this.columnvehicle_model_name = base.Columns["vehicle_model_name"];
                 this.columnvehicle_group = base.Columns["vehicle_group"];
@@ -1448,6 +1461,8 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columnregistration_no);
                 this.columnchassis = new global::System.Data.DataColumn("chassis", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnchassis);
+                this.columnchassis_no = new global::System.Data.DataColumn("chassis_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnchassis_no);
                 this.columnvehicle_model = new global::System.Data.DataColumn("vehicle_model", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvehicle_model);
                 this.columnvehicle_model_name = new global::System.Data.DataColumn("vehicle_model_name", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1533,6 +1548,8 @@ namespace VehicleDealership.Datasets {
                 this.columnregistration_no.AllowDBNull = false;
                 this.columnregistration_no.MaxLength = 10;
                 this.columnchassis.AllowDBNull = false;
+                this.columnchassis_no.AllowDBNull = false;
+                this.columnchassis_no.MaxLength = 20;
                 this.columnvehicle_model.AllowDBNull = false;
                 this.columnvehicle_model_name.AllowDBNull = false;
                 this.columnvehicle_model_name.MaxLength = 50;
@@ -1564,7 +1581,7 @@ namespace VehicleDealership.Datasets {
                 this.columnignition_key.MaxLength = 20;
                 this.columndate_received.AllowDBNull = false;
                 this.columninvoice_no.AllowDBNull = false;
-                this.columninvoice_no.MaxLength = 50;
+                this.columninvoice_no.MaxLength = 20;
                 this.columnroad_tax.AllowDBNull = false;
                 this.columnpurchase_price.AllowDBNull = false;
                 this.columnovertrade.AllowDBNull = false;
@@ -2050,6 +2067,17 @@ namespace VehicleDealership.Datasets {
                 }
                 set {
                     this[this.tablesp_select_vehicle.chassisColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string chassis_no {
+                get {
+                    return ((string)(this[this.tablesp_select_vehicle.chassis_noColumn]));
+                }
+                set {
+                    this[this.tablesp_select_vehicle.chassis_noColumn] = value;
                 }
             }
             
@@ -2995,6 +3023,7 @@ namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
             tableMapping.ColumnMappings.Add("branch_name", "branch_name");
             tableMapping.ColumnMappings.Add("registration_no", "registration_no");
             tableMapping.ColumnMappings.Add("chassis", "chassis");
+            tableMapping.ColumnMappings.Add("chassis_no", "chassis_no");
             tableMapping.ColumnMappings.Add("vehicle_model", "vehicle_model");
             tableMapping.ColumnMappings.Add("vehicle_model_name", "vehicle_model_name");
             tableMapping.ColumnMappings.Add("vehicle_group", "vehicle_group");
@@ -3049,19 +3078,33 @@ namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@reg_no", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@chassis_no", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Vehicle_ds.sp_select_vehicleDataTable GetData(global::System.Nullable<int> vehicle) {
+        public virtual Vehicle_ds.sp_select_vehicleDataTable GetData(global::System.Nullable<int> vehicle, string reg_no, string chassis_no) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((vehicle.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(vehicle.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((reg_no == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(reg_no));
+            }
+            if ((chassis_no == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(chassis_no));
             }
             Vehicle_ds.sp_select_vehicleDataTable dataTable = new Vehicle_ds.sp_select_vehicleDataTable();
             this.Adapter.Fill(dataTable);

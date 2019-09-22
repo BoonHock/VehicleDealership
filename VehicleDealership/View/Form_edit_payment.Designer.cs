@@ -29,45 +29,48 @@
 		private void InitializeComponent()
 		{
 			this.label1 = new System.Windows.Forms.Label();
-			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+			this.dtp_payment_date = new System.Windows.Forms.DateTimePicker();
+			this.num_amount = new System.Windows.Forms.NumericUpDown();
 			this.label2 = new System.Windows.Forms.Label();
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-			this.radioButton1 = new System.Windows.Forms.RadioButton();
-			this.radioButton2 = new System.Windows.Forms.RadioButton();
+			this.rad_paid = new System.Windows.Forms.RadioButton();
+			this.rad_unpaid = new System.Windows.Forms.RadioButton();
 			this.label3 = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.btn_cancel = new System.Windows.Forms.Button();
 			this.btn_ok = new System.Windows.Forms.Button();
 			this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-			this.radioButton3 = new System.Windows.Forms.RadioButton();
-			this.radioButton4 = new System.Windows.Forms.RadioButton();
-			this.radioButton5 = new System.Windows.Forms.RadioButton();
+			this.rad_credit_debit_card = new System.Windows.Forms.RadioButton();
+			this.rad_cheque = new System.Windows.Forms.RadioButton();
+			this.rad_other = new System.Windows.Forms.RadioButton();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-			this.label8 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
-			this.comboBox2 = new System.Windows.Forms.ComboBox();
-			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-			this.label7 = new System.Windows.Forms.Label();
-			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.lbl_payment_method_no = new System.Windows.Forms.Label();
+			this.lbl_credit_card_expiry = new System.Windows.Forms.Label();
+			this.cmb_payment_method = new System.Windows.Forms.ComboBox();
+			this.dtp_credit_card_expiry = new System.Windows.Forms.DateTimePicker();
+			this.lbl_payment_method = new System.Windows.Forms.Label();
+			this.txt_payment_method_no = new System.Windows.Forms.TextBox();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.label4 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.button1 = new System.Windows.Forms.Button();
+			this.txt_remark = new System.Windows.Forms.TextBox();
+			this.txt_pay_to = new System.Windows.Forms.TextBox();
+			this.btn_pay_to = new System.Windows.Forms.Button();
 			this.label6 = new System.Windows.Forms.Label();
-			this.textBox4 = new System.Windows.Forms.TextBox();
+			this.txt_description = new System.Windows.Forms.TextBox();
 			this.label9 = new System.Windows.Forms.Label();
-			this.textBox5 = new System.Windows.Forms.TextBox();
+			this.txt_payment_voucher = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+			this.txt_pay_to_type = new System.Windows.Forms.TextBox();
+			this.num_pay_to_id = new System.Windows.Forms.NumericUpDown();
+			((System.ComponentModel.ISupportInitialize)(this.num_amount)).BeginInit();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.flowLayoutPanel2.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
 			this.groupBox1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_pay_to_id)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -79,27 +82,27 @@
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Payment date:";
 			// 
-			// dateTimePicker1
+			// dtp_payment_date
 			// 
-			this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dateTimePicker1.Location = new System.Drawing.Point(149, 78);
-			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(139, 27);
-			this.dateTimePicker1.TabIndex = 2;
+			this.dtp_payment_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtp_payment_date.Location = new System.Drawing.Point(149, 78);
+			this.dtp_payment_date.Name = "dtp_payment_date";
+			this.dtp_payment_date.Size = new System.Drawing.Size(139, 27);
+			this.dtp_payment_date.TabIndex = 2;
 			// 
-			// numericUpDown1
+			// num_amount
 			// 
-			this.numericUpDown1.Location = new System.Drawing.Point(149, 111);
-			this.numericUpDown1.Maximum = new decimal(new int[] {
+			this.num_amount.Location = new System.Drawing.Point(149, 111);
+			this.num_amount.Maximum = new decimal(new int[] {
             1000000000,
             0,
             0,
             0});
-			this.numericUpDown1.Name = "numericUpDown1";
-			this.numericUpDown1.Size = new System.Drawing.Size(138, 27);
-			this.numericUpDown1.TabIndex = 3;
-			this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.numericUpDown1.ThousandsSeparator = true;
+			this.num_amount.Name = "num_amount";
+			this.num_amount.Size = new System.Drawing.Size(138, 27);
+			this.num_amount.TabIndex = 3;
+			this.num_amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_amount.ThousandsSeparator = true;
 			// 
 			// label2
 			// 
@@ -113,34 +116,34 @@
 			// flowLayoutPanel1
 			// 
 			this.flowLayoutPanel1.AutoSize = true;
-			this.flowLayoutPanel1.Controls.Add(this.radioButton1);
-			this.flowLayoutPanel1.Controls.Add(this.radioButton2);
+			this.flowLayoutPanel1.Controls.Add(this.rad_paid);
+			this.flowLayoutPanel1.Controls.Add(this.rad_unpaid);
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(80, 343);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
 			this.flowLayoutPanel1.Size = new System.Drawing.Size(122, 31);
 			this.flowLayoutPanel1.TabIndex = 4;
 			// 
-			// radioButton1
+			// rad_paid
 			// 
-			this.radioButton1.AutoSize = true;
-			this.radioButton1.Checked = true;
-			this.radioButton1.Location = new System.Drawing.Point(3, 3);
-			this.radioButton1.Name = "radioButton1";
-			this.radioButton1.Size = new System.Drawing.Size(49, 24);
-			this.radioButton1.TabIndex = 0;
-			this.radioButton1.TabStop = true;
-			this.radioButton1.Text = "Yes";
-			this.radioButton1.UseVisualStyleBackColor = true;
+			this.rad_paid.AutoSize = true;
+			this.rad_paid.Checked = true;
+			this.rad_paid.Location = new System.Drawing.Point(3, 3);
+			this.rad_paid.Name = "rad_paid";
+			this.rad_paid.Size = new System.Drawing.Size(49, 24);
+			this.rad_paid.TabIndex = 0;
+			this.rad_paid.TabStop = true;
+			this.rad_paid.Text = "Yes";
+			this.rad_paid.UseVisualStyleBackColor = true;
 			// 
-			// radioButton2
+			// rad_unpaid
 			// 
-			this.radioButton2.AutoSize = true;
-			this.radioButton2.Location = new System.Drawing.Point(58, 3);
-			this.radioButton2.Name = "radioButton2";
-			this.radioButton2.Size = new System.Drawing.Size(47, 24);
-			this.radioButton2.TabIndex = 1;
-			this.radioButton2.Text = "No";
-			this.radioButton2.UseVisualStyleBackColor = true;
+			this.rad_unpaid.AutoSize = true;
+			this.rad_unpaid.Location = new System.Drawing.Point(58, 3);
+			this.rad_unpaid.Name = "rad_unpaid";
+			this.rad_unpaid.Size = new System.Drawing.Size(47, 24);
+			this.rad_unpaid.TabIndex = 1;
+			this.rad_unpaid.Text = "No";
+			this.rad_unpaid.UseVisualStyleBackColor = true;
 			// 
 			// label3
 			// 
@@ -184,9 +187,10 @@
 			this.btn_cancel.Location = new System.Drawing.Point(89, 4);
 			this.btn_cancel.Name = "btn_cancel";
 			this.btn_cancel.Size = new System.Drawing.Size(74, 31);
-			this.btn_cancel.TabIndex = 0;
+			this.btn_cancel.TabIndex = 1;
 			this.btn_cancel.Text = "Cancel";
 			this.btn_cancel.UseVisualStyleBackColor = true;
+			this.btn_cancel.Click += new System.EventHandler(this.Btn_cancel_Click);
 			// 
 			// btn_ok
 			// 
@@ -195,65 +199,69 @@
 			this.btn_ok.Location = new System.Drawing.Point(5, 4);
 			this.btn_ok.Name = "btn_ok";
 			this.btn_ok.Size = new System.Drawing.Size(74, 31);
-			this.btn_ok.TabIndex = 1;
+			this.btn_ok.TabIndex = 0;
 			this.btn_ok.Text = "OK";
 			this.btn_ok.UseVisualStyleBackColor = true;
+			this.btn_ok.Click += new System.EventHandler(this.Btn_ok_Click);
 			// 
 			// flowLayoutPanel2
 			// 
 			this.flowLayoutPanel2.AutoSize = true;
-			this.flowLayoutPanel2.Controls.Add(this.radioButton3);
-			this.flowLayoutPanel2.Controls.Add(this.radioButton4);
-			this.flowLayoutPanel2.Controls.Add(this.radioButton5);
+			this.flowLayoutPanel2.Controls.Add(this.rad_credit_debit_card);
+			this.flowLayoutPanel2.Controls.Add(this.rad_cheque);
+			this.flowLayoutPanel2.Controls.Add(this.rad_other);
 			this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
 			this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 23);
 			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
 			this.flowLayoutPanel2.Size = new System.Drawing.Size(354, 30);
 			this.flowLayoutPanel2.TabIndex = 5;
 			// 
-			// radioButton3
+			// rad_credit_debit_card
 			// 
-			this.radioButton3.AutoSize = true;
-			this.radioButton3.Checked = true;
-			this.radioButton3.Location = new System.Drawing.Point(3, 3);
-			this.radioButton3.Name = "radioButton3";
-			this.radioButton3.Size = new System.Drawing.Size(141, 24);
-			this.radioButton3.TabIndex = 0;
-			this.radioButton3.TabStop = true;
-			this.radioButton3.Text = "Credit/debit card";
-			this.radioButton3.UseVisualStyleBackColor = true;
+			this.rad_credit_debit_card.AutoSize = true;
+			this.rad_credit_debit_card.Checked = true;
+			this.rad_credit_debit_card.Location = new System.Drawing.Point(3, 3);
+			this.rad_credit_debit_card.Name = "rad_credit_debit_card";
+			this.rad_credit_debit_card.Size = new System.Drawing.Size(141, 24);
+			this.rad_credit_debit_card.TabIndex = 0;
+			this.rad_credit_debit_card.TabStop = true;
+			this.rad_credit_debit_card.Text = "Credit/debit card";
+			this.rad_credit_debit_card.UseVisualStyleBackColor = true;
+			this.rad_credit_debit_card.CheckedChanged += new System.EventHandler(this.Rad_payment_method_CheckedChanged);
 			// 
-			// radioButton4
+			// rad_cheque
 			// 
-			this.radioButton4.AutoSize = true;
-			this.radioButton4.Location = new System.Drawing.Point(150, 3);
-			this.radioButton4.Name = "radioButton4";
-			this.radioButton4.Size = new System.Drawing.Size(77, 24);
-			this.radioButton4.TabIndex = 1;
-			this.radioButton4.Text = "Cheque";
-			this.radioButton4.UseVisualStyleBackColor = true;
+			this.rad_cheque.AutoSize = true;
+			this.rad_cheque.Location = new System.Drawing.Point(150, 3);
+			this.rad_cheque.Name = "rad_cheque";
+			this.rad_cheque.Size = new System.Drawing.Size(77, 24);
+			this.rad_cheque.TabIndex = 1;
+			this.rad_cheque.Text = "Cheque";
+			this.rad_cheque.UseVisualStyleBackColor = true;
+			this.rad_cheque.CheckedChanged += new System.EventHandler(this.Rad_payment_method_CheckedChanged);
 			// 
-			// radioButton5
+			// rad_other
 			// 
-			this.radioButton5.AutoSize = true;
-			this.radioButton5.Location = new System.Drawing.Point(233, 3);
-			this.radioButton5.Name = "radioButton5";
-			this.radioButton5.Size = new System.Drawing.Size(64, 24);
-			this.radioButton5.TabIndex = 2;
-			this.radioButton5.Text = "Other";
-			this.radioButton5.UseVisualStyleBackColor = true;
+			this.rad_other.AutoSize = true;
+			this.rad_other.Location = new System.Drawing.Point(233, 3);
+			this.rad_other.Name = "rad_other";
+			this.rad_other.Size = new System.Drawing.Size(64, 24);
+			this.rad_other.TabIndex = 2;
+			this.rad_other.Text = "Other";
+			this.rad_other.UseVisualStyleBackColor = true;
+			this.rad_other.CheckedChanged += new System.EventHandler(this.Rad_payment_method_CheckedChanged);
 			// 
 			// tableLayoutPanel3
 			// 
 			this.tableLayoutPanel3.ColumnCount = 2;
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel3.Controls.Add(this.label8, 0, 1);
-			this.tableLayoutPanel3.Controls.Add(this.label5, 0, 2);
-			this.tableLayoutPanel3.Controls.Add(this.comboBox2, 1, 0);
-			this.tableLayoutPanel3.Controls.Add(this.dateTimePicker2, 1, 2);
-			this.tableLayoutPanel3.Controls.Add(this.label7, 0, 0);
-			this.tableLayoutPanel3.Controls.Add(this.textBox2, 1, 1);
+			this.tableLayoutPanel3.Controls.Add(this.lbl_payment_method_no, 0, 1);
+			this.tableLayoutPanel3.Controls.Add(this.lbl_credit_card_expiry, 0, 2);
+			this.tableLayoutPanel3.Controls.Add(this.cmb_payment_method, 1, 0);
+			this.tableLayoutPanel3.Controls.Add(this.dtp_credit_card_expiry, 1, 2);
+			this.tableLayoutPanel3.Controls.Add(this.lbl_payment_method, 0, 0);
+			this.tableLayoutPanel3.Controls.Add(this.txt_payment_method_no, 1, 1);
 			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 53);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -265,63 +273,65 @@
 			this.tableLayoutPanel3.Size = new System.Drawing.Size(354, 104);
 			this.tableLayoutPanel3.TabIndex = 7;
 			// 
-			// label8
+			// lbl_payment_method_no
 			// 
-			this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(3, 40);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(109, 20);
-			this.label8.TabIndex = 0;
-			this.label8.Text = "Credit card no.:";
+			this.lbl_payment_method_no.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.lbl_payment_method_no.AutoSize = true;
+			this.lbl_payment_method_no.BackColor = System.Drawing.Color.Yellow;
+			this.lbl_payment_method_no.Location = new System.Drawing.Point(3, 40);
+			this.lbl_payment_method_no.Name = "lbl_payment_method_no";
+			this.lbl_payment_method_no.Size = new System.Drawing.Size(98, 20);
+			this.lbl_payment_method_no.TabIndex = 0;
+			this.lbl_payment_method_no.Text = "Card number:";
 			// 
-			// label5
+			// lbl_credit_card_expiry
 			// 
-			this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(3, 73);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(52, 20);
-			this.label5.TabIndex = 0;
-			this.label5.Text = "Expiry:";
+			this.lbl_credit_card_expiry.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.lbl_credit_card_expiry.AutoSize = true;
+			this.lbl_credit_card_expiry.Location = new System.Drawing.Point(3, 73);
+			this.lbl_credit_card_expiry.Name = "lbl_credit_card_expiry";
+			this.lbl_credit_card_expiry.Size = new System.Drawing.Size(52, 20);
+			this.lbl_credit_card_expiry.TabIndex = 0;
+			this.lbl_credit_card_expiry.Text = "Expiry:";
 			// 
-			// comboBox2
+			// cmb_payment_method
 			// 
-			this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBox2.FormattingEnabled = true;
-			this.comboBox2.Location = new System.Drawing.Point(134, 3);
-			this.comboBox2.Name = "comboBox2";
-			this.comboBox2.Size = new System.Drawing.Size(217, 28);
-			this.comboBox2.TabIndex = 7;
+			this.cmb_payment_method.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.cmb_payment_method.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cmb_payment_method.FormattingEnabled = true;
+			this.cmb_payment_method.Location = new System.Drawing.Point(134, 3);
+			this.cmb_payment_method.Name = "cmb_payment_method";
+			this.cmb_payment_method.Size = new System.Drawing.Size(217, 28);
+			this.cmb_payment_method.TabIndex = 0;
 			// 
-			// dateTimePicker2
+			// dtp_credit_card_expiry
 			// 
-			this.dateTimePicker2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.dateTimePicker2.CustomFormat = "MM/yy";
-			this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dateTimePicker2.Location = new System.Drawing.Point(134, 70);
-			this.dateTimePicker2.Name = "dateTimePicker2";
-			this.dateTimePicker2.Size = new System.Drawing.Size(88, 27);
-			this.dateTimePicker2.TabIndex = 2;
+			this.dtp_credit_card_expiry.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.dtp_credit_card_expiry.CustomFormat = "MM/yy";
+			this.dtp_credit_card_expiry.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.dtp_credit_card_expiry.Location = new System.Drawing.Point(134, 70);
+			this.dtp_credit_card_expiry.Name = "dtp_credit_card_expiry";
+			this.dtp_credit_card_expiry.Size = new System.Drawing.Size(88, 27);
+			this.dtp_credit_card_expiry.TabIndex = 2;
 			// 
-			// label7
+			// lbl_payment_method
 			// 
-			this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(3, 7);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(125, 20);
-			this.label7.TabIndex = 0;
-			this.label7.Text = "Payment method:";
+			this.lbl_payment_method.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.lbl_payment_method.AutoSize = true;
+			this.lbl_payment_method.Location = new System.Drawing.Point(3, 7);
+			this.lbl_payment_method.Name = "lbl_payment_method";
+			this.lbl_payment_method.Size = new System.Drawing.Size(125, 20);
+			this.lbl_payment_method.TabIndex = 0;
+			this.lbl_payment_method.Text = "Payment method:";
 			// 
-			// textBox2
+			// txt_payment_method_no
 			// 
-			this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox2.Location = new System.Drawing.Point(134, 37);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(217, 27);
-			this.textBox2.TabIndex = 6;
+			this.txt_payment_method_no.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_payment_method_no.Location = new System.Drawing.Point(134, 37);
+			this.txt_payment_method_no.MaxLength = 20;
+			this.txt_payment_method_no.Name = "txt_payment_method_no";
+			this.txt_payment_method_no.Size = new System.Drawing.Size(217, 27);
+			this.txt_payment_method_no.TabIndex = 1;
 			// 
 			// groupBox1
 			// 
@@ -343,92 +353,119 @@
 			this.label4.TabIndex = 7;
 			this.label4.Text = "Remark:";
 			// 
-			// textBox1
+			// txt_remark
 			// 
-			this.textBox1.Location = new System.Drawing.Point(80, 380);
-			this.textBox1.MaxLength = 100;
-			this.textBox1.Multiline = true;
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(325, 128);
-			this.textBox1.TabIndex = 8;
+			this.txt_remark.Location = new System.Drawing.Point(80, 380);
+			this.txt_remark.MaxLength = 255;
+			this.txt_remark.Multiline = true;
+			this.txt_remark.Name = "txt_remark";
+			this.txt_remark.Size = new System.Drawing.Size(325, 128);
+			this.txt_remark.TabIndex = 6;
 			// 
-			// textBox3
+			// txt_pay_to
 			// 
-			this.textBox3.Location = new System.Drawing.Point(149, 144);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.ReadOnly = true;
-			this.textBox3.Size = new System.Drawing.Size(223, 27);
-			this.textBox3.TabIndex = 9;
+			this.txt_pay_to.Enabled = false;
+			this.txt_pay_to.Location = new System.Drawing.Point(149, 144);
+			this.txt_pay_to.Name = "txt_pay_to";
+			this.txt_pay_to.ReadOnly = true;
+			this.txt_pay_to.Size = new System.Drawing.Size(223, 27);
+			this.txt_pay_to.TabIndex = 4;
 			// 
-			// button1
+			// btn_pay_to
 			// 
-			this.button1.Location = new System.Drawing.Point(378, 144);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(27, 27);
-			this.button1.TabIndex = 10;
-			this.button1.Text = "...";
-			this.button1.UseVisualStyleBackColor = true;
+			this.btn_pay_to.Location = new System.Drawing.Point(378, 144);
+			this.btn_pay_to.Name = "btn_pay_to";
+			this.btn_pay_to.Size = new System.Drawing.Size(27, 27);
+			this.btn_pay_to.TabIndex = 10;
+			this.btn_pay_to.Text = "...";
+			this.btn_pay_to.UseVisualStyleBackColor = true;
+			this.btn_pay_to.Click += new System.EventHandler(this.Btn_pay_to_Click);
 			// 
 			// label6
 			// 
 			this.label6.AutoSize = true;
+			this.label6.BackColor = System.Drawing.Color.Yellow;
 			this.label6.Location = new System.Drawing.Point(12, 147);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(53, 20);
 			this.label6.TabIndex = 0;
 			this.label6.Text = "Pay to:";
 			// 
-			// textBox4
+			// txt_description
 			// 
-			this.textBox4.Location = new System.Drawing.Point(149, 45);
-			this.textBox4.MaxLength = 50;
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(223, 27);
-			this.textBox4.TabIndex = 11;
+			this.txt_description.Location = new System.Drawing.Point(149, 45);
+			this.txt_description.MaxLength = 50;
+			this.txt_description.Name = "txt_description";
+			this.txt_description.Size = new System.Drawing.Size(223, 27);
+			this.txt_description.TabIndex = 1;
 			// 
 			// label9
 			// 
 			this.label9.AutoSize = true;
+			this.label9.BackColor = System.Drawing.Color.Yellow;
 			this.label9.Location = new System.Drawing.Point(12, 48);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(88, 20);
 			this.label9.TabIndex = 0;
 			this.label9.Text = "Description:";
 			// 
-			// textBox5
+			// txt_payment_voucher
 			// 
-			this.textBox5.Location = new System.Drawing.Point(149, 12);
-			this.textBox5.MaxLength = 50;
-			this.textBox5.Name = "textBox5";
-			this.textBox5.ReadOnly = true;
-			this.textBox5.Size = new System.Drawing.Size(223, 27);
-			this.textBox5.TabIndex = 11;
+			this.txt_payment_voucher.Location = new System.Drawing.Point(149, 12);
+			this.txt_payment_voucher.MaxLength = 50;
+			this.txt_payment_voucher.Name = "txt_payment_voucher";
+			this.txt_payment_voucher.ReadOnly = true;
+			this.txt_payment_voucher.Size = new System.Drawing.Size(223, 27);
+			this.txt_payment_voucher.TabIndex = 0;
 			// 
 			// label10
 			// 
 			this.label10.AutoSize = true;
 			this.label10.Location = new System.Drawing.Point(12, 15);
 			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(125, 20);
+			this.label10.Size = new System.Drawing.Size(93, 20);
 			this.label10.TabIndex = 0;
-			this.label10.Text = "Payment voucher:";
+			this.label10.Text = "Payment no.:";
+			// 
+			// txt_pay_to_type
+			// 
+			this.txt_pay_to_type.Location = new System.Drawing.Point(378, 108);
+			this.txt_pay_to_type.Name = "txt_pay_to_type";
+			this.txt_pay_to_type.Size = new System.Drawing.Size(18, 27);
+			this.txt_pay_to_type.TabIndex = 11;
+			this.txt_pay_to_type.Visible = false;
+			// 
+			// num_pay_to_id
+			// 
+			this.num_pay_to_id.Location = new System.Drawing.Point(336, 81);
+			this.num_pay_to_id.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+			this.num_pay_to_id.Name = "num_pay_to_id";
+			this.num_pay_to_id.Size = new System.Drawing.Size(35, 27);
+			this.num_pay_to_id.TabIndex = 12;
+			this.num_pay_to_id.Visible = false;
 			// 
 			// Form_edit_payment
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(419, 565);
-			this.Controls.Add(this.textBox5);
-			this.Controls.Add(this.textBox4);
-			this.Controls.Add(this.button1);
-			this.Controls.Add(this.textBox3);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.num_pay_to_id);
+			this.Controls.Add(this.txt_pay_to_type);
+			this.Controls.Add(this.txt_payment_voucher);
+			this.Controls.Add(this.txt_description);
+			this.Controls.Add(this.btn_pay_to);
+			this.Controls.Add(this.txt_pay_to);
+			this.Controls.Add(this.txt_remark);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.flowLayoutPanel1);
-			this.Controls.Add(this.numericUpDown1);
-			this.Controls.Add(this.dateTimePicker1);
+			this.Controls.Add(this.num_amount);
+			this.Controls.Add(this.dtp_payment_date);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label10);
@@ -439,7 +476,8 @@
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "Form_edit_payment";
 			this.Text = "Payment";
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+			this.Shown += new System.EventHandler(this.Form_edit_payment_Shown);
+			((System.ComponentModel.ISupportInitialize)(this.num_amount)).EndInit();
 			this.flowLayoutPanel1.ResumeLayout(false);
 			this.flowLayoutPanel1.PerformLayout();
 			this.panel1.ResumeLayout(false);
@@ -451,6 +489,7 @@
 			this.tableLayoutPanel3.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_pay_to_id)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -459,37 +498,39 @@
 		#endregion
 
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.DateTimePicker dateTimePicker1;
-		private System.Windows.Forms.NumericUpDown numericUpDown1;
+		private System.Windows.Forms.DateTimePicker dtp_payment_date;
+		private System.Windows.Forms.NumericUpDown num_amount;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-		private System.Windows.Forms.RadioButton radioButton1;
-		private System.Windows.Forms.RadioButton radioButton2;
+		private System.Windows.Forms.RadioButton rad_paid;
+		private System.Windows.Forms.RadioButton rad_unpaid;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.Button btn_cancel;
 		private System.Windows.Forms.Button btn_ok;
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-		private System.Windows.Forms.RadioButton radioButton3;
-		private System.Windows.Forms.RadioButton radioButton4;
-		private System.Windows.Forms.RadioButton radioButton5;
+		private System.Windows.Forms.RadioButton rad_credit_debit_card;
+		private System.Windows.Forms.RadioButton rad_cheque;
+		private System.Windows.Forms.RadioButton rad_other;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.ComboBox comboBox2;
-		private System.Windows.Forms.DateTimePicker dateTimePicker2;
-		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.Label lbl_payment_method_no;
+		private System.Windows.Forms.Label lbl_credit_card_expiry;
+		private System.Windows.Forms.ComboBox cmb_payment_method;
+		private System.Windows.Forms.DateTimePicker dtp_credit_card_expiry;
+		private System.Windows.Forms.Label lbl_payment_method;
+		private System.Windows.Forms.TextBox txt_payment_method_no;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.TextBox txt_remark;
+		private System.Windows.Forms.TextBox txt_pay_to;
+		private System.Windows.Forms.Button btn_pay_to;
 		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.TextBox textBox4;
+		private System.Windows.Forms.TextBox txt_description;
 		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.TextBox textBox5;
+		private System.Windows.Forms.TextBox txt_payment_voucher;
 		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.TextBox txt_pay_to_type;
+		private System.Windows.Forms.NumericUpDown num_pay_to_id;
 	}
 }

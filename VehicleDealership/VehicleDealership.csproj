@@ -101,6 +101,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Bulkcopy_table_ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\Chassis_ds.cs">
+      <DependentUpon>Chassis_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Chassis_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Chassis_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\Colour_ds.cs">
       <DependentUpon>Colour_ds.xsd</DependentUpon>
     </Compile>
@@ -180,6 +188,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Organisation_type_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Payment_method_ds.cs">
+      <DependentUpon>Payment_method_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Payment_method_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Payment_method_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\Permission_ds.cs">
       <DependentUpon>Permission_ds.xsd</DependentUpon>
@@ -488,6 +504,17 @@
     <None Include="Datasets\Bulkcopy_table_ds.xss">
       <DependentUpon>Bulkcopy_table_ds.xsd</DependentUpon>
     </None>
+    <None Include="Datasets\Chassis_ds.xsc">
+      <DependentUpon>Chassis_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Chassis_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Chassis_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Chassis_ds.xss">
+      <DependentUpon>Chassis_ds.xsd</DependentUpon>
+    </None>
     <None Include="Datasets\Colour_ds.xsc">
       <DependentUpon>Colour_ds.xsd</DependentUpon>
     </None>
@@ -597,6 +624,17 @@
     </None>
     <None Include="Datasets\Organisation_type_ds.xss">
       <DependentUpon>Organisation_type_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Payment_method_ds.xsc">
+      <DependentUpon>Payment_method_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Payment_method_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Payment_method_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Payment_method_ds.xss">
+      <DependentUpon>Payment_method_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Permission_ds.xsc">
       <DependentUpon>Permission_ds.xsd</DependentUpon>

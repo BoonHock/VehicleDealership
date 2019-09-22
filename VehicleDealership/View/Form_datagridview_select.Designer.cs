@@ -29,6 +29,8 @@
 		private void InitializeComponent()
 		{
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+			this.lbl_type = new System.Windows.Forms.ToolStripLabel();
+			this.cmb_type = new System.Windows.Forms.ToolStripComboBox();
 			this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
 			this.txt_search = new System.Windows.Forms.ToolStripTextBox();
 			this.grd_main = new System.Windows.Forms.DataGridView();
@@ -36,8 +38,6 @@
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.btn_cancel = new System.Windows.Forms.Button();
 			this.btn_ok = new System.Windows.Forms.Button();
-			this.lbl_type = new System.Windows.Forms.ToolStripLabel();
-			this.cmb_type = new System.Windows.Forms.ToolStripComboBox();
 			this.toolStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_main)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -57,6 +57,21 @@
 			this.toolStrip1.Size = new System.Drawing.Size(1067, 25);
 			this.toolStrip1.TabIndex = 5;
 			this.toolStrip1.Text = "toolStrip1";
+			// 
+			// lbl_type
+			// 
+			this.lbl_type.Name = "lbl_type";
+			this.lbl_type.Size = new System.Drawing.Size(36, 22);
+			this.lbl_type.Text = "Type:";
+			// 
+			// cmb_type
+			// 
+			this.cmb_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cmb_type.Items.AddRange(new object[] {
+            "PERSON",
+            "ORGANISATION"});
+			this.cmb_type.Name = "cmb_type";
+			this.cmb_type.Size = new System.Drawing.Size(150, 25);
 			// 
 			// toolStripLabel1
 			// 
@@ -81,8 +96,10 @@
 			this.grd_main.Margin = new System.Windows.Forms.Padding(5);
 			this.grd_main.Name = "grd_main";
 			this.grd_main.ReadOnly = true;
+			this.grd_main.ShowCellToolTips = false;
 			this.grd_main.Size = new System.Drawing.Size(1067, 625);
 			this.grd_main.TabIndex = 0;
+			this.grd_main.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Grd_main_CellMouseDoubleClick);
 			// 
 			// panel1
 			// 
@@ -133,21 +150,6 @@
 			this.btn_ok.UseVisualStyleBackColor = true;
 			this.btn_ok.Click += new System.EventHandler(this.Btn_ok_Click);
 			// 
-			// lbl_type
-			// 
-			this.lbl_type.Name = "lbl_type";
-			this.lbl_type.Size = new System.Drawing.Size(36, 22);
-			this.lbl_type.Text = "Type:";
-			// 
-			// cmb_type
-			// 
-			this.cmb_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cmb_type.Items.AddRange(new object[] {
-            "PERSON",
-            "ORGANISATION"});
-			this.cmb_type.Name = "cmb_type";
-			this.cmb_type.Size = new System.Drawing.Size(150, 25);
-			// 
 			// Form_datagridview_select
 			// 
 			this.AcceptButton = this.btn_ok;
@@ -161,6 +163,7 @@
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F);
 			this.Margin = new System.Windows.Forms.Padding(5);
 			this.Name = "Form_datagridview_select";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Select";
 			this.Shown += new System.EventHandler(this.Form_datagridview_select_Shown);
 			this.toolStrip1.ResumeLayout(false);
