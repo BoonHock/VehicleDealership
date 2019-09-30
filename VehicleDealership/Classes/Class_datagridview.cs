@@ -169,6 +169,8 @@ namespace VehicleDealership.Classes
 		/// <param name="e"></param>
 		public static void MouseDown_select_cell(object sender, MouseEventArgs e)
 		{
+			if (Control.ModifierKeys == Keys.Control || Control.ModifierKeys == Keys.Shift) return;
+
 			try
 			{
 				DataGridView grd = (DataGridView)sender;

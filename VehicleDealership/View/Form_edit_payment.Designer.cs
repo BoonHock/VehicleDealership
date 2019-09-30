@@ -45,12 +45,19 @@
 			this.rad_cheque = new System.Windows.Forms.RadioButton();
 			this.rad_other = new System.Windows.Forms.RadioButton();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-			this.lbl_payment_method_no = new System.Windows.Forms.Label();
-			this.lbl_credit_card_expiry = new System.Windows.Forms.Label();
+			this.maskedtxt_credit_card_no = new System.Windows.Forms.MaskedTextBox();
+			this.lbl_credit_card_no = new System.Windows.Forms.Label();
 			this.cmb_payment_method = new System.Windows.Forms.ComboBox();
-			this.dtp_credit_card_expiry = new System.Windows.Forms.DateTimePicker();
 			this.lbl_payment_method = new System.Windows.Forms.Label();
-			this.txt_payment_method_no = new System.Windows.Forms.TextBox();
+			this.dtp_payment_method_date = new System.Windows.Forms.DateTimePicker();
+			this.txt_payment_method_finance = new System.Windows.Forms.TextBox();
+			this.cmb_credit_card_type = new System.Windows.Forms.ComboBox();
+			this.btn_payment_method_finance = new System.Windows.Forms.Button();
+			this.lbl_credit_card_type = new System.Windows.Forms.Label();
+			this.lbl_payment_method_date = new System.Windows.Forms.Label();
+			this.lbl_payment_method_finance = new System.Windows.Forms.Label();
+			this.txt_cheque_no = new System.Windows.Forms.TextBox();
+			this.lbl_cheque_no = new System.Windows.Forms.Label();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.txt_remark = new System.Windows.Forms.TextBox();
@@ -59,10 +66,11 @@
 			this.label6 = new System.Windows.Forms.Label();
 			this.txt_description = new System.Windows.Forms.TextBox();
 			this.label9 = new System.Windows.Forms.Label();
-			this.txt_payment_voucher = new System.Windows.Forms.TextBox();
+			this.txt_payment_no = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
 			this.txt_pay_to_type = new System.Windows.Forms.TextBox();
 			this.num_pay_to_id = new System.Windows.Forms.NumericUpDown();
+			this.num_payment_method_finance = new System.Windows.Forms.NumericUpDown();
 			((System.ComponentModel.ISupportInitialize)(this.num_amount)).BeginInit();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -71,12 +79,13 @@
 			this.tableLayoutPanel3.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.num_pay_to_id)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_payment_method_finance)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(12, 81);
+			this.label1.Location = new System.Drawing.Point(330, 48);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(103, 20);
 			this.label1.TabIndex = 0;
@@ -85,29 +94,30 @@
 			// dtp_payment_date
 			// 
 			this.dtp_payment_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtp_payment_date.Location = new System.Drawing.Point(149, 78);
+			this.dtp_payment_date.Location = new System.Drawing.Point(445, 45);
 			this.dtp_payment_date.Name = "dtp_payment_date";
-			this.dtp_payment_date.Size = new System.Drawing.Size(139, 27);
+			this.dtp_payment_date.Size = new System.Drawing.Size(133, 27);
 			this.dtp_payment_date.TabIndex = 2;
 			// 
 			// num_amount
 			// 
-			this.num_amount.Location = new System.Drawing.Point(149, 111);
+			this.num_amount.DecimalPlaces = 2;
+			this.num_amount.Location = new System.Drawing.Point(445, 80);
 			this.num_amount.Maximum = new decimal(new int[] {
             1000000000,
             0,
             0,
             0});
 			this.num_amount.Name = "num_amount";
-			this.num_amount.Size = new System.Drawing.Size(138, 27);
-			this.num_amount.TabIndex = 3;
+			this.num_amount.Size = new System.Drawing.Size(133, 27);
+			this.num_amount.TabIndex = 4;
 			this.num_amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.num_amount.ThousandsSeparator = true;
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(12, 115);
+			this.label2.Location = new System.Drawing.Point(330, 83);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(109, 20);
 			this.label2.TabIndex = 0;
@@ -118,10 +128,10 @@
 			this.flowLayoutPanel1.AutoSize = true;
 			this.flowLayoutPanel1.Controls.Add(this.rad_paid);
 			this.flowLayoutPanel1.Controls.Add(this.rad_unpaid);
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(80, 343);
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(111, 78);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(122, 31);
-			this.flowLayoutPanel1.TabIndex = 4;
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(160, 31);
+			this.flowLayoutPanel1.TabIndex = 3;
 			// 
 			// rad_paid
 			// 
@@ -148,7 +158,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(13, 348);
+			this.label3.Location = new System.Drawing.Point(12, 83);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(41, 20);
 			this.label3.TabIndex = 0;
@@ -159,10 +169,10 @@
 			this.panel1.AutoSize = true;
 			this.panel1.Controls.Add(this.tableLayoutPanel2);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel1.Location = new System.Drawing.Point(0, 518);
+			this.panel1.Location = new System.Drawing.Point(0, 513);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(419, 47);
-			this.panel1.TabIndex = 6;
+			this.panel1.Size = new System.Drawing.Size(594, 47);
+			this.panel1.TabIndex = 9;
 			// 
 			// tableLayoutPanel2
 			// 
@@ -172,7 +182,7 @@
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel2.Controls.Add(this.btn_cancel, 1, 0);
 			this.tableLayoutPanel2.Controls.Add(this.btn_ok, 0, 0);
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(247, 4);
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(422, 4);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
 			this.tableLayoutPanel2.RowCount = 1;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -213,7 +223,7 @@
 			this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
 			this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 23);
 			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-			this.flowLayoutPanel2.Size = new System.Drawing.Size(354, 30);
+			this.flowLayoutPanel2.Size = new System.Drawing.Size(423, 30);
 			this.flowLayoutPanel2.TabIndex = 5;
 			// 
 			// rad_credit_debit_card
@@ -253,46 +263,57 @@
 			// 
 			// tableLayoutPanel3
 			// 
-			this.tableLayoutPanel3.ColumnCount = 2;
+			this.tableLayoutPanel3.ColumnCount = 3;
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel3.Controls.Add(this.lbl_payment_method_no, 0, 1);
-			this.tableLayoutPanel3.Controls.Add(this.lbl_credit_card_expiry, 0, 2);
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel3.Controls.Add(this.maskedtxt_credit_card_no, 1, 1);
+			this.tableLayoutPanel3.Controls.Add(this.lbl_credit_card_no, 0, 1);
 			this.tableLayoutPanel3.Controls.Add(this.cmb_payment_method, 1, 0);
-			this.tableLayoutPanel3.Controls.Add(this.dtp_credit_card_expiry, 1, 2);
 			this.tableLayoutPanel3.Controls.Add(this.lbl_payment_method, 0, 0);
-			this.tableLayoutPanel3.Controls.Add(this.txt_payment_method_no, 1, 1);
+			this.tableLayoutPanel3.Controls.Add(this.dtp_payment_method_date, 1, 5);
+			this.tableLayoutPanel3.Controls.Add(this.txt_payment_method_finance, 1, 4);
+			this.tableLayoutPanel3.Controls.Add(this.cmb_credit_card_type, 1, 3);
+			this.tableLayoutPanel3.Controls.Add(this.btn_payment_method_finance, 2, 4);
+			this.tableLayoutPanel3.Controls.Add(this.lbl_credit_card_type, 0, 3);
+			this.tableLayoutPanel3.Controls.Add(this.lbl_payment_method_date, 0, 5);
+			this.tableLayoutPanel3.Controls.Add(this.lbl_payment_method_finance, 0, 4);
+			this.tableLayoutPanel3.Controls.Add(this.txt_cheque_no, 1, 2);
+			this.tableLayoutPanel3.Controls.Add(this.lbl_cheque_no, 0, 2);
 			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 53);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-			this.tableLayoutPanel3.RowCount = 4;
+			this.tableLayoutPanel3.RowCount = 7;
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(354, 104);
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(423, 208);
 			this.tableLayoutPanel3.TabIndex = 7;
 			// 
-			// lbl_payment_method_no
+			// maskedtxt_credit_card_no
 			// 
-			this.lbl_payment_method_no.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.lbl_payment_method_no.AutoSize = true;
-			this.lbl_payment_method_no.BackColor = System.Drawing.Color.Yellow;
-			this.lbl_payment_method_no.Location = new System.Drawing.Point(3, 40);
-			this.lbl_payment_method_no.Name = "lbl_payment_method_no";
-			this.lbl_payment_method_no.Size = new System.Drawing.Size(98, 20);
-			this.lbl_payment_method_no.TabIndex = 0;
-			this.lbl_payment_method_no.Text = "Card number:";
+			this.maskedtxt_credit_card_no.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.maskedtxt_credit_card_no.Location = new System.Drawing.Point(134, 37);
+			this.maskedtxt_credit_card_no.Mask = "0000 0000 0000 0000";
+			this.maskedtxt_credit_card_no.Name = "maskedtxt_credit_card_no";
+			this.maskedtxt_credit_card_no.Size = new System.Drawing.Size(253, 27);
+			this.maskedtxt_credit_card_no.TabIndex = 1;
+			this.maskedtxt_credit_card_no.Leave += new System.EventHandler(this.Maskedtxt_credit_card_no_Leave);
 			// 
-			// lbl_credit_card_expiry
+			// lbl_credit_card_no
 			// 
-			this.lbl_credit_card_expiry.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.lbl_credit_card_expiry.AutoSize = true;
-			this.lbl_credit_card_expiry.Location = new System.Drawing.Point(3, 73);
-			this.lbl_credit_card_expiry.Name = "lbl_credit_card_expiry";
-			this.lbl_credit_card_expiry.Size = new System.Drawing.Size(52, 20);
-			this.lbl_credit_card_expiry.TabIndex = 0;
-			this.lbl_credit_card_expiry.Text = "Expiry:";
+			this.lbl_credit_card_no.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.lbl_credit_card_no.AutoSize = true;
+			this.lbl_credit_card_no.BackColor = System.Drawing.Color.Yellow;
+			this.lbl_credit_card_no.Location = new System.Drawing.Point(3, 40);
+			this.lbl_credit_card_no.Name = "lbl_credit_card_no";
+			this.lbl_credit_card_no.Size = new System.Drawing.Size(98, 20);
+			this.lbl_credit_card_no.TabIndex = 0;
+			this.lbl_credit_card_no.Text = "Card number:";
 			// 
 			// cmb_payment_method
 			// 
@@ -301,18 +322,8 @@
 			this.cmb_payment_method.FormattingEnabled = true;
 			this.cmb_payment_method.Location = new System.Drawing.Point(134, 3);
 			this.cmb_payment_method.Name = "cmb_payment_method";
-			this.cmb_payment_method.Size = new System.Drawing.Size(217, 28);
+			this.cmb_payment_method.Size = new System.Drawing.Size(253, 28);
 			this.cmb_payment_method.TabIndex = 0;
-			// 
-			// dtp_credit_card_expiry
-			// 
-			this.dtp_credit_card_expiry.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.dtp_credit_card_expiry.CustomFormat = "MM/yy";
-			this.dtp_credit_card_expiry.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dtp_credit_card_expiry.Location = new System.Drawing.Point(134, 70);
-			this.dtp_credit_card_expiry.Name = "dtp_credit_card_expiry";
-			this.dtp_credit_card_expiry.Size = new System.Drawing.Size(88, 27);
-			this.dtp_credit_card_expiry.TabIndex = 2;
 			// 
 			// lbl_payment_method
 			// 
@@ -324,30 +335,112 @@
 			this.lbl_payment_method.TabIndex = 0;
 			this.lbl_payment_method.Text = "Payment method:";
 			// 
-			// txt_payment_method_no
+			// dtp_payment_method_date
 			// 
-			this.txt_payment_method_no.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.txt_payment_method_no.Location = new System.Drawing.Point(134, 37);
-			this.txt_payment_method_no.MaxLength = 20;
-			this.txt_payment_method_no.Name = "txt_payment_method_no";
-			this.txt_payment_method_no.Size = new System.Drawing.Size(217, 27);
-			this.txt_payment_method_no.TabIndex = 1;
+			this.dtp_payment_method_date.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.dtp_payment_method_date.CustomFormat = "MM/yy";
+			this.dtp_payment_method_date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.dtp_payment_method_date.Location = new System.Drawing.Point(134, 170);
+			this.dtp_payment_method_date.Name = "dtp_payment_method_date";
+			this.dtp_payment_method_date.Size = new System.Drawing.Size(122, 27);
+			this.dtp_payment_method_date.TabIndex = 6;
+			// 
+			// txt_payment_method_finance
+			// 
+			this.txt_payment_method_finance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_payment_method_finance.Enabled = false;
+			this.txt_payment_method_finance.Location = new System.Drawing.Point(134, 137);
+			this.txt_payment_method_finance.Name = "txt_payment_method_finance";
+			this.txt_payment_method_finance.ReadOnly = true;
+			this.txt_payment_method_finance.Size = new System.Drawing.Size(253, 27);
+			this.txt_payment_method_finance.TabIndex = 4;
+			// 
+			// cmb_credit_card_type
+			// 
+			this.cmb_credit_card_type.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.cmb_credit_card_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cmb_credit_card_type.FormattingEnabled = true;
+			this.cmb_credit_card_type.Location = new System.Drawing.Point(134, 103);
+			this.cmb_credit_card_type.Name = "cmb_credit_card_type";
+			this.cmb_credit_card_type.Size = new System.Drawing.Size(253, 28);
+			this.cmb_credit_card_type.TabIndex = 3;
+			// 
+			// btn_payment_method_finance
+			// 
+			this.btn_payment_method_finance.Location = new System.Drawing.Point(393, 137);
+			this.btn_payment_method_finance.Name = "btn_payment_method_finance";
+			this.btn_payment_method_finance.Size = new System.Drawing.Size(27, 27);
+			this.btn_payment_method_finance.TabIndex = 5;
+			this.btn_payment_method_finance.Text = "...";
+			this.btn_payment_method_finance.UseVisualStyleBackColor = true;
+			this.btn_payment_method_finance.Click += new System.EventHandler(this.Btn_payment_method_finance_Click);
+			// 
+			// lbl_credit_card_type
+			// 
+			this.lbl_credit_card_type.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.lbl_credit_card_type.AutoSize = true;
+			this.lbl_credit_card_type.Location = new System.Drawing.Point(3, 107);
+			this.lbl_credit_card_type.Name = "lbl_credit_card_type";
+			this.lbl_credit_card_type.Size = new System.Drawing.Size(118, 20);
+			this.lbl_credit_card_type.TabIndex = 0;
+			this.lbl_credit_card_type.Text = "Credit card type:";
+			// 
+			// lbl_payment_method_date
+			// 
+			this.lbl_payment_method_date.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.lbl_payment_method_date.AutoSize = true;
+			this.lbl_payment_method_date.Location = new System.Drawing.Point(3, 173);
+			this.lbl_payment_method_date.Name = "lbl_payment_method_date";
+			this.lbl_payment_method_date.Size = new System.Drawing.Size(52, 20);
+			this.lbl_payment_method_date.TabIndex = 0;
+			this.lbl_payment_method_date.Text = "Expiry:";
+			// 
+			// lbl_payment_method_finance
+			// 
+			this.lbl_payment_method_finance.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.lbl_payment_method_finance.AutoSize = true;
+			this.lbl_payment_method_finance.Location = new System.Drawing.Point(3, 140);
+			this.lbl_payment_method_finance.Name = "lbl_payment_method_finance";
+			this.lbl_payment_method_finance.Size = new System.Drawing.Size(62, 20);
+			this.lbl_payment_method_finance.TabIndex = 0;
+			this.lbl_payment_method_finance.Text = "Finance:";
+			// 
+			// txt_cheque_no
+			// 
+			this.txt_cheque_no.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_cheque_no.Location = new System.Drawing.Point(134, 70);
+			this.txt_cheque_no.MaxLength = 20;
+			this.txt_cheque_no.Name = "txt_cheque_no";
+			this.txt_cheque_no.Size = new System.Drawing.Size(253, 27);
+			this.txt_cheque_no.TabIndex = 2;
+			this.txt_cheque_no.Leave += new System.EventHandler(this.Txt_cheque_no_Leave);
+			// 
+			// lbl_cheque_no
+			// 
+			this.lbl_cheque_no.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.lbl_cheque_no.AutoSize = true;
+			this.lbl_cheque_no.BackColor = System.Drawing.Color.Yellow;
+			this.lbl_cheque_no.Location = new System.Drawing.Point(3, 73);
+			this.lbl_cheque_no.Name = "lbl_cheque_no";
+			this.lbl_cheque_no.Size = new System.Drawing.Size(117, 20);
+			this.lbl_cheque_no.TabIndex = 0;
+			this.lbl_cheque_no.Text = "Cheque number:";
 			// 
 			// groupBox1
 			// 
 			this.groupBox1.Controls.Add(this.tableLayoutPanel3);
 			this.groupBox1.Controls.Add(this.flowLayoutPanel2);
-			this.groupBox1.Location = new System.Drawing.Point(12, 177);
+			this.groupBox1.Location = new System.Drawing.Point(12, 148);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(360, 160);
-			this.groupBox1.TabIndex = 5;
+			this.groupBox1.Size = new System.Drawing.Size(429, 264);
+			this.groupBox1.TabIndex = 7;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Payment method";
 			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(12, 383);
+			this.label4.Location = new System.Drawing.Point(12, 421);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(62, 20);
 			this.label4.TabIndex = 7;
@@ -355,28 +448,28 @@
 			// 
 			// txt_remark
 			// 
-			this.txt_remark.Location = new System.Drawing.Point(80, 380);
+			this.txt_remark.Location = new System.Drawing.Point(111, 418);
 			this.txt_remark.MaxLength = 255;
 			this.txt_remark.Multiline = true;
 			this.txt_remark.Name = "txt_remark";
-			this.txt_remark.Size = new System.Drawing.Size(325, 128);
-			this.txt_remark.TabIndex = 6;
+			this.txt_remark.Size = new System.Drawing.Size(327, 89);
+			this.txt_remark.TabIndex = 8;
 			// 
 			// txt_pay_to
 			// 
 			this.txt_pay_to.Enabled = false;
-			this.txt_pay_to.Location = new System.Drawing.Point(149, 144);
+			this.txt_pay_to.Location = new System.Drawing.Point(111, 115);
 			this.txt_pay_to.Name = "txt_pay_to";
 			this.txt_pay_to.ReadOnly = true;
-			this.txt_pay_to.Size = new System.Drawing.Size(223, 27);
-			this.txt_pay_to.TabIndex = 4;
+			this.txt_pay_to.Size = new System.Drawing.Size(297, 27);
+			this.txt_pay_to.TabIndex = 5;
 			// 
 			// btn_pay_to
 			// 
-			this.btn_pay_to.Location = new System.Drawing.Point(378, 144);
+			this.btn_pay_to.Location = new System.Drawing.Point(414, 115);
 			this.btn_pay_to.Name = "btn_pay_to";
 			this.btn_pay_to.Size = new System.Drawing.Size(27, 27);
-			this.btn_pay_to.TabIndex = 10;
+			this.btn_pay_to.TabIndex = 6;
 			this.btn_pay_to.Text = "...";
 			this.btn_pay_to.UseVisualStyleBackColor = true;
 			this.btn_pay_to.Click += new System.EventHandler(this.Btn_pay_to_Click);
@@ -385,7 +478,7 @@
 			// 
 			this.label6.AutoSize = true;
 			this.label6.BackColor = System.Drawing.Color.Yellow;
-			this.label6.Location = new System.Drawing.Point(12, 147);
+			this.label6.Location = new System.Drawing.Point(9, 118);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(53, 20);
 			this.label6.TabIndex = 0;
@@ -393,10 +486,10 @@
 			// 
 			// txt_description
 			// 
-			this.txt_description.Location = new System.Drawing.Point(149, 45);
+			this.txt_description.Location = new System.Drawing.Point(111, 45);
 			this.txt_description.MaxLength = 50;
 			this.txt_description.Name = "txt_description";
-			this.txt_description.Size = new System.Drawing.Size(223, 27);
+			this.txt_description.Size = new System.Drawing.Size(213, 27);
 			this.txt_description.TabIndex = 1;
 			// 
 			// label9
@@ -409,14 +502,15 @@
 			this.label9.TabIndex = 0;
 			this.label9.Text = "Description:";
 			// 
-			// txt_payment_voucher
+			// txt_payment_no
 			// 
-			this.txt_payment_voucher.Location = new System.Drawing.Point(149, 12);
-			this.txt_payment_voucher.MaxLength = 50;
-			this.txt_payment_voucher.Name = "txt_payment_voucher";
-			this.txt_payment_voucher.ReadOnly = true;
-			this.txt_payment_voucher.Size = new System.Drawing.Size(223, 27);
-			this.txt_payment_voucher.TabIndex = 0;
+			this.txt_payment_no.Enabled = false;
+			this.txt_payment_no.Location = new System.Drawing.Point(111, 12);
+			this.txt_payment_no.MaxLength = 50;
+			this.txt_payment_no.Name = "txt_payment_no";
+			this.txt_payment_no.ReadOnly = true;
+			this.txt_payment_no.Size = new System.Drawing.Size(213, 27);
+			this.txt_payment_no.TabIndex = 0;
 			// 
 			// label10
 			// 
@@ -429,7 +523,7 @@
 			// 
 			// txt_pay_to_type
 			// 
-			this.txt_pay_to_type.Location = new System.Drawing.Point(378, 108);
+			this.txt_pay_to_type.Location = new System.Drawing.Point(495, 219);
 			this.txt_pay_to_type.Name = "txt_pay_to_type";
 			this.txt_pay_to_type.Size = new System.Drawing.Size(18, 27);
 			this.txt_pay_to_type.TabIndex = 11;
@@ -437,9 +531,9 @@
 			// 
 			// num_pay_to_id
 			// 
-			this.num_pay_to_id.Location = new System.Drawing.Point(336, 81);
+			this.num_pay_to_id.Location = new System.Drawing.Point(523, 257);
 			this.num_pay_to_id.Maximum = new decimal(new int[] {
-            1000000,
+            10000000,
             0,
             0,
             0});
@@ -448,14 +542,29 @@
 			this.num_pay_to_id.TabIndex = 12;
 			this.num_pay_to_id.Visible = false;
 			// 
+			// num_payment_method_finance
+			// 
+			this.num_payment_method_finance.Location = new System.Drawing.Point(536, 171);
+			this.num_payment_method_finance.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+			this.num_payment_method_finance.Name = "num_payment_method_finance";
+			this.num_payment_method_finance.Size = new System.Drawing.Size(27, 27);
+			this.num_payment_method_finance.TabIndex = 12;
+			this.num_payment_method_finance.Visible = false;
+			// 
 			// Form_edit_payment
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(419, 565);
+			this.CancelButton = this.btn_cancel;
+			this.ClientSize = new System.Drawing.Size(594, 560);
+			this.Controls.Add(this.num_payment_method_finance);
 			this.Controls.Add(this.num_pay_to_id);
 			this.Controls.Add(this.txt_pay_to_type);
-			this.Controls.Add(this.txt_payment_voucher);
+			this.Controls.Add(this.txt_payment_no);
 			this.Controls.Add(this.txt_description);
 			this.Controls.Add(this.btn_pay_to);
 			this.Controls.Add(this.txt_pay_to);
@@ -475,6 +584,7 @@
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "Form_edit_payment";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Payment";
 			this.Shown += new System.EventHandler(this.Form_edit_payment_Shown);
 			((System.ComponentModel.ISupportInitialize)(this.num_amount)).EndInit();
@@ -490,6 +600,7 @@
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.num_pay_to_id)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_payment_method_finance)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -514,12 +625,11 @@
 		private System.Windows.Forms.RadioButton rad_cheque;
 		private System.Windows.Forms.RadioButton rad_other;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-		private System.Windows.Forms.Label lbl_payment_method_no;
-		private System.Windows.Forms.Label lbl_credit_card_expiry;
+		private System.Windows.Forms.Label lbl_credit_card_no;
+		private System.Windows.Forms.Label lbl_payment_method_date;
 		private System.Windows.Forms.ComboBox cmb_payment_method;
-		private System.Windows.Forms.DateTimePicker dtp_credit_card_expiry;
+		private System.Windows.Forms.DateTimePicker dtp_payment_method_date;
 		private System.Windows.Forms.Label lbl_payment_method;
-		private System.Windows.Forms.TextBox txt_payment_method_no;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.TextBox txt_remark;
@@ -528,9 +638,18 @@
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.TextBox txt_description;
 		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.TextBox txt_payment_voucher;
+		private System.Windows.Forms.TextBox txt_payment_no;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.TextBox txt_pay_to_type;
 		private System.Windows.Forms.NumericUpDown num_pay_to_id;
+		private System.Windows.Forms.ComboBox cmb_credit_card_type;
+		private System.Windows.Forms.Label lbl_payment_method_finance;
+		private System.Windows.Forms.Button btn_payment_method_finance;
+		private System.Windows.Forms.TextBox txt_payment_method_finance;
+		private System.Windows.Forms.Label lbl_credit_card_type;
+		private System.Windows.Forms.NumericUpDown num_payment_method_finance;
+		private System.Windows.Forms.MaskedTextBox maskedtxt_credit_card_no;
+		private System.Windows.Forms.TextBox txt_cheque_no;
+		private System.Windows.Forms.Label lbl_cheque_no;
 	}
 }

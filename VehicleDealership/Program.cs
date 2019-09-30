@@ -23,5 +23,6 @@ namespace VehicleDealership
 
 		}
 		public static Classes.User System_user;
+		public const int GRD_IMAGE_ROW_HEIGHT = 60;
 	}
 }

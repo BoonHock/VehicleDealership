@@ -15,8 +15,6 @@ namespace VehicleDealership.View
 {
 	public partial class Form_edit_vehicle_model : Form
 	{
-		const int GRD_IMAGE_ROW_HEIGHT = 60;
-
 		readonly string _str_ori_edit_model_name = "";
 		private vehicle_model_image_ds.sp_select_vehicle_model_imageDataTable dttable_img = new vehicle_model_image_ds.sp_select_vehicle_model_imageDataTable();
 
@@ -206,7 +204,7 @@ namespace VehicleDealership.View
 
 			foreach (DataGridViewRow grd_row in grd_img.Rows)
 			{
-				grd_row.Height = GRD_IMAGE_ROW_HEIGHT;
+				grd_row.Height = Program.GRD_IMAGE_ROW_HEIGHT;
 			}
 
 			grd_img.ClearSelection();
@@ -235,10 +233,10 @@ namespace VehicleDealership.View
 				int_new_id -= 1;
 
 				dttable_img.Rows.Add(int_new_id,
-					Class_misc.Image_to_byte_array(Class_misc.Resized_image(Image.FromFile(str_filename), 900)),
+					Class_image.Image_to_byte_array(Class_image.Resize_image(Image.FromFile(str_filename), 900)),
 					"", Program.System_user.Name, DateTime.Now);
 
-				grd_img.Rows[grd_img.Rows.Count - 1].Height = GRD_IMAGE_ROW_HEIGHT;
+				grd_img.Rows[grd_img.Rows.Count - 1].Height = Program.GRD_IMAGE_ROW_HEIGHT;
 			}
 
 			Cursor = Cursors.Default;
@@ -248,7 +246,7 @@ namespace VehicleDealership.View
 		{
 			if (grd_img.SelectedCells.Count == 0) return;
 
-			picbox.Image = Class_misc.Byte_array_to_image((byte[])grd_img.SelectedCells[0].OwningRow.Cells["image"].Value);
+			picbox.Image = Class_image.Byte_array_to_image((byte[])grd_img.SelectedCells[0].OwningRow.Cells["image"].Value);
 
 			txt_img_description.Text = grd_img.SelectedCells[0].OwningRow.Cells["image_description"].Value.ToString();
 			txt_img_created_by.Text = grd_img.SelectedCells[0].OwningRow.Cells["created_by"].Value.ToString();

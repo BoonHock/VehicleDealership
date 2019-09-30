@@ -53,6 +53,8 @@
 			this.txt_country = new System.Windows.Forms.TextBox();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.label13 = new System.Windows.Forms.Label();
+			this.num_year_make = new System.Windows.Forms.NumericUpDown();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.grd_img = new System.Windows.Forms.DataGridView();
@@ -69,14 +71,13 @@
 			this.txt_img_description = new System.Windows.Forms.TextBox();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.filedlg_img = new System.Windows.Forms.OpenFileDialog();
-			this.num_year_make = new System.Windows.Forms.NumericUpDown();
-			this.label13 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.num_engine)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_no_of_door)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_seat_capacity)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_year_make)).BeginInit();
 			this.tabPage2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
@@ -90,7 +91,6 @@
 			this.splitContainer2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picbox)).BeginInit();
 			this.panel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.num_year_make)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -363,6 +363,28 @@
 			this.tabPage1.Text = "Details";
 			this.tabPage1.UseVisualStyleBackColor = true;
 			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.Location = new System.Drawing.Point(7, 110);
+			this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(81, 20);
+			this.label13.TabIndex = 8;
+			this.label13.Text = "Year make:";
+			// 
+			// num_year_make
+			// 
+			this.num_year_make.Location = new System.Drawing.Point(169, 107);
+			this.num_year_make.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+			this.num_year_make.Name = "num_year_make";
+			this.num_year_make.Size = new System.Drawing.Size(123, 27);
+			this.num_year_make.TabIndex = 9;
+			// 
 			// tabPage2
 			// 
 			this.tabPage2.Controls.Add(this.splitContainer1);
@@ -543,28 +565,6 @@
 			this.filedlg_img.Multiselect = true;
 			this.filedlg_img.Title = "Upload image";
 			// 
-			// num_year_make
-			// 
-			this.num_year_make.Location = new System.Drawing.Point(169, 107);
-			this.num_year_make.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-			this.num_year_make.Name = "num_year_make";
-			this.num_year_make.Size = new System.Drawing.Size(123, 27);
-			this.num_year_make.TabIndex = 9;
-			// 
-			// label13
-			// 
-			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(7, 110);
-			this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(81, 20);
-			this.label13.TabIndex = 8;
-			this.label13.Text = "Year make:";
-			// 
 			// Form_edit_vehicle_model
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -576,6 +576,7 @@
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F);
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "Form_edit_vehicle_model";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Vehicle model";
 			((System.ComponentModel.ISupportInitialize)(this.num_engine)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_no_of_door)).EndInit();
@@ -585,6 +586,7 @@
 			this.tabControl1.ResumeLayout(false);
 			this.tabPage1.ResumeLayout(false);
 			this.tabPage1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_year_make)).EndInit();
 			this.tabPage2.ResumeLayout(false);
 			this.splitContainer1.Panel1.ResumeLayout(false);
 			this.splitContainer1.Panel1.PerformLayout();
@@ -601,7 +603,6 @@
 			this.splitContainer2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.picbox)).EndInit();
 			this.panel1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.num_year_make)).EndInit();
 			this.ResumeLayout(false);
 
 		}

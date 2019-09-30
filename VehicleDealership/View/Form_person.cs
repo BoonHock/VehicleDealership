@@ -55,7 +55,7 @@ namespace VehicleDealership.View
 		{
 			if (filedlg_img.ShowDialog() != DialogResult.OK) return;
 
-			picbox_image.Image = Class_misc.Resized_image(Image.FromFile(filedlg_img.FileName), 400);
+			picbox_image.Image = Class_image.Resize_image(Image.FromFile(filedlg_img.FileName), 400);
 		}
 		private void Btn_remove_image_Click(object sender, EventArgs e)
 		{
