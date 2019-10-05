@@ -154,14 +154,6 @@ namespace VehicleDealership.View
 					MessageBox.Show("Payment method finance is required.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
 				}
-				//int_credit_card = Credit_card_ds.Update_insert_credit_card(str_credit_card_no,
-				//	(int)cmb_credit_card_type.SelectedValue, (int)num_payment_method_finance.Value, dtp_payment_date.Value);
-
-				//if (int_credit_card == 0)
-				//{
-				//	MessageBox.Show("An error has occurred.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				//	return;
-				//}
 			}
 			else if (rad_cheque.Checked)
 			{
@@ -175,37 +167,7 @@ namespace VehicleDealership.View
 					MessageBox.Show("Payment method finance is required.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
 				}
-				//int_cheque = Cheque_ds.Update_insert_cheque(str_cheque_no, dtp_payment_date.Value, (int)num_payment_method_finance.Value);
-
-				//if (int_cheque == 0)
-				//{
-				//	MessageBox.Show("An error has occurred.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				//	return;
-				//}
 			}
-
-			//if (PaymentID == 0)
-			//{
-			//	// insert
-			//	PaymentID = Payment_ds.Insert_payment(str_description, dtp_payment_date.Value, num_amount.Value,
-			//		int_cheque, int_credit_card, (int)cmb_payment_method.SelectedValue, rad_paid.Checked,
-			//		(int)num_pay_to_id.Value, txt_pay_to_type.Text.ToUpper() == "PERSON", txt_remark.Text.Trim());
-			//}
-			//else
-			//{
-			//	// update
-			//	if (!Payment_ds.Update_payment(PaymentID, str_description, dtp_payment_date.Value, num_amount.Value,
-			//		int_cheque, int_credit_card, (int)cmb_payment_method.SelectedValue, rad_paid.Checked,
-			//		(int)num_pay_to_id.Value, txt_pay_to_type.Text.ToUpper() == "PERSON", txt_remark.Text.Trim()))
-			//		PaymentID = 0;
-			//}
-
-			//// when reach here payment id should not be zero anymore
-			//if (PaymentID == 0)
-			//{
-			//	MessageBox.Show("An error has occurred. Payment not saved.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			//	return;
-			//}
 
 			this.DialogResult = DialogResult.OK;
 			this.Close();

@@ -399,6 +399,7 @@
 			// 
 			this.lbl_payment_method_finance.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.lbl_payment_method_finance.AutoSize = true;
+			this.lbl_payment_method_finance.BackColor = System.Drawing.Color.Yellow;
 			this.lbl_payment_method_finance.Location = new System.Drawing.Point(3, 140);
 			this.lbl_payment_method_finance.Name = "lbl_payment_method_finance";
 			this.lbl_payment_method_finance.Size = new System.Drawing.Size(62, 20);

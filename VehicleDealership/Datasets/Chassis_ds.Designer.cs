@@ -295,8 +295,6 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columnvehicle_brand_name;
             
-            private global::System.Data.DataColumn columnyear_make;
-            
             private global::System.Data.DataColumn columnregistration_date;
             
             private global::System.Data.DataColumn columnmodified_by_id;
@@ -402,14 +400,6 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn year_makeColumn {
-                get {
-                    return this.columnyear_make;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn registration_dateColumn {
                 get {
                     return this.columnregistration_date;
@@ -469,7 +459,7 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_chassisRow Addsp_select_chassisRow(string chassis_no, int vehicle_model, string vehicle_model_name, int vehicle_group, string vehicle_group_name, int vehicle_brand, string vehicle_brand_name, short year_make, System.DateTime registration_date, int modified_by_id, string modified_by) {
+            public sp_select_chassisRow Addsp_select_chassisRow(string chassis_no, int vehicle_model, string vehicle_model_name, int vehicle_group, string vehicle_group_name, int vehicle_brand, string vehicle_brand_name, System.DateTime registration_date, int modified_by_id, string modified_by) {
                 sp_select_chassisRow rowsp_select_chassisRow = ((sp_select_chassisRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -480,7 +470,6 @@ namespace VehicleDealership.Datasets {
                         vehicle_group_name,
                         vehicle_brand,
                         vehicle_brand_name,
-                        year_make,
                         registration_date,
                         modified_by_id,
                         modified_by};
@@ -521,7 +510,6 @@ namespace VehicleDealership.Datasets {
                 this.columnvehicle_group_name = base.Columns["vehicle_group_name"];
                 this.columnvehicle_brand = base.Columns["vehicle_brand"];
                 this.columnvehicle_brand_name = base.Columns["vehicle_brand_name"];
-                this.columnyear_make = base.Columns["year_make"];
                 this.columnregistration_date = base.Columns["registration_date"];
                 this.columnmodified_by_id = base.Columns["modified_by_id"];
                 this.columnmodified_by = base.Columns["modified_by"];
@@ -546,8 +534,6 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columnvehicle_brand);
                 this.columnvehicle_brand_name = new global::System.Data.DataColumn("vehicle_brand_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvehicle_brand_name);
-                this.columnyear_make = new global::System.Data.DataColumn("year_make", typeof(short), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnyear_make);
                 this.columnregistration_date = new global::System.Data.DataColumn("registration_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnregistration_date);
                 this.columnmodified_by_id = new global::System.Data.DataColumn("modified_by_id", typeof(int), null, global::System.Data.MappingType.Element);
@@ -573,7 +559,6 @@ namespace VehicleDealership.Datasets {
                 this.columnvehicle_brand.AllowDBNull = false;
                 this.columnvehicle_brand_name.AllowDBNull = false;
                 this.columnvehicle_brand_name.MaxLength = 20;
-                this.columnyear_make.AllowDBNull = false;
                 this.columnregistration_date.AllowDBNull = false;
                 this.columnmodified_by_id.AllowDBNull = false;
                 this.columnmodified_by.AllowDBNull = false;
@@ -808,17 +793,6 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public short year_make {
-                get {
-                    return ((short)(this[this.tablesp_select_chassis.year_makeColumn]));
-                }
-                set {
-                    this[this.tablesp_select_chassis.year_makeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.DateTime registration_date {
                 get {
                     return ((global::System.DateTime)(this[this.tablesp_select_chassis.registration_dateColumn]));
@@ -1018,7 +992,6 @@ namespace VehicleDealership.Datasets.Chassis_dsTableAdapters {
             tableMapping.ColumnMappings.Add("vehicle_group_name", "vehicle_group_name");
             tableMapping.ColumnMappings.Add("vehicle_brand", "vehicle_brand");
             tableMapping.ColumnMappings.Add("vehicle_brand_name", "vehicle_brand_name");
-            tableMapping.ColumnMappings.Add("year_make", "year_make");
             tableMapping.ColumnMappings.Add("registration_date", "registration_date");
             tableMapping.ColumnMappings.Add("modified_by_id", "modified_by_id");
             tableMapping.ColumnMappings.Add("modified_by", "modified_by");
@@ -1059,6 +1032,160 @@ namespace VehicleDealership.Datasets.Chassis_dsTableAdapters {
             Chassis_ds.sp_select_chassisDataTable dataTable = new Chassis_ds.sp_select_chassisDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class QueriesTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.IDbCommand[] _commandCollection;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.IDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.IDbCommand[2];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "veh.sp_insert_chassis";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@chassis_no", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle_model", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@registration_date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modified_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandText = "veh.sp_update_chassis";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandType = global::System.Data.CommandType.StoredProcedure;
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@chassis", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@chassis_no", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle_model", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@registration_date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modified_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object sp_insert_chassis(string chassis_no, global::System.Nullable<int> vehicle_model, global::System.Nullable<global::System.DateTime> registration_date, global::System.Nullable<int> modified_by) {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
+            if ((chassis_no == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((string)(chassis_no));
+            }
+            if ((vehicle_model.HasValue == true)) {
+                command.Parameters[2].Value = ((int)(vehicle_model.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((registration_date.HasValue == true)) {
+                command.Parameters[3].Value = ((System.DateTime)(registration_date.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((modified_by.HasValue == true)) {
+                command.Parameters[4].Value = ((int)(modified_by.Value));
+            }
+            else {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int sp_update_chassis(global::System.Nullable<int> chassis, string chassis_no, global::System.Nullable<int> vehicle_model, global::System.Nullable<global::System.DateTime> registration_date, global::System.Nullable<int> modified_by) {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[1]));
+            if ((chassis.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(chassis.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((chassis_no == null)) {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[2].Value = ((string)(chassis_no));
+            }
+            if ((vehicle_model.HasValue == true)) {
+                command.Parameters[3].Value = ((int)(vehicle_model.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((registration_date.HasValue == true)) {
+                command.Parameters[4].Value = ((System.DateTime)(registration_date.Value));
+            }
+            else {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((modified_by.HasValue == true)) {
+                command.Parameters[5].Value = ((int)(modified_by.Value));
+            }
+            else {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

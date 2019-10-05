@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -39,6 +40,7 @@ namespace VehicleDealership.View
 			string str_reg_no = txt_reg_no.Text.Trim();
 			string str_chassis = txt_chassis.Text.Trim();
 			string str_engine_no = txt_engine_no.Text.Trim();
+			int int_chassis;
 
 			if (str_reg_no == "" || str_chassis == "" || str_engine_no == "" || str_chassis == "" ||
 				num_vehicle_model_id.Value == 0 || num_seller_id.Value == 0 || num_checked_by_id.Value == 0)
@@ -48,13 +50,158 @@ namespace VehicleDealership.View
 				return;
 			}
 
+			using (Chassis_ds.sp_select_chassisDataTable dttable_chassis = Chassis_ds.Select_chassis(txt_chassis.Text.Trim()))
+			{
+				if (dttable_chassis.Rows.Count == 0)
+				{
+					// chassis not found. new chassis. insert
+					int_chassis = Chassis_ds.Insert_chassis(str_chassis, (int)num_vehicle_model_id.Value, dtp_registered.Value);
+				}
+				else
+				{
+					// EDIT CHASSIS
+					int_chassis = Chassis_ds.Update_chassis(dttable_chassis[0].chassis, str_chassis,
+						(int)num_vehicle_model_id.Value, dtp_registered.Value) ? dttable_chassis[0].chassis : 0;
+				}
+			}
+			if (int_chassis == 0)
+			{
+				// insert_chassis() return last insert id. therefore shouldn't be zero
+				MessageBox.Show("Insert chassis failed. Vehicle record cannot be created.",
+					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
+			int? int_vehicle_sale = null;
+			bool? consignment_mortgage = null;
+
+			switch (cmb_acquire_method.SelectedItem.ToString())
+			{
+				case "TRADE-IN":
+					int_vehicle_sale = (int)num_sale.Value;
+					break;
+				case "CONSIGNMENT":
+					consignment_mortgage = true;
+					break;
+				case "MORTGAGE":
+					consignment_mortgage = false;
+					break;
+			}
+
+			VehicleID = Vehicle_ds.Insert_vehicle((int)num_seller_id.Value, txt_seller_type.Text == "PERSON",
+				str_reg_no, int_chassis, (int)cmb_vehicle_colour.SelectedValue, rad_vehicle_new.Checked,
+				(int)num_vehicle_location.Value, str_engine_no, (double)num_engine_cc.Value, (int)num_mileage.Value,
+				int_vehicle_sale, consignment_mortgage, txt_door_key.Text.Trim(), txt_ignition_key.Text.Trim(),
+				dtp_purchase_date.Value, dtp_date_received.Value, txt_invoice_no.Text.Trim(), num_road_tax_amount.Value,
+				dtp_road_tax_expiry.Value, num_purchase_price.Value, num_overtrade.Value, num_list_price.Value,
+				num_loan_balance_readonly.Value, txt_remark.Text.Trim(), (int)num_checked_by_id.Value);
+
+			if (VehicleID == 0)
+			{
+				MessageBox.Show("An error has occurred.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
+			using (Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable dttable_expenses =
+				(Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable)grd_expenses.DataSource)
+			{
+				List<int> list_payment_id = new List<int>();
+
+				dttable_expenses.AcceptChanges();
+
+				foreach (Vehicle_expenses_ds.sp_select_vehicle_expensesRow dt_row in dttable_expenses)
+				{
+					int int_payment_id = Update_insert_payment(dt_row.payment, dt_row.payment_description, dt_row.pay_to_id,
+						dt_row.pay_to_type, dt_row.amount, dt_row.payment_date, dt_row.is_paid, dt_row.payment_method_type,
+						dt_row.payment_method_id, dt_row.cheque_no, dt_row.credit_card_no, dt_row.credit_card_type_id,
+						dt_row.finance_id, dt_row.payment_method_date, dt_row.remark);
+
+					if (int_payment_id == 0) continue;
+
+					list_payment_id.Add(int_payment_id);
+				}
+
+				if (!Vehicle_expenses_ds.Update_vehicle_expenses(VehicleID, string.Join(",", list_payment_id)))
+				{
+					MessageBox.Show("Vehicle expenses update failed.", "ERROR",
+						MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+
+			using (Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dttable_payment =
+					(Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_payment.DataSource)
+			{
+				List<int> list_payment_id = new List<int>();
+
+				dttable_payment.AcceptChanges();
+
+				foreach (Vehicle_payment_ds.sp_select_vehicle_paymentRow dt_row in dttable_payment)
+				{
+					int int_payment_id = Update_insert_payment(dt_row.payment, dt_row.payment_description, dt_row.pay_to_id,
+						dt_row.pay_to_type, dt_row.amount, dt_row.payment_date, dt_row.is_paid, dt_row.payment_method_type,
+						dt_row.payment_method_id, dt_row.cheque_no, dt_row.credit_card_no, dt_row.credit_card_type_id,
+						dt_row.finance_id, dt_row.payment_method_date, dt_row.remark);
+
+					if (int_payment_id == 0) continue;
+
+					list_payment_id.Add(int_payment_id);
+				}
+				if (!Vehicle_payment_ds.Update_vehicle_payment(VehicleID, string.Join(",", list_payment_id)))
+				{
+					MessageBox.Show("Vehicle payment update failed.", "ERROR",
+						MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+
+
+
+			this.DialogResult = DialogResult.OK;
+			this.Close();
+		}
+		private int Update_insert_payment(int int_payment_id, string str_payment_description, int int_pay_to_id,
+			string str_pay_to_type, decimal dec_amount, DateTime payment_date, bool is_paid,
+			string str_payment_method_type, int int_payment_method_id, string str_cheque_no, string str_cc_no,
+			int int_cc_type, int int_finance_id, DateTime payment_method_date, string str_remark)
+		{
+			int int_credit_card = 0; // default value is 0. only set value if right payment method type selected
+			int int_cheque = 0; // default value is 0. only set value if right payment method type selected
+			int int_payment_method = 0; // default value is 0. only set value if right payment method type selected
+
+			switch (str_payment_method_type)
+			{
+				case "CREDIT_CARD":
+					int_credit_card = Credit_card_ds.Update_insert_credit_card(str_cc_no,
+						int_cc_type, int_finance_id, payment_method_date);
+					break;
+				case "CHEQUE":
+					int_cheque = Cheque_ds.Update_insert_cheque(str_cheque_no, payment_method_date, int_finance_id);
+					break;
+				default:
+					int_payment_method = int_payment_method_id;
+					break;
+			}
+			if (int_payment_id > 0)
+			{
+				// update
+				Payment_ds.Update_payment(int_payment_id, str_payment_description, payment_date,
+					dec_amount, int_cheque, int_credit_card, int_payment_method, is_paid,
+					int_pay_to_id, (str_pay_to_type == "PERSON"), str_remark);
+			}
+			else
+			{
+				// insert
+				int_payment_id = Payment_ds.Insert_payment(str_payment_description, payment_date,
+					dec_amount, int_cheque, int_credit_card, int_payment_method, is_paid,
+					int_pay_to_id, (str_pay_to_type == "PERSON"), str_remark);
+			}
+
+			return int_payment_id;
 		}
 		private void Btn_cancel_Click(object sender, EventArgs e)
 		{
 			this.DialogResult = DialogResult.Cancel;
 			this.Close();
 		}
-
 		private void Form_edit_vehicle_Shown(object sender, EventArgs e)
 		{
 			cmb_vehicle_colour.DisplayMember = "colour_name";
@@ -94,11 +241,12 @@ namespace VehicleDealership.View
 
 			grd_file_attachment.DataSource = Vehicle_attachment_ds.Select_vehicle_attachment(VehicleID);
 			if (!Program.System_user.IsDeveloper) Class_datagridview.Hide_unnecessary_columns(grd_file_attachment, "filename");
+			grd_file_attachment.Columns["filename"].Width = 300;
 
 			if (VehicleID == 0) return;
 
 			// select vehicle and populate controls
-
+			// TODO !!!
 		}
 		private void Txt_reg_no_Enter(object sender, EventArgs e)
 		{
@@ -126,99 +274,116 @@ namespace VehicleDealership.View
 
 			if (txtbox.Text == "") return;
 
-			str_param = txtbox.Text; // set value for checking when control is entered next time
+			str_param = txtbox.Text.Trim(); // set value for checking when control is entered next time
 
-			Setup_vehicle_details(Vehicle_ds.Select_vehicle_latest_record("", txtbox.Text));
+			string str_reg_no = "";
+			string str_chassis_no = "";
+
+			if (txtbox == txt_reg_no)
+				str_reg_no = str_param;
+			else
+				str_chassis_no = str_param;
+
+			Setup_vehicle_details(str_reg_no, str_chassis_no);
 		}
-		private void Setup_vehicle_details(Vehicle_ds.sp_select_vehicleDataTable dttable)
+		private void Setup_vehicle_details(string str_reg_no, string str_chassis_no)
 		{
-			if (dttable.Rows.Count == 0) return;
-
-			if (txt_reg_no.Text.Trim() == "")
+			using (Vehicle_ds.sp_select_vehicleDataTable dttable =
+					Vehicle_ds.Select_vehicle_latest_record(str_reg_no, str_chassis_no))
 			{
-				// if registration no. no input yet, input latest record's
-				_str_reg_no = dttable[0].registration_no;
-				txt_reg_no.Text = _str_reg_no;
-			}
-			if (txt_chassis.Text.Trim() == "")
-			{
-				// if chassis no. no input yet, input latest record's
-				_str_chassis_no = dttable[0].chassis_no;
-				txt_chassis.Text = _str_chassis_no;
-			}
+				if (dttable.Rows.Count == 0) return;
 
-			btn_vehicle_model.Enabled = false;
-			num_vehicle_model_id.Value = dttable[0].vehicle_model;
-			txt_vehicle_model.Text = dttable[0].vehicle_model_name;
-			txt_vehicle_group.Text = dttable[0].vehicle_group_name;
-			txt_vehicle_brand.Text = dttable[0].vehicle_brand_name;
-			txt_year_make.Text = dttable[0].year_make.ToString();
+				if (txt_reg_no.Text.Trim() == "")
+				{
+					// if registration no. no input yet, input latest record's
+					_str_reg_no = dttable[0].registration_no;
+					txt_reg_no.Text = _str_reg_no;
+				}
+				if (txt_chassis.Text.Trim() == "")
+				{
+					// if chassis no. no input yet, input latest record's
+					_str_chassis_no = dttable[0].chassis_no;
+					txt_chassis.Text = _str_chassis_no;
+				}
 
-			if (txt_engine_no.Text.Trim() == "") txt_engine_no.Text = dttable[0].engine_no;
-			if (num_engine_cc.Value == 0) num_engine_cc.Value = (decimal)dttable[0].engine_cc;
-			if (txt_ignition_key.Text.Trim() == "") txt_ignition_key.Text = dttable[0].ignition_key;
-			if (txt_door_key.Text.Trim() == "") txt_door_key.Text = dttable[0].door_key;
-			if (cmb_vehicle_colour.SelectedIndex == 0) cmb_vehicle_colour.SelectedValue = dttable[0].colour;
-			rad_vehicle_new.Checked = false;
-			rad_vehicle_old.Checked = true;
-			if (num_year_registered.Value == 0) num_year_registered.Value = (decimal)dttable[0].year_registered;
+				btn_vehicle_model.Enabled = false;
+				num_vehicle_model_id.Value = dttable[0].vehicle_model;
+				txt_vehicle_model.Text = dttable[0].vehicle_model_name;
+				txt_vehicle_group.Text = dttable[0].vehicle_group_name;
+				txt_vehicle_brand.Text = dttable[0].vehicle_brand_name;
+				txt_year_make.Text = dttable[0].year_make.ToString();
+
+				if (txt_engine_no.Text.Trim() == "") txt_engine_no.Text = dttable[0].engine_no;
+				if (num_engine_cc.Value == 0) num_engine_cc.Value = (decimal)dttable[0].engine_cc;
+				if (txt_ignition_key.Text.Trim() == "") txt_ignition_key.Text = dttable[0].ignition_key;
+				if (txt_door_key.Text.Trim() == "") txt_door_key.Text = dttable[0].door_key;
+				if (cmb_vehicle_colour.SelectedIndex == 0) cmb_vehicle_colour.SelectedValue = dttable[0].colour;
+				rad_vehicle_new.Checked = false;
+				rad_vehicle_old.Checked = true;
+				dtp_registered.Value = dttable[0].registration_date;
+			}
 		}
 		private void Btn_vehicle_model_Click(object sender, EventArgs e)
 		{
-			Form_datagridview_select dlg_select = new Form_datagridview_select("VEHICLE_MODEL", num_vehicle_model_id.Value.ToString());
-
-			if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
+			using (Form_datagridview_select dlg_select = new Form_datagridview_select("VEHICLE_MODEL", num_vehicle_model_id.Value.ToString()))
 			{
-				num_vehicle_model_id.Value = dlg_select.Get_selected_value_as_int("vehicle_model");
-				txt_vehicle_model.Text = dlg_select.Get_selected_value_as_string("vehicle_model_name");
-				txt_vehicle_group.Text = dlg_select.Get_selected_value_as_string("vehicle_group_name");
-				txt_vehicle_brand.Text = dlg_select.Get_selected_value_as_string("vehicle_brand_name");
-				txt_year_make.Text = dlg_select.Get_selected_value_as_string("year_make");
+				if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
+				{
+					num_vehicle_model_id.Value = dlg_select.Get_selected_value_as_int("vehicle_model");
+					txt_vehicle_model.Text = dlg_select.Get_selected_value_as_string("vehicle_model_name");
+					txt_vehicle_group.Text = dlg_select.Get_selected_value_as_string("vehicle_group_name");
+					txt_vehicle_brand.Text = dlg_select.Get_selected_value_as_string("vehicle_brand_name");
+					txt_year_make.Text = dlg_select.Get_selected_value_as_string("year_make");
+				}
 			}
 		}
 
 		private void Btn_vehicle_location_Click(object sender, EventArgs e)
 		{
-			Form_datagridview_select dlg_select = new Form_datagridview_select("LOCATION",
-				num_vehicle_location.Value.ToString());
-
-			if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
+			using (Form_datagridview_select dlg_select = new Form_datagridview_select("LOCATION",
+					num_vehicle_location.Value.ToString()))
 			{
-				num_vehicle_location.Value = dlg_select.Get_selected_value_as_int("location");
-				txt_vehicle_location.Text = dlg_select.Get_selected_value_as_string("location_name");
+				if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
+				{
+					num_vehicle_location.Value = dlg_select.Get_selected_value_as_int("location");
+					txt_vehicle_location.Text = dlg_select.Get_selected_value_as_string("location_name");
+				}
 			}
 		}
 
 		private void Btn_seller_Click(object sender, EventArgs e)
 		{
-			Form_datagridview_select dlg_select = new Form_datagridview_select("PERSON_ORGANISATION");
-
-			if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
+			using (Form_datagridview_select dlg_select = new Form_datagridview_select("PERSON_ORGANISATION"))
 			{
-				txt_seller_type.Text = dlg_select.cmb_type.SelectedItem.ToString().ToUpper();
+				if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
+				{
+					txt_seller_type.Text = dlg_select.cmb_type.SelectedItem.ToString().ToUpper();
 
-				if (txt_seller_type.Text == "PERSON")
-				{
-					num_seller_id.Value = dlg_select.Get_selected_value_as_int("person");
-					txt_seller_name.Text = dlg_select.Get_selected_value_as_string("name");
-				}
-				else
-				{
-					num_seller_id.Value = dlg_select.Get_selected_value_as_int("organisation");
-					txt_seller_name.Text = dlg_select.Get_selected_value_as_string("name");
-					txt_seller_branch.Text = dlg_select.Get_selected_value_as_string("branch_name");
+					if (txt_seller_type.Text == "PERSON")
+					{
+						num_seller_id.Value = dlg_select.Get_selected_value_as_int("person");
+						txt_seller_name.Text = dlg_select.Get_selected_value_as_string("name");
+						txt_seller_branch.Text = "";
+					}
+					else
+					{
+						num_seller_id.Value = dlg_select.Get_selected_value_as_int("organisation");
+						txt_seller_name.Text = dlg_select.Get_selected_value_as_string("name");
+						txt_seller_branch.Text = dlg_select.Get_selected_value_as_string("branch_name");
+					}
 				}
 			}
 		}
 
 		private void Btn_checked_by_Click(object sender, EventArgs e)
 		{
-			Form_datagridview_select dlg_select = new Form_datagridview_select("USER");
-
-			if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
+			using (Form_datagridview_select dlg_select = new Form_datagridview_select("USER"))
 			{
-				txt_checked_by.Text = dlg_select.Get_selected_value_as_string("name");
-				num_checked_by_id.Value = dlg_select.Get_selected_value_as_int("user");
+				if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
+				{
+					txt_checked_by.Text = dlg_select.Get_selected_value_as_string("name");
+					num_checked_by_id.Value = dlg_select.Get_selected_value_as_int("user");
+				}
 			}
 		}
 		private void Cmb_acquire_method_SelectedIndexChanged(object sender, EventArgs e)
@@ -227,7 +392,8 @@ namespace VehicleDealership.View
 		}
 		private void Btn_sales_order_Click(object sender, EventArgs e)
 		{
-			// TODO: in the future when sales feature is done
+			// TODO
+
 		}
 		private void Recalculate_nums(object sender, EventArgs e)
 		{
@@ -242,44 +408,37 @@ namespace VehicleDealership.View
 		}
 		private void Btn_loan_finance_Click(object sender, EventArgs e)
 		{
-			Form_datagridview_select dlg_select = new Form_datagridview_select("FINANCE", num_loan_finance_id.Value.ToString());
-
-			if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
+			using (Form_datagridview_select dlg_select = new Form_datagridview_select("FINANCE", num_loan_finance_id.Value.ToString()))
 			{
-				txt_loan_finance.Text = dlg_select.Get_selected_value_as_string("name");
-				txt_loan_branch.Text = dlg_select.Get_selected_value_as_string("branch_name");
-				num_loan_finance_id.Value = dlg_select.Get_selected_value_as_int("finance");
+				if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
+				{
+					txt_loan_finance.Text = dlg_select.Get_selected_value_as_string("name");
+					txt_loan_branch.Text = dlg_select.Get_selected_value_as_string("branch_name");
+					num_loan_finance_id.Value = dlg_select.Get_selected_value_as_int("finance");
+				}
 			}
 		}
 		private void Btn_add_expenses_Click(object sender, EventArgs e)
 		{
-			Form_edit_payment dlg_payment = new Form_edit_payment();
-
-			if (dlg_payment.ShowDialog() != DialogResult.OK) return;
-
-			Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable dttable = (Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable)grd_expenses.DataSource;
-
-			int new_payment_id = -1;
-
-			if (dttable.Rows.Count > 0)
+			using (Form_edit_payment dlg_payment = new Form_edit_payment())
 			{
-				// new payment id must be negative number. select the smallest payment id and minus one.
-				// if more than 0, set to -1
-				new_payment_id = (from row in dttable select row.payment).ToList().Min() - 1;
-				if (new_payment_id >= 0) new_payment_id = -1;
+				if (dlg_payment.ShowDialog() != DialogResult.OK) return;
+
+				Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable dttable =
+					(Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable)grd_expenses.DataSource;
+
+				dttable.Addsp_select_vehicle_expensesRow(dlg_payment.PaymentNo,
+					dlg_payment.PaymentDescription, dlg_payment.PayToId, dlg_payment.PayToName,
+					dlg_payment.PayToType, dlg_payment.PaymentAmount, dlg_payment.PaymentDate,
+					dlg_payment.IsPaid, dlg_payment.PaymentMethodType,
+					dlg_payment.PaymentMethodDescription, dlg_payment.PaymentMethod,
+					dlg_payment.ChequeNo, dlg_payment.CreditCardNo, dlg_payment.CreditCardTypeId,
+					dlg_payment.CreditCardTypeName, dlg_payment.PaymentMethodFinance,
+					dlg_payment.PaymentMethodFinanceName, dlg_payment.PaymentMethodDate,
+					dlg_payment.PaymentRemark, Program.System_user.Name);
+
+				Process_vehicle_expenses();
 			}
-
-			dttable.Addsp_select_vehicle_expensesRow(new_payment_id, dlg_payment.PaymentNo,
-				dlg_payment.PaymentDescription, dlg_payment.PayToId, dlg_payment.PayToName,
-				dlg_payment.PayToType, dlg_payment.PaymentAmount, dlg_payment.PaymentDate,
-				dlg_payment.IsPaid, dlg_payment.PaymentMethodType,
-				dlg_payment.PaymentMethodDescription, dlg_payment.PaymentMethod,
-				dlg_payment.ChequeNo, dlg_payment.CreditCardNo, dlg_payment.CreditCardTypeId,
-				dlg_payment.CreditCardTypeName, dlg_payment.PaymentMethodFinance,
-				dlg_payment.PaymentMethodFinanceName, dlg_payment.PaymentMethodDate,
-				dlg_payment.PaymentRemark, Program.System_user.Name);
-
-			Process_vehicle_expenses();
 		}
 		private void Btn_edit_expenses_Click(object sender, EventArgs e)
 		{
@@ -290,35 +449,36 @@ namespace VehicleDealership.View
 				 where row.payment == (int)grd_expenses.SelectedCells[0].OwningRow.Cells["payment"].Value
 				 select row).ToList()[0];
 
-			Form_edit_payment dlg_payment = new Form_edit_payment(dt_row.payment, dt_row.payment_no,
+			using (Form_edit_payment dlg_payment = new Form_edit_payment(dt_row.payment, dt_row.payment_no,
 				dt_row.payment_description, dt_row.is_paid, dt_row.pay_to_id, dt_row.pay_to,
 				dt_row.pay_to_type, dt_row.payment_date, dt_row.amount, dt_row.payment_method_type,
 				dt_row.payment_method_id, dt_row.credit_card_no, dt_row.cheque_no, dt_row.credit_card_type_id,
-				dt_row.finance_id, dt_row.finance, dt_row.payment_method_date, dt_row.remark);
+				dt_row.finance_id, dt_row.finance, dt_row.payment_method_date, dt_row.remark))
+			{
+				if (dlg_payment.ShowDialog() != DialogResult.OK) return;
 
-			if (dlg_payment.ShowDialog() != DialogResult.OK) return;
+				dt_row.payment_description = dlg_payment.PaymentDescription;
+				dt_row.pay_to_id = dlg_payment.PayToId;
+				dt_row.pay_to = dlg_payment.PayToName;
+				dt_row.pay_to_type = dlg_payment.PayToType;
+				dt_row.amount = dlg_payment.PaymentAmount;
+				dt_row.payment_date = dlg_payment.PaymentDate;
+				dt_row.is_paid = dlg_payment.IsPaid;
+				dt_row.payment_method_type = dlg_payment.PaymentMethodType;
+				dt_row.payment_method = dlg_payment.PaymentMethodDescription;
+				dt_row.payment_method_id = dlg_payment.PaymentMethod;
 
-			dt_row.payment_description = dlg_payment.PaymentDescription;
-			dt_row.pay_to_id = dlg_payment.PayToId;
-			dt_row.pay_to = dlg_payment.PayToName;
-			dt_row.pay_to_type = dlg_payment.PayToType;
-			dt_row.amount = dlg_payment.PaymentAmount;
-			dt_row.payment_date = dlg_payment.PaymentDate;
-			dt_row.is_paid = dlg_payment.IsPaid;
-			dt_row.payment_method_type = dlg_payment.PaymentMethodType;
-			dt_row.payment_method = dlg_payment.PaymentMethodDescription;
-			dt_row.payment_method_id = dlg_payment.PaymentMethod;
+				dt_row.cheque_no = dlg_payment.ChequeNo;
+				dt_row.credit_card_no = dlg_payment.CreditCardNo;
+				dt_row.credit_card_type_id = dlg_payment.CreditCardTypeId;
+				dt_row.credit_card_type = dlg_payment.CreditCardTypeName;
+				dt_row.finance_id = dlg_payment.PaymentMethodFinance;
+				dt_row.finance = dlg_payment.PaymentMethodFinanceName;
 
-			dt_row.cheque_no = dlg_payment.ChequeNo;
-			dt_row.credit_card_no = dlg_payment.CreditCardNo;
-			dt_row.credit_card_type_id = dlg_payment.CreditCardTypeId;
-			dt_row.credit_card_type = dlg_payment.CreditCardTypeName;
-			dt_row.finance_id = dlg_payment.PaymentMethodFinance;
-			dt_row.finance = dlg_payment.PaymentMethodFinanceName;
-
-			dt_row.payment_method_date = dlg_payment.PaymentMethodDate;
-			dt_row.remark = dlg_payment.PaymentRemark;
-			dt_row.modified_by = Program.System_user.Name;
+				dt_row.payment_method_date = dlg_payment.PaymentMethodDate;
+				dt_row.remark = dlg_payment.PaymentRemark;
+				dt_row.modified_by = Program.System_user.Name;
+			}
 
 			Process_vehicle_expenses();
 		}
@@ -338,17 +498,9 @@ namespace VehicleDealership.View
 			{
 				list_payment_id.Add((int)grd_cell.OwningRow.Cells["payment"].Value);
 			}
-
-			foreach (int tmp_id in list_payment_id.Distinct().ToList())
+			for (int i = dttable.Rows.Count - 1; i >= 0; i--)
 			{
-				for (int i = 0, j = dttable.Rows.Count; i < j; i++)
-				{
-					if (dttable[i].payment == tmp_id)
-					{
-						dttable.Rows.RemoveAt(i);
-						break;
-					}
-				}
+				if (list_payment_id.Contains(dttable[i].payment)) dttable.Rows.RemoveAt(i);
 			}
 			Process_vehicle_expenses();
 		}
@@ -371,31 +523,23 @@ namespace VehicleDealership.View
 		}
 		private void Btn_add_payment_Click(object sender, EventArgs e)
 		{
-			Form_edit_payment dlg_payment = new Form_edit_payment((int)num_seller_id.Value, txt_seller_name.Text, txt_seller_type.Text);
-
-			if (dlg_payment.ShowDialog() != DialogResult.OK) return;
-
-			Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dttable = (Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_payment.DataSource;
-
-			int new_payment_id = -1;
-
-			if (dttable.Rows.Count > 0)
+			using (Form_edit_payment dlg_payment = new Form_edit_payment((int)num_seller_id.Value,
+				txt_seller_name.Text, txt_seller_type.Text))
 			{
-				// new payment id must be negative number. select the smallest payment id and minus one.
-				// if more than 0, set to -1
-				new_payment_id = (from row in dttable select row.payment).ToList().Min() - 1;
-				if (new_payment_id >= 0) new_payment_id = -1;
-			}
+				if (dlg_payment.ShowDialog() != DialogResult.OK) return;
 
-			dttable.Addsp_select_vehicle_paymentRow(new_payment_id, dlg_payment.PaymentNo,
-				dlg_payment.PaymentDescription, dlg_payment.PayToId, dlg_payment.PayToName,
-				dlg_payment.PayToType, dlg_payment.PaymentAmount, dlg_payment.PaymentDate,
-				dlg_payment.IsPaid, dlg_payment.PaymentMethodType,
-				dlg_payment.PaymentMethodDescription, dlg_payment.PaymentMethod,
-				dlg_payment.ChequeNo, dlg_payment.CreditCardNo, dlg_payment.CreditCardTypeId,
-				dlg_payment.CreditCardTypeName, dlg_payment.PaymentMethodFinance,
-				dlg_payment.PaymentMethodFinanceName, dlg_payment.PaymentMethodDate,
-				dlg_payment.PaymentRemark, Program.System_user.Name);
+				Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dttable = (Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_payment.DataSource;
+
+				dttable.Addsp_select_vehicle_paymentRow(dlg_payment.PaymentNo,
+					dlg_payment.PaymentDescription, dlg_payment.PayToId, dlg_payment.PayToName,
+					dlg_payment.PayToType, dlg_payment.PaymentAmount, dlg_payment.PaymentDate,
+					dlg_payment.IsPaid, dlg_payment.PaymentMethodType,
+					dlg_payment.PaymentMethodDescription, dlg_payment.PaymentMethod,
+					dlg_payment.ChequeNo, dlg_payment.CreditCardNo, dlg_payment.CreditCardTypeId,
+					dlg_payment.CreditCardTypeName, dlg_payment.PaymentMethodFinance,
+					dlg_payment.PaymentMethodFinanceName, dlg_payment.PaymentMethodDate,
+					dlg_payment.PaymentRemark, Program.System_user.Name);
+			}
 
 			Process_vehicle_payment();
 		}
@@ -408,35 +552,36 @@ namespace VehicleDealership.View
 				 where row.payment == (int)grd_payment.SelectedCells[0].OwningRow.Cells["payment"].Value
 				 select row).ToList()[0];
 
-			Form_edit_payment dlg_payment = new Form_edit_payment(dt_row.payment, dt_row.payment_no,
-				dt_row.payment_description, dt_row.is_paid, dt_row.pay_to_id, dt_row.pay_to,
-				dt_row.pay_to_type, dt_row.payment_date, dt_row.amount, dt_row.payment_method_type,
-				dt_row.payment_method_id, dt_row.credit_card_no, dt_row.cheque_no, dt_row.credit_card_type_id,
-				dt_row.finance_id, dt_row.finance, dt_row.payment_method_date, dt_row.remark);
+			using (Form_edit_payment dlg_payment = new Form_edit_payment(dt_row.payment, dt_row.payment_no,
+					dt_row.payment_description, dt_row.is_paid, dt_row.pay_to_id, dt_row.pay_to,
+					dt_row.pay_to_type, dt_row.payment_date, dt_row.amount, dt_row.payment_method_type,
+					dt_row.payment_method_id, dt_row.credit_card_no, dt_row.cheque_no, dt_row.credit_card_type_id,
+					dt_row.finance_id, dt_row.finance, dt_row.payment_method_date, dt_row.remark))
+			{
+				if (dlg_payment.ShowDialog() != DialogResult.OK) return;
 
-			if (dlg_payment.ShowDialog() != DialogResult.OK) return;
+				dt_row.payment_description = dlg_payment.PaymentDescription;
+				dt_row.pay_to_id = dlg_payment.PayToId;
+				dt_row.pay_to = dlg_payment.PayToName;
+				dt_row.pay_to_type = dlg_payment.PayToType;
+				dt_row.amount = dlg_payment.PaymentAmount;
+				dt_row.payment_date = dlg_payment.PaymentDate;
+				dt_row.is_paid = dlg_payment.IsPaid;
+				dt_row.payment_method_type = dlg_payment.PaymentMethodType;
+				dt_row.payment_method = dlg_payment.PaymentMethodDescription;
+				dt_row.payment_method_id = dlg_payment.PaymentMethod;
 
-			dt_row.payment_description = dlg_payment.PaymentDescription;
-			dt_row.pay_to_id = dlg_payment.PayToId;
-			dt_row.pay_to = dlg_payment.PayToName;
-			dt_row.pay_to_type = dlg_payment.PayToType;
-			dt_row.amount = dlg_payment.PaymentAmount;
-			dt_row.payment_date = dlg_payment.PaymentDate;
-			dt_row.is_paid = dlg_payment.IsPaid;
-			dt_row.payment_method_type = dlg_payment.PaymentMethodType;
-			dt_row.payment_method = dlg_payment.PaymentMethodDescription;
-			dt_row.payment_method_id = dlg_payment.PaymentMethod;
+				dt_row.cheque_no = dlg_payment.ChequeNo;
+				dt_row.credit_card_no = dlg_payment.CreditCardNo;
+				dt_row.credit_card_type_id = dlg_payment.CreditCardTypeId;
+				dt_row.credit_card_type = dlg_payment.CreditCardTypeName;
+				dt_row.finance_id = dlg_payment.PaymentMethodFinance;
+				dt_row.finance = dlg_payment.PaymentMethodFinanceName;
 
-			dt_row.cheque_no = dlg_payment.ChequeNo;
-			dt_row.credit_card_no = dlg_payment.CreditCardNo;
-			dt_row.credit_card_type_id = dlg_payment.CreditCardTypeId;
-			dt_row.credit_card_type = dlg_payment.CreditCardTypeName;
-			dt_row.finance_id = dlg_payment.PaymentMethodFinance;
-			dt_row.finance = dlg_payment.PaymentMethodFinanceName;
-
-			dt_row.payment_method_date = dlg_payment.PaymentMethodDate;
-			dt_row.remark = dlg_payment.PaymentRemark;
-			dt_row.modified_by = Program.System_user.Name;
+				dt_row.payment_method_date = dlg_payment.PaymentMethodDate;
+				dt_row.remark = dlg_payment.PaymentRemark;
+				dt_row.modified_by = Program.System_user.Name;
+			}
 
 			Process_vehicle_payment();
 		}
@@ -456,16 +601,9 @@ namespace VehicleDealership.View
 			{
 				list_payment_id.Add((int)grd_cell.OwningRow.Cells["payment"].Value);
 			}
-			foreach (int tmp_id in list_payment_id.Distinct().ToList())
+			for (int i = dttable.Rows.Count - 1; i >= 0; i--)
 			{
-				for (int i = 0, j = dttable.Rows.Count; i < j; i++)
-				{
-					if (dttable[i].payment == tmp_id)
-					{
-						dttable.Rows.RemoveAt(i);
-						break;
-					}
-				}
+				if (list_payment_id.Contains(dttable[i].payment)) dttable.Rows.RemoveAt(i);
 			}
 			Process_vehicle_payment();
 		}
@@ -488,14 +626,18 @@ namespace VehicleDealership.View
 		private void Btn_add_image_Click(object sender, EventArgs e)
 		{
 			if (filedlg_img.ShowDialog() != DialogResult.OK) return;
+
 			Cursor = Cursors.WaitCursor;
+
 			Vehicle_image_ds.sp_select_vehicle_imageDataTable dttable =
 				(Vehicle_image_ds.sp_select_vehicle_imageDataTable)grd_image.DataSource;
 
 			foreach (string str_filename in filedlg_img.FileNames)
 			{
-				dttable.Addsp_select_vehicle_imageRow(Class_image.Image_to_byte_array(
-					Class_image.Resize_image(Image.FromFile(str_filename), 900)), "", "");
+				using (Image resized_image = Class_image.Resize_image(Image.FromFile(str_filename), 900))
+				{
+					dttable.Addsp_select_vehicle_imageRow(Class_image.Image_to_byte_array(resized_image), "", "");
+				}
 			}
 			Cursor = Cursors.Default;
 		}
@@ -516,18 +658,9 @@ namespace VehicleDealership.View
 				list_id.Add((int)grd_cell.OwningRow.Cells["vehicle_image"].Value);
 			}
 
-			list_id = list_id.Distinct().ToList();
-
-			foreach (int tmp_id in list_id)
+			for (int i = dttable.Rows.Count - 1; i >= 0; i--)
 			{
-				for (int i = 0, j = dttable.Rows.Count; i < j; i++)
-				{
-					if (dttable[i].vehicle_image == tmp_id)
-					{
-						dttable.Rows.RemoveAt(i);
-						break;
-					}
-				}
+				if (list_id.Contains(dttable[i].vehicle_image)) dttable.Rows.RemoveAt(i);
 			}
 			// if no more rows then clear picbox and txt
 			if (grd_image.Rows.Count == 0)
@@ -644,9 +777,18 @@ namespace VehicleDealership.View
 							file_counter.ToString() + Path.GetExtension(dt_row.filename);
 					}
 					File.Copy(dt_row.full_pathfilename, Path.Combine(download_folder, new_filename));
+					File.SetLastWriteTime(Path.Combine(download_folder, new_filename), DateTime.Now);
 				}
 				Process.Start(download_folder); // open folder for view
 			}
+		}
+		private void Grd_expenses_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+		{
+			btn_edit_expenses.PerformClick();
+		}
+		private void Grd_payment_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+		{
+			btn_edit_payment.PerformClick();
 		}
 	}
 }

@@ -39,6 +39,7 @@ namespace VehicleDealership.Datasets
 					payment_date, amount, cheque, credit_card, payment_method,
 					payment_made, pay_to_person_org, is_pay_to_person,
 					remark, Program.System_user.UserID).ToString();
+				return true;
 			}
 			catch (System.Exception e)
 			{

@@ -114,7 +114,7 @@
 			this.grd_main.Size = new System.Drawing.Size(854, 460);
 			this.grd_main.TabIndex = 1;
 			this.grd_main.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grd_main_CellContentClick);
-			this.grd_main.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Grd_main_CellMouseDoubleClick);
+			this.grd_main.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grd_main_CellDoubleClick);
 			// 
 			// cms_grd_main
 			// 

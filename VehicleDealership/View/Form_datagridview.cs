@@ -217,9 +217,10 @@ namespace VehicleDealership.View
 				return;
 			}
 
-			Form_edit_users form_edit = new Form_edit_users(int_user);
-
-			if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_users();
+			using (Form_edit_users form_edit = new Form_edit_users(int_user))
+			{
+				if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_users();
+			}
 		}
 		private void Add_user(object sender, EventArgs e)
 		{
@@ -618,23 +619,26 @@ namespace VehicleDealership.View
 		}
 		private void Add_salesperson(object sender, EventArgs e)
 		{
-			Form_person_organisation form_select_person_org = new Form_person_organisation("SALESPERSON");
+			using (Form_person_organisation form_select_person_org = new Form_person_organisation("SALESPERSON"))
+			{
+				if (form_select_person_org.ShowDialog() != DialogResult.OK) return;
 
-			if (form_select_person_org.ShowDialog() != DialogResult.OK) return;
+				bool is_person = (form_select_person_org.SelectedType == "PERSON") ? true : false;
 
-			bool is_person = (form_select_person_org.SelectedType == "PERSON") ? true : false;
-
-			Form_edit_salesperson form_edit = new Form_edit_salesperson(is_person ? form_select_person_org.SelectedID : form_select_person_org.SelectedBranchID, is_person);
-
-			if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_salesperson(form_edit.SalespersonID);
+				using (Form_edit_salesperson form_edit = new Form_edit_salesperson(is_person ? form_select_person_org.SelectedID : form_select_person_org.SelectedBranchID, is_person))
+				{
+					if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_salesperson(form_edit.SalespersonID);
+				}
+			}
 		}
 		private void Edit_salesperson(object sender, EventArgs e)
 		{
 			if (grd_main.SelectedCells.Count == 0) return;
 
-			Form_edit_salesperson form_edit = new Form_edit_salesperson((int)grd_main.SelectedCells[0].OwningRow.Cells["salesperson"].Value);
-
-			if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_salesperson(form_edit.SalespersonID);
+			using (Form_edit_salesperson form_edit = new Form_edit_salesperson((int)grd_main.SelectedCells[0].OwningRow.Cells["salesperson"].Value))
+			{
+				if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_salesperson(form_edit.SalespersonID);
+			}
 		}
 		private void Apply_filter_salesperson()
 		{
@@ -718,13 +722,15 @@ namespace VehicleDealership.View
 		}
 		private void Add_finance(object sender, EventArgs e)
 		{
-			Form_person_organisation form_select_person_org = new Form_person_organisation("FINANCE");
+			using (Form_person_organisation form_select_person_org = new Form_person_organisation("FINANCE"))
+			{
+				if (form_select_person_org.ShowDialog() != DialogResult.OK) return;
 
-			if (form_select_person_org.ShowDialog() != DialogResult.OK) return;
-
-			Form_edit_finance form_edit = new Form_edit_finance(form_select_person_org.SelectedBranchID);
-
-			if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_finance(form_select_person_org.SelectedBranchID);
+				using (Form_edit_finance form_edit = new Form_edit_finance(form_select_person_org.SelectedBranchID))
+				{
+					if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_finance(form_select_person_org.SelectedBranchID);
+				}
+			}
 		}
 		private void Edit_finance(object sender, EventArgs e)
 		{
@@ -732,9 +738,10 @@ namespace VehicleDealership.View
 
 			int int_org_id = (int)grd_main.SelectedCells[0].OwningRow.Cells["finance"].Value;
 
-			Form_edit_finance form_edit = new Form_edit_finance(int_org_id);
-
-			if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_finance(int_org_id);
+			using (Form_edit_finance form_edit = new Form_edit_finance(int_org_id))
+			{
+				if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_finance(int_org_id);
+			}
 		}
 		#endregion
 		#region VEHICLE
@@ -806,16 +813,22 @@ namespace VehicleDealership.View
 		}
 		private void Add_vehicle(object sender, EventArgs e)
 		{
-			Form_edit_vehicle form_edit = new Form_edit_vehicle();
-
-			if (form_edit.ShowDialog() == DialogResult.OK)
+			using (Form_edit_vehicle form_edit = new Form_edit_vehicle())
 			{
-				Setup_grd_vehicle(form_edit.VehicleID);
+				if (form_edit.ShowDialog() == DialogResult.OK)
+					Setup_grd_vehicle(form_edit.VehicleID);
 			}
 		}
 		private void Edit_vehicle(object sender, EventArgs e)
 		{
+			if (grd_main.SelectedCells.Count == 0) return;
 
+			int int_vehicle_id = (int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value;
+
+			using (Form_edit_vehicle form_edit = new Form_edit_vehicle(int_vehicle_id))
+			{
+				if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_finance(int_vehicle_id);
+			}
 		}
 		private void Delete_vehicle(object sender, EventArgs e)
 		{

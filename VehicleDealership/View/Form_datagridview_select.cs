@@ -74,7 +74,7 @@ namespace VehicleDealership.View
 			this.DialogResult = DialogResult.Cancel;
 			this.Close();
 		}
-		private void Grd_main_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+		private void Grd_main_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
 			btn_ok.PerformClick();
 		}

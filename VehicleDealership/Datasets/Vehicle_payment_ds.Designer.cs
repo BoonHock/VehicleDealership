@@ -560,7 +560,6 @@ namespace VehicleDealership.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public sp_select_vehicle_paymentRow Addsp_select_vehicle_paymentRow(
-                        int payment, 
                         string payment_no, 
                         string payment_description, 
                         int pay_to_id, 
@@ -583,7 +582,7 @@ namespace VehicleDealership.Datasets {
                         string modified_by) {
                 sp_select_vehicle_paymentRow rowsp_select_vehicle_paymentRow = ((sp_select_vehicle_paymentRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        payment,
+                        null,
                         payment_no,
                         payment_description,
                         pay_to_id,
@@ -607,6 +606,13 @@ namespace VehicleDealership.Datasets {
                 rowsp_select_vehicle_paymentRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_select_vehicle_paymentRow);
                 return rowsp_select_vehicle_paymentRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public sp_select_vehicle_paymentRow FindBypayment(int payment) {
+                return ((sp_select_vehicle_paymentRow)(this.Rows.Find(new object[] {
+                            payment})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -694,7 +700,14 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columnremark);
                 this.columnmodified_by = new global::System.Data.DataColumn("modified_by", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmodified_by);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnpayment}, true));
+                this.columnpayment.AutoIncrement = true;
+                this.columnpayment.AutoIncrementSeed = -1;
+                this.columnpayment.AutoIncrementStep = -1;
                 this.columnpayment.AllowDBNull = false;
+                this.columnpayment.ReadOnly = true;
+                this.columnpayment.Unique = true;
                 this.columnpayment_no.AllowDBNull = false;
                 this.columnpayment_no.MaxLength = 20;
                 this.columnpayment_description.AllowDBNull = false;
@@ -1540,6 +1553,78 @@ namespace VehicleDealership.Datasets.Vehicle_payment_dsTableAdapters {
             Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dataTable = new Vehicle_payment_ds.sp_select_vehicle_paymentDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class QueriesTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.IDbCommand[] _commandCollection;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.IDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.IDbCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "fin.sp_update_vehicle_payment";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@payment_combine", global::System.Data.SqlDbType.NVarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int sp_update_vehicle_payment(global::System.Nullable<int> vehicle, string payment_combine) {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
+            if ((vehicle.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(vehicle.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((payment_combine == null)) {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[2].Value = ((string)(payment_combine));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

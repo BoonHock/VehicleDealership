@@ -99,7 +99,7 @@
 			this.grd_main.ShowCellToolTips = false;
 			this.grd_main.Size = new System.Drawing.Size(1067, 625);
 			this.grd_main.TabIndex = 0;
-			this.grd_main.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Grd_main_CellMouseDoubleClick);
+			this.grd_main.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grd_main_CellDoubleClick);
 			// 
 			// panel1
 			// 

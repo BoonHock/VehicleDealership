@@ -14,7 +14,10 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				return Select_Vehicle_ImageTableAdapter().GetData(vehicle);
+				using (Vehicle_image_dsTableAdapters.sp_select_vehicle_imageTableAdapter adapter = Select_Vehicle_ImageTableAdapter())
+				{
+					return adapter.GetData(vehicle);
+				}
 			}
 			catch (System.Exception e)
 			{
