@@ -926,7 +926,7 @@
             "MORTGAGE",
             "PURCHASE",
             "TRADE-IN"});
-			this.cmb_acquire_method.Location = new System.Drawing.Point(101, 119);
+			this.cmb_acquire_method.Location = new System.Drawing.Point(101, 121);
 			this.cmb_acquire_method.Margin = new System.Windows.Forms.Padding(2);
 			this.cmb_acquire_method.Name = "cmb_acquire_method";
 			this.cmb_acquire_method.Size = new System.Drawing.Size(224, 25);
