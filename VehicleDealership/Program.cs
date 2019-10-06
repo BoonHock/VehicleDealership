@@ -20,7 +20,7 @@ namespace VehicleDealership
 			Application.SetCompatibleTextRenderingDefault(false);
 
 			Application.Run(new View.Form_main_menu());
-
+			
 		}
 		public static Classes.User System_user;
 		public const int GRD_IMAGE_ROW_HEIGHT = 60;
