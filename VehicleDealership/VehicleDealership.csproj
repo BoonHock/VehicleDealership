@@ -158,6 +158,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Credit_card_type_ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\Document_prefix_ds.cs">
+      <DependentUpon>Document_prefix_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Document_prefix_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Document_prefix_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Filepath_ds.cs">
+      <DependentUpon>Filepath_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Filepath_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Filepath_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\Finance_ds.cs">
       <DependentUpon>Finance_ds.xsd</DependentUpon>
     </Compile>
@@ -654,6 +670,28 @@
     </None>
     <None Include="Datasets\Credit_card_type_ds.xss">
       <DependentUpon>Credit_card_type_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Document_prefix_ds.xsc">
+      <DependentUpon>Document_prefix_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Document_prefix_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Document_prefix_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Document_prefix_ds.xss">
+      <DependentUpon>Document_prefix_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Filepath_ds.xsc">
+      <DependentUpon>Filepath_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Filepath_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Filepath_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Filepath_ds.xss">
+      <DependentUpon>Filepath_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Finance_ds.xsc">
       <DependentUpon>Finance_ds.xsd</DependentUpon>

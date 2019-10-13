@@ -827,7 +827,7 @@ namespace VehicleDealership.View
 
 			using (Form_edit_vehicle form_edit = new Form_edit_vehicle(int_vehicle_id))
 			{
-				if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_finance(int_vehicle_id);
+				if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_vehicle(int_vehicle_id);
 			}
 		}
 		private void Delete_vehicle(object sender, EventArgs e)

@@ -20,17 +20,17 @@ namespace VehicleDealership.Datasets {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("Vehicle_image_ds")]
+    [global::System.Xml.Serialization.XmlRootAttribute("Document_prefix_ds")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class Vehicle_image_ds : global::System.Data.DataSet {
+    public partial class Document_prefix_ds : global::System.Data.DataSet {
         
-        private sp_select_vehicle_imageDataTable tablesp_select_vehicle_image;
+        private sp_select_document_prefixDataTable tablesp_select_document_prefix;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public Vehicle_image_ds() {
+        public Document_prefix_ds() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace VehicleDealership.Datasets {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected Vehicle_image_ds(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected Document_prefix_ds(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace VehicleDealership.Datasets {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["sp_select_vehicle_image"] != null)) {
-                    base.Tables.Add(new sp_select_vehicle_imageDataTable(ds.Tables["sp_select_vehicle_image"]));
+                if ((ds.Tables["sp_select_document_prefix"] != null)) {
+                    base.Tables.Add(new sp_select_document_prefixDataTable(ds.Tables["sp_select_document_prefix"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace VehicleDealership.Datasets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public sp_select_vehicle_imageDataTable sp_select_vehicle_image {
+        public sp_select_document_prefixDataTable sp_select_document_prefix {
             get {
-                return this.tablesp_select_vehicle_image;
+                return this.tablesp_select_document_prefix;
             }
         }
         
@@ -127,7 +127,7 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            Vehicle_image_ds cln = ((Vehicle_image_ds)(base.Clone()));
+            Document_prefix_ds cln = ((Document_prefix_ds)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace VehicleDealership.Datasets {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["sp_select_vehicle_image"] != null)) {
-                    base.Tables.Add(new sp_select_vehicle_imageDataTable(ds.Tables["sp_select_vehicle_image"]));
+                if ((ds.Tables["sp_select_document_prefix"] != null)) {
+                    base.Tables.Add(new sp_select_document_prefixDataTable(ds.Tables["sp_select_document_prefix"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablesp_select_vehicle_image = ((sp_select_vehicle_imageDataTable)(base.Tables["sp_select_vehicle_image"]));
+            this.tablesp_select_document_prefix = ((sp_select_document_prefixDataTable)(base.Tables["sp_select_document_prefix"]));
             if ((initTable == true)) {
-                if ((this.tablesp_select_vehicle_image != null)) {
-                    this.tablesp_select_vehicle_image.InitVars();
+                if ((this.tablesp_select_document_prefix != null)) {
+                    this.tablesp_select_document_prefix.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "Vehicle_image_ds";
+            this.DataSetName = "Document_prefix_ds";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/Vehicle_image_ds.xsd";
+            this.Namespace = "http://tempuri.org/Document_prefix_ds.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablesp_select_vehicle_image = new sp_select_vehicle_imageDataTable();
-            base.Tables.Add(this.tablesp_select_vehicle_image);
+            this.tablesp_select_document_prefix = new sp_select_document_prefixDataTable();
+            base.Tables.Add(this.tablesp_select_document_prefix);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializesp_select_vehicle_image() {
+        private bool ShouldSerializesp_select_document_prefix() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            Vehicle_image_ds ds = new Vehicle_image_ds();
+            Document_prefix_ds ds = new Document_prefix_ds();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,27 +270,27 @@ namespace VehicleDealership.Datasets {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void sp_select_vehicle_imageRowChangeEventHandler(object sender, sp_select_vehicle_imageRowChangeEvent e);
+        public delegate void sp_select_document_prefixRowChangeEventHandler(object sender, sp_select_document_prefixRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class sp_select_vehicle_imageDataTable : global::System.Data.TypedTableBase<sp_select_vehicle_imageRow> {
+        public partial class sp_select_document_prefixDataTable : global::System.Data.TypedTableBase<sp_select_document_prefixRow> {
             
-            private global::System.Data.DataColumn columnvehicle_image;
+            private global::System.Data.DataColumn columndocument_prefix;
             
-            private global::System.Data.DataColumn columnimage;
+            private global::System.Data.DataColumn columndocument_prefix_text;
             
-            private global::System.Data.DataColumn columnfilename;
+            private global::System.Data.DataColumn columnmodified_by;
             
-            private global::System.Data.DataColumn columndescription;
+            private global::System.Data.DataColumn columnmodified_on;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_vehicle_imageDataTable() {
-                this.TableName = "sp_select_vehicle_image";
+            public sp_select_document_prefixDataTable() {
+                this.TableName = "sp_select_document_prefix";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -298,7 +298,7 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal sp_select_vehicle_imageDataTable(global::System.Data.DataTable table) {
+            internal sp_select_document_prefixDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -315,40 +315,40 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected sp_select_vehicle_imageDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected sp_select_document_prefixDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn vehicle_imageColumn {
+            public global::System.Data.DataColumn document_prefixColumn {
                 get {
-                    return this.columnvehicle_image;
+                    return this.columndocument_prefix;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn imageColumn {
+            public global::System.Data.DataColumn document_prefix_textColumn {
                 get {
-                    return this.columnimage;
+                    return this.columndocument_prefix_text;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn filenameColumn {
+            public global::System.Data.DataColumn modified_byColumn {
                 get {
-                    return this.columnfilename;
+                    return this.columnmodified_by;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn descriptionColumn {
+            public global::System.Data.DataColumn modified_onColumn {
                 get {
-                    return this.columndescription;
+                    return this.columnmodified_on;
                 }
             }
             
@@ -363,55 +363,55 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_vehicle_imageRow this[int index] {
+            public sp_select_document_prefixRow this[int index] {
                 get {
-                    return ((sp_select_vehicle_imageRow)(this.Rows[index]));
+                    return ((sp_select_document_prefixRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_vehicle_imageRowChangeEventHandler sp_select_vehicle_imageRowChanging;
+            public event sp_select_document_prefixRowChangeEventHandler sp_select_document_prefixRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_vehicle_imageRowChangeEventHandler sp_select_vehicle_imageRowChanged;
+            public event sp_select_document_prefixRowChangeEventHandler sp_select_document_prefixRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_vehicle_imageRowChangeEventHandler sp_select_vehicle_imageRowDeleting;
+            public event sp_select_document_prefixRowChangeEventHandler sp_select_document_prefixRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_vehicle_imageRowChangeEventHandler sp_select_vehicle_imageRowDeleted;
+            public event sp_select_document_prefixRowChangeEventHandler sp_select_document_prefixRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Addsp_select_vehicle_imageRow(sp_select_vehicle_imageRow row) {
+            public void Addsp_select_document_prefixRow(sp_select_document_prefixRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_vehicle_imageRow Addsp_select_vehicle_imageRow(byte[] image, string filename, string description) {
-                sp_select_vehicle_imageRow rowsp_select_vehicle_imageRow = ((sp_select_vehicle_imageRow)(this.NewRow()));
+            public sp_select_document_prefixRow Addsp_select_document_prefixRow(string document_prefix, string document_prefix_text, int modified_by, System.DateTime modified_on) {
+                sp_select_document_prefixRow rowsp_select_document_prefixRow = ((sp_select_document_prefixRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
-                        image,
-                        filename,
-                        description};
-                rowsp_select_vehicle_imageRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowsp_select_vehicle_imageRow);
-                return rowsp_select_vehicle_imageRow;
+                        document_prefix,
+                        document_prefix_text,
+                        modified_by,
+                        modified_on};
+                rowsp_select_document_prefixRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowsp_select_document_prefixRow);
+                return rowsp_select_document_prefixRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_vehicle_imageRow FindByvehicle_image(int vehicle_image) {
-                return ((sp_select_vehicle_imageRow)(this.Rows.Find(new object[] {
-                            vehicle_image})));
+            public sp_select_document_prefixRow FindBydocument_prefix(string document_prefix) {
+                return ((sp_select_document_prefixRow)(this.Rows.Find(new object[] {
+                            document_prefix})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                sp_select_vehicle_imageDataTable cln = ((sp_select_vehicle_imageDataTable)(base.Clone()));
+                sp_select_document_prefixDataTable cln = ((sp_select_document_prefixDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -419,68 +419,64 @@ namespace VehicleDealership.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new sp_select_vehicle_imageDataTable();
+                return new sp_select_document_prefixDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnvehicle_image = base.Columns["vehicle_image"];
-                this.columnimage = base.Columns["image"];
-                this.columnfilename = base.Columns["filename"];
-                this.columndescription = base.Columns["description"];
+                this.columndocument_prefix = base.Columns["document_prefix"];
+                this.columndocument_prefix_text = base.Columns["document_prefix_text"];
+                this.columnmodified_by = base.Columns["modified_by"];
+                this.columnmodified_on = base.Columns["modified_on"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnvehicle_image = new global::System.Data.DataColumn("vehicle_image", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvehicle_image);
-                this.columnimage = new global::System.Data.DataColumn("image", typeof(byte[]), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnimage);
-                this.columnfilename = new global::System.Data.DataColumn("filename", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfilename);
-                this.columndescription = new global::System.Data.DataColumn("description", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndescription);
+                this.columndocument_prefix = new global::System.Data.DataColumn("document_prefix", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndocument_prefix);
+                this.columndocument_prefix_text = new global::System.Data.DataColumn("document_prefix_text", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndocument_prefix_text);
+                this.columnmodified_by = new global::System.Data.DataColumn("modified_by", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmodified_by);
+                this.columnmodified_on = new global::System.Data.DataColumn("modified_on", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmodified_on);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnvehicle_image}, true));
-                this.columnvehicle_image.AutoIncrement = true;
-                this.columnvehicle_image.AutoIncrementSeed = -1;
-                this.columnvehicle_image.AutoIncrementStep = -1;
-                this.columnvehicle_image.AllowDBNull = false;
-                this.columnvehicle_image.ReadOnly = true;
-                this.columnvehicle_image.Unique = true;
-                this.columnimage.ReadOnly = true;
-                this.columnfilename.AllowDBNull = false;
-                this.columnfilename.MaxLength = 2147483647;
-                this.columndescription.AllowDBNull = false;
-                this.columndescription.MaxLength = 100;
+                                this.columndocument_prefix}, true));
+                this.columndocument_prefix.AllowDBNull = false;
+                this.columndocument_prefix.Unique = true;
+                this.columndocument_prefix.MaxLength = 20;
+                this.columndocument_prefix_text.AllowDBNull = false;
+                this.columndocument_prefix_text.MaxLength = 5;
+                this.columnmodified_by.AllowDBNull = false;
+                this.columnmodified_on.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_vehicle_imageRow Newsp_select_vehicle_imageRow() {
-                return ((sp_select_vehicle_imageRow)(this.NewRow()));
+            public sp_select_document_prefixRow Newsp_select_document_prefixRow() {
+                return ((sp_select_document_prefixRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new sp_select_vehicle_imageRow(builder);
+                return new sp_select_document_prefixRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(sp_select_vehicle_imageRow);
+                return typeof(sp_select_document_prefixRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.sp_select_vehicle_imageRowChanged != null)) {
-                    this.sp_select_vehicle_imageRowChanged(this, new sp_select_vehicle_imageRowChangeEvent(((sp_select_vehicle_imageRow)(e.Row)), e.Action));
+                if ((this.sp_select_document_prefixRowChanged != null)) {
+                    this.sp_select_document_prefixRowChanged(this, new sp_select_document_prefixRowChangeEvent(((sp_select_document_prefixRow)(e.Row)), e.Action));
                 }
             }
             
@@ -488,8 +484,8 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.sp_select_vehicle_imageRowChanging != null)) {
-                    this.sp_select_vehicle_imageRowChanging(this, new sp_select_vehicle_imageRowChangeEvent(((sp_select_vehicle_imageRow)(e.Row)), e.Action));
+                if ((this.sp_select_document_prefixRowChanging != null)) {
+                    this.sp_select_document_prefixRowChanging(this, new sp_select_document_prefixRowChangeEvent(((sp_select_document_prefixRow)(e.Row)), e.Action));
                 }
             }
             
@@ -497,8 +493,8 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.sp_select_vehicle_imageRowDeleted != null)) {
-                    this.sp_select_vehicle_imageRowDeleted(this, new sp_select_vehicle_imageRowChangeEvent(((sp_select_vehicle_imageRow)(e.Row)), e.Action));
+                if ((this.sp_select_document_prefixRowDeleted != null)) {
+                    this.sp_select_document_prefixRowDeleted(this, new sp_select_document_prefixRowChangeEvent(((sp_select_document_prefixRow)(e.Row)), e.Action));
                 }
             }
             
@@ -506,14 +502,14 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.sp_select_vehicle_imageRowDeleting != null)) {
-                    this.sp_select_vehicle_imageRowDeleting(this, new sp_select_vehicle_imageRowChangeEvent(((sp_select_vehicle_imageRow)(e.Row)), e.Action));
+                if ((this.sp_select_document_prefixRowDeleting != null)) {
+                    this.sp_select_document_prefixRowDeleting(this, new sp_select_document_prefixRowChangeEvent(((sp_select_document_prefixRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Removesp_select_vehicle_imageRow(sp_select_vehicle_imageRow row) {
+            public void Removesp_select_document_prefixRow(sp_select_document_prefixRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -522,7 +518,7 @@ namespace VehicleDealership.Datasets {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Vehicle_image_ds ds = new Vehicle_image_ds();
+                Document_prefix_ds ds = new Document_prefix_ds();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -540,7 +536,7 @@ namespace VehicleDealership.Datasets {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "sp_select_vehicle_imageDataTable";
+                attribute2.FixedValue = "sp_select_document_prefixDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -584,76 +580,59 @@ namespace VehicleDealership.Datasets {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class sp_select_vehicle_imageRow : global::System.Data.DataRow {
+        public partial class sp_select_document_prefixRow : global::System.Data.DataRow {
             
-            private sp_select_vehicle_imageDataTable tablesp_select_vehicle_image;
+            private sp_select_document_prefixDataTable tablesp_select_document_prefix;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal sp_select_vehicle_imageRow(global::System.Data.DataRowBuilder rb) : 
+            internal sp_select_document_prefixRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablesp_select_vehicle_image = ((sp_select_vehicle_imageDataTable)(this.Table));
+                this.tablesp_select_document_prefix = ((sp_select_document_prefixDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int vehicle_image {
+            public string document_prefix {
                 get {
-                    return ((int)(this[this.tablesp_select_vehicle_image.vehicle_imageColumn]));
+                    return ((string)(this[this.tablesp_select_document_prefix.document_prefixColumn]));
                 }
                 set {
-                    this[this.tablesp_select_vehicle_image.vehicle_imageColumn] = value;
+                    this[this.tablesp_select_document_prefix.document_prefixColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public byte[] image {
+            public string document_prefix_text {
                 get {
-                    try {
-                        return ((byte[])(this[this.tablesp_select_vehicle_image.imageColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'image\' in table \'sp_select_vehicle_image\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tablesp_select_document_prefix.document_prefix_textColumn]));
                 }
                 set {
-                    this[this.tablesp_select_vehicle_image.imageColumn] = value;
+                    this[this.tablesp_select_document_prefix.document_prefix_textColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string filename {
+            public int modified_by {
                 get {
-                    return ((string)(this[this.tablesp_select_vehicle_image.filenameColumn]));
+                    return ((int)(this[this.tablesp_select_document_prefix.modified_byColumn]));
                 }
                 set {
-                    this[this.tablesp_select_vehicle_image.filenameColumn] = value;
+                    this[this.tablesp_select_document_prefix.modified_byColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string description {
+            public System.DateTime modified_on {
                 get {
-                    return ((string)(this[this.tablesp_select_vehicle_image.descriptionColumn]));
+                    return ((global::System.DateTime)(this[this.tablesp_select_document_prefix.modified_onColumn]));
                 }
                 set {
-                    this[this.tablesp_select_vehicle_image.descriptionColumn] = value;
+                    this[this.tablesp_select_document_prefix.modified_onColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsimageNull() {
-                return this.IsNull(this.tablesp_select_vehicle_image.imageColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetimageNull() {
-                this[this.tablesp_select_vehicle_image.imageColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -661,22 +640,22 @@ namespace VehicleDealership.Datasets {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class sp_select_vehicle_imageRowChangeEvent : global::System.EventArgs {
+        public class sp_select_document_prefixRowChangeEvent : global::System.EventArgs {
             
-            private sp_select_vehicle_imageRow eventRow;
+            private sp_select_document_prefixRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_vehicle_imageRowChangeEvent(sp_select_vehicle_imageRow row, global::System.Data.DataRowAction action) {
+            public sp_select_document_prefixRowChangeEvent(sp_select_document_prefixRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_vehicle_imageRow Row {
+            public sp_select_document_prefixRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -692,7 +671,7 @@ namespace VehicleDealership.Datasets {
         }
     }
 }
-namespace VehicleDealership.Datasets.Vehicle_image_dsTableAdapters {
+namespace VehicleDealership.Datasets.Document_prefix_dsTableAdapters {
     
     
     /// <summary>
@@ -704,7 +683,7 @@ namespace VehicleDealership.Datasets.Vehicle_image_dsTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class sp_select_vehicle_imageTableAdapter : global::System.ComponentModel.Component {
+    public partial class sp_select_document_prefixTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -718,7 +697,7 @@ namespace VehicleDealership.Datasets.Vehicle_image_dsTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public sp_select_vehicle_imageTableAdapter() {
+        public sp_select_document_prefixTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -815,11 +794,11 @@ namespace VehicleDealership.Datasets.Vehicle_image_dsTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "sp_select_vehicle_image";
-            tableMapping.ColumnMappings.Add("vehicle_image", "vehicle_image");
-            tableMapping.ColumnMappings.Add("image", "image");
-            tableMapping.ColumnMappings.Add("filename", "filename");
-            tableMapping.ColumnMappings.Add("description", "description");
+            tableMapping.DataSetTable = "sp_select_document_prefix";
+            tableMapping.ColumnMappings.Add("document_prefix", "document_prefix");
+            tableMapping.ColumnMappings.Add("document_prefix_text", "document_prefix_text");
+            tableMapping.ColumnMappings.Add("modified_by", "modified_by");
+            tableMapping.ColumnMappings.Add("modified_on", "modified_on");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -836,166 +815,27 @@ namespace VehicleDealership.Datasets.Vehicle_image_dsTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "veh.sp_select_vehicle_image";
+            this._commandCollection[0].CommandText = "fin.sp_select_document_prefix";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@doc_prefix", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Vehicle_image_ds.sp_select_vehicle_imageDataTable GetData(global::System.Nullable<int> vehicle) {
+        public virtual Document_prefix_ds.sp_select_document_prefixDataTable GetData(string doc_prefix) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((vehicle.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(vehicle.Value));
-            }
-            else {
+            if ((doc_prefix == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            Vehicle_image_ds.sp_select_vehicle_imageDataTable dataTable = new Vehicle_image_ds.sp_select_vehicle_imageDataTable();
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(doc_prefix));
+            }
+            Document_prefix_ds.sp_select_document_prefixDataTable dataTable = new Document_prefix_ds.sp_select_document_prefixDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class QueriesTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.IDbCommand[] _commandCollection;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.IDbCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.IDbCommand[2];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "veh.sp_insert_vehicle_image";
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@filename", global::System.Data.SqlDbType.NVarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@description", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modified_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandText = "veh.sp_delete_vehicle_image";
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandType = global::System.Data.CommandType.StoredProcedure;
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vimage_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object sp_insert_vehicle_image(global::System.Nullable<int> vehicle, string filename, string description, global::System.Nullable<int> modified_by) {
-            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
-            if ((vehicle.HasValue == true)) {
-                command.Parameters[1].Value = ((int)(vehicle.Value));
-            }
-            else {
-                command.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((filename == null)) {
-                command.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[2].Value = ((string)(filename));
-            }
-            if ((description == null)) {
-                command.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[3].Value = ((string)(description));
-            }
-            if ((modified_by.HasValue == true)) {
-                command.Parameters[4].Value = ((int)(modified_by.Value));
-            }
-            else {
-                command.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            object returnValue;
-            try {
-                returnValue = command.ExecuteScalar();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            if (((returnValue == null) 
-                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return null;
-            }
-            else {
-                return ((object)(returnValue));
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object sp_delete_vehicle_image(global::System.Nullable<int> vimage_id, global::System.Nullable<int> vehicle) {
-            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[1]));
-            if ((vimage_id.HasValue == true)) {
-                command.Parameters[1].Value = ((int)(vimage_id.Value));
-            }
-            else {
-                command.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((vehicle.HasValue == true)) {
-                command.Parameters[2].Value = ((int)(vehicle.Value));
-            }
-            else {
-                command.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            object returnValue;
-            try {
-                returnValue = command.ExecuteScalar();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            if (((returnValue == null) 
-                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return null;
-            }
-            else {
-                return ((object)(returnValue));
-            }
         }
     }
     
@@ -1067,7 +907,7 @@ namespace VehicleDealership.Datasets.Vehicle_image_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(Vehicle_image_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(Document_prefix_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1077,7 +917,7 @@ namespace VehicleDealership.Datasets.Vehicle_image_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(Vehicle_image_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(Document_prefix_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1087,7 +927,7 @@ namespace VehicleDealership.Datasets.Vehicle_image_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(Vehicle_image_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(Document_prefix_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1121,7 +961,7 @@ namespace VehicleDealership.Datasets.Vehicle_image_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(Vehicle_image_ds dataSet) {
+        public virtual int UpdateAll(Document_prefix_ds dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

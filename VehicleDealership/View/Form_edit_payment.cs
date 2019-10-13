@@ -57,12 +57,6 @@ namespace VehicleDealership.View
 		}
 		public DateTime PaymentMethodDate { get { return dtp_payment_method_date.Value; } }
 		public string PaymentRemark { get { return txt_remark.Text.Trim(); } }
-		public Form_edit_payment(int payment_id)
-		{
-			InitializeComponent();
-			// edit existing payment. need to get payment details from db
-			Init_form();
-		}
 		public Form_edit_payment(int payment_id, string payment_no, string payment_desc, bool is_paid,
 			int pay_to_id, string pay_to_name, string pay_to_type, DateTime payment_date,
 			decimal payment_amount, string payment_method_type, int payment_method, string credit_card_no,
@@ -94,6 +88,13 @@ namespace VehicleDealership.View
 			txt_payment_method_finance.Text = payment_method_finance_name;
 			dtp_payment_method_date.Value = payment_method_date;
 			txt_remark.Text = payment_remark;
+
+			if (cmb_payment_method.SelectedIndex < 0 && cmb_payment_method.Items.Count > 0)
+				cmb_payment_method.SelectedIndex = 0;
+			if (cmb_credit_card_type.SelectedIndex < 0 && cmb_credit_card_type.Items.Count > 0)
+				cmb_credit_card_type.SelectedIndex = 0;
+
+
 		}
 		/// <summary>
 		/// Add new payment
@@ -183,18 +184,19 @@ namespace VehicleDealership.View
 		}
 		private void Btn_pay_to_Click(object sender, EventArgs e)
 		{
-			Form_datagridview_select dlg_select = new Form_datagridview_select("PERSON_ORGANISATION");
-
-			if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
+			using (Form_datagridview_select dlg_select = new Form_datagridview_select("PERSON_ORGANISATION"))
 			{
-				txt_pay_to_type.Text = dlg_select.cmb_type.SelectedItem.ToString().ToUpper();
+				if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
+				{
+					txt_pay_to_type.Text = dlg_select.cmb_type.SelectedItem.ToString().ToUpper();
 
-				if (txt_pay_to_type.Text == "PERSON")
-					num_pay_to_id.Value = dlg_select.Get_selected_value_as_int("person");
-				else
-					num_pay_to_id.Value = dlg_select.Get_selected_value_as_int("organisation");
+					if (txt_pay_to_type.Text == "PERSON")
+						num_pay_to_id.Value = dlg_select.Get_selected_value_as_int("person");
+					else
+						num_pay_to_id.Value = dlg_select.Get_selected_value_as_int("organisation");
 
-				txt_pay_to.Text = dlg_select.Get_selected_value_as_string("name");
+					txt_pay_to.Text = dlg_select.Get_selected_value_as_string("name");
+				}
 			}
 		}
 		private void Rad_payment_method_CheckedChanged(object sender, EventArgs e)
@@ -236,34 +238,27 @@ namespace VehicleDealership.View
 		}
 		private void Btn_payment_method_finance_Click(object sender, EventArgs e)
 		{
-			Form_datagridview_select dlg_select = new Form_datagridview_select("FINANCE", num_payment_method_finance.Value.ToString());
-
-			if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
+			using (Form_datagridview_select dlg_select =
+				new Form_datagridview_select("FINANCE", num_payment_method_finance.Value.ToString()))
 			{
-				txt_payment_method_finance.Text = dlg_select.Get_selected_value_as_string("name");
-				num_payment_method_finance.Value = dlg_select.Get_selected_value_as_int("finance");
+				if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
+				{
+					txt_payment_method_finance.Text = dlg_select.Get_selected_value_as_string("name");
+					num_payment_method_finance.Value = dlg_select.Get_selected_value_as_int("finance");
+				}
 			}
 		}
 		private void Maskedtxt_credit_card_no_Leave(object sender, EventArgs e)
 		{
-			Credit_card_ds.sp_select_credit_cardDataTable dttable = Credit_card_ds.Select_credit_card(maskedtxt_credit_card_no.Text);
-
-			if (dttable.Rows.Count > 0)
+			using (Credit_card_ds.sp_select_credit_cardDataTable dttable = Credit_card_ds.Select_credit_card(maskedtxt_credit_card_no.Text))
 			{
-				cmb_credit_card_type.SelectedValue = dttable[0].credit_card_type;
-				txt_payment_method_finance.Text = dttable[0].name;
-				num_payment_method_finance.Value = dttable[0].finance;
-				dtp_payment_method_date.Value = dttable[0].expiry_date;
-			}
-		}
-		private void Txt_cheque_no_Leave(object sender, EventArgs e)
-		{
-			Cheque_ds.sp_select_chequeDataTable dttable = Cheque_ds.Select_cheque(maskedtxt_credit_card_no.Text);
-			if (dttable.Rows.Count > 0)
-			{
-				txt_payment_method_finance.Text = dttable[0].name;
-				num_payment_method_finance.Value = dttable[0].finance;
-				dtp_payment_method_date.Value = dttable[0].cheque_date;
+				if (dttable.Rows.Count > 0)
+				{
+					cmb_credit_card_type.SelectedValue = dttable[0].credit_card_type;
+					txt_payment_method_finance.Text = dttable[0].name;
+					num_payment_method_finance.Value = dttable[0].finance;
+					dtp_payment_method_date.Value = dttable[0].expiry_date;
+				}
 			}
 		}
 	}

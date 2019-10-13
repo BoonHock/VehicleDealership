@@ -122,13 +122,14 @@
 			this.dtp_registered = new System.Windows.Forms.DateTimePicker();
 			this.txt_status = new System.Windows.Forms.TextBox();
 			this.label82 = new System.Windows.Forms.Label();
-			this.textBox41 = new System.Windows.Forms.TextBox();
+			this.txt_last_modified_on = new System.Windows.Forms.TextBox();
 			this.label83 = new System.Windows.Forms.Label();
 			this.label84 = new System.Windows.Forms.Label();
 			this.txt_ref_no = new System.Windows.Forms.TextBox();
 			this.txt_last_modified_by = new System.Windows.Forms.TextBox();
 			this.label85 = new System.Windows.Forms.Label();
 			this.tabPage3 = new System.Windows.Forms.TabPage();
+			this.btn_clear_loan_finance = new System.Windows.Forms.Button();
 			this.btn_loan_finance = new System.Windows.Forms.Button();
 			this.dtp_settlement_date = new System.Windows.Forms.DateTimePicker();
 			this.txt_loan_branch = new System.Windows.Forms.TextBox();
@@ -275,7 +276,7 @@
 			this.tabPage4.Controls.Add(this.groupBox11);
 			this.tabPage4.Controls.Add(this.txt_status);
 			this.tabPage4.Controls.Add(this.label82);
-			this.tabPage4.Controls.Add(this.textBox41);
+			this.tabPage4.Controls.Add(this.txt_last_modified_on);
 			this.tabPage4.Controls.Add(this.label83);
 			this.tabPage4.Controls.Add(this.label84);
 			this.tabPage4.Controls.Add(this.txt_ref_no);
@@ -926,7 +927,7 @@
             "MORTGAGE",
             "PURCHASE",
             "TRADE-IN"});
-			this.cmb_acquire_method.Location = new System.Drawing.Point(101, 121);
+			this.cmb_acquire_method.Location = new System.Drawing.Point(101, 119);
 			this.cmb_acquire_method.Margin = new System.Windows.Forms.Padding(2);
 			this.cmb_acquire_method.Name = "cmb_acquire_method";
 			this.cmb_acquire_method.Size = new System.Drawing.Size(224, 25);
@@ -1542,13 +1543,13 @@
 			this.label82.TabIndex = 27;
 			this.label82.Text = "Status:";
 			// 
-			// textBox41
+			// txt_last_modified_on
 			// 
-			this.textBox41.Location = new System.Drawing.Point(805, 6);
-			this.textBox41.Name = "textBox41";
-			this.textBox41.ReadOnly = true;
-			this.textBox41.Size = new System.Drawing.Size(124, 25);
-			this.textBox41.TabIndex = 3;
+			this.txt_last_modified_on.Location = new System.Drawing.Point(805, 6);
+			this.txt_last_modified_on.Name = "txt_last_modified_on";
+			this.txt_last_modified_on.ReadOnly = true;
+			this.txt_last_modified_on.Size = new System.Drawing.Size(124, 25);
+			this.txt_last_modified_on.TabIndex = 3;
 			// 
 			// label83
 			// 
@@ -1595,6 +1596,7 @@
 			// 
 			// tabPage3
 			// 
+			this.tabPage3.Controls.Add(this.btn_clear_loan_finance);
 			this.tabPage3.Controls.Add(this.btn_loan_finance);
 			this.tabPage3.Controls.Add(this.dtp_settlement_date);
 			this.tabPage3.Controls.Add(this.txt_loan_branch);
@@ -1618,6 +1620,19 @@
 			this.tabPage3.TabIndex = 6;
 			this.tabPage3.Text = "Loan details";
 			this.tabPage3.UseVisualStyleBackColor = true;
+			// 
+			// btn_clear_loan_finance
+			// 
+			this.btn_clear_loan_finance.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.btn_clear_loan_finance.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
+			this.btn_clear_loan_finance.Location = new System.Drawing.Point(432, 35);
+			this.btn_clear_loan_finance.Name = "btn_clear_loan_finance";
+			this.btn_clear_loan_finance.Size = new System.Drawing.Size(62, 25);
+			this.btn_clear_loan_finance.TabIndex = 2;
+			this.btn_clear_loan_finance.Text = "Clear";
+			this.btn_clear_loan_finance.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.btn_clear_loan_finance.UseVisualStyleBackColor = true;
+			this.btn_clear_loan_finance.Click += new System.EventHandler(this.Btn_clear_loan_finance_Click);
 			// 
 			// btn_loan_finance
 			// 
@@ -1693,7 +1708,7 @@
 			// num_loan_finance_id
 			// 
 			this.num_loan_finance_id.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.num_loan_finance_id.Location = new System.Drawing.Point(431, 37);
+			this.num_loan_finance_id.Location = new System.Drawing.Point(542, 70);
 			this.num_loan_finance_id.Margin = new System.Windows.Forms.Padding(2);
 			this.num_loan_finance_id.Maximum = new decimal(new int[] {
             1000000000,
@@ -2127,6 +2142,7 @@
 			this.grd_image.RowHeadersVisible = false;
 			this.grd_image.Size = new System.Drawing.Size(462, 252);
 			this.grd_image.TabIndex = 3;
+			this.grd_image.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_image_DataError);
 			this.grd_image.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grd_image_RowEnter);
 			// 
 			// cms_image
@@ -2521,7 +2537,7 @@
 		private System.Windows.Forms.Label label81;
 		private System.Windows.Forms.TextBox txt_status;
 		private System.Windows.Forms.Label label82;
-		private System.Windows.Forms.TextBox textBox41;
+		private System.Windows.Forms.TextBox txt_last_modified_on;
 		private System.Windows.Forms.Label label83;
 		private System.Windows.Forms.Label label84;
 		private System.Windows.Forms.TextBox txt_ref_no;
@@ -2597,5 +2613,6 @@
 		private System.Windows.Forms.ToolStripMenuItem deleteExpensesToolStripMenuItem;
 		private System.Windows.Forms.DateTimePicker dtp_registered;
 		private System.Windows.Forms.NumericUpDown num_sale;
+		private System.Windows.Forms.Button btn_clear_loan_finance;
 	}
 }

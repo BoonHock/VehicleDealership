@@ -414,7 +414,6 @@
 			this.txt_cheque_no.Name = "txt_cheque_no";
 			this.txt_cheque_no.Size = new System.Drawing.Size(253, 27);
 			this.txt_cheque_no.TabIndex = 2;
-			this.txt_cheque_no.Leave += new System.EventHandler(this.Txt_cheque_no_Leave);
 			// 
 			// lbl_cheque_no
 			// 
