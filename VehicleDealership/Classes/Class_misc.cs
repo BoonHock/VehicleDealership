@@ -48,19 +48,19 @@ namespace VehicleDealership.Classes
 
 			return new_file_path;
 		}
-		public static string Generate_random_string(bool prepend_date = true, int length = 10)
+		public static string Generate_random_string(int int_seed = 0, bool prepend_datetime = true, int length = 10)
 		{
-			Random random = new Random();
+			Random random = new Random(int_seed);
 			const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 			string str_prepend = "";
 
-			if (prepend_date)
-				str_prepend = DateTime.Today.Year.ToString() + 
+			if (prepend_datetime)
+				str_prepend = DateTime.Today.Year.ToString() +
 					DateTime.Today.Month.ToString("00") + DateTime.Today.Day.ToString("00");
 
-			return str_prepend + new string(Enumerable.Repeat(chars, length)
-			  .Select(s => s[random.Next(s.Length)]).ToArray());
+			return str_prepend + Path.GetRandomFileName().Replace(".", "") +
+				new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
 
 		}
 	}

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -781,7 +782,7 @@ namespace VehicleDealership.View
 			grd_main.DataSource = null;
 			grd_main.DataSource = Vehicle_ds.Select_vehicle_simplified();
 
-			Class_datagridview.Hide_columns(grd_main, new string[] { "vehicle" });
+			if (!Program.System_user.IsDeveloper) Class_datagridview.Hide_columns(grd_main, new string[] { "vehicle" });
 			grd_main.AutoResizeColumns();
 
 			Apply_filter_vehicle();
@@ -832,7 +833,37 @@ namespace VehicleDealership.View
 		}
 		private void Delete_vehicle(object sender, EventArgs e)
 		{
-
+			if (grd_main.SelectedCells.Count == 0) return;
+			if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+			{
+				int vehicle_id = (int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value;
+				if (Vehicle_ds.Delete_vehicle(vehicle_id))
+				{
+					try
+					{
+						Directory.Delete(Path.Combine(Filepath_ds.Select_filepath_dir("VEHICLE_UPLOAD"), vehicle_id.ToString()), true);
+					}
+					catch (Exception)
+					{
+						// ignore error
+					}
+					Setup_grd_vehicle();
+				}
+				else
+				{
+					MessageBox.Show("Delete failed. Possible reasons :- \n - Have sale/return record.",
+						"Operation failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+		}
+		private void Btn_received_note_Click(object sender, EventArgs e)
+		{
+			if (grd_main.SelectedCells.Count == 0) return;
+			using (Crystal_report.Form_vehicle_received_note dlg_cr = 
+				new Crystal_report.Form_vehicle_received_note((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value))
+			{
+				dlg_cr.ShowDialog();
+			}
 		}
 		#endregion
 		#region LOCATION

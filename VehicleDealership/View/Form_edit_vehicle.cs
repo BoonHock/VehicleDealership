@@ -37,8 +37,6 @@ namespace VehicleDealership.View
 
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
-			// TODO: CHECK VEHICLE IS NOT UNSOLD!!! after that, work on other stuffs. vehicle add/edit is finally completed
-
 			string str_reg_no = txt_reg_no.Text.Trim();
 			string str_chassis = txt_chassis.Text.Trim();
 			string str_engine_no = txt_engine_no.Text.Trim();
@@ -50,6 +48,17 @@ namespace VehicleDealership.View
 				MessageBox.Show("All highlighted fields are required. Please input and retry.",
 					"Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
+			}
+
+			using (Vehicle_ds.sp_select_vehicleDataTable dttable = Vehicle_ds.Select_vehicle_latest_record("", str_chassis))
+			{
+				// if creating vehicle record, check chassis is one of unsold/unreturned vehicle. if it is, then cannot create duplicate!
+				if (VehicleID == 0 && dttable.Rows.Count > 0 && dttable[0].vehicle_status == "UNSOLD")
+				{
+					MessageBox.Show("Vehicle record already existed and unsold. Cannot create another record until vehicle returned/sold.",
+						"Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					return;
+				}
 			}
 
 			using (Chassis_ds.sp_select_chassisDataTable dttable_chassis = Chassis_ds.Select_chassis(txt_chassis.Text.Trim()))
@@ -312,7 +321,7 @@ namespace VehicleDealership.View
 								try
 								{
 									// TODO
-									string new_filename = Path.Combine(str_upload_dir, Class_misc.Generate_random_string() + ".jpg");
+									string new_filename = Path.Combine(str_upload_dir, Class_misc.Generate_random_string(dt_row.vehicle_image) + ".jpg");
 									MemoryStream ms = new MemoryStream(dt_row.image);
 									Image.FromStream(ms).Save(new_filename, System.Drawing.Imaging.ImageFormat.Jpeg);
 									ms.Dispose();
@@ -395,10 +404,16 @@ namespace VehicleDealership.View
 				"payment_no", "payment_description", "pay_to", "amount", "payment_date", "is_paid",
 				"payment_method_type", "cheque_no", "credit_card_no", "payment_method", "finance", "remark", "modified_by");
 
+			grd_expenses.Columns["amount"].DefaultCellStyle.Format = "N2";
+			grd_expenses.Columns["amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
 			grd_payment.DataSource = Vehicle_payment_ds.Select_vehicle_payment(VehicleID);
 			if (!Program.System_user.IsDeveloper) Class_datagridview.Hide_unnecessary_columns(grd_payment,
 				"payment_no", "payment_description", "pay_to", "amount", "payment_date", "is_paid",
 				"payment_method_type", "cheque_no", "credit_card_no", "payment_method", "finance", "remark", "modified_by");
+
+			grd_payment.Columns["amount"].DefaultCellStyle.Format = "N2";
+			grd_payment.Columns["amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
 			// VEHICLE IMAGE
 			{
@@ -409,7 +424,8 @@ namespace VehicleDealership.View
 				// load images to datatable from filename
 				foreach (Vehicle_image_ds.sp_select_vehicle_imageRow dt_row in dttable_image.Rows)
 				{
-					dt_row.image = Class_image.Image_to_byte_array(Image.FromFile(dt_row.filename));
+					if (File.Exists(dt_row.filename))
+						dt_row.image = Class_image.Image_to_byte_array(Image.FromFile(dt_row.filename));
 				}
 
 				grd_image.DataSource = dttable_image;
@@ -948,7 +964,14 @@ namespace VehicleDealership.View
 			if (grd_image.Rows.Count == 0) return;
 
 			DataGridViewRow grd_row = grd_image[e.ColumnIndex, e.RowIndex].OwningRow;
-			picbox_image.Image = Class_image.Byte_array_to_image((byte[])grd_row.Cells["image"].Value);
+			try
+			{
+				picbox_image.Image = Class_image.Byte_array_to_image((byte[])grd_row.Cells["image"].Value);
+			}
+			catch (Exception)
+			{
+				// image display failed...
+			}
 			txt_image_description.Text = grd_row.Cells["description"].Value.ToString();
 		}
 		private void Btn_add_attachment_Click(object sender, EventArgs e)

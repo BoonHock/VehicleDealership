@@ -415,6 +415,7 @@
 			this.btn_received_note.Name = "btn_received_note";
 			this.btn_received_note.Size = new System.Drawing.Size(101, 22);
 			this.btn_received_note.Text = "Received note";
+			this.btn_received_note.Click += new System.EventHandler(this.Btn_received_note_Click);
 			// 
 			// btn_eop
 			// 

@@ -71,8 +71,15 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -94,6 +101,18 @@
     <Compile Include="Classes\Class_treeview.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\User_permission.cs" />
+    <Compile Include="Crystal_report\CR_vehicle_received_note.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CR_vehicle_received_note.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Crystal_report\Form_vehicle_received_note.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crystal_report\Form_vehicle_received_note.Designer.cs">
+      <DependentUpon>Form_vehicle_received_note.cs</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\Bulkcopy_table_ds.cs">
       <DependentUpon>Bulkcopy_table_ds.xsd</DependentUpon>
     </Compile>
@@ -510,6 +529,13 @@
     <Compile Include="View\Form_vehicle_template.Designer.cs">
       <DependentUpon>Form_vehicle_template.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Crystal_report\CR_vehicle_received_note.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CR_vehicle_received_note.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal_report\Form_vehicle_received_note.resx">
+      <DependentUpon>Form_vehicle_received_note.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -1026,5 +1052,9 @@
     <None Include="Resources\StatusStop_16x.png" />
     <None Include="Resources\StatusRun_16x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
