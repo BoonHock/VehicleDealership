@@ -859,11 +859,31 @@ namespace VehicleDealership.View
 		private void Btn_received_note_Click(object sender, EventArgs e)
 		{
 			if (grd_main.SelectedCells.Count == 0) return;
-			using (Crystal_report.Form_vehicle_received_note dlg_cr = 
-				new Crystal_report.Form_vehicle_received_note((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value))
+
+			Cursor = Cursors.WaitCursor;
+			using (Crystal_report.CR_vehicle_received_note cr_report = new Crystal_report.CR_vehicle_received_note())
 			{
-				dlg_cr.ShowDialog();
+				cr_report.SetDataSource(Vehicle_ds.Vehicle_received_note((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value).CopyToDataTable());
+
+				using (Crystal_report.Form_crystal_report dlg_cr = new Crystal_report.Form_crystal_report(cr_report))
+				{
+					dlg_cr.Text = "Vehicle Received Note";
+					dlg_cr.ShowDialog();
+				}
 			}
+			Cursor = Cursors.Default;
+		}
+		private void Btn_eop_Click(object sender, EventArgs e)
+		{
+			if (grd_main.SelectedCells.Count == 0) return;
+		}
+		private void Btn_hire_purchase_Click(object sender, EventArgs e)
+		{
+			if (grd_main.SelectedCells.Count == 0) return;
+		}
+		private void Btn_spa_Click(object sender, EventArgs e)
+		{
+			if (grd_main.SelectedCells.Count == 0) return;
 		}
 		#endregion
 		#region LOCATION
@@ -963,5 +983,6 @@ namespace VehicleDealership.View
 				MessageBox.Show("All items have been saved successfully.", "Item saved", MessageBoxButtons.OK);
 		}
 		#endregion
+
 	}
 }

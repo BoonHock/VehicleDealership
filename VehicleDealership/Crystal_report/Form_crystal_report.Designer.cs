@@ -1,6 +1,6 @@
 ﻿namespace VehicleDealership.Crystal_report
 {
-	partial class Form_vehicle_received_note
+	partial class Form_crystal_report
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -39,18 +39,18 @@
 			this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
 			this.crystalReportViewer1.Name = "crystalReportViewer1";
-			this.crystalReportViewer1.Size = new System.Drawing.Size(1013, 639);
+			this.crystalReportViewer1.Size = new System.Drawing.Size(931, 577);
 			this.crystalReportViewer1.TabIndex = 0;
+			this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
 			// 
-			// Form_vehicle_received_note
+			// Form_crystal_report
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1013, 639);
+			this.ClientSize = new System.Drawing.Size(931, 577);
 			this.Controls.Add(this.crystalReportViewer1);
-			this.Name = "Form_vehicle_received_note";
-			this.Text = "Form_vehicle_received_note";
-			this.Load += new System.EventHandler(this.Form_vehicle_received_note_Load);
+			this.Name = "Form_crystal_report";
+			this.Text = "Report";
 			this.ResumeLayout(false);
 
 		}

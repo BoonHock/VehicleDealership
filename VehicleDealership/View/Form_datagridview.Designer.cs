@@ -425,6 +425,7 @@
 			this.btn_eop.Size = new System.Drawing.Size(49, 22);
 			this.btn_eop.Text = "EOP";
 			this.btn_eop.ToolTipText = "Evidence of Purchase";
+			this.btn_eop.Click += new System.EventHandler(this.Btn_eop_Click);
 			// 
 			// btn_hire_purchase
 			// 
@@ -433,6 +434,7 @@
 			this.btn_hire_purchase.Name = "btn_hire_purchase";
 			this.btn_hire_purchase.Size = new System.Drawing.Size(100, 22);
 			this.btn_hire_purchase.Text = "Hire purchase";
+			this.btn_hire_purchase.Click += new System.EventHandler(this.Btn_hire_purchase_Click);
 			// 
 			// btn_spa
 			// 
@@ -442,6 +444,7 @@
 			this.btn_spa.Size = new System.Drawing.Size(48, 22);
 			this.btn_spa.Text = "SPA";
 			this.btn_spa.ToolTipText = "Sales & Purchase Agreement";
+			this.btn_spa.Click += new System.EventHandler(this.Btn_spa_Click);
 			// 
 			// Form_datagridview
 			// 

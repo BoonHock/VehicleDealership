@@ -101,17 +101,23 @@
     <Compile Include="Classes\Class_treeview.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\User_permission.cs" />
+    <Compile Include="Crystal_report\CR_evidence_of_purchase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CR_evidence_of_purchase.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Crystal_report\CR_vehicle_received_note.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CR_vehicle_received_note.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Crystal_report\Form_vehicle_received_note.cs">
+    <Compile Include="Crystal_report\Form_crystal_report.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Crystal_report\Form_vehicle_received_note.Designer.cs">
-      <DependentUpon>Form_vehicle_received_note.cs</DependentUpon>
+    <Compile Include="Crystal_report\Form_crystal_report.Designer.cs">
+      <DependentUpon>Form_crystal_report.cs</DependentUpon>
     </Compile>
     <Compile Include="Datasets\Bulkcopy_table_ds.cs">
       <DependentUpon>Bulkcopy_table_ds.xsd</DependentUpon>
@@ -529,12 +535,16 @@
     <Compile Include="View\Form_vehicle_template.Designer.cs">
       <DependentUpon>Form_vehicle_template.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Crystal_report\CR_evidence_of_purchase.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CR_evidence_of_purchase.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Crystal_report\CR_vehicle_received_note.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CR_vehicle_received_note.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Crystal_report\Form_vehicle_received_note.resx">
-      <DependentUpon>Form_vehicle_received_note.cs</DependentUpon>
+    <EmbeddedResource Include="Crystal_report\Form_crystal_report.resx">
+      <DependentUpon>Form_crystal_report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

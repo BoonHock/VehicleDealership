@@ -20,6 +20,10 @@ namespace VehicleDealership.Datasets
 		{
 			return new Vehicle_dsTableAdapters.QueriesTableAdapter();
 		}
+		private static Vehicle_dsTableAdapters.sp_vehicle_received_noteTableAdapter Vehicle_Received_NoteTableAdapter()
+		{
+			return new Vehicle_dsTableAdapters.sp_vehicle_received_noteTableAdapter();
+		}
 		public static sp_select_vehicle_simplifiedDataTable Select_vehicle_simplified()
 		{
 			try
@@ -90,7 +94,7 @@ namespace VehicleDealership.Datasets
 			int? int_vehicle_sale, bool? consignment_mortgage, string str_door_key, string str_ignition_key,
 			System.DateTime purchase_date, System.DateTime date_received, string str_invoice_no, decimal dec_road_tax,
 			System.DateTime road_tax_expiry, decimal dec_purchase_price, decimal dec_overtrade,
-			decimal dec_list_price, decimal dec_loan_balance, decimal dec_loan_installment_amount,
+			decimal dec_list_price, decimal dec_max_can_loan, decimal dec_loan_balance, decimal dec_loan_installment_amount,
 			int? int_loan_finance, int installment_day_of_month, System.DateTime loan_settlement_date,
 			string str_loan_agreement_no, string str_remark, int int_checked_by)
 		{
@@ -102,7 +106,7 @@ namespace VehicleDealership.Datasets
 						int_chassis, int_colour, is_new, int_location, str_engine_no, doub_engine_cc, int_mileage,
 						int_vehicle_sale, consignment_mortgage, str_door_key, str_ignition_key, purchase_date,
 						date_received, str_invoice_no, dec_road_tax, road_tax_expiry, dec_purchase_price,
-						dec_overtrade, dec_list_price, dec_loan_balance, dec_loan_installment_amount,
+						dec_overtrade, dec_list_price, dec_max_can_loan, dec_loan_balance, dec_loan_installment_amount,
 						int_loan_finance, (byte)installment_day_of_month, loan_settlement_date, str_loan_agreement_no,
 						str_remark, int_checked_by, Program.System_user.UserID).ToString());
 				}
@@ -119,7 +123,7 @@ namespace VehicleDealership.Datasets
 			double doub_engine_cc, int int_mileage, int? int_vehicle_sale, bool? consignment_mortgage,
 			string str_door_key, string str_ignition_key, System.DateTime purchase_date, System.DateTime date_received,
 			string str_invoice_no, decimal dec_road_tax, System.DateTime road_tax_expiry, decimal dec_purchase_price,
-			decimal dec_overtrade, decimal dec_list_price, decimal dec_loan_balance,
+			decimal dec_overtrade, decimal dec_list_price, decimal dec_max_can_loan, decimal dec_loan_balance,
 			decimal dec_loan_installment_amount, int? int_loan_finance, int installment_day_of_month,
 			System.DateTime loan_settlement_date, string str_loan_agreement_no, string str_remark, int int_checked_by)
 		{
@@ -131,7 +135,7 @@ namespace VehicleDealership.Datasets
 						int_chassis, int_colour, is_new, int_location, str_engine_no, doub_engine_cc, int_mileage,
 						int_vehicle_sale, consignment_mortgage, str_door_key, str_ignition_key, purchase_date,
 						date_received, str_invoice_no, dec_road_tax, road_tax_expiry, dec_purchase_price,
-						dec_overtrade, dec_list_price, dec_loan_balance, dec_loan_installment_amount,
+						dec_overtrade, dec_list_price, dec_max_can_loan, dec_loan_balance, dec_loan_installment_amount,
 						int_loan_finance, (byte)installment_day_of_month, loan_settlement_date, str_loan_agreement_no,
 						str_remark, int_checked_by, Program.System_user.UserID);
 				}
@@ -159,6 +163,40 @@ namespace VehicleDealership.Datasets
 					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
 			return false;
+		}
+		public static sp_vehicle_received_noteDataTable Vehicle_received_note(int int_vehicle)
+		{
+			try
+			{
+				using (Vehicle_dsTableAdapters.sp_vehicle_received_noteTableAdapter adapter =
+					Vehicle_Received_NoteTableAdapter())
+				{
+					return adapter.GetData(int_vehicle);
+				}
+			}
+			catch (System.Exception e)
+			{
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
+			}
+			return new sp_vehicle_received_noteDataTable();
+		}
+		public static sp_evidence_of_purchaseDataTable Evidence_Of_Purchase(int int_vehicle)
+		{
+			try
+			{
+				using (Vehicle_dsTableAdapters.sp_evidence_of_purchaseTableAdapter adapter =
+					new Vehicle_dsTableAdapters.sp_evidence_of_purchaseTableAdapter())
+				{
+					return adapter.GetData(int_vehicle);
+				}
+			}
+			catch (System.Exception e)
+			{
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
+			}
+			return new sp_evidence_of_purchaseDataTable();
 		}
 	}
 }

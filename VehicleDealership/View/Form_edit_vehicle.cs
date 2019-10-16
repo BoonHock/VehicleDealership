@@ -112,7 +112,7 @@ namespace VehicleDealership.View
 					int_vehicle_sale, consignment_mortgage, txt_door_key.Text.Trim(),
 					txt_ignition_key.Text.Trim(), dtp_purchase_date.Value, dtp_date_received.Value,
 					txt_invoice_no.Text.Trim(), num_road_tax_amount.Value, dtp_road_tax_expiry.Value,
-					num_purchase_price.Value, num_overtrade.Value, num_list_price.Value,
+					num_purchase_price.Value, num_overtrade.Value, num_list_price.Value,num_max_can_loan.Value,
 					num_loan_balance_readonly.Value, num_installment_amount.Value, int_loan_finance,
 					(int)num_installment_day.Value, dtp_settlement_date.Value, txt_loan_agreement_no.Text.Trim(),
 					txt_remark.Text.Trim(), (int)num_checked_by_id.Value);
@@ -126,7 +126,7 @@ namespace VehicleDealership.View
 					int_vehicle_sale, consignment_mortgage, txt_door_key.Text.Trim(),
 					txt_ignition_key.Text.Trim(), dtp_purchase_date.Value, dtp_date_received.Value,
 					txt_invoice_no.Text.Trim(), num_road_tax_amount.Value, dtp_road_tax_expiry.Value,
-					num_purchase_price.Value, num_overtrade.Value, num_list_price.Value,
+					num_purchase_price.Value, num_overtrade.Value, num_list_price.Value, num_max_can_loan.Value,
 					num_loan_balance_readonly.Value, num_installment_amount.Value, int_loan_finance,
 					(int)num_installment_day.Value, dtp_settlement_date.Value, txt_loan_agreement_no.Text.Trim(),
 					txt_remark.Text.Trim(), (int)num_checked_by_id.Value);
