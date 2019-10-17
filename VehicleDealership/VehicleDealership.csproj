@@ -107,6 +107,12 @@
       <DependentUpon>CR_evidence_of_purchase.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Crystal_report\CR_hire_purchase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CR_hire_purchase.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Crystal_report\CR_vehicle_received_note.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -538,6 +544,10 @@
     <EmbeddedResource Include="Crystal_report\CR_evidence_of_purchase.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CR_evidence_of_purchase.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal_report\CR_hire_purchase.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CR_hire_purchase.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Crystal_report\CR_vehicle_received_note.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

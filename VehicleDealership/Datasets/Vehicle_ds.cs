@@ -198,5 +198,22 @@ namespace VehicleDealership.Datasets
 			}
 			return new sp_evidence_of_purchaseDataTable();
 		}
+		public static sp_hire_purchaseDataTable Hire_purchase(int int_vehicle)
+		{
+			try
+			{
+				using (Vehicle_dsTableAdapters.sp_hire_purchaseTableAdapter adapter =
+					new Vehicle_dsTableAdapters.sp_hire_purchaseTableAdapter())
+				{
+					return adapter.GetData(int_vehicle);
+				}
+			}
+			catch (System.Exception e)
+			{
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
+			}
+			return new sp_hire_purchaseDataTable();
+		}
 	}
 }

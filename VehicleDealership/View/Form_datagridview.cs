@@ -876,10 +876,36 @@ namespace VehicleDealership.View
 		private void Btn_eop_Click(object sender, EventArgs e)
 		{
 			if (grd_main.SelectedCells.Count == 0) return;
+
+			Cursor = Cursors.WaitCursor;
+			using (Crystal_report.CR_evidence_of_purchase cr_report = new Crystal_report.CR_evidence_of_purchase())
+			{
+				cr_report.SetDataSource(Vehicle_ds.Evidence_Of_Purchase((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value).CopyToDataTable());
+
+				using (Crystal_report.Form_crystal_report dlg_cr = new Crystal_report.Form_crystal_report(cr_report))
+				{
+					dlg_cr.Text = "Evidence of Purchase";
+					dlg_cr.ShowDialog();
+				}
+			}
+			Cursor = Cursors.Default;
 		}
 		private void Btn_hire_purchase_Click(object sender, EventArgs e)
 		{
 			if (grd_main.SelectedCells.Count == 0) return;
+
+			Cursor = Cursors.WaitCursor;
+			using (Crystal_report.CR_hire_purchase cr_report = new Crystal_report.CR_hire_purchase())
+			{
+				cr_report.SetDataSource(Vehicle_ds.Hire_purchase((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value).CopyToDataTable());
+
+				using (Crystal_report.Form_crystal_report dlg_cr = new Crystal_report.Form_crystal_report(cr_report))
+				{
+					dlg_cr.Text = "Hire Purchase";
+					dlg_cr.ShowDialog();
+				}
+			}
+			Cursor = Cursors.Default;
 		}
 		private void Btn_spa_Click(object sender, EventArgs e)
 		{
