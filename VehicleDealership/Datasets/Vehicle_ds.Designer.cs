@@ -2028,6 +2028,14 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columncompany_registration_no;
             
+            private global::System.Data.DataColumn columncompany_address;
+            
+            private global::System.Data.DataColumn columncompany_tel_no;
+            
+            private global::System.Data.DataColumn columncompany_fax_no;
+            
+            private global::System.Data.DataColumn columncompany_email;
+            
             private global::System.Data.DataColumn columnreference_no;
             
             private global::System.Data.DataColumn columncustomer_name;
@@ -2148,6 +2156,38 @@ namespace VehicleDealership.Datasets {
             public global::System.Data.DataColumn company_registration_noColumn {
                 get {
                     return this.columncompany_registration_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn company_addressColumn {
+                get {
+                    return this.columncompany_address;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn company_tel_noColumn {
+                get {
+                    return this.columncompany_tel_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn company_fax_noColumn {
+                get {
+                    return this.columncompany_fax_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn company_emailColumn {
+                get {
+                    return this.columncompany_email;
                 }
             }
             
@@ -2455,6 +2495,10 @@ namespace VehicleDealership.Datasets {
             public sp_vehicle_received_noteRow Addsp_vehicle_received_noteRow(
                         string company_name, 
                         string company_registration_no, 
+                        string company_address, 
+                        string company_tel_no, 
+                        string company_fax_no, 
+                        string company_email, 
                         string reference_no, 
                         string customer_name, 
                         string customer_registration_no, 
@@ -2493,6 +2537,10 @@ namespace VehicleDealership.Datasets {
                         null,
                         company_name,
                         company_registration_no,
+                        company_address,
+                        company_tel_no,
+                        company_fax_no,
+                        company_email,
                         reference_no,
                         customer_name,
                         customer_registration_no,
@@ -2558,6 +2606,10 @@ namespace VehicleDealership.Datasets {
                 this.columnvehicle = base.Columns["vehicle"];
                 this.columncompany_name = base.Columns["company_name"];
                 this.columncompany_registration_no = base.Columns["company_registration_no"];
+                this.columncompany_address = base.Columns["company_address"];
+                this.columncompany_tel_no = base.Columns["company_tel_no"];
+                this.columncompany_fax_no = base.Columns["company_fax_no"];
+                this.columncompany_email = base.Columns["company_email"];
                 this.columnreference_no = base.Columns["reference_no"];
                 this.columncustomer_name = base.Columns["customer_name"];
                 this.columncustomer_registration_no = base.Columns["customer_registration_no"];
@@ -2602,6 +2654,14 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columncompany_name);
                 this.columncompany_registration_no = new global::System.Data.DataColumn("company_registration_no", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncompany_registration_no);
+                this.columncompany_address = new global::System.Data.DataColumn("company_address", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncompany_address);
+                this.columncompany_tel_no = new global::System.Data.DataColumn("company_tel_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncompany_tel_no);
+                this.columncompany_fax_no = new global::System.Data.DataColumn("company_fax_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncompany_fax_no);
+                this.columncompany_email = new global::System.Data.DataColumn("company_email", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncompany_email);
                 this.columnreference_no = new global::System.Data.DataColumn("reference_no", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnreference_no);
                 this.columncustomer_name = new global::System.Data.DataColumn("customer_name", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2680,6 +2740,14 @@ namespace VehicleDealership.Datasets {
                 this.columncompany_name.MaxLength = 150;
                 this.columncompany_registration_no.AllowDBNull = false;
                 this.columncompany_registration_no.MaxLength = 20;
+                this.columncompany_address.AllowDBNull = false;
+                this.columncompany_address.MaxLength = 255;
+                this.columncompany_tel_no.AllowDBNull = false;
+                this.columncompany_tel_no.MaxLength = 50;
+                this.columncompany_fax_no.AllowDBNull = false;
+                this.columncompany_fax_no.MaxLength = 50;
+                this.columncompany_email.AllowDBNull = false;
+                this.columncompany_email.MaxLength = 100;
                 this.columnreference_no.ReadOnly = true;
                 this.columnreference_no.MaxLength = 35;
                 this.columncustomer_name.ReadOnly = true;
@@ -5279,6 +5347,50 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string company_address {
+                get {
+                    return ((string)(this[this.tablesp_vehicle_received_note.company_addressColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_received_note.company_addressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string company_tel_no {
+                get {
+                    return ((string)(this[this.tablesp_vehicle_received_note.company_tel_noColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_received_note.company_tel_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string company_fax_no {
+                get {
+                    return ((string)(this[this.tablesp_vehicle_received_note.company_fax_noColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_received_note.company_fax_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string company_email {
+                get {
+                    return ((string)(this[this.tablesp_vehicle_received_note.company_emailColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_received_note.company_emailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string reference_no {
                 get {
                     try {
@@ -7278,6 +7390,10 @@ namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
             tableMapping.ColumnMappings.Add("vehicle", "vehicle");
             tableMapping.ColumnMappings.Add("company_name", "company_name");
             tableMapping.ColumnMappings.Add("company_registration_no", "company_registration_no");
+            tableMapping.ColumnMappings.Add("company_address", "company_address");
+            tableMapping.ColumnMappings.Add("company_tel_no", "company_tel_no");
+            tableMapping.ColumnMappings.Add("company_fax_no", "company_fax_no");
+            tableMapping.ColumnMappings.Add("company_email", "company_email");
             tableMapping.ColumnMappings.Add("reference_no", "reference_no");
             tableMapping.ColumnMappings.Add("customer_name", "customer_name");
             tableMapping.ColumnMappings.Add("customer_registration_no", "customer_registration_no");

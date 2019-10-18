@@ -115,7 +115,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="sp_vehicle_received_noteTableAdapter" GeneratorDataComponentClassName="sp_vehicle_received_noteTableAdapter" Name="sp_vehicle_received_note" UserDataComponentName="sp_vehicle_received_noteTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="VehicleDealershipConnectionString (Settings)" DbObjectName="VehicleDealership.fin.sp_vehicle_received_note" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="GetData">
+              <DbSource ConnectionRef="VehicleDealershipConnectionString (Settings)" DbObjectName="VehicleDealership.fin.sp_vehicle_received_note" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>fin.sp_vehicle_received_note</CommandText>
@@ -131,6 +131,10 @@
               <Mapping SourceColumn="vehicle" DataSetColumn="vehicle" />
               <Mapping SourceColumn="company_name" DataSetColumn="company_name" />
               <Mapping SourceColumn="company_registration_no" DataSetColumn="company_registration_no" />
+              <Mapping SourceColumn="company_address" DataSetColumn="company_address" />
+              <Mapping SourceColumn="company_tel_no" DataSetColumn="company_tel_no" />
+              <Mapping SourceColumn="company_fax_no" DataSetColumn="company_fax_no" />
+              <Mapping SourceColumn="company_email" DataSetColumn="company_email" />
               <Mapping SourceColumn="reference_no" DataSetColumn="reference_no" />
               <Mapping SourceColumn="customer_name" DataSetColumn="customer_name" />
               <Mapping SourceColumn="customer_registration_no" DataSetColumn="customer_registration_no" />
@@ -349,7 +353,7 @@
   <xs:element name="Vehicle_ds" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Vehicle_ds" msprop:Generator_UserDSName="Vehicle_ds">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="sp_select_vehicle_simplified" msprop:Generator_TableClassName="sp_select_vehicle_simplifiedDataTable" msprop:Generator_TableVarName="tablesp_select_vehicle_simplified" msprop:Generator_RowChangedName="sp_select_vehicle_simplifiedRowChanged" msprop:Generator_TablePropName="sp_select_vehicle_simplified" msprop:Generator_RowDeletingName="sp_select_vehicle_simplifiedRowDeleting" msprop:Generator_RowChangingName="sp_select_vehicle_simplifiedRowChanging" msprop:Generator_RowEvHandlerName="sp_select_vehicle_simplifiedRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_select_vehicle_simplifiedRowDeleted" msprop:Generator_RowClassName="sp_select_vehicle_simplifiedRow" msprop:Generator_UserTableName="sp_select_vehicle_simplified" msprop:Generator_RowEvArgName="sp_select_vehicle_simplifiedRowChangeEvent">
+        <xs:element name="sp_select_vehicle_simplified" msprop:Generator_TableClassName="sp_select_vehicle_simplifiedDataTable" msprop:Generator_TableVarName="tablesp_select_vehicle_simplified" msprop:Generator_TablePropName="sp_select_vehicle_simplified" msprop:Generator_RowDeletingName="sp_select_vehicle_simplifiedRowDeleting" msprop:Generator_RowChangingName="sp_select_vehicle_simplifiedRowChanging" msprop:Generator_RowEvHandlerName="sp_select_vehicle_simplifiedRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_select_vehicle_simplifiedRowDeleted" msprop:Generator_UserTableName="sp_select_vehicle_simplified" msprop:Generator_RowChangedName="sp_select_vehicle_simplifiedRowChanged" msprop:Generator_RowEvArgName="sp_select_vehicle_simplifiedRowChangeEvent" msprop:Generator_RowClassName="sp_select_vehicle_simplifiedRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="vehicle" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnvehicle" msprop:Generator_ColumnPropNameInRow="vehicle" msprop:Generator_ColumnPropNameInTable="vehicleColumn" msprop:Generator_UserColumnName="vehicle" type="xs:int" />
@@ -428,7 +432,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="sp_select_vehicle" msprop:Generator_TableClassName="sp_select_vehicleDataTable" msprop:Generator_TableVarName="tablesp_select_vehicle" msprop:Generator_RowChangedName="sp_select_vehicleRowChanged" msprop:Generator_TablePropName="sp_select_vehicle" msprop:Generator_RowDeletingName="sp_select_vehicleRowDeleting" msprop:Generator_RowChangingName="sp_select_vehicleRowChanging" msprop:Generator_RowEvHandlerName="sp_select_vehicleRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_select_vehicleRowDeleted" msprop:Generator_RowClassName="sp_select_vehicleRow" msprop:Generator_UserTableName="sp_select_vehicle" msprop:Generator_RowEvArgName="sp_select_vehicleRowChangeEvent">
+        <xs:element name="sp_select_vehicle" msprop:Generator_TableClassName="sp_select_vehicleDataTable" msprop:Generator_TableVarName="tablesp_select_vehicle" msprop:Generator_TablePropName="sp_select_vehicle" msprop:Generator_RowDeletingName="sp_select_vehicleRowDeleting" msprop:Generator_RowChangingName="sp_select_vehicleRowChanging" msprop:Generator_RowEvHandlerName="sp_select_vehicleRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_select_vehicleRowDeleted" msprop:Generator_UserTableName="sp_select_vehicle" msprop:Generator_RowChangedName="sp_select_vehicleRowChanged" msprop:Generator_RowEvArgName="sp_select_vehicleRowChangeEvent" msprop:Generator_RowClassName="sp_select_vehicleRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="vehicle" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnvehicle" msprop:Generator_ColumnPropNameInRow="vehicle" msprop:Generator_ColumnPropNameInTable="vehicleColumn" msprop:Generator_UserColumnName="vehicle" type="xs:int" />
@@ -640,7 +644,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="sp_vehicle_received_note" msprop:Generator_TableClassName="sp_vehicle_received_noteDataTable" msprop:Generator_TableVarName="tablesp_vehicle_received_note" msprop:Generator_TablePropName="sp_vehicle_received_note" msprop:Generator_RowDeletingName="sp_vehicle_received_noteRowDeleting" msprop:Generator_RowChangingName="sp_vehicle_received_noteRowChanging" msprop:Generator_RowEvHandlerName="sp_vehicle_received_noteRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_vehicle_received_noteRowDeleted" msprop:Generator_UserTableName="sp_vehicle_received_note" msprop:Generator_RowChangedName="sp_vehicle_received_noteRowChanged" msprop:Generator_RowEvArgName="sp_vehicle_received_noteRowChangeEvent" msprop:Generator_RowClassName="sp_vehicle_received_noteRow">
+        <xs:element name="sp_vehicle_received_note" msprop:Generator_TableClassName="sp_vehicle_received_noteDataTable" msprop:Generator_TableVarName="tablesp_vehicle_received_note" msprop:Generator_RowChangedName="sp_vehicle_received_noteRowChanged" msprop:Generator_TablePropName="sp_vehicle_received_note" msprop:Generator_RowDeletingName="sp_vehicle_received_noteRowDeleting" msprop:Generator_RowChangingName="sp_vehicle_received_noteRowChanging" msprop:Generator_RowEvHandlerName="sp_vehicle_received_noteRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_vehicle_received_noteRowDeleted" msprop:Generator_RowClassName="sp_vehicle_received_noteRow" msprop:Generator_UserTableName="sp_vehicle_received_note" msprop:Generator_RowEvArgName="sp_vehicle_received_noteRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="vehicle" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnvehicle" msprop:Generator_ColumnPropNameInRow="vehicle" msprop:Generator_ColumnPropNameInTable="vehicleColumn" msprop:Generator_UserColumnName="vehicle" type="xs:int" />
@@ -655,6 +659,34 @@
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="company_address" msprop:Generator_ColumnVarNameInTable="columncompany_address" msprop:Generator_ColumnPropNameInRow="company_address" msprop:Generator_ColumnPropNameInTable="company_addressColumn" msprop:Generator_UserColumnName="company_address">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="company_tel_no" msprop:Generator_ColumnVarNameInTable="columncompany_tel_no" msprop:Generator_ColumnPropNameInRow="company_tel_no" msprop:Generator_ColumnPropNameInTable="company_tel_noColumn" msprop:Generator_UserColumnName="company_tel_no">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="company_fax_no" msprop:Generator_ColumnVarNameInTable="columncompany_fax_no" msprop:Generator_ColumnPropNameInRow="company_fax_no" msprop:Generator_ColumnPropNameInTable="company_fax_noColumn" msprop:Generator_UserColumnName="company_fax_no">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="company_email" msprop:Generator_ColumnVarNameInTable="columncompany_email" msprop:Generator_ColumnPropNameInRow="company_email" msprop:Generator_ColumnPropNameInTable="company_emailColumn" msprop:Generator_UserColumnName="company_email">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -790,7 +822,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="sp_evidence_of_purchase" msprop:Generator_TableClassName="sp_evidence_of_purchaseDataTable" msprop:Generator_TableVarName="tablesp_evidence_of_purchase" msprop:Generator_RowChangedName="sp_evidence_of_purchaseRowChanged" msprop:Generator_TablePropName="sp_evidence_of_purchase" msprop:Generator_RowDeletingName="sp_evidence_of_purchaseRowDeleting" msprop:Generator_RowChangingName="sp_evidence_of_purchaseRowChanging" msprop:Generator_RowEvHandlerName="sp_evidence_of_purchaseRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_evidence_of_purchaseRowDeleted" msprop:Generator_RowClassName="sp_evidence_of_purchaseRow" msprop:Generator_UserTableName="sp_evidence_of_purchase" msprop:Generator_RowEvArgName="sp_evidence_of_purchaseRowChangeEvent">
+        <xs:element name="sp_evidence_of_purchase" msprop:Generator_TableClassName="sp_evidence_of_purchaseDataTable" msprop:Generator_TableVarName="tablesp_evidence_of_purchase" msprop:Generator_TablePropName="sp_evidence_of_purchase" msprop:Generator_RowDeletingName="sp_evidence_of_purchaseRowDeleting" msprop:Generator_RowChangingName="sp_evidence_of_purchaseRowChanging" msprop:Generator_RowEvHandlerName="sp_evidence_of_purchaseRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_evidence_of_purchaseRowDeleted" msprop:Generator_UserTableName="sp_evidence_of_purchase" msprop:Generator_RowChangedName="sp_evidence_of_purchaseRowChanged" msprop:Generator_RowEvArgName="sp_evidence_of_purchaseRowChangeEvent" msprop:Generator_RowClassName="sp_evidence_of_purchaseRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="company_name" msprop:Generator_ColumnVarNameInTable="columncompany_name" msprop:Generator_ColumnPropNameInRow="company_name" msprop:Generator_ColumnPropNameInTable="company_nameColumn" msprop:Generator_UserColumnName="company_name">
@@ -920,7 +952,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="sp_hire_purchase" msprop:Generator_TableClassName="sp_hire_purchaseDataTable" msprop:Generator_TableVarName="tablesp_hire_purchase" msprop:Generator_TablePropName="sp_hire_purchase" msprop:Generator_RowDeletingName="sp_hire_purchaseRowDeleting" msprop:Generator_RowChangingName="sp_hire_purchaseRowChanging" msprop:Generator_RowEvHandlerName="sp_hire_purchaseRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_hire_purchaseRowDeleted" msprop:Generator_UserTableName="sp_hire_purchase" msprop:Generator_RowChangedName="sp_hire_purchaseRowChanged" msprop:Generator_RowEvArgName="sp_hire_purchaseRowChangeEvent" msprop:Generator_RowClassName="sp_hire_purchaseRow">
+        <xs:element name="sp_hire_purchase" msprop:Generator_TableClassName="sp_hire_purchaseDataTable" msprop:Generator_TableVarName="tablesp_hire_purchase" msprop:Generator_RowChangedName="sp_hire_purchaseRowChanged" msprop:Generator_TablePropName="sp_hire_purchase" msprop:Generator_RowDeletingName="sp_hire_purchaseRowDeleting" msprop:Generator_RowChangingName="sp_hire_purchaseRowChanging" msprop:Generator_RowEvHandlerName="sp_hire_purchaseRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_hire_purchaseRowDeleted" msprop:Generator_RowClassName="sp_hire_purchaseRow" msprop:Generator_UserTableName="sp_hire_purchase" msprop:Generator_RowEvArgName="sp_hire_purchaseRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="company_name" msprop:Generator_ColumnVarNameInTable="columncompany_name" msprop:Generator_ColumnPropNameInRow="company_name" msprop:Generator_ColumnPropNameInTable="company_nameColumn" msprop:Generator_UserColumnName="company_name">
