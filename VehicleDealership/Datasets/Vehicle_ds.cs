@@ -8,6 +8,10 @@ namespace VehicleDealership.Datasets
 
 	partial class Vehicle_ds
 	{
+		partial class sp_vehicle_incoming_docDataTable
+		{
+		}
+
 		private static Vehicle_dsTableAdapters.sp_select_vehicle_simplifiedTableAdapter Select_Vehicle_SimplifiedTableAdapter()
 		{
 			return new Vehicle_dsTableAdapters.sp_select_vehicle_simplifiedTableAdapter();
@@ -19,10 +23,6 @@ namespace VehicleDealership.Datasets
 		private static Vehicle_dsTableAdapters.QueriesTableAdapter QueriesTableAdapter()
 		{
 			return new Vehicle_dsTableAdapters.QueriesTableAdapter();
-		}
-		private static Vehicle_dsTableAdapters.sp_vehicle_received_noteTableAdapter Vehicle_Received_NoteTableAdapter()
-		{
-			return new Vehicle_dsTableAdapters.sp_vehicle_received_noteTableAdapter();
 		}
 		public static sp_select_vehicle_simplifiedDataTable Select_vehicle_simplified()
 		{
@@ -164,12 +164,12 @@ namespace VehicleDealership.Datasets
 			}
 			return false;
 		}
-		public static sp_vehicle_received_noteDataTable Vehicle_received_note(int int_vehicle)
+		public static sp_vehicle_incoming_docDataTable Vehicle_incoming_doc(int int_vehicle)
 		{
 			try
 			{
-				using (Vehicle_dsTableAdapters.sp_vehicle_received_noteTableAdapter adapter =
-					Vehicle_Received_NoteTableAdapter())
+				using (Vehicle_dsTableAdapters.sp_vehicle_incoming_docTableAdapter adapter =
+					new Vehicle_dsTableAdapters.sp_vehicle_incoming_docTableAdapter())
 				{
 					return adapter.GetData(int_vehicle);
 				}
@@ -179,41 +179,7 @@ namespace VehicleDealership.Datasets
 				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
 					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
-			return new sp_vehicle_received_noteDataTable();
-		}
-		public static sp_evidence_of_purchaseDataTable Evidence_Of_Purchase(int int_vehicle)
-		{
-			try
-			{
-				using (Vehicle_dsTableAdapters.sp_evidence_of_purchaseTableAdapter adapter =
-					new Vehicle_dsTableAdapters.sp_evidence_of_purchaseTableAdapter())
-				{
-					return adapter.GetData(int_vehicle);
-				}
-			}
-			catch (System.Exception e)
-			{
-				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
-					MethodBase.GetCurrentMethod().Name, e.Message);
-			}
-			return new sp_evidence_of_purchaseDataTable();
-		}
-		public static sp_hire_purchaseDataTable Hire_purchase(int int_vehicle)
-		{
-			try
-			{
-				using (Vehicle_dsTableAdapters.sp_hire_purchaseTableAdapter adapter =
-					new Vehicle_dsTableAdapters.sp_hire_purchaseTableAdapter())
-				{
-					return adapter.GetData(int_vehicle);
-				}
-			}
-			catch (System.Exception e)
-			{
-				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
-					MethodBase.GetCurrentMethod().Name, e.Message);
-			}
-			return new sp_hire_purchaseDataTable();
+			return new sp_vehicle_incoming_docDataTable();
 		}
 	}
 }

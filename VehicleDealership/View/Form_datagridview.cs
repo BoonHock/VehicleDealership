@@ -863,7 +863,7 @@ namespace VehicleDealership.View
 			Cursor = Cursors.WaitCursor;
 			using (Crystal_report.CR_vehicle_received_note cr_report = new Crystal_report.CR_vehicle_received_note())
 			{
-				cr_report.SetDataSource(Vehicle_ds.Vehicle_received_note((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value).CopyToDataTable());
+				cr_report.SetDataSource(Vehicle_ds.Vehicle_incoming_doc((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value).CopyToDataTable());
 
 				using (Crystal_report.Form_crystal_report dlg_cr = new Crystal_report.Form_crystal_report(cr_report))
 				{
@@ -880,7 +880,7 @@ namespace VehicleDealership.View
 			Cursor = Cursors.WaitCursor;
 			using (Crystal_report.CR_evidence_of_purchase cr_report = new Crystal_report.CR_evidence_of_purchase())
 			{
-				cr_report.SetDataSource(Vehicle_ds.Evidence_Of_Purchase((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value).CopyToDataTable());
+				cr_report.SetDataSource(Vehicle_ds.Vehicle_incoming_doc((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value).CopyToDataTable());
 
 				using (Crystal_report.Form_crystal_report dlg_cr = new Crystal_report.Form_crystal_report(cr_report))
 				{
@@ -897,7 +897,7 @@ namespace VehicleDealership.View
 			Cursor = Cursors.WaitCursor;
 			using (Crystal_report.CR_hire_purchase cr_report = new Crystal_report.CR_hire_purchase())
 			{
-				cr_report.SetDataSource(Vehicle_ds.Hire_purchase((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value).CopyToDataTable());
+				cr_report.SetDataSource(Vehicle_ds.Vehicle_incoming_doc((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value).CopyToDataTable());
 
 				using (Crystal_report.Form_crystal_report dlg_cr = new Crystal_report.Form_crystal_report(cr_report))
 				{
