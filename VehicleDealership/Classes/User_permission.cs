@@ -34,6 +34,8 @@ namespace VehicleDealership.Classes
 		public static string VEHICLE_VIEW { get { return "VEHICLE_VIEW"; } }
 		public static string LOCATION_ADD_EDIT { get { return "LOCATION_ADD_EDIT"; } }
 		public static string LOCATION_DELETE { get { return "LOCATION_DELETE"; } }
+		public static string VEHICLE_RETURN_ADD_EDIT { get { return "VEHICLE_RETURN_ADD_EDIT"; } }
+		public static string VEHICLE_RETURN_DELETE { get { return "VEHICLE_RETURN_DELETE"; } }
 		
 
 		//private User_permission(string value) { Value = value; }

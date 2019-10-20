@@ -65,10 +65,11 @@
 			this.cmb_vehicle_acquire = new System.Windows.Forms.ToolStripComboBox();
 			this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
 			this.cmb_vehicle_status = new System.Windows.Forms.ToolStripComboBox();
-			this.btn_received_note = new System.Windows.Forms.ToolStripButton();
-			this.btn_eop = new System.Windows.Forms.ToolStripButton();
-			this.btn_hire_purchase = new System.Windows.Forms.ToolStripButton();
-			this.btn_spa = new System.Windows.Forms.ToolStripButton();
+			this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+			this.vehicleReceivedNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.evidenceOfPurchaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.hirePurchaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.salesPurchaseAgreementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ts_user.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_main)).BeginInit();
 			this.cms_grd_main.SuspendLayout();
@@ -324,10 +325,7 @@
             this.cmb_vehicle_acquire,
             this.toolStripLabel7,
             this.cmb_vehicle_status,
-            this.btn_received_note,
-            this.btn_eop,
-            this.btn_hire_purchase,
-            this.btn_spa});
+            this.toolStripDropDownButton1});
 			this.ts_vehicle.Location = new System.Drawing.Point(0, 75);
 			this.ts_vehicle.Name = "ts_vehicle";
 			this.ts_vehicle.Size = new System.Drawing.Size(1212, 25);
@@ -408,43 +406,47 @@
 			this.cmb_vehicle_status.Name = "cmb_vehicle_status";
 			this.cmb_vehicle_status.Size = new System.Drawing.Size(121, 25);
 			// 
-			// btn_received_note
+			// toolStripDropDownButton1
 			// 
-			this.btn_received_note.Image = global::VehicleDealership.Properties.Resources.Print_16x;
-			this.btn_received_note.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_received_note.Name = "btn_received_note";
-			this.btn_received_note.Size = new System.Drawing.Size(101, 22);
-			this.btn_received_note.Text = "Received note";
-			this.btn_received_note.Click += new System.EventHandler(this.Btn_received_note_Click);
+			this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.vehicleReceivedNoteToolStripMenuItem,
+            this.evidenceOfPurchaseToolStripMenuItem,
+            this.hirePurchaseToolStripMenuItem,
+            this.salesPurchaseAgreementToolStripMenuItem});
+			this.toolStripDropDownButton1.Image = global::VehicleDealership.Properties.Resources.Print_16x;
+			this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+			this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 22);
+			this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
 			// 
-			// btn_eop
+			// vehicleReceivedNoteToolStripMenuItem
 			// 
-			this.btn_eop.Image = global::VehicleDealership.Properties.Resources.Print_16x;
-			this.btn_eop.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_eop.Name = "btn_eop";
-			this.btn_eop.Size = new System.Drawing.Size(49, 22);
-			this.btn_eop.Text = "EOP";
-			this.btn_eop.ToolTipText = "Evidence of Purchase";
-			this.btn_eop.Click += new System.EventHandler(this.Btn_eop_Click);
+			this.vehicleReceivedNoteToolStripMenuItem.Name = "vehicleReceivedNoteToolStripMenuItem";
+			this.vehicleReceivedNoteToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+			this.vehicleReceivedNoteToolStripMenuItem.Text = "Vehicle Received Note";
+			this.vehicleReceivedNoteToolStripMenuItem.Click += new System.EventHandler(this.VehicleReceivedNoteToolStripMenuItem_Click);
 			// 
-			// btn_hire_purchase
+			// evidenceOfPurchaseToolStripMenuItem
 			// 
-			this.btn_hire_purchase.Image = global::VehicleDealership.Properties.Resources.Print_16x;
-			this.btn_hire_purchase.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_hire_purchase.Name = "btn_hire_purchase";
-			this.btn_hire_purchase.Size = new System.Drawing.Size(100, 22);
-			this.btn_hire_purchase.Text = "Hire purchase";
-			this.btn_hire_purchase.Click += new System.EventHandler(this.Btn_hire_purchase_Click);
+			this.evidenceOfPurchaseToolStripMenuItem.Name = "evidenceOfPurchaseToolStripMenuItem";
+			this.evidenceOfPurchaseToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+			this.evidenceOfPurchaseToolStripMenuItem.Text = "Evidence of Purchase";
+			this.evidenceOfPurchaseToolStripMenuItem.Click += new System.EventHandler(this.EvidenceOfPurchaseToolStripMenuItem_Click);
 			// 
-			// btn_spa
+			// hirePurchaseToolStripMenuItem
 			// 
-			this.btn_spa.Image = global::VehicleDealership.Properties.Resources.Print_16x;
-			this.btn_spa.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_spa.Name = "btn_spa";
-			this.btn_spa.Size = new System.Drawing.Size(48, 22);
-			this.btn_spa.Text = "SPA";
-			this.btn_spa.ToolTipText = "Sales & Purchase Agreement";
-			this.btn_spa.Click += new System.EventHandler(this.Btn_spa_Click);
+			this.hirePurchaseToolStripMenuItem.Name = "hirePurchaseToolStripMenuItem";
+			this.hirePurchaseToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+			this.hirePurchaseToolStripMenuItem.Text = "Hire Purchase";
+			this.hirePurchaseToolStripMenuItem.Click += new System.EventHandler(this.HirePurchaseToolStripMenuItem_Click);
+			// 
+			// salesPurchaseAgreementToolStripMenuItem
+			// 
+			this.salesPurchaseAgreementToolStripMenuItem.Name = "salesPurchaseAgreementToolStripMenuItem";
+			this.salesPurchaseAgreementToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+			this.salesPurchaseAgreementToolStripMenuItem.Text = "Sales && Purchase Agreement";
+			this.salesPurchaseAgreementToolStripMenuItem.Click += new System.EventHandler(this.SalesPurchaseAgreementToolStripMenuItem_Click);
 			// 
 			// Form_datagridview
 			// 
@@ -513,11 +515,12 @@
 		private System.Windows.Forms.ToolStripTextBox txt_search_vehicle;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel6;
 		private System.Windows.Forms.ToolStripComboBox cmb_vehicle_status;
-		private System.Windows.Forms.ToolStripButton btn_received_note;
-		private System.Windows.Forms.ToolStripButton btn_eop;
-		private System.Windows.Forms.ToolStripButton btn_hire_purchase;
-		private System.Windows.Forms.ToolStripButton btn_spa;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel7;
 		private System.Windows.Forms.ToolStripComboBox cmb_vehicle_acquire;
+		private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+		private System.Windows.Forms.ToolStripMenuItem vehicleReceivedNoteToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem evidenceOfPurchaseToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem hirePurchaseToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem salesPurchaseAgreementToolStripMenuItem;
 	}
 }

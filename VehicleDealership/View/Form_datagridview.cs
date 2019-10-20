@@ -95,6 +95,14 @@ namespace VehicleDealership.View
 					else
 						Setup_form_vehicle();
 					break;
+				case "VEHICLE RETURN":
+					if (!Program.System_user.Has_permission(User_permission.VEHICLE_VIEW) &&
+						!Program.System_user.Has_permission(User_permission.VEHICLE_RETURN_ADD_EDIT) &&
+						!Program.System_user.Has_permission(User_permission.VEHICLE_RETURN_DELETE))
+						permission_denied = true;
+					else
+						Setup_form_vehicle_return();
+					break;
 				case "LOCATION":
 					if (!Program.System_user.Has_permission(User_permission.LOCATION_ADD_EDIT) &&
 						!Program.System_user.Has_permission(User_permission.LOCATION_DELETE))
@@ -856,7 +864,7 @@ namespace VehicleDealership.View
 				}
 			}
 		}
-		private void Btn_received_note_Click(object sender, EventArgs e)
+		private void VehicleReceivedNoteToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			if (grd_main.SelectedCells.Count == 0) return;
 
@@ -873,7 +881,7 @@ namespace VehicleDealership.View
 			}
 			Cursor = Cursors.Default;
 		}
-		private void Btn_eop_Click(object sender, EventArgs e)
+		private void EvidenceOfPurchaseToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			if (grd_main.SelectedCells.Count == 0) return;
 
@@ -890,7 +898,7 @@ namespace VehicleDealership.View
 			}
 			Cursor = Cursors.Default;
 		}
-		private void Btn_hire_purchase_Click(object sender, EventArgs e)
+		private void HirePurchaseToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			if (grd_main.SelectedCells.Count == 0) return;
 
@@ -907,9 +915,75 @@ namespace VehicleDealership.View
 			}
 			Cursor = Cursors.Default;
 		}
-		private void Btn_spa_Click(object sender, EventArgs e)
+		private void SalesPurchaseAgreementToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			if (grd_main.SelectedCells.Count == 0) return;
+
+			Cursor = Cursors.WaitCursor;
+			using (Crystal_report.CR_sales_n_purchase_agreement cr_report = new Crystal_report.CR_sales_n_purchase_agreement())
+			{
+				cr_report.SetDataSource(Vehicle_ds.Vehicle_incoming_doc((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value).CopyToDataTable());
+
+				using (Crystal_report.Form_crystal_report dlg_cr = new Crystal_report.Form_crystal_report(cr_report))
+				{
+					dlg_cr.Text = "Sales & Purchase Agreement";
+					dlg_cr.ShowDialog();
+				}
+			}
+			Cursor = Cursors.Default;
+		}
+		#endregion
+		#region VEHICLE RETURN
+		private void Setup_form_vehicle_return()
+		{
+			ts_add_edit_delete.Visible = true;
+
+			lbl_status.Visible = false;
+			cmb_status.Visible = false;
+
+			bool has_add_edit_permission = Program.System_user.Has_permission(User_permission.VEHICLE_RETURN_ADD_EDIT);
+			bool has_delete_permission = Program.System_user.Has_permission(User_permission.VEHICLE_RETURN_DELETE);
+
+			btn_add.Enabled = has_add_edit_permission;
+			btn_edit.Enabled = has_add_edit_permission;
+			btn_delete.Enabled = has_delete_permission;
+
+			addToolStripMenuItem.Enabled = has_add_edit_permission;
+			editToolStripMenuItem.Enabled = has_add_edit_permission;
+			deleteToolStripMenuItem.Enabled = has_delete_permission;
+
+			Setup_grd_vehicle_return();
+
+			txt_search_vehicle.TextChanged += (sender2, e2) => Apply_filter_vehicle_return();
+			cmb_vehicle_acquire.ComboBox.SelectedIndexChanged += (sender2, e2) => Apply_filter_vehicle_return();
+			cmb_vehicle_status.ComboBox.SelectedIndexChanged += (sender2, e2) => Apply_filter_vehicle_return();
+
+			btn_add_vehicle.Click += Add_vehicle_return;
+			addToolStripMenuItem.Click += Add_vehicle_return;
+			btn_edit_vehicle.Click += Edit_vehicle_return;
+			editToolStripMenuItem.Click += Edit_vehicle_return;
+			btn_delete_vehicle.Click += Delete_vehicle_return;
+			deleteToolStripMenuItem.Click += Delete_vehicle_return;
+		}
+		private void Setup_grd_vehicle_return(int int_vehicle = 0)
+		{
+
+		}
+		private void Apply_filter_vehicle_return()
+		{
+
+		}
+		private void Add_vehicle_return(object sender, EventArgs e)
+		{
+
+		}
+		private void Edit_vehicle_return(object sender, EventArgs e)
+		{
+
+		}
+		private void Delete_vehicle_return(object sender, EventArgs e)
+		{
+
 		}
 		#endregion
 		#region LOCATION

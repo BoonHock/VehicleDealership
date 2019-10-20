@@ -109,12 +109,12 @@ namespace VehicleDealership.View
 				VehicleID = Vehicle_ds.Insert_vehicle((int)num_seller_id.Value, txt_seller_type.Text == "PERSON",
 					str_reg_no, int_chassis, (int)cmb_vehicle_colour.SelectedValue, rad_vehicle_new.Checked,
 					int_location, str_engine_no, (double)num_engine_cc.Value, (int)num_mileage.Value,
-					int_vehicle_sale, consignment_mortgage, txt_door_key.Text.Trim(),
-					txt_ignition_key.Text.Trim(), dtp_purchase_date.Value, dtp_date_received.Value,
+					int_vehicle_sale, consignment_mortgage, txt_door_key.Text.Trim(), txt_ignition_key.Text.Trim(),
+					dtp_purchase_date.Value, dtp_date_received.Value, dtp_settle_by.Value,
 					txt_invoice_no.Text.Trim(), num_road_tax_amount.Value, dtp_road_tax_expiry.Value,
-					num_purchase_price.Value, num_overtrade.Value, num_list_price.Value,num_max_can_loan.Value,
+					num_purchase_price.Value, num_overtrade.Value, num_list_price.Value, num_max_can_loan.Value,
 					num_loan_balance_readonly.Value, num_installment_amount.Value, int_loan_finance,
-					(int)num_installment_day.Value, dtp_settlement_date.Value, txt_loan_agreement_no.Text.Trim(),
+					(int)num_installment_day.Value, dtp_loan_settlement_date.Value, txt_loan_agreement_no.Text.Trim(),
 					txt_remark.Text.Trim(), (int)num_checked_by_id.Value);
 			}
 			else
@@ -123,12 +123,12 @@ namespace VehicleDealership.View
 				Vehicle_ds.Update_vehicle(VehicleID, (int)num_seller_id.Value, txt_seller_type.Text == "PERSON",
 					str_reg_no, int_chassis, (int)cmb_vehicle_colour.SelectedValue, rad_vehicle_new.Checked,
 					int_location, str_engine_no, (double)num_engine_cc.Value, (int)num_mileage.Value,
-					int_vehicle_sale, consignment_mortgage, txt_door_key.Text.Trim(),
-					txt_ignition_key.Text.Trim(), dtp_purchase_date.Value, dtp_date_received.Value,
+					int_vehicle_sale, consignment_mortgage, txt_door_key.Text.Trim(), txt_ignition_key.Text.Trim(),
+					dtp_purchase_date.Value, dtp_date_received.Value, dtp_settle_by.Value,
 					txt_invoice_no.Text.Trim(), num_road_tax_amount.Value, dtp_road_tax_expiry.Value,
 					num_purchase_price.Value, num_overtrade.Value, num_list_price.Value, num_max_can_loan.Value,
 					num_loan_balance_readonly.Value, num_installment_amount.Value, int_loan_finance,
-					(int)num_installment_day.Value, dtp_settlement_date.Value, txt_loan_agreement_no.Text.Trim(),
+					(int)num_installment_day.Value, dtp_loan_settlement_date.Value, txt_loan_agreement_no.Text.Trim(),
 					txt_remark.Text.Trim(), (int)num_checked_by_id.Value);
 			}
 
@@ -498,6 +498,7 @@ namespace VehicleDealership.View
 				cmb_acquire_method.SelectedItem = dttable[0].acquire_method;
 				dtp_purchase_date.Value = dttable[0].purchase_date;
 				dtp_date_received.Value = dttable[0].date_received;
+				dtp_settle_by.Value = dttable[0].settlement_date;
 
 				if (dttable[0]["vehicle_sale_no"] != DBNull.Value)
 					txt_sale_order.Text = dttable[0].vehicle_sale_no;
@@ -517,7 +518,7 @@ namespace VehicleDealership.View
 
 				num_installment_amount.Value = dttable[0].loan_installment_amount;
 				num_installment_day.Value = dttable[0].loan_installment_day_of_month;
-				dtp_settlement_date.Value = dttable[0].loan_settlement_date;
+				dtp_loan_settlement_date.Value = dttable[0].loan_settlement_date;
 				txt_loan_agreement_no.Text = dttable[0].loan_agreement_no;
 
 				txt_remark.Text = dttable[0].remark;

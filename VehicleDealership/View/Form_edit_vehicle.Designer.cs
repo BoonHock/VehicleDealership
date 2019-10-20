@@ -133,7 +133,7 @@
 			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.btn_clear_loan_finance = new System.Windows.Forms.Button();
 			this.btn_loan_finance = new System.Windows.Forms.Button();
-			this.dtp_settlement_date = new System.Windows.Forms.DateTimePicker();
+			this.dtp_loan_settlement_date = new System.Windows.Forms.DateTimePicker();
 			this.txt_loan_branch = new System.Windows.Forms.TextBox();
 			this.num_installment_day = new System.Windows.Forms.NumericUpDown();
 			this.num_installment_amount = new System.Windows.Forms.NumericUpDown();
@@ -201,6 +201,8 @@
 			this.btn_ok = new System.Windows.Forms.Button();
 			this.filedlg_img = new System.Windows.Forms.OpenFileDialog();
 			this.filedlg_attachment = new System.Windows.Forms.OpenFileDialog();
+			this.dtp_settle_by = new System.Windows.Forms.DateTimePicker();
+			this.label2 = new System.Windows.Forms.Label();
 			this.tabControl1.SuspendLayout();
 			this.tabPage4.SuspendLayout();
 			this.groupBox10.SuspendLayout();
@@ -269,7 +271,7 @@
 			this.tabControl1.Location = new System.Drawing.Point(0, 0);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(943, 572);
+			this.tabControl1.Size = new System.Drawing.Size(943, 576);
 			this.tabControl1.TabIndex = 0;
 			// 
 			// tabPage4
@@ -285,10 +287,12 @@
 			this.tabPage4.Controls.Add(this.txt_ref_no);
 			this.tabPage4.Controls.Add(this.txt_last_modified_by);
 			this.tabPage4.Controls.Add(this.label85);
+			this.tabPage4.Controls.Add(this.dtp_settle_by);
+			this.tabPage4.Controls.Add(this.label2);
 			this.tabPage4.Location = new System.Drawing.Point(4, 26);
 			this.tabPage4.Name = "tabPage4";
 			this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage4.Size = new System.Drawing.Size(935, 542);
+			this.tabPage4.Size = new System.Drawing.Size(935, 546);
 			this.tabPage4.TabIndex = 7;
 			this.tabPage4.Text = "Home";
 			this.tabPage4.UseVisualStyleBackColor = true;
@@ -298,7 +302,7 @@
 			this.groupBox10.Controls.Add(this.tableLayoutPanel6);
 			this.groupBox10.Location = new System.Drawing.Point(378, 277);
 			this.groupBox10.Name = "groupBox10";
-			this.groupBox10.Size = new System.Drawing.Size(551, 255);
+			this.groupBox10.Size = new System.Drawing.Size(551, 204);
 			this.groupBox10.TabIndex = 6;
 			this.groupBox10.TabStop = false;
 			this.groupBox10.Text = "Finance (All amounts in MYR)";
@@ -343,7 +347,7 @@
 			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel6.Size = new System.Drawing.Size(545, 231);
+			this.tableLayoutPanel6.Size = new System.Drawing.Size(545, 180);
 			this.tableLayoutPanel6.TabIndex = 0;
 			// 
 			// num_purchase_price
@@ -694,7 +698,6 @@
             0,
             0});
 			this.num_max_can_loan.Name = "num_max_can_loan";
-			this.num_max_can_loan.ReadOnly = true;
 			this.num_max_can_loan.Size = new System.Drawing.Size(126, 25);
 			this.num_max_can_loan.TabIndex = 9;
 			this.num_max_can_loan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -705,7 +708,7 @@
 			this.groupBox9.Controls.Add(this.tableLayoutPanel5);
 			this.groupBox9.Location = new System.Drawing.Point(6, 277);
 			this.groupBox9.Name = "groupBox9";
-			this.groupBox9.Size = new System.Drawing.Size(363, 259);
+			this.groupBox9.Size = new System.Drawing.Size(363, 263);
 			this.groupBox9.TabIndex = 5;
 			this.groupBox9.TabStop = false;
 			this.groupBox9.Text = "Acquire details";
@@ -754,7 +757,7 @@
 			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel5.Size = new System.Drawing.Size(357, 235);
+			this.tableLayoutPanel5.Size = new System.Drawing.Size(357, 239);
 			this.tableLayoutPanel5.TabIndex = 27;
 			// 
 			// label47
@@ -961,7 +964,7 @@
             "MORTGAGE",
             "PURCHASE",
             "TRADE-IN"});
-			this.cmb_acquire_method.Location = new System.Drawing.Point(101, 121);
+			this.cmb_acquire_method.Location = new System.Drawing.Point(101, 119);
 			this.cmb_acquire_method.Margin = new System.Windows.Forms.Padding(2);
 			this.cmb_acquire_method.Name = "cmb_acquire_method";
 			this.cmb_acquire_method.Size = new System.Drawing.Size(224, 25);
@@ -1632,7 +1635,7 @@
 			// 
 			this.tabPage3.Controls.Add(this.btn_clear_loan_finance);
 			this.tabPage3.Controls.Add(this.btn_loan_finance);
-			this.tabPage3.Controls.Add(this.dtp_settlement_date);
+			this.tabPage3.Controls.Add(this.dtp_loan_settlement_date);
 			this.tabPage3.Controls.Add(this.txt_loan_branch);
 			this.tabPage3.Controls.Add(this.num_installment_day);
 			this.tabPage3.Controls.Add(this.num_installment_amount);
@@ -1650,7 +1653,7 @@
 			this.tabPage3.Location = new System.Drawing.Point(4, 26);
 			this.tabPage3.Name = "tabPage3";
 			this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage3.Size = new System.Drawing.Size(935, 542);
+			this.tabPage3.Size = new System.Drawing.Size(935, 546);
 			this.tabPage3.TabIndex = 6;
 			this.tabPage3.Text = "Loan details";
 			this.tabPage3.UseVisualStyleBackColor = true;
@@ -1659,7 +1662,7 @@
 			// 
 			this.btn_clear_loan_finance.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.btn_clear_loan_finance.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
-			this.btn_clear_loan_finance.Location = new System.Drawing.Point(432, 35);
+			this.btn_clear_loan_finance.Location = new System.Drawing.Point(432, 37);
 			this.btn_clear_loan_finance.Name = "btn_clear_loan_finance";
 			this.btn_clear_loan_finance.Size = new System.Drawing.Size(62, 25);
 			this.btn_clear_loan_finance.TabIndex = 2;
@@ -1671,7 +1674,7 @@
 			// btn_loan_finance
 			// 
 			this.btn_loan_finance.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.btn_loan_finance.Location = new System.Drawing.Point(401, 35);
+			this.btn_loan_finance.Location = new System.Drawing.Point(401, 37);
 			this.btn_loan_finance.Name = "btn_loan_finance";
 			this.btn_loan_finance.Size = new System.Drawing.Size(25, 25);
 			this.btn_loan_finance.TabIndex = 2;
@@ -1679,13 +1682,13 @@
 			this.btn_loan_finance.UseVisualStyleBackColor = true;
 			this.btn_loan_finance.Click += new System.EventHandler(this.Btn_loan_finance_Click);
 			// 
-			// dtp_settlement_date
+			// dtp_loan_settlement_date
 			// 
-			this.dtp_settlement_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtp_settlement_date.Location = new System.Drawing.Point(171, 155);
-			this.dtp_settlement_date.Name = "dtp_settlement_date";
-			this.dtp_settlement_date.Size = new System.Drawing.Size(126, 25);
-			this.dtp_settlement_date.TabIndex = 7;
+			this.dtp_loan_settlement_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtp_loan_settlement_date.Location = new System.Drawing.Point(171, 155);
+			this.dtp_loan_settlement_date.Name = "dtp_loan_settlement_date";
+			this.dtp_loan_settlement_date.Size = new System.Drawing.Size(126, 25);
+			this.dtp_loan_settlement_date.TabIndex = 7;
 			// 
 			// txt_loan_branch
 			// 
@@ -1699,7 +1702,7 @@
 			// num_installment_day
 			// 
 			this.num_installment_day.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.num_installment_day.Location = new System.Drawing.Point(171, 125);
+			this.num_installment_day.Location = new System.Drawing.Point(171, 127);
 			this.num_installment_day.Margin = new System.Windows.Forms.Padding(2);
 			this.num_installment_day.Maximum = new decimal(new int[] {
             31,
@@ -1726,7 +1729,7 @@
 			// 
 			this.num_installment_amount.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.num_installment_amount.DecimalPlaces = 2;
-			this.num_installment_amount.Location = new System.Drawing.Point(171, 96);
+			this.num_installment_amount.Location = new System.Drawing.Point(171, 98);
 			this.num_installment_amount.Margin = new System.Windows.Forms.Padding(2);
 			this.num_installment_amount.Maximum = new decimal(new int[] {
             1000000000,
@@ -1742,7 +1745,7 @@
 			// num_loan_finance_id
 			// 
 			this.num_loan_finance_id.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.num_loan_finance_id.Location = new System.Drawing.Point(542, 70);
+			this.num_loan_finance_id.Location = new System.Drawing.Point(542, 72);
 			this.num_loan_finance_id.Margin = new System.Windows.Forms.Padding(2);
 			this.num_loan_finance_id.Maximum = new decimal(new int[] {
             1000000000,
@@ -1760,7 +1763,7 @@
 			// 
 			this.num_loan_balance.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.num_loan_balance.DecimalPlaces = 2;
-			this.num_loan_balance.Location = new System.Drawing.Point(171, 5);
+			this.num_loan_balance.Location = new System.Drawing.Point(171, 7);
 			this.num_loan_balance.Margin = new System.Windows.Forms.Padding(2);
 			this.num_loan_balance.Maximum = new decimal(new int[] {
             1000000000,
@@ -1860,7 +1863,7 @@
 			this.tabPage2.Location = new System.Drawing.Point(4, 26);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(935, 542);
+			this.tabPage2.Size = new System.Drawing.Size(935, 546);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Expenses & payment";
 			this.tabPage2.UseVisualStyleBackColor = true;
@@ -1877,7 +1880,7 @@
 			this.tableLayoutPanel4.RowCount = 2;
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel4.Size = new System.Drawing.Size(929, 536);
+			this.tableLayoutPanel4.Size = new System.Drawing.Size(929, 540);
 			this.tableLayoutPanel4.TabIndex = 3;
 			// 
 			// groupBox4
@@ -1885,9 +1888,9 @@
 			this.groupBox4.Controls.Add(this.grd_payment);
 			this.groupBox4.Controls.Add(this.toolStrip2);
 			this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBox4.Location = new System.Drawing.Point(3, 271);
+			this.groupBox4.Location = new System.Drawing.Point(3, 273);
 			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(923, 262);
+			this.groupBox4.Size = new System.Drawing.Size(923, 264);
 			this.groupBox4.TabIndex = 2;
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "Payment";
@@ -1903,7 +1906,7 @@
 			this.grd_payment.Location = new System.Drawing.Point(3, 46);
 			this.grd_payment.Name = "grd_payment";
 			this.grd_payment.ReadOnly = true;
-			this.grd_payment.Size = new System.Drawing.Size(917, 213);
+			this.grd_payment.Size = new System.Drawing.Size(917, 215);
 			this.grd_payment.TabIndex = 2;
 			this.grd_payment.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grd_payment_CellDoubleClick);
 			// 
@@ -2001,7 +2004,7 @@
 			this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.groupBox1.Location = new System.Drawing.Point(3, 3);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(923, 262);
+			this.groupBox1.Size = new System.Drawing.Size(923, 264);
 			this.groupBox1.TabIndex = 1;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Expenses";
@@ -2017,7 +2020,7 @@
 			this.grd_expenses.Location = new System.Drawing.Point(3, 46);
 			this.grd_expenses.Name = "grd_expenses";
 			this.grd_expenses.ReadOnly = true;
-			this.grd_expenses.Size = new System.Drawing.Size(917, 213);
+			this.grd_expenses.Size = new System.Drawing.Size(917, 215);
 			this.grd_expenses.TabIndex = 2;
 			this.grd_expenses.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grd_expenses_CellDoubleClick);
 			// 
@@ -2118,7 +2121,7 @@
 			this.tabPage1.Location = new System.Drawing.Point(4, 26);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(935, 542);
+			this.tabPage1.Size = new System.Drawing.Size(935, 546);
 			this.tabPage1.TabIndex = 5;
 			this.tabPage1.Text = "Other info";
 			this.tabPage1.UseVisualStyleBackColor = true;
@@ -2332,7 +2335,7 @@
 			// 
 			this.panel1.Controls.Add(this.tableLayoutPanel2);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel1.Location = new System.Drawing.Point(0, 572);
+			this.panel1.Location = new System.Drawing.Point(0, 576);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(943, 42);
 			this.panel1.TabIndex = 1;
@@ -2387,11 +2390,32 @@
 			// 
 			this.filedlg_attachment.Multiselect = true;
 			// 
+			// dtp_settle_by
+			// 
+			this.dtp_settle_by.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.dtp_settle_by.CustomFormat = "";
+			this.dtp_settle_by.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtp_settle_by.Location = new System.Drawing.Point(450, 486);
+			this.dtp_settle_by.Margin = new System.Windows.Forms.Padding(2);
+			this.dtp_settle_by.Name = "dtp_settle_by";
+			this.dtp_settle_by.Size = new System.Drawing.Size(123, 25);
+			this.dtp_settle_by.TabIndex = 11;
+			// 
+			// label2
+			// 
+			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(384, 490);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(61, 17);
+			this.label2.TabIndex = 22;
+			this.label2.Text = "Settle by:";
+			// 
 			// Form_edit_vehicle
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(943, 614);
+			this.ClientSize = new System.Drawing.Size(943, 618);
 			this.Controls.Add(this.tabControl1);
 			this.Controls.Add(this.panel1);
 			this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2514,7 +2538,7 @@
 		private System.Windows.Forms.NumericUpDown num_loan_balance;
 		private System.Windows.Forms.TextBox txt_loan_finance;
 		private System.Windows.Forms.Label label11;
-		private System.Windows.Forms.DateTimePicker dtp_settlement_date;
+		private System.Windows.Forms.DateTimePicker dtp_loan_settlement_date;
 		private System.Windows.Forms.TextBox txt_loan_branch;
 		private System.Windows.Forms.NumericUpDown num_installment_day;
 		private System.Windows.Forms.NumericUpDown num_installment_amount;
@@ -2651,5 +2675,7 @@
 		private System.Windows.Forms.Button btn_clear_loan_finance;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.NumericUpDown num_max_can_loan;
+		private System.Windows.Forms.DateTimePicker dtp_settle_by;
+		private System.Windows.Forms.Label label2;
 	}
 }

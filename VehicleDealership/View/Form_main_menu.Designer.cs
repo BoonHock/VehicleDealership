@@ -41,6 +41,7 @@
 			this.colourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salespersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.financeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.locationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.vehicleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.vehicleToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +58,7 @@
 			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ssl_usergroup = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ssl_status = new System.Windows.Forms.ToolStripStatusLabel();
-			this.locationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.vehicleReturnsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.main_menu_strip.SuspendLayout();
 			this.log_in_menustrip.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
@@ -98,7 +99,7 @@
             this.usersToolStripMenuItem,
             this.userGroupsToolStripMenuItem});
 			this.permissionToolStripMenuItem.Name = "permissionToolStripMenuItem";
-			this.permissionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.permissionToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
 			this.permissionToolStripMenuItem.Text = "Permission";
 			// 
 			// usersToolStripMenuItem
@@ -120,7 +121,7 @@
             this.transmissionToolStripMenuItem,
             this.fuelTypeToolStripMenuItem});
 			this.vehicleToolStripMenuItem.Name = "vehicleToolStripMenuItem";
-			this.vehicleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.vehicleToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
 			this.vehicleToolStripMenuItem.Text = "Vehicle";
 			// 
 			// brandGroupModelToolStripMenuItem
@@ -144,25 +145,32 @@
 			// colourToolStripMenuItem
 			// 
 			this.colourToolStripMenuItem.Name = "colourToolStripMenuItem";
-			this.colourToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.colourToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
 			this.colourToolStripMenuItem.Text = "Colour";
 			// 
 			// salespersonToolStripMenuItem
 			// 
 			this.salespersonToolStripMenuItem.Name = "salespersonToolStripMenuItem";
-			this.salespersonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.salespersonToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
 			this.salespersonToolStripMenuItem.Text = "Salesperson";
 			// 
 			// financeToolStripMenuItem
 			// 
 			this.financeToolStripMenuItem.Name = "financeToolStripMenuItem";
-			this.financeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.financeToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
 			this.financeToolStripMenuItem.Text = "Finance";
+			// 
+			// locationToolStripMenuItem
+			// 
+			this.locationToolStripMenuItem.Name = "locationToolStripMenuItem";
+			this.locationToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+			this.locationToolStripMenuItem.Text = "Location";
 			// 
 			// vehicleToolStripMenuItem1
 			// 
 			this.vehicleToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.vehicleToolStripMenuItem2});
+            this.vehicleToolStripMenuItem2,
+            this.vehicleReturnsToolStripMenuItem});
 			this.vehicleToolStripMenuItem1.Name = "vehicleToolStripMenuItem1";
 			this.vehicleToolStripMenuItem1.Size = new System.Drawing.Size(57, 19);
 			this.vehicleToolStripMenuItem1.Text = "Vehicle";
@@ -170,7 +178,7 @@
 			// vehicleToolStripMenuItem2
 			// 
 			this.vehicleToolStripMenuItem2.Name = "vehicleToolStripMenuItem2";
-			this.vehicleToolStripMenuItem2.Size = new System.Drawing.Size(112, 22);
+			this.vehicleToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
 			this.vehicleToolStripMenuItem2.Text = "Vehicle";
 			// 
 			// salesToolStripMenuItem
@@ -295,11 +303,11 @@
 			this.ssl_status.Size = new System.Drawing.Size(43, 19);
 			this.ssl_status.Text = "Ready";
 			// 
-			// locationToolStripMenuItem
+			// vehicleReturnsToolStripMenuItem
 			// 
-			this.locationToolStripMenuItem.Name = "locationToolStripMenuItem";
-			this.locationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.locationToolStripMenuItem.Text = "Location";
+			this.vehicleReturnsToolStripMenuItem.Name = "vehicleReturnsToolStripMenuItem";
+			this.vehicleReturnsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.vehicleReturnsToolStripMenuItem.Text = "Returns";
 			// 
 			// Form_main_menu
 			// 
@@ -361,5 +369,6 @@
 		private System.Windows.Forms.ToolStripMenuItem financeToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem vehicleToolStripMenuItem2;
 		private System.Windows.Forms.ToolStripMenuItem locationToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem vehicleReturnsToolStripMenuItem;
 	}
 }
