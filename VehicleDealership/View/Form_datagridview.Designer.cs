@@ -32,7 +32,6 @@
 			this.ts_user = new System.Windows.Forms.ToolStrip();
 			this.btn_edit_user = new System.Windows.Forms.ToolStripButton();
 			this.btn_add_user = new System.Windows.Forms.ToolStripButton();
-			this.btn_delete_user = new System.Windows.Forms.ToolStripButton();
 			this.btn_activate_user = new System.Windows.Forms.ToolStripButton();
 			this.btn_deactivate_user = new System.Windows.Forms.ToolStripButton();
 			this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -84,7 +83,6 @@
 			this.ts_user.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btn_edit_user,
             this.btn_add_user,
-            this.btn_delete_user,
             this.btn_activate_user,
             this.btn_deactivate_user,
             this.toolStripLabel1,
@@ -116,16 +114,6 @@
 			this.btn_add_user.Name = "btn_add_user";
 			this.btn_add_user.Size = new System.Drawing.Size(23, 22);
 			this.btn_add_user.Text = "Add";
-			// 
-			// btn_delete_user
-			// 
-			this.btn_delete_user.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_delete_user.Enabled = false;
-			this.btn_delete_user.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
-			this.btn_delete_user.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_delete_user.Name = "btn_delete_user";
-			this.btn_delete_user.Size = new System.Drawing.Size(23, 22);
-			this.btn_delete_user.Text = "Delete";
 			// 
 			// btn_activate_user
 			// 
@@ -201,19 +189,19 @@
 			// editToolStripMenuItem
 			// 
 			this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-			this.editToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+			this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.editToolStripMenuItem.Text = "Edit";
 			// 
 			// addToolStripMenuItem
 			// 
 			this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-			this.addToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+			this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.addToolStripMenuItem.Text = "Add";
 			// 
 			// deleteToolStripMenuItem
 			// 
 			this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-			this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+			this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.deleteToolStripMenuItem.Text = "Delete";
 			// 
 			// ts_save_only
@@ -502,7 +490,6 @@
 		private System.Windows.Forms.ToolStripButton btn_add;
 		private System.Windows.Forms.ToolStripButton btn_edit;
 		private System.Windows.Forms.ToolStripButton btn_delete;
-		private System.Windows.Forms.ToolStripButton btn_delete_user;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel4;
 		private System.Windows.Forms.ToolStripTextBox txt_search;
 		private System.Windows.Forms.ToolStripLabel lbl_status;

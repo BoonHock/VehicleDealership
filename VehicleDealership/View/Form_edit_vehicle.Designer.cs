@@ -130,6 +130,8 @@
 			this.txt_ref_no = new System.Windows.Forms.TextBox();
 			this.txt_last_modified_by = new System.Windows.Forms.TextBox();
 			this.label85 = new System.Windows.Forms.Label();
+			this.dtp_settle_by = new System.Windows.Forms.DateTimePicker();
+			this.label2 = new System.Windows.Forms.Label();
 			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.btn_clear_loan_finance = new System.Windows.Forms.Button();
 			this.btn_loan_finance = new System.Windows.Forms.Button();
@@ -201,8 +203,6 @@
 			this.btn_ok = new System.Windows.Forms.Button();
 			this.filedlg_img = new System.Windows.Forms.OpenFileDialog();
 			this.filedlg_attachment = new System.Windows.Forms.OpenFileDialog();
-			this.dtp_settle_by = new System.Windows.Forms.DateTimePicker();
-			this.label2 = new System.Windows.Forms.Label();
 			this.tabControl1.SuspendLayout();
 			this.tabPage4.SuspendLayout();
 			this.groupBox10.SuspendLayout();
@@ -964,7 +964,7 @@
             "MORTGAGE",
             "PURCHASE",
             "TRADE-IN"});
-			this.cmb_acquire_method.Location = new System.Drawing.Point(101, 119);
+			this.cmb_acquire_method.Location = new System.Drawing.Point(101, 121);
 			this.cmb_acquire_method.Margin = new System.Windows.Forms.Padding(2);
 			this.cmb_acquire_method.Name = "cmb_acquire_method";
 			this.cmb_acquire_method.Size = new System.Drawing.Size(224, 25);
@@ -1630,6 +1630,27 @@
 			this.label85.Size = new System.Drawing.Size(108, 17);
 			this.label85.TabIndex = 18;
 			this.label85.Text = "Last modified by:";
+			// 
+			// dtp_settle_by
+			// 
+			this.dtp_settle_by.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.dtp_settle_by.CustomFormat = "";
+			this.dtp_settle_by.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtp_settle_by.Location = new System.Drawing.Point(450, 486);
+			this.dtp_settle_by.Margin = new System.Windows.Forms.Padding(2);
+			this.dtp_settle_by.Name = "dtp_settle_by";
+			this.dtp_settle_by.Size = new System.Drawing.Size(123, 25);
+			this.dtp_settle_by.TabIndex = 11;
+			// 
+			// label2
+			// 
+			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(384, 490);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(61, 17);
+			this.label2.TabIndex = 22;
+			this.label2.Text = "Settle by:";
 			// 
 			// tabPage3
 			// 
@@ -2389,27 +2410,6 @@
 			// filedlg_attachment
 			// 
 			this.filedlg_attachment.Multiselect = true;
-			// 
-			// dtp_settle_by
-			// 
-			this.dtp_settle_by.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.dtp_settle_by.CustomFormat = "";
-			this.dtp_settle_by.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtp_settle_by.Location = new System.Drawing.Point(450, 486);
-			this.dtp_settle_by.Margin = new System.Windows.Forms.Padding(2);
-			this.dtp_settle_by.Name = "dtp_settle_by";
-			this.dtp_settle_by.Size = new System.Drawing.Size(123, 25);
-			this.dtp_settle_by.TabIndex = 11;
-			// 
-			// label2
-			// 
-			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(384, 490);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(61, 17);
-			this.label2.TabIndex = 22;
-			this.label2.Text = "Settle by:";
 			// 
 			// Form_edit_vehicle
 			// 

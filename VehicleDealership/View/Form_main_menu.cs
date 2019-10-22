@@ -14,7 +14,6 @@ namespace VehicleDealership.View
 {
 	public partial class Form_main_menu : Form
 	{
-		string str_project_path = Application.StartupPath;
 		public Form_main_menu()
 		{
 			InitializeComponent();
@@ -33,7 +32,7 @@ namespace VehicleDealership.View
 			changePasswordToolStripMenuItem.Click += (sender2, e2) => (new Form_change_pw()).ShowDialog();
 			brandGroupModelToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_vehicle_template));
 			transmissionToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "TRANSMISSION");
-			fuelTypeToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "FUEL_TYPE");
+			fuelTypeToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "FUEL TYPE");
 			colourToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "COLOUR");
 			salespersonToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "SALESPERSON");
 			financeToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "FINANCE");
@@ -112,26 +111,28 @@ namespace VehicleDealership.View
 		}
 		private void LogInToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Form_log_in form_login = new Form_log_in();
-			if (form_login.ShowDialog() != DialogResult.OK) return;
-
-			Program.System_user = new User(form_login.Username);
-
-			if (Program.System_user.UserID == 1)
+			using (Form_log_in form_login = new Form_log_in())
 			{
-				// temporary for development
-				// if user log in as admin, assign all permissions. just in case any permission not assigned
-				Datasets.Permission_ds.Assign_all_permission_to_administrator();
+				if (form_login.ShowDialog() != DialogResult.OK) return;
 
-				// developer is only availabe to user id 1
-				Program.System_user.IsDeveloper = form_login.IsDeveloper;
+				Program.System_user = new User(form_login.Username);
+
+				if (Program.System_user.UserID == 1)
+				{
+					// temporary for development
+					// if user log in as admin, assign all permissions. just in case any permission not assigned
+					Datasets.Permission_ds.Assign_all_permission_to_administrator();
+
+					// developer is only availabe to user id 1
+					Program.System_user.IsDeveloper = form_login.IsDeveloper;
+				}
+				Setup_menustrip();
+				ssl_username.Text = Program.System_user.Username;
+				ssl_usergroup.Text = Program.System_user.UserGroup;
+
+				log_in_menustrip.Visible = false;
+				main_menu_strip.Visible = true;
 			}
-			Setup_menustrip();
-			ssl_username.Text = Program.System_user.Username;
-			ssl_usergroup.Text = Program.System_user.UserGroup;
-
-			log_in_menustrip.Visible = false;
-			main_menu_strip.Visible = true;
 		}
 	}
 }

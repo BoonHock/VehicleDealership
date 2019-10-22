@@ -31,6 +31,10 @@ namespace VehicleDealership.View
 			{
 				if (ctrl is ToolStrip) ctrl.Visible = false;
 			}
+			foreach (ToolStripMenuItem ts in cms_grd_main.Items)
+			{
+				ts.Visible = false;
+			}
 		}
 		private void Form_datagridview_Shown(object sender, EventArgs e)
 		{
@@ -44,16 +48,24 @@ namespace VehicleDealership.View
 
 			Class_style.Grd_style.Common_style(grd_main);
 
+			this.Text = this.Tag.ToString().ToUpper();
+
 			switch (this.Tag.ToString().ToUpper())
 			{
 				case "USER":
+					addToolStripMenuItem.Visible = true;
+					editToolStripMenuItem.Visible = true;
+
 					if (!Program.System_user.Has_permission(User_permission.ADD_USER) &&
 						!Program.System_user.Has_permission(User_permission.EDIT_USER))
 						permission_denied = true;
 					else
 						Setup_form_users();
 					break;
-				case "FUEL_TYPE":
+				case "FUEL TYPE":
+					// user will be editing straight to cell so display delete only
+					deleteToolStripMenuItem.Visible = true;
+
 					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_FUEL_TYPE) &&
 						!Program.System_user.Has_permission(User_permission.DELETE_FUEL_TYPE))
 						permission_denied = true;
@@ -61,6 +73,9 @@ namespace VehicleDealership.View
 						Setup_form_fuel_type();
 					break;
 				case "TRANSMISSION":
+					// user will be editing straight to cell so display delete only
+					deleteToolStripMenuItem.Visible = true;
+
 					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_TRANSMISSION) &&
 						!Program.System_user.Has_permission(User_permission.DELETE_TRANSMISSION))
 						permission_denied = true;
@@ -68,6 +83,9 @@ namespace VehicleDealership.View
 						Setup_form_transmission();
 					break;
 				case "COLOUR":
+					// user will be editing straight to cell so display delete only
+					deleteToolStripMenuItem.Visible = true;
+
 					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOUR) &&
 						!Program.System_user.Has_permission(User_permission.DELETE_COLOUR))
 						permission_denied = true;
@@ -75,6 +93,10 @@ namespace VehicleDealership.View
 						Setup_form_colour();
 					break;
 				case "SALESPERSON":
+					// salesperson cannot be deleted for now...
+					addToolStripMenuItem.Visible = true;
+					editToolStripMenuItem.Visible = true;
+
 					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_SALESPERSON) &&
 						!Program.System_user.Has_permission(User_permission.VIEW_SALESPERSON))
 						permission_denied = true;
@@ -82,12 +104,20 @@ namespace VehicleDealership.View
 						Setup_form_salesperson();
 					break;
 				case "FINANCE":
+					// finance cannot be deleted for now...
+					addToolStripMenuItem.Visible = true;
+					editToolStripMenuItem.Visible = true;
+
 					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE))
 						permission_denied = true;
 					else
 						Setup_form_finance();
 					break;
 				case "VEHICLE":
+					addToolStripMenuItem.Visible = true;
+					editToolStripMenuItem.Visible = true;
+					deleteToolStripMenuItem.Visible = true;
+
 					if (!Program.System_user.Has_permission(User_permission.VEHICLE_VIEW) &&
 						!Program.System_user.Has_permission(User_permission.VEHICLE_ADD_EDIT) &&
 						!Program.System_user.Has_permission(User_permission.VEHICLE_DELETE))
@@ -96,6 +126,10 @@ namespace VehicleDealership.View
 						Setup_form_vehicle();
 					break;
 				case "VEHICLE RETURN":
+					addToolStripMenuItem.Visible = true;
+					editToolStripMenuItem.Visible = true;
+					deleteToolStripMenuItem.Visible = true;
+
 					if (!Program.System_user.Has_permission(User_permission.VEHICLE_VIEW) &&
 						!Program.System_user.Has_permission(User_permission.VEHICLE_RETURN_ADD_EDIT) &&
 						!Program.System_user.Has_permission(User_permission.VEHICLE_RETURN_DELETE))
@@ -104,6 +138,9 @@ namespace VehicleDealership.View
 						Setup_form_vehicle_return();
 					break;
 				case "LOCATION":
+					// user will be editing straight to cell so display delete only
+					deleteToolStripMenuItem.Visible = true;
+
 					if (!Program.System_user.Has_permission(User_permission.LOCATION_ADD_EDIT) &&
 						!Program.System_user.Has_permission(User_permission.LOCATION_DELETE))
 						permission_denied = true;
@@ -144,9 +181,6 @@ namespace VehicleDealership.View
 		{
 			ts_user.Visible = true;
 			cmb_is_active_user.SelectedIndex = 0;
-
-			deleteToolStripMenuItem.Visible = false; // cannot delete user
-			btn_delete_user.Visible = false;
 
 			if (Program.System_user.Has_permission(User_permission.EDIT_USER))
 			{
@@ -281,10 +315,6 @@ namespace VehicleDealership.View
 		#region FUEL_TYPE
 		private void Setup_form_fuel_type()
 		{
-			// user will be editing straight to cell so no need display these two
-			editToolStripMenuItem.Visible = false;
-			addToolStripMenuItem.Visible = false;
-
 			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_FUEL_TYPE))
 			{
 				grd_main.ReadOnly = false;
@@ -387,10 +417,6 @@ namespace VehicleDealership.View
 		#region TRANSMISSION
 		private void Setup_form_transmission()
 		{
-			// user will be editing straight to cell so no need display these two
-			editToolStripMenuItem.Visible = false;
-			addToolStripMenuItem.Visible = false;
-
 			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_TRANSMISSION))
 			{
 				grd_main.ReadOnly = false;
@@ -488,10 +514,6 @@ namespace VehicleDealership.View
 		#region COLOUR
 		private void Setup_form_colour()
 		{
-			// user will be editing straight to cell so no need display these two
-			editToolStripMenuItem.Visible = false;
-			addToolStripMenuItem.Visible = false;
-
 			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOUR))
 			{
 				grd_main.ReadOnly = false;
@@ -598,7 +620,6 @@ namespace VehicleDealership.View
 			editToolStripMenuItem.Enabled = has_add_edit_permission;
 
 			btn_delete.Visible = false; // salesperson cannot be deleted
-			deleteToolStripMenuItem.Visible = false;
 
 			Setup_grd_salesperson();
 
@@ -685,7 +706,6 @@ namespace VehicleDealership.View
 			cmb_status.Visible = false;
 
 			btn_delete.Visible = false; // finance cannot be deleted
-			deleteToolStripMenuItem.Visible = false;
 
 			bool has_add_edit_permission = Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE);
 
@@ -983,15 +1003,14 @@ namespace VehicleDealership.View
 		}
 		private void Delete_vehicle_return(object sender, EventArgs e)
 		{
-
+			if (MessageBox.Show("Vehicle status will be reverted to \"UNSOLD\". Proceed?", "Confirm",
+				MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK) return;
 		}
 		#endregion
 		#region LOCATION
 		private void Setup_form_location()
 		{
-			// user will be editing straight to cell so no need display these two
-			editToolStripMenuItem.Visible = false;
-			addToolStripMenuItem.Visible = false;
+			deleteToolStripMenuItem.Enabled = false;
 
 			if (Program.System_user.Has_permission(User_permission.LOCATION_ADD_EDIT))
 			{
@@ -1001,7 +1020,7 @@ namespace VehicleDealership.View
 			if (Program.System_user.Has_permission(User_permission.LOCATION_DELETE))
 			{
 				grd_main.AllowUserToDeleteRows = true;
-				deleteToolStripMenuItem.Visible = true;
+				deleteToolStripMenuItem.Enabled = true;
 			}
 
 			ts_save_only.Visible = true;
@@ -1083,6 +1102,5 @@ namespace VehicleDealership.View
 				MessageBox.Show("All items have been saved successfully.", "Item saved", MessageBoxButtons.OK);
 		}
 		#endregion
-
 	}
 }
