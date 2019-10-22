@@ -17,6 +17,8 @@ namespace VehicleDealership.View
 		readonly string _form_type = "";
 		readonly string _preselect_value = "";
 
+		readonly string _value_col_name = "";
+		readonly string[] _cols_to_display = null;
 		private string SearchString { get { return txt_search.Text.Trim(); } }
 		public Form_datagridview_select(string form_type, string preselect_value = "", bool select_multiple = false)
 		{
@@ -32,28 +34,36 @@ namespace VehicleDealership.View
 			grd_main.MultiSelect = select_multiple;
 			Class_style.Grd_style.Common_style(grd_main);
 		}
+		public Form_datagridview_select(DataTable dttable, string[] col_to_display = null, string value_col_name = "", string preselect_value = "", bool select_multiple = false)
+		{
+			InitializeComponent();
+
+			// by default, hide these
+			lbl_type.Visible = false;
+			cmb_type.Visible = false;
+
+			grd_main.MultiSelect = select_multiple;
+			Class_style.Grd_style.Common_style(grd_main);
+
+			grd_main.DataSource = dttable;
+			_cols_to_display = col_to_display;
+			_value_col_name = value_col_name;
+			_preselect_value = preselect_value;
+		}
 		private void Form_datagridview_select_Shown(object sender, EventArgs e)
 		{
 			switch (_form_type)
 			{
-				case "VEHICLE_MODEL":
-					Setup_vehicle_model_form();
-					break;
-				case "LOCATION":
-					Setup_location_form();
-					break;
 				case "PERSON_ORGANISATION":
 					lbl_type.Visible = true;
 					cmb_type.Visible = true;
 					Setup_person_organisation_form();
 					break;
-				case "USER":
-					Setup_user_form();
-					break;
-				case "FINANCE":
-					Setup_finance_form();
-					break;
 			}
+
+			grd_main.AutoResizeColumns();
+			Class_datagridview.Hide_unnecessary_columns(grd_main, _cols_to_display);
+			Class_datagridview.Select_row_by_value(grd_main, _value_col_name, _preselect_value);
 		}
 
 		private void Btn_ok_Click(object sender, EventArgs e)
@@ -92,46 +102,6 @@ namespace VehicleDealership.View
 
 			return "";
 		}
-		#region VEHICLE_MODEL
-		private void Setup_vehicle_model_form()
-		{
-			Class_datagridview.Setup_and_preselect(grd_main, Vehicle_model_ds.Select_vehicle_model(-1, -1, -1, -1),
-				"vehicle_model", new string[] { "vehicle_model_name", "year_make", "engine_capacity",
-					"no_of_door","seat_capacity", "fuel_type_name", "transmission_name",
-					"vehicle_group_name", "vehicle_brand_name"}, _preselect_value);
-
-			grd_main.AutoResizeColumns();
-
-			txt_search.TextChanged += (sender2, e2) => Apply_filter_vehicle_model();
-		}
-		private void Apply_filter_vehicle_model()
-		{
-			if (grd_main.DataSource == null) return;
-
-			((DataTable)grd_main.DataSource).DefaultView.RowFilter = "[vehicle_model_name] LIKE '%" + SearchString +
-				"%' OR CONVERT([year_make], System.String) LIKE '%" + SearchString +
-				"%' OR [fuel_type_name] LIKE '%" + SearchString +
-				"%' OR [transmission_name] LIKE '%" + SearchString +
-				"%' OR [vehicle_group_name] LIKE '%" + SearchString +
-				"%' OR [vehicle_brand_name] LIKE '%" + SearchString + "%'";
-		}
-		#endregion
-		#region LOCATION
-		private void Setup_location_form()
-		{
-			Class_datagridview.Setup_and_preselect(grd_main, Location_ds.Select_location(), "location", new string[] { "location_name" }, _preselect_value);
-
-			grd_main.AutoResizeColumns();
-
-			txt_search.TextChanged += (sender2, e2) => Apply_filter_location();
-		}
-		private void Apply_filter_location()
-		{
-			if (grd_main.DataSource == null) return;
-
-			((DataTable)grd_main.DataSource).DefaultView.RowFilter = "[location_name] LIKE '%" + SearchString + "%'";
-		}
-		#endregion
 		#region PERSON_ORGANISATION
 		private void Setup_person_organisation_form()
 		{
@@ -180,49 +150,35 @@ namespace VehicleDealership.View
 			}
 		}
 		#endregion
-		#region USER
-		private void Setup_user_form()
-		{
-			Class_datagridview.Setup_and_preselect(grd_main, User_ds.Select_user_all(), "user",
-				new string[] {"name", "usergroup", "ic_no",
-					"is_active", "join_date", "leave_date" }, _preselect_value);
-
-			grd_main.AutoResizeColumns();
-
-			txt_search.TextChanged += (sender2, e2) => Apply_filter_user();
-		}
-		private void Apply_filter_user()
+		private void Txt_search_TextChanged(object sender, EventArgs e)
 		{
 			if (grd_main.DataSource == null) return;
 
-			((DataTable)grd_main.DataSource).DefaultView.RowFilter = "[name] LIKE '%" + SearchString +
-				"%' OR [usergroup] LIKE '%" + SearchString + "%' OR [ic_no] LIKE '%" + SearchString + "%'";
-		}
-		#endregion
-		#region FINANCE
-		private void Setup_finance_form()
-		{
-			Class_datagridview.Setup_and_preselect(grd_main, Finance_ds.Select_finance(-1), "finance",
-				new string[] { "name", "branch_name", "registration_no", "address", "city", "state", "postcode", "country_name", "url", "remark" }, _preselect_value);
+			string str_search = txt_search.Text.Trim();
+			List<string> list_queries = new List<string>();
 
-			grd_main.AutoResizeColumns();
+			foreach (DataGridViewColumn grd_col in grd_main.Columns)
+			{
+				if (grd_col.Visible)
+				{
+					if (grd_col.ValueType == typeof(string))
+						list_queries.Add("[" + grd_col.Name + "] LIKE '%" + str_search + "%'");
+					else if (grd_col.ValueType == typeof(int))
+						list_queries.Add("CONVERT([" + grd_col.Name + "], System.String) LIKE '%" + str_search + "%'");
+				}
+			}
 
-			txt_search.TextChanged += (sender2, e2) => Apply_filter_finance();
-		}
-		private void Apply_filter_finance()
-		{
-			if (grd_main.DataSource == null) return;
+			if (list_queries.Count == 0) return;
 
-			((DataTable)grd_main.DataSource).DefaultView.RowFilter = "[name] LIKE '%" + SearchString +
-				"%' OR [branch_name] LIKE '%" + SearchString +
-				"%' OR [registration_no] LIKE '%" + SearchString +
-				"%' OR [address] LIKE '%" + SearchString +
-				"%' OR [city] LIKE '%" + SearchString +
-				"%' OR [state] LIKE '%" + SearchString +
-				"%' OR [postcode] LIKE '%" + SearchString +
-				"%' OR [country_name] LIKE '%" + SearchString +
-				"%' OR [remark] LIKE '%" + SearchString + "%'";
+			try
+			{
+				((DataTable)grd_main.DataSource).DefaultView.RowFilter = string.Join(" OR ", list_queries);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Unable to perform search. Error: " + ex.Message,
+					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
-		#endregion
 	}
 }

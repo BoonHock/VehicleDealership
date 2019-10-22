@@ -987,19 +987,44 @@ namespace VehicleDealership.View
 		}
 		private void Setup_grd_vehicle_return(int int_vehicle = 0)
 		{
+			grd_main.DataSource = null;
+			grd_main.DataSource = Vehicle_return_ds.Select_vehicle_return(int_vehicle);
 
+			if (!Program.System_user.IsDeveloper) Class_datagridview.Hide_columns(grd_main, new string[] { "vehicle", "returb_by_id" });
+			grd_main.AutoResizeColumns();
+
+			Apply_filter_vehicle_return();
+
+			if (int_vehicle != 0)
+				Class_datagridview.Select_row_by_value(grd_main, "vehicle", int_vehicle.ToString());
 		}
 		private void Apply_filter_vehicle_return()
 		{
+			if (grd_main.DataSource == null) return;
 
+			string str_search = txt_search.Text.Trim();
+
+			((DataTable)grd_main.DataSource).DefaultView.RowFilter = "[registration_no] LIKE '%" + str_search +
+				"%' OR [seller_name] LIKE '%" + str_search + "%' OR [seller_branch] LIKE '%" + str_search +
+				"%' OR [vehicle_brand] LIKE '%" + str_search + "%' OR [vehicle_group] LIKE '%" + str_search +
+				"%' OR [vehicle_model] LIKE '%" + str_search + "%' OR [return_by] LIKE '%" + str_search +
+				"%' OR [remark] LIKE '%" + str_search + "%'";
 		}
 		private void Add_vehicle_return(object sender, EventArgs e)
 		{
+			int int_vehicle_id = (int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value;
 
+			// TODO: SELECT VEHICLE USING FORM_DATAGRIDVIEW_SELECT FIRST.
+
+			//using (Form_vehicle_return form_edit = new Form_vehicle_return(int_vehicle_id))
+			//{
+			//	if (form_edit.ShowDialog() == DialogResult.OK)
+			//		Setup_grd_vehicle_return(int_vehicle_id);
+			//}
 		}
 		private void Edit_vehicle_return(object sender, EventArgs e)
 		{
-
+			// TODO
 		}
 		private void Delete_vehicle_return(object sender, EventArgs e)
 		{

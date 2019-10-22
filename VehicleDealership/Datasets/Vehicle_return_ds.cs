@@ -6,6 +6,11 @@ namespace VehicleDealership.Datasets
 
 	partial class Vehicle_return_ds
 	{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="int_vehicle">-1 to select all</param>
+		/// <returns></returns>
 		public static sp_select_vehicle_returnDataTable Select_vehicle_return(int int_vehicle)
 		{
 			try

@@ -84,6 +84,7 @@
 			this.txt_search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.txt_search.Name = "txt_search";
 			this.txt_search.Size = new System.Drawing.Size(150, 25);
+			this.txt_search.TextChanged += new System.EventHandler(this.Txt_search_TextChanged);
 			// 
 			// grd_main
 			// 
@@ -94,6 +95,7 @@
 			this.grd_main.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.grd_main.Location = new System.Drawing.Point(0, 25);
 			this.grd_main.Margin = new System.Windows.Forms.Padding(5);
+			this.grd_main.MultiSelect = false;
 			this.grd_main.Name = "grd_main";
 			this.grd_main.ReadOnly = true;
 			this.grd_main.ShowCellToolTips = false;

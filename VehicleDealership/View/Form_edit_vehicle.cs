@@ -601,7 +601,10 @@ namespace VehicleDealership.View
 		}
 		private void Btn_vehicle_model_Click(object sender, EventArgs e)
 		{
-			using (Form_datagridview_select dlg_select = new Form_datagridview_select("VEHICLE_MODEL", num_vehicle_model_id.Value.ToString()))
+			using (Form_datagridview_select dlg_select = new Form_datagridview_select(
+				Vehicle_model_ds.Select_vehicle_model(-1, -1, -1, -1), new string[] { "vehicle_model_name", "year_make",
+	 "engine_capacity", "no_of_door", "seat_capacity", "fuel_type_name", "transmission_name", "vehicle_group_name",
+	 "vehicle_brand_name" }, "vehicle_model", num_vehicle_model_id.Value.ToString()))
 			{
 				if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
 				{
@@ -616,8 +619,8 @@ namespace VehicleDealership.View
 
 		private void Btn_vehicle_location_Click(object sender, EventArgs e)
 		{
-			using (Form_datagridview_select dlg_select = new Form_datagridview_select("LOCATION",
-					num_vehicle_location.Value.ToString()))
+			using (Form_datagridview_select dlg_select = new Form_datagridview_select(Location_ds.Select_location(),
+				new string[] { "location_name" }, "location", num_vehicle_location.Value.ToString()))
 			{
 				if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
 				{
@@ -653,7 +656,9 @@ namespace VehicleDealership.View
 
 		private void Btn_checked_by_Click(object sender, EventArgs e)
 		{
-			using (Form_datagridview_select dlg_select = new Form_datagridview_select("USER"))
+			using (Form_datagridview_select dlg_select = new Form_datagridview_select(User_ds.Select_user_all(),
+				new string[] { "name", "usergroup", "ic_no", "is_active", "join_date", "leave_date" }, "user",
+				num_checked_by_id.Value.ToString()))
 			{
 				if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
 				{
@@ -684,7 +689,9 @@ namespace VehicleDealership.View
 		}
 		private void Btn_loan_finance_Click(object sender, EventArgs e)
 		{
-			using (Form_datagridview_select dlg_select = new Form_datagridview_select("FINANCE", num_loan_finance_id.Value.ToString()))
+			using (Form_datagridview_select dlg_select = new Form_datagridview_select(Finance_ds.Select_finance(-1),
+				new string[] { "name", "branch_name", "registration_no", "address", "city", "state", "postcode",
+	 "country_name", "url", "remark" }, "finance", num_loan_finance_id.Value.ToString()))
 			{
 				if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
 				{

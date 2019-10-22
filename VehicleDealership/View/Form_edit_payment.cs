@@ -238,8 +238,9 @@ namespace VehicleDealership.View
 		}
 		private void Btn_payment_method_finance_Click(object sender, EventArgs e)
 		{
-			using (Form_datagridview_select dlg_select =
-				new Form_datagridview_select("FINANCE", num_payment_method_finance.Value.ToString()))
+			using (Form_datagridview_select dlg_select = new Form_datagridview_select(Finance_ds.Select_finance(-1), 
+				new string[] { "name", "branch_name", "registration_no", "address", "city", "state", "postcode",
+	 "country_name", "url", "remark" }, "finance", num_payment_method_finance.Value.ToString()))
 			{
 				if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
 				{
