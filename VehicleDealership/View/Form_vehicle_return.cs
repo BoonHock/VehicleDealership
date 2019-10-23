@@ -15,7 +15,6 @@ namespace VehicleDealership.View
 	public partial class Form_vehicle_return : Form
 	{
 		readonly int _vehicle_id;
-		bool _is_updating = false;
 		public Form_vehicle_return(int int_vehicle)
 		{
 			InitializeComponent();
@@ -49,7 +48,6 @@ namespace VehicleDealership.View
 			{
 				if (dttable.Rows.Count > 0)
 				{
-					_is_updating = true;
 					dtp_return.Value = dttable[0].return_date;
 					txt_return_by.Text = dttable[0].return_by;
 					btn_return_by.Tag = dttable[0].return_by_id;
@@ -60,16 +58,23 @@ namespace VehicleDealership.View
 		}
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
-			int return_by = (int)btn_return_by.Tag;
+			int return_by = int.Parse(btn_return_by.Tag.ToString());
 			if (return_by == 0)
 			{
 				MessageBox.Show("'Return by' not selected.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
-			if (_is_updating)
+			bool is_updating = false;
+
+			using (Vehicle_return_ds.sp_select_vehicle_returnDataTable dttable = Vehicle_return_ds.Select_vehicle_return(_vehicle_id))
 			{
-				if (Vehicle_return_ds.Update_vehicle_return(_vehicle_id, dtp_return.Value, return_by, num_compensation.Value, txt_remark.Text.Trim()))
+				is_updating = dttable.Rows.Count > 0;
+			}
+
+			if (is_updating)
+			{
+				if (!Vehicle_return_ds.Update_vehicle_return(_vehicle_id, dtp_return.Value, return_by, num_compensation.Value, txt_remark.Text.Trim()))
 				{
 					MessageBox.Show("Update failed.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
@@ -77,7 +82,7 @@ namespace VehicleDealership.View
 			}
 			else
 			{
-				if (Vehicle_return_ds.Insert_vehicle_return(_vehicle_id, dtp_return.Value, return_by, num_compensation.Value, txt_remark.Text.Trim()))
+				if (!Vehicle_return_ds.Insert_vehicle_return(_vehicle_id, dtp_return.Value, return_by, num_compensation.Value, txt_remark.Text.Trim()))
 				{
 					MessageBox.Show("Insert failed.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
@@ -91,6 +96,20 @@ namespace VehicleDealership.View
 		{
 			this.DialogResult = DialogResult.Cancel;
 			this.Close();
+		}
+
+		private void Btn_return_by_Click(object sender, EventArgs e)
+		{
+			using (Form_datagridview_select dlg_select = new Form_datagridview_select(User_ds.Select_user_all(),
+				new string[] { "name", "usergroup", "ic_no", "is_active", "join_date", "leave_date" }, "user",
+				btn_return_by.Tag.ToString()))
+			{
+				if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
+				{
+					txt_return_by.Text = dlg_select.Get_selected_value_as_string("name");
+					btn_return_by.Tag = dlg_select.Get_selected_value_as_int("user");
+				}
+			}
 		}
 	}
 }

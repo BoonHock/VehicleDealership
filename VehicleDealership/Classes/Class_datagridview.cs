@@ -83,6 +83,8 @@ namespace VehicleDealership.Classes
 		}
 		public static void Select_row_by_value(DataGridView grd, string value_col, string str_value)
 		{
+			if (!grd.Columns.Contains(value_col)) return;
+
 			foreach (DataGridViewRow grd_row in grd.Rows)
 			{
 				if (grd_row.Cells[value_col].Value != DBNull.Value &&

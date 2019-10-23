@@ -142,6 +142,7 @@
 			this.btn_return_by.Tag = "0";
 			this.btn_return_by.Text = "...";
 			this.btn_return_by.UseVisualStyleBackColor = true;
+			this.btn_return_by.Click += new System.EventHandler(this.Btn_return_by_Click);
 			// 
 			// label5
 			// 
@@ -305,6 +306,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.CancelButton = this.btn_cancel;
 			this.ClientSize = new System.Drawing.Size(818, 401);
 			this.Controls.Add(this.txt_reg_no);
 			this.Controls.Add(this.label9);
@@ -332,6 +334,7 @@
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F);
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "Form_vehicle_return";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Vehicle return";
 			this.Shown += new System.EventHandler(this.Form_vehicle_return_Shown);
 			((System.ComponentModel.ISupportInitialize)(this.num_compensation)).EndInit();

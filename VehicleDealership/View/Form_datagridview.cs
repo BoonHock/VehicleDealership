@@ -978,17 +978,19 @@ namespace VehicleDealership.View
 			cmb_vehicle_acquire.ComboBox.SelectedIndexChanged += (sender2, e2) => Apply_filter_vehicle_return();
 			cmb_vehicle_status.ComboBox.SelectedIndexChanged += (sender2, e2) => Apply_filter_vehicle_return();
 
-			btn_add_vehicle.Click += Add_vehicle_return;
+			btn_add.Click += Add_vehicle_return;
 			addToolStripMenuItem.Click += Add_vehicle_return;
-			btn_edit_vehicle.Click += Edit_vehicle_return;
+			btn_edit.Click += Edit_vehicle_return;
 			editToolStripMenuItem.Click += Edit_vehicle_return;
-			btn_delete_vehicle.Click += Delete_vehicle_return;
+			btn_delete.Click += Delete_vehicle_return;
 			deleteToolStripMenuItem.Click += Delete_vehicle_return;
 		}
-		private void Setup_grd_vehicle_return(int int_vehicle = 0)
+		private void Setup_grd_vehicle_return(int int_vehicle = -1)
 		{
 			grd_main.DataSource = null;
-			grd_main.DataSource = Vehicle_return_ds.Select_vehicle_return(int_vehicle);
+			grd_main.DataSource = Vehicle_return_ds.Select_vehicle_return(-1);
+
+			grd_main.Columns["compensation"].DefaultCellStyle.Format = "N2";
 
 			if (!Program.System_user.IsDeveloper) Class_datagridview.Hide_columns(grd_main, new string[] { "vehicle", "returb_by_id" });
 			grd_main.AutoResizeColumns();
@@ -1012,24 +1014,38 @@ namespace VehicleDealership.View
 		}
 		private void Add_vehicle_return(object sender, EventArgs e)
 		{
-			int int_vehicle_id = (int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value;
-
-			// TODO: SELECT VEHICLE USING FORM_DATAGRIDVIEW_SELECT FIRST.
-
-			//using (Form_vehicle_return form_edit = new Form_vehicle_return(int_vehicle_id))
-			//{
-			//	if (form_edit.ShowDialog() == DialogResult.OK)
-			//		Setup_grd_vehicle_return(int_vehicle_id);
-			//}
+			using (Form_datagridview_select dlg_select = new Form_datagridview_select(Vehicle_ds.
+				Select_vehicle_simplified().Where(x => x.vehicle_status == "UNSOLD").CopyToDataTable(),
+				new string[] { "acquire_method", "registration_no", "seller_name", "branch_name",
+	 "vehicle_model", "purchase_date", "location", "chassis_no", "engine_no", "year_make" }))
+			{
+				if (dlg_select.ShowDialog() == DialogResult.OK)
+					Show_form_return_edit(dlg_select.Get_selected_value_as_int("vehicle"));
+			}
 		}
 		private void Edit_vehicle_return(object sender, EventArgs e)
 		{
-			// TODO
+			if (grd_main.SelectedCells.Count == 0) return;
+			Show_form_return_edit((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value);
+		}
+		private void Show_form_return_edit(int int_vehicle)
+		{
+			using (Form_vehicle_return dlg_edit = new Form_vehicle_return(int_vehicle))
+			{
+				if (dlg_edit.ShowDialog() == DialogResult.OK)
+					Setup_grd_vehicle_return(int_vehicle);
+			}
 		}
 		private void Delete_vehicle_return(object sender, EventArgs e)
 		{
+			if (grd_main.SelectedCells.Count == 0) return;
+
 			if (MessageBox.Show("Vehicle status will be reverted to \"UNSOLD\". Proceed?", "Confirm",
 				MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK) return;
+
+			// TODO: delete vehicle return
+			if (Vehicle_return_ds.Delete_vehicle_return((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value))
+				Setup_grd_vehicle_return();
 		}
 		#endregion
 		#region LOCATION

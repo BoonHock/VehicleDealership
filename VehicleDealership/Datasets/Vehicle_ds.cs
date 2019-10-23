@@ -40,6 +40,23 @@ namespace VehicleDealership.Datasets
 			}
 			return new sp_select_vehicle_simplifiedDataTable();
 		}
+		//public static sp_select_vehicle_simplifiedDataTable Select_vehicle_simplified_unsold()
+		//{
+		//	try
+		//	{
+		//		using (Vehicle_dsTableAdapters.sp_select_vehicle_simplifiedTableAdapter adapter = Select_Vehicle_SimplifiedTableAdapter())
+		//		{
+		//			sp_select_vehicle_simplifiedDataTable dttable =(sp_select_vehicle_simplifiedDataTable) adapter.GetData().Where(x => x.vehicle_status == "UNSOLD").CopyToDataTable();
+		//			return adapter.GetData();
+		//		}
+		//	}
+		//	catch (System.Exception e)
+		//	{
+		//		Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+		//			MethodBase.GetCurrentMethod().Name, e.Message);
+		//	}
+		//	return new sp_select_vehicle_simplifiedDataTable();
+		//}
 		/// <summary>
 		/// 
 		/// </summary>

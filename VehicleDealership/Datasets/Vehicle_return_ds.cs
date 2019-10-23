@@ -62,5 +62,22 @@ namespace VehicleDealership.Datasets
 			}
 			return false;
 		}
+		public static bool Delete_vehicle_return(int int_vehicle)
+		{
+			try
+			{
+				using (Vehicle_return_dsTableAdapters.QueriesTableAdapter adapter = new Vehicle_return_dsTableAdapters.QueriesTableAdapter())
+				{
+					adapter.sp_delete_vehicle_return(int_vehicle);
+				}
+				return true;
+			}
+			catch (System.Exception e)
+			{
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
+			}
+			return false;
+		}
 	}
 }

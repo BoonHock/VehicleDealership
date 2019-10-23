@@ -63,7 +63,9 @@ namespace VehicleDealership.View
 
 			grd_main.AutoResizeColumns();
 			Class_datagridview.Hide_unnecessary_columns(grd_main, _cols_to_display);
-			Class_datagridview.Select_row_by_value(grd_main, _value_col_name, _preselect_value);
+
+			if (_value_col_name != "")
+				Class_datagridview.Select_row_by_value(grd_main, _value_col_name, _preselect_value);
 		}
 
 		private void Btn_ok_Click(object sender, EventArgs e)
