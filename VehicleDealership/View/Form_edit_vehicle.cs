@@ -19,8 +19,8 @@ namespace VehicleDealership.View
 	{
 		public int VehicleID { get; private set; }
 
-		string _str_reg_no;
-		string _str_chassis_no;
+		string _str_reg_no = "";
+		string _str_chassis_no = "";
 
 		public Form_edit_vehicle(int int_vehicle = 0)
 		{
@@ -320,7 +320,6 @@ namespace VehicleDealership.View
 								// new image
 								try
 								{
-									// TODO
 									string new_filename = Path.Combine(str_upload_dir, Class_misc.Generate_random_string(dt_row.vehicle_image) + ".jpg");
 									MemoryStream ms = new MemoryStream(dt_row.image);
 									Image.FromStream(ms).Save(new_filename, System.Drawing.Imaging.ImageFormat.Jpeg);
@@ -500,8 +499,8 @@ namespace VehicleDealership.View
 				dtp_date_received.Value = dttable[0].date_received;
 				dtp_settle_by.Value = dttable[0].settlement_date;
 
-				if (dttable[0]["vehicle_sale_no"] != DBNull.Value)
-					txt_sale_order.Text = dttable[0].vehicle_sale_no;
+				if (dttable[0]["sale_ref_no"] != DBNull.Value)
+					txt_sale_order.Text = dttable[0].sale_ref_no;
 
 				num_purchase_price.Value = dttable[0].purchase_price;
 				num_overtrade.Value = dttable[0].overtrade;

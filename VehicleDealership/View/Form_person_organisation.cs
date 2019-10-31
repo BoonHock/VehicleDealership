@@ -103,19 +103,24 @@ namespace VehicleDealership.View
 		{
 			grd_main.DataSource = null;
 
-			if (_select_for == "SALESPERSON")
+			switch (_select_for)
 			{
-				if (cmb_type.ComboBox.SelectedValue.ToString() == "PERSON")
-					grd_main.DataSource = Person_ds.Select_person_not_salesperson();
-				else
-					grd_main.DataSource = Organisation_branch_ds.Select_organisation_not_salesperson();
-			}
-			else if (_select_for == "FINANCE")
-			{
-				cmb_type.ComboBox.SelectedValue = "ORGANISATION";
-				cmb_type.Enabled = false; // ONLY organisation allowed for finance
-
-				grd_main.DataSource = Organisation_branch_ds.Select_organisation_not_finance();
+				case "SALESPERSON":
+					if (cmb_type.ComboBox.SelectedValue.ToString() == "PERSON")
+						grd_main.DataSource = Person_ds.Select_person_not_salesperson();
+					else
+						grd_main.DataSource = Organisation_branch_ds.Select_organisation_not_salesperson();
+					break;
+				case "FINANCE":
+					cmb_type.ComboBox.SelectedValue = "ORGANISATION";
+					cmb_type.Enabled = false; // ONLY organisation allowed for finance
+					grd_main.DataSource = Organisation_branch_ds.Select_organisation_not_finance();
+					break;
+				case "INSURANCE":
+					cmb_type.ComboBox.SelectedValue = "ORGANISATION";
+					cmb_type.Enabled = false; // ONLY organisation allowed for insurance
+					grd_main.DataSource = Organisation_branch_ds.Select_organisation_not_insurance();
+					break;
 			}
 
 			if (cmb_type.ComboBox.SelectedValue.ToString() == "PERSON")
@@ -152,33 +157,38 @@ namespace VehicleDealership.View
 		}
 		private void Add_person()
 		{
-			Form_person formPerson = new Form_person();
-
-			if (formPerson.ShowDialog() == DialogResult.OK)
-				Setup_grd_main(formPerson.PersonID);
+			using (Form_person formPerson = new Form_person())
+			{
+				if (formPerson.ShowDialog() == DialogResult.OK) Setup_grd_main(formPerson.PersonID);
+			}
 		}
 		private void Add_organisation()
 		{
-			Form_organisation formOrg = new Form_organisation();
-
-			if (formOrg.ShowDialog() == DialogResult.OK)
-				Setup_grd_main(formOrg.OrganisationID);
+			using (Form_organisation formOrg = new Form_organisation())
+			{
+				if (formOrg.ShowDialog() == DialogResult.OK) Setup_grd_main(formOrg.OrganisationID);
+			}
 		}
 		private void Edit_person()
 		{
 			if (grd_main.SelectedCells.Count == 0) return;
-
 			int int_person = (int)grd_main.SelectedCells[0].OwningRow.Cells["person"].Value;
-			if ((new Form_person(int_person)).ShowDialog() == DialogResult.OK)
-				Setup_grd_main(int_person);
+
+			using (Form_person dlg = new Form_person(int_person))
+			{
+				if (dlg.ShowDialog() == DialogResult.OK) Setup_grd_main(int_person);
+			}
 		}
 		private void Edit_organisation()
 		{
 			if (grd_main.SelectedCells.Count == 0) return;
 
 			int int_org = (int)grd_main.SelectedCells[0].OwningRow.Cells["organisation"].Value;
-			if ((new Form_organisation(int_org)).ShowDialog() == DialogResult.OK)
-				Setup_grd_main((int)grd_main.SelectedCells[0].OwningRow.Cells["organisation_branch"].Value);
+
+			using (Form_organisation dlg = new Form_organisation(int_org))
+			{
+				if (dlg.ShowDialog() == DialogResult.OK) Setup_grd_main(int_org);
+			}
 		}
 		private void Add_Click(object sender, EventArgs e)
 		{

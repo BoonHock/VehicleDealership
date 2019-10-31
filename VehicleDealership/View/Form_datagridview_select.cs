@@ -52,6 +52,8 @@ namespace VehicleDealership.View
 		}
 		private void Form_datagridview_select_Shown(object sender, EventArgs e)
 		{
+			Class_datagridview.Setup_search_textbox(txt_search.TextBox, grd_main);
+
 			switch (_form_type)
 			{
 				case "PERSON_ORGANISATION":
@@ -152,35 +154,5 @@ namespace VehicleDealership.View
 			}
 		}
 		#endregion
-		private void Txt_search_TextChanged(object sender, EventArgs e)
-		{
-			if (grd_main.DataSource == null) return;
-
-			string str_search = txt_search.Text.Trim();
-			List<string> list_queries = new List<string>();
-
-			foreach (DataGridViewColumn grd_col in grd_main.Columns)
-			{
-				if (grd_col.Visible)
-				{
-					if (grd_col.ValueType == typeof(string))
-						list_queries.Add("[" + grd_col.Name + "] LIKE '%" + str_search + "%'");
-					else if (grd_col.ValueType == typeof(int))
-						list_queries.Add("CONVERT([" + grd_col.Name + "], System.String) LIKE '%" + str_search + "%'");
-				}
-			}
-
-			if (list_queries.Count == 0) return;
-
-			try
-			{
-				((DataTable)grd_main.DataSource).DefaultView.RowFilter = string.Join(" OR ", list_queries);
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show("Unable to perform search. Error: " + ex.Message,
-					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-		}
 	}
 }

@@ -927,9 +927,9 @@
 			this.label50.AutoSize = true;
 			this.label50.Location = new System.Drawing.Point(3, 211);
 			this.label50.Name = "label50";
-			this.label50.Size = new System.Drawing.Size(72, 17);
+			this.label50.Size = new System.Drawing.Size(80, 17);
 			this.label50.TabIndex = 22;
-			this.label50.Text = "Sale order:";
+			this.label50.Text = "Sale ref. no.:";
 			// 
 			// txt_sale_order
 			// 
@@ -2009,8 +2009,8 @@
 			// toolStripLabel3
 			// 
 			this.toolStripLabel3.Name = "toolStripLabel3";
-			this.toolStripLabel3.Size = new System.Drawing.Size(141, 22);
-			this.toolStripLabel3.Text = "TOTAL PAYMENT (MYR):";
+			this.toolStripLabel3.Size = new System.Drawing.Size(115, 22);
+			this.toolStripLabel3.Text = "Total payment: MYR";
 			// 
 			// lbl_total_payment
 			// 
@@ -2123,8 +2123,8 @@
 			// toolStripLabel1
 			// 
 			this.toolStripLabel1.Name = "toolStripLabel1";
-			this.toolStripLabel1.Size = new System.Drawing.Size(139, 22);
-			this.toolStripLabel1.Text = "TOTAL EXPENSES (MYR):";
+			this.toolStripLabel1.Size = new System.Drawing.Size(115, 22);
+			this.toolStripLabel1.Text = "Total Expenses: MYR";
 			// 
 			// lbl_total_expenses
 			// 

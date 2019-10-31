@@ -227,6 +227,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\Insurance_ds.cs">
+      <DependentUpon>Insurance_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Insurance_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Insurance_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\Location_ds.cs">
       <DependentUpon>Location_ds.xsd</DependentUpon>
     </Compile>
@@ -537,12 +545,6 @@
     <Compile Include="View\Form_edit_salesperson.Designer.cs">
       <DependentUpon>Form_edit_salesperson.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Form_sales_order.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Form_sales_order.Designer.cs">
-      <DependentUpon>Form_sales_order.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Form_usergroup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -554,6 +556,12 @@
     </Compile>
     <Compile Include="View\Form_vehicle_return.Designer.cs">
       <DependentUpon>Form_vehicle_return.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Form_vehicle_sale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form_vehicle_sale.Designer.cs">
+      <DependentUpon>Form_vehicle_sale.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Form_vehicle_template.cs">
       <SubType>Form</SubType>
@@ -644,14 +652,14 @@
     <EmbeddedResource Include="View\Form_edit_salesperson.resx">
       <DependentUpon>Form_edit_salesperson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Form_sales_order.resx">
-      <DependentUpon>Form_sales_order.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\Form_usergroup.resx">
       <DependentUpon>Form_usergroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form_vehicle_return.resx">
       <DependentUpon>Form_vehicle_return.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Form_vehicle_sale.resx">
+      <DependentUpon>Form_vehicle_sale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form_vehicle_template.resx">
       <DependentUpon>Form_vehicle_template.cs</DependentUpon>
@@ -787,6 +795,17 @@
     </None>
     <None Include="Datasets\Fuel_type_ds.xss">
       <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Insurance_ds.xsc">
+      <DependentUpon>Insurance_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Insurance_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Insurance_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Insurance_ds.xss">
+      <DependentUpon>Insurance_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Location_ds.xsc">
       <DependentUpon>Location_ds.xsd</DependentUpon>

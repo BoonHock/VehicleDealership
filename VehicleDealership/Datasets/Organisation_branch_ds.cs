@@ -99,5 +99,22 @@ namespace VehicleDealership.Datasets
 			}
 			return new Organisation_branch_simplifiedDataTable();
 		}
+		public static Organisation_branch_simplifiedDataTable Select_organisation_not_insurance()
+		{
+			try
+			{
+				using (Organisation_branch_dsTableAdapters.Organisation_branch_simplifiedTableAdapter adapter =
+					new Organisation_branch_dsTableAdapters.Organisation_branch_simplifiedTableAdapter())
+				{
+					return adapter.sp_select_organisation_not_insurance();
+				}
+			}
+			catch (System.Exception e)
+			{
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
+			}
+			return new Organisation_branch_simplifiedDataTable();
+		}
 	}
 }

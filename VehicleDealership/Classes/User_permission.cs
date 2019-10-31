@@ -31,12 +31,16 @@ namespace VehicleDealership.Classes
 		public static string VIEW_FINANCE { get { return "VIEW_FINANCE"; } }
 		public static string VEHICLE_ADD_EDIT { get { return "VEHICLE_ADD_EDIT"; } }
 		public static string VEHICLE_DELETE { get { return "VEHICLE_DELETE"; } }
+		public static string VEHICLE_SALE_ADD_EDIT { get { return "VEHICLE_SALE_ADD_EDIT"; } }
+		public static string VEHICLE_SALE_DELETE { get { return "VEHICLE_SALE_DELETE"; } }
 		public static string VEHICLE_VIEW { get { return "VEHICLE_VIEW"; } }
 		public static string LOCATION_ADD_EDIT { get { return "LOCATION_ADD_EDIT"; } }
 		public static string LOCATION_DELETE { get { return "LOCATION_DELETE"; } }
 		public static string VEHICLE_RETURN_ADD_EDIT { get { return "VEHICLE_RETURN_ADD_EDIT"; } }
 		public static string VEHICLE_RETURN_DELETE { get { return "VEHICLE_RETURN_DELETE"; } }
-		
+		public static string INSURANCE_ADD_EDIT { get { return "INSURANCE_ADD_EDIT"; } }
+		public static string INSURANCE_DELETE { get { return "INSURANCE_DELETE"; } }
+
 
 		//private User_permission(string value) { Value = value; }
 		//public string Value { get; private set; }

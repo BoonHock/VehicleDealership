@@ -84,7 +84,6 @@
 			this.txt_search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.txt_search.Name = "txt_search";
 			this.txt_search.Size = new System.Drawing.Size(150, 25);
-			this.txt_search.TextChanged += new System.EventHandler(this.Txt_search_TextChanged);
 			// 
 			// grd_main
 			// 

@@ -276,5 +276,44 @@ namespace VehicleDealership.Classes
 			grd.Columns.RemoveAt(col_index);
 			grd.Columns.Insert(col_index, grd_col);
 		}
+		/// <summary>
+		/// can only search string and integer type column
+		/// </summary>
+		/// <param name="txtbox"></param>
+		/// <param name="grd"></param>
+		/// <param name="cols_to_search"></param>
+		public static void Setup_search_textbox(TextBox txtbox, DataGridView grd, string[] cols_to_search = null)
+		{
+			txtbox.TextChanged += (sender2, e2) =>
+			{
+				if (grd.DataSource == null) return;
+
+				string str_search = str_search = txtbox.Text.Trim();
+				List<string> list_queries = new List<string>();
+
+				foreach (DataGridViewColumn grd_col in grd.Columns)
+				{
+					if (grd_col.Visible && (cols_to_search == null || cols_to_search.Contains(grd_col.Name, StringComparer.OrdinalIgnoreCase)))
+					{
+						if (grd_col.ValueType == typeof(string))
+							list_queries.Add("[" + grd_col.Name + "] LIKE '%" + str_search + "%'");
+						else if (grd_col.ValueType == typeof(int))
+							list_queries.Add("CONVERT([" + grd_col.Name + "], System.String) LIKE '%" + str_search + "%'");
+					}
+				}
+
+				if (list_queries.Count == 0) return;
+
+				try
+				{
+					((DataTable)grd.DataSource).DefaultView.RowFilter = string.Join(" OR ", list_queries);
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show("Unable to perform search. Error: " + ex.Message,
+						"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			};
+		}
 	}
 }

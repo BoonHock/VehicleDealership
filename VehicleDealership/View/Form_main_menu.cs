@@ -36,12 +36,13 @@ namespace VehicleDealership.View
 			colourToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "COLOUR");
 			salespersonToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "SALESPERSON");
 			financeToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "FINANCE");
+			insuranceToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "INSURANCE");
 			locationToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "LOCATION");
 
 			vehicleToolStripMenuItem2.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "VEHICLE");
 			vehicleReturnsToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "VEHICLE RETURN");
 
-			salesOrderToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_sales_order));
+			salesOrderToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "VEHICLE SALE");
 		}
 		private void Form_main_menu_Shown(object sender, EventArgs e)
 		{
@@ -56,7 +57,6 @@ namespace VehicleDealership.View
 			userGroupsToolStripMenuItem.Enabled = (
 				Program.System_user.Has_permission(User_permission.ADD_USERGROUP) ||
 				Program.System_user.Has_permission(User_permission.EDIT_USERGROUP));
-
 			brandGroupModelToolStripMenuItem.Enabled = (
 				Program.System_user.Has_permission(User_permission.ADD_EDIT_VEHICLE_BRAND_GROUP_MODEL) ||
 				Program.System_user.Has_permission(User_permission.DELETE_VEHICLE_BRAND_GROUP_MODEL));
@@ -72,6 +72,13 @@ namespace VehicleDealership.View
 			salespersonToolStripMenuItem.Enabled = (
 				Program.System_user.Has_permission(User_permission.ADD_EDIT_SALESPERSON) ||
 				Program.System_user.Has_permission(User_permission.VIEW_SALESPERSON));
+			financeToolStripMenuItem.Enabled = (
+				Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE) ||
+				Program.System_user.Has_permission(User_permission.VIEW_FINANCE));
+			insuranceToolStripMenuItem.Enabled = (
+				Program.System_user.Has_permission(User_permission.INSURANCE_ADD_EDIT) ||
+				Program.System_user.Has_permission(User_permission.INSURANCE_DELETE));
+
 
 		}
 		private void Open_form(Type f_type, bool is_maximised = false, string form_tag = "")

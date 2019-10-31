@@ -108,10 +108,21 @@ namespace VehicleDealership.View
 					addToolStripMenuItem.Visible = true;
 					editToolStripMenuItem.Visible = true;
 
-					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE))
+					if ( !Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE))
 						permission_denied = true;
 					else
-						Setup_form_finance();
+						Setup_form_finance_insurance();
+					break;
+				case "INSURANCE":
+					addToolStripMenuItem.Visible = true;
+					editToolStripMenuItem.Visible = true;
+					deleteToolStripMenuItem.Visible = true;
+
+					if (!Program.System_user.Has_permission(User_permission.INSURANCE_ADD_EDIT) && 
+						!Program.System_user.Has_permission(User_permission.INSURANCE_DELETE))
+						permission_denied = true;
+					else
+						Setup_form_finance_insurance();
 					break;
 				case "VEHICLE":
 					addToolStripMenuItem.Visible = true;
@@ -124,6 +135,17 @@ namespace VehicleDealership.View
 						permission_denied = true;
 					else
 						Setup_form_vehicle();
+					break;
+				case "VEHICLE SALE":
+					addToolStripMenuItem.Visible = true;
+					editToolStripMenuItem.Visible = true;
+					deleteToolStripMenuItem.Visible = true;
+
+					if (!Program.System_user.Has_permission(User_permission.VEHICLE_SALE_ADD_EDIT) &&
+						!Program.System_user.Has_permission(User_permission.VEHICLE_SALE_DELETE))
+						permission_denied = true;
+					else
+						Setup_form_vehicle_sale();
 					break;
 				case "VEHICLE RETURN":
 					addToolStripMenuItem.Visible = true;
@@ -696,48 +718,59 @@ namespace VehicleDealership.View
 			((DataTable)grd_main.DataSource).DefaultView.RowFilter = str_filter;
 		}
 		#endregion
-		#region FINANCE
-		private void Setup_form_finance()
+		#region FINANCE / INSURANCE
+		private void Setup_form_finance_insurance()
 		{
 			ts_add_edit_delete.Visible = true;
 
-			// finance does not have active or inactive
+			// finance / insurance does not have active or inactive
 			lbl_status.Visible = false;
 			cmb_status.Visible = false;
 
-			btn_delete.Visible = false; // finance cannot be deleted
-
 			bool has_add_edit_permission = Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE);
+			bool has_delete_permission = false; // TODO: create permission to delete finance
 
+			if (this.Tag.ToString().ToUpper() == "INSURANCE")
+			{
+				has_add_edit_permission = Program.System_user.Has_permission(User_permission.INSURANCE_ADD_EDIT);
+				has_delete_permission = Program.System_user.Has_permission(User_permission.INSURANCE_DELETE);
+			}
 			btn_add.Enabled = has_add_edit_permission;
 			btn_edit.Enabled = has_add_edit_permission;
 			addToolStripMenuItem.Enabled = has_add_edit_permission;
 			editToolStripMenuItem.Enabled = has_add_edit_permission;
+			btn_delete.Enabled = has_delete_permission;
+			deleteToolStripMenuItem.Enabled = has_delete_permission;
 
-			Setup_grd_finance();
+			Setup_grd_finance_insurance();
 
-			txt_search.TextChanged += (sender2, e2) => Apply_filter_finance();
-			btn_add.Click += Add_finance;
-			addToolStripMenuItem.Click += Add_finance;
-			btn_edit.Click += Edit_finance;
-			editToolStripMenuItem.Click += Edit_finance;
+			txt_search.TextChanged += (sender2, e2) => Apply_filter_finance_insurance();
+			btn_add.Click += Add_finance_insurance;
+			addToolStripMenuItem.Click += Add_finance_insurance;
+			btn_edit.Click += Edit_finance_insurance;
+			editToolStripMenuItem.Click += Edit_finance_insurance;
+			btn_delete.Click += Delete_finance_insurance;
+			deleteToolStripMenuItem.Click += Delete_finance_insurance;
 		}
-		private void Setup_grd_finance(int int_finance = 0)
+		private void Setup_grd_finance_insurance(int int_id = 0)
 		{
 			grd_main.DataSource = null;
 
-			grd_main.DataSource = Finance_ds.Select_finance(-1);
+			if (this.Tag.ToString().ToUpper() == "FINANCE")
+				grd_main.DataSource = Finance_ds.Select_finance(-1);
+			else
+				grd_main.DataSource = Insurance_ds.Select_insurance(-1);
 
 			Class_datagridview.Hide_unnecessary_columns(grd_main, "name", "branch_name", "registration_no",
 				"address", "city", "state", "postcode", "country_name", "url", "remark");
 
 			grd_main.AutoResizeColumns();
-			Apply_filter_finance();
+			Apply_filter_finance_insurance();
 
-			if (int_finance != 0)
-				Class_datagridview.Select_row_by_value(grd_main, "finance", int_finance.ToString());
+			if (int_id != 0)
+				Class_datagridview.Select_row_by_value(grd_main, this.Tag.ToString().ToLower(), int_id.ToString());
 		}
-		private void Apply_filter_finance()
+		private void Apply_filter_finance_insurance()
 		{
 			if (grd_main.DataSource == null) return;
 
@@ -749,34 +782,40 @@ namespace VehicleDealership.View
 
 			((DataTable)grd_main.DataSource).DefaultView.RowFilter = str_filter;
 		}
-		private void Add_finance(object sender, EventArgs e)
+		private void Add_finance_insurance(object sender, EventArgs e)
 		{
-			using (Form_person_organisation form_select_person_org = new Form_person_organisation("FINANCE"))
+			using (Form_person_organisation form_select_person_org =
+				new Form_person_organisation(this.Tag.ToString().ToUpper()))
 			{
 				if (form_select_person_org.ShowDialog() != DialogResult.OK) return;
 
-				using (Form_edit_finance form_edit = new Form_edit_finance(form_select_person_org.SelectedBranchID))
+				using (Form_edit_finance form_edit = new Form_edit_finance(form_select_person_org.SelectedBranchID, this.Tag.ToString().ToUpper()))
 				{
-					if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_finance(form_select_person_org.SelectedBranchID);
+					if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_finance_insurance(form_select_person_org.SelectedBranchID);
 				}
 			}
 		}
-		private void Edit_finance(object sender, EventArgs e)
+		private void Edit_finance_insurance(object sender, EventArgs e)
 		{
 			if (grd_main.SelectedCells.Count == 0) return;
 
 			int int_org_id = (int)grd_main.SelectedCells[0].OwningRow.Cells["finance"].Value;
 
-			using (Form_edit_finance form_edit = new Form_edit_finance(int_org_id))
+			using (Form_edit_finance form_edit = new Form_edit_finance(int_org_id, this.Tag.ToString().ToUpper()))
 			{
-				if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_finance(int_org_id);
+				if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_finance_insurance(int_org_id);
 			}
+		}
+		private void Delete_finance_insurance(object sender, EventArgs e)
+		{
+			// TODO
 		}
 		#endregion
 		#region VEHICLE
 		private void Setup_form_vehicle()
 		{
 			ts_vehicle.Visible = true;
+			btn_print_vehicle_out.Visible = false;
 
 			cmb_vehicle_acquire.SelectedItem = "ALL";
 			cmb_vehicle_status.SelectedItem = "ALL";
@@ -953,6 +992,59 @@ namespace VehicleDealership.View
 			Cursor = Cursors.Default;
 		}
 		#endregion
+		#region VEHICLE SALE
+		private void Setup_form_vehicle_sale()
+		{
+			ts_vehicle.Visible = true;
+			btn_print_vehicle_in.Visible = false;
+			cmb_vehicle_status.Visible = false; // all vehicles are sold status.
+
+			cmb_vehicle_acquire.SelectedItem = "ALL";
+
+			bool has_add_edit_permission = Program.System_user.Has_permission(User_permission.VEHICLE_SALE_ADD_EDIT);
+			bool has_delete_permission = Program.System_user.Has_permission(User_permission.VEHICLE_SALE_DELETE);
+
+			btn_add_vehicle.Enabled = has_add_edit_permission;
+			btn_edit_vehicle.Enabled = has_add_edit_permission;
+			btn_delete_vehicle.Enabled = has_delete_permission;
+
+			addToolStripMenuItem.Enabled = has_add_edit_permission;
+			editToolStripMenuItem.Enabled = has_add_edit_permission;
+			deleteToolStripMenuItem.Enabled = has_delete_permission;
+
+			Setup_grd_vehicle_sale();
+
+			txt_search_vehicle.TextChanged += (sender2, e2) => Apply_filter_vehicle_sale();
+			cmb_vehicle_acquire.ComboBox.SelectedIndexChanged += (sender2, e2) => Apply_filter_vehicle_sale();
+
+			btn_add_vehicle.Click += Add_vehicle_sale;
+			addToolStripMenuItem.Click += Add_vehicle_sale;
+			btn_edit_vehicle.Click += Edit_vehicle_sale;
+			editToolStripMenuItem.Click += Edit_vehicle_sale;
+			btn_delete_vehicle.Click += Delete_vehicle_sale;
+			deleteToolStripMenuItem.Click += Delete_vehicle_sale;
+		}
+		private void Setup_grd_vehicle_sale()
+		{
+
+		}
+		private void Apply_filter_vehicle_sale()
+		{
+
+		}
+		private void Add_vehicle_sale(object sender, EventArgs e)
+		{
+
+		}
+		private void Edit_vehicle_sale(object sender, EventArgs e)
+		{
+
+		}
+		private void Delete_vehicle_sale(object sender, EventArgs e)
+		{
+
+		}
+		#endregion
 		#region VEHICLE RETURN
 		private void Setup_form_vehicle_return()
 		{
@@ -1043,7 +1135,6 @@ namespace VehicleDealership.View
 			if (MessageBox.Show("Vehicle status will be reverted to \"UNSOLD\". Proceed?", "Confirm",
 				MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK) return;
 
-			// TODO: delete vehicle return
 			if (Vehicle_return_ds.Delete_vehicle_return((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value))
 				Setup_grd_vehicle_return();
 		}

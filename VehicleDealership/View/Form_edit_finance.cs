@@ -16,23 +16,62 @@ namespace VehicleDealership.View
 	{
 		int _org_id = 0;
 		readonly int _orgbranch_id = 0;
-		public Form_edit_finance(int int_orgbranch_id)
+		readonly string _type = "";
+		public Form_edit_finance(int int_orgbranch_id, string str_type)
 		{
 			InitializeComponent();
 
 			_orgbranch_id = int_orgbranch_id;
+			_type = str_type.ToUpper();
 
-			Finance_ds.sp_select_financeDataTable dttable_finance = Finance_ds.Select_finance(_orgbranch_id);
-
-			if (dttable_finance.Rows.Count > 0)
+			switch (_type)
 			{
-				txt_remark.Text = dttable_finance[0].remark;
+				case "FINANCE":
+					using (Finance_ds.sp_select_financeDataTable dttable =
+						Finance_ds.Select_finance(_orgbranch_id))
+					{
+						if (dttable.Rows.Count > 0) txt_remark.Text = dttable[0].remark;
+					}
+					break;
+				case "INSURANCE":
+					using (Insurance_ds.sp_select_insuranceDataTable dttable =
+						Insurance_ds.Select_insurance(_orgbranch_id))
+					{
+						if (dttable.Rows.Count > 0) txt_remark.Text = dttable[0].remark;
+					}
+					break;
 			}
+
 		}
 		private void Form_edit_finance_Shown(object sender, EventArgs e)
 		{
-			if (!Program.System_user.Has_permission(User_permission.VIEW_FINANCE) &&
-				!Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE))
+			bool has_permission = true;
+			switch (_type.ToUpper())
+			{
+				case "FINANCE":
+					has_permission = Program.System_user.Has_permission(User_permission.VIEW_FINANCE) ||
+						Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE);
+					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE))
+					{
+						// no permission to add/edit finance
+						btn_ok.Visible = false;
+						txt_remark.ReadOnly = true;
+					}
+					break;
+				case "INSURANCE":
+					if (!Program.System_user.Has_permission(User_permission.INSURANCE_ADD_EDIT))
+					{
+						btn_ok.Visible = false;
+						txt_remark.ReadOnly = true;
+						has_permission = false;
+					}
+					break;
+				default:
+					has_permission = false;
+					break;
+			}
+
+			if (!has_permission)
 			{
 				MessageBox.Show("You do not have sufficient permission to perform this action!",
 					"ACCESS DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -41,39 +80,32 @@ namespace VehicleDealership.View
 			}
 
 			Setup_form();
-
-			if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE))
-			{
-				// no permission to add/edit finance
-				btn_ok.Visible = false;
-				txt_remark.ReadOnly = true;
-			}
 		}
 		private void Setup_form()
 		{
-			Organisation_branch_ds.sp_select_organisation_branch_with_org_detailsDataTable dttable_orgbranch = 
-				Organisation_branch_ds.Select_organisation_branch_with_org_details(_orgbranch_id);
-
-			if (dttable_orgbranch.Rows.Count == 0)
+			using (Organisation_branch_ds.sp_select_organisation_branch_with_org_detailsDataTable dttable_orgbranch =
+				Organisation_branch_ds.Select_organisation_branch_with_org_details(_orgbranch_id))
 			{
-				MessageBox.Show("Invalid organisation ID!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				this.DialogResult = DialogResult.Cancel;
-				this.Close();
-				return;
+				if (dttable_orgbranch.Rows.Count == 0)
+				{
+					MessageBox.Show("Invalid organisation ID!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					this.DialogResult = DialogResult.Cancel;
+					this.Close();
+					return;
+				}
+
+				_org_id = dttable_orgbranch[0].organisation;
+				txt_name.Text = dttable_orgbranch[0].name;
+				txt_ic_reg.Text = dttable_orgbranch[0].registration_no;
+				txt_address.Text = dttable_orgbranch[0].address;
+				txt_city.Text = dttable_orgbranch[0].city;
+				txt_state.Text = dttable_orgbranch[0].state;
+				txt_postcode.Text = dttable_orgbranch[0].postcode;
+				txt_country.Text = dttable_orgbranch[0].country_name;
+				link_lbl_url.Text = dttable_orgbranch[0].url;
 			}
-
-			_org_id = dttable_orgbranch[0].organisation;
-			txt_name.Text = dttable_orgbranch[0].name;
-			txt_ic_reg.Text = dttable_orgbranch[0].registration_no;
-			txt_address.Text = dttable_orgbranch[0].address;
-			txt_city.Text = dttable_orgbranch[0].city;
-			txt_state.Text = dttable_orgbranch[0].state;
-			txt_postcode.Text = dttable_orgbranch[0].postcode;
-			txt_country.Text = dttable_orgbranch[0].country_name;
-			link_lbl_url.Text = dttable_orgbranch[0].url;
-
 			grd_contact.DataSource = null;
-			grd_contact.DataSource = Organisation_contact_ds.Select_organisation_contact(_orgbranch_id);
+			grd_contact.DataSource = Organisation_contact_ds.Select_organisation_contact(_org_id);
 			grd_contact.AutoResizeColumns();
 		}
 		private void Link_lbl_url_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -83,23 +115,39 @@ namespace VehicleDealership.View
 
 		private void Btn_view_edit_Click(object sender, EventArgs e)
 		{
-			if ((new Form_organisation(_org_id)).ShowDialog() == DialogResult.OK) Setup_form();
+			using (Form_organisation dlg = new Form_organisation(_org_id))
+			{
+				if (dlg.ShowDialog() == DialogResult.OK) Setup_form();
+			}
 		}
 
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
 			this.DialogResult = DialogResult.None;
 
-			if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE))
+			switch (_type)
 			{
-				// NO PERMISSION
-				this.DialogResult = DialogResult.Cancel;
-				this.Close();
-				return;
+				case "FINANCE":
+					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE))
+					{
+						// NO PERMISSION
+						this.DialogResult = DialogResult.Cancel;
+						this.Close();
+						return;
+					}
+					Finance_ds.Update_insert_finance(_orgbranch_id, txt_remark.Text.Trim());
+					break;
+				case "INSURANCE":
+					if (!Program.System_user.Has_permission(User_permission.INSURANCE_ADD_EDIT))
+					{
+						// NO PERMISSION
+						this.DialogResult = DialogResult.Cancel;
+						this.Close();
+						return;
+					}
+					Insurance_ds.Update_insert_insurance(_orgbranch_id, txt_remark.Text.Trim());
+					break;
 			}
-
-			Finance_ds.Update_insert_finance(_orgbranch_id, txt_remark.Text.Trim());
-
 			this.DialogResult = DialogResult.OK;
 			this.Close();
 		}

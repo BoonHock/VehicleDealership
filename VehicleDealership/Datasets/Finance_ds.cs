@@ -6,14 +6,6 @@ namespace VehicleDealership.Datasets
 
 	partial class Finance_ds
 	{
-		private static Finance_dsTableAdapters.sp_select_financeTableAdapter Select_FinanceTableAdapter()
-		{
-			return new Finance_dsTableAdapters.sp_select_financeTableAdapter();
-		}
-		private static Finance_dsTableAdapters.QueriesTableAdapter QueriesTableAdapter()
-		{
-			return new Finance_dsTableAdapters.QueriesTableAdapter();
-		}
 		/// <summary>
 		/// 
 		/// </summary>
@@ -23,7 +15,10 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				return Select_FinanceTableAdapter().GetData(int_finance);
+				using (Finance_dsTableAdapters.sp_select_financeTableAdapter adapter = new Finance_dsTableAdapters.sp_select_financeTableAdapter())
+				{
+					return adapter.GetData(int_finance);
+				}
 			}
 			catch (System.Exception e)
 			{
@@ -36,7 +31,10 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				QueriesTableAdapter().sp_update_insert_finance(int_orgbranch, str_remark, Program.System_user.UserID);
+				using (Finance_dsTableAdapters.QueriesTableAdapter adapter = new Finance_dsTableAdapters.QueriesTableAdapter())
+				{
+					adapter.sp_update_insert_finance(int_orgbranch, str_remark, Program.System_user.UserID);
+				}
 			}
 			catch (System.Exception e)
 			{
