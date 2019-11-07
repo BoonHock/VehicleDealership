@@ -1849,6 +1849,8 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columninvoice_no;
             
+            private global::System.Data.DataColumn columnjpj_serial_no;
+            
             private global::System.Data.DataColumn columnroad_tax;
             
             private global::System.Data.DataColumn columnroad_tax_expiry_date;
@@ -2226,6 +2228,14 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn jpj_serial_noColumn {
+                get {
+                    return this.columnjpj_serial_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn road_taxColumn {
                 get {
                     return this.columnroad_tax;
@@ -2451,6 +2461,7 @@ namespace VehicleDealership.Datasets {
                         System.DateTime date_received, 
                         System.DateTime settlement_date, 
                         string invoice_no, 
+                        string jpj_serial_no, 
                         decimal road_tax, 
                         System.DateTime road_tax_expiry_date, 
                         decimal purchase_price, 
@@ -2510,6 +2521,7 @@ namespace VehicleDealership.Datasets {
                         date_received,
                         settlement_date,
                         invoice_no,
+                        jpj_serial_no,
                         road_tax,
                         road_tax_expiry_date,
                         purchase_price,
@@ -2596,6 +2608,7 @@ namespace VehicleDealership.Datasets {
                 this.columndate_received = base.Columns["date_received"];
                 this.columnsettlement_date = base.Columns["settlement_date"];
                 this.columninvoice_no = base.Columns["invoice_no"];
+                this.columnjpj_serial_no = base.Columns["jpj_serial_no"];
                 this.columnroad_tax = base.Columns["road_tax"];
                 this.columnroad_tax_expiry_date = base.Columns["road_tax_expiry_date"];
                 this.columnpurchase_price = base.Columns["purchase_price"];
@@ -2696,6 +2709,8 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columnsettlement_date);
                 this.columninvoice_no = new global::System.Data.DataColumn("invoice_no", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columninvoice_no);
+                this.columnjpj_serial_no = new global::System.Data.DataColumn("jpj_serial_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnjpj_serial_no);
                 this.columnroad_tax = new global::System.Data.DataColumn("road_tax", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnroad_tax);
                 this.columnroad_tax_expiry_date = new global::System.Data.DataColumn("road_tax_expiry_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -2790,6 +2805,8 @@ namespace VehicleDealership.Datasets {
                 this.columnsettlement_date.AllowDBNull = false;
                 this.columninvoice_no.AllowDBNull = false;
                 this.columninvoice_no.MaxLength = 20;
+                this.columnjpj_serial_no.AllowDBNull = false;
+                this.columnjpj_serial_no.MaxLength = 20;
                 this.columnroad_tax.AllowDBNull = false;
                 this.columnpurchase_price.AllowDBNull = false;
                 this.columnovertrade.AllowDBNull = false;
@@ -4502,6 +4519,17 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string jpj_serial_no {
+                get {
+                    return ((string)(this[this.tablesp_select_vehicle.jpj_serial_noColumn]));
+                }
+                set {
+                    this[this.tablesp_select_vehicle.jpj_serial_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public decimal road_tax {
                 get {
                     return ((decimal)(this[this.tablesp_select_vehicle.road_taxColumn]));
@@ -5607,6 +5635,7 @@ namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
             tableMapping.ColumnMappings.Add("date_received", "date_received");
             tableMapping.ColumnMappings.Add("settlement_date", "settlement_date");
             tableMapping.ColumnMappings.Add("invoice_no", "invoice_no");
+            tableMapping.ColumnMappings.Add("jpj_serial_no", "jpj_serial_no");
             tableMapping.ColumnMappings.Add("road_tax", "road_tax");
             tableMapping.ColumnMappings.Add("road_tax_expiry_date", "road_tax_expiry_date");
             tableMapping.ColumnMappings.Add("purchase_price", "purchase_price");
