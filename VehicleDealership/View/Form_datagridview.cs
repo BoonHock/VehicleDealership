@@ -108,7 +108,7 @@ namespace VehicleDealership.View
 					addToolStripMenuItem.Visible = true;
 					editToolStripMenuItem.Visible = true;
 
-					if ( !Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE))
+					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE))
 						permission_denied = true;
 					else
 						Setup_form_finance_insurance();
@@ -118,7 +118,7 @@ namespace VehicleDealership.View
 					editToolStripMenuItem.Visible = true;
 					deleteToolStripMenuItem.Visible = true;
 
-					if (!Program.System_user.Has_permission(User_permission.INSURANCE_ADD_EDIT) && 
+					if (!Program.System_user.Has_permission(User_permission.INSURANCE_ADD_EDIT) &&
 						!Program.System_user.Has_permission(User_permission.INSURANCE_DELETE))
 						permission_denied = true;
 					else
@@ -457,8 +457,8 @@ namespace VehicleDealership.View
 		{
 			Transmission_ds.sp_select_transmissionDataTable dttable = Transmission_ds.Select_transmission();
 
-			dttable.Columns["modified_by"].DefaultValue = Program.System_user.Name;
-			dttable.Columns["modified_by"].ReadOnly = true;
+			dttable.modified_byColumn.DefaultValue = Program.System_user.Name;
+			dttable.modified_byColumn.ReadOnly = true;
 
 			Class_datagridview.Setup_and_preselect(grd_main, dttable, "transmission_name");
 
@@ -1024,9 +1024,17 @@ namespace VehicleDealership.View
 			btn_delete_vehicle.Click += Delete_vehicle_sale;
 			deleteToolStripMenuItem.Click += Delete_vehicle_sale;
 		}
-		private void Setup_grd_vehicle_sale()
+		private void Setup_grd_vehicle_sale(int int_vehicle = 0)
 		{
+			grd_main.DataSource = null;
+			grd_main.DataSource = Vehicle_sale_ds.Select_vehicle_sale_simplified();
+			grd_main.Columns["sale_price"].DefaultCellStyle.Format = "N2";
+			grd_main.AutoResizeColumns();
 
+			Apply_filter_vehicle_sale();
+
+			if (int_vehicle != 0)
+				Class_datagridview.Select_row_by_value(grd_main, "vehicle", int_vehicle.ToString());
 		}
 		private void Apply_filter_vehicle_sale()
 		{
@@ -1035,6 +1043,19 @@ namespace VehicleDealership.View
 		private void Add_vehicle_sale(object sender, EventArgs e)
 		{
 
+			using (Form_datagridview_select dlg_select = new Form_datagridview_select(Vehicle_ds.Select_unsold_vehicle(),
+				new string[] { "purchase_date", "registration_no", "chassis_no", "vehcle_model_name",
+	 "vehicle_group_name", "vehicle_brand_name", "colour_name", "acquire_method" }))
+			{
+				if (dlg_select.ShowDialog() != DialogResult.OK) return;
+
+				using (Form_vehicle_sale form_sale = new Form_vehicle_sale(dlg_select.Get_selected_value_as_int("vehicle")))
+				{
+					if (form_sale.ShowDialog() == DialogResult.OK)
+						Setup_grd_vehicle_sale(dlg_select.Get_selected_value_as_int("vehicle"));
+				}
+
+			}
 		}
 		private void Edit_vehicle_sale(object sender, EventArgs e)
 		{
@@ -1077,7 +1098,7 @@ namespace VehicleDealership.View
 			btn_delete.Click += Delete_vehicle_return;
 			deleteToolStripMenuItem.Click += Delete_vehicle_return;
 		}
-		private void Setup_grd_vehicle_return(int int_vehicle = -1)
+		private void Setup_grd_vehicle_return(int int_vehicle = 0)
 		{
 			grd_main.DataSource = null;
 			grd_main.DataSource = Vehicle_return_ds.Select_vehicle_return(-1);

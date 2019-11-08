@@ -7,10 +7,6 @@ namespace VehicleDealership.Datasets
 
 	partial class vehicle_model_image_ds
 	{
-		private static vehicle_model_image_dsTableAdapters.QueriesTableAdapter QueriesAdapter()
-		{
-			return new vehicle_model_image_dsTableAdapters.QueriesTableAdapter();
-		}
 		/// <summary>
 		/// select images for a vehicle model
 		/// </summary>
@@ -20,13 +16,16 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				return (new vehicle_model_image_dsTableAdapters.sp_select_vehicle_model_imageTableAdapter()).GetData(vmodel);
+				using (vehicle_model_image_dsTableAdapters.sp_select_vehicle_model_imageTableAdapter adapter = 
+					new vehicle_model_image_dsTableAdapters.sp_select_vehicle_model_imageTableAdapter())
+				{
+					return adapter.GetData(vmodel);
+				}
 			}
 			catch (System.Exception e)
 			{
-				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
-					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
-					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
 			return new sp_select_vehicle_model_imageDataTable();
 		}
@@ -34,13 +33,15 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				QueriesAdapter().sp_insert_vehicle_model_image(int_vmodel, byte_image, str_description, Program.System_user.UserID);
+				using (vehicle_model_image_dsTableAdapters.QueriesTableAdapter adapter = new vehicle_model_image_dsTableAdapters.QueriesTableAdapter())
+				{
+					adapter.sp_insert_vehicle_model_image(int_vmodel, byte_image, str_description, Program.System_user.UserID);
+				}
 			}
 			catch (System.Exception e)
 			{
-				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
-					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
-					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
 				return false;
 			}
 			return true;
@@ -49,13 +50,15 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				QueriesAdapter().sp_update_vehicle_model_image(str_description, int_vmodel_img);
+				using (vehicle_model_image_dsTableAdapters.QueriesTableAdapter adapter = new vehicle_model_image_dsTableAdapters.QueriesTableAdapter())
+				{
+					adapter.sp_update_vehicle_model_image(str_description, int_vmodel_img);
+				}
 			}
 			catch (System.Exception e)
 			{
-				MessageBox.Show("An error has occured. \n" + MethodBase.GetCurrentMethod().DeclaringType.ToString() +
-					"." + MethodBase.GetCurrentMethod().Name + "\n Error:" + e.Message,
-					"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
 				return false;
 			}
 			return true;

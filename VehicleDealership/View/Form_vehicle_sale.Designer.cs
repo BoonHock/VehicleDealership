@@ -38,11 +38,11 @@
 			this.groupBox9 = new System.Windows.Forms.GroupBox();
 			this.grd_trade_in = new System.Windows.Forms.DataGridView();
 			this.toolStrip6 = new System.Windows.Forms.ToolStrip();
-			this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton16 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton17 = new System.Windows.Forms.ToolStripButton();
+			this.btn_trade_in_add = new System.Windows.Forms.ToolStripButton();
+			this.btn_trade_in_edit = new System.Windows.Forms.ToolStripButton();
+			this.btn_trade_in_delete = new System.Windows.Forms.ToolStripButton();
 			this.toolStripLabel11 = new System.Windows.Forms.ToolStripLabel();
-			this.toolStripLabel12 = new System.Windows.Forms.ToolStripLabel();
+			this.lbl_trade_in_total = new System.Windows.Forms.ToolStripLabel();
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
 			this.groupBox8 = new System.Windows.Forms.GroupBox();
 			this.grd_misc_payment_paid = new System.Windows.Forms.DataGridView();
@@ -57,7 +57,7 @@
 			this.toolStrip5 = new System.Windows.Forms.ToolStrip();
 			this.btn_misc_payment_received_add = new System.Windows.Forms.ToolStripButton();
 			this.btn_misc_payment_received_edit = new System.Windows.Forms.ToolStripButton();
-			this.btn_payment_received_delete = new System.Windows.Forms.ToolStripButton();
+			this.btn_misc_payment_received_delete = new System.Windows.Forms.ToolStripButton();
 			this.toolStripLabel9 = new System.Windows.Forms.ToolStripLabel();
 			this.lbl_misc_payment_received_total = new System.Windows.Forms.ToolStripLabel();
 			this.num_guarantor_id = new System.Windows.Forms.NumericUpDown();
@@ -136,33 +136,33 @@
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
-			this.dataGridView4 = new System.Windows.Forms.DataGridView();
+			this.grd_expenses = new System.Windows.Forms.DataGridView();
 			this.toolStrip4 = new System.Windows.Forms.ToolStrip();
-			this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+			this.btn_expenses_add = new System.Windows.Forms.ToolStripButton();
+			this.btn_expenses_edit = new System.Windows.Forms.ToolStripButton();
+			this.btn_expenses_delete = new System.Windows.Forms.ToolStripButton();
 			this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
-			this.toolStripLabel8 = new System.Windows.Forms.ToolStripLabel();
+			this.lbl_expenses_total = new System.Windows.Forms.ToolStripLabel();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
-			this.dataGridView3 = new System.Windows.Forms.DataGridView();
+			this.grd_payment_received = new System.Windows.Forms.DataGridView();
 			this.toolStrip3 = new System.Windows.Forms.ToolStrip();
-			this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+			this.btn_payment_received_add = new System.Windows.Forms.ToolStripButton();
+			this.btn_payment_received_edit = new System.Windows.Forms.ToolStripButton();
+			this.btn_payment_received_delete = new System.Windows.Forms.ToolStripButton();
 			this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-			this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
+			this.lbl_payment_received_total = new System.Windows.Forms.ToolStripLabel();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.grd_charges_add = new System.Windows.Forms.DataGridView();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+			this.btn_charges_add_delete = new System.Windows.Forms.ToolStripButton();
 			this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-			this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
+			this.lbl_charges_add_total = new System.Windows.Forms.ToolStripLabel();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.dataGridView2 = new System.Windows.Forms.DataGridView();
+			this.grd_charges_less = new System.Windows.Forms.DataGridView();
 			this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-			this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+			this.btn_charges_less_delete = new System.Windows.Forms.ToolStripButton();
 			this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-			this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
+			this.lbl_charges_less_total = new System.Windows.Forms.ToolStripLabel();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.groupBox12 = new System.Windows.Forms.GroupBox();
 			this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -207,7 +207,7 @@
 			this.num_gross_profit = new System.Windows.Forms.NumericUpDown();
 			this.num_balance_to_receive = new System.Windows.Forms.NumericUpDown();
 			this.label39 = new System.Windows.Forms.Label();
-			this.num_total_received_payment = new System.Windows.Forms.NumericUpDown();
+			this.num_received_payment = new System.Windows.Forms.NumericUpDown();
 			this.label38 = new System.Windows.Forms.Label();
 			this.label40 = new System.Windows.Forms.Label();
 			this.num_selling_price = new System.Windows.Forms.NumericUpDown();
@@ -293,16 +293,16 @@
 			this.tabPage2.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.groupBox4.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.grd_expenses)).BeginInit();
 			this.toolStrip4.SuspendLayout();
 			this.groupBox3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.grd_payment_received)).BeginInit();
 			this.toolStrip3.SuspendLayout();
 			this.groupBox1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.grd_charges_add)).BeginInit();
 			this.toolStrip1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.grd_charges_less)).BeginInit();
 			this.toolStrip2.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.groupBox12.SuspendLayout();
@@ -323,7 +323,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.num_vehicle_cost)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_gross_profit)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_balance_to_receive)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.num_total_received_payment)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_received_payment)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_selling_price)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_road_tax_amount)).BeginInit();
 			this.groupBox11.SuspendLayout();
@@ -440,48 +440,49 @@
 			this.grd_trade_in.RowHeadersVisible = false;
 			this.grd_trade_in.Size = new System.Drawing.Size(452, 168);
 			this.grd_trade_in.TabIndex = 2;
+			this.grd_trade_in.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_DataError);
 			// 
 			// toolStrip6
 			// 
 			this.toolStrip6.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.toolStrip6.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton10,
-            this.toolStripButton16,
-            this.toolStripButton17,
+            this.btn_trade_in_add,
+            this.btn_trade_in_edit,
+            this.btn_trade_in_delete,
             this.toolStripLabel11,
-            this.toolStripLabel12});
+            this.lbl_trade_in_total});
 			this.toolStrip6.Location = new System.Drawing.Point(3, 21);
 			this.toolStrip6.Name = "toolStrip6";
 			this.toolStrip6.Size = new System.Drawing.Size(452, 25);
 			this.toolStrip6.TabIndex = 3;
 			this.toolStrip6.Text = "toolStrip6";
 			// 
-			// toolStripButton10
+			// btn_trade_in_add
 			// 
-			this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton10.Image = global::VehicleDealership.Properties.Resources.Add_16x;
-			this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton10.Name = "toolStripButton10";
-			this.toolStripButton10.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton10.Text = "toolStripButton6";
+			this.btn_trade_in_add.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_trade_in_add.Image = global::VehicleDealership.Properties.Resources.Add_16x;
+			this.btn_trade_in_add.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_trade_in_add.Name = "btn_trade_in_add";
+			this.btn_trade_in_add.Size = new System.Drawing.Size(23, 22);
+			this.btn_trade_in_add.Text = "toolStripButton6";
 			// 
-			// toolStripButton16
+			// btn_trade_in_edit
 			// 
-			this.toolStripButton16.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton16.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
-			this.toolStripButton16.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton16.Name = "toolStripButton16";
-			this.toolStripButton16.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton16.Text = "toolStripButton5";
+			this.btn_trade_in_edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_trade_in_edit.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
+			this.btn_trade_in_edit.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_trade_in_edit.Name = "btn_trade_in_edit";
+			this.btn_trade_in_edit.Size = new System.Drawing.Size(23, 22);
+			this.btn_trade_in_edit.Text = "toolStripButton5";
 			// 
-			// toolStripButton17
+			// btn_trade_in_delete
 			// 
-			this.toolStripButton17.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton17.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
-			this.toolStripButton17.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton17.Name = "toolStripButton17";
-			this.toolStripButton17.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton17.Text = "toolStripButton1";
+			this.btn_trade_in_delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_trade_in_delete.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
+			this.btn_trade_in_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_trade_in_delete.Name = "btn_trade_in_delete";
+			this.btn_trade_in_delete.Size = new System.Drawing.Size(23, 22);
+			this.btn_trade_in_delete.Text = "toolStripButton1";
 			// 
 			// toolStripLabel11
 			// 
@@ -489,11 +490,11 @@
 			this.toolStripLabel11.Size = new System.Drawing.Size(65, 22);
 			this.toolStripLabel11.Text = "Total: MYR";
 			// 
-			// toolStripLabel12
+			// lbl_trade_in_total
 			// 
-			this.toolStripLabel12.Name = "toolStripLabel12";
-			this.toolStripLabel12.Size = new System.Drawing.Size(28, 22);
-			this.toolStripLabel12.Text = "0.00";
+			this.lbl_trade_in_total.Name = "lbl_trade_in_total";
+			this.lbl_trade_in_total.Size = new System.Drawing.Size(28, 22);
+			this.lbl_trade_in_total.Text = "0.00";
 			// 
 			// tableLayoutPanel4
 			// 
@@ -532,6 +533,7 @@
 			this.grd_misc_payment_paid.RowHeadersVisible = false;
 			this.grd_misc_payment_paid.Size = new System.Drawing.Size(453, 207);
 			this.grd_misc_payment_paid.TabIndex = 3;
+			this.grd_misc_payment_paid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_DataError);
 			// 
 			// toolStrip7
 			// 
@@ -609,6 +611,7 @@
 			this.grd_misc_payment_received.RowHeadersVisible = false;
 			this.grd_misc_payment_received.Size = new System.Drawing.Size(452, 207);
 			this.grd_misc_payment_received.TabIndex = 2;
+			this.grd_misc_payment_received.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_DataError);
 			// 
 			// toolStrip5
 			// 
@@ -616,7 +619,7 @@
 			this.toolStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btn_misc_payment_received_add,
             this.btn_misc_payment_received_edit,
-            this.btn_payment_received_delete,
+            this.btn_misc_payment_received_delete,
             this.toolStripLabel9,
             this.lbl_misc_payment_received_total});
 			this.toolStrip5.Location = new System.Drawing.Point(3, 21);
@@ -643,14 +646,14 @@
 			this.btn_misc_payment_received_edit.Size = new System.Drawing.Size(23, 22);
 			this.btn_misc_payment_received_edit.Text = "toolStripButton5";
 			// 
-			// btn_payment_received_delete
+			// btn_misc_payment_received_delete
 			// 
-			this.btn_payment_received_delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_payment_received_delete.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
-			this.btn_payment_received_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_payment_received_delete.Name = "btn_payment_received_delete";
-			this.btn_payment_received_delete.Size = new System.Drawing.Size(23, 22);
-			this.btn_payment_received_delete.Text = "toolStripButton1";
+			this.btn_misc_payment_received_delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_misc_payment_received_delete.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
+			this.btn_misc_payment_received_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_misc_payment_received_delete.Name = "btn_misc_payment_received_delete";
+			this.btn_misc_payment_received_delete.Size = new System.Drawing.Size(23, 22);
+			this.btn_misc_payment_received_delete.Text = "toolStripButton1";
 			// 
 			// toolStripLabel9
 			// 
@@ -1055,6 +1058,7 @@
 			this.grd_insurance_driver.Name = "grd_insurance_driver";
 			this.grd_insurance_driver.Size = new System.Drawing.Size(211, 77);
 			this.grd_insurance_driver.TabIndex = 6;
+			this.grd_insurance_driver.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_DataError);
 			// 
 			// grd_insurance_misc
 			// 
@@ -1064,6 +1068,7 @@
 			this.grd_insurance_misc.Name = "grd_insurance_misc";
 			this.grd_insurance_misc.Size = new System.Drawing.Size(230, 77);
 			this.grd_insurance_misc.TabIndex = 6;
+			this.grd_insurance_misc.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_DataError);
 			// 
 			// num_insurance_ncb_percent
 			// 
@@ -1489,7 +1494,7 @@
 			// 
 			// groupBox4
 			// 
-			this.groupBox4.Controls.Add(this.dataGridView4);
+			this.groupBox4.Controls.Add(this.grd_expenses);
 			this.groupBox4.Controls.Add(this.toolStrip4);
 			this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.groupBox4.Location = new System.Drawing.Point(361, 254);
@@ -1499,56 +1504,57 @@
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "Expenses (charged to customer)";
 			// 
-			// dataGridView4
+			// grd_expenses
 			// 
-			this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView4.Location = new System.Drawing.Point(3, 46);
-			this.dataGridView4.Name = "dataGridView4";
-			this.dataGridView4.Size = new System.Drawing.Size(559, 196);
-			this.dataGridView4.TabIndex = 1;
+			this.grd_expenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.grd_expenses.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.grd_expenses.Location = new System.Drawing.Point(3, 46);
+			this.grd_expenses.Name = "grd_expenses";
+			this.grd_expenses.Size = new System.Drawing.Size(559, 196);
+			this.grd_expenses.TabIndex = 1;
+			this.grd_expenses.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_DataError);
 			// 
 			// toolStrip4
 			// 
 			this.toolStrip4.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton7,
-            this.toolStripButton8,
-            this.toolStripButton4,
+            this.btn_expenses_add,
+            this.btn_expenses_edit,
+            this.btn_expenses_delete,
             this.toolStripLabel4,
-            this.toolStripLabel8});
+            this.lbl_expenses_total});
 			this.toolStrip4.Location = new System.Drawing.Point(3, 21);
 			this.toolStrip4.Name = "toolStrip4";
 			this.toolStrip4.Size = new System.Drawing.Size(559, 25);
 			this.toolStrip4.TabIndex = 0;
 			this.toolStrip4.Text = "toolStrip4";
 			// 
-			// toolStripButton7
+			// btn_expenses_add
 			// 
-			this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton7.Image = global::VehicleDealership.Properties.Resources.Add_16x;
-			this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton7.Name = "toolStripButton7";
-			this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton7.Text = "Add";
+			this.btn_expenses_add.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_expenses_add.Image = global::VehicleDealership.Properties.Resources.Add_16x;
+			this.btn_expenses_add.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_expenses_add.Name = "btn_expenses_add";
+			this.btn_expenses_add.Size = new System.Drawing.Size(23, 22);
+			this.btn_expenses_add.Text = "Add";
 			// 
-			// toolStripButton8
+			// btn_expenses_edit
 			// 
-			this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton8.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
-			this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton8.Name = "toolStripButton8";
-			this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton8.Text = "Edit";
+			this.btn_expenses_edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_expenses_edit.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
+			this.btn_expenses_edit.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_expenses_edit.Name = "btn_expenses_edit";
+			this.btn_expenses_edit.Size = new System.Drawing.Size(23, 22);
+			this.btn_expenses_edit.Text = "Edit";
 			// 
-			// toolStripButton4
+			// btn_expenses_delete
 			// 
-			this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton4.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
-			this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton4.Name = "toolStripButton4";
-			this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton4.Text = "Delete";
+			this.btn_expenses_delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_expenses_delete.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
+			this.btn_expenses_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_expenses_delete.Name = "btn_expenses_delete";
+			this.btn_expenses_delete.Size = new System.Drawing.Size(23, 22);
+			this.btn_expenses_delete.Text = "Delete";
 			// 
 			// toolStripLabel4
 			// 
@@ -1556,15 +1562,15 @@
 			this.toolStripLabel4.Size = new System.Drawing.Size(65, 22);
 			this.toolStripLabel4.Text = "Total: MYR";
 			// 
-			// toolStripLabel8
+			// lbl_expenses_total
 			// 
-			this.toolStripLabel8.Name = "toolStripLabel8";
-			this.toolStripLabel8.Size = new System.Drawing.Size(28, 22);
-			this.toolStripLabel8.Text = "0.00";
+			this.lbl_expenses_total.Name = "lbl_expenses_total";
+			this.lbl_expenses_total.Size = new System.Drawing.Size(28, 22);
+			this.lbl_expenses_total.Text = "0.00";
 			// 
 			// groupBox3
 			// 
-			this.groupBox3.Controls.Add(this.dataGridView3);
+			this.groupBox3.Controls.Add(this.grd_payment_received);
 			this.groupBox3.Controls.Add(this.toolStrip3);
 			this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.groupBox3.Location = new System.Drawing.Point(361, 3);
@@ -1574,56 +1580,57 @@
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Payment received from customer";
 			// 
-			// dataGridView3
+			// grd_payment_received
 			// 
-			this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView3.Location = new System.Drawing.Point(3, 46);
-			this.dataGridView3.Name = "dataGridView3";
-			this.dataGridView3.Size = new System.Drawing.Size(559, 196);
-			this.dataGridView3.TabIndex = 1;
+			this.grd_payment_received.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.grd_payment_received.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.grd_payment_received.Location = new System.Drawing.Point(3, 46);
+			this.grd_payment_received.Name = "grd_payment_received";
+			this.grd_payment_received.Size = new System.Drawing.Size(559, 196);
+			this.grd_payment_received.TabIndex = 1;
+			this.grd_payment_received.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_DataError);
 			// 
 			// toolStrip3
 			// 
 			this.toolStrip3.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton6,
-            this.toolStripButton5,
-            this.toolStripButton3,
+            this.btn_payment_received_add,
+            this.btn_payment_received_edit,
+            this.btn_payment_received_delete,
             this.toolStripLabel3,
-            this.toolStripLabel7});
+            this.lbl_payment_received_total});
 			this.toolStrip3.Location = new System.Drawing.Point(3, 21);
 			this.toolStrip3.Name = "toolStrip3";
 			this.toolStrip3.Size = new System.Drawing.Size(559, 25);
 			this.toolStrip3.TabIndex = 0;
 			this.toolStrip3.Text = "toolStrip3";
 			// 
-			// toolStripButton6
+			// btn_payment_received_add
 			// 
-			this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton6.Image = global::VehicleDealership.Properties.Resources.Add_16x;
-			this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton6.Name = "toolStripButton6";
-			this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton6.Text = "Add";
+			this.btn_payment_received_add.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_payment_received_add.Image = global::VehicleDealership.Properties.Resources.Add_16x;
+			this.btn_payment_received_add.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_payment_received_add.Name = "btn_payment_received_add";
+			this.btn_payment_received_add.Size = new System.Drawing.Size(23, 22);
+			this.btn_payment_received_add.Text = "Add";
 			// 
-			// toolStripButton5
+			// btn_payment_received_edit
 			// 
-			this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton5.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
-			this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton5.Name = "toolStripButton5";
-			this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton5.Text = "Edit";
+			this.btn_payment_received_edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_payment_received_edit.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
+			this.btn_payment_received_edit.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_payment_received_edit.Name = "btn_payment_received_edit";
+			this.btn_payment_received_edit.Size = new System.Drawing.Size(23, 22);
+			this.btn_payment_received_edit.Text = "Edit";
 			// 
-			// toolStripButton3
+			// btn_payment_received_delete
 			// 
-			this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton3.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
-			this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton3.Name = "toolStripButton3";
-			this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton3.Text = "Delete";
+			this.btn_payment_received_delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_payment_received_delete.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
+			this.btn_payment_received_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_payment_received_delete.Name = "btn_payment_received_delete";
+			this.btn_payment_received_delete.Size = new System.Drawing.Size(23, 22);
+			this.btn_payment_received_delete.Text = "Delete";
 			// 
 			// toolStripLabel3
 			// 
@@ -1631,15 +1638,15 @@
 			this.toolStripLabel3.Size = new System.Drawing.Size(65, 22);
 			this.toolStripLabel3.Text = "Total: MYR";
 			// 
-			// toolStripLabel7
+			// lbl_payment_received_total
 			// 
-			this.toolStripLabel7.Name = "toolStripLabel7";
-			this.toolStripLabel7.Size = new System.Drawing.Size(28, 22);
-			this.toolStripLabel7.Text = "0.00";
+			this.lbl_payment_received_total.Name = "lbl_payment_received_total";
+			this.lbl_payment_received_total.Size = new System.Drawing.Size(28, 22);
+			this.lbl_payment_received_total.Text = "0.00";
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.Controls.Add(this.dataGridView1);
+			this.groupBox1.Controls.Add(this.grd_charges_add);
 			this.groupBox1.Controls.Add(this.toolStrip1);
 			this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.groupBox1.Location = new System.Drawing.Point(3, 3);
@@ -1649,36 +1656,37 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Charges to customer (Add)";
 			// 
-			// dataGridView1
+			// grd_charges_add
 			// 
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView1.Location = new System.Drawing.Point(3, 46);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(346, 196);
-			this.dataGridView1.TabIndex = 1;
+			this.grd_charges_add.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.grd_charges_add.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.grd_charges_add.Location = new System.Drawing.Point(3, 46);
+			this.grd_charges_add.Name = "grd_charges_add";
+			this.grd_charges_add.Size = new System.Drawing.Size(346, 196);
+			this.grd_charges_add.TabIndex = 1;
+			this.grd_charges_add.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_DataError);
 			// 
 			// toolStrip1
 			// 
 			this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
+            this.btn_charges_add_delete,
             this.toolStripLabel1,
-            this.toolStripLabel5});
+            this.lbl_charges_add_total});
 			this.toolStrip1.Location = new System.Drawing.Point(3, 21);
 			this.toolStrip1.Name = "toolStrip1";
 			this.toolStrip1.Size = new System.Drawing.Size(346, 25);
 			this.toolStrip1.TabIndex = 0;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
-			// toolStripButton1
+			// btn_charges_add_delete
 			// 
-			this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton1.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
-			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton1.Name = "toolStripButton1";
-			this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton1.Text = "Delete";
+			this.btn_charges_add_delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_charges_add_delete.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
+			this.btn_charges_add_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_charges_add_delete.Name = "btn_charges_add_delete";
+			this.btn_charges_add_delete.Size = new System.Drawing.Size(23, 22);
+			this.btn_charges_add_delete.Text = "Delete";
 			// 
 			// toolStripLabel1
 			// 
@@ -1686,15 +1694,15 @@
 			this.toolStripLabel1.Size = new System.Drawing.Size(65, 22);
 			this.toolStripLabel1.Text = "Total: MYR";
 			// 
-			// toolStripLabel5
+			// lbl_charges_add_total
 			// 
-			this.toolStripLabel5.Name = "toolStripLabel5";
-			this.toolStripLabel5.Size = new System.Drawing.Size(28, 22);
-			this.toolStripLabel5.Text = "0.00";
+			this.lbl_charges_add_total.Name = "lbl_charges_add_total";
+			this.lbl_charges_add_total.Size = new System.Drawing.Size(28, 22);
+			this.lbl_charges_add_total.Text = "0.00";
 			// 
 			// groupBox2
 			// 
-			this.groupBox2.Controls.Add(this.dataGridView2);
+			this.groupBox2.Controls.Add(this.grd_charges_less);
 			this.groupBox2.Controls.Add(this.toolStrip2);
 			this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.groupBox2.Location = new System.Drawing.Point(3, 254);
@@ -1704,36 +1712,37 @@
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Charges to customer (Less)";
 			// 
-			// dataGridView2
+			// grd_charges_less
 			// 
-			this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView2.Location = new System.Drawing.Point(3, 46);
-			this.dataGridView2.Name = "dataGridView2";
-			this.dataGridView2.Size = new System.Drawing.Size(346, 196);
-			this.dataGridView2.TabIndex = 1;
+			this.grd_charges_less.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.grd_charges_less.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.grd_charges_less.Location = new System.Drawing.Point(3, 46);
+			this.grd_charges_less.Name = "grd_charges_less";
+			this.grd_charges_less.Size = new System.Drawing.Size(346, 196);
+			this.grd_charges_less.TabIndex = 1;
+			this.grd_charges_less.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_DataError);
 			// 
 			// toolStrip2
 			// 
 			this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton2,
+            this.btn_charges_less_delete,
             this.toolStripLabel2,
-            this.toolStripLabel6});
+            this.lbl_charges_less_total});
 			this.toolStrip2.Location = new System.Drawing.Point(3, 21);
 			this.toolStrip2.Name = "toolStrip2";
 			this.toolStrip2.Size = new System.Drawing.Size(346, 25);
 			this.toolStrip2.TabIndex = 0;
 			this.toolStrip2.Text = "toolStrip1";
 			// 
-			// toolStripButton2
+			// btn_charges_less_delete
 			// 
-			this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton2.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
-			this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton2.Name = "toolStripButton2";
-			this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton2.Text = "Delete";
+			this.btn_charges_less_delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_charges_less_delete.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
+			this.btn_charges_less_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_charges_less_delete.Name = "btn_charges_less_delete";
+			this.btn_charges_less_delete.Size = new System.Drawing.Size(23, 22);
+			this.btn_charges_less_delete.Text = "Delete";
 			// 
 			// toolStripLabel2
 			// 
@@ -1741,11 +1750,11 @@
 			this.toolStripLabel2.Size = new System.Drawing.Size(65, 22);
 			this.toolStripLabel2.Text = "Total: MYR";
 			// 
-			// toolStripLabel6
+			// lbl_charges_less_total
 			// 
-			this.toolStripLabel6.Name = "toolStripLabel6";
-			this.toolStripLabel6.Size = new System.Drawing.Size(28, 22);
-			this.toolStripLabel6.Text = "0.00";
+			this.lbl_charges_less_total.Name = "lbl_charges_less_total";
+			this.lbl_charges_less_total.Size = new System.Drawing.Size(28, 22);
+			this.lbl_charges_less_total.Text = "0.00";
 			// 
 			// tabPage1
 			// 
@@ -2010,7 +2019,7 @@
 			this.tableLayoutPanel1.Controls.Add(this.num_gross_profit, 3, 7);
 			this.tableLayoutPanel1.Controls.Add(this.num_balance_to_receive, 3, 1);
 			this.tableLayoutPanel1.Controls.Add(this.label39, 2, 1);
-			this.tableLayoutPanel1.Controls.Add(this.num_total_received_payment, 3, 0);
+			this.tableLayoutPanel1.Controls.Add(this.num_received_payment, 3, 0);
 			this.tableLayoutPanel1.Controls.Add(this.label38, 2, 0);
 			this.tableLayoutPanel1.Controls.Add(this.label40, 2, 3);
 			this.tableLayoutPanel1.Controls.Add(this.num_selling_price, 1, 0);
@@ -2064,6 +2073,7 @@
 			this.num_total_expenses.TabIndex = 20;
 			this.num_total_expenses.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.num_total_expenses.ThousandsSeparator = true;
+			this.num_total_expenses.ValueChanged += new System.EventHandler(this.Num_finance_ValueChanged);
 			// 
 			// label1
 			// 
@@ -2107,6 +2117,7 @@
 			this.num_total_less_charges.TabIndex = 20;
 			this.num_total_less_charges.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.num_total_less_charges.ThousandsSeparator = true;
+			this.num_total_less_charges.ValueChanged += new System.EventHandler(this.Num_finance_ValueChanged);
 			// 
 			// label3
 			// 
@@ -2140,6 +2151,7 @@
 			this.num_total_additional_charges.TabIndex = 20;
 			this.num_total_additional_charges.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.num_total_additional_charges.ThousandsSeparator = true;
+			this.num_total_additional_charges.ValueChanged += new System.EventHandler(this.Num_finance_ValueChanged);
 			// 
 			// label34
 			// 
@@ -2209,6 +2221,7 @@
 			this.num_total_trade_in.TabIndex = 20;
 			this.num_total_trade_in.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.num_total_trade_in.ThousandsSeparator = true;
+			this.num_total_trade_in.ValueChanged += new System.EventHandler(this.Num_finance_ValueChanged);
 			// 
 			// label36
 			// 
@@ -2247,9 +2260,10 @@
 			// 
 			this.label37.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label37.AutoSize = true;
+			this.label37.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label37.Location = new System.Drawing.Point(3, 209);
 			this.label37.Name = "label37";
-			this.label37.Size = new System.Drawing.Size(71, 17);
+			this.label37.Size = new System.Drawing.Size(74, 17);
 			this.label37.TabIndex = 28;
 			this.label37.Text = "To receive:";
 			// 
@@ -2298,6 +2312,7 @@
 			this.num_total_misc_received.TabIndex = 20;
 			this.num_total_misc_received.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.num_total_misc_received.ThousandsSeparator = true;
+			this.num_total_misc_received.ValueChanged += new System.EventHandler(this.Num_finance_ValueChanged);
 			// 
 			// label41
 			// 
@@ -2362,6 +2377,7 @@
 			this.num_total_misc_paid.TabIndex = 20;
 			this.num_total_misc_paid.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.num_total_misc_paid.ThousandsSeparator = true;
+			this.num_total_misc_paid.ValueChanged += new System.EventHandler(this.Num_finance_ValueChanged);
 			// 
 			// num_vehicle_cost
 			// 
@@ -2385,6 +2401,7 @@
 			this.num_vehicle_cost.TabIndex = 20;
 			this.num_vehicle_cost.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.num_vehicle_cost.ThousandsSeparator = true;
+			this.num_vehicle_cost.ValueChanged += new System.EventHandler(this.Num_finance_ValueChanged);
 			// 
 			// num_gross_profit
 			// 
@@ -2445,28 +2462,29 @@
 			this.label39.TabIndex = 28;
 			this.label39.Text = "Balance to receive:";
 			// 
-			// num_total_received_payment
+			// num_received_payment
 			// 
-			this.num_total_received_payment.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.num_total_received_payment.DecimalPlaces = 2;
-			this.num_total_received_payment.Enabled = false;
-			this.num_total_received_payment.Location = new System.Drawing.Point(399, 2);
-			this.num_total_received_payment.Margin = new System.Windows.Forms.Padding(2);
-			this.num_total_received_payment.Maximum = new decimal(new int[] {
+			this.num_received_payment.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_received_payment.DecimalPlaces = 2;
+			this.num_received_payment.Enabled = false;
+			this.num_received_payment.Location = new System.Drawing.Point(399, 2);
+			this.num_received_payment.Margin = new System.Windows.Forms.Padding(2);
+			this.num_received_payment.Maximum = new decimal(new int[] {
             1000000000,
             0,
             0,
             0});
-			this.num_total_received_payment.Minimum = new decimal(new int[] {
+			this.num_received_payment.Minimum = new decimal(new int[] {
             1000000000,
             0,
             0,
             -2147483648});
-			this.num_total_received_payment.Name = "num_total_received_payment";
-			this.num_total_received_payment.Size = new System.Drawing.Size(123, 25);
-			this.num_total_received_payment.TabIndex = 20;
-			this.num_total_received_payment.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.num_total_received_payment.ThousandsSeparator = true;
+			this.num_received_payment.Name = "num_received_payment";
+			this.num_received_payment.Size = new System.Drawing.Size(123, 25);
+			this.num_received_payment.TabIndex = 20;
+			this.num_received_payment.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_received_payment.ThousandsSeparator = true;
+			this.num_received_payment.ValueChanged += new System.EventHandler(this.Num_finance_ValueChanged);
 			// 
 			// label38
 			// 
@@ -2511,6 +2529,7 @@
 			this.num_selling_price.TabIndex = 20;
 			this.num_selling_price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.num_selling_price.ThousandsSeparator = true;
+			this.num_selling_price.ValueChanged += new System.EventHandler(this.Num_finance_ValueChanged);
 			// 
 			// num_road_tax_amount
 			// 
@@ -2534,6 +2553,7 @@
 			this.num_road_tax_amount.TabIndex = 20;
 			this.num_road_tax_amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.num_road_tax_amount.ThousandsSeparator = true;
+			this.num_road_tax_amount.ValueChanged += new System.EventHandler(this.Num_finance_ValueChanged);
 			// 
 			// groupBox11
 			// 
@@ -3092,22 +3112,22 @@
 			this.tableLayoutPanel2.ResumeLayout(false);
 			this.groupBox4.ResumeLayout(false);
 			this.groupBox4.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.grd_expenses)).EndInit();
 			this.toolStrip4.ResumeLayout(false);
 			this.toolStrip4.PerformLayout();
 			this.groupBox3.ResumeLayout(false);
 			this.groupBox3.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.grd_payment_received)).EndInit();
 			this.toolStrip3.ResumeLayout(false);
 			this.toolStrip3.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.grd_charges_add)).EndInit();
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.grd_charges_less)).EndInit();
 			this.toolStrip2.ResumeLayout(false);
 			this.toolStrip2.PerformLayout();
 			this.tabPage1.ResumeLayout(false);
@@ -3132,7 +3152,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.num_vehicle_cost)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_gross_profit)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_balance_to_receive)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.num_total_received_payment)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_received_payment)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_selling_price)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_road_tax_amount)).EndInit();
 			this.groupBox11.ResumeLayout(false);
@@ -3167,7 +3187,7 @@
 		private System.Windows.Forms.ToolStrip toolStrip5;
 		private System.Windows.Forms.ToolStripButton btn_misc_payment_received_add;
 		private System.Windows.Forms.ToolStripButton btn_misc_payment_received_edit;
-		private System.Windows.Forms.ToolStripButton btn_payment_received_delete;
+		private System.Windows.Forms.ToolStripButton btn_misc_payment_received_delete;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel9;
 		private System.Windows.Forms.ToolStripLabel lbl_misc_payment_received_total;
 		private System.Windows.Forms.NumericUpDown num_guarantor_id;
@@ -3240,33 +3260,33 @@
 		private System.Windows.Forms.TabPage tabPage2;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.GroupBox groupBox4;
-		private System.Windows.Forms.DataGridView dataGridView4;
+		private System.Windows.Forms.DataGridView grd_expenses;
 		private System.Windows.Forms.ToolStrip toolStrip4;
-		private System.Windows.Forms.ToolStripButton toolStripButton7;
-		private System.Windows.Forms.ToolStripButton toolStripButton8;
-		private System.Windows.Forms.ToolStripButton toolStripButton4;
+		private System.Windows.Forms.ToolStripButton btn_expenses_add;
+		private System.Windows.Forms.ToolStripButton btn_expenses_edit;
+		private System.Windows.Forms.ToolStripButton btn_expenses_delete;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel4;
-		private System.Windows.Forms.ToolStripLabel toolStripLabel8;
+		private System.Windows.Forms.ToolStripLabel lbl_expenses_total;
 		private System.Windows.Forms.GroupBox groupBox3;
-		private System.Windows.Forms.DataGridView dataGridView3;
+		private System.Windows.Forms.DataGridView grd_payment_received;
 		private System.Windows.Forms.ToolStrip toolStrip3;
-		private System.Windows.Forms.ToolStripButton toolStripButton6;
-		private System.Windows.Forms.ToolStripButton toolStripButton5;
-		private System.Windows.Forms.ToolStripButton toolStripButton3;
+		private System.Windows.Forms.ToolStripButton btn_payment_received_add;
+		private System.Windows.Forms.ToolStripButton btn_payment_received_edit;
+		private System.Windows.Forms.ToolStripButton btn_payment_received_delete;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel3;
-		private System.Windows.Forms.ToolStripLabel toolStripLabel7;
+		private System.Windows.Forms.ToolStripLabel lbl_payment_received_total;
 		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView grd_charges_add;
 		private System.Windows.Forms.ToolStrip toolStrip1;
-		private System.Windows.Forms.ToolStripButton toolStripButton1;
+		private System.Windows.Forms.ToolStripButton btn_charges_add_delete;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-		private System.Windows.Forms.ToolStripLabel toolStripLabel5;
+		private System.Windows.Forms.ToolStripLabel lbl_charges_add_total;
 		private System.Windows.Forms.GroupBox groupBox2;
-		private System.Windows.Forms.DataGridView dataGridView2;
+		private System.Windows.Forms.DataGridView grd_charges_less;
 		private System.Windows.Forms.ToolStrip toolStrip2;
-		private System.Windows.Forms.ToolStripButton toolStripButton2;
+		private System.Windows.Forms.ToolStripButton btn_charges_less_delete;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-		private System.Windows.Forms.ToolStripLabel toolStripLabel6;
+		private System.Windows.Forms.ToolStripLabel lbl_charges_less_total;
 		private System.Windows.Forms.TabPage tabPage1;
 		private System.Windows.Forms.GroupBox groupBox10;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -3313,11 +3333,11 @@
 		private System.Windows.Forms.GroupBox groupBox9;
 		private System.Windows.Forms.DataGridView grd_trade_in;
 		private System.Windows.Forms.ToolStrip toolStrip6;
-		private System.Windows.Forms.ToolStripButton toolStripButton10;
-		private System.Windows.Forms.ToolStripButton toolStripButton16;
-		private System.Windows.Forms.ToolStripButton toolStripButton17;
+		private System.Windows.Forms.ToolStripButton btn_trade_in_add;
+		private System.Windows.Forms.ToolStripButton btn_trade_in_edit;
+		private System.Windows.Forms.ToolStripButton btn_trade_in_delete;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel11;
-		private System.Windows.Forms.ToolStripLabel toolStripLabel12;
+		private System.Windows.Forms.ToolStripLabel lbl_trade_in_total;
 		private System.Windows.Forms.Label label34;
 		private System.Windows.Forms.Label label35;
 		private System.Windows.Forms.NumericUpDown num_selling_price;
@@ -3326,7 +3346,7 @@
 		private System.Windows.Forms.Label label36;
 		private System.Windows.Forms.NumericUpDown num_to_receive;
 		private System.Windows.Forms.Label label37;
-		private System.Windows.Forms.NumericUpDown num_total_received_payment;
+		private System.Windows.Forms.NumericUpDown num_received_payment;
 		private System.Windows.Forms.Label label38;
 		private System.Windows.Forms.NumericUpDown num_balance_to_receive;
 		private System.Windows.Forms.Label label39;

@@ -177,5 +177,22 @@ namespace VehicleDealership.Datasets
 			}
 			return new sp_vehicle_incoming_docDataTable();
 		}
+		public static sp_select_vehicle_unsoldDataTable Select_unsold_vehicle()
+		{
+			try
+			{
+				using (Vehicle_dsTableAdapters.sp_select_vehicle_unsoldTableAdapter adapter = 
+					new Vehicle_dsTableAdapters.sp_select_vehicle_unsoldTableAdapter())
+				{
+					return adapter.GetData();
+				}
+			}
+			catch (System.Exception e)
+			{
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
+			}
+			return new sp_select_vehicle_unsoldDataTable();
+		}
 	}
 }

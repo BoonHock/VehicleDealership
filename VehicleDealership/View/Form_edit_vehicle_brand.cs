@@ -115,8 +115,10 @@ namespace VehicleDealership.View
 			else
 				Vehicle_brand_ds.Update_vehicle_brand(_int_brand_id, str_brand_name, int_country);
 
-			DataColumn dt_col1 = new DataColumn("Created_by", typeof(int));
-			dt_col1.DefaultValue = Program.System_user.UserID;
+			DataColumn dt_col1 = new DataColumn("Created_by", typeof(int))
+			{
+				DefaultValue = Program.System_user.UserID
+			};
 
 			dttable_vehicle_group.Columns.Add(dt_col1);
 
