@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="sp_select_vehicle_sale_paymentTableAdapter" GeneratorDataComponentClassName="sp_select_vehicle_sale_paymentTableAdapter" Name="sp_select_vehicle_sale_payment" UserDataComponentName="sp_select_vehicle_sale_paymentTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="VehicleDealershipConnectionString (Settings)" DbObjectName="VehicleDealership.fin.sp_select_vehicle_sale_payment" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="GetData">
+              <DbSource ConnectionRef="VehicleDealershipConnectionString (Settings)" DbObjectName="VehicleDealership.fin.sp_select_vehicle_sale_payment" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>fin.sp_select_vehicle_sale_payment</CommandText>
@@ -26,7 +26,6 @@
               <Mapping SourceColumn="payment" DataSetColumn="payment" />
               <Mapping SourceColumn="payment_no" DataSetColumn="payment_no" />
               <Mapping SourceColumn="payment_description" DataSetColumn="payment_description" />
-              <Mapping SourceColumn="pay_to_id" DataSetColumn="pay_to_id" />
               <Mapping SourceColumn="pay_to" DataSetColumn="pay_to" />
               <Mapping SourceColumn="pay_to_type" DataSetColumn="pay_to_type" />
               <Mapping SourceColumn="amount" DataSetColumn="amount" />
@@ -34,12 +33,9 @@
               <Mapping SourceColumn="is_paid" DataSetColumn="is_paid" />
               <Mapping SourceColumn="payment_method_type" DataSetColumn="payment_method_type" />
               <Mapping SourceColumn="payment_method" DataSetColumn="payment_method" />
-              <Mapping SourceColumn="payment_method_id" DataSetColumn="payment_method_id" />
               <Mapping SourceColumn="cheque_no" DataSetColumn="cheque_no" />
               <Mapping SourceColumn="credit_card_no" DataSetColumn="credit_card_no" />
-              <Mapping SourceColumn="credit_card_type_id" DataSetColumn="credit_card_type_id" />
               <Mapping SourceColumn="credit_card_type" DataSetColumn="credit_card_type" />
-              <Mapping SourceColumn="finance_id" DataSetColumn="finance_id" />
               <Mapping SourceColumn="finance" DataSetColumn="finance" />
               <Mapping SourceColumn="payment_method_date" DataSetColumn="payment_method_date" />
               <Mapping SourceColumn="remark" DataSetColumn="remark" />
@@ -55,7 +51,7 @@
   <xs:element name="Vehicle_sale_payment_ds" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Vehicle_sale_payment_ds" msprop:Generator_UserDSName="Vehicle_sale_payment_ds">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="sp_select_vehicle_sale_payment" msprop:Generator_TableClassName="sp_select_vehicle_sale_paymentDataTable" msprop:Generator_TableVarName="tablesp_select_vehicle_sale_payment" msprop:Generator_TablePropName="sp_select_vehicle_sale_payment" msprop:Generator_RowDeletingName="sp_select_vehicle_sale_paymentRowDeleting" msprop:Generator_RowChangingName="sp_select_vehicle_sale_paymentRowChanging" msprop:Generator_RowEvHandlerName="sp_select_vehicle_sale_paymentRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_select_vehicle_sale_paymentRowDeleted" msprop:Generator_UserTableName="sp_select_vehicle_sale_payment" msprop:Generator_RowChangedName="sp_select_vehicle_sale_paymentRowChanged" msprop:Generator_RowEvArgName="sp_select_vehicle_sale_paymentRowChangeEvent" msprop:Generator_RowClassName="sp_select_vehicle_sale_paymentRow">
+        <xs:element name="sp_select_vehicle_sale_payment" msprop:Generator_TableClassName="sp_select_vehicle_sale_paymentDataTable" msprop:Generator_TableVarName="tablesp_select_vehicle_sale_payment" msprop:Generator_RowChangedName="sp_select_vehicle_sale_paymentRowChanged" msprop:Generator_TablePropName="sp_select_vehicle_sale_payment" msprop:Generator_RowDeletingName="sp_select_vehicle_sale_paymentRowDeleting" msprop:Generator_RowChangingName="sp_select_vehicle_sale_paymentRowChanging" msprop:Generator_RowEvHandlerName="sp_select_vehicle_sale_paymentRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_select_vehicle_sale_paymentRowDeleted" msprop:Generator_RowClassName="sp_select_vehicle_sale_paymentRow" msprop:Generator_UserTableName="sp_select_vehicle_sale_payment" msprop:Generator_RowEvArgName="sp_select_vehicle_sale_paymentRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="payment" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnpayment" msprop:Generator_ColumnPropNameInRow="payment" msprop:Generator_ColumnPropNameInTable="paymentColumn" msprop:Generator_UserColumnName="payment" type="xs:int" />
@@ -73,7 +69,6 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="pay_to_id" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnpay_to_id" msprop:Generator_ColumnPropNameInRow="pay_to_id" msprop:Generator_ColumnPropNameInTable="pay_to_idColumn" msprop:Generator_UserColumnName="pay_to_id" type="xs:int" minOccurs="0" />
               <xs:element name="pay_to" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnpay_to" msprop:Generator_ColumnPropNameInRow="pay_to" msprop:Generator_ColumnPropNameInTable="pay_toColumn" msprop:Generator_UserColumnName="pay_to" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -105,7 +100,6 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="payment_method_id" msprop:Generator_ColumnVarNameInTable="columnpayment_method_id" msprop:Generator_ColumnPropNameInRow="payment_method_id" msprop:Generator_ColumnPropNameInTable="payment_method_idColumn" msprop:Generator_UserColumnName="payment_method_id" type="xs:int" minOccurs="0" />
               <xs:element name="cheque_no" msprop:Generator_ColumnVarNameInTable="columncheque_no" msprop:Generator_ColumnPropNameInRow="cheque_no" msprop:Generator_ColumnPropNameInTable="cheque_noColumn" msprop:Generator_UserColumnName="cheque_no" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -120,7 +114,6 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="credit_card_type_id" msprop:Generator_ColumnVarNameInTable="columncredit_card_type_id" msprop:Generator_ColumnPropNameInRow="credit_card_type_id" msprop:Generator_ColumnPropNameInTable="credit_card_type_idColumn" msprop:Generator_UserColumnName="credit_card_type_id" type="xs:int" minOccurs="0" />
               <xs:element name="credit_card_type" msprop:Generator_ColumnVarNameInTable="columncredit_card_type" msprop:Generator_ColumnPropNameInRow="credit_card_type" msprop:Generator_ColumnPropNameInTable="credit_card_typeColumn" msprop:Generator_UserColumnName="credit_card_type" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -128,7 +121,6 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="finance_id" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnfinance_id" msprop:Generator_ColumnPropNameInRow="finance_id" msprop:Generator_ColumnPropNameInTable="finance_idColumn" msprop:Generator_UserColumnName="finance_id" type="xs:int" minOccurs="0" />
               <xs:element name="finance" msprop:Generator_ColumnVarNameInTable="columnfinance" msprop:Generator_ColumnPropNameInRow="finance" msprop:Generator_ColumnPropNameInTable="financeColumn" msprop:Generator_UserColumnName="finance" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">

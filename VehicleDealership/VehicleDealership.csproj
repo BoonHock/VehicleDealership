@@ -28,6 +28,8 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -97,6 +99,7 @@
     <Compile Include="Classes\Class_image.cs" />
     <Compile Include="Classes\Class_listview.cs" />
     <Compile Include="Classes\Class_misc.cs" />
+    <Compile Include="Classes\Class_payment_function.cs" />
     <Compile Include="Classes\Class_style.cs" />
     <Compile Include="Classes\Class_treeview.cs" />
     <Compile Include="Classes\User.cs" />
@@ -227,6 +230,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\Insurance_driver_ds.cs">
+      <DependentUpon>Insurance_driver_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Insurance_driver_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Insurance_driver_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\Insurance_ds.cs">
       <DependentUpon>Insurance_ds.xsd</DependentUpon>
     </Compile>
@@ -234,6 +245,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Insurance_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Insurance_misc_charges_ds.cs">
+      <DependentUpon>Insurance_misc_charges_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Insurance_misc_charges_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Insurance_misc_charges_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\Location_ds.cs">
       <DependentUpon>Location_ds.xsd</DependentUpon>
@@ -459,6 +478,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Vehicle_sale_payment_ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Form_add_vehicle.cs">
@@ -820,6 +840,17 @@
     <None Include="Datasets\Fuel_type_ds.xss">
       <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
     </None>
+    <None Include="Datasets\Insurance_driver_ds.xsc">
+      <DependentUpon>Insurance_driver_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Insurance_driver_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Insurance_driver_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Insurance_driver_ds.xss">
+      <DependentUpon>Insurance_driver_ds.xsd</DependentUpon>
+    </None>
     <None Include="Datasets\Insurance_ds.xsc">
       <DependentUpon>Insurance_ds.xsd</DependentUpon>
     </None>
@@ -830,6 +861,17 @@
     </None>
     <None Include="Datasets\Insurance_ds.xss">
       <DependentUpon>Insurance_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Insurance_misc_charges_ds.xsc">
+      <DependentUpon>Insurance_misc_charges_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Insurance_misc_charges_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Insurance_misc_charges_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Insurance_misc_charges_ds.xss">
+      <DependentUpon>Insurance_misc_charges_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Location_ds.xsc">
       <DependentUpon>Location_ds.xsd</DependentUpon>
@@ -1189,6 +1231,5 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

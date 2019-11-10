@@ -29,7 +29,7 @@ namespace VehicleDealership.Datasets
 					return adapter.GetData();
 				}
 			}
-			catch (System.Exception e)
+			catch (System.Data.SqlClient.SqlException e)
 			{
 				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
 					MethodBase.GetCurrentMethod().Name, e.Message);
@@ -50,7 +50,7 @@ namespace VehicleDealership.Datasets
 					return adapter.GetData(int_vehicle, "", "");
 				}
 			}
-			catch (System.Exception e)
+			catch (System.Data.SqlClient.SqlException e)
 			{
 				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
 					MethodBase.GetCurrentMethod().Name, e.Message);
@@ -78,7 +78,7 @@ namespace VehicleDealership.Datasets
 					}
 				}
 			}
-			catch (System.Exception e)
+			catch (System.Data.SqlClient.SqlException e)
 			{
 				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
 					MethodBase.GetCurrentMethod().Name, e.Message);
@@ -93,6 +93,7 @@ namespace VehicleDealership.Datasets
 			decimal dec_overtrade, decimal dec_list_price, decimal dec_max_can_loan, decimal dec_loan_balance,
 			decimal dec_loan_installment_amount, int? int_loan_finance, int installment_day_of_month,
 			System.DateTime loan_settlement_date, string str_loan_agreement_no, string str_remark, int int_checked_by)
+#pragma warning restore CA1707 // Identifiers should not contain underscores
 		{
 			try
 			{
@@ -107,7 +108,7 @@ namespace VehicleDealership.Datasets
 						str_remark, int_checked_by, Program.System_user.UserID).ToString());
 				}
 			}
-			catch (System.Exception e)
+			catch (System.Data.SqlClient.SqlException e)
 			{
 				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
 					MethodBase.GetCurrentMethod().Name, e.Message);
@@ -136,7 +137,7 @@ namespace VehicleDealership.Datasets
 						str_remark, int_checked_by, Program.System_user.UserID);
 				}
 			}
-			catch (System.Exception e)
+			catch (System.Data.SqlClient.SqlException e)
 			{
 				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
 					MethodBase.GetCurrentMethod().Name, e.Message);
@@ -153,7 +154,7 @@ namespace VehicleDealership.Datasets
 					return true;
 				}
 			}
-			catch (System.Exception e)
+			catch (System.Data.SqlClient.SqlException e)
 			{
 				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
 					MethodBase.GetCurrentMethod().Name, e.Message);
@@ -170,7 +171,7 @@ namespace VehicleDealership.Datasets
 					return adapter.GetData(int_vehicle);
 				}
 			}
-			catch (System.Exception e)
+			catch (System.Data.SqlClient.SqlException e)
 			{
 				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
 					MethodBase.GetCurrentMethod().Name, e.Message);
@@ -181,18 +182,36 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				using (Vehicle_dsTableAdapters.sp_select_vehicle_unsoldTableAdapter adapter = 
+				using (Vehicle_dsTableAdapters.sp_select_vehicle_unsoldTableAdapter adapter =
 					new Vehicle_dsTableAdapters.sp_select_vehicle_unsoldTableAdapter())
 				{
 					return adapter.GetData();
 				}
 			}
-			catch (System.Exception e)
+			catch (System.Data.SqlClient.SqlException e)
 			{
 				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
 					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
 			return new sp_select_vehicle_unsoldDataTable();
 		}
+		public static sp_select_vehicle_trade_inDataTable Select_vehicle_trade_in(int int_vehicle_sale)
+		{
+			try
+			{
+				using (Vehicle_dsTableAdapters.sp_select_vehicle_trade_inTableAdapter adapter =
+					new Vehicle_dsTableAdapters.sp_select_vehicle_trade_inTableAdapter())
+				{
+					return adapter.GetData(int_vehicle_sale);
+				}
+			}
+			catch (System.Data.SqlClient.SqlException e)
+			{
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
+			}
+			return new sp_select_vehicle_trade_inDataTable();
+		}
+
 	}
 }

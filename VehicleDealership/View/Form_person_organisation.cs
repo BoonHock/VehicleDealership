@@ -128,7 +128,7 @@ namespace VehicleDealership.View
 				Class_datagridview.Hide_columns(grd_main, new string[] { "person" });
 
 				if (int_id != 0)
-					Class_datagridview.Select_row_by_value(grd_main, "person", int_id.ToString());
+					Class_datagridview.Select_row_by_value(grd_main, "person", int_id);
 
 				btn_add.Enabled = Program.System_user.Has_permission(User_permission.ADD_EDIT_PERSON);
 				addToolStripMenuItem.Enabled = Program.System_user.Has_permission(User_permission.ADD_EDIT_PERSON);
@@ -140,7 +140,7 @@ namespace VehicleDealership.View
 				Class_datagridview.Hide_columns(grd_main, new string[] { "organisation_branch", "organisation" });
 
 				if (int_id != 0)
-					Class_datagridview.Select_row_by_value(grd_main, "organisation", int_id.ToString());
+					Class_datagridview.Select_row_by_value(grd_main, "organisation", int_id);
 
 				btn_add.Enabled = Program.System_user.Has_permission(User_permission.ADD_EDIT_ORGANISATION);
 				addToolStripMenuItem.Enabled = Program.System_user.Has_permission(User_permission.ADD_EDIT_ORGANISATION);

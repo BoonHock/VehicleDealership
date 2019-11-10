@@ -667,7 +667,7 @@ namespace VehicleDealership.View
 			Apply_filter_salesperson();
 
 			if (int_salesperson != 0)
-				Class_datagridview.Select_row_by_value(grd_main, "salesperson", int_salesperson.ToString());
+				Class_datagridview.Select_row_by_value(grd_main, "salesperson", int_salesperson);
 		}
 		private void Add_salesperson(object sender, EventArgs e)
 		{
@@ -768,7 +768,7 @@ namespace VehicleDealership.View
 			Apply_filter_finance_insurance();
 
 			if (int_id != 0)
-				Class_datagridview.Select_row_by_value(grd_main, this.Tag.ToString().ToLower(), int_id.ToString());
+				Class_datagridview.Select_row_by_value(grd_main, this.Tag.ToString().ToLower(), int_id);
 		}
 		private void Apply_filter_finance_insurance()
 		{
@@ -855,7 +855,7 @@ namespace VehicleDealership.View
 			Apply_filter_vehicle();
 
 			if (int_vehicle != 0)
-				Class_datagridview.Select_row_by_value(grd_main, "vehicle", int_vehicle.ToString());
+				Class_datagridview.Select_row_by_value(grd_main, "vehicle", int_vehicle);
 		}
 		private void Apply_filter_vehicle()
 		{
@@ -1034,7 +1034,7 @@ namespace VehicleDealership.View
 			Apply_filter_vehicle_sale();
 
 			if (int_vehicle != 0)
-				Class_datagridview.Select_row_by_value(grd_main, "vehicle", int_vehicle.ToString());
+				Class_datagridview.Select_row_by_value(grd_main, "vehicle", int_vehicle);
 		}
 		private void Apply_filter_vehicle_sale()
 		{
@@ -1111,7 +1111,7 @@ namespace VehicleDealership.View
 			Apply_filter_vehicle_return();
 
 			if (int_vehicle != 0)
-				Class_datagridview.Select_row_by_value(grd_main, "vehicle", int_vehicle.ToString());
+				Class_datagridview.Select_row_by_value(grd_main, "vehicle", int_vehicle);
 		}
 		private void Apply_filter_vehicle_return()
 		{

@@ -57,7 +57,7 @@ namespace VehicleDealership.Classes
 		{
 			string cell_value = preselect_value;
 
-			if (grd.Rows.Count > 0 && grd.CurrentCell != null && preselect_value == "")
+			if (grd.Rows.Count > 0 && grd.CurrentCell != null && preselect_value.Length == 0)
 			{
 				// if datagridview has row and has current cell initially, store its value and position
 				cell_value = grd.Rows[grd.CurrentCell.RowIndex].Cells[value_col].Value.ToString();
@@ -81,14 +81,30 @@ namespace VehicleDealership.Classes
 				}
 			}
 		}
-		public static void Select_row_by_value(DataGridView grd, string value_col, string str_value)
+		public static void Select_row_by_value(DataGridView grd, string value_col, string value)
 		{
 			if (!grd.Columns.Contains(value_col)) return;
 
 			foreach (DataGridViewRow grd_row in grd.Rows)
 			{
 				if (grd_row.Cells[value_col].Value != DBNull.Value &&
-					grd_row.Cells[value_col].Value.ToString() == str_value)
+					grd_row.Cells[value_col].Value.ToString() == value)
+				{
+					grd.ClearSelection();
+					grd_row.Selected = true;
+					Set_current_cell_to_first_visible_column(grd_row);
+					break;
+				}
+			}
+		}
+		public static void Select_row_by_value(DataGridView grd, string value_col, int value)
+		{
+			if (!grd.Columns.Contains(value_col)) return;
+
+			foreach (DataGridViewRow grd_row in grd.Rows)
+			{
+				if (grd_row.Cells[value_col].Value != DBNull.Value &&
+					(int)grd_row.Cells[value_col].Value == value)
 				{
 					grd.ClearSelection();
 					grd_row.Selected = true;
@@ -264,17 +280,16 @@ namespace VehicleDealership.Classes
 		{
 			int col_index = grd.Columns[str_col_name].Index;
 
-			DataGridViewComboBoxColumn grd_col = new DataGridViewComboBoxColumn
+			using (DataGridViewComboBoxColumn grd_col = new DataGridViewComboBoxColumn())
 			{
-				DataSource = dttable,
-				DisplayMember = str_display_member,
-				ValueMember = str_value_member,
-				Name = str_col_name,
-				DataPropertyName = str_col_name
-			};
-
-			grd.Columns.RemoveAt(col_index);
-			grd.Columns.Insert(col_index, grd_col);
+				grd_col.DataSource = dttable;
+				grd_col.DisplayMember = str_display_member;
+				grd_col.ValueMember = str_value_member;
+				grd_col.Name = str_col_name;
+				grd_col.DataPropertyName = str_col_name;
+				grd.Columns.RemoveAt(col_index);
+				grd.Columns.Insert(col_index, grd_col);
+			}
 		}
 		/// <summary>
 		/// can only search string and integer type column

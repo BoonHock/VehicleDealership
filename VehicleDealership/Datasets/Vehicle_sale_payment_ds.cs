@@ -17,13 +17,14 @@ namespace VehicleDealership.Datasets
 		/// 4 - misc received (vehicle sale)
 		/// </param>
 		/// <returns></returns>
-		public static sp_select_vehicle_sale_paymentDataTable Select_vehicle_sale_payment(int int_vehicle, int int_payment_function)
+		public static sp_select_vehicle_sale_paymentDataTable Select_vehicle_sale_payment(int int_vehicle, Classes.Class_payment_function.PaymentFunction payment_function)
 		{
 			try
 			{
-				using (Vehicle_sale_payment_dsTableAdapters.sp_select_vehicle_sale_paymentTableAdapter adapter = new Vehicle_sale_payment_dsTableAdapters.sp_select_vehicle_sale_paymentTableAdapter())
+				using (Vehicle_sale_payment_dsTableAdapters.sp_select_vehicle_sale_paymentTableAdapter adapter =
+					new Vehicle_sale_payment_dsTableAdapters.sp_select_vehicle_sale_paymentTableAdapter())
 				{
-					return adapter.GetData(int_vehicle,int_payment_function);
+					return adapter.GetData(int_vehicle, (int)payment_function);
 				}
 			}
 			catch (System.Exception e)

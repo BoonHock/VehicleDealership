@@ -376,27 +376,27 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columninsurance_endorsement_no;
             
+            private global::System.Data.DataColumn columninsurance_policy_no;
+            
             private global::System.Data.DataColumn columninsurance_date;
             
-            private global::System.Data.DataColumn columninsurance_policy_no;
+            private global::System.Data.DataColumn columninsurance_category;
+            
+            private global::System.Data.DataColumn columninsurance_type;
             
             private global::System.Data.DataColumn columninsurance_sum_insured;
             
             private global::System.Data.DataColumn columninsurance_premium;
             
+            private global::System.Data.DataColumn columninsurance_stamp_duty;
+            
+            private global::System.Data.DataColumn columninsurance_loading_percent;
+            
+            private global::System.Data.DataColumn columninsurance_ncb_percent;
+            
             private global::System.Data.DataColumn columninsurance_windscreen;
             
             private global::System.Data.DataColumn columninsurance_windscreen_sum_insured;
-            
-            private global::System.Data.DataColumn columninsurance_stamp_duty;
-            
-            private global::System.Data.DataColumn columninsurance_category_id;
-            
-            private global::System.Data.DataColumn columninsurance_category;
-            
-            private global::System.Data.DataColumn columninsurance_type_id;
-            
-            private global::System.Data.DataColumn columninsurance_type;
             
             private global::System.Data.DataColumn columnguarantor_person;
             
@@ -691,6 +691,14 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn insurance_policy_noColumn {
+                get {
+                    return this.columninsurance_policy_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn insurance_dateColumn {
                 get {
                     return this.columninsurance_date;
@@ -699,9 +707,17 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn insurance_policy_noColumn {
+            public global::System.Data.DataColumn insurance_categoryColumn {
                 get {
-                    return this.columninsurance_policy_no;
+                    return this.columninsurance_category;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn insurance_typeColumn {
+                get {
+                    return this.columninsurance_type;
                 }
             }
             
@@ -723,6 +739,30 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn insurance_stamp_dutyColumn {
+                get {
+                    return this.columninsurance_stamp_duty;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn insurance_loading_percentColumn {
+                get {
+                    return this.columninsurance_loading_percent;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn insurance_ncb_percentColumn {
+                get {
+                    return this.columninsurance_ncb_percent;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn insurance_windscreenColumn {
                 get {
                     return this.columninsurance_windscreen;
@@ -734,46 +774,6 @@ namespace VehicleDealership.Datasets {
             public global::System.Data.DataColumn insurance_windscreen_sum_insuredColumn {
                 get {
                     return this.columninsurance_windscreen_sum_insured;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn insurance_stamp_dutyColumn {
-                get {
-                    return this.columninsurance_stamp_duty;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn insurance_category_idColumn {
-                get {
-                    return this.columninsurance_category_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn insurance_categoryColumn {
-                get {
-                    return this.columninsurance_category;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn insurance_type_idColumn {
-                get {
-                    return this.columninsurance_type_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn insurance_typeColumn {
-                get {
-                    return this.columninsurance_type;
                 }
             }
             
@@ -886,17 +886,17 @@ namespace VehicleDealership.Datasets {
                         string insurance_org_reg_no, 
                         string insurance_cover_note_no, 
                         string insurance_endorsement_no, 
-                        System.DateTime insurance_date, 
                         string insurance_policy_no, 
+                        System.DateTime insurance_date, 
+                        int insurance_category, 
+                        byte insurance_type, 
                         decimal insurance_sum_insured, 
                         decimal insurance_premium, 
+                        decimal insurance_stamp_duty, 
+                        byte insurance_loading_percent, 
+                        byte insurance_ncb_percent, 
                         decimal insurance_windscreen, 
                         decimal insurance_windscreen_sum_insured, 
-                        decimal insurance_stamp_duty, 
-                        int insurance_category_id, 
-                        string insurance_category, 
-                        byte insurance_type_id, 
-                        string insurance_type, 
                         int guarantor_person, 
                         string guarantor_name, 
                         int salesperson_id, 
@@ -935,17 +935,17 @@ namespace VehicleDealership.Datasets {
                         insurance_org_reg_no,
                         insurance_cover_note_no,
                         insurance_endorsement_no,
-                        insurance_date,
                         insurance_policy_no,
+                        insurance_date,
+                        insurance_category,
+                        insurance_type,
                         insurance_sum_insured,
                         insurance_premium,
+                        insurance_stamp_duty,
+                        insurance_loading_percent,
+                        insurance_ncb_percent,
                         insurance_windscreen,
                         insurance_windscreen_sum_insured,
-                        insurance_stamp_duty,
-                        insurance_category_id,
-                        insurance_category,
-                        insurance_type_id,
-                        insurance_type,
                         guarantor_person,
                         guarantor_name,
                         salesperson_id,
@@ -1004,17 +1004,17 @@ namespace VehicleDealership.Datasets {
                 this.columninsurance_org_reg_no = base.Columns["insurance_org_reg_no"];
                 this.columninsurance_cover_note_no = base.Columns["insurance_cover_note_no"];
                 this.columninsurance_endorsement_no = base.Columns["insurance_endorsement_no"];
-                this.columninsurance_date = base.Columns["insurance_date"];
                 this.columninsurance_policy_no = base.Columns["insurance_policy_no"];
+                this.columninsurance_date = base.Columns["insurance_date"];
+                this.columninsurance_category = base.Columns["insurance_category"];
+                this.columninsurance_type = base.Columns["insurance_type"];
                 this.columninsurance_sum_insured = base.Columns["insurance_sum_insured"];
                 this.columninsurance_premium = base.Columns["insurance_premium"];
+                this.columninsurance_stamp_duty = base.Columns["insurance_stamp_duty"];
+                this.columninsurance_loading_percent = base.Columns["insurance_loading_percent"];
+                this.columninsurance_ncb_percent = base.Columns["insurance_ncb_percent"];
                 this.columninsurance_windscreen = base.Columns["insurance_windscreen"];
                 this.columninsurance_windscreen_sum_insured = base.Columns["insurance_windscreen_sum_insured"];
-                this.columninsurance_stamp_duty = base.Columns["insurance_stamp_duty"];
-                this.columninsurance_category_id = base.Columns["insurance_category_id"];
-                this.columninsurance_category = base.Columns["insurance_category"];
-                this.columninsurance_type_id = base.Columns["insurance_type_id"];
-                this.columninsurance_type = base.Columns["insurance_type"];
                 this.columnguarantor_person = base.Columns["guarantor_person"];
                 this.columnguarantor_name = base.Columns["guarantor_name"];
                 this.columnsalesperson_id = base.Columns["salesperson_id"];
@@ -1087,28 +1087,28 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columninsurance_cover_note_no);
                 this.columninsurance_endorsement_no = new global::System.Data.DataColumn("insurance_endorsement_no", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columninsurance_endorsement_no);
-                this.columninsurance_date = new global::System.Data.DataColumn("insurance_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columninsurance_date);
                 this.columninsurance_policy_no = new global::System.Data.DataColumn("insurance_policy_no", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columninsurance_policy_no);
+                this.columninsurance_date = new global::System.Data.DataColumn("insurance_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columninsurance_date);
+                this.columninsurance_category = new global::System.Data.DataColumn("insurance_category", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columninsurance_category);
+                this.columninsurance_type = new global::System.Data.DataColumn("insurance_type", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columninsurance_type);
                 this.columninsurance_sum_insured = new global::System.Data.DataColumn("insurance_sum_insured", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columninsurance_sum_insured);
                 this.columninsurance_premium = new global::System.Data.DataColumn("insurance_premium", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columninsurance_premium);
+                this.columninsurance_stamp_duty = new global::System.Data.DataColumn("insurance_stamp_duty", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columninsurance_stamp_duty);
+                this.columninsurance_loading_percent = new global::System.Data.DataColumn("insurance_loading_percent", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columninsurance_loading_percent);
+                this.columninsurance_ncb_percent = new global::System.Data.DataColumn("insurance_ncb_percent", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columninsurance_ncb_percent);
                 this.columninsurance_windscreen = new global::System.Data.DataColumn("insurance_windscreen", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columninsurance_windscreen);
                 this.columninsurance_windscreen_sum_insured = new global::System.Data.DataColumn("insurance_windscreen_sum_insured", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columninsurance_windscreen_sum_insured);
-                this.columninsurance_stamp_duty = new global::System.Data.DataColumn("insurance_stamp_duty", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columninsurance_stamp_duty);
-                this.columninsurance_category_id = new global::System.Data.DataColumn("insurance_category_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columninsurance_category_id);
-                this.columninsurance_category = new global::System.Data.DataColumn("insurance_category", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columninsurance_category);
-                this.columninsurance_type_id = new global::System.Data.DataColumn("insurance_type_id", typeof(byte), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columninsurance_type_id);
-                this.columninsurance_type = new global::System.Data.DataColumn("insurance_type", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columninsurance_type);
                 this.columnguarantor_person = new global::System.Data.DataColumn("guarantor_person", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnguarantor_person);
                 this.columnguarantor_name = new global::System.Data.DataColumn("guarantor_name", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1143,8 +1143,13 @@ namespace VehicleDealership.Datasets {
                 this.columninsurance_cover_note_no.MaxLength = 50;
                 this.columninsurance_endorsement_no.MaxLength = 50;
                 this.columninsurance_policy_no.MaxLength = 50;
-                this.columninsurance_category.MaxLength = 50;
-                this.columninsurance_type.MaxLength = 50;
+                this.columninsurance_sum_insured.AllowDBNull = false;
+                this.columninsurance_premium.AllowDBNull = false;
+                this.columninsurance_stamp_duty.AllowDBNull = false;
+                this.columninsurance_loading_percent.AllowDBNull = false;
+                this.columninsurance_ncb_percent.AllowDBNull = false;
+                this.columninsurance_windscreen.AllowDBNull = false;
+                this.columninsurance_windscreen_sum_insured.AllowDBNull = false;
                 this.columnguarantor_name.MaxLength = 100;
                 this.columnsalesperson_id.AllowDBNull = false;
                 this.columnsalesperson.ReadOnly = true;
@@ -2177,23 +2182,6 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime insurance_date {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tablesp_select_vehicle_sale.insurance_dateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'insurance_date\' in table \'sp_select_vehicle_sale\' is DBNull" +
-                                ".", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_select_vehicle_sale.insurance_dateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string insurance_policy_no {
                 get {
                     try {
@@ -2211,112 +2199,27 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal insurance_sum_insured {
+            public System.DateTime insurance_date {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_select_vehicle_sale.insurance_sum_insuredColumn]));
+                        return ((global::System.DateTime)(this[this.tablesp_select_vehicle_sale.insurance_dateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'insurance_sum_insured\' in table \'sp_select_vehicle_sale\' is" +
-                                " DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'insurance_date\' in table \'sp_select_vehicle_sale\' is DBNull" +
+                                ".", e);
                     }
                 }
                 set {
-                    this[this.tablesp_select_vehicle_sale.insurance_sum_insuredColumn] = value;
+                    this[this.tablesp_select_vehicle_sale.insurance_dateColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal insurance_premium {
+            public int insurance_category {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_select_vehicle_sale.insurance_premiumColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'insurance_premium\' in table \'sp_select_vehicle_sale\' is DBN" +
-                                "ull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_select_vehicle_sale.insurance_premiumColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal insurance_windscreen {
-                get {
-                    try {
-                        return ((decimal)(this[this.tablesp_select_vehicle_sale.insurance_windscreenColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'insurance_windscreen\' in table \'sp_select_vehicle_sale\' is " +
-                                "DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_select_vehicle_sale.insurance_windscreenColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal insurance_windscreen_sum_insured {
-                get {
-                    try {
-                        return ((decimal)(this[this.tablesp_select_vehicle_sale.insurance_windscreen_sum_insuredColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'insurance_windscreen_sum_insured\' in table \'sp_select_vehic" +
-                                "le_sale\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_select_vehicle_sale.insurance_windscreen_sum_insuredColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal insurance_stamp_duty {
-                get {
-                    try {
-                        return ((decimal)(this[this.tablesp_select_vehicle_sale.insurance_stamp_dutyColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'insurance_stamp_duty\' in table \'sp_select_vehicle_sale\' is " +
-                                "DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_select_vehicle_sale.insurance_stamp_dutyColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int insurance_category_id {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_select_vehicle_sale.insurance_category_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'insurance_category_id\' in table \'sp_select_vehicle_sale\' is" +
-                                " DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_select_vehicle_sale.insurance_category_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string insurance_category {
-                get {
-                    try {
-                        return ((string)(this[this.tablesp_select_vehicle_sale.insurance_categoryColumn]));
+                        return ((int)(this[this.tablesp_select_vehicle_sale.insurance_categoryColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'insurance_category\' in table \'sp_select_vehicle_sale\' is DB" +
@@ -2330,27 +2233,10 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public byte insurance_type_id {
+            public byte insurance_type {
                 get {
                     try {
-                        return ((byte)(this[this.tablesp_select_vehicle_sale.insurance_type_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'insurance_type_id\' in table \'sp_select_vehicle_sale\' is DBN" +
-                                "ull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_select_vehicle_sale.insurance_type_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string insurance_type {
-                get {
-                    try {
-                        return ((string)(this[this.tablesp_select_vehicle_sale.insurance_typeColumn]));
+                        return ((byte)(this[this.tablesp_select_vehicle_sale.insurance_typeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'insurance_type\' in table \'sp_select_vehicle_sale\' is DBNull" +
@@ -2359,6 +2245,83 @@ namespace VehicleDealership.Datasets {
                 }
                 set {
                     this[this.tablesp_select_vehicle_sale.insurance_typeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal insurance_sum_insured {
+                get {
+                    return ((decimal)(this[this.tablesp_select_vehicle_sale.insurance_sum_insuredColumn]));
+                }
+                set {
+                    this[this.tablesp_select_vehicle_sale.insurance_sum_insuredColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal insurance_premium {
+                get {
+                    return ((decimal)(this[this.tablesp_select_vehicle_sale.insurance_premiumColumn]));
+                }
+                set {
+                    this[this.tablesp_select_vehicle_sale.insurance_premiumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal insurance_stamp_duty {
+                get {
+                    return ((decimal)(this[this.tablesp_select_vehicle_sale.insurance_stamp_dutyColumn]));
+                }
+                set {
+                    this[this.tablesp_select_vehicle_sale.insurance_stamp_dutyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public byte insurance_loading_percent {
+                get {
+                    return ((byte)(this[this.tablesp_select_vehicle_sale.insurance_loading_percentColumn]));
+                }
+                set {
+                    this[this.tablesp_select_vehicle_sale.insurance_loading_percentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public byte insurance_ncb_percent {
+                get {
+                    return ((byte)(this[this.tablesp_select_vehicle_sale.insurance_ncb_percentColumn]));
+                }
+                set {
+                    this[this.tablesp_select_vehicle_sale.insurance_ncb_percentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal insurance_windscreen {
+                get {
+                    return ((decimal)(this[this.tablesp_select_vehicle_sale.insurance_windscreenColumn]));
+                }
+                set {
+                    this[this.tablesp_select_vehicle_sale.insurance_windscreenColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal insurance_windscreen_sum_insured {
+                get {
+                    return ((decimal)(this[this.tablesp_select_vehicle_sale.insurance_windscreen_sum_insuredColumn]));
+                }
+                set {
+                    this[this.tablesp_select_vehicle_sale.insurance_windscreen_sum_insuredColumn] = value;
                 }
             }
             
@@ -2760,18 +2723,6 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isinsurance_dateNull() {
-                return this.IsNull(this.tablesp_select_vehicle_sale.insurance_dateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setinsurance_dateNull() {
-                this[this.tablesp_select_vehicle_sale.insurance_dateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Isinsurance_policy_noNull() {
                 return this.IsNull(this.tablesp_select_vehicle_sale.insurance_policy_noColumn);
             }
@@ -2784,74 +2735,14 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isinsurance_sum_insuredNull() {
-                return this.IsNull(this.tablesp_select_vehicle_sale.insurance_sum_insuredColumn);
+            public bool Isinsurance_dateNull() {
+                return this.IsNull(this.tablesp_select_vehicle_sale.insurance_dateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setinsurance_sum_insuredNull() {
-                this[this.tablesp_select_vehicle_sale.insurance_sum_insuredColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isinsurance_premiumNull() {
-                return this.IsNull(this.tablesp_select_vehicle_sale.insurance_premiumColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setinsurance_premiumNull() {
-                this[this.tablesp_select_vehicle_sale.insurance_premiumColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isinsurance_windscreenNull() {
-                return this.IsNull(this.tablesp_select_vehicle_sale.insurance_windscreenColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setinsurance_windscreenNull() {
-                this[this.tablesp_select_vehicle_sale.insurance_windscreenColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isinsurance_windscreen_sum_insuredNull() {
-                return this.IsNull(this.tablesp_select_vehicle_sale.insurance_windscreen_sum_insuredColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setinsurance_windscreen_sum_insuredNull() {
-                this[this.tablesp_select_vehicle_sale.insurance_windscreen_sum_insuredColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isinsurance_stamp_dutyNull() {
-                return this.IsNull(this.tablesp_select_vehicle_sale.insurance_stamp_dutyColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setinsurance_stamp_dutyNull() {
-                this[this.tablesp_select_vehicle_sale.insurance_stamp_dutyColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isinsurance_category_idNull() {
-                return this.IsNull(this.tablesp_select_vehicle_sale.insurance_category_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setinsurance_category_idNull() {
-                this[this.tablesp_select_vehicle_sale.insurance_category_idColumn] = global::System.Convert.DBNull;
+            public void Setinsurance_dateNull() {
+                this[this.tablesp_select_vehicle_sale.insurance_dateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2864,18 +2755,6 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setinsurance_categoryNull() {
                 this[this.tablesp_select_vehicle_sale.insurance_categoryColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isinsurance_type_idNull() {
-                return this.IsNull(this.tablesp_select_vehicle_sale.insurance_type_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setinsurance_type_idNull() {
-                this[this.tablesp_select_vehicle_sale.insurance_type_idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3355,17 +3234,17 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
             tableMapping.ColumnMappings.Add("insurance_org_reg_no", "insurance_org_reg_no");
             tableMapping.ColumnMappings.Add("insurance_cover_note_no", "insurance_cover_note_no");
             tableMapping.ColumnMappings.Add("insurance_endorsement_no", "insurance_endorsement_no");
-            tableMapping.ColumnMappings.Add("insurance_date", "insurance_date");
             tableMapping.ColumnMappings.Add("insurance_policy_no", "insurance_policy_no");
+            tableMapping.ColumnMappings.Add("insurance_date", "insurance_date");
+            tableMapping.ColumnMappings.Add("insurance_category", "insurance_category");
+            tableMapping.ColumnMappings.Add("insurance_type", "insurance_type");
             tableMapping.ColumnMappings.Add("insurance_sum_insured", "insurance_sum_insured");
             tableMapping.ColumnMappings.Add("insurance_premium", "insurance_premium");
+            tableMapping.ColumnMappings.Add("insurance_stamp_duty", "insurance_stamp_duty");
+            tableMapping.ColumnMappings.Add("insurance_loading_percent", "insurance_loading_percent");
+            tableMapping.ColumnMappings.Add("insurance_ncb_percent", "insurance_ncb_percent");
             tableMapping.ColumnMappings.Add("insurance_windscreen", "insurance_windscreen");
             tableMapping.ColumnMappings.Add("insurance_windscreen_sum_insured", "insurance_windscreen_sum_insured");
-            tableMapping.ColumnMappings.Add("insurance_stamp_duty", "insurance_stamp_duty");
-            tableMapping.ColumnMappings.Add("insurance_category_id", "insurance_category_id");
-            tableMapping.ColumnMappings.Add("insurance_category", "insurance_category");
-            tableMapping.ColumnMappings.Add("insurance_type_id", "insurance_type_id");
-            tableMapping.ColumnMappings.Add("insurance_type", "insurance_type");
             tableMapping.ColumnMappings.Add("guarantor_person", "guarantor_person");
             tableMapping.ColumnMappings.Add("guarantor_name", "guarantor_name");
             tableMapping.ColumnMappings.Add("salesperson_id", "salesperson_id");
