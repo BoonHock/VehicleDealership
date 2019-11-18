@@ -37,6 +37,7 @@ namespace VehicleDealership.View
 			cmb_vehicle_colour.ValueMember = "colour";
 			cmb_vehicle_colour.DataSource = Colour_ds.Select_colour();
 
+			// LOAD VEHICLE DETAILS
 			using (Vehicle_ds.sp_select_vehicleDataTable dttable =
 				Vehicle_ds.Select_vehicle(VehicleID))
 			{
@@ -64,6 +65,7 @@ namespace VehicleDealership.View
 				dtp_registered.Value = dttable[0].registration_date;
 
 			}
+			// LOAD VEHICLE SALE DETAILS
 			using (Vehicle_sale_ds.sp_select_vehicle_saleDataTable dttable =
 				Vehicle_sale_ds.Select_vehicle_sale(VehicleID))
 			{
@@ -127,6 +129,7 @@ namespace VehicleDealership.View
 					txt_remark.Text = dttable[0].remark;
 				}
 			}
+			// CHARGES ADD / LESS
 			using (Vehicle_sale_charges_ds.sp_select_vehicle_sale_chargesDataTable dttable =
 				Vehicle_sale_charges_ds.Select_vehicle_sale_charges(VehicleID))
 			{
@@ -165,8 +168,8 @@ namespace VehicleDealership.View
 				Class_datagridview.Hide_columns(grd_charges_add, new string[] { "vehicle_sale_charges" });
 				Class_datagridview.Hide_columns(grd_charges_less, new string[] { "vehicle_sale_charges" });
 
-				grd_charges_add.Columns["amount"].DefaultCellStyle.Format = "N2";
-				grd_charges_less.Columns["amount"].DefaultCellStyle.Format = "N2";
+				Class_datagridview.Set_column_to_money_column(grd_charges_add, "amount");
+				Class_datagridview.Set_column_to_money_column(grd_charges_less, "amount");
 			}
 			// PAYMENT RECEIVED FROM CUSTOMER
 			Setup_grd_payment(grd_payment_received, Class_payment_function.PaymentFunction.VSALE_PAYMENT_RECEIVED);
@@ -186,9 +189,28 @@ namespace VehicleDealership.View
 			{
 				dttable.modified_byColumn.DefaultValue = Program.System_user.Name;
 				grd_insurance_misc.DataSource = dttable;
+				Class_datagridview.Set_column_to_money_column(grd_insurance_misc, "amount");
 				grd_insurance_misc.Columns["insurance_misc_charges"].Visible = false;
 			}
 			Setup_grd_trade_in();
+
+			((DataTable)grd_charges_add.DataSource).RowChanged += (sender2, e2) => Grd_charges_calculate_total(grd_charges_add);
+			((DataTable)grd_charges_less.DataSource).RowChanged += (sender2, e2) => Grd_charges_calculate_total(grd_charges_less);
+		}
+		private void Grd_charges_calculate_total(DataGridView grd)
+		{
+			DataTable dttable = (DataTable)grd.DataSource;
+			ToolStripLabel lbl = grd == grd_charges_add ? lbl_charges_add_total : lbl_charges_less_total;
+			NumericUpDown num_finance = grd == grd_charges_add ? num_total_additional_charges : num_total_less_charges;
+
+			lbl.Text = "0.00";
+			if (dttable.Rows.Count == 0) return;
+
+			decimal total_amount = (from row in dttable.AsEnumerable()
+									select row.Field<decimal>("amount")).ToList().Sum();
+
+			lbl.Text = total_amount.ToString("#,##0.00");
+			num_finance.Value = total_amount;
 		}
 		private void Num_finance_ValueChanged(object sender, EventArgs e)
 		{
@@ -213,6 +235,8 @@ namespace VehicleDealership.View
 			{
 				grd.DataSource = null;
 				grd.DataSource = dttable;
+				Class_datagridview.Set_column_to_money_column(grd, "amount");
+
 				grd.AutoResizeColumns();
 
 				if (int_preselect != 0)
@@ -230,7 +254,6 @@ namespace VehicleDealership.View
 			}
 			Class_datagridview.Select_row_by_value(grd_trade_in, "vehicle", int_vehicle);
 		}
-
 		private void Calculate_insurance_ValueChanged(object sender, EventArgs e)
 		{
 			num_insurance_loading_amount.Value =
@@ -238,17 +261,45 @@ namespace VehicleDealership.View
 			num_insurance_ncb_amount.Value =
 				(num_insurance_premium.Value - num_insurance_stamp_duty.Value) * num_insurance_ncb_percent.Value / 100;
 		}
-
-		private void Grd_charges_add_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+		private void Btn_payment_received_add_Click(object sender, EventArgs e)
 		{
-			DataTable dttable = (DataTable)grd_charges_add.DataSource;
-			lbl_charges_add_total.Text = "0";
-			if (dttable.Rows.Count == 0) return;
+			using (Form_edit_payment dlg_payment = new Form_edit_payment())
+			{
+				if (dlg_payment.ShowDialog() != DialogResult.OK) return;
 
-			decimal total_amount = (from row in dttable.AsEnumerable()
-									select row.Field<decimal>("amount")).ToList().Sum();
+				Vehicle_sale_payment_ds.sp_select_vehicle_sale_paymentDataTable dttable =
+					(Vehicle_sale_payment_ds.sp_select_vehicle_sale_paymentDataTable)grd_payment_received.DataSource;
 
-			lbl_charges_add_total.Text = total_amount.ToString("#,##0");
+				//dttable.Addsp_select_vehicle_sale_paymentRow(dlg_payment.PaymentNo,
+				//	dlg_payment.PaymentDescription, dlg_payment.PayToId, dlg_payment.PayToName,
+				//	dlg_payment.PayToType, dlg_payment.PaymentAmount, dlg_payment.PaymentDate,
+				//	dlg_payment.IsPaid, dlg_payment.PaymentMethodType,
+				//	dlg_payment.PaymentMethodDescription, dlg_payment.PaymentMethod,
+				//	dlg_payment.ChequeNo, dlg_payment.CreditCardNo, dlg_payment.CreditCardTypeId,
+				//	dlg_payment.CreditCardTypeName, dlg_payment.PaymentMethodFinance,
+				//	dlg_payment.PaymentMethodFinanceName, dlg_payment.PaymentMethodDate,
+				//	dlg_payment.PaymentRemark, Program.System_user.Name);
+			}
+		}
+		private void Btn_payment_received_edit_Click(object sender, EventArgs e)
+		{
+
+		}
+		private void Btn_payment_received_delete_Click(object sender, EventArgs e)
+		{
+
+		}
+		private void Btn_expenses_add_Click(object sender, EventArgs e)
+		{
+
+		}
+		private void Btn_expenses_edit_Click(object sender, EventArgs e)
+		{
+
+		}
+		private void Btn_expenses_delete_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

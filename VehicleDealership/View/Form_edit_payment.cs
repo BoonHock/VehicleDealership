@@ -14,12 +14,16 @@ namespace VehicleDealership.View
 {
 	public partial class Form_edit_payment : Form
 	{
+		private readonly bool _is_paying = true;
 		public int PaymentID { get; private set; }
 		public string PaymentNo { get { return txt_payment_no.Text.Trim(); } }
 		public string PaymentDescription { get { return txt_description.Text.Trim(); } }
 		public bool IsPaid { get { return rad_paid.Checked; } }
 		public int PayToId { get { return (int)num_pay_to_id.Value; } }
 		public string PayToName { get { return txt_pay_to.Text.Trim(); } }
+		/// <summary>
+		/// ORGANISATION / PERSON
+		/// </summary>
 		public string PayToType { get { return txt_pay_to_type.Text.Trim().ToUpper(); } }
 		public DateTime PaymentDate { get { return dtp_payment_date.Value; } }
 		public decimal PaymentAmount { get { return num_amount.Value; } }
@@ -57,15 +61,39 @@ namespace VehicleDealership.View
 		}
 		public DateTime PaymentMethodDate { get { return dtp_payment_method_date.Value; } }
 		public string PaymentRemark { get { return txt_remark.Text.Trim(); } }
+		/// <summary>
+		/// Editing payment
+		/// </summary>
+		/// <param name="payment_id"></param>
+		/// <param name="payment_no"></param>
+		/// <param name="payment_desc"></param>
+		/// <param name="is_paid"></param>
+		/// <param name="pay_to_id"></param>
+		/// <param name="pay_to_name"></param>
+		/// <param name="pay_to_type"></param>
+		/// <param name="payment_date"></param>
+		/// <param name="payment_amount"></param>
+		/// <param name="payment_method_type"></param>
+		/// <param name="payment_method"></param>
+		/// <param name="credit_card_no"></param>
+		/// <param name="cheque_no"></param>
+		/// <param name="credit_card_type"></param>
+		/// <param name="payment_method_finance"></param>
+		/// <param name="payment_method_finance_name"></param>
+		/// <param name="payment_method_date"></param>
+		/// <param name="payment_remark"></param>
+		/// <param name="is_paying"></param>
 		public Form_edit_payment(int payment_id, string payment_no, string payment_desc, bool is_paid,
 			int pay_to_id, string pay_to_name, string pay_to_type, DateTime payment_date,
 			decimal payment_amount, string payment_method_type, int payment_method, string credit_card_no,
 			string cheque_no, int credit_card_type, int payment_method_finance,
-			string payment_method_finance_name, DateTime payment_method_date, string payment_remark)
+			string payment_method_finance_name, DateTime payment_method_date, string payment_remark, bool is_paying = true)
 		{
 			InitializeComponent();
 
 			Init_form();
+
+			_is_paying = is_paying;
 
 			PaymentID = payment_id;
 			txt_payment_no.Text = payment_no;
@@ -104,16 +132,17 @@ namespace VehicleDealership.View
 		/// <param name="str_pay_to_name"></param>
 		/// <param name="str_pay_to_type"></param>
 		public Form_edit_payment(int int_pay_to = 0, string str_pay_to_name = "",
-			string str_pay_to_type = "")
+			string str_pay_to_type = "", bool is_paying = true)
 		{
 			InitializeComponent();
 
 			Init_form();
 
+			_is_paying = is_paying;
+
 			num_pay_to_id.Value = int_pay_to;
 			txt_pay_to_type.Text = str_pay_to_type;
 			txt_pay_to.Text = str_pay_to_name;
-
 		}
 		private void Init_form()
 		{
@@ -138,7 +167,7 @@ namespace VehicleDealership.View
 				MessageBox.Show("Payment description is required.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-			if (num_pay_to_id.Value == 0)
+			if (_is_paying && num_pay_to_id.Value == 0)
 			{
 				MessageBox.Show("Payment receiver (pay to) not selected.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
@@ -180,6 +209,10 @@ namespace VehicleDealership.View
 		}
 		private void Form_edit_payment_Shown(object sender, EventArgs e)
 		{
+			// if receiving payment, no need show
+			txt_pay_to.Visible = _is_paying;
+			btn_pay_to.Visible = _is_paying;
+
 			Setup_payment_method_groupbox();
 		}
 		private void Btn_pay_to_Click(object sender, EventArgs e)

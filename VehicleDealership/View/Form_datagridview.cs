@@ -56,8 +56,8 @@ namespace VehicleDealership.View
 					addToolStripMenuItem.Visible = true;
 					editToolStripMenuItem.Visible = true;
 
-					if (!Program.System_user.Has_permission(User_permission.ADD_USER) &&
-						!Program.System_user.Has_permission(User_permission.EDIT_USER))
+					if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_USER) &&
+						!Program.System_user.Has_permission(Class_enum.User_permission.EDIT_USER))
 						permission_denied = true;
 					else
 						Setup_form_users();
@@ -66,8 +66,8 @@ namespace VehicleDealership.View
 					// user will be editing straight to cell so display delete only
 					deleteToolStripMenuItem.Visible = true;
 
-					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_FUEL_TYPE) &&
-						!Program.System_user.Has_permission(User_permission.DELETE_FUEL_TYPE))
+					if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_FUEL_TYPE) &&
+						!Program.System_user.Has_permission(Class_enum.User_permission.DELETE_FUEL_TYPE))
 						permission_denied = true;
 					else
 						Setup_form_fuel_type();
@@ -76,8 +76,8 @@ namespace VehicleDealership.View
 					// user will be editing straight to cell so display delete only
 					deleteToolStripMenuItem.Visible = true;
 
-					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_TRANSMISSION) &&
-						!Program.System_user.Has_permission(User_permission.DELETE_TRANSMISSION))
+					if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_TRANSMISSION) &&
+						!Program.System_user.Has_permission(Class_enum.User_permission.DELETE_TRANSMISSION))
 						permission_denied = true;
 					else
 						Setup_form_transmission();
@@ -86,8 +86,8 @@ namespace VehicleDealership.View
 					// user will be editing straight to cell so display delete only
 					deleteToolStripMenuItem.Visible = true;
 
-					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOUR) &&
-						!Program.System_user.Has_permission(User_permission.DELETE_COLOUR))
+					if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_COLOUR) &&
+						!Program.System_user.Has_permission(Class_enum.User_permission.DELETE_COLOUR))
 						permission_denied = true;
 					else
 						Setup_form_colour();
@@ -97,8 +97,8 @@ namespace VehicleDealership.View
 					addToolStripMenuItem.Visible = true;
 					editToolStripMenuItem.Visible = true;
 
-					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_SALESPERSON) &&
-						!Program.System_user.Has_permission(User_permission.VIEW_SALESPERSON))
+					if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_SALESPERSON) &&
+						!Program.System_user.Has_permission(Class_enum.User_permission.VIEW_SALESPERSON))
 						permission_denied = true;
 					else
 						Setup_form_salesperson();
@@ -108,7 +108,7 @@ namespace VehicleDealership.View
 					addToolStripMenuItem.Visible = true;
 					editToolStripMenuItem.Visible = true;
 
-					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE))
+					if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_FINANCE))
 						permission_denied = true;
 					else
 						Setup_form_finance_insurance();
@@ -118,8 +118,8 @@ namespace VehicleDealership.View
 					editToolStripMenuItem.Visible = true;
 					deleteToolStripMenuItem.Visible = true;
 
-					if (!Program.System_user.Has_permission(User_permission.INSURANCE_ADD_EDIT) &&
-						!Program.System_user.Has_permission(User_permission.INSURANCE_DELETE))
+					if (!Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT) &&
+						!Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_DELETE))
 						permission_denied = true;
 					else
 						Setup_form_finance_insurance();
@@ -129,9 +129,9 @@ namespace VehicleDealership.View
 					editToolStripMenuItem.Visible = true;
 					deleteToolStripMenuItem.Visible = true;
 
-					if (!Program.System_user.Has_permission(User_permission.VEHICLE_VIEW) &&
-						!Program.System_user.Has_permission(User_permission.VEHICLE_ADD_EDIT) &&
-						!Program.System_user.Has_permission(User_permission.VEHICLE_DELETE))
+					if (!Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_VIEW) &&
+						!Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_ADD_EDIT) &&
+						!Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_DELETE))
 						permission_denied = true;
 					else
 						Setup_form_vehicle();
@@ -141,8 +141,8 @@ namespace VehicleDealership.View
 					editToolStripMenuItem.Visible = true;
 					deleteToolStripMenuItem.Visible = true;
 
-					if (!Program.System_user.Has_permission(User_permission.VEHICLE_SALE_ADD_EDIT) &&
-						!Program.System_user.Has_permission(User_permission.VEHICLE_SALE_DELETE))
+					if (!Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_SALE_ADD_EDIT) &&
+						!Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_SALE_DELETE))
 						permission_denied = true;
 					else
 						Setup_form_vehicle_sale();
@@ -152,9 +152,9 @@ namespace VehicleDealership.View
 					editToolStripMenuItem.Visible = true;
 					deleteToolStripMenuItem.Visible = true;
 
-					if (!Program.System_user.Has_permission(User_permission.VEHICLE_VIEW) &&
-						!Program.System_user.Has_permission(User_permission.VEHICLE_RETURN_ADD_EDIT) &&
-						!Program.System_user.Has_permission(User_permission.VEHICLE_RETURN_DELETE))
+					if (!Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_VIEW) &&
+						!Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_RETURN_ADD_EDIT) &&
+						!Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_RETURN_DELETE))
 						permission_denied = true;
 					else
 						Setup_form_vehicle_return();
@@ -163,8 +163,8 @@ namespace VehicleDealership.View
 					// user will be editing straight to cell so display delete only
 					deleteToolStripMenuItem.Visible = true;
 
-					if (!Program.System_user.Has_permission(User_permission.LOCATION_ADD_EDIT) &&
-						!Program.System_user.Has_permission(User_permission.LOCATION_DELETE))
+					if (!Program.System_user.Has_permission(Class_enum.User_permission.LOCATION_ADD_EDIT) &&
+						!Program.System_user.Has_permission(Class_enum.User_permission.LOCATION_DELETE))
 						permission_denied = true;
 					else
 						Setup_form_location();
@@ -204,14 +204,14 @@ namespace VehicleDealership.View
 			ts_user.Visible = true;
 			cmb_is_active_user.SelectedIndex = 0;
 
-			if (Program.System_user.Has_permission(User_permission.EDIT_USER))
+			if (Program.System_user.Has_permission(Class_enum.User_permission.EDIT_USER))
 			{
 				btn_edit_user.Enabled = true;
 				editToolStripMenuItem.Enabled = true;
 				btn_activate_user.Enabled = true;
 				btn_deactivate_user.Enabled = true;
 			}
-			if (Program.System_user.Has_permission(User_permission.ADD_USER))
+			if (Program.System_user.Has_permission(Class_enum.User_permission.ADD_USER))
 			{
 				btn_add_user.Enabled = true;
 				addToolStripMenuItem.Enabled = true;
@@ -337,13 +337,13 @@ namespace VehicleDealership.View
 		#region FUEL_TYPE
 		private void Setup_form_fuel_type()
 		{
-			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_FUEL_TYPE))
+			if (Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_FUEL_TYPE))
 			{
 				grd_main.ReadOnly = false;
 				grd_main.AllowUserToAddRows = true;
 			}
 			grd_main.AllowUserToDeleteRows =
-				Program.System_user.Has_permission(User_permission.DELETE_FUEL_TYPE);
+				Program.System_user.Has_permission(Class_enum.User_permission.DELETE_FUEL_TYPE);
 
 			ts_save_only.Visible = true;
 			Setup_grd_fuel_type();
@@ -422,10 +422,10 @@ namespace VehicleDealership.View
 			bool is_deleted = true;
 			bool is_updated = true;
 
-			if (Program.System_user.Has_permission(User_permission.DELETE_FUEL_TYPE))
+			if (Program.System_user.Has_permission(Class_enum.User_permission.DELETE_FUEL_TYPE))
 				is_deleted = Fuel_type_ds.Delete_fuel_type();
 
-			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_FUEL_TYPE))
+			if (Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_FUEL_TYPE))
 				is_updated = Fuel_type_ds.Update_insert_fuel_type();
 
 			Setup_grd_fuel_type();
@@ -439,13 +439,13 @@ namespace VehicleDealership.View
 		#region TRANSMISSION
 		private void Setup_form_transmission()
 		{
-			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_TRANSMISSION))
+			if (Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_TRANSMISSION))
 			{
 				grd_main.ReadOnly = false;
 				grd_main.AllowUserToAddRows = true;
 			}
 			grd_main.AllowUserToDeleteRows =
-				Program.System_user.Has_permission(User_permission.DELETE_TRANSMISSION);
+				Program.System_user.Has_permission(Class_enum.User_permission.DELETE_TRANSMISSION);
 
 			ts_save_only.Visible = true;
 
@@ -518,10 +518,10 @@ namespace VehicleDealership.View
 			bool is_deleted = true;
 			bool is_updated = true;
 
-			if (Program.System_user.Has_permission(User_permission.DELETE_TRANSMISSION))
+			if (Program.System_user.Has_permission(Class_enum.User_permission.DELETE_TRANSMISSION))
 				is_deleted = Transmission_ds.Delete_transmission();
 
-			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_TRANSMISSION))
+			if (Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_TRANSMISSION))
 				is_updated = Transmission_ds.Update_insert_transmission();
 
 			Setup_grd_transmission();
@@ -536,13 +536,13 @@ namespace VehicleDealership.View
 		#region COLOUR
 		private void Setup_form_colour()
 		{
-			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOUR))
+			if (Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_COLOUR))
 			{
 				grd_main.ReadOnly = false;
 				grd_main.AllowUserToAddRows = true;
 			}
 			grd_main.AllowUserToDeleteRows =
-				Program.System_user.Has_permission(User_permission.DELETE_COLOUR);
+				Program.System_user.Has_permission(Class_enum.User_permission.DELETE_COLOUR);
 
 			ts_save_only.Visible = true;
 
@@ -612,10 +612,10 @@ namespace VehicleDealership.View
 			bool is_deleted = true;
 			bool is_updated = true;
 
-			if (Program.System_user.Has_permission(User_permission.DELETE_COLOUR))
+			if (Program.System_user.Has_permission(Class_enum.User_permission.DELETE_COLOUR))
 				is_deleted = Colour_ds.Delete_colour();
 
-			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOUR))
+			if (Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_COLOUR))
 				is_updated = Colour_ds.Update_insert_colour();
 
 			Setup_grd_colour();
@@ -634,7 +634,7 @@ namespace VehicleDealership.View
 			ts_add_edit_delete.Visible = true;
 			Setup_cmb_is_active(cmb_status.ComboBox);
 
-			bool has_add_edit_permission = Program.System_user.Has_permission(User_permission.ADD_EDIT_SALESPERSON);
+			bool has_add_edit_permission = Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_SALESPERSON);
 
 			btn_add.Enabled = has_add_edit_permission;
 			btn_edit.Enabled = has_add_edit_permission;
@@ -727,13 +727,13 @@ namespace VehicleDealership.View
 			lbl_status.Visible = false;
 			cmb_status.Visible = false;
 
-			bool has_add_edit_permission = Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE);
+			bool has_add_edit_permission = Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_FINANCE);
 			bool has_delete_permission = false; // TODO: create permission to delete finance
 
 			if (this.Tag.ToString().ToUpper() == "INSURANCE")
 			{
-				has_add_edit_permission = Program.System_user.Has_permission(User_permission.INSURANCE_ADD_EDIT);
-				has_delete_permission = Program.System_user.Has_permission(User_permission.INSURANCE_DELETE);
+				has_add_edit_permission = Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT);
+				has_delete_permission = Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_DELETE);
 			}
 			btn_add.Enabled = has_add_edit_permission;
 			btn_edit.Enabled = has_add_edit_permission;
@@ -820,8 +820,8 @@ namespace VehicleDealership.View
 			cmb_vehicle_acquire.SelectedItem = "ALL";
 			cmb_vehicle_status.SelectedItem = "ALL";
 
-			bool has_add_edit_permission = Program.System_user.Has_permission(User_permission.VEHICLE_ADD_EDIT);
-			bool has_delete_permission = Program.System_user.Has_permission(User_permission.VEHICLE_DELETE);
+			bool has_add_edit_permission = Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_ADD_EDIT);
+			bool has_delete_permission = Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_DELETE);
 
 			btn_add_vehicle.Enabled = has_add_edit_permission;
 			btn_edit_vehicle.Enabled = has_add_edit_permission;
@@ -1001,8 +1001,8 @@ namespace VehicleDealership.View
 
 			cmb_vehicle_acquire.SelectedItem = "ALL";
 
-			bool has_add_edit_permission = Program.System_user.Has_permission(User_permission.VEHICLE_SALE_ADD_EDIT);
-			bool has_delete_permission = Program.System_user.Has_permission(User_permission.VEHICLE_SALE_DELETE);
+			bool has_add_edit_permission = Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_SALE_ADD_EDIT);
+			bool has_delete_permission = Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_SALE_DELETE);
 
 			btn_add_vehicle.Enabled = has_add_edit_permission;
 			btn_edit_vehicle.Enabled = has_add_edit_permission;
@@ -1074,8 +1074,8 @@ namespace VehicleDealership.View
 			lbl_status.Visible = false;
 			cmb_status.Visible = false;
 
-			bool has_add_edit_permission = Program.System_user.Has_permission(User_permission.VEHICLE_RETURN_ADD_EDIT);
-			bool has_delete_permission = Program.System_user.Has_permission(User_permission.VEHICLE_RETURN_DELETE);
+			bool has_add_edit_permission = Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_RETURN_ADD_EDIT);
+			bool has_delete_permission = Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_RETURN_DELETE);
 
 			btn_add.Enabled = has_add_edit_permission;
 			btn_edit.Enabled = has_add_edit_permission;
@@ -1165,12 +1165,12 @@ namespace VehicleDealership.View
 		{
 			deleteToolStripMenuItem.Enabled = false;
 
-			if (Program.System_user.Has_permission(User_permission.LOCATION_ADD_EDIT))
+			if (Program.System_user.Has_permission(Class_enum.User_permission.LOCATION_ADD_EDIT))
 			{
 				grd_main.ReadOnly = false;
 				grd_main.AllowUserToAddRows = true;
 			}
-			if (Program.System_user.Has_permission(User_permission.LOCATION_DELETE))
+			if (Program.System_user.Has_permission(Class_enum.User_permission.LOCATION_DELETE))
 			{
 				grd_main.AllowUserToDeleteRows = true;
 				deleteToolStripMenuItem.Enabled = true;
@@ -1240,10 +1240,10 @@ namespace VehicleDealership.View
 			bool is_deleted = true;
 			bool is_updated = true;
 
-			if (Program.System_user.Has_permission(User_permission.DELETE_COLOUR))
+			if (Program.System_user.Has_permission(Class_enum.User_permission.DELETE_COLOUR))
 				is_deleted = Location_ds.Delete_location();
 
-			if (Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOUR))
+			if (Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_COLOUR))
 				is_updated = Location_ds.Update_insert_location();
 
 			Setup_grd_location();

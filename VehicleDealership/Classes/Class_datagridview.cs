@@ -330,5 +330,21 @@ namespace VehicleDealership.Classes
 				}
 			};
 		}
+		/// <summary>
+		/// currency columns will be right aligned and set to two decimal places
+		/// </summary>
+		/// <param name="grd"></param>
+		/// <param name="arr_col_name"></param>
+		public static void Set_column_to_money_column(DataGridView grd, params string[] arr_col_name)
+		{
+			foreach (string tmp_str in arr_col_name)
+			{
+				if (grd.Columns.Contains(tmp_str))
+				{
+					grd.Columns[tmp_str].DefaultCellStyle.Format = "N2";
+					grd.Columns[tmp_str].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+				}
+			}
+		}
 	}
 }

@@ -24,7 +24,7 @@ namespace VehicleDealership.View
 			grd_contact.MouseDown += Class_datagridview.MouseDown_select_cell;
 			grd_branch.MouseDown += Class_datagridview.MouseDown_select_cell;
 
-			if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_ORGANISATION))
+			if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_ORGANISATION))
 			{
 				// no permission to add/edit
 				txt_name.ReadOnly = true;
@@ -40,8 +40,8 @@ namespace VehicleDealership.View
 		}
 		private void Form_organisation_Shown(object sender, EventArgs e)
 		{
-			if (!Program.System_user.Has_permission(User_permission.VIEW_ORGANISATION) &&
-				!Program.System_user.Has_permission(User_permission.ADD_EDIT_ORGANISATION))
+			if (!Program.System_user.Has_permission(Class_enum.User_permission.VIEW_ORGANISATION) &&
+				!Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_ORGANISATION))
 			{
 				MessageBox.Show("You do not have sufficient permission to perform this action!",
 					"ACCESS DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -99,7 +99,7 @@ namespace VehicleDealership.View
 		}
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
-			if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_ORGANISATION))
+			if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_ORGANISATION))
 			{
 				this.DialogResult = DialogResult.Cancel;
 				this.Close();

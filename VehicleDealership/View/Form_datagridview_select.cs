@@ -18,7 +18,7 @@ namespace VehicleDealership.View
 		readonly string _preselect_value = "";
 
 		readonly string _value_col_name = "";
-		readonly string[] _cols_to_display = null;
+		readonly string[] _cols_to_display = { };
 		private string SearchString { get { return txt_search.Text.Trim(); } }
 		public Form_datagridview_select(string form_type, string preselect_value = "", bool select_multiple = false)
 		{
@@ -64,7 +64,9 @@ namespace VehicleDealership.View
 			}
 
 			grd_main.AutoResizeColumns();
-			Class_datagridview.Hide_unnecessary_columns(grd_main, _cols_to_display);
+
+			if (_cols_to_display.Count() > 0)
+				Class_datagridview.Hide_unnecessary_columns(grd_main, _cols_to_display);
 
 			if (_value_col_name != "")
 				Class_datagridview.Select_row_by_value(grd_main, _value_col_name, _preselect_value);
@@ -90,7 +92,8 @@ namespace VehicleDealership.View
 		}
 		private void Grd_main_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
-			btn_ok.PerformClick();
+			// only when user clicks on cell which is not header, perform click
+			if (e.RowIndex >= 0 && e.ColumnIndex >= 0) btn_ok.PerformClick();
 		}
 		public int Get_selected_value_as_int(string str_value_col)
 		{

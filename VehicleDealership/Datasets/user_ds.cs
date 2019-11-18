@@ -113,7 +113,7 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				if (User_ds.Check_user_has_permission(Program.System_user.UserID, Classes.User_permission.ADD_USER))
+				if (User_ds.Check_user_has_permission(Program.System_user.UserID, Classes.Class_enum.User_permission.ADD_USER))
 				{
 					QueriesAdapter().sp_insert_user(str_username, str_name, str_password, str_ic_no, date_join, Program.System_user.UserID);
 				}
@@ -135,7 +135,7 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				if (User_ds.Check_user_has_permission(Program.System_user.UserID, Classes.User_permission.EDIT_USER))
+				if (User_ds.Check_user_has_permission(Program.System_user.UserID, Classes.Class_enum.User_permission.EDIT_USER))
 				{
 					UserTableAdapter().sp_update_user(int_user, str_username, str_name, str_ic_no,
 						date_join, date_leave, byte_image, str_usergroup, Program.System_user.UserID);
@@ -157,7 +157,7 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				if (User_ds.Check_user_has_permission(Program.System_user.UserID, Classes.User_permission.EDIT_USER))
+				if (User_ds.Check_user_has_permission(Program.System_user.UserID, Classes.Class_enum.User_permission.EDIT_USER))
 				{
 					QueriesAdapter().sp_update_user_active(int_user, is_active, Program.System_user.UserID);
 				}

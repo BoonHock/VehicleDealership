@@ -105,7 +105,7 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				if (User_ds.Check_user_has_permission(Program.System_user.UserID, Classes.User_permission.ADD_USERGROUP))
+				if (User_ds.Check_user_has_permission(Program.System_user.UserID, Classes.Class_enum.User_permission.ADD_USERGROUP))
 				{
 					QueriesTableAdapter().sp_insert_usergroup(str_usergroup, str_usergroup_desc);
 				}
@@ -131,7 +131,7 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				if (User_ds.Check_user_has_permission(Program.System_user.UserID, Classes.User_permission.EDIT_USERGROUP))
+				if (User_ds.Check_user_has_permission(Program.System_user.UserID, Classes.Class_enum.User_permission.EDIT_USERGROUP))
 				{
 					QueriesTableAdapter().sp_update_usergroup(str_usergroup_new, str_usergroup_desc, str_usergroup_old);
 				}
@@ -156,7 +156,7 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				if (User_ds.Check_user_has_permission(Program.System_user.UserID, Classes.User_permission.EDIT_USERGROUP))
+				if (User_ds.Check_user_has_permission(Program.System_user.UserID, Classes.Class_enum.User_permission.EDIT_USERGROUP))
 				{
 					QueriesTableAdapter().sp_update_usergroup_permission(str_usergroup, 
 						str_permission_combine, Program.System_user.UserID);
@@ -181,7 +181,7 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				if (User_ds.Check_user_has_permission(Program.System_user.UserID, Classes.User_permission.EDIT_USERGROUP))
+				if (User_ds.Check_user_has_permission(Program.System_user.UserID, Classes.Class_enum.User_permission.EDIT_USERGROUP))
 				{
 					QueriesTableAdapter().sp_delete_usergroup(Program.System_user.UserID, str_usergroup);
 				}

@@ -51,33 +51,33 @@ namespace VehicleDealership.View
 		public void Setup_menustrip()
 		{
 			usersToolStripMenuItem.Enabled = (
-				Program.System_user.Has_permission(User_permission.ADD_USER) ||
-				Program.System_user.Has_permission(User_permission.EDIT_USER));
+				Program.System_user.Has_permission(Class_enum.User_permission.ADD_USER) ||
+				Program.System_user.Has_permission(Class_enum.User_permission.EDIT_USER));
 
 			userGroupsToolStripMenuItem.Enabled = (
-				Program.System_user.Has_permission(User_permission.ADD_USERGROUP) ||
-				Program.System_user.Has_permission(User_permission.EDIT_USERGROUP));
+				Program.System_user.Has_permission(Class_enum.User_permission.ADD_USERGROUP) ||
+				Program.System_user.Has_permission(Class_enum.User_permission.EDIT_USERGROUP));
 			brandGroupModelToolStripMenuItem.Enabled = (
-				Program.System_user.Has_permission(User_permission.ADD_EDIT_VEHICLE_BRAND_GROUP_MODEL) ||
-				Program.System_user.Has_permission(User_permission.DELETE_VEHICLE_BRAND_GROUP_MODEL));
+				Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_VEHICLE_BRAND_GROUP_MODEL) ||
+				Program.System_user.Has_permission(Class_enum.User_permission.DELETE_VEHICLE_BRAND_GROUP_MODEL));
 			transmissionToolStripMenuItem.Enabled = (
-				Program.System_user.Has_permission(User_permission.ADD_EDIT_TRANSMISSION) ||
-				Program.System_user.Has_permission(User_permission.DELETE_TRANSMISSION));
+				Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_TRANSMISSION) ||
+				Program.System_user.Has_permission(Class_enum.User_permission.DELETE_TRANSMISSION));
 			fuelTypeToolStripMenuItem.Enabled = (
-				Program.System_user.Has_permission(User_permission.ADD_EDIT_FUEL_TYPE) ||
-				Program.System_user.Has_permission(User_permission.DELETE_FUEL_TYPE));
+				Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_FUEL_TYPE) ||
+				Program.System_user.Has_permission(Class_enum.User_permission.DELETE_FUEL_TYPE));
 			colourToolStripMenuItem.Enabled = (
-				Program.System_user.Has_permission(User_permission.ADD_EDIT_COLOUR) ||
-				Program.System_user.Has_permission(User_permission.DELETE_COLOUR));
+				Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_COLOUR) ||
+				Program.System_user.Has_permission(Class_enum.User_permission.DELETE_COLOUR));
 			salespersonToolStripMenuItem.Enabled = (
-				Program.System_user.Has_permission(User_permission.ADD_EDIT_SALESPERSON) ||
-				Program.System_user.Has_permission(User_permission.VIEW_SALESPERSON));
+				Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_SALESPERSON) ||
+				Program.System_user.Has_permission(Class_enum.User_permission.VIEW_SALESPERSON));
 			financeToolStripMenuItem.Enabled = (
-				Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE) ||
-				Program.System_user.Has_permission(User_permission.VIEW_FINANCE));
+				Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_FINANCE) ||
+				Program.System_user.Has_permission(Class_enum.User_permission.VIEW_FINANCE));
 			insuranceToolStripMenuItem.Enabled = (
-				Program.System_user.Has_permission(User_permission.INSURANCE_ADD_EDIT) ||
-				Program.System_user.Has_permission(User_permission.INSURANCE_DELETE));
+				Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT) ||
+				Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_DELETE));
 
 
 		}

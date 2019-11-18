@@ -28,7 +28,7 @@ namespace VehicleDealership.View
 		}
 		private void Form_edit_users_Shown(object sender, EventArgs e)
 		{
-			if (!Program.System_user.Has_permission(User_permission.EDIT_USER))
+			if (!Program.System_user.Has_permission(Class_enum.User_permission.EDIT_USER))
 			{
 				MessageBox.Show("You do not have permission to edit users!", "ACCESS DENIED",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -79,7 +79,7 @@ namespace VehicleDealership.View
 		}
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
-			if (!Program.System_user.Has_permission(User_permission.EDIT_USER))
+			if (!Program.System_user.Has_permission(Class_enum.User_permission.EDIT_USER))
 			{
 				MessageBox.Show("You do not have permission to edit users!", "ACCESS DENIED",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);

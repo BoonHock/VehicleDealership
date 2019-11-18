@@ -1560,6 +1560,7 @@
 			this.btn_expenses_add.Name = "btn_expenses_add";
 			this.btn_expenses_add.Size = new System.Drawing.Size(23, 22);
 			this.btn_expenses_add.Text = "Add";
+			this.btn_expenses_add.Click += new System.EventHandler(this.Btn_expenses_add_Click);
 			// 
 			// btn_expenses_edit
 			// 
@@ -1569,6 +1570,7 @@
 			this.btn_expenses_edit.Name = "btn_expenses_edit";
 			this.btn_expenses_edit.Size = new System.Drawing.Size(23, 22);
 			this.btn_expenses_edit.Text = "Edit";
+			this.btn_expenses_edit.Click += new System.EventHandler(this.Btn_expenses_edit_Click);
 			// 
 			// btn_expenses_delete
 			// 
@@ -1578,6 +1580,7 @@
 			this.btn_expenses_delete.Name = "btn_expenses_delete";
 			this.btn_expenses_delete.Size = new System.Drawing.Size(23, 22);
 			this.btn_expenses_delete.Text = "Delete";
+			this.btn_expenses_delete.Click += new System.EventHandler(this.Btn_expenses_delete_Click);
 			// 
 			// toolStripLabel4
 			// 
@@ -1640,6 +1643,7 @@
 			this.btn_payment_received_add.Name = "btn_payment_received_add";
 			this.btn_payment_received_add.Size = new System.Drawing.Size(23, 22);
 			this.btn_payment_received_add.Text = "Add";
+			this.btn_payment_received_add.Click += new System.EventHandler(this.Btn_payment_received_add_Click);
 			// 
 			// btn_payment_received_edit
 			// 
@@ -1649,6 +1653,7 @@
 			this.btn_payment_received_edit.Name = "btn_payment_received_edit";
 			this.btn_payment_received_edit.Size = new System.Drawing.Size(23, 22);
 			this.btn_payment_received_edit.Text = "Edit";
+			this.btn_payment_received_edit.Click += new System.EventHandler(this.Btn_payment_received_edit_Click);
 			// 
 			// btn_payment_received_delete
 			// 
@@ -1658,6 +1663,7 @@
 			this.btn_payment_received_delete.Name = "btn_payment_received_delete";
 			this.btn_payment_received_delete.Size = new System.Drawing.Size(23, 22);
 			this.btn_payment_received_delete.Text = "Delete";
+			this.btn_payment_received_delete.Click += new System.EventHandler(this.Btn_payment_received_delete_Click);
 			// 
 			// toolStripLabel3
 			// 
@@ -1692,7 +1698,6 @@
 			this.grd_charges_add.RowHeadersWidth = 20;
 			this.grd_charges_add.Size = new System.Drawing.Size(346, 196);
 			this.grd_charges_add.TabIndex = 1;
-			this.grd_charges_add.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grd_charges_add_CellEndEdit);
 			this.grd_charges_add.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_DataError);
 			// 
 			// toolStrip1

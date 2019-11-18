@@ -14,8 +14,8 @@ namespace VehicleDealership.View
 {
 	public partial class Form_vehicle_template : Form
 	{
-		readonly bool can_add_edit = Program.System_user.Has_permission(User_permission.ADD_EDIT_VEHICLE_BRAND_GROUP_MODEL);
-		readonly bool can_delete = Program.System_user.Has_permission(User_permission.DELETE_VEHICLE_BRAND_GROUP_MODEL);
+		readonly bool can_add_edit = Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_VEHICLE_BRAND_GROUP_MODEL);
+		readonly bool can_delete = Program.System_user.Has_permission(Class_enum.User_permission.DELETE_VEHICLE_BRAND_GROUP_MODEL);
 
 		public Form_vehicle_template()
 		{

@@ -55,7 +55,7 @@ namespace VehicleDealership.View
 			if (_usergroup == "")
 			{
 				// Adding new usergroup
-				if (!Program.System_user.Has_permission(User_permission.ADD_USERGROUP))
+				if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_USERGROUP))
 				{
 					MessageBox.Show("You do not have permission to add usergroup!", "ACCESS DENIED",
 						MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -67,7 +67,7 @@ namespace VehicleDealership.View
 			else
 			{
 				// editing existing usergroup
-				if (!Program.System_user.Has_permission(User_permission.EDIT_USERGROUP))
+				if (!Program.System_user.Has_permission(Class_enum.User_permission.EDIT_USERGROUP))
 				{
 					MessageBox.Show("You do not have permission to edit usergroup!", "ACCESS DENIED",
 						MessageBoxButtons.OK, MessageBoxIcon.Error);

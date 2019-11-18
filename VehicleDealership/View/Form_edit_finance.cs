@@ -49,9 +49,9 @@ namespace VehicleDealership.View
 			switch (_type.ToUpper())
 			{
 				case "FINANCE":
-					has_permission = Program.System_user.Has_permission(User_permission.VIEW_FINANCE) ||
-						Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE);
-					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE))
+					has_permission = Program.System_user.Has_permission(Class_enum.User_permission.VIEW_FINANCE) ||
+						Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_FINANCE);
+					if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_FINANCE))
 					{
 						// no permission to add/edit finance
 						btn_ok.Visible = false;
@@ -59,7 +59,7 @@ namespace VehicleDealership.View
 					}
 					break;
 				case "INSURANCE":
-					if (!Program.System_user.Has_permission(User_permission.INSURANCE_ADD_EDIT))
+					if (!Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT))
 					{
 						btn_ok.Visible = false;
 						txt_remark.ReadOnly = true;
@@ -128,7 +128,7 @@ namespace VehicleDealership.View
 			switch (_type)
 			{
 				case "FINANCE":
-					if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_FINANCE))
+					if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_FINANCE))
 					{
 						// NO PERMISSION
 						this.DialogResult = DialogResult.Cancel;
@@ -138,7 +138,7 @@ namespace VehicleDealership.View
 					Finance_ds.Update_insert_finance(_orgbranch_id, txt_remark.Text.Trim());
 					break;
 				case "INSURANCE":
-					if (!Program.System_user.Has_permission(User_permission.INSURANCE_ADD_EDIT))
+					if (!Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT))
 					{
 						// NO PERMISSION
 						this.DialogResult = DialogResult.Cancel;

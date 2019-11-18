@@ -140,10 +140,11 @@ namespace VehicleDealership.View
 
 			Cursor = Cursors.WaitCursor;
 
-			using (Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable dttable_expenses =
-				(Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable)grd_expenses.DataSource)
+			using (Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dttable_expenses =
+				(Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_expenses.DataSource)
 			{
 				List<int> list_payment_id = new List<int>();
+				List<int> list_charge_to_customer = new List<int>();
 
 				dttable_expenses.AcceptChanges();
 
@@ -154,7 +155,7 @@ namespace VehicleDealership.View
 					if (dttable_prefix.Rows.Count > 0) str_doc_prefix = dttable_prefix[0].document_prefix_text;
 				}
 
-				foreach (Vehicle_expenses_ds.sp_select_vehicle_expensesRow dt_row in dttable_expenses)
+				foreach (Vehicle_payment_ds.sp_select_vehicle_paymentRow dt_row in dttable_expenses)
 				{
 					int int_payment_id = Update_insert_payment(str_doc_prefix, dt_row.payment,
 						dt_row.payment_description, dt_row.pay_to_id, dt_row.pay_to_type, dt_row.amount,
@@ -170,9 +171,11 @@ namespace VehicleDealership.View
 					if (int_payment_id == 0) continue;
 
 					list_payment_id.Add(int_payment_id);
+					if (dt_row.charge_to_customer) list_charge_to_customer.Add(int_payment_id);
 				}
 
-				if (!Vehicle_expenses_ds.Update_vehicle_expenses(VehicleID, string.Join(",", list_payment_id)))
+				if (!Vehicle_payment_ds.Update_vehicle_payment(VehicleID, string.Join(",", list_payment_id),
+					Class_enum.Payment_function.VEHICLE_EXPENSES, string.Join(",", list_charge_to_customer)))
 				{
 					MessageBox.Show("Vehicle expenses update failed.", "ERROR",
 						MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -183,6 +186,7 @@ namespace VehicleDealership.View
 				(Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_payment.DataSource)
 			{
 				List<int> list_payment_id = new List<int>();
+				List<int> list_charge_to_customer = new List<int>();
 
 				dttable_payment.AcceptChanges();
 
@@ -209,8 +213,10 @@ namespace VehicleDealership.View
 					if (int_payment_id == 0) continue;
 
 					list_payment_id.Add(int_payment_id);
+					if (dt_row.charge_to_customer) list_charge_to_customer.Add(int_payment_id);
 				}
-				if (!Vehicle_payment_ds.Update_vehicle_payment(VehicleID, string.Join(",", list_payment_id)))
+				if (!Vehicle_payment_ds.Update_vehicle_payment(VehicleID, string.Join(",", list_payment_id),
+					Class_enum.Payment_function.VEHICLE_PAY_TO_SELLER, string.Join(",", list_charge_to_customer)))
 				{
 					MessageBox.Show("Vehicle payment update failed.", "ERROR",
 						MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -398,18 +404,26 @@ namespace VehicleDealership.View
 
 			cmb_acquire_method.SelectedItem = "PURCHASE"; // DEFAULT
 
-			grd_expenses.DataSource = Vehicle_expenses_ds.Select_vehicle_expenses(VehicleID);
+			grd_expenses.DataSource = Vehicle_payment_ds.Select_vehicle_payment(VehicleID, Class_enum.Payment_function.VEHICLE_EXPENSES);
 			if (!Program.System_user.IsDeveloper) Class_datagridview.Hide_unnecessary_columns(grd_expenses,
-				"payment_no", "payment_description", "pay_to", "amount", "payment_date", "is_paid",
-				"payment_method_type", "cheque_no", "credit_card_no", "payment_method", "finance", "remark", "modified_by");
+				"charge_to_customer", "payment_no", "payment_description", "pay_to", "amount",
+				"payment_date", "is_paid", "payment_method_type", "cheque_no", "credit_card_no",
+				"payment_method", "finance", "remark", "modified_by");
+			// column charge_to_customer will be checkbox. allow user to tick/untick. other columns cannot edit
+			foreach (DataGridViewColumn grd_col in grd_expenses.Columns)
+			{
+				grd_col.ReadOnly = grd_col.Name != "charge_to_customer";
+			}
 
 			grd_expenses.Columns["amount"].DefaultCellStyle.Format = "N2";
 			grd_expenses.Columns["amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
-			grd_payment.DataSource = Vehicle_payment_ds.Select_vehicle_payment(VehicleID);
+			grd_payment.DataSource = Vehicle_payment_ds.Select_vehicle_payment(VehicleID,
+				Class_enum.Payment_function.VEHICLE_PAY_TO_SELLER);
 			if (!Program.System_user.IsDeveloper) Class_datagridview.Hide_unnecessary_columns(grd_payment,
-				"payment_no", "payment_description", "pay_to", "amount", "payment_date", "is_paid",
-				"payment_method_type", "cheque_no", "credit_card_no", "payment_method", "finance", "remark", "modified_by");
+				"payment_no", "payment_description", "pay_to", "amount",
+				"payment_date", "is_paid", "payment_method_type", "cheque_no", "credit_card_no",
+				"payment_method", "finance", "remark", "modified_by");
 
 			grd_payment.Columns["amount"].DefaultCellStyle.Format = "N2";
 			grd_payment.Columns["amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -680,7 +694,7 @@ namespace VehicleDealership.View
 			num_net_purchase.Value = num_purchase_price.Value - num_overtrade.Value;
 			num_to_pay.Value = num_net_purchase.Value - num_loan_balance.Value - num_paid.Value;
 			num_total_cost.Value = num_net_purchase.Value + num_expenses.Value;
-			num_gross_profit.Value = num_list_price.Value - num_total_cost.Value;
+			num_gross_profit.Value = num_list_price.Value + num_expenses_charged.Value - num_total_cost.Value;
 		}
 		private void Num_loan_balance_ValueChanged(object sender, EventArgs e)
 		{
@@ -706,10 +720,10 @@ namespace VehicleDealership.View
 			{
 				if (dlg_payment.ShowDialog() != DialogResult.OK) return;
 
-				Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable dttable =
-					(Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable)grd_expenses.DataSource;
+				Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dttable =
+					(Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_expenses.DataSource;
 
-				dttable.Addsp_select_vehicle_expensesRow(dlg_payment.PaymentNo,
+				dttable.Addsp_select_vehicle_paymentRow(true, dlg_payment.PaymentNo,
 					dlg_payment.PaymentDescription, dlg_payment.PayToId, dlg_payment.PayToName,
 					dlg_payment.PayToType, dlg_payment.PaymentAmount, dlg_payment.PaymentDate,
 					dlg_payment.IsPaid, dlg_payment.PaymentMethodType,
@@ -726,8 +740,8 @@ namespace VehicleDealership.View
 		{
 			if (grd_expenses.SelectedCells.Count == 0) return;
 
-			Vehicle_expenses_ds.sp_select_vehicle_expensesRow dt_row =
-				(from row in (Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable)grd_expenses.DataSource
+			Vehicle_payment_ds.sp_select_vehicle_paymentRow dt_row =
+				(from row in (Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_expenses.DataSource
 				 where row.payment == (int)grd_expenses.SelectedCells[0].OwningRow.Cells["payment"].Value
 				 select row).ToList()[0];
 
@@ -779,8 +793,8 @@ namespace VehicleDealership.View
 
 			List<int> list_payment_id = new List<int>();
 
-			Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable dttable =
-				(Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable)grd_expenses.DataSource;
+			Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dttable =
+				(Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_expenses.DataSource;
 
 			foreach (DataGridViewCell grd_cell in grd_expenses.SelectedCells)
 			{
@@ -801,13 +815,19 @@ namespace VehicleDealership.View
 				return;
 			}
 
-			Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable dttable =
-				(Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable)grd_expenses.DataSource;
+			Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dttable =
+				(Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_expenses.DataSource;
 
 			decimal dcml_expenses = (from row in dttable select row.amount).Sum();
+			decimal dcml_expenses_charged = 0;
+
+			var query_charged = (from row in dttable where row.charge_to_customer select row.amount);
+			if (query_charged.Count() > 0) dcml_expenses_charged = query_charged.Sum();
 
 			lbl_total_expenses.Text = dcml_expenses.ToString("#,##0.00");
+			lbl_expenses_charged.Text = dcml_expenses_charged.ToString("#,##0.00");
 			num_expenses.Value = dcml_expenses;
+			num_expenses_charged.Value = dcml_expenses_charged;
 		}
 		private void Btn_add_payment_Click(object sender, EventArgs e)
 		{
@@ -816,9 +836,10 @@ namespace VehicleDealership.View
 			{
 				if (dlg_payment.ShowDialog() != DialogResult.OK) return;
 
-				Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dttable = (Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_payment.DataSource;
+				Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dttable =
+					(Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_payment.DataSource;
 
-				dttable.Addsp_select_vehicle_paymentRow(dlg_payment.PaymentNo,
+				dttable.Addsp_select_vehicle_paymentRow(false, dlg_payment.PaymentNo,
 					dlg_payment.PaymentDescription, dlg_payment.PayToId, dlg_payment.PayToName,
 					dlg_payment.PayToType, dlg_payment.PaymentAmount, dlg_payment.PaymentDate,
 					dlg_payment.IsPaid, dlg_payment.PaymentMethodType,
@@ -1085,7 +1106,17 @@ namespace VehicleDealership.View
 		}
 		private void Grd_expenses_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
-			if (e.RowIndex >= 0) btn_edit_expenses.PerformClick();
+			// charge to customer column is checkbox. allow user to click without triggering this function
+			if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && grd_expenses.Columns[e.ColumnIndex].Name.ToUpper() != "CHARGE_TO_CUSTOMER")
+				btn_edit_expenses.PerformClick();
+		}
+		private void Grd_expenses_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+			if (grd_expenses.Columns[e.ColumnIndex].Name.ToUpper() == "CHARGE_TO_CUSTOMER")
+			{
+				grd_expenses.CommitEdit(DataGridViewDataErrorContexts.Commit);
+				Process_vehicle_expenses();
+			}
 		}
 		private void Grd_payment_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
@@ -1105,5 +1136,6 @@ namespace VehicleDealership.View
 			if (grd_image.Columns[e.ColumnIndex].Name.ToUpper() == "DESCRIPTION")
 				grd_image[e.ColumnIndex, e.RowIndex].Value = "";
 		}
+
 	}
 }

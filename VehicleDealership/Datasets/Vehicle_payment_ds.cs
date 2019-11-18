@@ -14,13 +14,13 @@ namespace VehicleDealership.Datasets
 		{
 			return new Vehicle_payment_dsTableAdapters.QueriesTableAdapter();
 		}
-		public static sp_select_vehicle_paymentDataTable Select_vehicle_payment(int vehicle)
+		public static sp_select_vehicle_paymentDataTable Select_vehicle_payment(int vehicle, Classes.Class_enum.Payment_function payment_function)
 		{
 			try
 			{
 				using (Vehicle_payment_dsTableAdapters.sp_select_vehicle_paymentTableAdapter adapter = Select_Vehicle_PaymentTableAdapter())
 				{
-					sp_select_vehicle_paymentDataTable dttable = adapter.GetData(vehicle);
+					sp_select_vehicle_paymentDataTable dttable = adapter.GetData(vehicle, (int)payment_function);
 					foreach (System.Data.DataColumn dt_col in dttable.Columns)
 					{
 						dt_col.ReadOnly = false;
@@ -35,13 +35,14 @@ namespace VehicleDealership.Datasets
 			}
 			return new sp_select_vehicle_paymentDataTable();
 		}
-		public static bool Update_vehicle_payment(int int_vehicle, string str_payment_combine)
+		public static bool Update_vehicle_payment(int vehicle, string payment_combine,
+			Classes.Class_enum.Payment_function payment_function, string payment_charge_to_customer)
 		{
 			try
 			{
 				using (Vehicle_payment_dsTableAdapters.QueriesTableAdapter adapter = QueriesTableAdapter())
 				{
-					adapter.sp_update_vehicle_payment(int_vehicle, str_payment_combine);
+					adapter.sp_update_vehicle_payment(vehicle, payment_combine, (int)payment_function, payment_charge_to_customer);
 				}
 				return true;
 			}

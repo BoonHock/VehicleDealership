@@ -70,8 +70,8 @@ namespace VehicleDealership.View
 		{
 			Class_style.Grd_style.Common_style(grd_contact);
 
-			if (!Program.System_user.Has_permission(User_permission.VIEW_SALESPERSON) &&
-				!Program.System_user.Has_permission(User_permission.ADD_EDIT_SALESPERSON))
+			if (!Program.System_user.Has_permission(Class_enum.User_permission.VIEW_SALESPERSON) &&
+				!Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_SALESPERSON))
 			{
 				MessageBox.Show("You do not have sufficient permission to perform this action!",
 					"ACCESS DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -88,7 +88,7 @@ namespace VehicleDealership.View
 				Setup_form_org();
 			}
 
-			if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_SALESPERSON))
+			if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_SALESPERSON))
 			{
 				// no permission to add/edit salesperson
 				btn_ok.Visible = false;
@@ -102,7 +102,7 @@ namespace VehicleDealership.View
 		}
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
-			if (!Program.System_user.Has_permission(User_permission.ADD_EDIT_SALESPERSON))
+			if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_SALESPERSON))
 			{
 				// NO PERMISSION
 				this.DialogResult = DialogResult.Cancel;

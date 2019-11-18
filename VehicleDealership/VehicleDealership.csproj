@@ -96,6 +96,7 @@
     <Compile Include="Classes\Class_combobox.cs" />
     <Compile Include="Classes\Class_datagridview.cs" />
     <Compile Include="Classes\Class_datatable.cs" />
+    <Compile Include="Classes\Class_enum.cs" />
     <Compile Include="Classes\Class_image.cs" />
     <Compile Include="Classes\Class_listview.cs" />
     <Compile Include="Classes\Class_misc.cs" />
@@ -103,7 +104,6 @@
     <Compile Include="Classes\Class_style.cs" />
     <Compile Include="Classes\Class_treeview.cs" />
     <Compile Include="Classes\User.cs" />
-    <Compile Include="Classes\User_permission.cs" />
     <Compile Include="Crystal_report\CR_evidence_of_purchase.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -398,14 +398,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Vehicle_ds.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\Vehicle_expenses_ds.cs">
-      <DependentUpon>Vehicle_expenses_ds.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Datasets\Vehicle_expenses_ds.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Vehicle_expenses_ds.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Datasets\Vehicle_group_ds.cs">
       <DependentUpon>Vehicle_group_ds.xsd</DependentUpon>
     </Compile>
@@ -481,12 +473,6 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Form_add_vehicle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Form_add_vehicle.Designer.cs">
-      <DependentUpon>Form_add_vehicle.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Form_change_pw.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -642,9 +628,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View\Form_add_vehicle.resx">
-      <DependentUpon>Form_add_vehicle.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\Form_change_pw.resx">
       <DependentUpon>Form_change_pw.cs</DependentUpon>
     </EmbeddedResource>
@@ -1070,17 +1053,6 @@
     </None>
     <None Include="Datasets\Vehicle_ds.xss">
       <DependentUpon>Vehicle_ds.xsd</DependentUpon>
-    </None>
-    <None Include="Datasets\Vehicle_expenses_ds.xsc">
-      <DependentUpon>Vehicle_expenses_ds.xsd</DependentUpon>
-    </None>
-    <None Include="Datasets\Vehicle_expenses_ds.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Vehicle_expenses_ds.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Datasets\Vehicle_expenses_ds.xss">
-      <DependentUpon>Vehicle_expenses_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Vehicle_group_ds.xsc">
       <DependentUpon>Vehicle_group_ds.xsd</DependentUpon>

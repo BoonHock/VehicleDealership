@@ -33,7 +33,7 @@ namespace VehicleDealership.View
 		}
 		private void Form_register_user_Shown(object sender, EventArgs e)
 		{
-			if (!Program.System_user.Has_permission(User_permission.ADD_USER))
+			if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_USER))
 			{
 				MessageBox.Show("You do not have permission to add users!", "ACCESS DENIED",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -43,7 +43,7 @@ namespace VehicleDealership.View
 		}
 		private void Btn_register_Click(object sender, EventArgs e)
 		{
-			if (!Program.System_user.Has_permission(User_permission.ADD_USER))
+			if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_USER))
 			{
 				MessageBox.Show("You do not have permission to add users!", "ACCESS DENIED",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
