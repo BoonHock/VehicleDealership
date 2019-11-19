@@ -100,7 +100,6 @@
     <Compile Include="Classes\Class_image.cs" />
     <Compile Include="Classes\Class_listview.cs" />
     <Compile Include="Classes\Class_misc.cs" />
-    <Compile Include="Classes\Class_payment_function.cs" />
     <Compile Include="Classes\Class_style.cs" />
     <Compile Include="Classes\Class_treeview.cs" />
     <Compile Include="Classes\User.cs" />
@@ -253,6 +252,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Insurance_misc_charges_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Loan_ds.cs">
+      <DependentUpon>Loan_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Loan_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Loan_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\Location_ds.cs">
       <DependentUpon>Location_ds.xsd</DependentUpon>
@@ -461,14 +468,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Vehicle_sale_ds.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Datasets\Vehicle_sale_payment_ds.cs">
-      <DependentUpon>Vehicle_sale_payment_ds.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Datasets\Vehicle_sale_payment_ds.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Vehicle_sale_payment_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Program.cs" />
@@ -856,6 +855,17 @@
     <None Include="Datasets\Insurance_misc_charges_ds.xss">
       <DependentUpon>Insurance_misc_charges_ds.xsd</DependentUpon>
     </None>
+    <None Include="Datasets\Loan_ds.xsc">
+      <DependentUpon>Loan_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Loan_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Loan_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Loan_ds.xss">
+      <DependentUpon>Loan_ds.xsd</DependentUpon>
+    </None>
     <None Include="Datasets\Location_ds.xsc">
       <DependentUpon>Location_ds.xsd</DependentUpon>
     </None>
@@ -1141,17 +1151,6 @@
     </None>
     <None Include="Datasets\Vehicle_sale_ds.xss">
       <DependentUpon>Vehicle_sale_ds.xsd</DependentUpon>
-    </None>
-    <None Include="Datasets\Vehicle_sale_payment_ds.xsc">
-      <DependentUpon>Vehicle_sale_payment_ds.xsd</DependentUpon>
-    </None>
-    <None Include="Datasets\Vehicle_sale_payment_ds.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Vehicle_sale_payment_ds.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Datasets\Vehicle_sale_payment_ds.xss">
-      <DependentUpon>Vehicle_sale_payment_ds.xsd</DependentUpon>
     </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">

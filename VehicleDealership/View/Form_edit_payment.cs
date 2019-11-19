@@ -25,7 +25,7 @@ namespace VehicleDealership.View
 		/// ORGANISATION / PERSON
 		/// </summary>
 		public string PayToType { get { return txt_pay_to_type.Text.Trim().ToUpper(); } }
-		public DateTime PaymentDate { get { return dtp_payment_date.Value; } }
+		public DateTime PaymentDate { get { return dtp_payment_date.Value.Date; } }
 		public decimal PaymentAmount { get { return num_amount.Value; } }
 		public string PaymentMethodType
 		{
@@ -59,7 +59,7 @@ namespace VehicleDealership.View
 				return rad_credit_debit_card.Checked || rad_cheque.Checked ? txt_payment_method_finance.Text.Trim() : "";
 			}
 		}
-		public DateTime PaymentMethodDate { get { return dtp_payment_method_date.Value; } }
+		public DateTime PaymentMethodDate { get { return dtp_payment_method_date.Value.Date; } }
 		public string PaymentRemark { get { return txt_remark.Text.Trim(); } }
 		/// <summary>
 		/// Editing payment

@@ -42,7 +42,8 @@ namespace VehicleDealership.Datasets
 			{
 				using (Vehicle_payment_dsTableAdapters.QueriesTableAdapter adapter = QueriesTableAdapter())
 				{
-					adapter.sp_update_vehicle_payment(vehicle, payment_combine, (int)payment_function, payment_charge_to_customer);
+					adapter.sp_update_vehicle_payment(vehicle, payment_combine,
+						(int)payment_function, payment_charge_to_customer, Program.System_user.UserID);
 				}
 				return true;
 			}

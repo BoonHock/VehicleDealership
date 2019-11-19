@@ -6,18 +6,6 @@ namespace VehicleDealership.Datasets
 
 	partial class Person_ds
 	{
-		private static Person_dsTableAdapters.sp_select_personTableAdapter Select_PersonTableAdapter()
-		{
-			return new Person_dsTableAdapters.sp_select_personTableAdapter();
-		}
-		private static Person_dsTableAdapters.Person_simplifiedTableAdapter Select_Person1TableAdapter()
-		{
-			return new Person_dsTableAdapters.Person_simplifiedTableAdapter();
-		}
-		private static Person_dsTableAdapters.QueriesTableAdapter QueriesTableAdapter()
-		{
-			return new Person_dsTableAdapters.QueriesTableAdapter();
-		}
 		/// <summary>
 		/// 
 		/// </summary>
@@ -27,7 +15,10 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				return Select_PersonTableAdapter().GetData(int_person);
+				using (Person_dsTableAdapters.sp_select_personTableAdapter adapter = new Person_dsTableAdapters.sp_select_personTableAdapter())
+				{
+					return adapter.GetData(int_person);
+				}
 			}
 			catch (System.Exception e)
 			{
@@ -43,9 +34,12 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				return int.Parse(QueriesTableAdapter().sp_insert_person(str_name, str_ic_no, byte_img,
-					int_person_type, str_driving_license, bool_gender, int_race, str_address, str_city, str_state,
-					str_postcode, short_country, str_occupation, str_company, str_url, Program.System_user.UserID).ToString());
+				using (Person_dsTableAdapters.QueriesTableAdapter adapter = new Person_dsTableAdapters.QueriesTableAdapter())
+				{
+					return int.Parse(adapter.sp_insert_person(str_name, str_ic_no, byte_img, int_person_type,
+						str_driving_license, bool_gender, int_race, str_address, str_city, str_state, str_postcode,
+						short_country, str_occupation, str_company, str_url, Program.System_user.UserID).ToString());
+				}
 			}
 			catch (System.Exception e)
 			{
@@ -61,9 +55,12 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				QueriesTableAdapter().sp_update_person(int_person, str_name, str_ic_no, byte_img,
-					int_person_type, str_driving_license, bool_gender, int_race, str_address, str_city, str_state,
-					str_postcode, short_country, str_occupation, str_company, str_url, Program.System_user.UserID);
+				using (Person_dsTableAdapters.QueriesTableAdapter adapter = new Person_dsTableAdapters.QueriesTableAdapter())
+				{
+					adapter.sp_update_person(int_person, str_name, str_ic_no, byte_img, int_person_type,
+						str_driving_license, bool_gender, int_race, str_address, str_city, str_state, str_postcode,
+						short_country, str_occupation, str_company, str_url, Program.System_user.UserID);
+				}
 				return true;
 			}
 			catch (System.Exception e)
@@ -77,7 +74,10 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				return Select_Person1TableAdapter().sp_select_person_not_salesperson();
+				using (Person_dsTableAdapters.Person_simplifiedTableAdapter adapter = new Person_dsTableAdapters.Person_simplifiedTableAdapter())
+				{
+					return adapter.sp_select_person_not_salesperson();
+				}
 			}
 			catch (System.Exception e)
 			{
@@ -90,7 +90,10 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				return Select_Person1TableAdapter().sp_select_person_simplified();
+				using (Person_dsTableAdapters.Person_simplifiedTableAdapter adapter = new Person_dsTableAdapters.Person_simplifiedTableAdapter())
+				{
+					return adapter.sp_select_person_simplified();
+				}
 			}
 			catch (System.Exception e)
 			{

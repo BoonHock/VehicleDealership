@@ -40,8 +40,14 @@ namespace VehicleDealership.View
 						if (dttable.Rows.Count > 0) txt_remark.Text = dttable[0].remark;
 					}
 					break;
+				case "LOAN":
+					using (Loan_ds.sp_select_loanDataTable dttable =
+						Loan_ds.Select_loan(_orgbranch_id))
+					{
+						if (dttable.Rows.Count > 0) txt_remark.Text = dttable[0].remark;
+					}
+					break;
 			}
-
 		}
 		private void Form_edit_finance_Shown(object sender, EventArgs e)
 		{
@@ -51,6 +57,11 @@ namespace VehicleDealership.View
 				case "FINANCE":
 					has_permission = Program.System_user.Has_permission(Class_enum.User_permission.VIEW_FINANCE) ||
 						Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_FINANCE);
+					using (Finance_ds.sp_select_financeDataTable dttable =
+						Finance_ds.Select_finance(_orgbranch_id))
+					{
+						if (dttable.Rows.Count > 0) txt_remark.Text = dttable[0].remark;
+					}
 					if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_FINANCE))
 					{
 						// no permission to add/edit finance
@@ -59,7 +70,25 @@ namespace VehicleDealership.View
 					}
 					break;
 				case "INSURANCE":
+					using (Insurance_ds.sp_select_insuranceDataTable dttable =
+						Insurance_ds.Select_insurance(_orgbranch_id))
+					{
+						if (dttable.Rows.Count > 0) txt_remark.Text = dttable[0].remark;
+					}
 					if (!Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT))
+					{
+						btn_ok.Visible = false;
+						txt_remark.ReadOnly = true;
+						has_permission = false;
+					}
+					break;
+				case "LOAN":
+					using (Loan_ds.sp_select_loanDataTable dttable =
+						Loan_ds.Select_loan(_orgbranch_id))
+					{
+						if (dttable.Rows.Count > 0) txt_remark.Text = dttable[0].remark;
+					}
+					if (!Program.System_user.Has_permission(Class_enum.User_permission.LOAN_ADD_EDIT))
 					{
 						btn_ok.Visible = false;
 						txt_remark.ReadOnly = true;
@@ -78,7 +107,6 @@ namespace VehicleDealership.View
 				this.Close();
 				return;
 			}
-
 			Setup_form();
 		}
 		private void Setup_form()
@@ -128,24 +156,16 @@ namespace VehicleDealership.View
 			switch (_type)
 			{
 				case "FINANCE":
-					if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_FINANCE))
-					{
-						// NO PERMISSION
-						this.DialogResult = DialogResult.Cancel;
-						this.Close();
-						return;
-					}
-					Finance_ds.Update_insert_finance(_orgbranch_id, txt_remark.Text.Trim());
+					if (Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_FINANCE))
+						Finance_ds.Update_insert_finance(_orgbranch_id, txt_remark.Text.Trim());
 					break;
 				case "INSURANCE":
-					if (!Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT))
-					{
-						// NO PERMISSION
-						this.DialogResult = DialogResult.Cancel;
-						this.Close();
-						return;
-					}
-					Insurance_ds.Update_insert_insurance(_orgbranch_id, txt_remark.Text.Trim());
+					if (Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT))
+						Insurance_ds.Update_insert_insurance(_orgbranch_id, txt_remark.Text.Trim());
+					break;
+				case "LOAN":
+					if (Program.System_user.Has_permission(Class_enum.User_permission.LOAN_ADD_EDIT))
+						Loan_ds.Update_insert_loan(_orgbranch_id, txt_remark.Text.Trim());
 					break;
 			}
 			this.DialogResult = DialogResult.OK;

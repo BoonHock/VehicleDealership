@@ -33,8 +33,9 @@ namespace VehicleDealership.View
 
 			grd_file_attachment.MouseDown += Class_datagridview.MouseDown_select_cell;
 			grd_image.MouseDown += Class_datagridview.MouseDown_select_cell;
+			grd_expenses.MouseDown += Class_datagridview.MouseDown_select_cell;
+			grd_payment.MouseDown += Class_datagridview.MouseDown_select_cell;
 		}
-
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
 			string str_reg_no = txt_reg_no.Text.Trim();
@@ -351,7 +352,8 @@ namespace VehicleDealership.View
 			this.DialogResult = DialogResult.OK;
 			this.Close();
 		}
-		private int Update_insert_payment(string str_doc_prefix, int int_payment_id, string str_payment_description, int int_pay_to_id,
+		private int Update_insert_payment(string str_doc_prefix, int int_payment_id,
+			string str_payment_description, int int_pay_to_id,
 			string str_pay_to_type, decimal dec_amount, DateTime payment_date, bool is_paid,
 			string str_payment_method_type, int int_payment_method_id, string str_cheque_no, string str_cc_no,
 			int int_cc_type, int int_finance_id, DateTime payment_method_date, string str_remark)
@@ -412,7 +414,12 @@ namespace VehicleDealership.View
 			// column charge_to_customer will be checkbox. allow user to tick/untick. other columns cannot edit
 			foreach (DataGridViewColumn grd_col in grd_expenses.Columns)
 			{
-				grd_col.ReadOnly = grd_col.Name != "charge_to_customer";
+				grd_col.ReadOnly = true;
+				if (grd_col.Name == "charge_to_customer")
+				{
+					grd_col.ReadOnly = false;
+					grd_col.DefaultCellStyle.BackColor = Color.Yellow;
+				}
 			}
 
 			grd_expenses.Columns["amount"].DefaultCellStyle.Format = "N2";
@@ -536,6 +543,8 @@ namespace VehicleDealership.View
 
 				txt_remark.Text = dttable[0].remark;
 			}
+			Process_vehicle_expenses();
+			Process_vehicle_payment();
 		}
 		private void Txt_reg_no_Enter(object sender, EventArgs e)
 		{

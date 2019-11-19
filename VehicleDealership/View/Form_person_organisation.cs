@@ -121,6 +121,11 @@ namespace VehicleDealership.View
 					cmb_type.Enabled = false; // ONLY organisation allowed for insurance
 					grd_main.DataSource = Organisation_branch_ds.Select_organisation_not_insurance();
 					break;
+				case "LOAN":
+					cmb_type.ComboBox.SelectedValue = "ORGANISATION";
+					cmb_type.Enabled = false; // ONLY organisation allowed for loan
+					grd_main.DataSource = Organisation_branch_ds.Select_organisation_not_loan();
+					break;
 			}
 
 			if (cmb_type.ComboBox.SelectedValue.ToString() == "PERSON")

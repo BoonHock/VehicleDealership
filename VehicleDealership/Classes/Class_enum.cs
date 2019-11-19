@@ -10,7 +10,7 @@ namespace VehicleDealership.Classes
 	{
 		public enum Payment_function
 		{
-			PAYMENT_RECEIVED_VEHICLE_SALE = 1,
+			VEHICLE_SALE_PAYMENT_RECEIVED = 1,
 			VEHICLE_EXPENSES = 2,
 			VEHICLE_MISC_PAID = 3,
 			VEHICLE_MISC_RECEIVED = 4,
@@ -51,6 +51,8 @@ namespace VehicleDealership.Classes
 			public static string VEHICLE_RETURN_DELETE { get { return "VEHICLE_RETURN_DELETE"; } }
 			public static string INSURANCE_ADD_EDIT { get { return "INSURANCE_ADD_EDIT"; } }
 			public static string INSURANCE_DELETE { get { return "INSURANCE_DELETE"; } }
+			public static string LOAN_ADD_EDIT { get { return "LOAN_ADD_EDIT"; } }
+			public static string LOAN_DELETE { get { return "LOAN_DELETE"; } }
 
 
 			//private User_permission(string value) { Value = value; }

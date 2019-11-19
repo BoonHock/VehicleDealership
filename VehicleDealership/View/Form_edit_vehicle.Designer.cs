@@ -714,6 +714,7 @@
 			// 
 			this.num_expenses_charged.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.num_expenses_charged.DecimalPlaces = 2;
+			this.num_expenses_charged.Enabled = false;
 			this.num_expenses_charged.Location = new System.Drawing.Point(418, 89);
 			this.num_expenses_charged.Margin = new System.Windows.Forms.Padding(2);
 			this.num_expenses_charged.Maximum = new decimal(new int[] {
@@ -2161,8 +2162,8 @@
 			// toolStripLabel1
 			// 
 			this.toolStripLabel1.Name = "toolStripLabel1";
-			this.toolStripLabel1.Size = new System.Drawing.Size(115, 22);
-			this.toolStripLabel1.Text = "Total Expenses: MYR";
+			this.toolStripLabel1.Size = new System.Drawing.Size(65, 22);
+			this.toolStripLabel1.Text = "Total: MYR";
 			// 
 			// lbl_total_expenses
 			// 
@@ -2174,8 +2175,8 @@
 			// 
 			this.toolStripLabel2.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
 			this.toolStripLabel2.Name = "toolStripLabel2";
-			this.toolStripLabel2.Size = new System.Drawing.Size(228, 22);
-			this.toolStripLabel2.Text = "Total expenses charged to customer: MYR";
+			this.toolStripLabel2.Size = new System.Drawing.Size(178, 22);
+			this.toolStripLabel2.Text = "Total charged to customer: MYR";
 			// 
 			// lbl_expenses_charged
 			// 

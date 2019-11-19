@@ -111,7 +111,7 @@ namespace VehicleDealership.View
 					if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_FINANCE))
 						permission_denied = true;
 					else
-						Setup_form_finance_insurance();
+						Setup_form_finance();
 					break;
 				case "INSURANCE":
 					addToolStripMenuItem.Visible = true;
@@ -122,7 +122,7 @@ namespace VehicleDealership.View
 						!Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_DELETE))
 						permission_denied = true;
 					else
-						Setup_form_finance_insurance();
+						Setup_form_finance();
 					break;
 				case "VEHICLE":
 					addToolStripMenuItem.Visible = true;
@@ -718,8 +718,8 @@ namespace VehicleDealership.View
 			((DataTable)grd_main.DataSource).DefaultView.RowFilter = str_filter;
 		}
 		#endregion
-		#region FINANCE / INSURANCE
-		private void Setup_form_finance_insurance()
+		#region FINANCE / INSURANCE / LOAN
+		private void Setup_form_finance()
 		{
 			ts_add_edit_delete.Visible = true;
 
@@ -730,11 +730,18 @@ namespace VehicleDealership.View
 			bool has_add_edit_permission = Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_FINANCE);
 			bool has_delete_permission = false; // TODO: create permission to delete finance
 
-			if (this.Tag.ToString().ToUpper() == "INSURANCE")
+			switch (this.Tag.ToString().ToUpper())
 			{
-				has_add_edit_permission = Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT);
-				has_delete_permission = Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_DELETE);
+				case "INSURANCE":
+					has_add_edit_permission = Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT);
+					has_delete_permission = Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_DELETE);
+					break;
+				case "LOAN":
+					has_add_edit_permission = Program.System_user.Has_permission(Class_enum.User_permission.LOAN_ADD_EDIT);
+					has_delete_permission = Program.System_user.Has_permission(Class_enum.User_permission.LOAN_DELETE);
+					break;
 			}
+
 			btn_add.Enabled = has_add_edit_permission;
 			btn_edit.Enabled = has_add_edit_permission;
 			addToolStripMenuItem.Enabled = has_add_edit_permission;
@@ -742,35 +749,43 @@ namespace VehicleDealership.View
 			btn_delete.Enabled = has_delete_permission;
 			deleteToolStripMenuItem.Enabled = has_delete_permission;
 
-			Setup_grd_finance_insurance();
+			Setup_grd_finance();
 
-			txt_search.TextChanged += (sender2, e2) => Apply_filter_finance_insurance();
-			btn_add.Click += Add_finance_insurance;
-			addToolStripMenuItem.Click += Add_finance_insurance;
-			btn_edit.Click += Edit_finance_insurance;
-			editToolStripMenuItem.Click += Edit_finance_insurance;
-			btn_delete.Click += Delete_finance_insurance;
-			deleteToolStripMenuItem.Click += Delete_finance_insurance;
+			txt_search.TextChanged += (sender2, e2) => Apply_filter_finance();
+			btn_add.Click += Add_finance;
+			addToolStripMenuItem.Click += Add_finance;
+			btn_edit.Click += Edit_finance;
+			editToolStripMenuItem.Click += Edit_finance;
+			btn_delete.Click += Delete_finance;
+			deleteToolStripMenuItem.Click += Delete_finance;
 		}
-		private void Setup_grd_finance_insurance(int int_id = 0)
+		private void Setup_grd_finance(int int_id = 0)
 		{
 			grd_main.DataSource = null;
 
-			if (this.Tag.ToString().ToUpper() == "FINANCE")
-				grd_main.DataSource = Finance_ds.Select_finance(-1);
-			else
-				grd_main.DataSource = Insurance_ds.Select_insurance(-1);
+			switch (this.Tag.ToString().ToUpper())
+			{
+				case "FINANCE":
+					grd_main.DataSource = Finance_ds.Select_finance(-1);
+					break;
+				case "INSURANCE":
+					grd_main.DataSource = Insurance_ds.Select_insurance(-1);
+					break;
+				case "LOAN":
+					grd_main.DataSource = Loan_ds.Select_loan(-1);
+					break;
+			}
 
 			Class_datagridview.Hide_unnecessary_columns(grd_main, "name", "branch_name", "registration_no",
 				"address", "city", "state", "postcode", "country_name", "url", "remark");
 
 			grd_main.AutoResizeColumns();
-			Apply_filter_finance_insurance();
+			Apply_filter_finance();
 
 			if (int_id != 0)
 				Class_datagridview.Select_row_by_value(grd_main, this.Tag.ToString().ToLower(), int_id);
 		}
-		private void Apply_filter_finance_insurance()
+		private void Apply_filter_finance()
 		{
 			if (grd_main.DataSource == null) return;
 
@@ -782,7 +797,7 @@ namespace VehicleDealership.View
 
 			((DataTable)grd_main.DataSource).DefaultView.RowFilter = str_filter;
 		}
-		private void Add_finance_insurance(object sender, EventArgs e)
+		private void Add_finance(object sender, EventArgs e)
 		{
 			using (Form_person_organisation form_select_person_org =
 				new Form_person_organisation(this.Tag.ToString().ToUpper()))
@@ -791,11 +806,11 @@ namespace VehicleDealership.View
 
 				using (Form_edit_finance form_edit = new Form_edit_finance(form_select_person_org.SelectedBranchID, this.Tag.ToString().ToUpper()))
 				{
-					if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_finance_insurance(form_select_person_org.SelectedBranchID);
+					if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_finance(form_select_person_org.SelectedBranchID);
 				}
 			}
 		}
-		private void Edit_finance_insurance(object sender, EventArgs e)
+		private void Edit_finance(object sender, EventArgs e)
 		{
 			if (grd_main.SelectedCells.Count == 0) return;
 
@@ -803,10 +818,10 @@ namespace VehicleDealership.View
 
 			using (Form_edit_finance form_edit = new Form_edit_finance(int_org_id, this.Tag.ToString().ToUpper()))
 			{
-				if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_finance_insurance(int_org_id);
+				if (form_edit.ShowDialog() == DialogResult.OK) Setup_grd_finance(int_org_id);
 			}
 		}
-		private void Delete_finance_insurance(object sender, EventArgs e)
+		private void Delete_finance(object sender, EventArgs e)
 		{
 			// TODO
 		}
