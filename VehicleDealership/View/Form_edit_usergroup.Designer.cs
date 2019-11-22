@@ -72,7 +72,7 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.Controls.Add(this.btn_cancel, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.btn_ok, 0, 0);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(220, 575);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(712, 536);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -120,9 +120,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.listview_permission.CheckBoxes = true;
 			this.listview_permission.GridLines = true;
+			this.listview_permission.HideSelection = false;
 			this.listview_permission.Location = new System.Drawing.Point(12, 78);
 			this.listview_permission.Name = "listview_permission";
-			this.listview_permission.Size = new System.Drawing.Size(425, 491);
+			this.listview_permission.Size = new System.Drawing.Size(917, 452);
 			this.listview_permission.TabIndex = 4;
 			this.listview_permission.UseCompatibleStateImageBehavior = false;
 			this.listview_permission.View = System.Windows.Forms.View.Details;
@@ -133,7 +134,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btn_cancel;
-			this.ClientSize = new System.Drawing.Size(449, 628);
+			this.ClientSize = new System.Drawing.Size(941, 589);
 			this.Controls.Add(this.listview_permission);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.tableLayoutPanel1);

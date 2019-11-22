@@ -195,14 +195,20 @@ namespace VehicleDealership.Datasets
 			}
 			return new sp_select_vehicle_unsoldDataTable();
 		}
-		public static sp_select_vehicle_trade_inDataTable Select_vehicle_trade_in(int int_vehicle_sale)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="int_vehicle_sale"></param>
+		/// <param name="str_vehicle_id">comma separated vehicle IDs. if user add vehicle as trade in but haven't save yet, this vehicle will not have vehicle sale id foreign key yet</param>
+		/// <returns></returns>
+		public static sp_select_vehicle_trade_inDataTable Select_vehicle_trade_in(int int_vehicle_sale, string str_vehicle_id = "")
 		{
 			try
 			{
 				using (Vehicle_dsTableAdapters.sp_select_vehicle_trade_inTableAdapter adapter =
 					new Vehicle_dsTableAdapters.sp_select_vehicle_trade_inTableAdapter())
 				{
-					return adapter.GetData(int_vehicle_sale);
+					return adapter.GetData(int_vehicle_sale, str_vehicle_id);
 				}
 			}
 			catch (System.Data.SqlClient.SqlException e)

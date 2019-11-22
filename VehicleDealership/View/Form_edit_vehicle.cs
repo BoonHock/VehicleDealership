@@ -18,7 +18,6 @@ namespace VehicleDealership.View
 	public partial class Form_edit_vehicle : Form
 	{
 		public int VehicleID { get; private set; }
-
 		string _str_reg_no = "";
 		string _str_chassis_no = "";
 
@@ -400,6 +399,14 @@ namespace VehicleDealership.View
 		}
 		private void Form_edit_vehicle_Shown(object sender, EventArgs e)
 		{
+			if (!Program.System_user.Has_permission("VEHICLE_ADD_EDIT"))
+			{
+				MessageBox.Show("You do not have sufficient permission to perform this action!",
+					"ACCESS DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				this.Close();
+				return;
+			}
+
 			cmb_vehicle_colour.DisplayMember = "colour_name";
 			cmb_vehicle_colour.ValueMember = "colour";
 			cmb_vehicle_colour.DataSource = Colour_ds.Select_colour();
@@ -1131,14 +1138,12 @@ namespace VehicleDealership.View
 		{
 			if (e.RowIndex >= 0) btn_edit_payment.PerformClick();
 		}
-
 		private void Btn_clear_loan_finance_Click(object sender, EventArgs e)
 		{
 			num_loan_finance_id.Value = 0;
 			txt_loan_finance.Text = "";
 			txt_loan_branch.Text = "";
 		}
-
 		private void Grd_image_DataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
 			// column does not allow null. convert to empty string!!

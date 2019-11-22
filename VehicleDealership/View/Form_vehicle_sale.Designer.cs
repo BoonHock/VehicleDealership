@@ -2197,9 +2197,9 @@
 			this.label42.AutoSize = true;
 			this.label42.Location = new System.Drawing.Point(268, 151);
 			this.label42.Name = "label42";
-			this.label42.Size = new System.Drawing.Size(93, 17);
+			this.label42.Size = new System.Drawing.Size(98, 17);
 			this.label42.TabIndex = 28;
-			this.label42.Text = "- Net puchase:";
+			this.label42.Text = "- Net purchase:";
 			// 
 			// label43
 			// 
@@ -2981,7 +2981,7 @@
 			this.btn_trade_in_edit.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.btn_trade_in_edit.Name = "btn_trade_in_edit";
 			this.btn_trade_in_edit.Size = new System.Drawing.Size(23, 22);
-			this.btn_trade_in_edit.Text = "toolStripButton5";
+			this.btn_trade_in_edit.Text = "toolStripButton1";
 			this.btn_trade_in_edit.Click += new System.EventHandler(this.Btn_trade_in_edit_Click);
 			// 
 			// btn_trade_in_delete
@@ -3330,11 +3330,11 @@
 		private System.Windows.Forms.DataGridView grd_trade_in;
 		private System.Windows.Forms.ToolStrip toolStrip6;
 		private System.Windows.Forms.ToolStripButton btn_trade_in_add;
-		private System.Windows.Forms.ToolStripButton btn_trade_in_edit;
 		private System.Windows.Forms.ToolStripButton btn_trade_in_delete;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel11;
 		private System.Windows.Forms.ToolStripLabel lbl_trade_in_total;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel5;
 		private System.Windows.Forms.ToolStripLabel lbl_expenses_charged;
+		private System.Windows.Forms.ToolStripButton btn_trade_in_edit;
 	}
 }

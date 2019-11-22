@@ -15,6 +15,8 @@ namespace VehicleDealership.View
 	public partial class Form_vehicle_sale : Form
 	{
 		public int VehicleID { get; private set; }
+		List<int> list_trade_in_vehicle_id = new List<int>();
+
 		public Form_vehicle_sale(int int_vehicle)
 		{
 			InitializeComponent();
@@ -51,6 +53,7 @@ namespace VehicleDealership.View
 		}
 		private void Form_vehicle_sale_Shown(object sender, EventArgs e)
 		{
+
 			cmb_vehicle_colour.DisplayMember = "colour_name";
 			cmb_vehicle_colour.ValueMember = "colour";
 			cmb_vehicle_colour.DataSource = Colour_ds.Select_colour();
@@ -82,6 +85,8 @@ namespace VehicleDealership.View
 				dtp_road_tax_expiry.Value = dttable[0].road_tax_expiry_date;
 				dtp_registered.Value = dttable[0].registration_date;
 
+				num_net_purchase.Value = dttable[0].purchase_price - dttable[0].overtrade;
+
 			}
 			// LOAD VEHICLE SALE DETAILS
 			using (Vehicle_sale_ds.sp_select_vehicle_saleDataTable dttable =
@@ -109,7 +114,7 @@ namespace VehicleDealership.View
 					rad_road_tax_month12.Checked = dttable[0].road_tax_month == 12;
 					num_road_tax_amount.Value = dttable[0].road_tax_amount;
 					num_selling_price.Value = dttable[0].sale_price;
-					num_total_expenses.Value = dttable[0].vehicle_cost;
+					//num_net_purchase.Value = dttable[0].
 
 					txt_loan_company.Text = dttable[0].loan_org_name;
 					num_loan_company_id.Value = dttable[0].loan;
@@ -294,7 +299,8 @@ namespace VehicleDealership.View
 		}
 		public void Setup_grd_trade_in(int int_vehicle = 0)
 		{
-			using (Vehicle_ds.sp_select_vehicle_trade_inDataTable dttable = Vehicle_ds.Select_vehicle_trade_in(VehicleID))
+			using (Vehicle_ds.sp_select_vehicle_trade_inDataTable dttable = 
+				Vehicle_ds.Select_vehicle_trade_in(VehicleID, string.Join(",", list_trade_in_vehicle_id)))
 			{
 				grd_trade_in.DataSource = null;
 				grd_trade_in.DataSource = dttable;
@@ -493,7 +499,11 @@ namespace VehicleDealership.View
 		{
 			using (Form_edit_vehicle dlg = new Form_edit_vehicle())
 			{
-				if (dlg.ShowDialog() == DialogResult.OK) Setup_grd_trade_in(dlg.VehicleID);
+				if (dlg.ShowDialog() != DialogResult.OK) return;
+
+				list_trade_in_vehicle_id.Add(dlg.VehicleID);
+
+				Setup_grd_trade_in(dlg.VehicleID);
 			}
 		}
 		private void Btn_trade_in_edit_Click(object sender, EventArgs e)

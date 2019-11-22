@@ -79,7 +79,6 @@ namespace VehicleDealership.View
 		private void Form_person_organisation_Shown(object sender, EventArgs e)
 		{
 			Class_style.Grd_style.Common_style(grd_main);
-			Class_style.Grd_style.Common_style(grd_main);
 
 			Setup_grd_main();
 		}

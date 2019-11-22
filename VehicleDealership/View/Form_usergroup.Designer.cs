@@ -74,6 +74,7 @@
 			this.btn_edit.Name = "btn_edit";
 			this.btn_edit.Size = new System.Drawing.Size(23, 22);
 			this.btn_edit.Text = "Edit";
+			this.btn_edit.Click += new System.EventHandler(this.Edit_usergroup);
 			// 
 			// btn_add
 			// 
@@ -83,6 +84,7 @@
 			this.btn_add.Name = "btn_add";
 			this.btn_add.Size = new System.Drawing.Size(23, 22);
 			this.btn_add.Text = "Add";
+			this.btn_add.Click += new System.EventHandler(this.Add_usergroup);
 			// 
 			// btn_remove
 			// 
@@ -92,6 +94,7 @@
 			this.btn_remove.Name = "btn_remove";
 			this.btn_remove.Size = new System.Drawing.Size(23, 22);
 			this.btn_remove.Text = "Remove";
+			this.btn_remove.Click += new System.EventHandler(this.Remove_usergroup);
 			// 
 			// splitContainer1
 			// 
@@ -140,20 +143,23 @@
 			// editToolStripMenuItem
 			// 
 			this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-			this.editToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+			this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.editToolStripMenuItem.Text = "Edit";
+			this.editToolStripMenuItem.Click += new System.EventHandler(this.Edit_usergroup);
 			// 
 			// addToolStripMenuItem
 			// 
 			this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-			this.addToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+			this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.addToolStripMenuItem.Text = "Add";
+			this.addToolStripMenuItem.Click += new System.EventHandler(this.Add_usergroup);
 			// 
 			// removeToolStripMenuItem
 			// 
 			this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
 			this.removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
 			this.removeToolStripMenuItem.Text = "Remove";
+			this.removeToolStripMenuItem.Click += new System.EventHandler(this.Remove_usergroup);
 			// 
 			// label11
 			// 

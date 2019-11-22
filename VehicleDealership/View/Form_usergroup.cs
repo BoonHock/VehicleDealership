@@ -18,14 +18,6 @@ namespace VehicleDealership.View
 		{
 			InitializeComponent();
 
-			btn_add.Click += Add_usergroup;
-			addToolStripMenuItem.Click += Add_usergroup;
-
-			btn_edit.Click += Edit_usergroup;
-			editToolStripMenuItem.Click += Edit_usergroup;
-
-			btn_remove.Click += Remove_usergroup;
-			removeToolStripMenuItem.Click += Remove_usergroup;
 			grd_usergroup.MouseDown += Class_datagridview.MouseDown_select_cell;
 		}
 
