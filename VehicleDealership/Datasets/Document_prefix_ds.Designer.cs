@@ -279,13 +279,7 @@ namespace VehicleDealership.Datasets {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class sp_select_document_prefixDataTable : global::System.Data.TypedTableBase<sp_select_document_prefixRow> {
             
-            private global::System.Data.DataColumn columndocument_prefix;
-            
             private global::System.Data.DataColumn columndocument_prefix_text;
-            
-            private global::System.Data.DataColumn columnmodified_by;
-            
-            private global::System.Data.DataColumn columnmodified_on;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -322,33 +316,9 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn document_prefixColumn {
-                get {
-                    return this.columndocument_prefix;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn document_prefix_textColumn {
                 get {
                     return this.columndocument_prefix_text;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn modified_byColumn {
-                get {
-                    return this.columnmodified_by;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn modified_onColumn {
-                get {
-                    return this.columnmodified_on;
                 }
             }
             
@@ -389,23 +359,13 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_document_prefixRow Addsp_select_document_prefixRow(string document_prefix, string document_prefix_text, int modified_by, System.DateTime modified_on) {
+            public sp_select_document_prefixRow Addsp_select_document_prefixRow(string document_prefix_text) {
                 sp_select_document_prefixRow rowsp_select_document_prefixRow = ((sp_select_document_prefixRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        document_prefix,
-                        document_prefix_text,
-                        modified_by,
-                        modified_on};
+                        document_prefix_text};
                 rowsp_select_document_prefixRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_select_document_prefixRow);
                 return rowsp_select_document_prefixRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_document_prefixRow FindBydocument_prefix(string document_prefix) {
-                return ((sp_select_document_prefixRow)(this.Rows.Find(new object[] {
-                            document_prefix})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -425,32 +385,16 @@ namespace VehicleDealership.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columndocument_prefix = base.Columns["document_prefix"];
                 this.columndocument_prefix_text = base.Columns["document_prefix_text"];
-                this.columnmodified_by = base.Columns["modified_by"];
-                this.columnmodified_on = base.Columns["modified_on"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columndocument_prefix = new global::System.Data.DataColumn("document_prefix", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndocument_prefix);
                 this.columndocument_prefix_text = new global::System.Data.DataColumn("document_prefix_text", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndocument_prefix_text);
-                this.columnmodified_by = new global::System.Data.DataColumn("modified_by", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmodified_by);
-                this.columnmodified_on = new global::System.Data.DataColumn("modified_on", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmodified_on);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columndocument_prefix}, true));
-                this.columndocument_prefix.AllowDBNull = false;
-                this.columndocument_prefix.Unique = true;
-                this.columndocument_prefix.MaxLength = 20;
                 this.columndocument_prefix_text.AllowDBNull = false;
                 this.columndocument_prefix_text.MaxLength = 5;
-                this.columnmodified_by.AllowDBNull = false;
-                this.columnmodified_on.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -593,45 +537,12 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string document_prefix {
-                get {
-                    return ((string)(this[this.tablesp_select_document_prefix.document_prefixColumn]));
-                }
-                set {
-                    this[this.tablesp_select_document_prefix.document_prefixColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string document_prefix_text {
                 get {
                     return ((string)(this[this.tablesp_select_document_prefix.document_prefix_textColumn]));
                 }
                 set {
                     this[this.tablesp_select_document_prefix.document_prefix_textColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int modified_by {
-                get {
-                    return ((int)(this[this.tablesp_select_document_prefix.modified_byColumn]));
-                }
-                set {
-                    this[this.tablesp_select_document_prefix.modified_byColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime modified_on {
-                get {
-                    return ((global::System.DateTime)(this[this.tablesp_select_document_prefix.modified_onColumn]));
-                }
-                set {
-                    this[this.tablesp_select_document_prefix.modified_onColumn] = value;
                 }
             }
         }
@@ -795,10 +706,7 @@ namespace VehicleDealership.Datasets.Document_prefix_dsTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "sp_select_document_prefix";
-            tableMapping.ColumnMappings.Add("document_prefix", "document_prefix");
             tableMapping.ColumnMappings.Add("document_prefix_text", "document_prefix_text");
-            tableMapping.ColumnMappings.Add("modified_by", "modified_by");
-            tableMapping.ColumnMappings.Add("modified_on", "modified_on");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

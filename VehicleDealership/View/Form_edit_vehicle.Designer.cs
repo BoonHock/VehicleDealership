@@ -74,7 +74,7 @@
 			this.dtp_date_received = new System.Windows.Forms.DateTimePicker();
 			this.label52 = new System.Windows.Forms.Label();
 			this.label51 = new System.Windows.Forms.Label();
-			this.label50 = new System.Windows.Forms.Label();
+			this.lbl_sale_order = new System.Windows.Forms.Label();
 			this.txt_sale_order = new System.Windows.Forms.TextBox();
 			this.btn_sales_order = new System.Windows.Forms.Button();
 			this.cmb_acquire_method = new System.Windows.Forms.ComboBox();
@@ -85,45 +85,47 @@
 			this.groupBox11 = new System.Windows.Forms.GroupBox();
 			this.table_vehicle_details = new System.Windows.Forms.TableLayoutPanel();
 			this.label66 = new System.Windows.Forms.Label();
-			this.label67 = new System.Windows.Forms.Label();
 			this.label74 = new System.Windows.Forms.Label();
 			this.txt_reg_no = new System.Windows.Forms.TextBox();
 			this.btn_vehicle_location = new System.Windows.Forms.Button();
-			this.txt_chassis = new System.Windows.Forms.TextBox();
 			this.label80 = new System.Windows.Forms.Label();
 			this.txt_vehicle_model = new System.Windows.Forms.TextBox();
 			this.btn_vehicle_model = new System.Windows.Forms.Button();
 			this.txt_vehicle_group = new System.Windows.Forms.TextBox();
 			this.label81 = new System.Windows.Forms.Label();
-			this.label72 = new System.Windows.Forms.Label();
-			this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-			this.rad_vehicle_new = new System.Windows.Forms.RadioButton();
-			this.rad_vehicle_old = new System.Windows.Forms.RadioButton();
 			this.num_road_tax_amount = new System.Windows.Forms.NumericUpDown();
 			this.label71 = new System.Windows.Forms.Label();
 			this.txt_vehicle_location = new System.Windows.Forms.TextBox();
-			this.label69 = new System.Windows.Forms.Label();
 			this.dtp_road_tax_expiry = new System.Windows.Forms.DateTimePicker();
+			this.label4 = new System.Windows.Forms.Label();
+			this.txt_prev_reg_no = new System.Windows.Forms.TextBox();
 			this.label73 = new System.Windows.Forms.Label();
-			this.num_mileage = new System.Windows.Forms.NumericUpDown();
-			this.label75 = new System.Windows.Forms.Label();
 			this.txt_vehicle_brand = new System.Windows.Forms.TextBox();
 			this.label87 = new System.Windows.Forms.Label();
 			this.num_vehicle_model_id = new System.Windows.Forms.NumericUpDown();
 			this.num_vehicle_location = new System.Windows.Forms.NumericUpDown();
+			this.dtp_registered = new System.Windows.Forms.DateTimePicker();
+			this.label69 = new System.Windows.Forms.Label();
+			this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+			this.rad_vehicle_new = new System.Windows.Forms.RadioButton();
+			this.rad_vehicle_old = new System.Windows.Forms.RadioButton();
+			this.label72 = new System.Windows.Forms.Label();
 			this.cmb_vehicle_colour = new System.Windows.Forms.ComboBox();
 			this.label77 = new System.Windows.Forms.Label();
+			this.num_mileage = new System.Windows.Forms.NumericUpDown();
+			this.label75 = new System.Windows.Forms.Label();
+			this.txt_door_key = new System.Windows.Forms.TextBox();
+			this.label76 = new System.Windows.Forms.Label();
+			this.txt_ignition_key = new System.Windows.Forms.TextBox();
+			this.label78 = new System.Windows.Forms.Label();
+			this.num_engine_cc = new System.Windows.Forms.NumericUpDown();
+			this.label70 = new System.Windows.Forms.Label();
 			this.txt_engine_no = new System.Windows.Forms.TextBox();
 			this.label68 = new System.Windows.Forms.Label();
 			this.txt_year_make = new System.Windows.Forms.TextBox();
 			this.label79 = new System.Windows.Forms.Label();
-			this.txt_door_key = new System.Windows.Forms.TextBox();
-			this.txt_ignition_key = new System.Windows.Forms.TextBox();
-			this.label70 = new System.Windows.Forms.Label();
-			this.label76 = new System.Windows.Forms.Label();
-			this.label78 = new System.Windows.Forms.Label();
-			this.num_engine_cc = new System.Windows.Forms.NumericUpDown();
-			this.dtp_registered = new System.Windows.Forms.DateTimePicker();
+			this.txt_chassis = new System.Windows.Forms.TextBox();
+			this.label67 = new System.Windows.Forms.Label();
 			this.txt_status = new System.Windows.Forms.TextBox();
 			this.label82 = new System.Windows.Forms.Label();
 			this.txt_last_modified_on = new System.Windows.Forms.TextBox();
@@ -230,11 +232,11 @@
 			((System.ComponentModel.ISupportInitialize)(this.num_sale)).BeginInit();
 			this.groupBox11.SuspendLayout();
 			this.table_vehicle_details.SuspendLayout();
-			this.flowLayoutPanel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.num_road_tax_amount)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.num_mileage)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_vehicle_model_id)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_vehicle_location)).BeginInit();
+			this.flowLayoutPanel2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_mileage)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_engine_cc)).BeginInit();
 			this.tabpage_loan_details.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.num_installment_day)).BeginInit();
@@ -772,7 +774,7 @@
 			this.table_acquire_details.Controls.Add(this.dtp_date_received, 1, 7);
 			this.table_acquire_details.Controls.Add(this.label52, 0, 6);
 			this.table_acquire_details.Controls.Add(this.label51, 0, 7);
-			this.table_acquire_details.Controls.Add(this.label50, 0, 8);
+			this.table_acquire_details.Controls.Add(this.lbl_sale_order, 0, 8);
 			this.table_acquire_details.Controls.Add(this.txt_sale_order, 1, 8);
 			this.table_acquire_details.Controls.Add(this.btn_sales_order, 2, 8);
 			this.table_acquire_details.Controls.Add(this.cmb_acquire_method, 1, 5);
@@ -955,15 +957,15 @@
 			this.label51.TabIndex = 26;
 			this.label51.Text = "Date received:";
 			// 
-			// label50
+			// lbl_sale_order
 			// 
-			this.label50.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label50.AutoSize = true;
-			this.label50.Location = new System.Drawing.Point(3, 211);
-			this.label50.Name = "label50";
-			this.label50.Size = new System.Drawing.Size(80, 17);
-			this.label50.TabIndex = 22;
-			this.label50.Text = "Sale ref. no.:";
+			this.lbl_sale_order.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.lbl_sale_order.AutoSize = true;
+			this.lbl_sale_order.Location = new System.Drawing.Point(3, 211);
+			this.lbl_sale_order.Name = "lbl_sale_order";
+			this.lbl_sale_order.Size = new System.Drawing.Size(80, 17);
+			this.lbl_sale_order.TabIndex = 22;
+			this.lbl_sale_order.Text = "Sale ref. no.:";
 			// 
 			// txt_sale_order
 			// 
@@ -1080,47 +1082,49 @@
 			this.table_vehicle_details.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.table_vehicle_details.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.table_vehicle_details.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.table_vehicle_details.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 169F));
+			this.table_vehicle_details.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 151F));
 			this.table_vehicle_details.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 168F));
 			this.table_vehicle_details.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 139F));
 			this.table_vehicle_details.Controls.Add(this.label66, 0, 0);
-			this.table_vehicle_details.Controls.Add(this.label67, 0, 1);
 			this.table_vehicle_details.Controls.Add(this.label74, 0, 5);
 			this.table_vehicle_details.Controls.Add(this.txt_reg_no, 1, 0);
 			this.table_vehicle_details.Controls.Add(this.btn_vehicle_location, 2, 5);
-			this.table_vehicle_details.Controls.Add(this.txt_chassis, 1, 1);
 			this.table_vehicle_details.Controls.Add(this.label80, 0, 2);
 			this.table_vehicle_details.Controls.Add(this.txt_vehicle_model, 1, 2);
 			this.table_vehicle_details.Controls.Add(this.btn_vehicle_model, 2, 2);
 			this.table_vehicle_details.Controls.Add(this.txt_vehicle_group, 1, 3);
 			this.table_vehicle_details.Controls.Add(this.label81, 0, 3);
-			this.table_vehicle_details.Controls.Add(this.label72, 5, 1);
-			this.table_vehicle_details.Controls.Add(this.flowLayoutPanel2, 6, 1);
 			this.table_vehicle_details.Controls.Add(this.num_road_tax_amount, 6, 5);
 			this.table_vehicle_details.Controls.Add(this.label71, 5, 5);
 			this.table_vehicle_details.Controls.Add(this.txt_vehicle_location, 1, 5);
-			this.table_vehicle_details.Controls.Add(this.label69, 5, 3);
 			this.table_vehicle_details.Controls.Add(this.dtp_road_tax_expiry, 6, 4);
+			this.table_vehicle_details.Controls.Add(this.label4, 0, 1);
+			this.table_vehicle_details.Controls.Add(this.txt_prev_reg_no, 1, 1);
 			this.table_vehicle_details.Controls.Add(this.label73, 5, 4);
-			this.table_vehicle_details.Controls.Add(this.num_mileage, 4, 5);
-			this.table_vehicle_details.Controls.Add(this.label75, 3, 5);
 			this.table_vehicle_details.Controls.Add(this.txt_vehicle_brand, 1, 4);
 			this.table_vehicle_details.Controls.Add(this.label87, 0, 4);
 			this.table_vehicle_details.Controls.Add(this.num_vehicle_model_id, 2, 1);
 			this.table_vehicle_details.Controls.Add(this.num_vehicle_location, 2, 4);
-			this.table_vehicle_details.Controls.Add(this.cmb_vehicle_colour, 6, 0);
-			this.table_vehicle_details.Controls.Add(this.label77, 5, 0);
-			this.table_vehicle_details.Controls.Add(this.txt_engine_no, 4, 1);
-			this.table_vehicle_details.Controls.Add(this.label68, 3, 1);
-			this.table_vehicle_details.Controls.Add(this.txt_year_make, 4, 0);
-			this.table_vehicle_details.Controls.Add(this.label79, 3, 0);
-			this.table_vehicle_details.Controls.Add(this.txt_door_key, 4, 4);
-			this.table_vehicle_details.Controls.Add(this.txt_ignition_key, 4, 3);
-			this.table_vehicle_details.Controls.Add(this.label70, 3, 2);
-			this.table_vehicle_details.Controls.Add(this.label76, 3, 4);
-			this.table_vehicle_details.Controls.Add(this.label78, 3, 3);
-			this.table_vehicle_details.Controls.Add(this.num_engine_cc, 4, 2);
 			this.table_vehicle_details.Controls.Add(this.dtp_registered, 6, 3);
+			this.table_vehicle_details.Controls.Add(this.label69, 5, 3);
+			this.table_vehicle_details.Controls.Add(this.flowLayoutPanel2, 6, 2);
+			this.table_vehicle_details.Controls.Add(this.label72, 5, 2);
+			this.table_vehicle_details.Controls.Add(this.cmb_vehicle_colour, 6, 1);
+			this.table_vehicle_details.Controls.Add(this.label77, 5, 1);
+			this.table_vehicle_details.Controls.Add(this.num_mileage, 6, 0);
+			this.table_vehicle_details.Controls.Add(this.label75, 5, 0);
+			this.table_vehicle_details.Controls.Add(this.txt_door_key, 4, 5);
+			this.table_vehicle_details.Controls.Add(this.label76, 3, 5);
+			this.table_vehicle_details.Controls.Add(this.txt_ignition_key, 4, 4);
+			this.table_vehicle_details.Controls.Add(this.label78, 3, 4);
+			this.table_vehicle_details.Controls.Add(this.num_engine_cc, 4, 3);
+			this.table_vehicle_details.Controls.Add(this.label70, 3, 3);
+			this.table_vehicle_details.Controls.Add(this.txt_engine_no, 4, 2);
+			this.table_vehicle_details.Controls.Add(this.label68, 3, 2);
+			this.table_vehicle_details.Controls.Add(this.txt_year_make, 4, 1);
+			this.table_vehicle_details.Controls.Add(this.label79, 3, 1);
+			this.table_vehicle_details.Controls.Add(this.txt_chassis, 4, 0);
+			this.table_vehicle_details.Controls.Add(this.label67, 3, 0);
 			this.table_vehicle_details.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.table_vehicle_details.Location = new System.Drawing.Point(3, 21);
 			this.table_vehicle_details.Name = "table_vehicle_details";
@@ -1146,22 +1150,11 @@
 			this.label66.TabIndex = 0;
 			this.label66.Text = "Registration no.:";
 			// 
-			// label67
-			// 
-			this.label67.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label67.AutoSize = true;
-			this.label67.BackColor = System.Drawing.Color.Yellow;
-			this.label67.Location = new System.Drawing.Point(3, 36);
-			this.label67.Name = "label67";
-			this.label67.Size = new System.Drawing.Size(54, 17);
-			this.label67.TabIndex = 2;
-			this.label67.Text = "Chassis:";
-			// 
 			// label74
 			// 
 			this.label74.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label74.AutoSize = true;
-			this.label74.Location = new System.Drawing.Point(3, 156);
+			this.label74.Location = new System.Drawing.Point(3, 154);
 			this.label74.Name = "label74";
 			this.label74.Size = new System.Drawing.Size(60, 17);
 			this.label74.TabIndex = 6;
@@ -1171,11 +1164,11 @@
 			// 
 			this.txt_reg_no.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.txt_reg_no.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-			this.txt_reg_no.Location = new System.Drawing.Point(111, 2);
+			this.txt_reg_no.Location = new System.Drawing.Point(161, 2);
 			this.txt_reg_no.Margin = new System.Windows.Forms.Padding(2);
 			this.txt_reg_no.MaxLength = 10;
 			this.txt_reg_no.Name = "txt_reg_no";
-			this.txt_reg_no.Size = new System.Drawing.Size(204, 25);
+			this.txt_reg_no.Size = new System.Drawing.Size(182, 25);
 			this.txt_reg_no.TabIndex = 0;
 			this.txt_reg_no.Enter += new System.EventHandler(this.Txt_reg_no_Enter);
 			this.txt_reg_no.Leave += new System.EventHandler(this.Txt_reg_no_Leave);
@@ -1183,33 +1176,20 @@
 			// btn_vehicle_location
 			// 
 			this.btn_vehicle_location.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.btn_vehicle_location.Location = new System.Drawing.Point(320, 152);
+			this.btn_vehicle_location.Location = new System.Drawing.Point(348, 150);
 			this.btn_vehicle_location.Name = "btn_vehicle_location";
 			this.btn_vehicle_location.Size = new System.Drawing.Size(25, 25);
-			this.btn_vehicle_location.TabIndex = 9;
+			this.btn_vehicle_location.TabIndex = 7;
 			this.btn_vehicle_location.Text = "...";
 			this.btn_vehicle_location.UseVisualStyleBackColor = true;
 			this.btn_vehicle_location.Click += new System.EventHandler(this.Btn_vehicle_location_Click);
-			// 
-			// txt_chassis
-			// 
-			this.txt_chassis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.txt_chassis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-			this.txt_chassis.Location = new System.Drawing.Point(111, 32);
-			this.txt_chassis.Margin = new System.Windows.Forms.Padding(2);
-			this.txt_chassis.MaxLength = 20;
-			this.txt_chassis.Name = "txt_chassis";
-			this.txt_chassis.Size = new System.Drawing.Size(204, 25);
-			this.txt_chassis.TabIndex = 1;
-			this.txt_chassis.Enter += new System.EventHandler(this.Txt_chassis_Enter);
-			this.txt_chassis.Leave += new System.EventHandler(this.Txt_chassis_Leave);
 			// 
 			// label80
 			// 
 			this.label80.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label80.AutoSize = true;
 			this.label80.BackColor = System.Drawing.Color.Yellow;
-			this.label80.Location = new System.Drawing.Point(3, 67);
+			this.label80.Location = new System.Drawing.Point(3, 65);
 			this.label80.Name = "label80";
 			this.label80.Size = new System.Drawing.Size(49, 17);
 			this.label80.TabIndex = 2;
@@ -1218,20 +1198,20 @@
 			// txt_vehicle_model
 			// 
 			this.txt_vehicle_model.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.txt_vehicle_model.Location = new System.Drawing.Point(111, 63);
+			this.txt_vehicle_model.Location = new System.Drawing.Point(161, 61);
 			this.txt_vehicle_model.Margin = new System.Windows.Forms.Padding(2);
 			this.txt_vehicle_model.Name = "txt_vehicle_model";
 			this.txt_vehicle_model.ReadOnly = true;
-			this.txt_vehicle_model.Size = new System.Drawing.Size(204, 25);
-			this.txt_vehicle_model.TabIndex = 3;
+			this.txt_vehicle_model.Size = new System.Drawing.Size(182, 25);
+			this.txt_vehicle_model.TabIndex = 2;
 			// 
 			// btn_vehicle_model
 			// 
 			this.btn_vehicle_model.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.btn_vehicle_model.Location = new System.Drawing.Point(320, 63);
+			this.btn_vehicle_model.Location = new System.Drawing.Point(348, 61);
 			this.btn_vehicle_model.Name = "btn_vehicle_model";
 			this.btn_vehicle_model.Size = new System.Drawing.Size(25, 25);
-			this.btn_vehicle_model.TabIndex = 4;
+			this.btn_vehicle_model.TabIndex = 3;
 			this.btn_vehicle_model.Text = "...";
 			this.btn_vehicle_model.UseVisualStyleBackColor = true;
 			this.btn_vehicle_model.Click += new System.EventHandler(this.Btn_vehicle_model_Click);
@@ -1239,32 +1219,178 @@
 			// txt_vehicle_group
 			// 
 			this.txt_vehicle_group.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.txt_vehicle_group.Location = new System.Drawing.Point(111, 93);
+			this.txt_vehicle_group.Location = new System.Drawing.Point(161, 91);
 			this.txt_vehicle_group.Margin = new System.Windows.Forms.Padding(2);
 			this.txt_vehicle_group.Name = "txt_vehicle_group";
 			this.txt_vehicle_group.ReadOnly = true;
-			this.txt_vehicle_group.Size = new System.Drawing.Size(204, 25);
-			this.txt_vehicle_group.TabIndex = 5;
+			this.txt_vehicle_group.Size = new System.Drawing.Size(182, 25);
+			this.txt_vehicle_group.TabIndex = 4;
 			// 
 			// label81
 			// 
 			this.label81.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label81.AutoSize = true;
-			this.label81.Location = new System.Drawing.Point(3, 97);
+			this.label81.Location = new System.Drawing.Point(3, 95);
 			this.label81.Name = "label81";
 			this.label81.Size = new System.Drawing.Size(48, 17);
 			this.label81.TabIndex = 2;
 			this.label81.Text = "Group:";
 			// 
-			// label72
+			// num_road_tax_amount
 			// 
-			this.label72.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label72.AutoSize = true;
-			this.label72.Location = new System.Drawing.Point(613, 36);
-			this.label72.Name = "label72";
-			this.label72.Size = new System.Drawing.Size(78, 17);
-			this.label72.TabIndex = 20;
-			this.label72.Text = "New / used:";
+			this.num_road_tax_amount.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_road_tax_amount.DecimalPlaces = 2;
+			this.num_road_tax_amount.Location = new System.Drawing.Point(780, 150);
+			this.num_road_tax_amount.Margin = new System.Windows.Forms.Padding(2);
+			this.num_road_tax_amount.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_road_tax_amount.Name = "num_road_tax_amount";
+			this.num_road_tax_amount.Size = new System.Drawing.Size(127, 25);
+			this.num_road_tax_amount.TabIndex = 20;
+			this.num_road_tax_amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_road_tax_amount.ThousandsSeparator = true;
+			// 
+			// label71
+			// 
+			this.label71.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label71.AutoSize = true;
+			this.label71.Location = new System.Drawing.Point(613, 154);
+			this.label71.Name = "label71";
+			this.label71.Size = new System.Drawing.Size(150, 17);
+			this.label71.TabIndex = 28;
+			this.label71.Text = "Road tax amount (MYR):";
+			// 
+			// txt_vehicle_location
+			// 
+			this.txt_vehicle_location.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_vehicle_location.Location = new System.Drawing.Point(161, 150);
+			this.txt_vehicle_location.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_vehicle_location.Name = "txt_vehicle_location";
+			this.txt_vehicle_location.ReadOnly = true;
+			this.txt_vehicle_location.Size = new System.Drawing.Size(182, 25);
+			this.txt_vehicle_location.TabIndex = 6;
+			// 
+			// dtp_road_tax_expiry
+			// 
+			this.dtp_road_tax_expiry.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.dtp_road_tax_expiry.CustomFormat = "";
+			this.dtp_road_tax_expiry.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtp_road_tax_expiry.Location = new System.Drawing.Point(780, 120);
+			this.dtp_road_tax_expiry.Margin = new System.Windows.Forms.Padding(2);
+			this.dtp_road_tax_expiry.Name = "dtp_road_tax_expiry";
+			this.dtp_road_tax_expiry.Size = new System.Drawing.Size(127, 25);
+			this.dtp_road_tax_expiry.TabIndex = 19;
+			// 
+			// label4
+			// 
+			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(3, 35);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(153, 17);
+			this.label4.TabIndex = 30;
+			this.label4.Text = "Previous registration no.:";
+			// 
+			// txt_prev_reg_no
+			// 
+			this.txt_prev_reg_no.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_prev_reg_no.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+			this.txt_prev_reg_no.Location = new System.Drawing.Point(161, 31);
+			this.txt_prev_reg_no.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_prev_reg_no.MaxLength = 10;
+			this.txt_prev_reg_no.Name = "txt_prev_reg_no";
+			this.txt_prev_reg_no.Size = new System.Drawing.Size(182, 25);
+			this.txt_prev_reg_no.TabIndex = 1;
+			this.txt_prev_reg_no.Enter += new System.EventHandler(this.Txt_reg_no_Enter);
+			this.txt_prev_reg_no.Leave += new System.EventHandler(this.Txt_reg_no_Leave);
+			// 
+			// label73
+			// 
+			this.label73.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label73.AutoSize = true;
+			this.label73.Location = new System.Drawing.Point(613, 124);
+			this.label73.Name = "label73";
+			this.label73.Size = new System.Drawing.Size(102, 17);
+			this.label73.TabIndex = 26;
+			this.label73.Text = "Road tax expiry:";
+			// 
+			// txt_vehicle_brand
+			// 
+			this.txt_vehicle_brand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_vehicle_brand.Location = new System.Drawing.Point(161, 120);
+			this.txt_vehicle_brand.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_vehicle_brand.Name = "txt_vehicle_brand";
+			this.txt_vehicle_brand.ReadOnly = true;
+			this.txt_vehicle_brand.Size = new System.Drawing.Size(182, 25);
+			this.txt_vehicle_brand.TabIndex = 5;
+			// 
+			// label87
+			// 
+			this.label87.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label87.AutoSize = true;
+			this.label87.Location = new System.Drawing.Point(3, 124);
+			this.label87.Name = "label87";
+			this.label87.Size = new System.Drawing.Size(45, 17);
+			this.label87.TabIndex = 2;
+			this.label87.Text = "Brand:";
+			// 
+			// num_vehicle_model_id
+			// 
+			this.num_vehicle_model_id.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_vehicle_model_id.Location = new System.Drawing.Point(347, 31);
+			this.num_vehicle_model_id.Margin = new System.Windows.Forms.Padding(2);
+			this.num_vehicle_model_id.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_vehicle_model_id.Name = "num_vehicle_model_id";
+			this.num_vehicle_model_id.Size = new System.Drawing.Size(26, 25);
+			this.num_vehicle_model_id.TabIndex = 2;
+			this.num_vehicle_model_id.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_vehicle_model_id.ThousandsSeparator = true;
+			this.num_vehicle_model_id.Visible = false;
+			// 
+			// num_vehicle_location
+			// 
+			this.num_vehicle_location.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_vehicle_location.Location = new System.Drawing.Point(347, 120);
+			this.num_vehicle_location.Margin = new System.Windows.Forms.Padding(2);
+			this.num_vehicle_location.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_vehicle_location.Name = "num_vehicle_location";
+			this.num_vehicle_location.Size = new System.Drawing.Size(26, 25);
+			this.num_vehicle_location.TabIndex = 7;
+			this.num_vehicle_location.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_vehicle_location.ThousandsSeparator = true;
+			this.num_vehicle_location.Visible = false;
+			// 
+			// dtp_registered
+			// 
+			this.dtp_registered.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.dtp_registered.CustomFormat = "";
+			this.dtp_registered.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtp_registered.Location = new System.Drawing.Point(780, 91);
+			this.dtp_registered.Margin = new System.Windows.Forms.Padding(2);
+			this.dtp_registered.Name = "dtp_registered";
+			this.dtp_registered.Size = new System.Drawing.Size(127, 25);
+			this.dtp_registered.TabIndex = 18;
+			// 
+			// label69
+			// 
+			this.label69.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label69.AutoSize = true;
+			this.label69.Location = new System.Drawing.Point(613, 95);
+			this.label69.Name = "label69";
+			this.label69.Size = new System.Drawing.Size(102, 17);
+			this.label69.TabIndex = 31;
+			this.label69.Text = "Date registered:";
 			// 
 			// flowLayoutPanel2
 			// 
@@ -1272,7 +1398,7 @@
 			this.flowLayoutPanel2.AutoSize = true;
 			this.flowLayoutPanel2.Controls.Add(this.rad_vehicle_new);
 			this.flowLayoutPanel2.Controls.Add(this.rad_vehicle_old);
-			this.flowLayoutPanel2.Location = new System.Drawing.Point(780, 31);
+			this.flowLayoutPanel2.Location = new System.Drawing.Point(780, 60);
 			this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
 			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
 			this.flowLayoutPanel2.Size = new System.Drawing.Size(111, 27);
@@ -1302,78 +1428,41 @@
 			this.rad_vehicle_old.Text = "Old";
 			this.rad_vehicle_old.UseVisualStyleBackColor = true;
 			// 
-			// num_road_tax_amount
+			// label72
 			// 
-			this.num_road_tax_amount.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.num_road_tax_amount.DecimalPlaces = 2;
-			this.num_road_tax_amount.Location = new System.Drawing.Point(780, 152);
-			this.num_road_tax_amount.Margin = new System.Windows.Forms.Padding(2);
-			this.num_road_tax_amount.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-			this.num_road_tax_amount.Name = "num_road_tax_amount";
-			this.num_road_tax_amount.Size = new System.Drawing.Size(127, 25);
-			this.num_road_tax_amount.TabIndex = 20;
-			this.num_road_tax_amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.num_road_tax_amount.ThousandsSeparator = true;
+			this.label72.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label72.AutoSize = true;
+			this.label72.Location = new System.Drawing.Point(613, 65);
+			this.label72.Name = "label72";
+			this.label72.Size = new System.Drawing.Size(78, 17);
+			this.label72.TabIndex = 20;
+			this.label72.Text = "New / used:";
 			// 
-			// label71
+			// cmb_vehicle_colour
 			// 
-			this.label71.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label71.AutoSize = true;
-			this.label71.Location = new System.Drawing.Point(613, 156);
-			this.label71.Name = "label71";
-			this.label71.Size = new System.Drawing.Size(150, 17);
-			this.label71.TabIndex = 28;
-			this.label71.Text = "Road tax amount (MYR):";
+			this.cmb_vehicle_colour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.cmb_vehicle_colour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cmb_vehicle_colour.FormattingEnabled = true;
+			this.cmb_vehicle_colour.Location = new System.Drawing.Point(780, 33);
+			this.cmb_vehicle_colour.Margin = new System.Windows.Forms.Padding(2);
+			this.cmb_vehicle_colour.Name = "cmb_vehicle_colour";
+			this.cmb_vehicle_colour.Size = new System.Drawing.Size(135, 25);
+			this.cmb_vehicle_colour.TabIndex = 16;
 			// 
-			// txt_vehicle_location
+			// label77
 			// 
-			this.txt_vehicle_location.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.txt_vehicle_location.Location = new System.Drawing.Point(111, 152);
-			this.txt_vehicle_location.Margin = new System.Windows.Forms.Padding(2);
-			this.txt_vehicle_location.Name = "txt_vehicle_location";
-			this.txt_vehicle_location.ReadOnly = true;
-			this.txt_vehicle_location.Size = new System.Drawing.Size(204, 25);
-			this.txt_vehicle_location.TabIndex = 8;
-			// 
-			// label69
-			// 
-			this.label69.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label69.AutoSize = true;
-			this.label69.Location = new System.Drawing.Point(613, 97);
-			this.label69.Name = "label69";
-			this.label69.Size = new System.Drawing.Size(102, 17);
-			this.label69.TabIndex = 31;
-			this.label69.Text = "Date registered:";
-			// 
-			// dtp_road_tax_expiry
-			// 
-			this.dtp_road_tax_expiry.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.dtp_road_tax_expiry.CustomFormat = "";
-			this.dtp_road_tax_expiry.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtp_road_tax_expiry.Location = new System.Drawing.Point(780, 122);
-			this.dtp_road_tax_expiry.Margin = new System.Windows.Forms.Padding(2);
-			this.dtp_road_tax_expiry.Name = "dtp_road_tax_expiry";
-			this.dtp_road_tax_expiry.Size = new System.Drawing.Size(127, 25);
-			this.dtp_road_tax_expiry.TabIndex = 19;
-			// 
-			// label73
-			// 
-			this.label73.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label73.AutoSize = true;
-			this.label73.Location = new System.Drawing.Point(613, 126);
-			this.label73.Name = "label73";
-			this.label73.Size = new System.Drawing.Size(102, 17);
-			this.label73.TabIndex = 26;
-			this.label73.Text = "Road tax expiry:";
+			this.label77.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label77.AutoSize = true;
+			this.label77.Location = new System.Drawing.Point(613, 35);
+			this.label77.Name = "label77";
+			this.label77.Size = new System.Drawing.Size(50, 17);
+			this.label77.TabIndex = 4;
+			this.label77.Text = "Colour:";
 			// 
 			// num_mileage
 			// 
 			this.num_mileage.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.num_mileage.Location = new System.Drawing.Point(443, 152);
+			this.num_mileage.Location = new System.Drawing.Point(780, 2);
 			this.num_mileage.Margin = new System.Windows.Forms.Padding(2);
 			this.num_mileage.Maximum = new decimal(new int[] {
             1000000000,
@@ -1390,173 +1479,47 @@
 			// 
 			this.label75.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label75.AutoSize = true;
-			this.label75.Location = new System.Drawing.Point(351, 156);
+			this.label75.Location = new System.Drawing.Point(613, 6);
 			this.label75.Name = "label75";
 			this.label75.Size = new System.Drawing.Size(87, 17);
 			this.label75.TabIndex = 24;
 			this.label75.Text = "Mileage (km):";
 			// 
-			// txt_vehicle_brand
-			// 
-			this.txt_vehicle_brand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.txt_vehicle_brand.Location = new System.Drawing.Point(111, 122);
-			this.txt_vehicle_brand.Margin = new System.Windows.Forms.Padding(2);
-			this.txt_vehicle_brand.Name = "txt_vehicle_brand";
-			this.txt_vehicle_brand.ReadOnly = true;
-			this.txt_vehicle_brand.Size = new System.Drawing.Size(204, 25);
-			this.txt_vehicle_brand.TabIndex = 6;
-			// 
-			// label87
-			// 
-			this.label87.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label87.AutoSize = true;
-			this.label87.Location = new System.Drawing.Point(3, 126);
-			this.label87.Name = "label87";
-			this.label87.Size = new System.Drawing.Size(45, 17);
-			this.label87.TabIndex = 2;
-			this.label87.Text = "Brand:";
-			// 
-			// num_vehicle_model_id
-			// 
-			this.num_vehicle_model_id.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.num_vehicle_model_id.Location = new System.Drawing.Point(319, 32);
-			this.num_vehicle_model_id.Margin = new System.Windows.Forms.Padding(2);
-			this.num_vehicle_model_id.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-			this.num_vehicle_model_id.Name = "num_vehicle_model_id";
-			this.num_vehicle_model_id.Size = new System.Drawing.Size(26, 25);
-			this.num_vehicle_model_id.TabIndex = 2;
-			this.num_vehicle_model_id.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.num_vehicle_model_id.ThousandsSeparator = true;
-			this.num_vehicle_model_id.Visible = false;
-			// 
-			// num_vehicle_location
-			// 
-			this.num_vehicle_location.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.num_vehicle_location.Location = new System.Drawing.Point(319, 122);
-			this.num_vehicle_location.Margin = new System.Windows.Forms.Padding(2);
-			this.num_vehicle_location.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-			this.num_vehicle_location.Name = "num_vehicle_location";
-			this.num_vehicle_location.Size = new System.Drawing.Size(26, 25);
-			this.num_vehicle_location.TabIndex = 7;
-			this.num_vehicle_location.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.num_vehicle_location.ThousandsSeparator = true;
-			this.num_vehicle_location.Visible = false;
-			// 
-			// cmb_vehicle_colour
-			// 
-			this.cmb_vehicle_colour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.cmb_vehicle_colour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cmb_vehicle_colour.FormattingEnabled = true;
-			this.cmb_vehicle_colour.Location = new System.Drawing.Point(780, 2);
-			this.cmb_vehicle_colour.Margin = new System.Windows.Forms.Padding(2);
-			this.cmb_vehicle_colour.Name = "cmb_vehicle_colour";
-			this.cmb_vehicle_colour.Size = new System.Drawing.Size(135, 25);
-			this.cmb_vehicle_colour.TabIndex = 16;
-			// 
-			// label77
-			// 
-			this.label77.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label77.AutoSize = true;
-			this.label77.Location = new System.Drawing.Point(613, 6);
-			this.label77.Name = "label77";
-			this.label77.Size = new System.Drawing.Size(50, 17);
-			this.label77.TabIndex = 4;
-			this.label77.Text = "Colour:";
-			// 
-			// txt_engine_no
-			// 
-			this.txt_engine_no.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.txt_engine_no.Location = new System.Drawing.Point(443, 32);
-			this.txt_engine_no.Margin = new System.Windows.Forms.Padding(2);
-			this.txt_engine_no.MaxLength = 20;
-			this.txt_engine_no.Name = "txt_engine_no";
-			this.txt_engine_no.Size = new System.Drawing.Size(165, 25);
-			this.txt_engine_no.TabIndex = 11;
-			// 
-			// label68
-			// 
-			this.label68.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label68.AutoSize = true;
-			this.label68.BackColor = System.Drawing.Color.Yellow;
-			this.label68.Location = new System.Drawing.Point(351, 36);
-			this.label68.Name = "label68";
-			this.label68.Size = new System.Drawing.Size(72, 17);
-			this.label68.TabIndex = 18;
-			this.label68.Text = "Engine no.:";
-			// 
-			// txt_year_make
-			// 
-			this.txt_year_make.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.txt_year_make.Location = new System.Drawing.Point(443, 2);
-			this.txt_year_make.Margin = new System.Windows.Forms.Padding(2);
-			this.txt_year_make.Name = "txt_year_make";
-			this.txt_year_make.ReadOnly = true;
-			this.txt_year_make.Size = new System.Drawing.Size(165, 25);
-			this.txt_year_make.TabIndex = 10;
-			// 
-			// label79
-			// 
-			this.label79.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label79.AutoSize = true;
-			this.label79.Location = new System.Drawing.Point(351, 6);
-			this.label79.Name = "label79";
-			this.label79.Size = new System.Drawing.Size(72, 17);
-			this.label79.TabIndex = 31;
-			this.label79.Text = "Year make:";
-			// 
 			// txt_door_key
 			// 
 			this.txt_door_key.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.txt_door_key.Location = new System.Drawing.Point(443, 122);
+			this.txt_door_key.Location = new System.Drawing.Point(461, 150);
 			this.txt_door_key.Margin = new System.Windows.Forms.Padding(2);
 			this.txt_door_key.MaxLength = 20;
 			this.txt_door_key.Name = "txt_door_key";
-			this.txt_door_key.Size = new System.Drawing.Size(165, 25);
+			this.txt_door_key.Size = new System.Drawing.Size(147, 25);
 			this.txt_door_key.TabIndex = 14;
-			// 
-			// txt_ignition_key
-			// 
-			this.txt_ignition_key.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.txt_ignition_key.Location = new System.Drawing.Point(443, 93);
-			this.txt_ignition_key.Margin = new System.Windows.Forms.Padding(2);
-			this.txt_ignition_key.MaxLength = 20;
-			this.txt_ignition_key.Name = "txt_ignition_key";
-			this.txt_ignition_key.Size = new System.Drawing.Size(165, 25);
-			this.txt_ignition_key.TabIndex = 13;
-			// 
-			// label70
-			// 
-			this.label70.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label70.AutoSize = true;
-			this.label70.Location = new System.Drawing.Point(351, 67);
-			this.label70.Name = "label70";
-			this.label70.Size = new System.Drawing.Size(70, 17);
-			this.label70.TabIndex = 30;
-			this.label70.Text = "Engine CC:";
 			// 
 			// label76
 			// 
 			this.label76.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label76.AutoSize = true;
-			this.label76.Location = new System.Drawing.Point(351, 126);
+			this.label76.Location = new System.Drawing.Point(379, 154);
 			this.label76.Name = "label76";
 			this.label76.Size = new System.Drawing.Size(64, 17);
 			this.label76.TabIndex = 33;
 			this.label76.Text = "Door key:";
 			// 
+			// txt_ignition_key
+			// 
+			this.txt_ignition_key.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_ignition_key.Location = new System.Drawing.Point(461, 120);
+			this.txt_ignition_key.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_ignition_key.MaxLength = 20;
+			this.txt_ignition_key.Name = "txt_ignition_key";
+			this.txt_ignition_key.Size = new System.Drawing.Size(147, 25);
+			this.txt_ignition_key.TabIndex = 13;
+			// 
 			// label78
 			// 
 			this.label78.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label78.AutoSize = true;
-			this.label78.Location = new System.Drawing.Point(351, 97);
+			this.label78.Location = new System.Drawing.Point(379, 124);
 			this.label78.Name = "label78";
 			this.label78.Size = new System.Drawing.Size(77, 17);
 			this.label78.TabIndex = 33;
@@ -1565,7 +1528,7 @@
 			// num_engine_cc
 			// 
 			this.num_engine_cc.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.num_engine_cc.Location = new System.Drawing.Point(443, 63);
+			this.num_engine_cc.Location = new System.Drawing.Point(461, 91);
 			this.num_engine_cc.Margin = new System.Windows.Forms.Padding(2);
 			this.num_engine_cc.Maximum = new decimal(new int[] {
             1000000000,
@@ -1578,16 +1541,80 @@
 			this.num_engine_cc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.num_engine_cc.ThousandsSeparator = true;
 			// 
-			// dtp_registered
+			// label70
 			// 
-			this.dtp_registered.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.dtp_registered.CustomFormat = "";
-			this.dtp_registered.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtp_registered.Location = new System.Drawing.Point(780, 93);
-			this.dtp_registered.Margin = new System.Windows.Forms.Padding(2);
-			this.dtp_registered.Name = "dtp_registered";
-			this.dtp_registered.Size = new System.Drawing.Size(127, 25);
-			this.dtp_registered.TabIndex = 18;
+			this.label70.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label70.AutoSize = true;
+			this.label70.Location = new System.Drawing.Point(379, 95);
+			this.label70.Name = "label70";
+			this.label70.Size = new System.Drawing.Size(70, 17);
+			this.label70.TabIndex = 30;
+			this.label70.Text = "Engine CC:";
+			// 
+			// txt_engine_no
+			// 
+			this.txt_engine_no.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_engine_no.Location = new System.Drawing.Point(461, 61);
+			this.txt_engine_no.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_engine_no.MaxLength = 20;
+			this.txt_engine_no.Name = "txt_engine_no";
+			this.txt_engine_no.Size = new System.Drawing.Size(147, 25);
+			this.txt_engine_no.TabIndex = 10;
+			// 
+			// label68
+			// 
+			this.label68.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label68.AutoSize = true;
+			this.label68.BackColor = System.Drawing.Color.Yellow;
+			this.label68.Location = new System.Drawing.Point(379, 65);
+			this.label68.Name = "label68";
+			this.label68.Size = new System.Drawing.Size(72, 17);
+			this.label68.TabIndex = 18;
+			this.label68.Text = "Engine no.:";
+			// 
+			// txt_year_make
+			// 
+			this.txt_year_make.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_year_make.Location = new System.Drawing.Point(461, 31);
+			this.txt_year_make.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_year_make.Name = "txt_year_make";
+			this.txt_year_make.ReadOnly = true;
+			this.txt_year_make.Size = new System.Drawing.Size(147, 25);
+			this.txt_year_make.TabIndex = 9;
+			// 
+			// label79
+			// 
+			this.label79.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label79.AutoSize = true;
+			this.label79.Location = new System.Drawing.Point(379, 35);
+			this.label79.Name = "label79";
+			this.label79.Size = new System.Drawing.Size(72, 17);
+			this.label79.TabIndex = 31;
+			this.label79.Text = "Year make:";
+			// 
+			// txt_chassis
+			// 
+			this.txt_chassis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txt_chassis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+			this.txt_chassis.Location = new System.Drawing.Point(461, 2);
+			this.txt_chassis.Margin = new System.Windows.Forms.Padding(2);
+			this.txt_chassis.MaxLength = 20;
+			this.txt_chassis.Name = "txt_chassis";
+			this.txt_chassis.Size = new System.Drawing.Size(147, 25);
+			this.txt_chassis.TabIndex = 8;
+			this.txt_chassis.Enter += new System.EventHandler(this.Txt_chassis_Enter);
+			this.txt_chassis.Leave += new System.EventHandler(this.Txt_chassis_Leave);
+			// 
+			// label67
+			// 
+			this.label67.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label67.AutoSize = true;
+			this.label67.BackColor = System.Drawing.Color.Yellow;
+			this.label67.Location = new System.Drawing.Point(379, 6);
+			this.label67.Name = "label67";
+			this.label67.Size = new System.Drawing.Size(54, 17);
+			this.label67.TabIndex = 2;
+			this.label67.Text = "Chassis:";
 			// 
 			// txt_status
 			// 
@@ -2203,7 +2230,7 @@
 			this.groupBox7.Controls.Add(this.txt_remark);
 			this.groupBox7.Location = new System.Drawing.Point(6, 6);
 			this.groupBox7.Name = "groupBox7";
-			this.groupBox7.Size = new System.Drawing.Size(395, 190);
+			this.groupBox7.Size = new System.Drawing.Size(433, 223);
 			this.groupBox7.TabIndex = 3;
 			this.groupBox7.TabStop = false;
 			this.groupBox7.Text = "Remark";
@@ -2215,7 +2242,7 @@
 			this.txt_remark.MaxLength = 255;
 			this.txt_remark.Multiline = true;
 			this.txt_remark.Name = "txt_remark";
-			this.txt_remark.Size = new System.Drawing.Size(389, 166);
+			this.txt_remark.Size = new System.Drawing.Size(427, 199);
 			this.txt_remark.TabIndex = 2;
 			// 
 			// groupBox8
@@ -2492,12 +2519,12 @@
 			this.groupBox11.ResumeLayout(false);
 			this.table_vehicle_details.ResumeLayout(false);
 			this.table_vehicle_details.PerformLayout();
-			this.flowLayoutPanel2.ResumeLayout(false);
-			this.flowLayoutPanel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.num_road_tax_amount)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.num_mileage)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_vehicle_model_id)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_vehicle_location)).EndInit();
+			this.flowLayoutPanel2.ResumeLayout(false);
+			this.flowLayoutPanel2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_mileage)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_engine_cc)).EndInit();
 			this.tabpage_loan_details.ResumeLayout(false);
 			this.tabpage_loan_details.PerformLayout();
@@ -2683,7 +2710,7 @@
 		private System.Windows.Forms.DateTimePicker dtp_date_received;
 		private System.Windows.Forms.Label label52;
 		private System.Windows.Forms.Label label51;
-		private System.Windows.Forms.Label label50;
+		private System.Windows.Forms.Label lbl_sale_order;
 		private System.Windows.Forms.TextBox txt_sale_order;
 		private System.Windows.Forms.Button btn_sales_order;
 		private System.Windows.Forms.TextBox txt_engine_no;
@@ -2723,5 +2750,7 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel2;
 		private System.Windows.Forms.ToolStripLabel lbl_expenses_charged;
+		private System.Windows.Forms.TextBox txt_prev_reg_no;
+		private System.Windows.Forms.Label label4;
 	}
 }

@@ -5,24 +5,21 @@ namespace VehicleDealership.Datasets
 {
 	partial class Salesperson_ds
 	{
-		private static Salesperson_dsTableAdapters.sp_select_salespersonTableAdapter Select_SalespersonTableAdapter()
-		{
-			return new Salesperson_dsTableAdapters.sp_select_salespersonTableAdapter();
-		}
-		private static Salesperson_dsTableAdapters.QueriesTableAdapter QueriesTableAdapter()
-		{
-			return new Salesperson_dsTableAdapters.QueriesTableAdapter();
-		}
 		/// <summary>
-		/// select salesperson
+		/// 
 		/// </summary>
 		/// <param name="int_salesperson">-1 to select all</param>
+		/// <param name="is_active">-1 to select all; 1 to select active; 0 to select inactive</param>
 		/// <returns></returns>
-		public static sp_select_salespersonDataTable Select_salesperson(int int_salesperson)
+		public static sp_select_salespersonDataTable Select_salesperson(int int_salesperson, int is_active = -1)
 		{
 			try
 			{
-				return Select_SalespersonTableAdapter().GetData(int_salesperson);
+				using (Salesperson_dsTableAdapters.sp_select_salespersonTableAdapter adapter =
+					new Salesperson_dsTableAdapters.sp_select_salespersonTableAdapter())
+				{
+					return adapter.GetData(int_salesperson, is_active);
+				}
 			}
 			catch (System.Exception e)
 			{
@@ -36,8 +33,12 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				return int.Parse(QueriesTableAdapter().sp_insert_salesperson(int_person_orgbranch, is_person,
-					str_location, date_join, date_leave, str_remark, Program.System_user.UserID).ToString());
+				using (Salesperson_dsTableAdapters.QueriesTableAdapter adapter =
+					new Salesperson_dsTableAdapters.QueriesTableAdapter())
+				{
+					return int.Parse(adapter.sp_insert_salesperson(int_person_orgbranch, is_person,
+						str_location, date_join, date_leave, str_remark, Program.System_user.UserID).ToString());
+				}
 			}
 			catch (System.Exception e)
 			{
@@ -51,8 +52,12 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				QueriesTableAdapter().sp_update_salesperson(int_salesperson, str_location,
-					date_join, date_leave, str_remark, Program.System_user.UserID);
+				using (Salesperson_dsTableAdapters.QueriesTableAdapter adapter =
+					new Salesperson_dsTableAdapters.QueriesTableAdapter())
+				{
+					adapter.sp_update_salesperson(int_salesperson, str_location,
+						date_join, date_leave, str_remark, Program.System_user.UserID);
+				}
 				return true;
 			}
 			catch (System.Exception e)

@@ -100,6 +100,7 @@
     <Compile Include="Classes\Class_image.cs" />
     <Compile Include="Classes\Class_listview.cs" />
     <Compile Include="Classes\Class_misc.cs" />
+    <Compile Include="Classes\Class_payment.cs" />
     <Compile Include="Classes\Class_style.cs" />
     <Compile Include="Classes\Class_treeview.cs" />
     <Compile Include="Classes\User.cs" />

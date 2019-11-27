@@ -1146,19 +1146,26 @@ namespace VehicleDealership.Datasets.Salesperson_dsTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@salesperson", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@is_active", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Salesperson_ds.sp_select_salespersonDataTable GetData(global::System.Nullable<int> salesperson) {
+        public virtual Salesperson_ds.sp_select_salespersonDataTable GetData(global::System.Nullable<int> salesperson, global::System.Nullable<int> is_active) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((salesperson.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(salesperson.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((is_active.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(is_active.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             Salesperson_ds.sp_select_salespersonDataTable dataTable = new Salesperson_ds.sp_select_salespersonDataTable();
             this.Adapter.Fill(dataTable);

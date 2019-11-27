@@ -6,17 +6,17 @@ namespace VehicleDealership.Datasets
 
 	partial class Document_prefix_ds
 	{
-		private static Document_prefix_dsTableAdapters.sp_select_document_prefixTableAdapter Select_Document_PrefixTableAdapter()
-		{
-			return new Document_prefix_dsTableAdapters.sp_select_document_prefixTableAdapter();
-		}
-		public static sp_select_document_prefixDataTable Select_document_prefix(string str_doc_prefix)
+		public static string Select_document_prefix(string str_doc_prefix)
 		{
 			try
 			{
-				using (Document_prefix_dsTableAdapters.sp_select_document_prefixTableAdapter adapter = Select_Document_PrefixTableAdapter())
+				using (Document_prefix_dsTableAdapters.sp_select_document_prefixTableAdapter adapter =
+					new Document_prefix_dsTableAdapters.sp_select_document_prefixTableAdapter())
 				{
-					return adapter.GetData(str_doc_prefix);
+					using (sp_select_document_prefixDataTable dttable = adapter.GetData(str_doc_prefix))
+					{
+						if (dttable.Rows.Count > 0) return dttable[0].document_prefix_text;
+					}
 				}
 			}
 			catch (System.Exception e)
@@ -24,7 +24,7 @@ namespace VehicleDealership.Datasets
 				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
 					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
-			return new sp_select_document_prefixDataTable();
+			return "";
 		}
 	}
 }

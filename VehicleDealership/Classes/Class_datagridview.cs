@@ -57,11 +57,9 @@ namespace VehicleDealership.Classes
 		{
 			string cell_value = preselect_value;
 
+			// if datagridview has row and has current cell initially, store its value and position
 			if (grd.Rows.Count > 0 && grd.CurrentCell != null && preselect_value.Length == 0)
-			{
-				// if datagridview has row and has current cell initially, store its value and position
 				cell_value = grd.Rows[grd.CurrentCell.RowIndex].Cells[value_col].Value.ToString();
-			}
 
 			// setup datagridview
 			grd.DataSource = null;
@@ -70,16 +68,7 @@ namespace VehicleDealership.Classes
 			if (cols_to_view != null)
 				Class_datagridview.Hide_unnecessary_columns(grd, cols_to_view);
 
-			foreach (DataGridViewRow grd_row in grd.Rows)
-			{
-				if (grd_row.IsNewRow) continue;
-
-				if (grd_row.Cells[value_col].Value.ToString() == cell_value)
-				{
-					Set_current_cell_to_first_visible_column(grd_row);
-					break;
-				}
-			}
+			Select_row_by_value(grd, value_col, cell_value);
 		}
 		public static void Select_row_by_value(DataGridView grd, string value_col, string value)
 		{
@@ -87,6 +76,8 @@ namespace VehicleDealership.Classes
 
 			foreach (DataGridViewRow grd_row in grd.Rows)
 			{
+				if (grd_row.IsNewRow) continue;
+
 				if (grd_row.Cells[value_col].Value != DBNull.Value &&
 					grd_row.Cells[value_col].Value.ToString() == value)
 				{

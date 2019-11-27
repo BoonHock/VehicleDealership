@@ -1863,6 +1863,8 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columnregistration_no;
             
+            private global::System.Data.DataColumn columnprev_registration_no;
+            
             private global::System.Data.DataColumn columnchassis;
             
             private global::System.Data.DataColumn columnchassis_no;
@@ -2069,6 +2071,14 @@ namespace VehicleDealership.Datasets {
             public global::System.Data.DataColumn registration_noColumn {
                 get {
                     return this.columnregistration_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn prev_registration_noColumn {
+                get {
+                    return this.columnprev_registration_no;
                 }
             }
             
@@ -2503,6 +2513,7 @@ namespace VehicleDealership.Datasets {
                         string seller_org_name, 
                         string seller_branch_name, 
                         string registration_no, 
+                        string prev_registration_no, 
                         int chassis, 
                         string chassis_no, 
                         int vehicle_model, 
@@ -2563,6 +2574,7 @@ namespace VehicleDealership.Datasets {
                         seller_org_name,
                         seller_branch_name,
                         registration_no,
+                        prev_registration_no,
                         chassis,
                         chassis_no,
                         vehicle_model,
@@ -2650,6 +2662,7 @@ namespace VehicleDealership.Datasets {
                 this.columnseller_org_name = base.Columns["seller_org_name"];
                 this.columnseller_branch_name = base.Columns["seller_branch_name"];
                 this.columnregistration_no = base.Columns["registration_no"];
+                this.columnprev_registration_no = base.Columns["prev_registration_no"];
                 this.columnchassis = base.Columns["chassis"];
                 this.columnchassis_no = base.Columns["chassis_no"];
                 this.columnvehicle_model = base.Columns["vehicle_model"];
@@ -2723,6 +2736,8 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columnseller_branch_name);
                 this.columnregistration_no = new global::System.Data.DataColumn("registration_no", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnregistration_no);
+                this.columnprev_registration_no = new global::System.Data.DataColumn("prev_registration_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprev_registration_no);
                 this.columnchassis = new global::System.Data.DataColumn("chassis", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnchassis);
                 this.columnchassis_no = new global::System.Data.DataColumn("chassis_no", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2837,6 +2852,8 @@ namespace VehicleDealership.Datasets {
                 this.columnseller_branch_name.MaxLength = 20;
                 this.columnregistration_no.AllowDBNull = false;
                 this.columnregistration_no.MaxLength = 10;
+                this.columnprev_registration_no.AllowDBNull = false;
+                this.columnprev_registration_no.MaxLength = 10;
                 this.columnchassis.AllowDBNull = false;
                 this.columnchassis_no.AllowDBNull = false;
                 this.columnchassis_no.MaxLength = 20;
@@ -4943,6 +4960,17 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string prev_registration_no {
+                get {
+                    return ((string)(this[this.tablesp_select_vehicle.prev_registration_noColumn]));
+                }
+                set {
+                    this[this.tablesp_select_vehicle.prev_registration_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int chassis {
                 get {
                     return ((int)(this[this.tablesp_select_vehicle.chassisColumn]));
@@ -6652,6 +6680,7 @@ namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
             tableMapping.ColumnMappings.Add("seller_org_name", "seller_org_name");
             tableMapping.ColumnMappings.Add("seller_branch_name", "seller_branch_name");
             tableMapping.ColumnMappings.Add("registration_no", "registration_no");
+            tableMapping.ColumnMappings.Add("prev_registration_no", "prev_registration_no");
             tableMapping.ColumnMappings.Add("chassis", "chassis");
             tableMapping.ColumnMappings.Add("chassis_no", "chassis_no");
             tableMapping.ColumnMappings.Add("vehicle_model", "vehicle_model");
@@ -7116,7 +7145,7 @@ namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.IDbCommand[3];
+            this._commandCollection = new global::System.Data.IDbCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "veh.sp_update_vehicle";
@@ -7126,6 +7155,7 @@ namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@seller_person_org", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@seller_is_person", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@registration_no", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@prev_registration_no", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@chassis", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@colour", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@is_new", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7164,6 +7194,7 @@ namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@seller_person_org", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@seller_is_person", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@registration_no", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@prev_registration_no", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@chassis", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@colour", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@is_new", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7200,6 +7231,16 @@ namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[3])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[3])).CommandText = "veh.sp_update_road_tax_mileage";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[3])).CommandType = global::System.Data.CommandType.StoredProcedure;
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[3])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[3])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[3])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@road_tax_expiry_date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[3])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@road_tax_amount", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[3])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mileage", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[3])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modified_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7210,6 +7251,7 @@ namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
                     global::System.Nullable<int> seller_person_org, 
                     global::System.Nullable<bool> seller_is_person, 
                     string registration_no, 
+                    string prev_registration_no, 
                     global::System.Nullable<int> chassis, 
                     global::System.Nullable<int> colour, 
                     global::System.Nullable<bool> is_new, 
@@ -7264,6 +7306,278 @@ namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
             }
             else {
                 command.Parameters[4].Value = ((string)(registration_no));
+            }
+            if ((prev_registration_no == null)) {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[5].Value = ((string)(prev_registration_no));
+            }
+            if ((chassis.HasValue == true)) {
+                command.Parameters[6].Value = ((int)(chassis.Value));
+            }
+            else {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((colour.HasValue == true)) {
+                command.Parameters[7].Value = ((int)(colour.Value));
+            }
+            else {
+                command.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((is_new.HasValue == true)) {
+                command.Parameters[8].Value = ((bool)(is_new.Value));
+            }
+            else {
+                command.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((location.HasValue == true)) {
+                command.Parameters[9].Value = ((int)(location.Value));
+            }
+            else {
+                command.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((engine_no == null)) {
+                command.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[10].Value = ((string)(engine_no));
+            }
+            if ((engine_cc.HasValue == true)) {
+                command.Parameters[11].Value = ((double)(engine_cc.Value));
+            }
+            else {
+                command.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((mileage.HasValue == true)) {
+                command.Parameters[12].Value = ((int)(mileage.Value));
+            }
+            else {
+                command.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((vehicle_sale.HasValue == true)) {
+                command.Parameters[13].Value = ((int)(vehicle_sale.Value));
+            }
+            else {
+                command.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((consignment_mortgate.HasValue == true)) {
+                command.Parameters[14].Value = ((bool)(consignment_mortgate.Value));
+            }
+            else {
+                command.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((door_key == null)) {
+                command.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[15].Value = ((string)(door_key));
+            }
+            if ((ignition_key == null)) {
+                command.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[16].Value = ((string)(ignition_key));
+            }
+            if ((purchase_date.HasValue == true)) {
+                command.Parameters[17].Value = ((System.DateTime)(purchase_date.Value));
+            }
+            else {
+                command.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((date_received.HasValue == true)) {
+                command.Parameters[18].Value = ((System.DateTime)(date_received.Value));
+            }
+            else {
+                command.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((settlement_date.HasValue == true)) {
+                command.Parameters[19].Value = ((System.DateTime)(settlement_date.Value));
+            }
+            else {
+                command.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            if ((invoice_no == null)) {
+                command.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[20].Value = ((string)(invoice_no));
+            }
+            if ((road_tax.HasValue == true)) {
+                command.Parameters[21].Value = ((decimal)(road_tax.Value));
+            }
+            else {
+                command.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((road_tax_expiry_date.HasValue == true)) {
+                command.Parameters[22].Value = ((System.DateTime)(road_tax_expiry_date.Value));
+            }
+            else {
+                command.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((purchase_price.HasValue == true)) {
+                command.Parameters[23].Value = ((decimal)(purchase_price.Value));
+            }
+            else {
+                command.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((overtrade.HasValue == true)) {
+                command.Parameters[24].Value = ((decimal)(overtrade.Value));
+            }
+            else {
+                command.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((list_price.HasValue == true)) {
+                command.Parameters[25].Value = ((decimal)(list_price.Value));
+            }
+            else {
+                command.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            if ((max_can_loan.HasValue == true)) {
+                command.Parameters[26].Value = ((decimal)(max_can_loan.Value));
+            }
+            else {
+                command.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            if ((loan_balance.HasValue == true)) {
+                command.Parameters[27].Value = ((decimal)(loan_balance.Value));
+            }
+            else {
+                command.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            if ((loan_installment_amount.HasValue == true)) {
+                command.Parameters[28].Value = ((decimal)(loan_installment_amount.Value));
+            }
+            else {
+                command.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            if ((loan_finance.HasValue == true)) {
+                command.Parameters[29].Value = ((int)(loan_finance.Value));
+            }
+            else {
+                command.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            if ((loan_installment_day_of_month.HasValue == true)) {
+                command.Parameters[30].Value = ((byte)(loan_installment_day_of_month.Value));
+            }
+            else {
+                command.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            if ((loan_settlement_date.HasValue == true)) {
+                command.Parameters[31].Value = ((System.DateTime)(loan_settlement_date.Value));
+            }
+            else {
+                command.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            if ((loan_agreement_no == null)) {
+                command.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[32].Value = ((string)(loan_agreement_no));
+            }
+            if ((remark == null)) {
+                command.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[33].Value = ((string)(remark));
+            }
+            if ((checked_by.HasValue == true)) {
+                command.Parameters[34].Value = ((int)(checked_by.Value));
+            }
+            else {
+                command.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            if ((modified_by.HasValue == true)) {
+                command.Parameters[35].Value = ((int)(modified_by.Value));
+            }
+            else {
+                command.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object sp_insert_vehicle(
+                    global::System.Nullable<int> seller_person_org, 
+                    global::System.Nullable<bool> seller_is_person, 
+                    string registration_no, 
+                    string prev_registration_no, 
+                    global::System.Nullable<int> chassis, 
+                    global::System.Nullable<int> colour, 
+                    global::System.Nullable<bool> is_new, 
+                    global::System.Nullable<int> location, 
+                    string engine_no, 
+                    global::System.Nullable<double> engine_cc, 
+                    global::System.Nullable<int> mileage, 
+                    global::System.Nullable<int> vehicle_sale, 
+                    global::System.Nullable<bool> consignment_mortgate, 
+                    string door_key, 
+                    string ignition_key, 
+                    global::System.Nullable<global::System.DateTime> purchase_date, 
+                    global::System.Nullable<global::System.DateTime> date_received, 
+                    global::System.Nullable<global::System.DateTime> settlement_date, 
+                    string invoice_no, 
+                    global::System.Nullable<decimal> road_tax, 
+                    global::System.Nullable<global::System.DateTime> road_tax_expiry_date, 
+                    global::System.Nullable<decimal> purchase_price, 
+                    global::System.Nullable<decimal> overtrade, 
+                    global::System.Nullable<decimal> list_price, 
+                    global::System.Nullable<decimal> max_can_loan, 
+                    global::System.Nullable<decimal> loan_balance, 
+                    global::System.Nullable<decimal> loan_installment_amount, 
+                    global::System.Nullable<int> loan_finance, 
+                    global::System.Nullable<byte> loan_installment_day_of_month, 
+                    global::System.Nullable<global::System.DateTime> loan_settlement_date, 
+                    string loan_agreement_no, 
+                    string remark, 
+                    global::System.Nullable<int> checked_by, 
+                    global::System.Nullable<int> modified_by) {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[1]));
+            if ((seller_person_org.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(seller_person_org.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((seller_is_person.HasValue == true)) {
+                command.Parameters[2].Value = ((bool)(seller_is_person.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((registration_no == null)) {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[3].Value = ((string)(registration_no));
+            }
+            if ((prev_registration_no == null)) {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[4].Value = ((string)(prev_registration_no));
             }
             if ((chassis.HasValue == true)) {
                 command.Parameters[5].Value = ((int)(chassis.Value));
@@ -7471,265 +7785,6 @@ namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object sp_insert_vehicle(
-                    global::System.Nullable<int> seller_person_org, 
-                    global::System.Nullable<bool> seller_is_person, 
-                    string registration_no, 
-                    global::System.Nullable<int> chassis, 
-                    global::System.Nullable<int> colour, 
-                    global::System.Nullable<bool> is_new, 
-                    global::System.Nullable<int> location, 
-                    string engine_no, 
-                    global::System.Nullable<double> engine_cc, 
-                    global::System.Nullable<int> mileage, 
-                    global::System.Nullable<int> vehicle_sale, 
-                    global::System.Nullable<bool> consignment_mortgate, 
-                    string door_key, 
-                    string ignition_key, 
-                    global::System.Nullable<global::System.DateTime> purchase_date, 
-                    global::System.Nullable<global::System.DateTime> date_received, 
-                    global::System.Nullable<global::System.DateTime> settlement_date, 
-                    string invoice_no, 
-                    global::System.Nullable<decimal> road_tax, 
-                    global::System.Nullable<global::System.DateTime> road_tax_expiry_date, 
-                    global::System.Nullable<decimal> purchase_price, 
-                    global::System.Nullable<decimal> overtrade, 
-                    global::System.Nullable<decimal> list_price, 
-                    global::System.Nullable<decimal> max_can_loan, 
-                    global::System.Nullable<decimal> loan_balance, 
-                    global::System.Nullable<decimal> loan_installment_amount, 
-                    global::System.Nullable<int> loan_finance, 
-                    global::System.Nullable<byte> loan_installment_day_of_month, 
-                    global::System.Nullable<global::System.DateTime> loan_settlement_date, 
-                    string loan_agreement_no, 
-                    string remark, 
-                    global::System.Nullable<int> checked_by, 
-                    global::System.Nullable<int> modified_by) {
-            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[1]));
-            if ((seller_person_org.HasValue == true)) {
-                command.Parameters[1].Value = ((int)(seller_person_org.Value));
-            }
-            else {
-                command.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((seller_is_person.HasValue == true)) {
-                command.Parameters[2].Value = ((bool)(seller_is_person.Value));
-            }
-            else {
-                command.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((registration_no == null)) {
-                command.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[3].Value = ((string)(registration_no));
-            }
-            if ((chassis.HasValue == true)) {
-                command.Parameters[4].Value = ((int)(chassis.Value));
-            }
-            else {
-                command.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((colour.HasValue == true)) {
-                command.Parameters[5].Value = ((int)(colour.Value));
-            }
-            else {
-                command.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((is_new.HasValue == true)) {
-                command.Parameters[6].Value = ((bool)(is_new.Value));
-            }
-            else {
-                command.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((location.HasValue == true)) {
-                command.Parameters[7].Value = ((int)(location.Value));
-            }
-            else {
-                command.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((engine_no == null)) {
-                command.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[8].Value = ((string)(engine_no));
-            }
-            if ((engine_cc.HasValue == true)) {
-                command.Parameters[9].Value = ((double)(engine_cc.Value));
-            }
-            else {
-                command.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((mileage.HasValue == true)) {
-                command.Parameters[10].Value = ((int)(mileage.Value));
-            }
-            else {
-                command.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((vehicle_sale.HasValue == true)) {
-                command.Parameters[11].Value = ((int)(vehicle_sale.Value));
-            }
-            else {
-                command.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            if ((consignment_mortgate.HasValue == true)) {
-                command.Parameters[12].Value = ((bool)(consignment_mortgate.Value));
-            }
-            else {
-                command.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            if ((door_key == null)) {
-                command.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[13].Value = ((string)(door_key));
-            }
-            if ((ignition_key == null)) {
-                command.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[14].Value = ((string)(ignition_key));
-            }
-            if ((purchase_date.HasValue == true)) {
-                command.Parameters[15].Value = ((System.DateTime)(purchase_date.Value));
-            }
-            else {
-                command.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            if ((date_received.HasValue == true)) {
-                command.Parameters[16].Value = ((System.DateTime)(date_received.Value));
-            }
-            else {
-                command.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            if ((settlement_date.HasValue == true)) {
-                command.Parameters[17].Value = ((System.DateTime)(settlement_date.Value));
-            }
-            else {
-                command.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            if ((invoice_no == null)) {
-                command.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[18].Value = ((string)(invoice_no));
-            }
-            if ((road_tax.HasValue == true)) {
-                command.Parameters[19].Value = ((decimal)(road_tax.Value));
-            }
-            else {
-                command.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            if ((road_tax_expiry_date.HasValue == true)) {
-                command.Parameters[20].Value = ((System.DateTime)(road_tax_expiry_date.Value));
-            }
-            else {
-                command.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            if ((purchase_price.HasValue == true)) {
-                command.Parameters[21].Value = ((decimal)(purchase_price.Value));
-            }
-            else {
-                command.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            if ((overtrade.HasValue == true)) {
-                command.Parameters[22].Value = ((decimal)(overtrade.Value));
-            }
-            else {
-                command.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            if ((list_price.HasValue == true)) {
-                command.Parameters[23].Value = ((decimal)(list_price.Value));
-            }
-            else {
-                command.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            if ((max_can_loan.HasValue == true)) {
-                command.Parameters[24].Value = ((decimal)(max_can_loan.Value));
-            }
-            else {
-                command.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            if ((loan_balance.HasValue == true)) {
-                command.Parameters[25].Value = ((decimal)(loan_balance.Value));
-            }
-            else {
-                command.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            if ((loan_installment_amount.HasValue == true)) {
-                command.Parameters[26].Value = ((decimal)(loan_installment_amount.Value));
-            }
-            else {
-                command.Parameters[26].Value = global::System.DBNull.Value;
-            }
-            if ((loan_finance.HasValue == true)) {
-                command.Parameters[27].Value = ((int)(loan_finance.Value));
-            }
-            else {
-                command.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            if ((loan_installment_day_of_month.HasValue == true)) {
-                command.Parameters[28].Value = ((byte)(loan_installment_day_of_month.Value));
-            }
-            else {
-                command.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            if ((loan_settlement_date.HasValue == true)) {
-                command.Parameters[29].Value = ((System.DateTime)(loan_settlement_date.Value));
-            }
-            else {
-                command.Parameters[29].Value = global::System.DBNull.Value;
-            }
-            if ((loan_agreement_no == null)) {
-                command.Parameters[30].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[30].Value = ((string)(loan_agreement_no));
-            }
-            if ((remark == null)) {
-                command.Parameters[31].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[31].Value = ((string)(remark));
-            }
-            if ((checked_by.HasValue == true)) {
-                command.Parameters[32].Value = ((int)(checked_by.Value));
-            }
-            else {
-                command.Parameters[32].Value = global::System.DBNull.Value;
-            }
-            if ((modified_by.HasValue == true)) {
-                command.Parameters[33].Value = ((int)(modified_by.Value));
-            }
-            else {
-                command.Parameters[33].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            object returnValue;
-            try {
-                returnValue = command.ExecuteScalar();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            if (((returnValue == null) 
-                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return null;
-            }
-            else {
-                return ((object)(returnValue));
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int sp_delete_vehicle(global::System.Nullable<int> vid) {
             global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[2]));
             if ((vid.HasValue == true)) {
@@ -7737,6 +7792,58 @@ namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
             }
             else {
                 command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int sp_update_road_tax_mileage(global::System.Nullable<int> vehicle, global::System.Nullable<global::System.DateTime> road_tax_expiry_date, global::System.Nullable<decimal> road_tax_amount, global::System.Nullable<int> mileage, global::System.Nullable<int> modified_by) {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[3]));
+            if ((vehicle.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(vehicle.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((road_tax_expiry_date.HasValue == true)) {
+                command.Parameters[2].Value = ((System.DateTime)(road_tax_expiry_date.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((road_tax_amount.HasValue == true)) {
+                command.Parameters[3].Value = ((decimal)(road_tax_amount.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((mileage.HasValue == true)) {
+                command.Parameters[4].Value = ((int)(mileage.Value));
+            }
+            else {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((modified_by.HasValue == true)) {
+                command.Parameters[5].Value = ((int)(modified_by.Value));
+            }
+            else {
+                command.Parameters[5].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 

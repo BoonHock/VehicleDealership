@@ -21,7 +21,7 @@ namespace VehicleDealership.View
 		string _str_reg_no = "";
 		string _str_chassis_no = "";
 
-		public Form_edit_vehicle(int int_vehicle = 0)
+		public Form_edit_vehicle(int int_vehicle = 0, bool show_trade_in = true)
 		{
 			InitializeComponent();
 
@@ -34,6 +34,10 @@ namespace VehicleDealership.View
 			grd_image.MouseDown += Class_datagridview.MouseDown_select_cell;
 			grd_expenses.MouseDown += Class_datagridview.MouseDown_select_cell;
 			grd_payment.MouseDown += Class_datagridview.MouseDown_select_cell;
+
+			lbl_sale_order.Visible = show_trade_in;
+			txt_sale_order.Visible = show_trade_in;
+			btn_sales_order.Visible = show_trade_in;
 		}
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
@@ -107,29 +111,29 @@ namespace VehicleDealership.View
 			if (VehicleID == 0)
 			{
 				VehicleID = Vehicle_ds.Insert_vehicle((int)num_seller_id.Value, txt_seller_type.Text == "PERSON",
-					str_reg_no, int_chassis, (int)cmb_vehicle_colour.SelectedValue, rad_vehicle_new.Checked,
-					int_location, str_engine_no, (double)num_engine_cc.Value, (int)num_mileage.Value,
-					int_vehicle_sale, consignment_mortgage, txt_door_key.Text.Trim(), txt_ignition_key.Text.Trim(),
-					dtp_purchase_date.Value, dtp_date_received.Value, dtp_settle_by.Value,
-					txt_invoice_no.Text.Trim(), num_road_tax_amount.Value, dtp_road_tax_expiry.Value,
-					num_purchase_price.Value, num_overtrade.Value, num_list_price.Value, num_max_can_loan.Value,
-					num_loan_balance_readonly.Value, num_installment_amount.Value, int_loan_finance,
-					(int)num_installment_day.Value, dtp_loan_settlement_date.Value, txt_loan_agreement_no.Text.Trim(),
-					txt_remark.Text.Trim(), (int)num_checked_by_id.Value);
+					str_reg_no, txt_prev_reg_no.Text.Trim(), int_chassis, (int)cmb_vehicle_colour.SelectedValue,
+					rad_vehicle_new.Checked, int_location, str_engine_no, (double)num_engine_cc.Value,
+					(int)num_mileage.Value, int_vehicle_sale, consignment_mortgage, txt_door_key.Text.Trim(),
+					txt_ignition_key.Text.Trim(), dtp_purchase_date.Value, dtp_date_received.Value,
+					dtp_settle_by.Value, txt_invoice_no.Text.Trim(), num_road_tax_amount.Value,
+					dtp_road_tax_expiry.Value, num_purchase_price.Value, num_overtrade.Value, num_list_price.Value,
+					num_max_can_loan.Value, num_loan_balance_readonly.Value, num_installment_amount.Value,
+					int_loan_finance, (int)num_installment_day.Value, dtp_loan_settlement_date.Value,
+					txt_loan_agreement_no.Text.Trim(), txt_remark.Text.Trim(), (int)num_checked_by_id.Value);
 			}
 			else
 			{
 				// update vehicle
 				Vehicle_ds.Update_vehicle(VehicleID, (int)num_seller_id.Value, txt_seller_type.Text == "PERSON",
-					str_reg_no, int_chassis, (int)cmb_vehicle_colour.SelectedValue, rad_vehicle_new.Checked,
-					int_location, str_engine_no, (double)num_engine_cc.Value, (int)num_mileage.Value,
-					int_vehicle_sale, consignment_mortgage, txt_door_key.Text.Trim(), txt_ignition_key.Text.Trim(),
-					dtp_purchase_date.Value, dtp_date_received.Value, dtp_settle_by.Value,
-					txt_invoice_no.Text.Trim(), num_road_tax_amount.Value, dtp_road_tax_expiry.Value,
-					num_purchase_price.Value, num_overtrade.Value, num_list_price.Value, num_max_can_loan.Value,
-					num_loan_balance_readonly.Value, num_installment_amount.Value, int_loan_finance,
-					(int)num_installment_day.Value, dtp_loan_settlement_date.Value, txt_loan_agreement_no.Text.Trim(),
-					txt_remark.Text.Trim(), (int)num_checked_by_id.Value);
+					str_reg_no, txt_prev_reg_no.Text.Trim(), int_chassis, (int)cmb_vehicle_colour.SelectedValue,
+					rad_vehicle_new.Checked, int_location, str_engine_no, (double)num_engine_cc.Value,
+					(int)num_mileage.Value, int_vehicle_sale, consignment_mortgage, txt_door_key.Text.Trim(),
+					txt_ignition_key.Text.Trim(), dtp_purchase_date.Value, dtp_date_received.Value,
+					dtp_settle_by.Value, txt_invoice_no.Text.Trim(), num_road_tax_amount.Value,
+					dtp_road_tax_expiry.Value, num_purchase_price.Value, num_overtrade.Value, num_list_price.Value,
+					num_max_can_loan.Value, num_loan_balance_readonly.Value, num_installment_amount.Value,
+					int_loan_finance, (int)num_installment_day.Value, dtp_loan_settlement_date.Value,
+					txt_loan_agreement_no.Text.Trim(), txt_remark.Text.Trim(), (int)num_checked_by_id.Value);
 			}
 
 			if (VehicleID == 0)
@@ -148,16 +152,11 @@ namespace VehicleDealership.View
 
 				dttable_expenses.AcceptChanges();
 
-				string str_doc_prefix = "";
-				using (Document_prefix_ds.sp_select_document_prefixDataTable dttable_prefix =
-					Document_prefix_ds.Select_document_prefix("VEHICLE_EXPENSES"))
-				{
-					if (dttable_prefix.Rows.Count > 0) str_doc_prefix = dttable_prefix[0].document_prefix_text;
-				}
+				string str_doc_prefix = Document_prefix_ds.Select_document_prefix("VEHICLE_EXPENSES");
 
 				foreach (Vehicle_payment_ds.sp_select_vehicle_paymentRow dt_row in dttable_expenses)
 				{
-					int int_payment_id = Update_insert_payment(str_doc_prefix, dt_row.payment,
+					int int_payment_id = Class_payment.Update_insert_payment(str_doc_prefix, dt_row.payment,
 						dt_row.payment_description, dt_row.pay_to_id, dt_row.pay_to_type, dt_row.amount,
 						dt_row.payment_date, dt_row.is_paid, dt_row.payment_method_type,
 						(dt_row["payment_method_id"] == DBNull.Value) ? 0 : dt_row.payment_method_id,
@@ -190,16 +189,11 @@ namespace VehicleDealership.View
 
 				dttable_payment.AcceptChanges();
 
-				string str_doc_prefix = "";
-				using (Document_prefix_ds.sp_select_document_prefixDataTable dttable_prefix =
-					Document_prefix_ds.Select_document_prefix("VEHICLE_PAYMENT"))
-				{
-					if (dttable_prefix.Rows.Count > 0) str_doc_prefix = dttable_prefix[0].document_prefix_text;
-				}
+				string str_doc_prefix = Document_prefix_ds.Select_document_prefix("VEHICLE_PAYMENT");
 
 				foreach (Vehicle_payment_ds.sp_select_vehicle_paymentRow dt_row in dttable_payment)
 				{
-					int int_payment_id = Update_insert_payment(str_doc_prefix, dt_row.payment,
+					int int_payment_id = Class_payment.Update_insert_payment(str_doc_prefix, dt_row.payment,
 						dt_row.payment_description, dt_row.pay_to_id, dt_row.pay_to_type, dt_row.amount,
 						dt_row.payment_date, dt_row.is_paid, dt_row.payment_method_type,
 						(dt_row["payment_method_id"] == DBNull.Value) ? 0 : dt_row.payment_method_id,
@@ -345,53 +339,11 @@ namespace VehicleDealership.View
 					MessageBox.Show("Upload directory could not be created...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
-
 			Cursor = Cursors.Default;
 
 			this.DialogResult = DialogResult.OK;
 			this.Close();
 		}
-		private int Update_insert_payment(string str_doc_prefix, int int_payment_id,
-			string str_payment_description, int int_pay_to_id,
-			string str_pay_to_type, decimal dec_amount, DateTime payment_date, bool is_paid,
-			string str_payment_method_type, int int_payment_method_id, string str_cheque_no, string str_cc_no,
-			int int_cc_type, int int_finance_id, DateTime payment_method_date, string str_remark)
-		{
-			int int_credit_card = 0; // default value is 0. only set value if right payment method type selected
-			int int_cheque = 0; // default value is 0. only set value if right payment method type selected
-			int int_payment_method = 0; // default value is 0. only set value if right payment method type selected
-
-			switch (str_payment_method_type)
-			{
-				case "CREDIT_CARD":
-					int_credit_card = Credit_card_ds.Update_insert_credit_card(str_cc_no,
-						int_cc_type, int_finance_id, payment_method_date);
-					break;
-				case "CHEQUE":
-					int_cheque = Cheque_ds.Update_insert_cheque(str_cheque_no, payment_method_date, int_finance_id);
-					break;
-				default:
-					int_payment_method = int_payment_method_id;
-					break;
-			}
-			if (int_payment_id > 0)
-			{
-				// update
-				Payment_ds.Update_payment(int_payment_id, str_payment_description, payment_date,
-					dec_amount, int_cheque, int_credit_card, int_payment_method, is_paid,
-					int_pay_to_id, (str_pay_to_type == "PERSON"), str_remark);
-			}
-			else
-			{
-				// insert
-				int_payment_id = Payment_ds.Insert_payment(str_doc_prefix, str_payment_description,
-					payment_date, dec_amount, int_cheque, int_credit_card, int_payment_method,
-					is_paid, int_pay_to_id, (str_pay_to_type == "PERSON"), str_remark);
-			}
-
-			return int_payment_id;
-		}
-
 		private void Btn_cancel_Click(object sender, EventArgs e)
 		{
 			this.DialogResult = DialogResult.Cancel;

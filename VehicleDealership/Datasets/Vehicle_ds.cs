@@ -85,13 +85,13 @@ namespace VehicleDealership.Datasets
 			}
 			return new sp_select_vehicleDataTable();
 		}
-		public static int Insert_vehicle(int int_seller, bool seller_is_person, string str_reg_no, int int_chassis,
-			int int_colour, bool is_new, int? int_location, string str_engine_no, double doub_engine_cc, int int_mileage,
-			int? int_vehicle_sale, bool? consignment_mortgage, string str_door_key, string str_ignition_key,
-			System.DateTime purchase_date, System.DateTime date_received, System.DateTime settlement_date,
-			string str_invoice_no, decimal dec_road_tax, System.DateTime road_tax_expiry, decimal dec_purchase_price,
-			decimal dec_overtrade, decimal dec_list_price, decimal dec_max_can_loan, decimal dec_loan_balance,
-			decimal dec_loan_installment_amount, int? int_loan_finance, int installment_day_of_month,
+		public static int Insert_vehicle(int int_seller, bool seller_is_person, string str_reg_no, string str_prev_reg_no,
+			int int_chassis, int int_colour, bool is_new, int? int_location, string str_engine_no, double doub_engine_cc,
+			int int_mileage, int? int_vehicle_sale, bool? consignment_mortgage, string str_door_key,
+			string str_ignition_key, System.DateTime purchase_date, System.DateTime date_received,
+			System.DateTime settlement_date, string str_invoice_no, decimal dec_road_tax, System.DateTime road_tax_expiry,
+			decimal dec_purchase_price, decimal dec_overtrade, decimal dec_list_price, decimal dec_max_can_loan,
+			decimal dec_loan_balance, decimal dec_loan_installment_amount, int? int_loan_finance, int installment_day_of_month,
 			System.DateTime loan_settlement_date, string str_loan_agreement_no, string str_remark, int int_checked_by)
 #pragma warning restore CA1707 // Identifiers should not contain underscores
 		{
@@ -99,7 +99,7 @@ namespace VehicleDealership.Datasets
 			{
 				using (Vehicle_dsTableAdapters.QueriesTableAdapter adapter = QueriesTableAdapter())
 				{
-					return int.Parse(adapter.sp_insert_vehicle(int_seller, seller_is_person, str_reg_no,
+					return int.Parse(adapter.sp_insert_vehicle(int_seller, seller_is_person, str_reg_no, str_prev_reg_no,
 						int_chassis, int_colour, is_new, int_location, str_engine_no, doub_engine_cc, int_mileage,
 						int_vehicle_sale, consignment_mortgage, str_door_key, str_ignition_key, purchase_date,
 						date_received, settlement_date, str_invoice_no, dec_road_tax, road_tax_expiry, dec_purchase_price,
@@ -116,8 +116,8 @@ namespace VehicleDealership.Datasets
 			return 0;
 		}
 		public static bool Update_vehicle(int int_vehicle, int int_seller, bool seller_is_person, string str_reg_no,
-			int int_chassis, int int_colour, bool is_new, int? int_location, string str_engine_no, double doub_engine_cc,
-			int int_mileage, int? int_vehicle_sale, bool? consignment_mortgage, string str_door_key,
+			string str_prev_reg_no, int int_chassis, int int_colour, bool is_new, int? int_location, string str_engine_no,
+			double doub_engine_cc, int int_mileage, int? int_vehicle_sale, bool? consignment_mortgage, string str_door_key,
 			string str_ignition_key, System.DateTime purchase_date, System.DateTime date_received,
 			System.DateTime settlement_date, string str_invoice_no, decimal dec_road_tax, System.DateTime road_tax_expiry,
 			decimal dec_purchase_price, decimal dec_overtrade, decimal dec_list_price, decimal dec_max_can_loan,
@@ -128,7 +128,7 @@ namespace VehicleDealership.Datasets
 			{
 				using (Vehicle_dsTableAdapters.QueriesTableAdapter adapter = QueriesTableAdapter())
 				{
-					adapter.sp_update_vehicle(int_vehicle, int_seller, seller_is_person, str_reg_no,
+					adapter.sp_update_vehicle(int_vehicle, int_seller, seller_is_person, str_reg_no, str_prev_reg_no,
 						int_chassis, int_colour, is_new, int_location, str_engine_no, doub_engine_cc, int_mileage,
 						int_vehicle_sale, consignment_mortgage, str_door_key, str_ignition_key, purchase_date,
 						date_received, settlement_date, str_invoice_no, dec_road_tax, road_tax_expiry, dec_purchase_price,
@@ -218,6 +218,23 @@ namespace VehicleDealership.Datasets
 			}
 			return new sp_select_vehicle_trade_inDataTable();
 		}
-
+		public static bool Update_road_tax_mileage(int vehicle, System.DateTime? expiry_date, decimal? amount, int mileage)
+		{
+			try
+			{
+				using (Vehicle_dsTableAdapters.QueriesTableAdapter adapter =
+					new Vehicle_dsTableAdapters.QueriesTableAdapter())
+				{
+					adapter.sp_update_road_tax_mileage(vehicle, expiry_date, amount, mileage, Program.System_user.UserID);
+					return true;
+				}
+			}
+			catch (System.Data.SqlClient.SqlException e)
+			{
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
+			}
+			return false;
+		}
 	}
 }

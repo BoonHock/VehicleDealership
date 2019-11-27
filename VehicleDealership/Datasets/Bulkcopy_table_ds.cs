@@ -7,15 +7,15 @@ namespace VehicleDealership.Datasets
 
 	partial class Bulkcopy_table_ds
 	{
-		private static Bulkcopy_table_dsTableAdapters.QueriesTableAdapter QueriesTableAdapter()
-		{
-			return new Bulkcopy_table_dsTableAdapters.QueriesTableAdapter();
-		}
 		public static void Delete_by_user()
 		{
 			try
 			{
-				QueriesTableAdapter().DeleteQuery(Program.System_user.UserID);
+				using (Bulkcopy_table_dsTableAdapters.QueriesTableAdapter adapter = 
+					new Bulkcopy_table_dsTableAdapters.QueriesTableAdapter())
+				{
+					adapter.DeleteQuery(Program.System_user.UserID);
+				}
 			}
 			catch (System.Exception e)
 			{

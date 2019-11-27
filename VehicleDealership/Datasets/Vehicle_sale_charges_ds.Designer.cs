@@ -285,8 +285,6 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columnamount;
             
-            private global::System.Data.DataColumn columnis_add;
-            
             private global::System.Data.DataColumn columnmodified_by;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -348,14 +346,6 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn is_addColumn {
-                get {
-                    return this.columnis_add;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn modified_byColumn {
                 get {
                     return this.columnmodified_by;
@@ -399,13 +389,12 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_vehicle_sale_chargesRow Addsp_select_vehicle_sale_chargesRow(string description, decimal amount, bool is_add, string modified_by) {
+            public sp_select_vehicle_sale_chargesRow Addsp_select_vehicle_sale_chargesRow(string description, decimal amount, string modified_by) {
                 sp_select_vehicle_sale_chargesRow rowsp_select_vehicle_sale_chargesRow = ((sp_select_vehicle_sale_chargesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         description,
                         amount,
-                        is_add,
                         modified_by};
                 rowsp_select_vehicle_sale_chargesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_select_vehicle_sale_chargesRow);
@@ -439,7 +428,6 @@ namespace VehicleDealership.Datasets {
                 this.columnvehicle_sale_charges = base.Columns["vehicle_sale_charges"];
                 this.columndescription = base.Columns["description"];
                 this.columnamount = base.Columns["amount"];
-                this.columnis_add = base.Columns["is_add"];
                 this.columnmodified_by = base.Columns["modified_by"];
             }
             
@@ -452,8 +440,6 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columndescription);
                 this.columnamount = new global::System.Data.DataColumn("amount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnamount);
-                this.columnis_add = new global::System.Data.DataColumn("is_add", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnis_add);
                 this.columnmodified_by = new global::System.Data.DataColumn("modified_by", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmodified_by);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -467,7 +453,6 @@ namespace VehicleDealership.Datasets {
                 this.columndescription.AllowDBNull = false;
                 this.columndescription.MaxLength = 50;
                 this.columnamount.AllowDBNull = false;
-                this.columnis_add.AllowDBNull = false;
                 this.columnmodified_by.AllowDBNull = false;
                 this.columnmodified_by.MaxLength = 200;
             }
@@ -645,17 +630,6 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool is_add {
-                get {
-                    return ((bool)(this[this.tablesp_select_vehicle_sale_charges.is_addColumn]));
-                }
-                set {
-                    this[this.tablesp_select_vehicle_sale_charges.is_addColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string modified_by {
                 get {
                     return ((string)(this[this.tablesp_select_vehicle_sale_charges.modified_byColumn]));
@@ -828,7 +802,6 @@ namespace VehicleDealership.Datasets.Vehicle_sale_charges_dsTableAdapters {
             tableMapping.ColumnMappings.Add("vehicle_sale_charges", "vehicle_sale_charges");
             tableMapping.ColumnMappings.Add("description", "description");
             tableMapping.ColumnMappings.Add("amount", "amount");
-            tableMapping.ColumnMappings.Add("is_add", "is_add");
             tableMapping.ColumnMappings.Add("modified_by", "modified_by");
             this._adapter.TableMappings.Add(tableMapping);
         }
@@ -867,6 +840,84 @@ namespace VehicleDealership.Datasets.Vehicle_sale_charges_dsTableAdapters {
             Vehicle_sale_charges_ds.sp_select_vehicle_sale_chargesDataTable dataTable = new Vehicle_sale_charges_ds.sp_select_vehicle_sale_chargesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class QueriesTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.IDbCommand[] _commandCollection;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.IDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.IDbCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "fin.sp_update_insert_vehicle_sale_charges";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@created_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object sp_update_insert_vehicle_sale_charges(global::System.Nullable<int> vehicle, global::System.Nullable<int> created_by) {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
+            if ((vehicle.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(vehicle.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((created_by.HasValue == true)) {
+                command.Parameters[2].Value = ((int)(created_by.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
         }
     }
     
