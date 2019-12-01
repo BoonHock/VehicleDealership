@@ -113,41 +113,36 @@ namespace VehicleDealership.View
 				Vehicle_ds.Update_road_tax_mileage(VehicleID, null, null, (int)num_mileage.Value);
 
 			// VEHICLE SALE CHARGES
+			Bulkcopy_table_ds.Delete_by_user();
+			using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.VehicleDealershipConnectionString))
 			{
-				Bulkcopy_table_ds.Delete_by_user();
-				using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.VehicleDealershipConnectionString))
+				DataTable dttable = (DataTable)grd_charges.DataSource;
+				Class_datatable.Add_uploaded_by_columns(ref dttable);
+
+				conn.Open();
+
+				using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn))
 				{
-					DataTable dttable = (DataTable)grd_charges.DataSource;
-					DataColumn dt_col = new DataColumn("uploaded_by")
+					bulkCopy.DestinationTableName = "[misc].[bulkcopy_table]";
+
+					try
 					{
-						DefaultValue = Program.System_user.UserID
-					};
-					dttable.Columns.Add(dt_col);
-
-					conn.Open();
-
-					using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn))
-					{
-						bulkCopy.DestinationTableName = "[misc].[bulkcopy_table]";
-
-						try
-						{
-							bulkCopy.ColumnMappings.Add("vehicle_sale_charges", "int1");
-							bulkCopy.ColumnMappings.Add("description", "nvarchar1");
-							bulkCopy.ColumnMappings.Add("amount", "decimal18_4");
-							bulkCopy.ColumnMappings.Add("uploaded_by", "created_by");
-							bulkCopy.WriteToServer(dttable);
-						}
-						catch (Exception ex)
-						{
-							MessageBox.Show("An error has occurred. \n\n Message: " + ex.Message,
-								"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-							conn.Close();
-							return;
-						}
+						bulkCopy.ColumnMappings.Add("vehicle_sale_charges", "int1");
+						bulkCopy.ColumnMappings.Add("description", "nvarchar1");
+						bulkCopy.ColumnMappings.Add("amount", "decimal18_4");
+						bulkCopy.ColumnMappings.Add("uploaded_by", "created_by");
+						bulkCopy.WriteToServer(dttable);
 					}
-					conn.Close();
+					catch (Exception ex)
+					{
+						MessageBox.Show("An error has occurred. \n\n Message: " + ex.Message,
+							"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						conn.Close();
+						return;
+					}
 				}
+				conn.Close();
+
 				if (!Vehicle_sale_charges_ds.Update_insert_vehicle_sale_charges(VehicleID))
 				{
 					MessageBox.Show("Failed to update vehicle sale charges.", "ERROR",
@@ -155,17 +150,106 @@ namespace VehicleDealership.View
 				}
 			}
 			// VEHICLE EXPENSES
-			using (Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dttable_expenses =
-				(Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_expenses.DataSource)
+			Update_payment(grd_expenses, "VEHICLE_EXPENSES", Class_enum.Payment_function.VEHICLE_EXPENSES);
+			Update_payment(grd_payment_received, "VEHICLE_PAYMENT_RECEIVED", Class_enum.Payment_function.VEHICLE_SALE_PAYMENT_RECEIVED);
+			Update_payment(grd_misc_payment_received, "VEHICLE_SALE_MISC_RECEIVED", Class_enum.Payment_function.VEHICLE_SALE_MISC_RECEIVED);
+
+			// INSURANCE MISC CHARGES
+			Bulkcopy_table_ds.Delete_by_user();
+			using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.VehicleDealershipConnectionString))
+			{
+				DataTable dttable = (DataTable)grd_insurance_misc.DataSource;
+				Class_datatable.Add_uploaded_by_columns(ref dttable);
+
+				conn.Open();
+				using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn))
+				{
+					bulkCopy.DestinationTableName = "[misc].[bulkcopy_table]";
+					try
+					{
+						bulkCopy.ColumnMappings.Add("insurance_misc_charges", "int1");
+						bulkCopy.ColumnMappings.Add("description", "nvarchar1");
+						bulkCopy.ColumnMappings.Add("amount", "decimal18_4");
+						bulkCopy.ColumnMappings.Add("uploaded_by", "created_by");
+						bulkCopy.WriteToServer(dttable);
+					}
+					catch (Exception ex)
+					{
+						MessageBox.Show("An error has occurred. \n\n Message: " + ex.Message,
+							"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						conn.Close();
+						return;
+					}
+				}
+				conn.Close();
+
+				if (!Insurance_misc_charges_ds.Update_insert_insurance_misc_charges(VehicleID))
+				{
+					MessageBox.Show("Failed to update insurance miscellaneous charges.", "ERROR",
+						MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+
+			// INSURANCE DRIVER
+			Bulkcopy_table_ds.Delete_by_user();
+			using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.VehicleDealershipConnectionString))
+			{
+				DataTable dttable = (DataTable)grd_insurance_driver.DataSource;
+				Class_datatable.Add_uploaded_by_columns(ref dttable);
+
+				conn.Open();
+				using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn))
+				{
+					bulkCopy.DestinationTableName = "[misc].[bulkcopy_table]";
+					try
+					{
+						bulkCopy.ColumnMappings.Add("driver", "nvarchar1");
+						bulkCopy.ColumnMappings.Add("ic_no", "nvarchar2");
+						bulkCopy.ColumnMappings.Add("uploaded_by", "created_by");
+						bulkCopy.WriteToServer(dttable);
+					}
+					catch (Exception ex)
+					{
+						MessageBox.Show("An error has occurred. \n\n Message: " + ex.Message,
+							"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						conn.Close();
+						return;
+					}
+				}
+				conn.Close();
+
+				if (!Insurance_driver_ds.Update_insert_insurance_driver(VehicleID))
+				{
+					MessageBox.Show("Failed to update insurance driver.", "ERROR",
+						MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+
+			// TRADE IN
+			if (!Vehicle_ds.Update_trade_in(string.Join(",", list_trade_in_vehicle_id), VehicleID))
+			{
+				MessageBox.Show("Failed to update trade in.", "ERROR", 
+					MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+
+			return; // TODO: temporary. remove this.
+
+			this.DialogResult = DialogResult.OK;
+			this.Close();
+		}
+		private void Update_payment(DataGridView grd, string str_doc_prefix, Class_enum.Payment_function pay_function)
+		{
+			using (Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dttable =
+				(Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd.DataSource)
 			{
 				List<int> list_payment_id = new List<int>();
 				List<int> list_charge_to_customer = new List<int>();
 
-				dttable_expenses.AcceptChanges();
+				dttable.AcceptChanges();
 
-				string str_doc_prefix = Document_prefix_ds.Select_document_prefix("VEHICLE_EXPENSES");
+				str_doc_prefix = Document_prefix_ds.Select_document_prefix(str_doc_prefix);
 
-				foreach (Vehicle_payment_ds.sp_select_vehicle_paymentRow dt_row in dttable_expenses)
+				foreach (Vehicle_payment_ds.sp_select_vehicle_paymentRow dt_row in dttable)
 				{
 					int int_payment_id = Class_payment.Update_insert_payment(str_doc_prefix, dt_row.payment,
 						dt_row.payment_description, dt_row.pay_to_id, dt_row.pay_to_type, dt_row.amount,
@@ -182,18 +266,15 @@ namespace VehicleDealership.View
 
 					list_payment_id.Add(int_payment_id);
 					if (dt_row.charge_to_customer) list_charge_to_customer.Add(int_payment_id);
-				}
 
-				if (!Vehicle_payment_ds.Update_vehicle_payment(VehicleID, string.Join(",", list_payment_id),
-					Class_enum.Payment_function.VEHICLE_EXPENSES, string.Join(",", list_charge_to_customer)))
-				{
-					MessageBox.Show("Failed to update vehicle expenses.", "ERROR",
-						MessageBoxButtons.OK, MessageBoxIcon.Error);
+					if (!Vehicle_payment_ds.Update_vehicle_payment(VehicleID, string.Join(",", list_payment_id),
+						pay_function, string.Join(",", list_charge_to_customer)))
+					{
+						MessageBox.Show("Failed to update payment.", "ERROR",
+							MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
 				}
 			}
-
-			this.DialogResult = DialogResult.OK;
-			this.Close();
 		}
 		private void Btn_cancel_Click(object sender, EventArgs e)
 		{
@@ -202,6 +283,14 @@ namespace VehicleDealership.View
 		}
 		private void Form_vehicle_sale_Shown(object sender, EventArgs e)
 		{
+			cmb_insurance_category.DisplayMember = "description";
+			cmb_insurance_category.ValueMember = "insurance_category";
+			cmb_insurance_category.DataSource = Insurance_category_ds.Select_insurance_category();
+
+			cmb_insurance_type.DisplayMember = "description";
+			cmb_insurance_type.ValueMember = "insurance_type";
+			cmb_insurance_type.DataSource = Insurance_type_ds.Select_insurance_type();
+
 			// LOAD VEHICLE DETAILS
 			using (Vehicle_ds.sp_select_vehicleDataTable dttable =
 				Vehicle_ds.Select_vehicle(VehicleID))
@@ -324,16 +413,8 @@ namespace VehicleDealership.View
 			}
 			// PAYMENT RECEIVED FROM CUSTOMER
 			Setup_grd_payment(grd_payment_received, Class_enum.Payment_function.VEHICLE_SALE_PAYMENT_RECEIVED);
-			if (!Program.System_user.IsDeveloper) Class_datagridview.Hide_unnecessary_columns(grd_payment_received,
-				"payment_no", "payment_description", "pay_to", "amount",
-				"payment_date", "is_paid", "payment_method_type", "cheque_no", "credit_card_no",
-				"payment_method", "finance", "remark", "modified_by");
 			// EXPENSES
 			Setup_grd_payment(grd_expenses, Class_enum.Payment_function.VEHICLE_EXPENSES);
-			if (!Program.System_user.IsDeveloper) Class_datagridview.Hide_unnecessary_columns(grd_expenses,
-				"charge_to_customer", "payment_no", "payment_description", "pay_to", "amount",
-				"payment_date", "is_paid", "payment_method_type", "cheque_no", "credit_card_no",
-				"payment_method", "finance", "remark", "modified_by");
 			// column charge_to_customer will be checkbox. allow user to tick/untick. other columns cannot edit
 			foreach (DataGridViewColumn grd_col in grd_expenses.Columns)
 			{
@@ -349,11 +430,7 @@ namespace VehicleDealership.View
 				}
 			}
 			// MISC RECEIVED
-			Setup_grd_payment(grd_misc_payment_received, Class_enum.Payment_function.VEHICLE_MISC_RECEIVED);
-			if (!Program.System_user.IsDeveloper) Class_datagridview.Hide_unnecessary_columns(grd_misc_payment_received,
-				"payment_no", "payment_description", "pay_to", "amount",
-				"payment_date", "is_paid", "payment_method_type", "cheque_no", "credit_card_no",
-				"payment_method", "finance", "remark", "modified_by");
+			Setup_grd_payment(grd_misc_payment_received, Class_enum.Payment_function.VEHICLE_SALE_MISC_RECEIVED);
 			// INSURANCE DRIVER
 			using (Insurance_driver_ds.sp_select_insurance_driverDataTable dttable =
 				Insurance_driver_ds.Select_insurance_driver(VehicleID))
@@ -385,6 +462,20 @@ namespace VehicleDealership.View
 			btn_trade_in_add.Visible = Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_ADD_EDIT);
 			btn_trade_in_edit.Visible = Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_ADD_EDIT);
 			btn_trade_in_delete.Visible = Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_ADD_EDIT);
+
+			// hide unnecessary columns
+			if (!Program.System_user.IsDeveloper) Class_datagridview.Hide_unnecessary_columns(grd_payment_received,
+				"payment_no", "payment_description", "pay_to", "amount",
+				"payment_date", "is_paid", "payment_method_type", "cheque_no", "credit_card_no",
+				"payment_method", "finance", "remark", "modified_by");
+			if (!Program.System_user.IsDeveloper) Class_datagridview.Hide_unnecessary_columns(grd_expenses,
+				"charge_to_customer", "payment_no", "payment_description", "pay_to", "amount",
+				"payment_date", "is_paid", "payment_method_type", "cheque_no", "credit_card_no",
+				"payment_method", "finance", "remark", "modified_by");
+			if (!Program.System_user.IsDeveloper) Class_datagridview.Hide_unnecessary_columns(grd_misc_payment_received,
+				"payment_no", "payment_description", "pay_to", "amount",
+				"payment_date", "is_paid", "payment_method_type", "cheque_no", "credit_card_no",
+				"payment_method", "finance", "remark", "modified_by");
 		}
 		private void Grd_charges_calculate_total()
 		{

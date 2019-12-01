@@ -20,17 +20,17 @@ namespace VehicleDealership.Datasets {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("Insurance_driver_ds")]
+    [global::System.Xml.Serialization.XmlRootAttribute("Insurance_category_ds")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class Insurance_driver_ds : global::System.Data.DataSet {
+    public partial class Insurance_category_ds : global::System.Data.DataSet {
         
-        private sp_select_insurance_driverDataTable tablesp_select_insurance_driver;
+        private sp_select_insurance_categoryDataTable tablesp_select_insurance_category;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public Insurance_driver_ds() {
+        public Insurance_category_ds() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace VehicleDealership.Datasets {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected Insurance_driver_ds(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected Insurance_category_ds(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace VehicleDealership.Datasets {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["sp_select_insurance_driver"] != null)) {
-                    base.Tables.Add(new sp_select_insurance_driverDataTable(ds.Tables["sp_select_insurance_driver"]));
+                if ((ds.Tables["sp_select_insurance_category"] != null)) {
+                    base.Tables.Add(new sp_select_insurance_categoryDataTable(ds.Tables["sp_select_insurance_category"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace VehicleDealership.Datasets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public sp_select_insurance_driverDataTable sp_select_insurance_driver {
+        public sp_select_insurance_categoryDataTable sp_select_insurance_category {
             get {
-                return this.tablesp_select_insurance_driver;
+                return this.tablesp_select_insurance_category;
             }
         }
         
@@ -127,7 +127,7 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            Insurance_driver_ds cln = ((Insurance_driver_ds)(base.Clone()));
+            Insurance_category_ds cln = ((Insurance_category_ds)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace VehicleDealership.Datasets {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["sp_select_insurance_driver"] != null)) {
-                    base.Tables.Add(new sp_select_insurance_driverDataTable(ds.Tables["sp_select_insurance_driver"]));
+                if ((ds.Tables["sp_select_insurance_category"] != null)) {
+                    base.Tables.Add(new sp_select_insurance_categoryDataTable(ds.Tables["sp_select_insurance_category"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablesp_select_insurance_driver = ((sp_select_insurance_driverDataTable)(base.Tables["sp_select_insurance_driver"]));
+            this.tablesp_select_insurance_category = ((sp_select_insurance_categoryDataTable)(base.Tables["sp_select_insurance_category"]));
             if ((initTable == true)) {
-                if ((this.tablesp_select_insurance_driver != null)) {
-                    this.tablesp_select_insurance_driver.InitVars();
+                if ((this.tablesp_select_insurance_category != null)) {
+                    this.tablesp_select_insurance_category.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "Insurance_driver_ds";
+            this.DataSetName = "Insurance_category_ds";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/Insurance_driver_ds.xsd";
+            this.Namespace = "http://tempuri.org/Insurance_category_ds.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablesp_select_insurance_driver = new sp_select_insurance_driverDataTable();
-            base.Tables.Add(this.tablesp_select_insurance_driver);
+            this.tablesp_select_insurance_category = new sp_select_insurance_categoryDataTable();
+            base.Tables.Add(this.tablesp_select_insurance_category);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializesp_select_insurance_driver() {
+        private bool ShouldSerializesp_select_insurance_category() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            Insurance_driver_ds ds = new Insurance_driver_ds();
+            Insurance_category_ds ds = new Insurance_category_ds();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,25 +270,23 @@ namespace VehicleDealership.Datasets {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void sp_select_insurance_driverRowChangeEventHandler(object sender, sp_select_insurance_driverRowChangeEvent e);
+        public delegate void sp_select_insurance_categoryRowChangeEventHandler(object sender, sp_select_insurance_categoryRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class sp_select_insurance_driverDataTable : global::System.Data.TypedTableBase<sp_select_insurance_driverRow> {
+        public partial class sp_select_insurance_categoryDataTable : global::System.Data.TypedTableBase<sp_select_insurance_categoryRow> {
             
-            private global::System.Data.DataColumn columndriver;
+            private global::System.Data.DataColumn columninsurance_category;
             
-            private global::System.Data.DataColumn columnic_no;
-            
-            private global::System.Data.DataColumn columnmodified_by;
+            private global::System.Data.DataColumn columndescription;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_insurance_driverDataTable() {
-                this.TableName = "sp_select_insurance_driver";
+            public sp_select_insurance_categoryDataTable() {
+                this.TableName = "sp_select_insurance_category";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -296,7 +294,7 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal sp_select_insurance_driverDataTable(global::System.Data.DataTable table) {
+            internal sp_select_insurance_categoryDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -313,32 +311,24 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected sp_select_insurance_driverDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected sp_select_insurance_categoryDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn driverColumn {
+            public global::System.Data.DataColumn insurance_categoryColumn {
                 get {
-                    return this.columndriver;
+                    return this.columninsurance_category;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ic_noColumn {
+            public global::System.Data.DataColumn descriptionColumn {
                 get {
-                    return this.columnic_no;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn modified_byColumn {
-                get {
-                    return this.columnmodified_by;
+                    return this.columndescription;
                 }
             }
             
@@ -353,47 +343,53 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_insurance_driverRow this[int index] {
+            public sp_select_insurance_categoryRow this[int index] {
                 get {
-                    return ((sp_select_insurance_driverRow)(this.Rows[index]));
+                    return ((sp_select_insurance_categoryRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_insurance_driverRowChangeEventHandler sp_select_insurance_driverRowChanging;
+            public event sp_select_insurance_categoryRowChangeEventHandler sp_select_insurance_categoryRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_insurance_driverRowChangeEventHandler sp_select_insurance_driverRowChanged;
+            public event sp_select_insurance_categoryRowChangeEventHandler sp_select_insurance_categoryRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_insurance_driverRowChangeEventHandler sp_select_insurance_driverRowDeleting;
+            public event sp_select_insurance_categoryRowChangeEventHandler sp_select_insurance_categoryRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_insurance_driverRowChangeEventHandler sp_select_insurance_driverRowDeleted;
+            public event sp_select_insurance_categoryRowChangeEventHandler sp_select_insurance_categoryRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Addsp_select_insurance_driverRow(sp_select_insurance_driverRow row) {
+            public void Addsp_select_insurance_categoryRow(sp_select_insurance_categoryRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_insurance_driverRow Addsp_select_insurance_driverRow(string driver, string ic_no, string modified_by) {
-                sp_select_insurance_driverRow rowsp_select_insurance_driverRow = ((sp_select_insurance_driverRow)(this.NewRow()));
+            public sp_select_insurance_categoryRow Addsp_select_insurance_categoryRow(string description) {
+                sp_select_insurance_categoryRow rowsp_select_insurance_categoryRow = ((sp_select_insurance_categoryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        driver,
-                        ic_no,
-                        modified_by};
-                rowsp_select_insurance_driverRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowsp_select_insurance_driverRow);
-                return rowsp_select_insurance_driverRow;
+                        null,
+                        description};
+                rowsp_select_insurance_categoryRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowsp_select_insurance_categoryRow);
+                return rowsp_select_insurance_categoryRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public sp_select_insurance_categoryRow FindByinsurance_category(int insurance_category) {
+                return ((sp_select_insurance_categoryRow)(this.Rows.Find(new object[] {
+                            insurance_category})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                sp_select_insurance_driverDataTable cln = ((sp_select_insurance_driverDataTable)(base.Clone()));
+                sp_select_insurance_categoryDataTable cln = ((sp_select_insurance_categoryDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -401,58 +397,59 @@ namespace VehicleDealership.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new sp_select_insurance_driverDataTable();
+                return new sp_select_insurance_categoryDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columndriver = base.Columns["driver"];
-                this.columnic_no = base.Columns["ic_no"];
-                this.columnmodified_by = base.Columns["modified_by"];
+                this.columninsurance_category = base.Columns["insurance_category"];
+                this.columndescription = base.Columns["description"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columndriver = new global::System.Data.DataColumn("driver", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndriver);
-                this.columnic_no = new global::System.Data.DataColumn("ic_no", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnic_no);
-                this.columnmodified_by = new global::System.Data.DataColumn("modified_by", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmodified_by);
-                this.columndriver.AllowDBNull = false;
-                this.columndriver.MaxLength = 200;
-                this.columnic_no.AllowDBNull = false;
-                this.columnic_no.MaxLength = 20;
-                this.columnmodified_by.AllowDBNull = false;
-                this.columnmodified_by.MaxLength = 200;
+                this.columninsurance_category = new global::System.Data.DataColumn("insurance_category", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columninsurance_category);
+                this.columndescription = new global::System.Data.DataColumn("description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescription);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columninsurance_category}, true));
+                this.columninsurance_category.AutoIncrement = true;
+                this.columninsurance_category.AutoIncrementSeed = -1;
+                this.columninsurance_category.AutoIncrementStep = -1;
+                this.columninsurance_category.AllowDBNull = false;
+                this.columninsurance_category.ReadOnly = true;
+                this.columninsurance_category.Unique = true;
+                this.columndescription.AllowDBNull = false;
+                this.columndescription.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_insurance_driverRow Newsp_select_insurance_driverRow() {
-                return ((sp_select_insurance_driverRow)(this.NewRow()));
+            public sp_select_insurance_categoryRow Newsp_select_insurance_categoryRow() {
+                return ((sp_select_insurance_categoryRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new sp_select_insurance_driverRow(builder);
+                return new sp_select_insurance_categoryRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(sp_select_insurance_driverRow);
+                return typeof(sp_select_insurance_categoryRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.sp_select_insurance_driverRowChanged != null)) {
-                    this.sp_select_insurance_driverRowChanged(this, new sp_select_insurance_driverRowChangeEvent(((sp_select_insurance_driverRow)(e.Row)), e.Action));
+                if ((this.sp_select_insurance_categoryRowChanged != null)) {
+                    this.sp_select_insurance_categoryRowChanged(this, new sp_select_insurance_categoryRowChangeEvent(((sp_select_insurance_categoryRow)(e.Row)), e.Action));
                 }
             }
             
@@ -460,8 +457,8 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.sp_select_insurance_driverRowChanging != null)) {
-                    this.sp_select_insurance_driverRowChanging(this, new sp_select_insurance_driverRowChangeEvent(((sp_select_insurance_driverRow)(e.Row)), e.Action));
+                if ((this.sp_select_insurance_categoryRowChanging != null)) {
+                    this.sp_select_insurance_categoryRowChanging(this, new sp_select_insurance_categoryRowChangeEvent(((sp_select_insurance_categoryRow)(e.Row)), e.Action));
                 }
             }
             
@@ -469,8 +466,8 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.sp_select_insurance_driverRowDeleted != null)) {
-                    this.sp_select_insurance_driverRowDeleted(this, new sp_select_insurance_driverRowChangeEvent(((sp_select_insurance_driverRow)(e.Row)), e.Action));
+                if ((this.sp_select_insurance_categoryRowDeleted != null)) {
+                    this.sp_select_insurance_categoryRowDeleted(this, new sp_select_insurance_categoryRowChangeEvent(((sp_select_insurance_categoryRow)(e.Row)), e.Action));
                 }
             }
             
@@ -478,14 +475,14 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.sp_select_insurance_driverRowDeleting != null)) {
-                    this.sp_select_insurance_driverRowDeleting(this, new sp_select_insurance_driverRowChangeEvent(((sp_select_insurance_driverRow)(e.Row)), e.Action));
+                if ((this.sp_select_insurance_categoryRowDeleting != null)) {
+                    this.sp_select_insurance_categoryRowDeleting(this, new sp_select_insurance_categoryRowChangeEvent(((sp_select_insurance_categoryRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Removesp_select_insurance_driverRow(sp_select_insurance_driverRow row) {
+            public void Removesp_select_insurance_categoryRow(sp_select_insurance_categoryRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -494,7 +491,7 @@ namespace VehicleDealership.Datasets {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Insurance_driver_ds ds = new Insurance_driver_ds();
+                Insurance_category_ds ds = new Insurance_category_ds();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -512,7 +509,7 @@ namespace VehicleDealership.Datasets {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "sp_select_insurance_driverDataTable";
+                attribute2.FixedValue = "sp_select_insurance_categoryDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -556,47 +553,36 @@ namespace VehicleDealership.Datasets {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class sp_select_insurance_driverRow : global::System.Data.DataRow {
+        public partial class sp_select_insurance_categoryRow : global::System.Data.DataRow {
             
-            private sp_select_insurance_driverDataTable tablesp_select_insurance_driver;
+            private sp_select_insurance_categoryDataTable tablesp_select_insurance_category;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal sp_select_insurance_driverRow(global::System.Data.DataRowBuilder rb) : 
+            internal sp_select_insurance_categoryRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablesp_select_insurance_driver = ((sp_select_insurance_driverDataTable)(this.Table));
+                this.tablesp_select_insurance_category = ((sp_select_insurance_categoryDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string driver {
+            public int insurance_category {
                 get {
-                    return ((string)(this[this.tablesp_select_insurance_driver.driverColumn]));
+                    return ((int)(this[this.tablesp_select_insurance_category.insurance_categoryColumn]));
                 }
                 set {
-                    this[this.tablesp_select_insurance_driver.driverColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ic_no {
-                get {
-                    return ((string)(this[this.tablesp_select_insurance_driver.ic_noColumn]));
-                }
-                set {
-                    this[this.tablesp_select_insurance_driver.ic_noColumn] = value;
+                    this[this.tablesp_select_insurance_category.insurance_categoryColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string modified_by {
+            public string description {
                 get {
-                    return ((string)(this[this.tablesp_select_insurance_driver.modified_byColumn]));
+                    return ((string)(this[this.tablesp_select_insurance_category.descriptionColumn]));
                 }
                 set {
-                    this[this.tablesp_select_insurance_driver.modified_byColumn] = value;
+                    this[this.tablesp_select_insurance_category.descriptionColumn] = value;
                 }
             }
         }
@@ -605,22 +591,22 @@ namespace VehicleDealership.Datasets {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class sp_select_insurance_driverRowChangeEvent : global::System.EventArgs {
+        public class sp_select_insurance_categoryRowChangeEvent : global::System.EventArgs {
             
-            private sp_select_insurance_driverRow eventRow;
+            private sp_select_insurance_categoryRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_insurance_driverRowChangeEvent(sp_select_insurance_driverRow row, global::System.Data.DataRowAction action) {
+            public sp_select_insurance_categoryRowChangeEvent(sp_select_insurance_categoryRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_insurance_driverRow Row {
+            public sp_select_insurance_categoryRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -636,7 +622,7 @@ namespace VehicleDealership.Datasets {
         }
     }
 }
-namespace VehicleDealership.Datasets.Insurance_driver_dsTableAdapters {
+namespace VehicleDealership.Datasets.Insurance_category_dsTableAdapters {
     
     
     /// <summary>
@@ -648,7 +634,7 @@ namespace VehicleDealership.Datasets.Insurance_driver_dsTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class sp_select_insurance_driverTableAdapter : global::System.ComponentModel.Component {
+    public partial class sp_select_insurance_categoryTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -662,7 +648,7 @@ namespace VehicleDealership.Datasets.Insurance_driver_dsTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public sp_select_insurance_driverTableAdapter() {
+        public sp_select_insurance_categoryTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -759,10 +745,9 @@ namespace VehicleDealership.Datasets.Insurance_driver_dsTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "sp_select_insurance_driver";
-            tableMapping.ColumnMappings.Add("driver", "driver");
-            tableMapping.ColumnMappings.Add("ic_no", "ic_no");
-            tableMapping.ColumnMappings.Add("modified_by", "modified_by");
+            tableMapping.DataSetTable = "sp_select_insurance_category";
+            tableMapping.ColumnMappings.Add("insurance_category", "insurance_category");
+            tableMapping.ColumnMappings.Add("description", "description");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -779,99 +764,20 @@ namespace VehicleDealership.Datasets.Insurance_driver_dsTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "fin.sp_select_insurance_driver";
+            this._commandCollection[0].CommandText = "fin.sp_select_insurance_category";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Insurance_driver_ds.sp_select_insurance_driverDataTable GetData(global::System.Nullable<int> vehicle) {
+        public virtual Insurance_category_ds.sp_select_insurance_categoryDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((vehicle.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(vehicle.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            Insurance_driver_ds.sp_select_insurance_driverDataTable dataTable = new Insurance_driver_ds.sp_select_insurance_driverDataTable();
+            Insurance_category_ds.sp_select_insurance_categoryDataTable dataTable = new Insurance_category_ds.sp_select_insurance_categoryDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class QueriesTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.IDbCommand[] _commandCollection;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.IDbCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.IDbCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "fin.sp_update_insert_insurance_driver";
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@uid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int sp_update_insert_insurance_driver(global::System.Nullable<int> vehicle, global::System.Nullable<int> uid) {
-            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
-            if ((vehicle.HasValue == true)) {
-                command.Parameters[1].Value = ((int)(vehicle.Value));
-            }
-            else {
-                command.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((uid.HasValue == true)) {
-                command.Parameters[2].Value = ((int)(uid.Value));
-            }
-            else {
-                command.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
         }
     }
     
@@ -943,7 +849,7 @@ namespace VehicleDealership.Datasets.Insurance_driver_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(Insurance_driver_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(Insurance_category_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -953,7 +859,7 @@ namespace VehicleDealership.Datasets.Insurance_driver_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(Insurance_driver_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(Insurance_category_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -963,7 +869,7 @@ namespace VehicleDealership.Datasets.Insurance_driver_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(Insurance_driver_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(Insurance_category_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -997,7 +903,7 @@ namespace VehicleDealership.Datasets.Insurance_driver_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(Insurance_driver_ds dataSet) {
+        public virtual int UpdateAll(Insurance_category_ds dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

@@ -6,10 +6,6 @@ namespace VehicleDealership.Datasets
 
 	partial class Location_ds
 	{
-		private static Location_dsTableAdapters.sp_select_locationTableAdapter Select_LocationTableAdapter()
-		{
-			return new Location_dsTableAdapters.sp_select_locationTableAdapter();
-		}
 		private static Location_dsTableAdapters.QueriesTableAdapter QueriesTableAdapter()
 		{
 			return new Location_dsTableAdapters.QueriesTableAdapter();
@@ -18,7 +14,11 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				return Select_LocationTableAdapter().GetData();
+				using (Location_dsTableAdapters.sp_select_locationTableAdapter adapter =
+					new Location_dsTableAdapters.sp_select_locationTableAdapter())
+				{
+					return adapter.GetData();
+				}
 			}
 			catch (System.Exception e)
 			{
@@ -31,7 +31,11 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				QueriesTableAdapter().sp_delete_location(Program.System_user.UserID);
+				using (Location_dsTableAdapters.QueriesTableAdapter adapter =
+					new Location_dsTableAdapters.QueriesTableAdapter())
+				{
+					adapter.sp_delete_location(Program.System_user.UserID);
+				}
 				return true;
 			}
 			catch (System.Exception)
@@ -45,7 +49,11 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				QueriesTableAdapter().sp_update_insert_location(Program.System_user.UserID);
+				using (Location_dsTableAdapters.QueriesTableAdapter adapter =
+					new Location_dsTableAdapters.QueriesTableAdapter())
+				{
+					adapter.sp_update_insert_location(Program.System_user.UserID);
+				}
 				return true;
 			}
 			catch (System.Exception e)

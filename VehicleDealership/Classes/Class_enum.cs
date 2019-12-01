@@ -12,8 +12,7 @@ namespace VehicleDealership.Classes
 		{
 			VEHICLE_SALE_PAYMENT_RECEIVED = 1,
 			VEHICLE_EXPENSES = 2,
-			VEHICLE_MISC_PAID = 3,
-			VEHICLE_MISC_RECEIVED = 4,
+			VEHICLE_SALE_MISC_RECEIVED = 4,
 			VEHICLE_PAY_TO_SELLER = 5
 		}
 
@@ -53,13 +52,6 @@ namespace VehicleDealership.Classes
 			public static string INSURANCE_DELETE { get { return "INSURANCE_DELETE"; } }
 			public static string LOAN_ADD_EDIT { get { return "LOAN_ADD_EDIT"; } }
 			public static string LOAN_DELETE { get { return "LOAN_DELETE"; } }
-
-
-			//private User_permission(string value) { Value = value; }
-			//public string Value { get; private set; }
-			//public static User_permission ADMINISTRATOR { get { return new User_permission("ADMINISTRATOR"); } }
-			//public static User_permission EDIT_USERS { get { return new User_permission("EDIT_USERS"); } }
-			//public static User_permission VIEW_USERS { get { return new User_permission("VIEW_USERS"); } }
 		}
 	}
 }

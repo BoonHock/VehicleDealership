@@ -283,8 +283,6 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columnlocation_name;
             
-            private global::System.Data.DataColumn columnmodified_by;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public sp_select_locationDataTable() {
@@ -336,14 +334,6 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn modified_byColumn {
-                get {
-                    return this.columnmodified_by;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -379,12 +369,11 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_locationRow Addsp_select_locationRow(string location_name, int modified_by) {
+            public sp_select_locationRow Addsp_select_locationRow(string location_name) {
                 sp_select_locationRow rowsp_select_locationRow = ((sp_select_locationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        location_name,
-                        modified_by};
+                        location_name};
                 rowsp_select_locationRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_select_locationRow);
                 return rowsp_select_locationRow;
@@ -416,7 +405,6 @@ namespace VehicleDealership.Datasets {
             internal void InitVars() {
                 this.columnlocation = base.Columns["location"];
                 this.columnlocation_name = base.Columns["location_name"];
-                this.columnmodified_by = base.Columns["modified_by"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -426,8 +414,6 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columnlocation);
                 this.columnlocation_name = new global::System.Data.DataColumn("location_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnlocation_name);
-                this.columnmodified_by = new global::System.Data.DataColumn("modified_by", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmodified_by);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnlocation}, true));
                 this.columnlocation.AutoIncrement = true;
@@ -438,7 +424,6 @@ namespace VehicleDealership.Datasets {
                 this.columnlocation.Unique = true;
                 this.columnlocation_name.AllowDBNull = false;
                 this.columnlocation_name.MaxLength = 50;
-                this.columnmodified_by.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -598,17 +583,6 @@ namespace VehicleDealership.Datasets {
                 }
                 set {
                     this[this.tablesp_select_location.location_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int modified_by {
-                get {
-                    return ((int)(this[this.tablesp_select_location.modified_byColumn]));
-                }
-                set {
-                    this[this.tablesp_select_location.modified_byColumn] = value;
                 }
             }
         }
@@ -774,7 +748,6 @@ namespace VehicleDealership.Datasets.Location_dsTableAdapters {
             tableMapping.DataSetTable = "sp_select_location";
             tableMapping.ColumnMappings.Add("location", "location");
             tableMapping.ColumnMappings.Add("location_name", "location_name");
-            tableMapping.ColumnMappings.Add("modified_by", "modified_by");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

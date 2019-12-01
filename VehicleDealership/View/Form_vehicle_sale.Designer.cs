@@ -131,6 +131,8 @@
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
 			this.lbl_charges_add = new System.Windows.Forms.ToolStripLabel();
+			this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+			this.lbl_charges_less = new System.Windows.Forms.ToolStripLabel();
 			this.groupBox7 = new System.Windows.Forms.GroupBox();
 			this.grd_misc_payment_received = new System.Windows.Forms.DataGridView();
 			this.toolStrip5 = new System.Windows.Forms.ToolStrip();
@@ -238,8 +240,6 @@
 			this.label84 = new System.Windows.Forms.Label();
 			this.label85 = new System.Windows.Forms.Label();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
-			this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-			this.lbl_charges_less = new System.Windows.Forms.ToolStripLabel();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel5.SuspendLayout();
 			this.tabPage4.SuspendLayout();
@@ -1005,6 +1005,7 @@
 			// num_insurance_premium_to_pay
 			// 
 			this.num_insurance_premium_to_pay.DecimalPlaces = 2;
+			this.num_insurance_premium_to_pay.Enabled = false;
 			this.num_insurance_premium_to_pay.Location = new System.Drawing.Point(200, 465);
 			this.num_insurance_premium_to_pay.Maximum = new decimal(new int[] {
             1000000000,
@@ -1017,6 +1018,7 @@
             0,
             -2147483648});
 			this.num_insurance_premium_to_pay.Name = "num_insurance_premium_to_pay";
+			this.num_insurance_premium_to_pay.ReadOnly = true;
 			this.num_insurance_premium_to_pay.Size = new System.Drawing.Size(116, 25);
 			this.num_insurance_premium_to_pay.TabIndex = 5;
 			this.num_insurance_premium_to_pay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1470,6 +1472,19 @@
 			this.lbl_charges_add.Name = "lbl_charges_add";
 			this.lbl_charges_add.Size = new System.Drawing.Size(28, 22);
 			this.lbl_charges_add.Text = "0.00";
+			// 
+			// toolStripLabel2
+			// 
+			this.toolStripLabel2.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+			this.toolStripLabel2.Name = "toolStripLabel2";
+			this.toolStripLabel2.Size = new System.Drawing.Size(60, 22);
+			this.toolStripLabel2.Text = "Less: MYR";
+			// 
+			// lbl_charges_less
+			// 
+			this.lbl_charges_less.Name = "lbl_charges_less";
+			this.lbl_charges_less.Size = new System.Drawing.Size(28, 22);
+			this.lbl_charges_less.Text = "0.00";
 			// 
 			// groupBox7
 			// 
@@ -2932,19 +2947,6 @@
 			this.tabControl1.SelectedIndex = 0;
 			this.tabControl1.Size = new System.Drawing.Size(943, 538);
 			this.tabControl1.TabIndex = 0;
-			// 
-			// toolStripLabel2
-			// 
-			this.toolStripLabel2.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
-			this.toolStripLabel2.Name = "toolStripLabel2";
-			this.toolStripLabel2.Size = new System.Drawing.Size(60, 22);
-			this.toolStripLabel2.Text = "Less: MYR";
-			// 
-			// lbl_charges_less
-			// 
-			this.lbl_charges_less.Name = "lbl_charges_less";
-			this.lbl_charges_less.Size = new System.Drawing.Size(28, 22);
-			this.lbl_charges_less.Text = "0.00";
 			// 
 			// Form_vehicle_sale
 			// 

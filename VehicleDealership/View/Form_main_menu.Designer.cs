@@ -41,6 +41,7 @@
 			this.colourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salespersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.financeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.insuranceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.locationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.vehicleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.vehicleToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +60,7 @@
 			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ssl_usergroup = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ssl_status = new System.Windows.Forms.ToolStripStatusLabel();
-			this.insuranceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.loanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.main_menu_strip.SuspendLayout();
 			this.log_in_menustrip.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
@@ -90,7 +91,8 @@
             this.salespersonToolStripMenuItem,
             this.financeToolStripMenuItem,
             this.insuranceToolStripMenuItem,
-            this.locationToolStripMenuItem});
+            this.locationToolStripMenuItem,
+            this.loanToolStripMenuItem});
 			this.administrationToolStripMenuItem.Name = "administrationToolStripMenuItem";
 			this.administrationToolStripMenuItem.Size = new System.Drawing.Size(98, 19);
 			this.administrationToolStripMenuItem.Text = "Administration";
@@ -161,6 +163,12 @@
 			this.financeToolStripMenuItem.Name = "financeToolStripMenuItem";
 			this.financeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.financeToolStripMenuItem.Text = "Finance";
+			// 
+			// insuranceToolStripMenuItem
+			// 
+			this.insuranceToolStripMenuItem.Name = "insuranceToolStripMenuItem";
+			this.insuranceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.insuranceToolStripMenuItem.Text = "Insurance";
 			// 
 			// locationToolStripMenuItem
 			// 
@@ -311,11 +319,11 @@
 			this.ssl_status.Size = new System.Drawing.Size(43, 19);
 			this.ssl_status.Text = "Ready";
 			// 
-			// insuranceToolStripMenuItem
+			// loanToolStripMenuItem
 			// 
-			this.insuranceToolStripMenuItem.Name = "insuranceToolStripMenuItem";
-			this.insuranceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.insuranceToolStripMenuItem.Text = "Insurance";
+			this.loanToolStripMenuItem.Name = "loanToolStripMenuItem";
+			this.loanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.loanToolStripMenuItem.Text = "Loan";
 			// 
 			// Form_main_menu
 			// 
@@ -379,5 +387,6 @@
 		private System.Windows.Forms.ToolStripMenuItem locationToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem vehicleReturnsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem insuranceToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem loanToolStripMenuItem;
 	}
 }

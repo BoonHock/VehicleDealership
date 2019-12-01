@@ -236,5 +236,23 @@ namespace VehicleDealership.Datasets
 			}
 			return false;
 		}
+		public static bool Update_trade_in(string str_trade_in_vehicle_combine, int int_vehicle)
+		{
+			try
+			{
+				using (Vehicle_dsTableAdapters.QueriesTableAdapter adapter =
+					new Vehicle_dsTableAdapters.QueriesTableAdapter())
+				{
+					adapter.sp_update_trade_in(str_trade_in_vehicle_combine, int_vehicle, Program.System_user.UserID);
+					return true;
+				}
+			}
+			catch (System.Data.SqlClient.SqlException e)
+			{
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
+			}
+			return false;
+		}
 	}
 }

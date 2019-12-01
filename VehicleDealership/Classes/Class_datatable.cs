@@ -53,6 +53,13 @@ namespace VehicleDealership.Classes
 
 			return keyValuePairs;
 		}
-
+		public static void Add_uploaded_by_columns(ref DataTable dttable)
+		{
+			using (DataColumn dt_col = new DataColumn("uploaded_by"))
+			{
+				dt_col.DefaultValue = Program.System_user.UserID;
+				dttable.Columns.Add(dt_col);
+			}
+		}
 	}
 }

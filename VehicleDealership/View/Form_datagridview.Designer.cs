@@ -30,6 +30,10 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			this.ts_user = new System.Windows.Forms.ToolStrip();
+			this.btn_edit_user = new System.Windows.Forms.ToolStripButton();
+			this.btn_add_user = new System.Windows.Forms.ToolStripButton();
+			this.btn_activate_user = new System.Windows.Forms.ToolStripButton();
+			this.btn_deactivate_user = new System.Windows.Forms.ToolStripButton();
 			this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
 			this.txt_search_user = new System.Windows.Forms.ToolStripTextBox();
 			this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
@@ -40,36 +44,33 @@
 			this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ts_save_only = new System.Windows.Forms.ToolStrip();
+			this.btn_save = new System.Windows.Forms.ToolStripButton();
 			this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
 			this.ts_add_edit_delete = new System.Windows.Forms.ToolStrip();
+			this.btn_add = new System.Windows.Forms.ToolStripButton();
+			this.btn_edit = new System.Windows.Forms.ToolStripButton();
+			this.btn_delete = new System.Windows.Forms.ToolStripButton();
 			this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
 			this.txt_search = new System.Windows.Forms.ToolStripTextBox();
 			this.lbl_status = new System.Windows.Forms.ToolStripLabel();
 			this.cmb_status = new System.Windows.Forms.ToolStripComboBox();
 			this.ts_vehicle = new System.Windows.Forms.ToolStrip();
+			this.btn_add_vehicle = new System.Windows.Forms.ToolStripButton();
+			this.btn_edit_vehicle = new System.Windows.Forms.ToolStripButton();
+			this.btn_delete_vehicle = new System.Windows.Forms.ToolStripButton();
 			this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
 			this.txt_search_vehicle = new System.Windows.Forms.ToolStripTextBox();
 			this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
 			this.cmb_vehicle_acquire = new System.Windows.Forms.ToolStripComboBox();
 			this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
 			this.cmb_vehicle_status = new System.Windows.Forms.ToolStripComboBox();
-			this.btn_add_vehicle = new System.Windows.Forms.ToolStripButton();
-			this.btn_edit_vehicle = new System.Windows.Forms.ToolStripButton();
-			this.btn_delete_vehicle = new System.Windows.Forms.ToolStripButton();
 			this.btn_print_vehicle_in = new System.Windows.Forms.ToolStripDropDownButton();
 			this.vehicleReceivedNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.evidenceOfPurchaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.hirePurchaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salesPurchaseAgreementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.btn_add = new System.Windows.Forms.ToolStripButton();
-			this.btn_edit = new System.Windows.Forms.ToolStripButton();
-			this.btn_delete = new System.Windows.Forms.ToolStripButton();
-			this.btn_save = new System.Windows.Forms.ToolStripButton();
-			this.btn_edit_user = new System.Windows.Forms.ToolStripButton();
-			this.btn_add_user = new System.Windows.Forms.ToolStripButton();
-			this.btn_activate_user = new System.Windows.Forms.ToolStripButton();
-			this.btn_deactivate_user = new System.Windows.Forms.ToolStripButton();
 			this.btn_print_vehicle_out = new System.Windows.Forms.ToolStripButton();
+			this.lbl_edit_will_affect_all = new System.Windows.Forms.Label();
 			this.ts_user.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_main)).BeginInit();
 			this.cms_grd_main.SuspendLayout();
@@ -95,6 +96,46 @@
 			this.ts_user.Size = new System.Drawing.Size(1212, 25);
 			this.ts_user.TabIndex = 1;
 			this.ts_user.Text = "toolStrip1";
+			// 
+			// btn_edit_user
+			// 
+			this.btn_edit_user.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_edit_user.Enabled = false;
+			this.btn_edit_user.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
+			this.btn_edit_user.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_edit_user.Name = "btn_edit_user";
+			this.btn_edit_user.Size = new System.Drawing.Size(23, 22);
+			this.btn_edit_user.Text = "Edit";
+			// 
+			// btn_add_user
+			// 
+			this.btn_add_user.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_add_user.Enabled = false;
+			this.btn_add_user.Image = global::VehicleDealership.Properties.Resources.Add_16x;
+			this.btn_add_user.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_add_user.Name = "btn_add_user";
+			this.btn_add_user.Size = new System.Drawing.Size(23, 22);
+			this.btn_add_user.Text = "Add";
+			// 
+			// btn_activate_user
+			// 
+			this.btn_activate_user.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_activate_user.Enabled = false;
+			this.btn_activate_user.Image = global::VehicleDealership.Properties.Resources.StatusRun_16x;
+			this.btn_activate_user.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_activate_user.Name = "btn_activate_user";
+			this.btn_activate_user.Size = new System.Drawing.Size(23, 22);
+			this.btn_activate_user.Text = "Activate";
+			// 
+			// btn_deactivate_user
+			// 
+			this.btn_deactivate_user.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_deactivate_user.Enabled = false;
+			this.btn_deactivate_user.Image = global::VehicleDealership.Properties.Resources.StatusStop_16x;
+			this.btn_deactivate_user.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_deactivate_user.Name = "btn_deactivate_user";
+			this.btn_deactivate_user.Size = new System.Drawing.Size(23, 22);
+			this.btn_deactivate_user.Text = "Deactivate";
 			// 
 			// toolStripLabel1
 			// 
@@ -132,10 +173,10 @@
 			this.grd_main.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.grd_main.ContextMenuStrip = this.cms_grd_main;
 			this.grd_main.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.grd_main.Location = new System.Drawing.Point(0, 100);
+			this.grd_main.Location = new System.Drawing.Point(0, 120);
 			this.grd_main.Name = "grd_main";
 			this.grd_main.ReadOnly = true;
-			this.grd_main.Size = new System.Drawing.Size(1212, 688);
+			this.grd_main.Size = new System.Drawing.Size(1212, 668);
 			this.grd_main.TabIndex = 2;
 			// 
 			// cms_grd_main
@@ -177,6 +218,15 @@
 			this.ts_save_only.TabIndex = 3;
 			this.ts_save_only.Text = "toolStrip1";
 			// 
+			// btn_save
+			// 
+			this.btn_save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_save.Image = global::VehicleDealership.Properties.Resources.Save_16x;
+			this.btn_save.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_save.Name = "btn_save";
+			this.btn_save.Size = new System.Drawing.Size(23, 22);
+			this.btn_save.Text = "Save changes";
+			// 
 			// toolStripLabel3
 			// 
 			this.toolStripLabel3.Name = "toolStripLabel3";
@@ -200,6 +250,33 @@
 			this.ts_add_edit_delete.Size = new System.Drawing.Size(1212, 25);
 			this.ts_add_edit_delete.TabIndex = 5;
 			this.ts_add_edit_delete.Text = "toolStrip2";
+			// 
+			// btn_add
+			// 
+			this.btn_add.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_add.Image = global::VehicleDealership.Properties.Resources.Add_16x;
+			this.btn_add.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_add.Name = "btn_add";
+			this.btn_add.Size = new System.Drawing.Size(23, 22);
+			this.btn_add.Text = "Add";
+			// 
+			// btn_edit
+			// 
+			this.btn_edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_edit.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
+			this.btn_edit.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_edit.Name = "btn_edit";
+			this.btn_edit.Size = new System.Drawing.Size(23, 22);
+			this.btn_edit.Text = "Edit";
+			// 
+			// btn_delete
+			// 
+			this.btn_delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_delete.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
+			this.btn_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_delete.Name = "btn_delete";
+			this.btn_delete.Size = new System.Drawing.Size(23, 22);
+			this.btn_delete.Text = "Delete";
 			// 
 			// toolStripLabel4
 			// 
@@ -245,6 +322,33 @@
 			this.ts_vehicle.Size = new System.Drawing.Size(1212, 25);
 			this.ts_vehicle.TabIndex = 6;
 			this.ts_vehicle.Text = "toolStrip2";
+			// 
+			// btn_add_vehicle
+			// 
+			this.btn_add_vehicle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_add_vehicle.Image = global::VehicleDealership.Properties.Resources.Add_16x;
+			this.btn_add_vehicle.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_add_vehicle.Name = "btn_add_vehicle";
+			this.btn_add_vehicle.Size = new System.Drawing.Size(23, 22);
+			this.btn_add_vehicle.Text = "Add";
+			// 
+			// btn_edit_vehicle
+			// 
+			this.btn_edit_vehicle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_edit_vehicle.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
+			this.btn_edit_vehicle.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_edit_vehicle.Name = "btn_edit_vehicle";
+			this.btn_edit_vehicle.Size = new System.Drawing.Size(23, 22);
+			this.btn_edit_vehicle.Text = "Edit";
+			// 
+			// btn_delete_vehicle
+			// 
+			this.btn_delete_vehicle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btn_delete_vehicle.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
+			this.btn_delete_vehicle.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btn_delete_vehicle.Name = "btn_delete_vehicle";
+			this.btn_delete_vehicle.Size = new System.Drawing.Size(23, 22);
+			this.btn_delete_vehicle.Text = "Delete";
 			// 
 			// toolStripLabel5
 			// 
@@ -293,33 +397,6 @@
 			this.cmb_vehicle_status.Name = "cmb_vehicle_status";
 			this.cmb_vehicle_status.Size = new System.Drawing.Size(121, 25);
 			// 
-			// btn_add_vehicle
-			// 
-			this.btn_add_vehicle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_add_vehicle.Image = global::VehicleDealership.Properties.Resources.Add_16x;
-			this.btn_add_vehicle.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_add_vehicle.Name = "btn_add_vehicle";
-			this.btn_add_vehicle.Size = new System.Drawing.Size(23, 22);
-			this.btn_add_vehicle.Text = "Add";
-			// 
-			// btn_edit_vehicle
-			// 
-			this.btn_edit_vehicle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_edit_vehicle.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
-			this.btn_edit_vehicle.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_edit_vehicle.Name = "btn_edit_vehicle";
-			this.btn_edit_vehicle.Size = new System.Drawing.Size(23, 22);
-			this.btn_edit_vehicle.Text = "Edit";
-			// 
-			// btn_delete_vehicle
-			// 
-			this.btn_delete_vehicle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_delete_vehicle.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
-			this.btn_delete_vehicle.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_delete_vehicle.Name = "btn_delete_vehicle";
-			this.btn_delete_vehicle.Size = new System.Drawing.Size(23, 22);
-			this.btn_delete_vehicle.Text = "Delete";
-			// 
 			// btn_print_vehicle_in
 			// 
 			this.btn_print_vehicle_in.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -362,82 +439,6 @@
 			this.salesPurchaseAgreementToolStripMenuItem.Text = "Sales && Purchase Agreement";
 			this.salesPurchaseAgreementToolStripMenuItem.Click += new System.EventHandler(this.SalesPurchaseAgreementToolStripMenuItem_Click);
 			// 
-			// btn_add
-			// 
-			this.btn_add.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_add.Image = global::VehicleDealership.Properties.Resources.Add_16x;
-			this.btn_add.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_add.Name = "btn_add";
-			this.btn_add.Size = new System.Drawing.Size(23, 22);
-			this.btn_add.Text = "Add";
-			// 
-			// btn_edit
-			// 
-			this.btn_edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_edit.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
-			this.btn_edit.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_edit.Name = "btn_edit";
-			this.btn_edit.Size = new System.Drawing.Size(23, 22);
-			this.btn_edit.Text = "Edit";
-			// 
-			// btn_delete
-			// 
-			this.btn_delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_delete.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
-			this.btn_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_delete.Name = "btn_delete";
-			this.btn_delete.Size = new System.Drawing.Size(23, 22);
-			this.btn_delete.Text = "Delete";
-			// 
-			// btn_save
-			// 
-			this.btn_save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_save.Image = global::VehicleDealership.Properties.Resources.Save_16x;
-			this.btn_save.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_save.Name = "btn_save";
-			this.btn_save.Size = new System.Drawing.Size(23, 22);
-			this.btn_save.Text = "Save changes";
-			// 
-			// btn_edit_user
-			// 
-			this.btn_edit_user.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_edit_user.Enabled = false;
-			this.btn_edit_user.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
-			this.btn_edit_user.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_edit_user.Name = "btn_edit_user";
-			this.btn_edit_user.Size = new System.Drawing.Size(23, 22);
-			this.btn_edit_user.Text = "Edit";
-			// 
-			// btn_add_user
-			// 
-			this.btn_add_user.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_add_user.Enabled = false;
-			this.btn_add_user.Image = global::VehicleDealership.Properties.Resources.Add_16x;
-			this.btn_add_user.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_add_user.Name = "btn_add_user";
-			this.btn_add_user.Size = new System.Drawing.Size(23, 22);
-			this.btn_add_user.Text = "Add";
-			// 
-			// btn_activate_user
-			// 
-			this.btn_activate_user.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_activate_user.Enabled = false;
-			this.btn_activate_user.Image = global::VehicleDealership.Properties.Resources.StatusRun_16x;
-			this.btn_activate_user.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_activate_user.Name = "btn_activate_user";
-			this.btn_activate_user.Size = new System.Drawing.Size(23, 22);
-			this.btn_activate_user.Text = "Activate";
-			// 
-			// btn_deactivate_user
-			// 
-			this.btn_deactivate_user.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_deactivate_user.Enabled = false;
-			this.btn_deactivate_user.Image = global::VehicleDealership.Properties.Resources.StatusStop_16x;
-			this.btn_deactivate_user.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_deactivate_user.Name = "btn_deactivate_user";
-			this.btn_deactivate_user.Size = new System.Drawing.Size(23, 22);
-			this.btn_deactivate_user.Text = "Deactivate";
-			// 
 			// btn_print_vehicle_out
 			// 
 			this.btn_print_vehicle_out.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -447,12 +448,25 @@
 			this.btn_print_vehicle_out.Size = new System.Drawing.Size(23, 22);
 			this.btn_print_vehicle_out.Text = "Print";
 			// 
+			// lbl_edit_will_affect_all
+			// 
+			this.lbl_edit_will_affect_all.AutoSize = true;
+			this.lbl_edit_will_affect_all.BackColor = System.Drawing.Color.Yellow;
+			this.lbl_edit_will_affect_all.Dock = System.Windows.Forms.DockStyle.Top;
+			this.lbl_edit_will_affect_all.Location = new System.Drawing.Point(0, 100);
+			this.lbl_edit_will_affect_all.Name = "lbl_edit_will_affect_all";
+			this.lbl_edit_will_affect_all.Size = new System.Drawing.Size(296, 20);
+			this.lbl_edit_will_affect_all.TabIndex = 7;
+			this.lbl_edit_will_affect_all.Text = "NOTE: Positive ID indicates existing record. ";
+			this.lbl_edit_will_affect_all.Visible = false;
+			// 
 			// Form_datagridview
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1212, 788);
 			this.Controls.Add(this.grd_main);
+			this.Controls.Add(this.lbl_edit_will_affect_all);
 			this.Controls.Add(this.ts_vehicle);
 			this.Controls.Add(this.ts_add_edit_delete);
 			this.Controls.Add(this.ts_save_only);
@@ -521,5 +535,6 @@
 		private System.Windows.Forms.ToolStripMenuItem hirePurchaseToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem salesPurchaseAgreementToolStripMenuItem;
 		private System.Windows.Forms.ToolStripButton btn_print_vehicle_out;
+		private System.Windows.Forms.Label lbl_edit_will_affect_all;
 	}
 }

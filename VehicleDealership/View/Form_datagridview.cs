@@ -65,6 +65,7 @@ namespace VehicleDealership.View
 				case "FUEL TYPE":
 					// user will be editing straight to cell so display delete only
 					deleteToolStripMenuItem.Visible = true;
+					lbl_edit_will_affect_all.Visible = true;
 
 					if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_FUEL_TYPE) &&
 						!Program.System_user.Has_permission(Class_enum.User_permission.DELETE_FUEL_TYPE))
@@ -75,6 +76,7 @@ namespace VehicleDealership.View
 				case "TRANSMISSION":
 					// user will be editing straight to cell so display delete only
 					deleteToolStripMenuItem.Visible = true;
+					lbl_edit_will_affect_all.Visible = true;
 
 					if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_TRANSMISSION) &&
 						!Program.System_user.Has_permission(Class_enum.User_permission.DELETE_TRANSMISSION))
@@ -85,6 +87,7 @@ namespace VehicleDealership.View
 				case "COLOUR":
 					// user will be editing straight to cell so display delete only
 					deleteToolStripMenuItem.Visible = true;
+					lbl_edit_will_affect_all.Visible = true;
 
 					if (!Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_COLOUR) &&
 						!Program.System_user.Has_permission(Class_enum.User_permission.DELETE_COLOUR))
@@ -124,6 +127,17 @@ namespace VehicleDealership.View
 					else
 						Setup_form_finance();
 					break;
+				case "LOAN":
+					addToolStripMenuItem.Visible = true;
+					editToolStripMenuItem.Visible = true;
+					deleteToolStripMenuItem.Visible = true;
+
+					if (!Program.System_user.Has_permission(Class_enum.User_permission.LOAN_ADD_EDIT) &&
+						!Program.System_user.Has_permission(Class_enum.User_permission.LOAN_DELETE))
+						permission_denied = true;
+					else
+						Setup_form_finance(); // TODO
+					break;
 				case "VEHICLE":
 					addToolStripMenuItem.Visible = true;
 					editToolStripMenuItem.Visible = true;
@@ -162,12 +176,34 @@ namespace VehicleDealership.View
 				case "LOCATION":
 					// user will be editing straight to cell so display delete only
 					deleteToolStripMenuItem.Visible = true;
+					lbl_edit_will_affect_all.Visible = true;
 
 					if (!Program.System_user.Has_permission(Class_enum.User_permission.LOCATION_ADD_EDIT) &&
 						!Program.System_user.Has_permission(Class_enum.User_permission.LOCATION_DELETE))
 						permission_denied = true;
 					else
 						Setup_form_location();
+					break;
+				case "INSURANCE_TYPE":
+					// user will be editing straight to cell so display delete only
+					deleteToolStripMenuItem.Visible = true;
+					lbl_edit_will_affect_all.Visible = true;
+
+					if (!Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT) &&
+						!Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_DELETE))
+						permission_denied = true;
+					else
+						Setup_form_insurance_type();
+					break;
+				case "INSURANCE_CATEGORY":
+					// user will be editing straight to cell so display delete only
+					deleteToolStripMenuItem.Visible = true;
+
+					if (!Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT) &&
+						!Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_DELETE))
+						permission_denied = true;
+					else
+						Setup_form_insurance_category();
 					break;
 			}
 
@@ -342,12 +378,15 @@ namespace VehicleDealership.View
 				grd_main.ReadOnly = false;
 				grd_main.AllowUserToAddRows = true;
 			}
-			grd_main.AllowUserToDeleteRows =
-				Program.System_user.Has_permission(Class_enum.User_permission.DELETE_FUEL_TYPE);
+			deleteToolStripMenuItem.Enabled = false; // default
+			if (Program.System_user.Has_permission(Class_enum.User_permission.DELETE_FUEL_TYPE))
+			{
+				grd_main.AllowUserToDeleteRows = true;
+				deleteToolStripMenuItem.Enabled = true;
+			}
 
 			ts_save_only.Visible = true;
 			Setup_grd_fuel_type();
-
 			btn_save.Click += Btn_save_fuel_type_Click;
 			deleteToolStripMenuItem.Click += Delete_grd_main_row;
 		}
@@ -355,18 +394,15 @@ namespace VehicleDealership.View
 		{
 			Fuel_type_ds.sp_select_fuel_typeDataTable dttable = Fuel_type_ds.Select_fuel_type();
 
-			dttable.Columns["modified_by"].DefaultValue = Program.System_user.Name;
-			dttable.Columns["modified_by"].ReadOnly = true;
+			dttable.modified_byColumn.DefaultValue = Program.System_user.Name;
+			dttable.modified_byColumn.ReadOnly = true;
 
 			Class_datagridview.Setup_and_preselect(grd_main, dttable, "fuel_type_name");
 
 			grd_main.AutoResizeColumns();
-
+			grd_main.Columns["fuel_type"].DefaultCellStyle.BackColor = Color.LightGray;
 			grd_main.Columns["modified_by"].DefaultCellStyle.BackColor = Color.LightGray;
-			((DataGridViewTextBoxColumn)grd_main.Columns["fuel_type_name"]).MaxInputLength = 20;
-
-			if (!Program.System_user.IsDeveloper)
-				Class_datagridview.Hide_columns(grd_main, new string[] { "fuel_type" });
+			Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_main, "fuel_type_name");
 		}
 		private void Btn_save_fuel_type_Click(object sender, EventArgs e)
 		{
@@ -444,8 +480,12 @@ namespace VehicleDealership.View
 				grd_main.ReadOnly = false;
 				grd_main.AllowUserToAddRows = true;
 			}
-			grd_main.AllowUserToDeleteRows =
-				Program.System_user.Has_permission(Class_enum.User_permission.DELETE_TRANSMISSION);
+			deleteToolStripMenuItem.Enabled = false; // default
+			if (Program.System_user.Has_permission(Class_enum.User_permission.DELETE_TRANSMISSION))
+			{
+				grd_main.AllowUserToDeleteRows = true;
+				deleteToolStripMenuItem.Enabled = true;
+			}
 
 			ts_save_only.Visible = true;
 
@@ -463,12 +503,9 @@ namespace VehicleDealership.View
 			Class_datagridview.Setup_and_preselect(grd_main, dttable, "transmission_name");
 
 			grd_main.AutoResizeColumns();
-
+			grd_main.Columns["transmission"].DefaultCellStyle.BackColor = Color.LightGray;
 			grd_main.Columns["modified_by"].DefaultCellStyle.BackColor = Color.LightGray;
-			((DataGridViewTextBoxColumn)grd_main.Columns["transmission_name"]).MaxInputLength = 20;
-
-			if (!Program.System_user.IsDeveloper)
-				Class_datagridview.Hide_columns(grd_main, new string[] { "transmission" });
+			Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_main, "transmission_name");
 		}
 		private void Btn_save_transmission_Click(object sender, EventArgs e)
 		{
@@ -541,11 +578,14 @@ namespace VehicleDealership.View
 				grd_main.ReadOnly = false;
 				grd_main.AllowUserToAddRows = true;
 			}
-			grd_main.AllowUserToDeleteRows =
-				Program.System_user.Has_permission(Class_enum.User_permission.DELETE_COLOUR);
+			deleteToolStripMenuItem.Enabled = false; // default
+			if (Program.System_user.Has_permission(Class_enum.User_permission.DELETE_COLOUR))
+			{
+				grd_main.AllowUserToDeleteRows = true;
+				deleteToolStripMenuItem.Enabled = true;
+			}
 
 			ts_save_only.Visible = true;
-
 			Setup_grd_colour();
 			btn_save.Click += Btn_save_colour_Click;
 			deleteToolStripMenuItem.Click += Delete_grd_main_row;
@@ -558,11 +598,8 @@ namespace VehicleDealership.View
 			Class_datagridview.Setup_and_preselect(grd_main, dttable, "colour_name");
 
 			grd_main.AutoResizeColumns();
-
-			((DataGridViewTextBoxColumn)grd_main.Columns["colour_name"]).MaxInputLength = 20;
-
-			if (!Program.System_user.IsDeveloper)
-				Class_datagridview.Hide_columns(grd_main, new string[] { "colour" });
+			grd_main.Columns["colour"].DefaultCellStyle.BackColor = Color.LightGray;
+			Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_main, "colour_name");
 		}
 		private void Btn_save_colour_Click(object sender, EventArgs e)
 		{
@@ -824,6 +861,8 @@ namespace VehicleDealership.View
 		private void Delete_finance(object sender, EventArgs e)
 		{
 			// TODO
+			MessageBox.Show("This feature is not available yet.", "",
+				MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 		#endregion
 		#region VEHICLE
@@ -1178,13 +1217,12 @@ namespace VehicleDealership.View
 		#region LOCATION
 		private void Setup_form_location()
 		{
-			deleteToolStripMenuItem.Enabled = false;
-
 			if (Program.System_user.Has_permission(Class_enum.User_permission.LOCATION_ADD_EDIT))
 			{
 				grd_main.ReadOnly = false;
 				grd_main.AllowUserToAddRows = true;
 			}
+			deleteToolStripMenuItem.Enabled = false; // default
 			if (Program.System_user.Has_permission(Class_enum.User_permission.LOCATION_DELETE))
 			{
 				grd_main.AllowUserToDeleteRows = true;
@@ -1198,16 +1236,11 @@ namespace VehicleDealership.View
 		}
 		private void Setup_grd_location()
 		{
-			Location_ds.sp_select_locationDataTable dttable = Location_ds.Select_location();
-			dttable.Columns.Remove("modified_by"); // no need this
-
-			Class_datagridview.Setup_and_preselect(grd_main, dttable, "location");
-
+			Class_datagridview.Setup_and_preselect(grd_main, Location_ds.Select_location(), "colour_name");
 			grd_main.AutoResizeColumns();
-			((DataGridViewTextBoxColumn)grd_main.Columns["location_name"]).MaxInputLength = 50;
 
-			if (!Program.System_user.IsDeveloper)
-				Class_datagridview.Hide_columns(grd_main, new string[] { "location" });
+			grd_main.Columns["location"].DefaultCellStyle.BackColor = Color.LightGray;
+			Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_main, "location_name");
 		}
 		private void Btn_save_location_Click(object sender, EventArgs e)
 		{
@@ -1251,23 +1284,89 @@ namespace VehicleDealership.View
 				}
 				conn.Close();
 			}
-			// insert, update and delete transmission
-			bool is_deleted = true;
-			bool is_updated = true;
 
+			// insert, update and delete transmission
 			if (Program.System_user.Has_permission(Class_enum.User_permission.DELETE_COLOUR))
-				is_deleted = Location_ds.Delete_location();
+				if (!Location_ds.Delete_location())
+					MessageBox.Show("One or more location cannot be deleted because there are items applying this setting.",
+						"Some items cannot be deleted", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 			if (Program.System_user.Has_permission(Class_enum.User_permission.ADD_EDIT_COLOUR))
-				is_updated = Location_ds.Update_insert_location();
+				if (!Location_ds.Update_insert_location())
+					MessageBox.Show("Update failed.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 			Setup_grd_location();
+		}
+		#endregion
+		#region INSURANCE_TYPE 
+		private void Setup_form_insurance_type()
+		{
+			if (Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT))
+			{
+				grd_main.ReadOnly = false;
+				grd_main.AllowUserToAddRows = true;
+			}
+			deleteToolStripMenuItem.Enabled = false; // default
+			if (Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_DELETE))
+			{
+				grd_main.AllowUserToDeleteRows = true;
+				deleteToolStripMenuItem.Enabled = true;
+			}
+			ts_save_only.Visible = true;
+			Setup_grd_insurance_type();
+			btn_save.Click += Btn_save_insurance_type_Click;
+			deleteToolStripMenuItem.Click += Delete_grd_main_row;
+		}
+		private void Setup_grd_insurance_type()
+		{
+			Class_datagridview.Setup_and_preselect(grd_main, Insurance_type_ds.Select_insurance_type(), "insurance_type");
+			grd_main.AutoResizeColumns();
+			grd_main.Columns["insurance_type"].DefaultCellStyle.BackColor = Color.LightGray;
+			Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_main, "description");
+		}
+		private void Btn_save_insurance_type_Click(object sender, EventArgs e)
+		{
+			Class_datagridview.Apply_all_changes(grd_main);
+			DataTable dttable = ((DataTable)grd_main.DataSource).Copy();
+			Class_datatable.Add_uploaded_by_columns(ref dttable);
 
-			if (!is_deleted)
-				MessageBox.Show("One or more location cannot be deleted because there are items applying this location.",
-					"Some items cannot be deleted", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			else if (is_updated && is_deleted)
-				MessageBox.Show("All items have been saved successfully.", "Item saved", MessageBoxButtons.OK);
+			if (dttable.Select().GroupBy(c => c["description"].ToString().ToUpper()).Where(c => c.Count() > 1).Count() > 0)
+			{
+				MessageBox.Show("Duplicate descriptions are not allowed", "Invalid",
+					MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			Class_bulkcopy bk = new Class_bulkcopy(dttable)
+			{
+				INT1 = "insurance_type",
+				NVARCHAR1 = "description"
+			};
+			if (!bk.Write_to_db()) return;
+
+			if (Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_DELETE))
+				if (!Insurance_type_ds.Delete_insurance_type())
+					MessageBox.Show("One or more insurance type cannot be deleted because there are items applying this setting.",
+						"Some items cannot be deleted", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+			if (Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT))
+				if (!Insurance_type_ds.Update_insert_insurance_type())
+					MessageBox.Show("Update failed.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+			Setup_grd_insurance_type();
+		}
+		#endregion
+		#region INSURANCE_CATEGORY
+		private void Setup_form_insurance_category()
+		{
+
+		}
+		private void Setup_grd_insurance_category()
+		{
+
+		}
+		private void Btn_save_insurance_category_Click(object sender, EventArgs e)
+		{
+
 		}
 		#endregion
 	}

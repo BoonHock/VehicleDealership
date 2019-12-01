@@ -38,6 +38,7 @@ namespace VehicleDealership.View
 			financeToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "FINANCE");
 			insuranceToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "INSURANCE");
 			locationToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "LOCATION");
+			loanToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "LOAN");
 
 			vehicleToolStripMenuItem2.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "VEHICLE");
 			vehicleReturnsToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "VEHICLE RETURN");

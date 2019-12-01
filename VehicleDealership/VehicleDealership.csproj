@@ -93,6 +93,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Class_bulkcopy.cs" />
     <Compile Include="Classes\Class_combobox.cs" />
     <Compile Include="Classes\Class_datagridview.cs" />
     <Compile Include="Classes\Class_datatable.cs" />
@@ -230,6 +231,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\Insurance_category_ds.cs">
+      <DependentUpon>Insurance_category_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Insurance_category_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Insurance_category_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\Insurance_driver_ds.cs">
       <DependentUpon>Insurance_driver_ds.xsd</DependentUpon>
     </Compile>
@@ -253,6 +262,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Insurance_misc_charges_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Insurance_type_ds.cs">
+      <DependentUpon>Insurance_type_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Insurance_type_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Insurance_type_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\Loan_ds.cs">
       <DependentUpon>Loan_ds.xsd</DependentUpon>
@@ -823,6 +840,17 @@
     <None Include="Datasets\Fuel_type_ds.xss">
       <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
     </None>
+    <None Include="Datasets\Insurance_category_ds.xsc">
+      <DependentUpon>Insurance_category_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Insurance_category_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Insurance_category_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Insurance_category_ds.xss">
+      <DependentUpon>Insurance_category_ds.xsd</DependentUpon>
+    </None>
     <None Include="Datasets\Insurance_driver_ds.xsc">
       <DependentUpon>Insurance_driver_ds.xsd</DependentUpon>
     </None>
@@ -855,6 +883,17 @@
     </None>
     <None Include="Datasets\Insurance_misc_charges_ds.xss">
       <DependentUpon>Insurance_misc_charges_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Insurance_type_ds.xsc">
+      <DependentUpon>Insurance_type_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Insurance_type_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Insurance_type_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Insurance_type_ds.xss">
+      <DependentUpon>Insurance_type_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Loan_ds.xsc">
       <DependentUpon>Loan_ds.xsd</DependentUpon>
