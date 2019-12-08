@@ -8,14 +8,6 @@ namespace VehicleDealership.Classes
 {
 	public static class Class_enum
 	{
-		public enum Payment_function
-		{
-			VEHICLE_SALE_PAYMENT_RECEIVED = 1,
-			VEHICLE_EXPENSES = 2,
-			VEHICLE_SALE_MISC_RECEIVED = 4,
-			VEHICLE_PAY_TO_SELLER = 5
-		}
-
 		public static class User_permission
 		{
 			public static string ADMINISTRATOR { get { return "ADMINISTRATOR"; } }

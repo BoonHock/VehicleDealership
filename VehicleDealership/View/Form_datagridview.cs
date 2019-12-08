@@ -851,7 +851,21 @@ namespace VehicleDealership.View
 		{
 			if (grd_main.SelectedCells.Count == 0) return;
 
-			int int_org_id = (int)grd_main.SelectedCells[0].OwningRow.Cells["finance"].Value;
+			string str_id_col = "finance";
+			switch (this.Tag.ToString().ToUpper())
+			{
+				case "FINANCE":
+					str_id_col = "finance";
+					break;
+				case "INSURANCE":
+					str_id_col = "insurance";
+					break;
+				case "LOAN":
+					str_id_col = "loan";
+					break;
+			}
+
+			int int_org_id = (int)grd_main.SelectedCells[0].OwningRow.Cells[str_id_col].Value;
 
 			using (Form_edit_finance form_edit = new Form_edit_finance(int_org_id, this.Tag.ToString().ToUpper()))
 			{
@@ -1117,7 +1131,27 @@ namespace VehicleDealership.View
 		}
 		private void Delete_vehicle_sale(object sender, EventArgs e)
 		{
+			if (grd_main.SelectedCells.Count == 0) return;
 
+			// MUST CONFIRM GOT PERMISSION TO DELETE!!!!
+			if (!Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_SALE_DELETE)) return;
+
+			if (MessageBox.Show("Are you sure? This action cannot be undone.", "WARNING",
+				MessageBoxButtons.OK, MessageBoxIcon.Warning) != DialogResult.OK) return;
+
+			List<int> list_vehicle = new List<int>();
+
+			foreach (DataGridViewCell grd_cell in grd_main.SelectedCells)
+			{
+				list_vehicle.Add((int)grd_cell.OwningRow.Cells["vehicle"].Value);
+			}
+			list_vehicle = list_vehicle.Distinct().ToList();
+
+			foreach (int tmp_int in list_vehicle)
+			{
+				Vehicle_sale_ds.Delete_vehicle_sale_full(tmp_int);
+			}
+			Setup_grd_vehicle_sale();
 		}
 		#endregion
 		#region VEHICLE RETURN
@@ -1236,7 +1270,7 @@ namespace VehicleDealership.View
 		}
 		private void Setup_grd_location()
 		{
-			Class_datagridview.Setup_and_preselect(grd_main, Location_ds.Select_location(), "colour_name");
+			Class_datagridview.Setup_and_preselect(grd_main, Location_ds.Select_location(), "location_name");
 			grd_main.AutoResizeColumns();
 
 			grd_main.Columns["location"].DefaultCellStyle.BackColor = Color.LightGray;
@@ -1319,7 +1353,8 @@ namespace VehicleDealership.View
 		}
 		private void Setup_grd_insurance_type()
 		{
-			Class_datagridview.Setup_and_preselect(grd_main, Insurance_type_ds.Select_insurance_type(), "insurance_type");
+			Class_datagridview.Setup_and_preselect(grd_main,
+				Insurance_type_ds.Select_insurance_type(), "insurance_type");
 			grd_main.AutoResizeColumns();
 			grd_main.Columns["insurance_type"].DefaultCellStyle.BackColor = Color.LightGray;
 			Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_main, "description");
@@ -1358,15 +1393,58 @@ namespace VehicleDealership.View
 		#region INSURANCE_CATEGORY
 		private void Setup_form_insurance_category()
 		{
-
+			if (Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT))
+			{
+				grd_main.ReadOnly = false;
+				grd_main.AllowUserToAddRows = true;
+			}
+			deleteToolStripMenuItem.Enabled = false; // default
+			if (Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_DELETE))
+			{
+				grd_main.AllowUserToDeleteRows = true;
+				deleteToolStripMenuItem.Enabled = true;
+			}
+			ts_save_only.Visible = true;
+			Setup_grd_insurance_category();
+			btn_save.Click += Btn_save_insurance_category_Click;
+			deleteToolStripMenuItem.Click += Delete_grd_main_row;
 		}
 		private void Setup_grd_insurance_category()
 		{
-
+			Class_datagridview.Setup_and_preselect(grd_main,
+				Insurance_category_ds.Select_insurance_category(), "insurance_category");
+			grd_main.AutoResizeColumns();
+			grd_main.Columns["insurance_category"].DefaultCellStyle.BackColor = Color.LightGray;
+			Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_main, "description");
 		}
 		private void Btn_save_insurance_category_Click(object sender, EventArgs e)
 		{
+			Class_datagridview.Apply_all_changes(grd_main);
+			DataTable dttable = ((DataTable)grd_main.DataSource).Copy();
+			Class_datatable.Add_uploaded_by_columns(ref dttable);
+			if (dttable.Select().GroupBy(c => c["description"].ToString().ToUpper()).Where(c => c.Count() > 1).Count() > 0)
+			{
+				MessageBox.Show("Duplicate descriptions are not allowed", "Invalid",
+					MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			Class_bulkcopy bk = new Class_bulkcopy(dttable)
+			{
+				INT1 = "insurance_category",
+				NVARCHAR1 = "description"
+			};
+			if (!bk.Write_to_db()) return;
 
+			if (Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_DELETE))
+				if (!Insurance_category_ds.Delete_insurance_category())
+					MessageBox.Show("One or more insurance category cannot be deleted because there are items applying this setting.",
+						"Some items cannot be deleted", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+			if (Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT))
+				if (!Insurance_category_ds.Update_insert_insurance_category())
+					MessageBox.Show("Update failed.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+			Setup_grd_insurance_category();
 		}
 		#endregion
 	}

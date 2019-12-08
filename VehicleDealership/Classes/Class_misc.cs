@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace VehicleDealership.Classes
 {
@@ -16,6 +17,11 @@ namespace VehicleDealership.Classes
 		{
 			MessageBox.Show("An error has occured. \n" + class_name + "." + function_name +
 				"\n Error:" + error_msg, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+		public static void Display_dataset_error(MethodBase m_base, string error_msg)
+		{
+			MessageBox.Show("An error has occured. \n" + m_base.DeclaringType.ToString() + "." +
+				m_base.Name + "\n Error:" + error_msg, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 		public static void Go_url(string str_url)
 		{

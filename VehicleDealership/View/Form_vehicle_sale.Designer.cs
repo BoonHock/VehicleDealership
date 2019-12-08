@@ -50,6 +50,7 @@
 			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.groupBox5 = new System.Windows.Forms.GroupBox();
+			this.btn_clear_loan_org = new System.Windows.Forms.Button();
 			this.num_insurance_company_id = new System.Windows.Forms.NumericUpDown();
 			this.num_loan_company_id = new System.Windows.Forms.NumericUpDown();
 			this.txt_loan_reg_no = new System.Windows.Forms.TextBox();
@@ -75,6 +76,7 @@
 			this.label30 = new System.Windows.Forms.Label();
 			this.label33 = new System.Windows.Forms.Label();
 			this.groupBox6 = new System.Windows.Forms.GroupBox();
+			this.btn_clear_insurance_org = new System.Windows.Forms.Button();
 			this.grd_insurance_driver = new System.Windows.Forms.DataGridView();
 			this.grd_insurance_misc = new System.Windows.Forms.DataGridView();
 			this.num_insurance_ncb_percent = new System.Windows.Forms.NumericUpDown();
@@ -549,6 +551,7 @@
 			// 
 			// groupBox5
 			// 
+			this.groupBox5.Controls.Add(this.btn_clear_loan_org);
 			this.groupBox5.Controls.Add(this.num_insurance_company_id);
 			this.groupBox5.Controls.Add(this.num_loan_company_id);
 			this.groupBox5.Controls.Add(this.txt_loan_reg_no);
@@ -581,6 +584,16 @@
 			this.groupBox5.TabStop = false;
 			this.groupBox5.Text = "Loan";
 			// 
+			// btn_clear_loan_org
+			// 
+			this.btn_clear_loan_org.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
+			this.btn_clear_loan_org.Location = new System.Drawing.Point(362, 24);
+			this.btn_clear_loan_org.Name = "btn_clear_loan_org";
+			this.btn_clear_loan_org.Size = new System.Drawing.Size(25, 25);
+			this.btn_clear_loan_org.TabIndex = 32;
+			this.btn_clear_loan_org.UseVisualStyleBackColor = true;
+			this.btn_clear_loan_org.Click += new System.EventHandler(this.Btn_clear_loan_org_Click);
+			// 
 			// num_insurance_company_id
 			// 
 			this.num_insurance_company_id.Location = new System.Drawing.Point(66, 320);
@@ -612,7 +625,7 @@
 			this.txt_loan_reg_no.Location = new System.Drawing.Point(141, 55);
 			this.txt_loan_reg_no.Name = "txt_loan_reg_no";
 			this.txt_loan_reg_no.ReadOnly = true;
-			this.txt_loan_reg_no.Size = new System.Drawing.Size(211, 25);
+			this.txt_loan_reg_no.Size = new System.Drawing.Size(184, 25);
 			this.txt_loan_reg_no.TabIndex = 1;
 			// 
 			// txt_loan_company
@@ -620,7 +633,7 @@
 			this.txt_loan_company.Location = new System.Drawing.Point(141, 24);
 			this.txt_loan_company.Name = "txt_loan_company";
 			this.txt_loan_company.ReadOnly = true;
-			this.txt_loan_company.Size = new System.Drawing.Size(211, 25);
+			this.txt_loan_company.Size = new System.Drawing.Size(184, 25);
 			this.txt_loan_company.TabIndex = 1;
 			// 
 			// label54
@@ -805,7 +818,7 @@
 			// 
 			// btn_loan_company
 			// 
-			this.btn_loan_company.Location = new System.Drawing.Point(358, 24);
+			this.btn_loan_company.Location = new System.Drawing.Point(331, 24);
 			this.btn_loan_company.Name = "btn_loan_company";
 			this.btn_loan_company.Size = new System.Drawing.Size(25, 25);
 			this.btn_loan_company.TabIndex = 2;
@@ -833,6 +846,7 @@
 			// 
 			// groupBox6
 			// 
+			this.groupBox6.Controls.Add(this.btn_clear_insurance_org);
 			this.groupBox6.Controls.Add(this.grd_insurance_driver);
 			this.groupBox6.Controls.Add(this.grd_insurance_misc);
 			this.groupBox6.Controls.Add(this.num_insurance_ncb_percent);
@@ -881,6 +895,16 @@
 			this.groupBox6.TabIndex = 1;
 			this.groupBox6.TabStop = false;
 			this.groupBox6.Text = "Insurance";
+			// 
+			// btn_clear_insurance_org
+			// 
+			this.btn_clear_insurance_org.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
+			this.btn_clear_insurance_org.Location = new System.Drawing.Point(485, 24);
+			this.btn_clear_insurance_org.Name = "btn_clear_insurance_org";
+			this.btn_clear_insurance_org.Size = new System.Drawing.Size(25, 25);
+			this.btn_clear_insurance_org.TabIndex = 32;
+			this.btn_clear_insurance_org.UseVisualStyleBackColor = true;
+			this.btn_clear_insurance_org.Click += new System.EventHandler(this.Btn_clear_insurance_org_Click);
 			// 
 			// grd_insurance_driver
 			// 
@@ -1392,6 +1416,7 @@
 			this.btn_payment_received_add.Name = "btn_payment_received_add";
 			this.btn_payment_received_add.Size = new System.Drawing.Size(23, 22);
 			this.btn_payment_received_add.Text = "Add";
+			this.btn_payment_received_add.Click += new System.EventHandler(this.Btn_payment_received_add_Click);
 			// 
 			// btn_payment_received_edit
 			// 
@@ -1401,6 +1426,7 @@
 			this.btn_payment_received_edit.Name = "btn_payment_received_edit";
 			this.btn_payment_received_edit.Size = new System.Drawing.Size(23, 22);
 			this.btn_payment_received_edit.Text = "Edit";
+			this.btn_payment_received_edit.Click += new System.EventHandler(this.Btn_payment_received_edit_Click);
 			// 
 			// btn_payment_received_delete
 			// 
@@ -1410,6 +1436,7 @@
 			this.btn_payment_received_delete.Name = "btn_payment_received_delete";
 			this.btn_payment_received_delete.Size = new System.Drawing.Size(23, 22);
 			this.btn_payment_received_delete.Text = "Delete";
+			this.btn_payment_received_delete.Click += new System.EventHandler(this.Btn_payment_received_delete_Click);
 			// 
 			// toolStripLabel3
 			// 
@@ -1535,6 +1562,7 @@
 			this.btn_misc_payment_received_add.Name = "btn_misc_payment_received_add";
 			this.btn_misc_payment_received_add.Size = new System.Drawing.Size(23, 22);
 			this.btn_misc_payment_received_add.Text = "toolStripButton6";
+			this.btn_misc_payment_received_add.Click += new System.EventHandler(this.Btn_misc_payment_received_add_Click);
 			// 
 			// btn_misc_payment_received_edit
 			// 
@@ -1544,6 +1572,7 @@
 			this.btn_misc_payment_received_edit.Name = "btn_misc_payment_received_edit";
 			this.btn_misc_payment_received_edit.Size = new System.Drawing.Size(23, 22);
 			this.btn_misc_payment_received_edit.Text = "toolStripButton5";
+			this.btn_misc_payment_received_edit.Click += new System.EventHandler(this.Btn_misc_payment_received_edit_Click);
 			// 
 			// btn_misc_payment_received_delete
 			// 
@@ -1553,6 +1582,7 @@
 			this.btn_misc_payment_received_delete.Name = "btn_misc_payment_received_delete";
 			this.btn_misc_payment_received_delete.Size = new System.Drawing.Size(23, 22);
 			this.btn_misc_payment_received_delete.Text = "toolStripButton1";
+			this.btn_misc_payment_received_delete.Click += new System.EventHandler(this.Btn_misc_payment_received_delete_Click);
 			// 
 			// toolStripLabel9
 			// 
@@ -1617,6 +1647,7 @@
 			this.btn_expenses_add.Name = "btn_expenses_add";
 			this.btn_expenses_add.Size = new System.Drawing.Size(23, 22);
 			this.btn_expenses_add.Text = "Add";
+			this.btn_expenses_add.Click += new System.EventHandler(this.Btn_expenses_add_Click);
 			// 
 			// btn_expenses_edit
 			// 
@@ -1626,6 +1657,7 @@
 			this.btn_expenses_edit.Name = "btn_expenses_edit";
 			this.btn_expenses_edit.Size = new System.Drawing.Size(23, 22);
 			this.btn_expenses_edit.Text = "Edit";
+			this.btn_expenses_edit.Click += new System.EventHandler(this.Btn_expenses_edit_Click);
 			// 
 			// btn_expenses_delete
 			// 
@@ -1635,6 +1667,7 @@
 			this.btn_expenses_delete.Name = "btn_expenses_delete";
 			this.btn_expenses_delete.Size = new System.Drawing.Size(23, 22);
 			this.btn_expenses_delete.Text = "Delete";
+			this.btn_expenses_delete.Click += new System.EventHandler(this.Btn_expenses_delete_Click);
 			// 
 			// toolStripLabel4
 			// 
@@ -3268,5 +3301,7 @@
 		private System.Windows.Forms.ToolStripLabel lbl_trade_in_total;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel2;
 		private System.Windows.Forms.ToolStripLabel lbl_charges_less;
+		private System.Windows.Forms.Button btn_clear_loan_org;
+		private System.Windows.Forms.Button btn_clear_insurance_org;
 	}
 }

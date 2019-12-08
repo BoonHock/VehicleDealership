@@ -44,14 +44,15 @@ namespace VehicleDealership.Classes
 
 					try
 					{
-						bulkCopy.ColumnMappings.Add(INT1, "int1");
-						bulkCopy.ColumnMappings.Add(INT2, "int2");
-						bulkCopy.ColumnMappings.Add(NVARCHAR1, "nvarchar1");
-						bulkCopy.ColumnMappings.Add(NVARCHAR2, "nvarchar2");
-						bulkCopy.ColumnMappings.Add(NVARCHAR3, "nvarchar3");
-						bulkCopy.ColumnMappings.Add(NVARCHAR4, "nvarchar4");
-						bulkCopy.ColumnMappings.Add(NVARCHAR5, "nvarchar5");
-						bulkCopy.ColumnMappings.Add(DECIMAL18_4, "decimal18_4");
+						if (INT1 != "") bulkCopy.ColumnMappings.Add(INT1, "int1");
+						if (INT2 != "") bulkCopy.ColumnMappings.Add(INT2, "int2");
+						if (NVARCHAR1 != "") bulkCopy.ColumnMappings.Add(NVARCHAR1, "nvarchar1");
+						if (NVARCHAR2 != "") bulkCopy.ColumnMappings.Add(NVARCHAR2, "nvarchar2");
+						if (NVARCHAR3 != "") bulkCopy.ColumnMappings.Add(NVARCHAR3, "nvarchar3");
+						if (NVARCHAR4 != "") bulkCopy.ColumnMappings.Add(NVARCHAR4, "nvarchar4");
+						if (NVARCHAR5 != "") bulkCopy.ColumnMappings.Add(NVARCHAR5, "nvarchar5");
+						if (DECIMAL18_4 != "") bulkCopy.ColumnMappings.Add(DECIMAL18_4, "decimal18_4");
+
 						bulkCopy.ColumnMappings.Add("uploaded_by", "created_by");
 						bulkCopy.WriteToServer(_dttable);
 					}

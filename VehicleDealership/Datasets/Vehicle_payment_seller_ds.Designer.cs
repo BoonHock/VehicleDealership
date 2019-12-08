@@ -20,17 +20,17 @@ namespace VehicleDealership.Datasets {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("Vehicle_payment_ds")]
+    [global::System.Xml.Serialization.XmlRootAttribute("Vehicle_payment_seller_ds")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class Vehicle_payment_ds : global::System.Data.DataSet {
+    public partial class Vehicle_payment_seller_ds : global::System.Data.DataSet {
         
-        private sp_select_vehicle_paymentDataTable tablesp_select_vehicle_payment;
+        private sp_select_vehicle_payment_sellerDataTable tablesp_select_vehicle_payment_seller;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public Vehicle_payment_ds() {
+        public Vehicle_payment_seller_ds() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace VehicleDealership.Datasets {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected Vehicle_payment_ds(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected Vehicle_payment_seller_ds(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace VehicleDealership.Datasets {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["sp_select_vehicle_payment"] != null)) {
-                    base.Tables.Add(new sp_select_vehicle_paymentDataTable(ds.Tables["sp_select_vehicle_payment"]));
+                if ((ds.Tables["sp_select_vehicle_payment_seller"] != null)) {
+                    base.Tables.Add(new sp_select_vehicle_payment_sellerDataTable(ds.Tables["sp_select_vehicle_payment_seller"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace VehicleDealership.Datasets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public sp_select_vehicle_paymentDataTable sp_select_vehicle_payment {
+        public sp_select_vehicle_payment_sellerDataTable sp_select_vehicle_payment_seller {
             get {
-                return this.tablesp_select_vehicle_payment;
+                return this.tablesp_select_vehicle_payment_seller;
             }
         }
         
@@ -127,7 +127,7 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            Vehicle_payment_ds cln = ((Vehicle_payment_ds)(base.Clone()));
+            Vehicle_payment_seller_ds cln = ((Vehicle_payment_seller_ds)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace VehicleDealership.Datasets {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["sp_select_vehicle_payment"] != null)) {
-                    base.Tables.Add(new sp_select_vehicle_paymentDataTable(ds.Tables["sp_select_vehicle_payment"]));
+                if ((ds.Tables["sp_select_vehicle_payment_seller"] != null)) {
+                    base.Tables.Add(new sp_select_vehicle_payment_sellerDataTable(ds.Tables["sp_select_vehicle_payment_seller"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablesp_select_vehicle_payment = ((sp_select_vehicle_paymentDataTable)(base.Tables["sp_select_vehicle_payment"]));
+            this.tablesp_select_vehicle_payment_seller = ((sp_select_vehicle_payment_sellerDataTable)(base.Tables["sp_select_vehicle_payment_seller"]));
             if ((initTable == true)) {
-                if ((this.tablesp_select_vehicle_payment != null)) {
-                    this.tablesp_select_vehicle_payment.InitVars();
+                if ((this.tablesp_select_vehicle_payment_seller != null)) {
+                    this.tablesp_select_vehicle_payment_seller.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "Vehicle_payment_ds";
+            this.DataSetName = "Vehicle_payment_seller_ds";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/Vehicle_payment_ds.xsd";
+            this.Namespace = "http://tempuri.org/Vehicle_payment_seller_ds.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablesp_select_vehicle_payment = new sp_select_vehicle_paymentDataTable();
-            base.Tables.Add(this.tablesp_select_vehicle_payment);
+            this.tablesp_select_vehicle_payment_seller = new sp_select_vehicle_payment_sellerDataTable();
+            base.Tables.Add(this.tablesp_select_vehicle_payment_seller);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializesp_select_vehicle_payment() {
+        private bool ShouldSerializesp_select_vehicle_payment_seller() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            Vehicle_payment_ds ds = new Vehicle_payment_ds();
+            Vehicle_payment_seller_ds ds = new Vehicle_payment_seller_ds();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,18 +270,16 @@ namespace VehicleDealership.Datasets {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void sp_select_vehicle_paymentRowChangeEventHandler(object sender, sp_select_vehicle_paymentRowChangeEvent e);
+        public delegate void sp_select_vehicle_payment_sellerRowChangeEventHandler(object sender, sp_select_vehicle_payment_sellerRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class sp_select_vehicle_paymentDataTable : global::System.Data.TypedTableBase<sp_select_vehicle_paymentRow> {
+        public partial class sp_select_vehicle_payment_sellerDataTable : global::System.Data.TypedTableBase<sp_select_vehicle_payment_sellerRow> {
             
             private global::System.Data.DataColumn columnpayment;
-            
-            private global::System.Data.DataColumn columncharge_to_customer;
             
             private global::System.Data.DataColumn columnpayment_no;
             
@@ -325,8 +323,8 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_vehicle_paymentDataTable() {
-                this.TableName = "sp_select_vehicle_payment";
+            public sp_select_vehicle_payment_sellerDataTable() {
+                this.TableName = "sp_select_vehicle_payment_seller";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -334,7 +332,7 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal sp_select_vehicle_paymentDataTable(global::System.Data.DataTable table) {
+            internal sp_select_vehicle_payment_sellerDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -351,7 +349,7 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected sp_select_vehicle_paymentDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected sp_select_vehicle_payment_sellerDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -361,14 +359,6 @@ namespace VehicleDealership.Datasets {
             public global::System.Data.DataColumn paymentColumn {
                 get {
                     return this.columnpayment;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn charge_to_customerColumn {
-                get {
-                    return this.columncharge_to_customer;
                 }
             }
             
@@ -543,34 +533,33 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_vehicle_paymentRow this[int index] {
+            public sp_select_vehicle_payment_sellerRow this[int index] {
                 get {
-                    return ((sp_select_vehicle_paymentRow)(this.Rows[index]));
+                    return ((sp_select_vehicle_payment_sellerRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_vehicle_paymentRowChangeEventHandler sp_select_vehicle_paymentRowChanging;
+            public event sp_select_vehicle_payment_sellerRowChangeEventHandler sp_select_vehicle_payment_sellerRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_vehicle_paymentRowChangeEventHandler sp_select_vehicle_paymentRowChanged;
+            public event sp_select_vehicle_payment_sellerRowChangeEventHandler sp_select_vehicle_payment_sellerRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_vehicle_paymentRowChangeEventHandler sp_select_vehicle_paymentRowDeleting;
+            public event sp_select_vehicle_payment_sellerRowChangeEventHandler sp_select_vehicle_payment_sellerRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_select_vehicle_paymentRowChangeEventHandler sp_select_vehicle_paymentRowDeleted;
+            public event sp_select_vehicle_payment_sellerRowChangeEventHandler sp_select_vehicle_payment_sellerRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Addsp_select_vehicle_paymentRow(sp_select_vehicle_paymentRow row) {
+            public void Addsp_select_vehicle_payment_sellerRow(sp_select_vehicle_payment_sellerRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_vehicle_paymentRow Addsp_select_vehicle_paymentRow(
-                        bool charge_to_customer, 
+            public sp_select_vehicle_payment_sellerRow Addsp_select_vehicle_payment_sellerRow(
                         string payment_no, 
                         string payment_description, 
                         int pay_to_id, 
@@ -591,10 +580,9 @@ namespace VehicleDealership.Datasets {
                         System.DateTime payment_method_date, 
                         string remark, 
                         string modified_by) {
-                sp_select_vehicle_paymentRow rowsp_select_vehicle_paymentRow = ((sp_select_vehicle_paymentRow)(this.NewRow()));
+                sp_select_vehicle_payment_sellerRow rowsp_select_vehicle_payment_sellerRow = ((sp_select_vehicle_payment_sellerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        charge_to_customer,
                         payment_no,
                         payment_description,
                         pay_to_id,
@@ -615,22 +603,22 @@ namespace VehicleDealership.Datasets {
                         payment_method_date,
                         remark,
                         modified_by};
-                rowsp_select_vehicle_paymentRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowsp_select_vehicle_paymentRow);
-                return rowsp_select_vehicle_paymentRow;
+                rowsp_select_vehicle_payment_sellerRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowsp_select_vehicle_payment_sellerRow);
+                return rowsp_select_vehicle_payment_sellerRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_vehicle_paymentRow FindBypayment(int payment) {
-                return ((sp_select_vehicle_paymentRow)(this.Rows.Find(new object[] {
+            public sp_select_vehicle_payment_sellerRow FindBypayment(int payment) {
+                return ((sp_select_vehicle_payment_sellerRow)(this.Rows.Find(new object[] {
                             payment})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                sp_select_vehicle_paymentDataTable cln = ((sp_select_vehicle_paymentDataTable)(base.Clone()));
+                sp_select_vehicle_payment_sellerDataTable cln = ((sp_select_vehicle_payment_sellerDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -638,14 +626,13 @@ namespace VehicleDealership.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new sp_select_vehicle_paymentDataTable();
+                return new sp_select_vehicle_payment_sellerDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnpayment = base.Columns["payment"];
-                this.columncharge_to_customer = base.Columns["charge_to_customer"];
                 this.columnpayment_no = base.Columns["payment_no"];
                 this.columnpayment_description = base.Columns["payment_description"];
                 this.columnpay_to_id = base.Columns["pay_to_id"];
@@ -673,8 +660,6 @@ namespace VehicleDealership.Datasets {
             private void InitClass() {
                 this.columnpayment = new global::System.Data.DataColumn("payment", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpayment);
-                this.columncharge_to_customer = new global::System.Data.DataColumn("charge_to_customer", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncharge_to_customer);
                 this.columnpayment_no = new global::System.Data.DataColumn("payment_no", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpayment_no);
                 this.columnpayment_description = new global::System.Data.DataColumn("payment_description", typeof(string), null, global::System.Data.MappingType.Element);
@@ -723,7 +708,6 @@ namespace VehicleDealership.Datasets {
                 this.columnpayment.AllowDBNull = false;
                 this.columnpayment.ReadOnly = true;
                 this.columnpayment.Unique = true;
-                this.columncharge_to_customer.AllowDBNull = false;
                 this.columnpayment_no.ReadOnly = true;
                 this.columnpayment_no.MaxLength = 35;
                 this.columnpayment_description.AllowDBNull = false;
@@ -754,28 +738,28 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_vehicle_paymentRow Newsp_select_vehicle_paymentRow() {
-                return ((sp_select_vehicle_paymentRow)(this.NewRow()));
+            public sp_select_vehicle_payment_sellerRow Newsp_select_vehicle_payment_sellerRow() {
+                return ((sp_select_vehicle_payment_sellerRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new sp_select_vehicle_paymentRow(builder);
+                return new sp_select_vehicle_payment_sellerRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(sp_select_vehicle_paymentRow);
+                return typeof(sp_select_vehicle_payment_sellerRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.sp_select_vehicle_paymentRowChanged != null)) {
-                    this.sp_select_vehicle_paymentRowChanged(this, new sp_select_vehicle_paymentRowChangeEvent(((sp_select_vehicle_paymentRow)(e.Row)), e.Action));
+                if ((this.sp_select_vehicle_payment_sellerRowChanged != null)) {
+                    this.sp_select_vehicle_payment_sellerRowChanged(this, new sp_select_vehicle_payment_sellerRowChangeEvent(((sp_select_vehicle_payment_sellerRow)(e.Row)), e.Action));
                 }
             }
             
@@ -783,8 +767,8 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.sp_select_vehicle_paymentRowChanging != null)) {
-                    this.sp_select_vehicle_paymentRowChanging(this, new sp_select_vehicle_paymentRowChangeEvent(((sp_select_vehicle_paymentRow)(e.Row)), e.Action));
+                if ((this.sp_select_vehicle_payment_sellerRowChanging != null)) {
+                    this.sp_select_vehicle_payment_sellerRowChanging(this, new sp_select_vehicle_payment_sellerRowChangeEvent(((sp_select_vehicle_payment_sellerRow)(e.Row)), e.Action));
                 }
             }
             
@@ -792,8 +776,8 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.sp_select_vehicle_paymentRowDeleted != null)) {
-                    this.sp_select_vehicle_paymentRowDeleted(this, new sp_select_vehicle_paymentRowChangeEvent(((sp_select_vehicle_paymentRow)(e.Row)), e.Action));
+                if ((this.sp_select_vehicle_payment_sellerRowDeleted != null)) {
+                    this.sp_select_vehicle_payment_sellerRowDeleted(this, new sp_select_vehicle_payment_sellerRowChangeEvent(((sp_select_vehicle_payment_sellerRow)(e.Row)), e.Action));
                 }
             }
             
@@ -801,14 +785,14 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.sp_select_vehicle_paymentRowDeleting != null)) {
-                    this.sp_select_vehicle_paymentRowDeleting(this, new sp_select_vehicle_paymentRowChangeEvent(((sp_select_vehicle_paymentRow)(e.Row)), e.Action));
+                if ((this.sp_select_vehicle_payment_sellerRowDeleting != null)) {
+                    this.sp_select_vehicle_payment_sellerRowDeleting(this, new sp_select_vehicle_payment_sellerRowChangeEvent(((sp_select_vehicle_payment_sellerRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Removesp_select_vehicle_paymentRow(sp_select_vehicle_paymentRow row) {
+            public void Removesp_select_vehicle_payment_sellerRow(sp_select_vehicle_payment_sellerRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -817,7 +801,7 @@ namespace VehicleDealership.Datasets {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Vehicle_payment_ds ds = new Vehicle_payment_ds();
+                Vehicle_payment_seller_ds ds = new Vehicle_payment_seller_ds();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -835,7 +819,7 @@ namespace VehicleDealership.Datasets {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "sp_select_vehicle_paymentDataTable";
+                attribute2.FixedValue = "sp_select_vehicle_payment_sellerDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -879,36 +863,25 @@ namespace VehicleDealership.Datasets {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class sp_select_vehicle_paymentRow : global::System.Data.DataRow {
+        public partial class sp_select_vehicle_payment_sellerRow : global::System.Data.DataRow {
             
-            private sp_select_vehicle_paymentDataTable tablesp_select_vehicle_payment;
+            private sp_select_vehicle_payment_sellerDataTable tablesp_select_vehicle_payment_seller;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal sp_select_vehicle_paymentRow(global::System.Data.DataRowBuilder rb) : 
+            internal sp_select_vehicle_payment_sellerRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablesp_select_vehicle_payment = ((sp_select_vehicle_paymentDataTable)(this.Table));
+                this.tablesp_select_vehicle_payment_seller = ((sp_select_vehicle_payment_sellerDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int payment {
                 get {
-                    return ((int)(this[this.tablesp_select_vehicle_payment.paymentColumn]));
+                    return ((int)(this[this.tablesp_select_vehicle_payment_seller.paymentColumn]));
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.paymentColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool charge_to_customer {
-                get {
-                    return ((bool)(this[this.tablesp_select_vehicle_payment.charge_to_customerColumn]));
-                }
-                set {
-                    this[this.tablesp_select_vehicle_payment.charge_to_customerColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.paymentColumn] = value;
                 }
             }
             
@@ -917,15 +890,15 @@ namespace VehicleDealership.Datasets {
             public string payment_no {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_select_vehicle_payment.payment_noColumn]));
+                        return ((string)(this[this.tablesp_select_vehicle_payment_seller.payment_noColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'payment_no\' in table \'sp_select_vehicle_payment\' is DBNull." +
-                                "", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'payment_no\' in table \'sp_select_vehicle_payment_seller\' is " +
+                                "DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.payment_noColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.payment_noColumn] = value;
                 }
             }
             
@@ -933,10 +906,10 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string payment_description {
                 get {
-                    return ((string)(this[this.tablesp_select_vehicle_payment.payment_descriptionColumn]));
+                    return ((string)(this[this.tablesp_select_vehicle_payment_seller.payment_descriptionColumn]));
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.payment_descriptionColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.payment_descriptionColumn] = value;
                 }
             }
             
@@ -945,14 +918,15 @@ namespace VehicleDealership.Datasets {
             public int pay_to_id {
                 get {
                     try {
-                        return ((int)(this[this.tablesp_select_vehicle_payment.pay_to_idColumn]));
+                        return ((int)(this[this.tablesp_select_vehicle_payment_seller.pay_to_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'pay_to_id\' in table \'sp_select_vehicle_payment\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'pay_to_id\' in table \'sp_select_vehicle_payment_seller\' is D" +
+                                "BNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.pay_to_idColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.pay_to_idColumn] = value;
                 }
             }
             
@@ -961,14 +935,15 @@ namespace VehicleDealership.Datasets {
             public string pay_to {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_select_vehicle_payment.pay_toColumn]));
+                        return ((string)(this[this.tablesp_select_vehicle_payment_seller.pay_toColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'pay_to\' in table \'sp_select_vehicle_payment\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'pay_to\' in table \'sp_select_vehicle_payment_seller\' is DBNu" +
+                                "ll.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.pay_toColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.pay_toColumn] = value;
                 }
             }
             
@@ -977,15 +952,15 @@ namespace VehicleDealership.Datasets {
             public string pay_to_type {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_select_vehicle_payment.pay_to_typeColumn]));
+                        return ((string)(this[this.tablesp_select_vehicle_payment_seller.pay_to_typeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'pay_to_type\' in table \'sp_select_vehicle_payment\' is DBNull" +
-                                ".", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'pay_to_type\' in table \'sp_select_vehicle_payment_seller\' is" +
+                                " DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.pay_to_typeColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.pay_to_typeColumn] = value;
                 }
             }
             
@@ -993,10 +968,10 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public decimal amount {
                 get {
-                    return ((decimal)(this[this.tablesp_select_vehicle_payment.amountColumn]));
+                    return ((decimal)(this[this.tablesp_select_vehicle_payment_seller.amountColumn]));
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.amountColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.amountColumn] = value;
                 }
             }
             
@@ -1004,10 +979,10 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.DateTime payment_date {
                 get {
-                    return ((global::System.DateTime)(this[this.tablesp_select_vehicle_payment.payment_dateColumn]));
+                    return ((global::System.DateTime)(this[this.tablesp_select_vehicle_payment_seller.payment_dateColumn]));
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.payment_dateColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.payment_dateColumn] = value;
                 }
             }
             
@@ -1015,10 +990,10 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool is_paid {
                 get {
-                    return ((bool)(this[this.tablesp_select_vehicle_payment.is_paidColumn]));
+                    return ((bool)(this[this.tablesp_select_vehicle_payment_seller.is_paidColumn]));
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.is_paidColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.is_paidColumn] = value;
                 }
             }
             
@@ -1027,15 +1002,15 @@ namespace VehicleDealership.Datasets {
             public string payment_method_type {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_select_vehicle_payment.payment_method_typeColumn]));
+                        return ((string)(this[this.tablesp_select_vehicle_payment_seller.payment_method_typeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'payment_method_type\' in table \'sp_select_vehicle_payment\' i" +
-                                "s DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'payment_method_type\' in table \'sp_select_vehicle_payment_se" +
+                                "ller\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.payment_method_typeColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.payment_method_typeColumn] = value;
                 }
             }
             
@@ -1044,15 +1019,15 @@ namespace VehicleDealership.Datasets {
             public string payment_method {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_select_vehicle_payment.payment_methodColumn]));
+                        return ((string)(this[this.tablesp_select_vehicle_payment_seller.payment_methodColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'payment_method\' in table \'sp_select_vehicle_payment\' is DBN" +
-                                "ull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'payment_method\' in table \'sp_select_vehicle_payment_seller\'" +
+                                " is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.payment_methodColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.payment_methodColumn] = value;
                 }
             }
             
@@ -1061,15 +1036,15 @@ namespace VehicleDealership.Datasets {
             public int payment_method_id {
                 get {
                     try {
-                        return ((int)(this[this.tablesp_select_vehicle_payment.payment_method_idColumn]));
+                        return ((int)(this[this.tablesp_select_vehicle_payment_seller.payment_method_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'payment_method_id\' in table \'sp_select_vehicle_payment\' is " +
-                                "DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'payment_method_id\' in table \'sp_select_vehicle_payment_sell" +
+                                "er\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.payment_method_idColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.payment_method_idColumn] = value;
                 }
             }
             
@@ -1078,14 +1053,15 @@ namespace VehicleDealership.Datasets {
             public string cheque_no {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_select_vehicle_payment.cheque_noColumn]));
+                        return ((string)(this[this.tablesp_select_vehicle_payment_seller.cheque_noColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'cheque_no\' in table \'sp_select_vehicle_payment\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'cheque_no\' in table \'sp_select_vehicle_payment_seller\' is D" +
+                                "BNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.cheque_noColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.cheque_noColumn] = value;
                 }
             }
             
@@ -1094,15 +1070,15 @@ namespace VehicleDealership.Datasets {
             public string credit_card_no {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_select_vehicle_payment.credit_card_noColumn]));
+                        return ((string)(this[this.tablesp_select_vehicle_payment_seller.credit_card_noColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'credit_card_no\' in table \'sp_select_vehicle_payment\' is DBN" +
-                                "ull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'credit_card_no\' in table \'sp_select_vehicle_payment_seller\'" +
+                                " is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.credit_card_noColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.credit_card_noColumn] = value;
                 }
             }
             
@@ -1111,15 +1087,15 @@ namespace VehicleDealership.Datasets {
             public int credit_card_type_id {
                 get {
                     try {
-                        return ((int)(this[this.tablesp_select_vehicle_payment.credit_card_type_idColumn]));
+                        return ((int)(this[this.tablesp_select_vehicle_payment_seller.credit_card_type_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'credit_card_type_id\' in table \'sp_select_vehicle_payment\' i" +
-                                "s DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'credit_card_type_id\' in table \'sp_select_vehicle_payment_se" +
+                                "ller\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.credit_card_type_idColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.credit_card_type_idColumn] = value;
                 }
             }
             
@@ -1128,15 +1104,15 @@ namespace VehicleDealership.Datasets {
             public string credit_card_type {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_select_vehicle_payment.credit_card_typeColumn]));
+                        return ((string)(this[this.tablesp_select_vehicle_payment_seller.credit_card_typeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'credit_card_type\' in table \'sp_select_vehicle_payment\' is D" +
-                                "BNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'credit_card_type\' in table \'sp_select_vehicle_payment_selle" +
+                                "r\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.credit_card_typeColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.credit_card_typeColumn] = value;
                 }
             }
             
@@ -1145,15 +1121,15 @@ namespace VehicleDealership.Datasets {
             public int finance_id {
                 get {
                     try {
-                        return ((int)(this[this.tablesp_select_vehicle_payment.finance_idColumn]));
+                        return ((int)(this[this.tablesp_select_vehicle_payment_seller.finance_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'finance_id\' in table \'sp_select_vehicle_payment\' is DBNull." +
-                                "", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'finance_id\' in table \'sp_select_vehicle_payment_seller\' is " +
+                                "DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.finance_idColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.finance_idColumn] = value;
                 }
             }
             
@@ -1162,14 +1138,15 @@ namespace VehicleDealership.Datasets {
             public string finance {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_select_vehicle_payment.financeColumn]));
+                        return ((string)(this[this.tablesp_select_vehicle_payment_seller.financeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'finance\' in table \'sp_select_vehicle_payment\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'finance\' in table \'sp_select_vehicle_payment_seller\' is DBN" +
+                                "ull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.financeColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.financeColumn] = value;
                 }
             }
             
@@ -1178,15 +1155,15 @@ namespace VehicleDealership.Datasets {
             public System.DateTime payment_method_date {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablesp_select_vehicle_payment.payment_method_dateColumn]));
+                        return ((global::System.DateTime)(this[this.tablesp_select_vehicle_payment_seller.payment_method_dateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'payment_method_date\' in table \'sp_select_vehicle_payment\' i" +
-                                "s DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'payment_method_date\' in table \'sp_select_vehicle_payment_se" +
+                                "ller\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.payment_method_dateColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.payment_method_dateColumn] = value;
                 }
             }
             
@@ -1194,10 +1171,10 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string remark {
                 get {
-                    return ((string)(this[this.tablesp_select_vehicle_payment.remarkColumn]));
+                    return ((string)(this[this.tablesp_select_vehicle_payment_seller.remarkColumn]));
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.remarkColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.remarkColumn] = value;
                 }
             }
             
@@ -1205,179 +1182,179 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string modified_by {
                 get {
-                    return ((string)(this[this.tablesp_select_vehicle_payment.modified_byColumn]));
+                    return ((string)(this[this.tablesp_select_vehicle_payment_seller.modified_byColumn]));
                 }
                 set {
-                    this[this.tablesp_select_vehicle_payment.modified_byColumn] = value;
+                    this[this.tablesp_select_vehicle_payment_seller.modified_byColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Ispayment_noNull() {
-                return this.IsNull(this.tablesp_select_vehicle_payment.payment_noColumn);
+                return this.IsNull(this.tablesp_select_vehicle_payment_seller.payment_noColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setpayment_noNull() {
-                this[this.tablesp_select_vehicle_payment.payment_noColumn] = global::System.Convert.DBNull;
+                this[this.tablesp_select_vehicle_payment_seller.payment_noColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Ispay_to_idNull() {
-                return this.IsNull(this.tablesp_select_vehicle_payment.pay_to_idColumn);
+                return this.IsNull(this.tablesp_select_vehicle_payment_seller.pay_to_idColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setpay_to_idNull() {
-                this[this.tablesp_select_vehicle_payment.pay_to_idColumn] = global::System.Convert.DBNull;
+                this[this.tablesp_select_vehicle_payment_seller.pay_to_idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Ispay_toNull() {
-                return this.IsNull(this.tablesp_select_vehicle_payment.pay_toColumn);
+                return this.IsNull(this.tablesp_select_vehicle_payment_seller.pay_toColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setpay_toNull() {
-                this[this.tablesp_select_vehicle_payment.pay_toColumn] = global::System.Convert.DBNull;
+                this[this.tablesp_select_vehicle_payment_seller.pay_toColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Ispay_to_typeNull() {
-                return this.IsNull(this.tablesp_select_vehicle_payment.pay_to_typeColumn);
+                return this.IsNull(this.tablesp_select_vehicle_payment_seller.pay_to_typeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setpay_to_typeNull() {
-                this[this.tablesp_select_vehicle_payment.pay_to_typeColumn] = global::System.Convert.DBNull;
+                this[this.tablesp_select_vehicle_payment_seller.pay_to_typeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Ispayment_method_typeNull() {
-                return this.IsNull(this.tablesp_select_vehicle_payment.payment_method_typeColumn);
+                return this.IsNull(this.tablesp_select_vehicle_payment_seller.payment_method_typeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setpayment_method_typeNull() {
-                this[this.tablesp_select_vehicle_payment.payment_method_typeColumn] = global::System.Convert.DBNull;
+                this[this.tablesp_select_vehicle_payment_seller.payment_method_typeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Ispayment_methodNull() {
-                return this.IsNull(this.tablesp_select_vehicle_payment.payment_methodColumn);
+                return this.IsNull(this.tablesp_select_vehicle_payment_seller.payment_methodColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setpayment_methodNull() {
-                this[this.tablesp_select_vehicle_payment.payment_methodColumn] = global::System.Convert.DBNull;
+                this[this.tablesp_select_vehicle_payment_seller.payment_methodColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Ispayment_method_idNull() {
-                return this.IsNull(this.tablesp_select_vehicle_payment.payment_method_idColumn);
+                return this.IsNull(this.tablesp_select_vehicle_payment_seller.payment_method_idColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setpayment_method_idNull() {
-                this[this.tablesp_select_vehicle_payment.payment_method_idColumn] = global::System.Convert.DBNull;
+                this[this.tablesp_select_vehicle_payment_seller.payment_method_idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Ischeque_noNull() {
-                return this.IsNull(this.tablesp_select_vehicle_payment.cheque_noColumn);
+                return this.IsNull(this.tablesp_select_vehicle_payment_seller.cheque_noColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setcheque_noNull() {
-                this[this.tablesp_select_vehicle_payment.cheque_noColumn] = global::System.Convert.DBNull;
+                this[this.tablesp_select_vehicle_payment_seller.cheque_noColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Iscredit_card_noNull() {
-                return this.IsNull(this.tablesp_select_vehicle_payment.credit_card_noColumn);
+                return this.IsNull(this.tablesp_select_vehicle_payment_seller.credit_card_noColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setcredit_card_noNull() {
-                this[this.tablesp_select_vehicle_payment.credit_card_noColumn] = global::System.Convert.DBNull;
+                this[this.tablesp_select_vehicle_payment_seller.credit_card_noColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Iscredit_card_type_idNull() {
-                return this.IsNull(this.tablesp_select_vehicle_payment.credit_card_type_idColumn);
+                return this.IsNull(this.tablesp_select_vehicle_payment_seller.credit_card_type_idColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setcredit_card_type_idNull() {
-                this[this.tablesp_select_vehicle_payment.credit_card_type_idColumn] = global::System.Convert.DBNull;
+                this[this.tablesp_select_vehicle_payment_seller.credit_card_type_idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Iscredit_card_typeNull() {
-                return this.IsNull(this.tablesp_select_vehicle_payment.credit_card_typeColumn);
+                return this.IsNull(this.tablesp_select_vehicle_payment_seller.credit_card_typeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setcredit_card_typeNull() {
-                this[this.tablesp_select_vehicle_payment.credit_card_typeColumn] = global::System.Convert.DBNull;
+                this[this.tablesp_select_vehicle_payment_seller.credit_card_typeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Isfinance_idNull() {
-                return this.IsNull(this.tablesp_select_vehicle_payment.finance_idColumn);
+                return this.IsNull(this.tablesp_select_vehicle_payment_seller.finance_idColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setfinance_idNull() {
-                this[this.tablesp_select_vehicle_payment.finance_idColumn] = global::System.Convert.DBNull;
+                this[this.tablesp_select_vehicle_payment_seller.finance_idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsfinanceNull() {
-                return this.IsNull(this.tablesp_select_vehicle_payment.financeColumn);
+                return this.IsNull(this.tablesp_select_vehicle_payment_seller.financeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetfinanceNull() {
-                this[this.tablesp_select_vehicle_payment.financeColumn] = global::System.Convert.DBNull;
+                this[this.tablesp_select_vehicle_payment_seller.financeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Ispayment_method_dateNull() {
-                return this.IsNull(this.tablesp_select_vehicle_payment.payment_method_dateColumn);
+                return this.IsNull(this.tablesp_select_vehicle_payment_seller.payment_method_dateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setpayment_method_dateNull() {
-                this[this.tablesp_select_vehicle_payment.payment_method_dateColumn] = global::System.Convert.DBNull;
+                this[this.tablesp_select_vehicle_payment_seller.payment_method_dateColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1385,22 +1362,22 @@ namespace VehicleDealership.Datasets {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class sp_select_vehicle_paymentRowChangeEvent : global::System.EventArgs {
+        public class sp_select_vehicle_payment_sellerRowChangeEvent : global::System.EventArgs {
             
-            private sp_select_vehicle_paymentRow eventRow;
+            private sp_select_vehicle_payment_sellerRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_vehicle_paymentRowChangeEvent(sp_select_vehicle_paymentRow row, global::System.Data.DataRowAction action) {
+            public sp_select_vehicle_payment_sellerRowChangeEvent(sp_select_vehicle_payment_sellerRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_vehicle_paymentRow Row {
+            public sp_select_vehicle_payment_sellerRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1416,7 +1393,7 @@ namespace VehicleDealership.Datasets {
         }
     }
 }
-namespace VehicleDealership.Datasets.Vehicle_payment_dsTableAdapters {
+namespace VehicleDealership.Datasets.Vehicle_payment_seller_dsTableAdapters {
     
     
     /// <summary>
@@ -1428,7 +1405,7 @@ namespace VehicleDealership.Datasets.Vehicle_payment_dsTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class sp_select_vehicle_paymentTableAdapter : global::System.ComponentModel.Component {
+    public partial class sp_select_vehicle_payment_sellerTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -1442,7 +1419,7 @@ namespace VehicleDealership.Datasets.Vehicle_payment_dsTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public sp_select_vehicle_paymentTableAdapter() {
+        public sp_select_vehicle_payment_sellerTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1539,9 +1516,8 @@ namespace VehicleDealership.Datasets.Vehicle_payment_dsTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "sp_select_vehicle_payment";
+            tableMapping.DataSetTable = "sp_select_vehicle_payment_seller";
             tableMapping.ColumnMappings.Add("payment", "payment");
-            tableMapping.ColumnMappings.Add("charge_to_customer", "charge_to_customer");
             tableMapping.ColumnMappings.Add("payment_no", "payment_no");
             tableMapping.ColumnMappings.Add("payment_description", "payment_description");
             tableMapping.ColumnMappings.Add("pay_to_id", "pay_to_id");
@@ -1578,18 +1554,17 @@ namespace VehicleDealership.Datasets.Vehicle_payment_dsTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "fin.sp_select_vehicle_payment";
+            this._commandCollection[0].CommandText = "fin.sp_select_vehicle_payment_seller";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pay_function", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Vehicle_payment_ds.sp_select_vehicle_paymentDataTable GetData(global::System.Nullable<int> vehicle, global::System.Nullable<int> pay_function) {
+        public virtual Vehicle_payment_seller_ds.sp_select_vehicle_payment_sellerDataTable GetData(global::System.Nullable<int> vehicle) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((vehicle.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(vehicle.Value));
@@ -1597,13 +1572,7 @@ namespace VehicleDealership.Datasets.Vehicle_payment_dsTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((pay_function.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(pay_function.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dataTable = new Vehicle_payment_ds.sp_select_vehicle_paymentDataTable();
+            Vehicle_payment_seller_ds.sp_select_vehicle_payment_sellerDataTable dataTable = new Vehicle_payment_seller_ds.sp_select_vehicle_payment_sellerDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1639,20 +1608,18 @@ namespace VehicleDealership.Datasets.Vehicle_payment_dsTableAdapters {
             this._commandCollection = new global::System.Data.IDbCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "fin.sp_update_vehicle_payment";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "fin.sp_update_vehicle_payment_seller";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@payment_combine", global::System.Data.SqlDbType.NVarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@payment_function", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@charge_to_customer", global::System.Data.SqlDbType.NVarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@uid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object sp_update_vehicle_payment(global::System.Nullable<int> vehicle, string payment_combine, global::System.Nullable<int> payment_function, string charge_to_customer, global::System.Nullable<int> uid) {
+        public virtual int sp_update_vehicle_payment_seller(global::System.Nullable<int> vehicle, string payment_combine, global::System.Nullable<int> uid) {
             global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
             if ((vehicle.HasValue == true)) {
                 command.Parameters[1].Value = ((int)(vehicle.Value));
@@ -1666,45 +1633,27 @@ namespace VehicleDealership.Datasets.Vehicle_payment_dsTableAdapters {
             else {
                 command.Parameters[2].Value = ((string)(payment_combine));
             }
-            if ((payment_function.HasValue == true)) {
-                command.Parameters[3].Value = ((int)(payment_function.Value));
+            if ((uid.HasValue == true)) {
+                command.Parameters[3].Value = ((int)(uid.Value));
             }
             else {
                 command.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((charge_to_customer == null)) {
-                command.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[4].Value = ((string)(charge_to_customer));
-            }
-            if ((uid.HasValue == true)) {
-                command.Parameters[5].Value = ((int)(uid.Value));
-            }
-            else {
-                command.Parameters[5].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
                 command.Connection.Open();
             }
-            object returnValue;
+            int returnValue;
             try {
-                returnValue = command.ExecuteScalar();
+                returnValue = command.ExecuteNonQuery();
             }
             finally {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     command.Connection.Close();
                 }
             }
-            if (((returnValue == null) 
-                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return null;
-            }
-            else {
-                return ((object)(returnValue));
-            }
+            return returnValue;
         }
     }
     
@@ -1776,7 +1725,7 @@ namespace VehicleDealership.Datasets.Vehicle_payment_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(Vehicle_payment_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(Vehicle_payment_seller_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1786,7 +1735,7 @@ namespace VehicleDealership.Datasets.Vehicle_payment_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(Vehicle_payment_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(Vehicle_payment_seller_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1796,7 +1745,7 @@ namespace VehicleDealership.Datasets.Vehicle_payment_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(Vehicle_payment_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(Vehicle_payment_seller_ds dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1830,7 +1779,7 @@ namespace VehicleDealership.Datasets.Vehicle_payment_dsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(Vehicle_payment_ds dataSet) {
+        public virtual int UpdateAll(Vehicle_payment_seller_ds dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

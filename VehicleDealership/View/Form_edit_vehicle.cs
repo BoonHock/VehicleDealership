@@ -144,8 +144,8 @@ namespace VehicleDealership.View
 
 			Cursor = Cursors.WaitCursor;
 
-			using (Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dttable_expenses =
-				(Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_expenses.DataSource)
+			using (Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable dttable_expenses =
+				(Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable)grd_expenses.DataSource)
 			{
 				List<int> list_payment_id = new List<int>();
 				List<int> list_charge_to_customer = new List<int>();
@@ -154,7 +154,7 @@ namespace VehicleDealership.View
 
 				string str_doc_prefix = Document_prefix_ds.Select_document_prefix("VEHICLE_EXPENSES");
 
-				foreach (Vehicle_payment_ds.sp_select_vehicle_paymentRow dt_row in dttable_expenses)
+				foreach (Vehicle_expenses_ds.sp_select_vehicle_expensesRow dt_row in dttable_expenses)
 				{
 					int int_payment_id = Class_payment.Update_insert_payment(str_doc_prefix, dt_row.payment,
 						dt_row.payment_description, dt_row.pay_to_id, dt_row.pay_to_type, dt_row.amount,
@@ -173,16 +173,16 @@ namespace VehicleDealership.View
 					if (dt_row.charge_to_customer) list_charge_to_customer.Add(int_payment_id);
 				}
 
-				if (!Vehicle_payment_ds.Update_vehicle_payment(VehicleID, string.Join(",", list_payment_id),
-					Class_enum.Payment_function.VEHICLE_EXPENSES, string.Join(",", list_charge_to_customer)))
+				if (!Vehicle_expenses_ds.Update_vehicle_expenses(VehicleID, string.Join(",", list_payment_id),
+					string.Join(",", list_charge_to_customer)))
 				{
 					MessageBox.Show("Vehicle expenses update failed.", "ERROR",
 						MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 
-			using (Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dttable_payment =
-				(Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_payment.DataSource)
+			using (Vehicle_payment_seller_ds.sp_select_vehicle_payment_sellerDataTable dttable_payment =
+				(Vehicle_payment_seller_ds.sp_select_vehicle_payment_sellerDataTable)grd_payment.DataSource)
 			{
 				List<int> list_payment_id = new List<int>();
 				List<int> list_charge_to_customer = new List<int>();
@@ -191,7 +191,7 @@ namespace VehicleDealership.View
 
 				string str_doc_prefix = Document_prefix_ds.Select_document_prefix("VEHICLE_PAYMENT");
 
-				foreach (Vehicle_payment_ds.sp_select_vehicle_paymentRow dt_row in dttable_payment)
+				foreach (Vehicle_payment_seller_ds.sp_select_vehicle_payment_sellerRow dt_row in dttable_payment)
 				{
 					int int_payment_id = Class_payment.Update_insert_payment(str_doc_prefix, dt_row.payment,
 						dt_row.payment_description, dt_row.pay_to_id, dt_row.pay_to_type, dt_row.amount,
@@ -207,10 +207,8 @@ namespace VehicleDealership.View
 					if (int_payment_id == 0) continue;
 
 					list_payment_id.Add(int_payment_id);
-					if (dt_row.charge_to_customer) list_charge_to_customer.Add(int_payment_id);
 				}
-				if (!Vehicle_payment_ds.Update_vehicle_payment(VehicleID, string.Join(",", list_payment_id),
-					Class_enum.Payment_function.VEHICLE_PAY_TO_SELLER, string.Join(",", list_charge_to_customer)))
+				if (!Vehicle_payment_seller_ds.Update_vehicle_payment_seller(VehicleID, string.Join(",", list_payment_id)))
 				{
 					MessageBox.Show("Vehicle payment update failed.", "ERROR",
 						MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -365,7 +363,7 @@ namespace VehicleDealership.View
 
 			cmb_acquire_method.SelectedItem = "PURCHASE"; // DEFAULT
 
-			grd_expenses.DataSource = Vehicle_payment_ds.Select_vehicle_payment(VehicleID, Class_enum.Payment_function.VEHICLE_EXPENSES);
+			grd_expenses.DataSource = Vehicle_expenses_ds.Select_vehicle_expenses(VehicleID);
 			if (!Program.System_user.IsDeveloper) Class_datagridview.Hide_unnecessary_columns(grd_expenses,
 				"charge_to_customer", "payment_no", "payment_description", "pay_to", "amount",
 				"payment_date", "is_paid", "payment_method_type", "cheque_no", "credit_card_no",
@@ -384,8 +382,7 @@ namespace VehicleDealership.View
 			grd_expenses.Columns["amount"].DefaultCellStyle.Format = "N2";
 			grd_expenses.Columns["amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
-			grd_payment.DataSource = Vehicle_payment_ds.Select_vehicle_payment(VehicleID,
-				Class_enum.Payment_function.VEHICLE_PAY_TO_SELLER);
+			grd_payment.DataSource = Vehicle_payment_seller_ds.Select_vehicle_payment_seller(VehicleID);
 			if (!Program.System_user.IsDeveloper) Class_datagridview.Hide_unnecessary_columns(grd_payment,
 				"payment_no", "payment_description", "pay_to", "amount",
 				"payment_date", "is_paid", "payment_method_type", "cheque_no", "credit_card_no",
@@ -688,10 +685,10 @@ namespace VehicleDealership.View
 			{
 				if (dlg_payment.ShowDialog() != DialogResult.OK) return;
 
-				Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dttable =
-					(Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_expenses.DataSource;
+				Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable dttable =
+					(Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable)grd_expenses.DataSource;
 
-				dttable.Addsp_select_vehicle_paymentRow(true, dlg_payment.PaymentNo,
+				dttable.Addsp_select_vehicle_expensesRow(true, dlg_payment.PaymentNo,
 					dlg_payment.PaymentDescription, dlg_payment.PayToId, dlg_payment.PayToName,
 					dlg_payment.PayToType, dlg_payment.PaymentAmount, dlg_payment.PaymentDate,
 					dlg_payment.IsPaid, dlg_payment.PaymentMethodType,
@@ -708,8 +705,8 @@ namespace VehicleDealership.View
 		{
 			if (grd_expenses.SelectedCells.Count == 0) return;
 
-			Vehicle_payment_ds.sp_select_vehicle_paymentRow dt_row =
-				(from row in (Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_expenses.DataSource
+			Vehicle_expenses_ds.sp_select_vehicle_expensesRow dt_row =
+				(from row in (Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable)grd_expenses.DataSource
 				 where row.payment == (int)grd_expenses.SelectedCells[0].OwningRow.Cells["payment"].Value
 				 select row).ToList()[0];
 
@@ -761,8 +758,8 @@ namespace VehicleDealership.View
 
 			List<int> list_payment_id = new List<int>();
 
-			Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dttable =
-				(Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_expenses.DataSource;
+			Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable dttable =
+				(Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable)grd_expenses.DataSource;
 
 			foreach (DataGridViewCell grd_cell in grd_expenses.SelectedCells)
 			{
@@ -783,8 +780,8 @@ namespace VehicleDealership.View
 				return;
 			}
 
-			Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dttable =
-				(Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_expenses.DataSource;
+			Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable dttable =
+				(Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable)grd_expenses.DataSource;
 
 			decimal dcml_expenses = (from row in dttable select row.amount).Sum();
 			decimal dcml_expenses_charged = 0;
@@ -804,10 +801,10 @@ namespace VehicleDealership.View
 			{
 				if (dlg_payment.ShowDialog() != DialogResult.OK) return;
 
-				Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dttable =
-					(Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_payment.DataSource;
+				Vehicle_payment_seller_ds.sp_select_vehicle_payment_sellerDataTable dttable =
+					(Vehicle_payment_seller_ds.sp_select_vehicle_payment_sellerDataTable)grd_payment.DataSource;
 
-				dttable.Addsp_select_vehicle_paymentRow(false, dlg_payment.PaymentNo,
+				dttable.Addsp_select_vehicle_payment_sellerRow(dlg_payment.PaymentNo,
 					dlg_payment.PaymentDescription, dlg_payment.PayToId, dlg_payment.PayToName,
 					dlg_payment.PayToType, dlg_payment.PaymentAmount, dlg_payment.PaymentDate,
 					dlg_payment.IsPaid, dlg_payment.PaymentMethodType,
@@ -824,8 +821,8 @@ namespace VehicleDealership.View
 		{
 			if (grd_payment.Rows.Count == 0) return;
 
-			Vehicle_payment_ds.sp_select_vehicle_paymentRow dt_row =
-				(from row in (Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_payment.DataSource
+			Vehicle_payment_seller_ds.sp_select_vehicle_payment_sellerRow dt_row =
+				(from row in (Vehicle_payment_seller_ds.sp_select_vehicle_payment_sellerDataTable)grd_payment.DataSource
 				 where row.payment == (int)grd_payment.SelectedCells[0].OwningRow.Cells["payment"].Value
 				 select row).ToList()[0];
 
@@ -877,8 +874,8 @@ namespace VehicleDealership.View
 
 			List<int> list_payment_id = new List<int>();
 
-			Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dttable =
-				(Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_payment.DataSource;
+			Vehicle_payment_seller_ds.sp_select_vehicle_payment_sellerDataTable dttable =
+				(Vehicle_payment_seller_ds.sp_select_vehicle_payment_sellerDataTable)grd_payment.DataSource;
 
 			foreach (DataGridViewCell grd_cell in grd_payment.SelectedCells)
 			{
@@ -898,8 +895,8 @@ namespace VehicleDealership.View
 				num_paid.Value = 0;
 				return;
 			}
-			Vehicle_payment_ds.sp_select_vehicle_paymentDataTable dttable =
-				(Vehicle_payment_ds.sp_select_vehicle_paymentDataTable)grd_payment.DataSource;
+			Vehicle_payment_seller_ds.sp_select_vehicle_payment_sellerDataTable dttable =
+				(Vehicle_payment_seller_ds.sp_select_vehicle_payment_sellerDataTable)grd_payment.DataSource;
 
 			decimal dcml_payment = (from row in dttable select row.amount).Sum();
 

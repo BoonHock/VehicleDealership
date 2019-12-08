@@ -423,6 +423,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Vehicle_ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\Vehicle_expenses_ds.cs">
+      <DependentUpon>Vehicle_expenses_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Vehicle_expenses_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Vehicle_expenses_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\Vehicle_group_ds.cs">
       <DependentUpon>Vehicle_group_ds.xsd</DependentUpon>
     </Compile>
@@ -455,13 +463,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>vehicle_model_image_ds.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\Vehicle_payment_ds.cs">
-      <DependentUpon>Vehicle_payment_ds.xsd</DependentUpon>
+    <Compile Include="Datasets\Vehicle_payment_seller_ds.cs">
+      <DependentUpon>Vehicle_payment_seller_ds.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\Vehicle_payment_ds.Designer.cs">
+    <Compile Include="Datasets\Vehicle_payment_seller_ds.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Vehicle_payment_ds.xsd</DependentUpon>
+      <DependentUpon>Vehicle_payment_seller_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\Vehicle_return_ds.cs">
       <DependentUpon>Vehicle_return_ds.xsd</DependentUpon>
@@ -486,6 +494,22 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Vehicle_sale_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Veh_sale_payment_customer_ds.cs">
+      <DependentUpon>Veh_sale_payment_customer_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Veh_sale_payment_customer_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Veh_sale_payment_customer_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Veh_sale_payment_receive_misc_ds.cs">
+      <DependentUpon>Veh_sale_payment_receive_misc_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Veh_sale_payment_receive_misc_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Veh_sale_payment_receive_misc_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Program.cs" />
@@ -1104,6 +1128,17 @@
     <None Include="Datasets\Vehicle_ds.xss">
       <DependentUpon>Vehicle_ds.xsd</DependentUpon>
     </None>
+    <None Include="Datasets\Vehicle_expenses_ds.xsc">
+      <DependentUpon>Vehicle_expenses_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Vehicle_expenses_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Vehicle_expenses_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Vehicle_expenses_ds.xss">
+      <DependentUpon>Vehicle_expenses_ds.xsd</DependentUpon>
+    </None>
     <None Include="Datasets\Vehicle_group_ds.xsc">
       <DependentUpon>Vehicle_group_ds.xsd</DependentUpon>
     </None>
@@ -1148,16 +1183,16 @@
     <None Include="Datasets\vehicle_model_image_ds.xss">
       <DependentUpon>vehicle_model_image_ds.xsd</DependentUpon>
     </None>
-    <None Include="Datasets\Vehicle_payment_ds.xsc">
-      <DependentUpon>Vehicle_payment_ds.xsd</DependentUpon>
+    <None Include="Datasets\Vehicle_payment_seller_ds.xsc">
+      <DependentUpon>Vehicle_payment_seller_ds.xsd</DependentUpon>
     </None>
-    <None Include="Datasets\Vehicle_payment_ds.xsd">
+    <None Include="Datasets\Vehicle_payment_seller_ds.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Vehicle_payment_ds.Designer.cs</LastGenOutput>
+      <LastGenOutput>Vehicle_payment_seller_ds.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Datasets\Vehicle_payment_ds.xss">
-      <DependentUpon>Vehicle_payment_ds.xsd</DependentUpon>
+    <None Include="Datasets\Vehicle_payment_seller_ds.xss">
+      <DependentUpon>Vehicle_payment_seller_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Vehicle_return_ds.xsc">
       <DependentUpon>Vehicle_return_ds.xsd</DependentUpon>
@@ -1191,6 +1226,28 @@
     </None>
     <None Include="Datasets\Vehicle_sale_ds.xss">
       <DependentUpon>Vehicle_sale_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Veh_sale_payment_customer_ds.xsc">
+      <DependentUpon>Veh_sale_payment_customer_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Veh_sale_payment_customer_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Veh_sale_payment_customer_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Veh_sale_payment_customer_ds.xss">
+      <DependentUpon>Veh_sale_payment_customer_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Veh_sale_payment_receive_misc_ds.xsc">
+      <DependentUpon>Veh_sale_payment_receive_misc_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Veh_sale_payment_receive_misc_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Veh_sale_payment_receive_misc_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Veh_sale_payment_receive_misc_ds.xss">
+      <DependentUpon>Veh_sale_payment_receive_misc_ds.xsd</DependentUpon>
     </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">

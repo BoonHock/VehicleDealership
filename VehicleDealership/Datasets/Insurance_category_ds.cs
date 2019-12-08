@@ -10,7 +10,7 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				using (Insurance_category_dsTableAdapters.sp_select_insurance_categoryTableAdapter adapter = 
+				using (Insurance_category_dsTableAdapters.sp_select_insurance_categoryTableAdapter adapter =
 					new Insurance_category_dsTableAdapters.sp_select_insurance_categoryTableAdapter())
 				{
 					return adapter.GetData();
@@ -18,10 +18,43 @@ namespace VehicleDealership.Datasets
 			}
 			catch (System.Data.SqlClient.SqlException e)
 			{
-				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
-					MethodBase.GetCurrentMethod().Name, e.Message);
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod(), e.Message);
 			}
 			return new sp_select_insurance_categoryDataTable();
+		}
+		public static bool Update_insert_insurance_category()
+		{
+			try
+			{
+				using (Insurance_category_dsTableAdapters.QueriesTableAdapter adapter =
+					new Insurance_category_dsTableAdapters.QueriesTableAdapter())
+				{
+					adapter.sp_update_insert_insurance_category(Program.System_user.UserID);
+					return true;
+				}
+			}
+			catch (System.Data.SqlClient.SqlException e)
+			{
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod(), e.Message);
+			}
+			return false;
+		}
+		public static bool Delete_insurance_category()
+		{
+			try
+			{
+				using (Insurance_category_dsTableAdapters.QueriesTableAdapter adapter =
+					new Insurance_category_dsTableAdapters.QueriesTableAdapter())
+				{
+					adapter.sp_delete_insurance_category(Program.System_user.UserID);
+					return true;
+				}
+			}
+			catch (System.Data.SqlClient.SqlException e)
+			{
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod(), e.Message);
+			}
+			return false;
 		}
 	}
 }

@@ -474,10 +474,10 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_vehicle_sale_simplifiedRow Addsp_select_vehicle_sale_simplifiedRow(string reference_no, string registration_no, string customer, string customer_type, System.DateTime sale_date, decimal sale_price, string guarantor_name, string salesperson) {
+            public sp_select_vehicle_sale_simplifiedRow Addsp_select_vehicle_sale_simplifiedRow(int vehicle, string reference_no, string registration_no, string customer, string customer_type, System.DateTime sale_date, decimal sale_price, string guarantor_name, string salesperson) {
                 sp_select_vehicle_sale_simplifiedRow rowsp_select_vehicle_sale_simplifiedRow = ((sp_select_vehicle_sale_simplifiedRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        vehicle,
                         reference_no,
                         registration_no,
                         customer,
@@ -549,11 +549,7 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columnsalesperson);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnvehicle}, true));
-                this.columnvehicle.AutoIncrement = true;
-                this.columnvehicle.AutoIncrementSeed = -1;
-                this.columnvehicle.AutoIncrementStep = -1;
                 this.columnvehicle.AllowDBNull = false;
-                this.columnvehicle.ReadOnly = true;
                 this.columnvehicle.Unique = true;
                 this.columnreference_no.ReadOnly = true;
                 this.columnreference_no.MaxLength = 35;
@@ -735,7 +731,7 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columnloan_amount;
             
-            private global::System.Data.DataColumn columnloan_month_term;
+            private global::System.Data.DataColumn columnloan_month;
             
             private global::System.Data.DataColumn columnloan_interest_percentage;
             
@@ -962,9 +958,9 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn loan_month_termColumn {
+            public global::System.Data.DataColumn loan_monthColumn {
                 get {
-                    return this.columnloan_month_term;
+                    return this.columnloan_month;
                 }
             }
             
@@ -1239,7 +1235,7 @@ namespace VehicleDealership.Datasets {
                         string loan_org_name, 
                         string loan_org_reg_no, 
                         decimal loan_amount, 
-                        byte loan_month_term, 
+                        int loan_month, 
                         decimal loan_interest_percentage, 
                         decimal loan_monthly_installment, 
                         string loan_ref_no, 
@@ -1254,7 +1250,7 @@ namespace VehicleDealership.Datasets {
                         string insurance_policy_no, 
                         System.DateTime insurance_date, 
                         int insurance_category, 
-                        byte insurance_type, 
+                        int insurance_type, 
                         decimal insurance_sum_insured, 
                         decimal insurance_premium, 
                         decimal insurance_stamp_duty, 
@@ -1286,7 +1282,7 @@ namespace VehicleDealership.Datasets {
                         loan_org_name,
                         loan_org_reg_no,
                         loan_amount,
-                        loan_month_term,
+                        loan_month,
                         loan_interest_percentage,
                         loan_monthly_installment,
                         loan_ref_no,
@@ -1353,7 +1349,7 @@ namespace VehicleDealership.Datasets {
                 this.columnloan_org_name = base.Columns["loan_org_name"];
                 this.columnloan_org_reg_no = base.Columns["loan_org_reg_no"];
                 this.columnloan_amount = base.Columns["loan_amount"];
-                this.columnloan_month_term = base.Columns["loan_month_term"];
+                this.columnloan_month = base.Columns["loan_month"];
                 this.columnloan_interest_percentage = base.Columns["loan_interest_percentage"];
                 this.columnloan_monthly_installment = base.Columns["loan_monthly_installment"];
                 this.columnloan_ref_no = base.Columns["loan_ref_no"];
@@ -1420,8 +1416,8 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columnloan_org_reg_no);
                 this.columnloan_amount = new global::System.Data.DataColumn("loan_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnloan_amount);
-                this.columnloan_month_term = new global::System.Data.DataColumn("loan_month_term", typeof(byte), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnloan_month_term);
+                this.columnloan_month = new global::System.Data.DataColumn("loan_month", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnloan_month);
                 this.columnloan_interest_percentage = new global::System.Data.DataColumn("loan_interest_percentage", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnloan_interest_percentage);
                 this.columnloan_monthly_installment = new global::System.Data.DataColumn("loan_monthly_installment", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -1450,7 +1446,7 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columninsurance_date);
                 this.columninsurance_category = new global::System.Data.DataColumn("insurance_category", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columninsurance_category);
-                this.columninsurance_type = new global::System.Data.DataColumn("insurance_type", typeof(byte), null, global::System.Data.MappingType.Element);
+                this.columninsurance_type = new global::System.Data.DataColumn("insurance_type", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columninsurance_type);
                 this.columninsurance_sum_insured = new global::System.Data.DataColumn("insurance_sum_insured", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columninsurance_sum_insured);
@@ -1491,7 +1487,7 @@ namespace VehicleDealership.Datasets {
                 this.columnloan_org_name.MaxLength = 100;
                 this.columnloan_org_reg_no.MaxLength = 20;
                 this.columnloan_amount.AllowDBNull = false;
-                this.columnloan_month_term.AllowDBNull = false;
+                this.columnloan_month.AllowDBNull = false;
                 this.columnloan_interest_percentage.AllowDBNull = false;
                 this.columnloan_monthly_installment.AllowDBNull = false;
                 this.columnloan_ref_no.AllowDBNull = false;
@@ -1509,8 +1505,6 @@ namespace VehicleDealership.Datasets {
                 this.columninsurance_policy_no.AllowDBNull = false;
                 this.columninsurance_policy_no.MaxLength = 50;
                 this.columninsurance_date.AllowDBNull = false;
-                this.columninsurance_category.AllowDBNull = false;
-                this.columninsurance_type.AllowDBNull = false;
                 this.columninsurance_sum_insured.AllowDBNull = false;
                 this.columninsurance_premium.AllowDBNull = false;
                 this.columninsurance_stamp_duty.AllowDBNull = false;
@@ -2133,12 +2127,12 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public byte loan_month_term {
+            public int loan_month {
                 get {
-                    return ((byte)(this[this.tablesp_select_vehicle_sale.loan_month_termColumn]));
+                    return ((int)(this[this.tablesp_select_vehicle_sale.loan_monthColumn]));
                 }
                 set {
-                    this[this.tablesp_select_vehicle_sale.loan_month_termColumn] = value;
+                    this[this.tablesp_select_vehicle_sale.loan_monthColumn] = value;
                 }
             }
             
@@ -2312,7 +2306,13 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int insurance_category {
                 get {
-                    return ((int)(this[this.tablesp_select_vehicle_sale.insurance_categoryColumn]));
+                    try {
+                        return ((int)(this[this.tablesp_select_vehicle_sale.insurance_categoryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'insurance_category\' in table \'sp_select_vehicle_sale\' is DB" +
+                                "Null.", e);
+                    }
                 }
                 set {
                     this[this.tablesp_select_vehicle_sale.insurance_categoryColumn] = value;
@@ -2321,9 +2321,15 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public byte insurance_type {
+            public int insurance_type {
                 get {
-                    return ((byte)(this[this.tablesp_select_vehicle_sale.insurance_typeColumn]));
+                    try {
+                        return ((int)(this[this.tablesp_select_vehicle_sale.insurance_typeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'insurance_type\' in table \'sp_select_vehicle_sale\' is DBNull" +
+                                ".", e);
+                    }
                 }
                 set {
                     this[this.tablesp_select_vehicle_sale.insurance_typeColumn] = value;
@@ -2681,6 +2687,30 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setinsurance_org_reg_noNull() {
                 this[this.tablesp_select_vehicle_sale.insurance_org_reg_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isinsurance_categoryNull() {
+                return this.IsNull(this.tablesp_select_vehicle_sale.insurance_categoryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setinsurance_categoryNull() {
+                this[this.tablesp_select_vehicle_sale.insurance_categoryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isinsurance_typeNull() {
+                return this.IsNull(this.tablesp_select_vehicle_sale.insurance_typeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setinsurance_typeNull() {
+                this[this.tablesp_select_vehicle_sale.insurance_typeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3093,7 +3123,7 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
             tableMapping.ColumnMappings.Add("loan_org_name", "loan_org_name");
             tableMapping.ColumnMappings.Add("loan_org_reg_no", "loan_org_reg_no");
             tableMapping.ColumnMappings.Add("loan_amount", "loan_amount");
-            tableMapping.ColumnMappings.Add("loan_month_term", "loan_month_term");
+            tableMapping.ColumnMappings.Add("loan_month", "loan_month");
             tableMapping.ColumnMappings.Add("loan_interest_percentage", "loan_interest_percentage");
             tableMapping.ColumnMappings.Add("loan_monthly_installment", "loan_monthly_installment");
             tableMapping.ColumnMappings.Add("loan_ref_no", "loan_ref_no");
@@ -3188,7 +3218,7 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.IDbCommand[2];
+            this._commandCollection = new global::System.Data.IDbCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "fin.sp_insert_vehicle_sale";
@@ -3204,7 +3234,7 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@road_tax_month", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 3, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_amount", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_month_term", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 3, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_month", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_interest_percentage", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 5, 2, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_monthly_installment", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_ref_no", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3242,7 +3272,7 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@road_tax_month", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 3, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_amount", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_month_term", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 3, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_month", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_interest_percentage", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 5, 2, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_monthly_installment", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_ref_no", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3266,6 +3296,13 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@salesperson", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@remark", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modified_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).CommandText = "fin.sp_delete_vehicle_sale_full";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).CommandType = global::System.Data.CommandType.StoredProcedure;
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@uid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3282,7 +3319,7 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
                     global::System.Nullable<byte> road_tax_month, 
                     global::System.Nullable<int> loan, 
                     global::System.Nullable<decimal> loan_amount, 
-                    global::System.Nullable<byte> loan_month_term, 
+                    global::System.Nullable<int> loan_month, 
                     global::System.Nullable<decimal> loan_interest_percentage, 
                     global::System.Nullable<decimal> loan_monthly_installment, 
                     string loan_ref_no, 
@@ -3367,8 +3404,8 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
             else {
                 command.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((loan_month_term.HasValue == true)) {
-                command.Parameters[11].Value = ((byte)(loan_month_term.Value));
+            if ((loan_month.HasValue == true)) {
+                command.Parameters[11].Value = ((int)(loan_month.Value));
             }
             else {
                 command.Parameters[11].Value = global::System.DBNull.Value;
@@ -3537,7 +3574,7 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int sp_update_vehicle_sale(
+        public virtual object sp_update_vehicle_sale(
                     global::System.Nullable<int> vehicle, 
                     global::System.Nullable<int> customer_person, 
                     global::System.Nullable<int> customer_org_branch, 
@@ -3547,7 +3584,7 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
                     global::System.Nullable<byte> road_tax_month, 
                     global::System.Nullable<int> loan, 
                     global::System.Nullable<decimal> loan_amount, 
-                    global::System.Nullable<byte> loan_month_term, 
+                    global::System.Nullable<int> loan_month, 
                     global::System.Nullable<decimal> loan_interest_percentage, 
                     global::System.Nullable<decimal> loan_monthly_installment, 
                     string loan_ref_no, 
@@ -3626,8 +3663,8 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
             else {
                 command.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((loan_month_term.HasValue == true)) {
-                command.Parameters[10].Value = ((byte)(loan_month_term.Value));
+            if ((loan_month.HasValue == true)) {
+                command.Parameters[10].Value = ((int)(loan_month.Value));
             }
             else {
                 command.Parameters[10].Value = global::System.DBNull.Value;
@@ -3769,6 +3806,46 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
             }
             else {
                 command.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int sp_delete_vehicle_sale_full(global::System.Nullable<int> vehicle, global::System.Nullable<int> uid) {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[2]));
+            if ((vehicle.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(vehicle.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((uid.HasValue == true)) {
+                command.Parameters[2].Value = ((int)(uid.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
