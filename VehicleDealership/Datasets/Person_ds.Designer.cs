@@ -330,6 +330,8 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columngender;
             
+            private global::System.Data.DataColumn columngender_description;
+            
             private global::System.Data.DataColumn columnrace;
             
             private global::System.Data.DataColumn columnrace_description;
@@ -446,6 +448,14 @@ namespace VehicleDealership.Datasets {
             public global::System.Data.DataColumn genderColumn {
                 get {
                     return this.columngender;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn gender_descriptionColumn {
+                get {
+                    return this.columngender_description;
                 }
             }
             
@@ -582,6 +592,7 @@ namespace VehicleDealership.Datasets {
                         string person_type_description, 
                         string driving_license, 
                         bool gender, 
+                        string gender_description, 
                         int race, 
                         string race_description, 
                         string address, 
@@ -603,6 +614,7 @@ namespace VehicleDealership.Datasets {
                         person_type_description,
                         driving_license,
                         gender,
+                        gender_description,
                         race,
                         race_description,
                         address,
@@ -651,6 +663,7 @@ namespace VehicleDealership.Datasets {
                 this.columnperson_type_description = base.Columns["person_type_description"];
                 this.columndriving_license = base.Columns["driving_license"];
                 this.columngender = base.Columns["gender"];
+                this.columngender_description = base.Columns["gender_description"];
                 this.columnrace = base.Columns["race"];
                 this.columnrace_description = base.Columns["race_description"];
                 this.columnaddress = base.Columns["address"];
@@ -683,6 +696,8 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columndriving_license);
                 this.columngender = new global::System.Data.DataColumn("gender", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columngender);
+                this.columngender_description = new global::System.Data.DataColumn("gender_description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columngender_description);
                 this.columnrace = new global::System.Data.DataColumn("race", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnrace);
                 this.columnrace_description = new global::System.Data.DataColumn("race_description", typeof(string), null, global::System.Data.MappingType.Element);
@@ -723,6 +738,8 @@ namespace VehicleDealership.Datasets {
                 this.columndriving_license.AllowDBNull = false;
                 this.columndriving_license.MaxLength = 15;
                 this.columngender.AllowDBNull = false;
+                this.columngender_description.ReadOnly = true;
+                this.columngender_description.MaxLength = 6;
                 this.columnrace.AllowDBNull = false;
                 this.columnrace_description.AllowDBNull = false;
                 this.columnrace_description.MaxLength = 50;
@@ -1288,6 +1305,22 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string gender_description {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_select_person.gender_descriptionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'gender_description\' in table \'sp_select_person\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_select_person.gender_descriptionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int race {
                 get {
                     return ((int)(this[this.tablesp_select_person.raceColumn]));
@@ -1417,6 +1450,18 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetimageNull() {
                 this[this.tablesp_select_person.imageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isgender_descriptionNull() {
+                return this.IsNull(this.tablesp_select_person.gender_descriptionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setgender_descriptionNull() {
+                this[this.tablesp_select_person.gender_descriptionColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1680,6 +1725,7 @@ namespace VehicleDealership.Datasets.Person_dsTableAdapters {
             tableMapping.ColumnMappings.Add("person_type_description", "person_type_description");
             tableMapping.ColumnMappings.Add("driving_license", "driving_license");
             tableMapping.ColumnMappings.Add("gender", "gender");
+            tableMapping.ColumnMappings.Add("gender_description", "gender_description");
             tableMapping.ColumnMappings.Add("race", "race");
             tableMapping.ColumnMappings.Add("race_description", "race_description");
             tableMapping.ColumnMappings.Add("address", "address");

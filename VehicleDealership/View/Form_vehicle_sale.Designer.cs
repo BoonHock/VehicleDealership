@@ -33,6 +33,12 @@
 			this.btn_cancel = new System.Windows.Forms.Button();
 			this.btn_ok = new System.Windows.Forms.Button();
 			this.tabPage4 = new System.Windows.Forms.TabPage();
+			this.txt_remark = new System.Windows.Forms.TextBox();
+			this.label45 = new System.Windows.Forms.Label();
+			this.num_guarantor_id = new System.Windows.Forms.NumericUpDown();
+			this.btn_guarantor = new System.Windows.Forms.Button();
+			this.txt_guarantor_name = new System.Windows.Forms.TextBox();
+			this.label12 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.grd_trade_in = new System.Windows.Forms.DataGridView();
 			this.toolStrip6 = new System.Windows.Forms.ToolStrip();
@@ -41,19 +47,15 @@
 			this.btn_trade_in_delete = new System.Windows.Forms.ToolStripButton();
 			this.toolStripLabel11 = new System.Windows.Forms.ToolStripLabel();
 			this.lbl_trade_in_total = new System.Windows.Forms.ToolStripLabel();
-			this.txt_remark = new System.Windows.Forms.TextBox();
-			this.label45 = new System.Windows.Forms.Label();
-			this.num_guarantor_id = new System.Windows.Forms.NumericUpDown();
-			this.btn_guarantor = new System.Windows.Forms.Button();
-			this.txt_guarantor_name = new System.Windows.Forms.TextBox();
-			this.label12 = new System.Windows.Forms.Label();
 			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.groupBox5 = new System.Windows.Forms.GroupBox();
 			this.btn_clear_loan_org = new System.Windows.Forms.Button();
 			this.num_insurance_company_id = new System.Windows.Forms.NumericUpDown();
 			this.num_loan_company_id = new System.Windows.Forms.NumericUpDown();
+			this.txt_loan_branch = new System.Windows.Forms.TextBox();
 			this.txt_loan_reg_no = new System.Windows.Forms.TextBox();
+			this.label47 = new System.Windows.Forms.Label();
 			this.txt_loan_company = new System.Windows.Forms.TextBox();
 			this.label54 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
@@ -75,12 +77,11 @@
 			this.btn_loan_company = new System.Windows.Forms.Button();
 			this.label30 = new System.Windows.Forms.Label();
 			this.label33 = new System.Windows.Forms.Label();
-			this.groupBox6 = new System.Windows.Forms.GroupBox();
 			this.btn_clear_insurance_org = new System.Windows.Forms.Button();
 			this.grd_insurance_driver = new System.Windows.Forms.DataGridView();
 			this.grd_insurance_misc = new System.Windows.Forms.DataGridView();
 			this.num_insurance_ncb_percent = new System.Windows.Forms.NumericUpDown();
-			this.num_insurance_ncb_amount = new System.Windows.Forms.NumericUpDown();
+			this.num_insurance_ncd_amount = new System.Windows.Forms.NumericUpDown();
 			this.num_insurance_loading_percent = new System.Windows.Forms.NumericUpDown();
 			this.num_insurance_loading_amount = new System.Windows.Forms.NumericUpDown();
 			this.num_insurance_premium = new System.Windows.Forms.NumericUpDown();
@@ -116,7 +117,9 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.txt_insurance_reg_no = new System.Windows.Forms.TextBox();
 			this.label55 = new System.Windows.Forms.Label();
+			this.txt_insurance_branch = new System.Windows.Forms.TextBox();
 			this.txt_insurance_company = new System.Windows.Forms.TextBox();
+			this.label46 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -242,13 +245,26 @@
 			this.label84 = new System.Windows.Forms.Label();
 			this.label85 = new System.Windows.Forms.Label();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
+			this.tabPage5 = new System.Windows.Forms.TabPage();
+			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+			this.num_additional_comprehensive = new System.Windows.Forms.NumericUpDown();
+			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+			this.label58 = new System.Windows.Forms.Label();
+			this.label57 = new System.Windows.Forms.Label();
+			this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+			this.label59 = new System.Windows.Forms.Label();
+			this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+			this.label60 = new System.Windows.Forms.Label();
+			this.panel2 = new System.Windows.Forms.Panel();
+			this.panel4 = new System.Windows.Forms.Panel();
+			this.panel5 = new System.Windows.Forms.Panel();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel5.SuspendLayout();
 			this.tabPage4.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_guarantor_id)).BeginInit();
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_trade_in)).BeginInit();
 			this.toolStrip6.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.num_guarantor_id)).BeginInit();
 			this.tabPage3.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
 			this.groupBox5.SuspendLayout();
@@ -259,11 +275,10 @@
 			((System.ComponentModel.ISupportInitialize)(this.num_loan_year)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_loan_installment)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_loan_amount)).BeginInit();
-			this.groupBox6.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_insurance_driver)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.grd_insurance_misc)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_insurance_ncb_percent)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.num_insurance_ncb_amount)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_insurance_ncd_amount)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_insurance_loading_percent)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_insurance_loading_amount)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_insurance_premium)).BeginInit();
@@ -313,15 +328,24 @@
 			this.panel3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.num_mileage)).BeginInit();
 			this.tabControl1.SuspendLayout();
+			this.tabPage5.SuspendLayout();
+			this.tableLayoutPanel4.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_additional_comprehensive)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+			this.panel2.SuspendLayout();
+			this.panel4.SuspendLayout();
+			this.panel5.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panel1
 			// 
 			this.panel1.Controls.Add(this.tableLayoutPanel5);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel1.Location = new System.Drawing.Point(0, 538);
+			this.panel1.Location = new System.Drawing.Point(0, 585);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(943, 42);
+			this.panel1.Size = new System.Drawing.Size(999, 42);
 			this.panel1.TabIndex = 2;
 			// 
 			// tableLayoutPanel5
@@ -332,7 +356,7 @@
 			this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel5.Controls.Add(this.btn_cancel, 1, 0);
 			this.tableLayoutPanel5.Controls.Add(this.btn_ok, 0, 0);
-			this.tableLayoutPanel5.Location = new System.Drawing.Point(750, 4);
+			this.tableLayoutPanel5.Location = new System.Drawing.Point(806, 4);
 			this.tableLayoutPanel5.Name = "tableLayoutPanel5";
 			this.tableLayoutPanel5.RowCount = 1;
 			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -366,7 +390,6 @@
 			// 
 			// tabPage4
 			// 
-			this.tabPage4.Controls.Add(this.groupBox2);
 			this.tabPage4.Controls.Add(this.txt_remark);
 			this.tabPage4.Controls.Add(this.label45);
 			this.tabPage4.Controls.Add(this.num_guarantor_id);
@@ -376,19 +399,77 @@
 			this.tabPage4.Location = new System.Drawing.Point(4, 26);
 			this.tabPage4.Name = "tabPage4";
 			this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage4.Size = new System.Drawing.Size(935, 508);
+			this.tabPage4.Size = new System.Drawing.Size(991, 555);
 			this.tabPage4.TabIndex = 3;
 			this.tabPage4.Text = "Miscellaneous";
 			this.tabPage4.UseVisualStyleBackColor = true;
+			// 
+			// txt_remark
+			// 
+			this.txt_remark.Location = new System.Drawing.Point(88, 47);
+			this.txt_remark.MaxLength = 255;
+			this.txt_remark.Multiline = true;
+			this.txt_remark.Name = "txt_remark";
+			this.txt_remark.Size = new System.Drawing.Size(331, 223);
+			this.txt_remark.TabIndex = 9;
+			// 
+			// label45
+			// 
+			this.label45.AutoSize = true;
+			this.label45.Location = new System.Drawing.Point(12, 50);
+			this.label45.Name = "label45";
+			this.label45.Size = new System.Drawing.Size(55, 17);
+			this.label45.TabIndex = 8;
+			this.label45.Text = "Remark:";
+			// 
+			// num_guarantor_id
+			// 
+			this.num_guarantor_id.Location = new System.Drawing.Point(425, 16);
+			this.num_guarantor_id.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_guarantor_id.Name = "num_guarantor_id";
+			this.num_guarantor_id.Size = new System.Drawing.Size(29, 25);
+			this.num_guarantor_id.TabIndex = 5;
+			this.num_guarantor_id.Visible = false;
+			// 
+			// btn_guarantor
+			// 
+			this.btn_guarantor.Location = new System.Drawing.Point(394, 16);
+			this.btn_guarantor.Name = "btn_guarantor";
+			this.btn_guarantor.Size = new System.Drawing.Size(25, 25);
+			this.btn_guarantor.TabIndex = 4;
+			this.btn_guarantor.Text = "...";
+			this.btn_guarantor.UseVisualStyleBackColor = true;
+			this.btn_guarantor.Click += new System.EventHandler(this.Btn_guarantor_Click);
+			// 
+			// txt_guarantor_name
+			// 
+			this.txt_guarantor_name.Location = new System.Drawing.Point(88, 16);
+			this.txt_guarantor_name.Name = "txt_guarantor_name";
+			this.txt_guarantor_name.ReadOnly = true;
+			this.txt_guarantor_name.Size = new System.Drawing.Size(300, 25);
+			this.txt_guarantor_name.TabIndex = 3;
+			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Location = new System.Drawing.Point(12, 19);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(70, 17);
+			this.label12.TabIndex = 2;
+			this.label12.Text = "Guarantor:";
 			// 
 			// groupBox2
 			// 
 			this.groupBox2.Controls.Add(this.grd_trade_in);
 			this.groupBox2.Controls.Add(this.toolStrip6);
-			this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-			this.groupBox2.Location = new System.Drawing.Point(3, 3);
+			this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.groupBox2.Location = new System.Drawing.Point(406, 3);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(929, 322);
+			this.groupBox2.Size = new System.Drawing.Size(576, 543);
 			this.groupBox2.TabIndex = 10;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Trade in";
@@ -404,7 +485,7 @@
 			this.grd_trade_in.Name = "grd_trade_in";
 			this.grd_trade_in.ReadOnly = true;
 			this.grd_trade_in.RowHeadersVisible = false;
-			this.grd_trade_in.Size = new System.Drawing.Size(923, 273);
+			this.grd_trade_in.Size = new System.Drawing.Size(570, 494);
 			this.grd_trade_in.TabIndex = 11;
 			// 
 			// toolStrip6
@@ -418,7 +499,7 @@
             this.lbl_trade_in_total});
 			this.toolStrip6.Location = new System.Drawing.Point(3, 21);
 			this.toolStrip6.Name = "toolStrip6";
-			this.toolStrip6.Size = new System.Drawing.Size(923, 25);
+			this.toolStrip6.Size = new System.Drawing.Size(570, 25);
 			this.toolStrip6.TabIndex = 10;
 			this.toolStrip6.Text = "toolStrip6";
 			// 
@@ -429,7 +510,7 @@
 			this.btn_trade_in_add.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.btn_trade_in_add.Name = "btn_trade_in_add";
 			this.btn_trade_in_add.Size = new System.Drawing.Size(23, 22);
-			this.btn_trade_in_add.Text = "toolStripButton6";
+			this.btn_trade_in_add.Text = "Add";
 			this.btn_trade_in_add.Click += new System.EventHandler(this.Btn_trade_in_add_Click);
 			// 
 			// btn_trade_in_edit
@@ -439,7 +520,7 @@
 			this.btn_trade_in_edit.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.btn_trade_in_edit.Name = "btn_trade_in_edit";
 			this.btn_trade_in_edit.Size = new System.Drawing.Size(23, 22);
-			this.btn_trade_in_edit.Text = "toolStripButton1";
+			this.btn_trade_in_edit.Text = "Edit";
 			this.btn_trade_in_edit.Click += new System.EventHandler(this.Btn_trade_in_edit_Click);
 			// 
 			// btn_trade_in_delete
@@ -449,7 +530,7 @@
 			this.btn_trade_in_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.btn_trade_in_delete.Name = "btn_trade_in_delete";
 			this.btn_trade_in_delete.Size = new System.Drawing.Size(23, 22);
-			this.btn_trade_in_delete.Text = "toolStripButton1";
+			this.btn_trade_in_delete.Text = "Delete";
 			this.btn_trade_in_delete.Click += new System.EventHandler(this.Btn_trade_in_delete_Click);
 			// 
 			// toolStripLabel11
@@ -464,97 +545,40 @@
 			this.lbl_trade_in_total.Size = new System.Drawing.Size(28, 22);
 			this.lbl_trade_in_total.Text = "0.00";
 			// 
-			// txt_remark
-			// 
-			this.txt_remark.Location = new System.Drawing.Point(82, 362);
-			this.txt_remark.MaxLength = 255;
-			this.txt_remark.Multiline = true;
-			this.txt_remark.Name = "txt_remark";
-			this.txt_remark.Size = new System.Drawing.Size(300, 101);
-			this.txt_remark.TabIndex = 9;
-			// 
-			// label45
-			// 
-			this.label45.AutoSize = true;
-			this.label45.Location = new System.Drawing.Point(6, 365);
-			this.label45.Name = "label45";
-			this.label45.Size = new System.Drawing.Size(55, 17);
-			this.label45.TabIndex = 8;
-			this.label45.Text = "Remark:";
-			// 
-			// num_guarantor_id
-			// 
-			this.num_guarantor_id.Location = new System.Drawing.Point(419, 331);
-			this.num_guarantor_id.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-			this.num_guarantor_id.Name = "num_guarantor_id";
-			this.num_guarantor_id.Size = new System.Drawing.Size(29, 25);
-			this.num_guarantor_id.TabIndex = 5;
-			this.num_guarantor_id.Visible = false;
-			// 
-			// btn_guarantor
-			// 
-			this.btn_guarantor.Location = new System.Drawing.Point(388, 331);
-			this.btn_guarantor.Name = "btn_guarantor";
-			this.btn_guarantor.Size = new System.Drawing.Size(25, 25);
-			this.btn_guarantor.TabIndex = 4;
-			this.btn_guarantor.Text = "...";
-			this.btn_guarantor.UseVisualStyleBackColor = true;
-			this.btn_guarantor.Click += new System.EventHandler(this.Btn_guarantor_Click);
-			// 
-			// txt_guarantor_name
-			// 
-			this.txt_guarantor_name.Location = new System.Drawing.Point(82, 331);
-			this.txt_guarantor_name.Name = "txt_guarantor_name";
-			this.txt_guarantor_name.ReadOnly = true;
-			this.txt_guarantor_name.Size = new System.Drawing.Size(300, 25);
-			this.txt_guarantor_name.TabIndex = 3;
-			// 
-			// label12
-			// 
-			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(6, 334);
-			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(70, 17);
-			this.label12.TabIndex = 2;
-			this.label12.Text = "Guarantor:";
-			// 
 			// tabPage3
 			// 
 			this.tabPage3.Controls.Add(this.tableLayoutPanel3);
 			this.tabPage3.Location = new System.Drawing.Point(4, 26);
 			this.tabPage3.Name = "tabPage3";
 			this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage3.Size = new System.Drawing.Size(935, 508);
+			this.tabPage3.Size = new System.Drawing.Size(991, 555);
 			this.tabPage3.TabIndex = 2;
-			this.tabPage3.Text = "Loan & Insurance";
+			this.tabPage3.Text = "Loan & Trade in";
 			this.tabPage3.UseVisualStyleBackColor = true;
 			// 
 			// tableLayoutPanel3
 			// 
 			this.tableLayoutPanel3.ColumnCount = 2;
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.94941F));
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.05059F));
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.01523F));
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.98477F));
+			this.tableLayoutPanel3.Controls.Add(this.groupBox2, 1, 0);
 			this.tableLayoutPanel3.Controls.Add(this.groupBox5, 0, 0);
-			this.tableLayoutPanel3.Controls.Add(this.groupBox6, 1, 0);
 			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
 			this.tableLayoutPanel3.RowCount = 1;
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 502F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(929, 502);
-			this.tableLayoutPanel3.TabIndex = 2;
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(985, 549);
+			this.tableLayoutPanel3.TabIndex = 11;
 			// 
 			// groupBox5
 			// 
 			this.groupBox5.Controls.Add(this.btn_clear_loan_org);
 			this.groupBox5.Controls.Add(this.num_insurance_company_id);
 			this.groupBox5.Controls.Add(this.num_loan_company_id);
+			this.groupBox5.Controls.Add(this.txt_loan_branch);
 			this.groupBox5.Controls.Add(this.txt_loan_reg_no);
+			this.groupBox5.Controls.Add(this.label47);
 			this.groupBox5.Controls.Add(this.txt_loan_company);
 			this.groupBox5.Controls.Add(this.label54);
 			this.groupBox5.Controls.Add(this.label8);
@@ -579,7 +603,7 @@
 			this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.groupBox5.Location = new System.Drawing.Point(3, 3);
 			this.groupBox5.Name = "groupBox5";
-			this.groupBox5.Size = new System.Drawing.Size(393, 496);
+			this.groupBox5.Size = new System.Drawing.Size(397, 543);
 			this.groupBox5.TabIndex = 0;
 			this.groupBox5.TabStop = false;
 			this.groupBox5.Text = "Loan";
@@ -596,7 +620,7 @@
 			// 
 			// num_insurance_company_id
 			// 
-			this.num_insurance_company_id.Location = new System.Drawing.Point(66, 320);
+			this.num_insurance_company_id.Location = new System.Drawing.Point(87, 444);
 			this.num_insurance_company_id.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -609,7 +633,7 @@
 			// 
 			// num_loan_company_id
 			// 
-			this.num_loan_company_id.Location = new System.Drawing.Point(30, 320);
+			this.num_loan_company_id.Location = new System.Drawing.Point(51, 444);
 			this.num_loan_company_id.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -620,13 +644,30 @@
 			this.num_loan_company_id.TabIndex = 31;
 			this.num_loan_company_id.Visible = false;
 			// 
+			// txt_loan_branch
+			// 
+			this.txt_loan_branch.Location = new System.Drawing.Point(141, 55);
+			this.txt_loan_branch.Name = "txt_loan_branch";
+			this.txt_loan_branch.ReadOnly = true;
+			this.txt_loan_branch.Size = new System.Drawing.Size(184, 25);
+			this.txt_loan_branch.TabIndex = 1;
+			// 
 			// txt_loan_reg_no
 			// 
-			this.txt_loan_reg_no.Location = new System.Drawing.Point(141, 55);
+			this.txt_loan_reg_no.Location = new System.Drawing.Point(141, 86);
 			this.txt_loan_reg_no.Name = "txt_loan_reg_no";
 			this.txt_loan_reg_no.ReadOnly = true;
 			this.txt_loan_reg_no.Size = new System.Drawing.Size(184, 25);
 			this.txt_loan_reg_no.TabIndex = 1;
+			// 
+			// label47
+			// 
+			this.label47.AutoSize = true;
+			this.label47.Location = new System.Drawing.Point(6, 59);
+			this.label47.Name = "label47";
+			this.label47.Size = new System.Drawing.Size(50, 17);
+			this.label47.TabIndex = 0;
+			this.label47.Text = "Branch:";
 			// 
 			// txt_loan_company
 			// 
@@ -639,7 +680,7 @@
 			// label54
 			// 
 			this.label54.AutoSize = true;
-			this.label54.Location = new System.Drawing.Point(6, 59);
+			this.label54.Location = new System.Drawing.Point(6, 90);
 			this.label54.Name = "label54";
 			this.label54.Size = new System.Drawing.Size(103, 17);
 			this.label54.TabIndex = 0;
@@ -657,7 +698,7 @@
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(6, 90);
+			this.label9.Location = new System.Drawing.Point(6, 121);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(95, 17);
 			this.label9.TabIndex = 0;
@@ -666,7 +707,7 @@
 			// num_loan_interest
 			// 
 			this.num_loan_interest.DecimalPlaces = 2;
-			this.num_loan_interest.Location = new System.Drawing.Point(141, 148);
+			this.num_loan_interest.Location = new System.Drawing.Point(141, 179);
 			this.num_loan_interest.Name = "num_loan_interest";
 			this.num_loan_interest.Size = new System.Drawing.Size(75, 25);
 			this.num_loan_interest.TabIndex = 5;
@@ -674,7 +715,7 @@
 			// 
 			// num_loan_month
 			// 
-			this.num_loan_month.Location = new System.Drawing.Point(275, 117);
+			this.num_loan_month.Location = new System.Drawing.Point(275, 148);
 			this.num_loan_month.Maximum = new decimal(new int[] {
             12,
             0,
@@ -697,7 +738,7 @@
 			// 
 			// num_loan_year
 			// 
-			this.num_loan_year.Location = new System.Drawing.Point(141, 117);
+			this.num_loan_year.Location = new System.Drawing.Point(141, 148);
 			this.num_loan_year.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -711,7 +752,7 @@
 			// label10
 			// 
 			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(6, 213);
+			this.label10.Location = new System.Drawing.Point(6, 244);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(99, 17);
 			this.label10.TabIndex = 0;
@@ -719,7 +760,7 @@
 			// 
 			// txt_loan_finance_ref_no
 			// 
-			this.txt_loan_finance_ref_no.Location = new System.Drawing.Point(141, 210);
+			this.txt_loan_finance_ref_no.Location = new System.Drawing.Point(141, 241);
 			this.txt_loan_finance_ref_no.MaxLength = 50;
 			this.txt_loan_finance_ref_no.Name = "txt_loan_finance_ref_no";
 			this.txt_loan_finance_ref_no.Size = new System.Drawing.Size(219, 25);
@@ -728,7 +769,7 @@
 			// label11
 			// 
 			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(6, 276);
+			this.label11.Location = new System.Drawing.Point(6, 307);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(129, 17);
 			this.label11.TabIndex = 0;
@@ -736,7 +777,7 @@
 			// 
 			// txt_loan_ownership_claim
 			// 
-			this.txt_loan_ownership_claim.Location = new System.Drawing.Point(141, 272);
+			this.txt_loan_ownership_claim.Location = new System.Drawing.Point(141, 303);
 			this.txt_loan_ownership_claim.MaxLength = 50;
 			this.txt_loan_ownership_claim.Name = "txt_loan_ownership_claim";
 			this.txt_loan_ownership_claim.Size = new System.Drawing.Size(219, 25);
@@ -745,7 +786,7 @@
 			// num_loan_installment
 			// 
 			this.num_loan_installment.DecimalPlaces = 2;
-			this.num_loan_installment.Location = new System.Drawing.Point(175, 179);
+			this.num_loan_installment.Location = new System.Drawing.Point(175, 210);
 			this.num_loan_installment.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -760,7 +801,7 @@
 			// num_loan_amount
 			// 
 			this.num_loan_amount.DecimalPlaces = 2;
-			this.num_loan_amount.Location = new System.Drawing.Point(141, 86);
+			this.num_loan_amount.Location = new System.Drawing.Point(141, 117);
 			this.num_loan_amount.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -775,7 +816,7 @@
 			// dtp_loan_approved_date
 			// 
 			this.dtp_loan_approved_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtp_loan_approved_date.Location = new System.Drawing.Point(141, 241);
+			this.dtp_loan_approved_date.Location = new System.Drawing.Point(141, 272);
 			this.dtp_loan_approved_date.Name = "dtp_loan_approved_date";
 			this.dtp_loan_approved_date.Size = new System.Drawing.Size(121, 25);
 			this.dtp_loan_approved_date.TabIndex = 3;
@@ -783,7 +824,7 @@
 			// label29
 			// 
 			this.label29.AutoSize = true;
-			this.label29.Location = new System.Drawing.Point(222, 120);
+			this.label29.Location = new System.Drawing.Point(222, 151);
 			this.label29.Name = "label29";
 			this.label29.Size = new System.Drawing.Size(49, 17);
 			this.label29.TabIndex = 0;
@@ -792,7 +833,7 @@
 			// label32
 			// 
 			this.label32.AutoSize = true;
-			this.label32.Location = new System.Drawing.Point(6, 183);
+			this.label32.Location = new System.Drawing.Point(6, 214);
 			this.label32.Name = "label32";
 			this.label32.Size = new System.Drawing.Size(163, 17);
 			this.label32.TabIndex = 0;
@@ -801,7 +842,7 @@
 			// label31
 			// 
 			this.label31.AutoSize = true;
-			this.label31.Location = new System.Drawing.Point(6, 152);
+			this.label31.Location = new System.Drawing.Point(6, 183);
 			this.label31.Name = "label31";
 			this.label31.Size = new System.Drawing.Size(54, 17);
 			this.label31.TabIndex = 0;
@@ -810,7 +851,7 @@
 			// label28
 			// 
 			this.label28.AutoSize = true;
-			this.label28.Location = new System.Drawing.Point(6, 119);
+			this.label28.Location = new System.Drawing.Point(6, 181);
 			this.label28.Name = "label28";
 			this.label28.Size = new System.Drawing.Size(37, 17);
 			this.label28.TabIndex = 0;
@@ -829,7 +870,7 @@
 			// label30
 			// 
 			this.label30.AutoSize = true;
-			this.label30.Location = new System.Drawing.Point(222, 152);
+			this.label30.Location = new System.Drawing.Point(222, 183);
 			this.label30.Name = "label30";
 			this.label30.Size = new System.Drawing.Size(19, 17);
 			this.label30.TabIndex = 0;
@@ -838,68 +879,16 @@
 			// label33
 			// 
 			this.label33.AutoSize = true;
-			this.label33.Location = new System.Drawing.Point(6, 245);
+			this.label33.Location = new System.Drawing.Point(6, 276);
 			this.label33.Name = "label33";
 			this.label33.Size = new System.Drawing.Size(99, 17);
 			this.label33.TabIndex = 0;
 			this.label33.Text = "Date approved:";
 			// 
-			// groupBox6
-			// 
-			this.groupBox6.Controls.Add(this.btn_clear_insurance_org);
-			this.groupBox6.Controls.Add(this.grd_insurance_driver);
-			this.groupBox6.Controls.Add(this.grd_insurance_misc);
-			this.groupBox6.Controls.Add(this.num_insurance_ncb_percent);
-			this.groupBox6.Controls.Add(this.num_insurance_ncb_amount);
-			this.groupBox6.Controls.Add(this.num_insurance_loading_percent);
-			this.groupBox6.Controls.Add(this.num_insurance_loading_amount);
-			this.groupBox6.Controls.Add(this.num_insurance_premium);
-			this.groupBox6.Controls.Add(this.num_insurance_windscreen_sum_insured);
-			this.groupBox6.Controls.Add(this.num_insurance_windscreen);
-			this.groupBox6.Controls.Add(this.num_insurance_premium_to_pay);
-			this.groupBox6.Controls.Add(this.num_insurance_stamp_duty);
-			this.groupBox6.Controls.Add(this.num_insurance_sum_insured);
-			this.groupBox6.Controls.Add(this.cmb_insurance_type);
-			this.groupBox6.Controls.Add(this.cmb_insurance_category);
-			this.groupBox6.Controls.Add(this.dtp_insurance_date);
-			this.groupBox6.Controls.Add(this.btn_insurance_company);
-			this.groupBox6.Controls.Add(this.label21);
-			this.groupBox6.Controls.Add(this.label24);
-			this.groupBox6.Controls.Add(this.label26);
-			this.groupBox6.Controls.Add(this.label25);
-			this.groupBox6.Controls.Add(this.label23);
-			this.groupBox6.Controls.Add(this.label56);
-			this.groupBox6.Controls.Add(this.label18);
-			this.groupBox6.Controls.Add(this.label17);
-			this.groupBox6.Controls.Add(this.label27);
-			this.groupBox6.Controls.Add(this.label20);
-			this.groupBox6.Controls.Add(this.label16);
-			this.groupBox6.Controls.Add(this.label19);
-			this.groupBox6.Controls.Add(this.label15);
-			this.groupBox6.Controls.Add(this.txt_insurance_policy_no);
-			this.groupBox6.Controls.Add(this.label14);
-			this.groupBox6.Controls.Add(this.label13);
-			this.groupBox6.Controls.Add(this.label7);
-			this.groupBox6.Controls.Add(this.txt_insurance_endorsement_no);
-			this.groupBox6.Controls.Add(this.label6);
-			this.groupBox6.Controls.Add(this.txt_insurance_cover_note_no);
-			this.groupBox6.Controls.Add(this.label5);
-			this.groupBox6.Controls.Add(this.txt_insurance_reg_no);
-			this.groupBox6.Controls.Add(this.label55);
-			this.groupBox6.Controls.Add(this.txt_insurance_company);
-			this.groupBox6.Controls.Add(this.label4);
-			this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBox6.Location = new System.Drawing.Point(402, 3);
-			this.groupBox6.Name = "groupBox6";
-			this.groupBox6.Size = new System.Drawing.Size(524, 496);
-			this.groupBox6.TabIndex = 1;
-			this.groupBox6.TabStop = false;
-			this.groupBox6.Text = "Insurance";
-			// 
 			// btn_clear_insurance_org
 			// 
 			this.btn_clear_insurance_org.Image = global::VehicleDealership.Properties.Resources.Cancel_16x;
-			this.btn_clear_insurance_org.Location = new System.Drawing.Point(485, 24);
+			this.btn_clear_insurance_org.Location = new System.Drawing.Point(425, 7);
 			this.btn_clear_insurance_org.Name = "btn_clear_insurance_org";
 			this.btn_clear_insurance_org.Size = new System.Drawing.Size(25, 25);
 			this.btn_clear_insurance_org.TabIndex = 32;
@@ -910,64 +899,69 @@
 			// 
 			this.grd_insurance_driver.AllowUserToResizeRows = false;
 			this.grd_insurance_driver.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.grd_insurance_driver.Location = new System.Drawing.Point(268, 320);
+			this.grd_insurance_driver.Location = new System.Drawing.Point(6, 306);
 			this.grd_insurance_driver.Name = "grd_insurance_driver";
 			this.grd_insurance_driver.RowHeadersWidth = 20;
-			this.grd_insurance_driver.Size = new System.Drawing.Size(250, 139);
+			this.grd_insurance_driver.Size = new System.Drawing.Size(444, 175);
 			this.grd_insurance_driver.TabIndex = 6;
 			this.grd_insurance_driver.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_DataError);
 			// 
 			// grd_insurance_misc
 			// 
 			this.grd_insurance_misc.AllowUserToResizeRows = false;
+			this.grd_insurance_misc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.grd_insurance_misc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.grd_insurance_misc.Location = new System.Drawing.Point(6, 320);
+			this.grd_insurance_misc.Location = new System.Drawing.Point(561, 297);
 			this.grd_insurance_misc.Name = "grd_insurance_misc";
 			this.grd_insurance_misc.RowHeadersWidth = 20;
-			this.grd_insurance_misc.Size = new System.Drawing.Size(256, 139);
+			this.grd_insurance_misc.Size = new System.Drawing.Size(424, 184);
 			this.grd_insurance_misc.TabIndex = 6;
 			this.grd_insurance_misc.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_DataError);
 			// 
 			// num_insurance_ncb_percent
 			// 
 			this.num_insurance_ncb_percent.DecimalPlaces = 2;
-			this.num_insurance_ncb_percent.Location = new System.Drawing.Point(115, 241);
+			this.num_insurance_ncb_percent.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.num_insurance_ncb_percent.Location = new System.Drawing.Point(0, 0);
 			this.num_insurance_ncb_percent.Name = "num_insurance_ncb_percent";
-			this.num_insurance_ncb_percent.Size = new System.Drawing.Size(77, 25);
+			this.num_insurance_ncb_percent.Size = new System.Drawing.Size(108, 25);
 			this.num_insurance_ncb_percent.TabIndex = 5;
 			this.num_insurance_ncb_percent.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
-			// num_insurance_ncb_amount
+			// num_insurance_ncd_amount
 			// 
-			this.num_insurance_ncb_amount.DecimalPlaces = 2;
-			this.num_insurance_ncb_amount.Enabled = false;
-			this.num_insurance_ncb_amount.Location = new System.Drawing.Point(223, 241);
-			this.num_insurance_ncb_amount.Maximum = new decimal(new int[] {
+			this.num_insurance_ncd_amount.DecimalPlaces = 2;
+			this.num_insurance_ncd_amount.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.num_insurance_ncd_amount.Enabled = false;
+			this.num_insurance_ncd_amount.Location = new System.Drawing.Point(389, 189);
+			this.num_insurance_ncd_amount.Maximum = new decimal(new int[] {
             1000000000,
             0,
             0,
             0});
-			this.num_insurance_ncb_amount.Name = "num_insurance_ncb_amount";
-			this.num_insurance_ncb_amount.ReadOnly = true;
-			this.num_insurance_ncb_amount.Size = new System.Drawing.Size(123, 25);
-			this.num_insurance_ncb_amount.TabIndex = 5;
-			this.num_insurance_ncb_amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.num_insurance_ncb_amount.ThousandsSeparator = true;
+			this.num_insurance_ncd_amount.Name = "num_insurance_ncd_amount";
+			this.num_insurance_ncd_amount.ReadOnly = true;
+			this.num_insurance_ncd_amount.Size = new System.Drawing.Size(137, 25);
+			this.num_insurance_ncd_amount.TabIndex = 5;
+			this.num_insurance_ncd_amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_insurance_ncd_amount.ThousandsSeparator = true;
 			// 
 			// num_insurance_loading_percent
 			// 
 			this.num_insurance_loading_percent.DecimalPlaces = 2;
-			this.num_insurance_loading_percent.Location = new System.Drawing.Point(115, 210);
+			this.num_insurance_loading_percent.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.num_insurance_loading_percent.Location = new System.Drawing.Point(0, 0);
 			this.num_insurance_loading_percent.Name = "num_insurance_loading_percent";
-			this.num_insurance_loading_percent.Size = new System.Drawing.Size(77, 25);
+			this.num_insurance_loading_percent.Size = new System.Drawing.Size(108, 25);
 			this.num_insurance_loading_percent.TabIndex = 5;
 			this.num_insurance_loading_percent.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// num_insurance_loading_amount
 			// 
 			this.num_insurance_loading_amount.DecimalPlaces = 2;
+			this.num_insurance_loading_amount.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.num_insurance_loading_amount.Enabled = false;
-			this.num_insurance_loading_amount.Location = new System.Drawing.Point(223, 210);
+			this.num_insurance_loading_amount.Location = new System.Drawing.Point(389, 158);
 			this.num_insurance_loading_amount.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -975,7 +969,7 @@
             0});
 			this.num_insurance_loading_amount.Name = "num_insurance_loading_amount";
 			this.num_insurance_loading_amount.ReadOnly = true;
-			this.num_insurance_loading_amount.Size = new System.Drawing.Size(123, 25);
+			this.num_insurance_loading_amount.Size = new System.Drawing.Size(137, 25);
 			this.num_insurance_loading_amount.TabIndex = 5;
 			this.num_insurance_loading_amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.num_insurance_loading_amount.ThousandsSeparator = true;
@@ -983,14 +977,16 @@
 			// num_insurance_premium
 			// 
 			this.num_insurance_premium.DecimalPlaces = 2;
-			this.num_insurance_premium.Location = new System.Drawing.Point(385, 179);
+			this.num_insurance_premium.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.num_insurance_premium.Location = new System.Drawing.Point(389, 3);
 			this.num_insurance_premium.Maximum = new decimal(new int[] {
             1000000000,
             0,
             0,
             0});
 			this.num_insurance_premium.Name = "num_insurance_premium";
-			this.num_insurance_premium.Size = new System.Drawing.Size(93, 25);
+			this.num_insurance_premium.ReadOnly = true;
+			this.num_insurance_premium.Size = new System.Drawing.Size(137, 25);
 			this.num_insurance_premium.TabIndex = 5;
 			this.num_insurance_premium.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.num_insurance_premium.ThousandsSeparator = true;
@@ -999,14 +995,15 @@
 			// num_insurance_windscreen_sum_insured
 			// 
 			this.num_insurance_windscreen_sum_insured.DecimalPlaces = 2;
-			this.num_insurance_windscreen_sum_insured.Location = new System.Drawing.Point(166, 272);
+			this.num_insurance_windscreen_sum_insured.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.num_insurance_windscreen_sum_insured.Location = new System.Drawing.Point(171, 251);
 			this.num_insurance_windscreen_sum_insured.Maximum = new decimal(new int[] {
             1000000000,
             0,
             0,
             0});
 			this.num_insurance_windscreen_sum_insured.Name = "num_insurance_windscreen_sum_insured";
-			this.num_insurance_windscreen_sum_insured.Size = new System.Drawing.Size(93, 25);
+			this.num_insurance_windscreen_sum_insured.Size = new System.Drawing.Size(127, 25);
 			this.num_insurance_windscreen_sum_insured.TabIndex = 5;
 			this.num_insurance_windscreen_sum_insured.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.num_insurance_windscreen_sum_insured.ThousandsSeparator = true;
@@ -1014,36 +1011,31 @@
 			// num_insurance_windscreen
 			// 
 			this.num_insurance_windscreen.DecimalPlaces = 2;
-			this.num_insurance_windscreen.Location = new System.Drawing.Point(350, 272);
+			this.num_insurance_windscreen.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.num_insurance_windscreen.Location = new System.Drawing.Point(389, 251);
 			this.num_insurance_windscreen.Maximum = new decimal(new int[] {
             1000000000,
             0,
             0,
             0});
 			this.num_insurance_windscreen.Name = "num_insurance_windscreen";
-			this.num_insurance_windscreen.Size = new System.Drawing.Size(79, 25);
+			this.num_insurance_windscreen.Size = new System.Drawing.Size(137, 25);
 			this.num_insurance_windscreen.TabIndex = 5;
 			this.num_insurance_windscreen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.num_insurance_windscreen.ThousandsSeparator = true;
 			// 
 			// num_insurance_premium_to_pay
 			// 
+			this.num_insurance_premium_to_pay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.num_insurance_premium_to_pay.DecimalPlaces = 2;
-			this.num_insurance_premium_to_pay.Enabled = false;
-			this.num_insurance_premium_to_pay.Location = new System.Drawing.Point(200, 465);
+			this.num_insurance_premium_to_pay.Location = new System.Drawing.Point(837, 487);
 			this.num_insurance_premium_to_pay.Maximum = new decimal(new int[] {
             1000000000,
             0,
             0,
             0});
-			this.num_insurance_premium_to_pay.Minimum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            -2147483648});
 			this.num_insurance_premium_to_pay.Name = "num_insurance_premium_to_pay";
-			this.num_insurance_premium_to_pay.ReadOnly = true;
-			this.num_insurance_premium_to_pay.Size = new System.Drawing.Size(116, 25);
+			this.num_insurance_premium_to_pay.Size = new System.Drawing.Size(148, 25);
 			this.num_insurance_premium_to_pay.TabIndex = 5;
 			this.num_insurance_premium_to_pay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.num_insurance_premium_to_pay.ThousandsSeparator = true;
@@ -1051,14 +1043,15 @@
 			// num_insurance_stamp_duty
 			// 
 			this.num_insurance_stamp_duty.DecimalPlaces = 2;
-			this.num_insurance_stamp_duty.Location = new System.Drawing.Point(385, 148);
+			this.num_insurance_stamp_duty.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.num_insurance_stamp_duty.Location = new System.Drawing.Point(389, 220);
 			this.num_insurance_stamp_duty.Maximum = new decimal(new int[] {
             1000000000,
             0,
             0,
             0});
 			this.num_insurance_stamp_duty.Name = "num_insurance_stamp_duty";
-			this.num_insurance_stamp_duty.Size = new System.Drawing.Size(121, 25);
+			this.num_insurance_stamp_duty.Size = new System.Drawing.Size(137, 25);
 			this.num_insurance_stamp_duty.TabIndex = 5;
 			this.num_insurance_stamp_duty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.num_insurance_stamp_duty.ThousandsSeparator = true;
@@ -1071,14 +1064,15 @@
 			// num_insurance_sum_insured
 			// 
 			this.num_insurance_sum_insured.DecimalPlaces = 2;
-			this.num_insurance_sum_insured.Location = new System.Drawing.Point(115, 179);
+			this.num_insurance_sum_insured.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.num_insurance_sum_insured.Location = new System.Drawing.Point(389, 34);
 			this.num_insurance_sum_insured.Maximum = new decimal(new int[] {
             1000000000,
             0,
             0,
             0});
 			this.num_insurance_sum_insured.Name = "num_insurance_sum_insured";
-			this.num_insurance_sum_insured.Size = new System.Drawing.Size(148, 25);
+			this.num_insurance_sum_insured.Size = new System.Drawing.Size(137, 25);
 			this.num_insurance_sum_insured.TabIndex = 5;
 			this.num_insurance_sum_insured.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.num_insurance_sum_insured.ThousandsSeparator = true;
@@ -1087,7 +1081,10 @@
 			// 
 			this.cmb_insurance_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmb_insurance_type.FormattingEnabled = true;
-			this.cmb_insurance_type.Location = new System.Drawing.Point(115, 148);
+			this.cmb_insurance_type.Items.AddRange(new object[] {
+            "COMPREHENSIVE",
+            "THIRD PARTY"});
+			this.cmb_insurance_type.Location = new System.Drawing.Point(122, 255);
 			this.cmb_insurance_type.Name = "cmb_insurance_type";
 			this.cmb_insurance_type.Size = new System.Drawing.Size(148, 25);
 			this.cmb_insurance_type.TabIndex = 4;
@@ -1095,8 +1092,9 @@
 			// cmb_insurance_category
 			// 
 			this.cmb_insurance_category.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cmb_insurance_category.Enabled = false;
 			this.cmb_insurance_category.FormattingEnabled = true;
-			this.cmb_insurance_category.Location = new System.Drawing.Point(115, 117);
+			this.cmb_insurance_category.Location = new System.Drawing.Point(122, 224);
 			this.cmb_insurance_category.Name = "cmb_insurance_category";
 			this.cmb_insurance_category.Size = new System.Drawing.Size(148, 25);
 			this.cmb_insurance_category.TabIndex = 4;
@@ -1104,14 +1102,14 @@
 			// dtp_insurance_date
 			// 
 			this.dtp_insurance_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtp_insurance_date.Location = new System.Drawing.Point(385, 117);
+			this.dtp_insurance_date.Location = new System.Drawing.Point(122, 193);
 			this.dtp_insurance_date.Name = "dtp_insurance_date";
 			this.dtp_insurance_date.Size = new System.Drawing.Size(121, 25);
 			this.dtp_insurance_date.TabIndex = 3;
 			// 
 			// btn_insurance_company
 			// 
-			this.btn_insurance_company.Location = new System.Drawing.Point(454, 24);
+			this.btn_insurance_company.Location = new System.Drawing.Point(394, 7);
 			this.btn_insurance_company.Name = "btn_insurance_company";
 			this.btn_insurance_company.Size = new System.Drawing.Size(25, 25);
 			this.btn_insurance_company.TabIndex = 2;
@@ -1121,26 +1119,28 @@
 			// 
 			// label21
 			// 
+			this.label21.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label21.AutoSize = true;
-			this.label21.Location = new System.Drawing.Point(6, 245);
+			this.label21.Location = new System.Drawing.Point(3, 193);
 			this.label21.Name = "label21";
-			this.label21.Size = new System.Drawing.Size(78, 17);
+			this.label21.Size = new System.Drawing.Size(80, 17);
 			this.label21.TabIndex = 0;
-			this.label21.Text = "Less(-) NCB:";
+			this.label21.Text = "Less(-) NCD:";
 			// 
 			// label24
 			// 
+			this.label24.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label24.AutoSize = true;
-			this.label24.Location = new System.Drawing.Point(6, 276);
+			this.label24.Location = new System.Drawing.Point(304, 255);
 			this.label24.Name = "label24";
-			this.label24.Size = new System.Drawing.Size(154, 17);
+			this.label24.Size = new System.Drawing.Size(79, 17);
 			this.label24.TabIndex = 0;
-			this.label24.Text = "Windscreen sum insured:";
+			this.label24.Text = "Windscreen:";
 			// 
 			// label26
 			// 
 			this.label26.AutoSize = true;
-			this.label26.Location = new System.Drawing.Point(265, 300);
+			this.label26.Location = new System.Drawing.Point(6, 286);
 			this.label26.Name = "label26";
 			this.label26.Size = new System.Drawing.Size(46, 17);
 			this.label26.TabIndex = 0;
@@ -1149,7 +1149,7 @@
 			// label25
 			// 
 			this.label25.AutoSize = true;
-			this.label25.Location = new System.Drawing.Point(6, 300);
+			this.label25.Location = new System.Drawing.Point(462, 297);
 			this.label25.Name = "label25";
 			this.label25.Size = new System.Drawing.Size(93, 17);
 			this.label25.TabIndex = 0;
@@ -1157,17 +1157,19 @@
 			// 
 			// label23
 			// 
+			this.label23.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label23.AutoSize = true;
-			this.label23.Location = new System.Drawing.Point(265, 276);
+			this.label23.Location = new System.Drawing.Point(3, 255);
 			this.label23.Name = "label23";
-			this.label23.Size = new System.Drawing.Size(79, 17);
+			this.label23.Size = new System.Drawing.Size(154, 17);
 			this.label23.TabIndex = 0;
-			this.label23.Text = "Windscreen:";
+			this.label23.Text = "Windscreen sum insured:";
 			// 
 			// label56
 			// 
+			this.label56.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label56.AutoSize = true;
-			this.label56.Location = new System.Drawing.Point(269, 152);
+			this.label56.Location = new System.Drawing.Point(3, 224);
 			this.label56.Name = "label56";
 			this.label56.Size = new System.Drawing.Size(77, 17);
 			this.label56.TabIndex = 0;
@@ -1175,63 +1177,69 @@
 			// 
 			// label18
 			// 
+			this.label18.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label18.AutoSize = true;
-			this.label18.Location = new System.Drawing.Point(6, 214);
+			this.label18.Location = new System.Drawing.Point(3, 162);
 			this.label18.Name = "label18";
-			this.label18.Size = new System.Drawing.Size(83, 17);
+			this.label18.Size = new System.Drawing.Size(58, 17);
 			this.label18.TabIndex = 0;
-			this.label18.Text = "Add loading:";
+			this.label18.Text = "Loading:";
 			// 
 			// label17
 			// 
+			this.label17.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label17.AutoSize = true;
-			this.label17.Location = new System.Drawing.Point(269, 182);
+			this.label17.Location = new System.Drawing.Point(3, 7);
 			this.label17.Name = "label17";
-			this.label17.Size = new System.Drawing.Size(62, 17);
+			this.label17.Size = new System.Drawing.Size(96, 17);
 			this.label17.TabIndex = 0;
-			this.label17.Text = "Premium:";
+			this.label17.Text = "Basic premium:";
 			// 
 			// label27
 			// 
+			this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label27.AutoSize = true;
 			this.label27.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label27.Location = new System.Drawing.Point(6, 469);
+			this.label27.Location = new System.Drawing.Point(736, 491);
 			this.label27.Name = "label27";
-			this.label27.Size = new System.Drawing.Size(188, 17);
+			this.label27.Size = new System.Drawing.Size(95, 17);
 			this.label27.TabIndex = 0;
-			this.label27.Text = "Total premium to pay (MYR):";
+			this.label27.Text = "Total payable:";
 			// 
 			// label20
 			// 
-			this.label20.AutoSize = true;
-			this.label20.Location = new System.Drawing.Point(198, 245);
+			this.label20.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label20.Location = new System.Drawing.Point(108, 0);
 			this.label20.Name = "label20";
-			this.label20.Size = new System.Drawing.Size(19, 17);
+			this.label20.Size = new System.Drawing.Size(19, 25);
 			this.label20.TabIndex = 0;
 			this.label20.Text = "%";
+			this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label16
 			// 
+			this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label16.AutoSize = true;
-			this.label16.Location = new System.Drawing.Point(6, 183);
+			this.label16.Location = new System.Drawing.Point(3, 69);
 			this.label16.Name = "label16";
-			this.label16.Size = new System.Drawing.Size(83, 17);
+			this.label16.Size = new System.Drawing.Size(162, 17);
 			this.label16.TabIndex = 0;
-			this.label16.Text = "Sum insured:";
+			this.label16.Text = "Additional comprehensive:";
 			// 
 			// label19
 			// 
-			this.label19.AutoSize = true;
-			this.label19.Location = new System.Drawing.Point(198, 214);
+			this.label19.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label19.Location = new System.Drawing.Point(108, 0);
 			this.label19.Name = "label19";
-			this.label19.Size = new System.Drawing.Size(19, 17);
+			this.label19.Size = new System.Drawing.Size(19, 25);
 			this.label19.TabIndex = 0;
 			this.label19.Text = "%";
+			this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label15
 			// 
 			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(6, 152);
+			this.label15.Location = new System.Drawing.Point(8, 259);
 			this.label15.Name = "label15";
 			this.label15.Size = new System.Drawing.Size(39, 17);
 			this.label15.TabIndex = 0;
@@ -1239,7 +1247,7 @@
 			// 
 			// txt_insurance_policy_no
 			// 
-			this.txt_insurance_policy_no.Location = new System.Drawing.Point(115, 86);
+			this.txt_insurance_policy_no.Location = new System.Drawing.Point(122, 100);
 			this.txt_insurance_policy_no.Name = "txt_insurance_policy_no";
 			this.txt_insurance_policy_no.Size = new System.Drawing.Size(148, 25);
 			this.txt_insurance_policy_no.TabIndex = 1;
@@ -1247,7 +1255,8 @@
 			// label14
 			// 
 			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(6, 120);
+			this.label14.Enabled = false;
+			this.label14.Location = new System.Drawing.Point(8, 227);
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(64, 17);
 			this.label14.TabIndex = 0;
@@ -1256,7 +1265,7 @@
 			// label13
 			// 
 			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(269, 121);
+			this.label13.Location = new System.Drawing.Point(6, 197);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(38, 17);
 			this.label13.TabIndex = 0;
@@ -1265,7 +1274,7 @@
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(6, 90);
+			this.label7.Location = new System.Drawing.Point(8, 104);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(66, 17);
 			this.label7.TabIndex = 0;
@@ -1273,7 +1282,7 @@
 			// 
 			// txt_insurance_endorsement_no
 			// 
-			this.txt_insurance_endorsement_no.Location = new System.Drawing.Point(385, 86);
+			this.txt_insurance_endorsement_no.Location = new System.Drawing.Point(122, 162);
 			this.txt_insurance_endorsement_no.Name = "txt_insurance_endorsement_no";
 			this.txt_insurance_endorsement_no.Size = new System.Drawing.Size(121, 25);
 			this.txt_insurance_endorsement_no.TabIndex = 1;
@@ -1281,7 +1290,7 @@
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(269, 90);
+			this.label6.Location = new System.Drawing.Point(6, 166);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(110, 17);
 			this.label6.TabIndex = 0;
@@ -1289,7 +1298,7 @@
 			// 
 			// txt_insurance_cover_note_no
 			// 
-			this.txt_insurance_cover_note_no.Location = new System.Drawing.Point(385, 55);
+			this.txt_insurance_cover_note_no.Location = new System.Drawing.Point(122, 131);
 			this.txt_insurance_cover_note_no.Name = "txt_insurance_cover_note_no";
 			this.txt_insurance_cover_note_no.Size = new System.Drawing.Size(121, 25);
 			this.txt_insurance_cover_note_no.TabIndex = 1;
@@ -1297,7 +1306,7 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(269, 59);
+			this.label5.Location = new System.Drawing.Point(6, 135);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(97, 17);
 			this.label5.TabIndex = 0;
@@ -1305,7 +1314,7 @@
 			// 
 			// txt_insurance_reg_no
 			// 
-			this.txt_insurance_reg_no.Location = new System.Drawing.Point(115, 55);
+			this.txt_insurance_reg_no.Location = new System.Drawing.Point(122, 69);
 			this.txt_insurance_reg_no.Name = "txt_insurance_reg_no";
 			this.txt_insurance_reg_no.ReadOnly = true;
 			this.txt_insurance_reg_no.Size = new System.Drawing.Size(148, 25);
@@ -1314,24 +1323,41 @@
 			// label55
 			// 
 			this.label55.AutoSize = true;
-			this.label55.Location = new System.Drawing.Point(6, 59);
+			this.label55.Location = new System.Drawing.Point(8, 73);
 			this.label55.Name = "label55";
 			this.label55.Size = new System.Drawing.Size(103, 17);
 			this.label55.TabIndex = 0;
 			this.label55.Text = "Registration no.:";
 			// 
+			// txt_insurance_branch
+			// 
+			this.txt_insurance_branch.Location = new System.Drawing.Point(122, 38);
+			this.txt_insurance_branch.Name = "txt_insurance_branch";
+			this.txt_insurance_branch.ReadOnly = true;
+			this.txt_insurance_branch.Size = new System.Drawing.Size(266, 25);
+			this.txt_insurance_branch.TabIndex = 1;
+			// 
 			// txt_insurance_company
 			// 
-			this.txt_insurance_company.Location = new System.Drawing.Point(115, 24);
+			this.txt_insurance_company.Location = new System.Drawing.Point(122, 7);
 			this.txt_insurance_company.Name = "txt_insurance_company";
 			this.txt_insurance_company.ReadOnly = true;
-			this.txt_insurance_company.Size = new System.Drawing.Size(333, 25);
+			this.txt_insurance_company.Size = new System.Drawing.Size(266, 25);
 			this.txt_insurance_company.TabIndex = 1;
+			// 
+			// label46
+			// 
+			this.label46.AutoSize = true;
+			this.label46.Location = new System.Drawing.Point(8, 42);
+			this.label46.Name = "label46";
+			this.label46.Size = new System.Drawing.Size(50, 17);
+			this.label46.TabIndex = 0;
+			this.label46.Text = "Branch:";
 			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(6, 28);
+			this.label4.Location = new System.Drawing.Point(8, 11);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(66, 17);
 			this.label4.TabIndex = 0;
@@ -1343,7 +1369,7 @@
 			this.tabPage2.Location = new System.Drawing.Point(4, 26);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(935, 508);
+			this.tabPage2.Size = new System.Drawing.Size(991, 555);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Payment/Expenses/Charges";
 			this.tabPage2.UseVisualStyleBackColor = true;
@@ -1363,7 +1389,7 @@
 			this.tableLayoutPanel2.RowCount = 2;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(929, 502);
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(985, 549);
 			this.tableLayoutPanel2.TabIndex = 1;
 			// 
 			// groupBox3
@@ -1371,9 +1397,9 @@
 			this.groupBox3.Controls.Add(this.grd_payment_received);
 			this.groupBox3.Controls.Add(this.toolStrip3);
 			this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBox3.Location = new System.Drawing.Point(467, 3);
+			this.groupBox3.Location = new System.Drawing.Point(495, 3);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(459, 245);
+			this.groupBox3.Size = new System.Drawing.Size(487, 268);
 			this.groupBox3.TabIndex = 1;
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Payment received from customer";
@@ -1389,7 +1415,7 @@
 			this.grd_payment_received.Name = "grd_payment_received";
 			this.grd_payment_received.ReadOnly = true;
 			this.grd_payment_received.RowHeadersVisible = false;
-			this.grd_payment_received.Size = new System.Drawing.Size(453, 196);
+			this.grd_payment_received.Size = new System.Drawing.Size(481, 219);
 			this.grd_payment_received.TabIndex = 1;
 			this.grd_payment_received.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_DataError);
 			// 
@@ -1404,7 +1430,7 @@
             this.lbl_payment_received_total});
 			this.toolStrip3.Location = new System.Drawing.Point(3, 21);
 			this.toolStrip3.Name = "toolStrip3";
-			this.toolStrip3.Size = new System.Drawing.Size(453, 25);
+			this.toolStrip3.Size = new System.Drawing.Size(481, 25);
 			this.toolStrip3.TabIndex = 0;
 			this.toolStrip3.Text = "toolStrip3";
 			// 
@@ -1457,7 +1483,7 @@
 			this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.groupBox1.Location = new System.Drawing.Point(3, 3);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(458, 245);
+			this.groupBox1.Size = new System.Drawing.Size(486, 268);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Charges to customer";
@@ -1470,7 +1496,7 @@
 			this.grd_charges.Location = new System.Drawing.Point(3, 46);
 			this.grd_charges.Name = "grd_charges";
 			this.grd_charges.RowHeadersWidth = 20;
-			this.grd_charges.Size = new System.Drawing.Size(452, 196);
+			this.grd_charges.Size = new System.Drawing.Size(480, 219);
 			this.grd_charges.TabIndex = 1;
 			this.grd_charges.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_DataError);
 			// 
@@ -1484,7 +1510,7 @@
             this.lbl_charges_less});
 			this.toolStrip1.Location = new System.Drawing.Point(3, 21);
 			this.toolStrip1.Name = "toolStrip1";
-			this.toolStrip1.Size = new System.Drawing.Size(452, 25);
+			this.toolStrip1.Size = new System.Drawing.Size(480, 25);
 			this.toolStrip1.TabIndex = 0;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
@@ -1518,9 +1544,9 @@
 			this.groupBox7.Controls.Add(this.grd_misc_payment_received);
 			this.groupBox7.Controls.Add(this.toolStrip5);
 			this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBox7.Location = new System.Drawing.Point(467, 254);
+			this.groupBox7.Location = new System.Drawing.Point(495, 277);
 			this.groupBox7.Name = "groupBox7";
-			this.groupBox7.Size = new System.Drawing.Size(459, 245);
+			this.groupBox7.Size = new System.Drawing.Size(487, 269);
 			this.groupBox7.TabIndex = 3;
 			this.groupBox7.TabStop = false;
 			this.groupBox7.Text = "Miscellaneous payment received";
@@ -1536,7 +1562,7 @@
 			this.grd_misc_payment_received.Name = "grd_misc_payment_received";
 			this.grd_misc_payment_received.ReadOnly = true;
 			this.grd_misc_payment_received.RowHeadersVisible = false;
-			this.grd_misc_payment_received.Size = new System.Drawing.Size(453, 196);
+			this.grd_misc_payment_received.Size = new System.Drawing.Size(481, 220);
 			this.grd_misc_payment_received.TabIndex = 2;
 			// 
 			// toolStrip5
@@ -1550,7 +1576,7 @@
             this.lbl_misc_payment_received_total});
 			this.toolStrip5.Location = new System.Drawing.Point(3, 21);
 			this.toolStrip5.Name = "toolStrip5";
-			this.toolStrip5.Size = new System.Drawing.Size(453, 25);
+			this.toolStrip5.Size = new System.Drawing.Size(481, 25);
 			this.toolStrip5.TabIndex = 3;
 			this.toolStrip5.Text = "toolStrip5";
 			// 
@@ -1600,9 +1626,10 @@
 			// 
 			this.groupBox4.Controls.Add(this.grd_expenses);
 			this.groupBox4.Controls.Add(this.toolStrip4);
-			this.groupBox4.Location = new System.Drawing.Point(3, 254);
+			this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.groupBox4.Location = new System.Drawing.Point(3, 277);
 			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(458, 245);
+			this.groupBox4.Size = new System.Drawing.Size(486, 269);
 			this.groupBox4.TabIndex = 2;
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "Expenses";
@@ -1617,7 +1644,7 @@
 			this.grd_expenses.Location = new System.Drawing.Point(3, 46);
 			this.grd_expenses.Name = "grd_expenses";
 			this.grd_expenses.RowHeadersVisible = false;
-			this.grd_expenses.Size = new System.Drawing.Size(452, 196);
+			this.grd_expenses.Size = new System.Drawing.Size(480, 220);
 			this.grd_expenses.TabIndex = 1;
 			this.grd_expenses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grd_expenses_CellContentClick);
 			this.grd_expenses.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_DataError);
@@ -1635,7 +1662,7 @@
             this.lbl_expenses_charged});
 			this.toolStrip4.Location = new System.Drawing.Point(3, 21);
 			this.toolStrip4.Name = "toolStrip4";
-			this.toolStrip4.Size = new System.Drawing.Size(452, 25);
+			this.toolStrip4.Size = new System.Drawing.Size(480, 25);
 			this.toolStrip4.TabIndex = 0;
 			this.toolStrip4.Text = "toolStrip4";
 			// 
@@ -1708,7 +1735,7 @@
 			this.tabPage1.Location = new System.Drawing.Point(4, 26);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(935, 508);
+			this.tabPage1.Size = new System.Drawing.Size(991, 555);
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "Home";
 			this.tabPage1.UseVisualStyleBackColor = true;
@@ -2973,19 +3000,240 @@
 			this.tabControl1.Controls.Add(this.tabPage1);
 			this.tabControl1.Controls.Add(this.tabPage2);
 			this.tabControl1.Controls.Add(this.tabPage3);
+			this.tabControl1.Controls.Add(this.tabPage5);
 			this.tabControl1.Controls.Add(this.tabPage4);
 			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControl1.Location = new System.Drawing.Point(0, 0);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(943, 538);
+			this.tabControl1.Size = new System.Drawing.Size(999, 585);
 			this.tabControl1.TabIndex = 0;
+			// 
+			// tabPage5
+			// 
+			this.tabPage5.Controls.Add(this.tableLayoutPanel4);
+			this.tabPage5.Controls.Add(this.label4);
+			this.tabPage5.Controls.Add(this.btn_clear_insurance_org);
+			this.tabPage5.Controls.Add(this.label46);
+			this.tabPage5.Controls.Add(this.grd_insurance_driver);
+			this.tabPage5.Controls.Add(this.txt_insurance_company);
+			this.tabPage5.Controls.Add(this.grd_insurance_misc);
+			this.tabPage5.Controls.Add(this.txt_insurance_branch);
+			this.tabPage5.Controls.Add(this.label55);
+			this.tabPage5.Controls.Add(this.txt_insurance_reg_no);
+			this.tabPage5.Controls.Add(this.label5);
+			this.tabPage5.Controls.Add(this.txt_insurance_cover_note_no);
+			this.tabPage5.Controls.Add(this.label6);
+			this.tabPage5.Controls.Add(this.txt_insurance_endorsement_no);
+			this.tabPage5.Controls.Add(this.label7);
+			this.tabPage5.Controls.Add(this.num_insurance_premium_to_pay);
+			this.tabPage5.Controls.Add(this.label13);
+			this.tabPage5.Controls.Add(this.label14);
+			this.tabPage5.Controls.Add(this.txt_insurance_policy_no);
+			this.tabPage5.Controls.Add(this.label15);
+			this.tabPage5.Controls.Add(this.cmb_insurance_type);
+			this.tabPage5.Controls.Add(this.cmb_insurance_category);
+			this.tabPage5.Controls.Add(this.dtp_insurance_date);
+			this.tabPage5.Controls.Add(this.label27);
+			this.tabPage5.Controls.Add(this.btn_insurance_company);
+			this.tabPage5.Controls.Add(this.label26);
+			this.tabPage5.Controls.Add(this.label25);
+			this.tabPage5.Location = new System.Drawing.Point(4, 26);
+			this.tabPage5.Name = "tabPage5";
+			this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage5.Size = new System.Drawing.Size(991, 555);
+			this.tabPage5.TabIndex = 4;
+			this.tabPage5.Text = "Insurance";
+			this.tabPage5.UseVisualStyleBackColor = true;
+			// 
+			// tableLayoutPanel4
+			// 
+			this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.tableLayoutPanel4.ColumnCount = 4;
+			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.55072F));
+			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.44928F));
+			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel4.Controls.Add(this.panel4, 1, 5);
+			this.tableLayoutPanel4.Controls.Add(this.num_insurance_premium, 3, 0);
+			this.tableLayoutPanel4.Controls.Add(this.num_insurance_sum_insured, 3, 1);
+			this.tableLayoutPanel4.Controls.Add(this.num_additional_comprehensive, 3, 2);
+			this.tableLayoutPanel4.Controls.Add(this.numericUpDown1, 3, 3);
+			this.tableLayoutPanel4.Controls.Add(this.label17, 0, 0);
+			this.tableLayoutPanel4.Controls.Add(this.label58, 0, 1);
+			this.tableLayoutPanel4.Controls.Add(this.label16, 0, 2);
+			this.tableLayoutPanel4.Controls.Add(this.label57, 0, 3);
+			this.tableLayoutPanel4.Controls.Add(this.num_insurance_ncd_amount, 3, 6);
+			this.tableLayoutPanel4.Controls.Add(this.label59, 0, 4);
+			this.tableLayoutPanel4.Controls.Add(this.num_insurance_loading_amount, 3, 5);
+			this.tableLayoutPanel4.Controls.Add(this.num_insurance_windscreen, 3, 8);
+			this.tableLayoutPanel4.Controls.Add(this.numericUpDown2, 3, 4);
+			this.tableLayoutPanel4.Controls.Add(this.label18, 0, 5);
+			this.tableLayoutPanel4.Controls.Add(this.label21, 0, 6);
+			this.tableLayoutPanel4.Controls.Add(this.num_insurance_stamp_duty, 3, 7);
+			this.tableLayoutPanel4.Controls.Add(this.label56, 0, 7);
+			this.tableLayoutPanel4.Controls.Add(this.label23, 0, 8);
+			this.tableLayoutPanel4.Controls.Add(this.num_insurance_windscreen_sum_insured, 1, 8);
+			this.tableLayoutPanel4.Controls.Add(this.label24, 2, 8);
+			this.tableLayoutPanel4.Controls.Add(this.panel2, 1, 4);
+			this.tableLayoutPanel4.Controls.Add(this.panel5, 1, 6);
+			this.tableLayoutPanel4.Location = new System.Drawing.Point(456, 6);
+			this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+			this.tableLayoutPanel4.RowCount = 10;
+			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel4.Size = new System.Drawing.Size(529, 285);
+			this.tableLayoutPanel4.TabIndex = 35;
+			// 
+			// num_additional_comprehensive
+			// 
+			this.num_additional_comprehensive.DecimalPlaces = 2;
+			this.num_additional_comprehensive.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.num_additional_comprehensive.Location = new System.Drawing.Point(389, 65);
+			this.num_additional_comprehensive.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_additional_comprehensive.Name = "num_additional_comprehensive";
+			this.num_additional_comprehensive.Size = new System.Drawing.Size(137, 25);
+			this.num_additional_comprehensive.TabIndex = 5;
+			this.num_additional_comprehensive.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_additional_comprehensive.ThousandsSeparator = true;
+			this.num_additional_comprehensive.Value = new decimal(new int[] {
+            26,
+            0,
+            0,
+            0});
+			// 
+			// numericUpDown1
+			// 
+			this.numericUpDown1.DecimalPlaces = 2;
+			this.numericUpDown1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.numericUpDown1.Location = new System.Drawing.Point(389, 96);
+			this.numericUpDown1.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.numericUpDown1.Name = "numericUpDown1";
+			this.numericUpDown1.Size = new System.Drawing.Size(137, 25);
+			this.numericUpDown1.TabIndex = 5;
+			this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.numericUpDown1.ThousandsSeparator = true;
+			// 
+			// label58
+			// 
+			this.label58.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label58.AutoSize = true;
+			this.label58.Location = new System.Drawing.Point(3, 38);
+			this.label58.Name = "label58";
+			this.label58.Size = new System.Drawing.Size(83, 17);
+			this.label58.TabIndex = 34;
+			this.label58.Text = "Sum insured:";
+			// 
+			// label57
+			// 
+			this.label57.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label57.AutoSize = true;
+			this.label57.Location = new System.Drawing.Point(3, 100);
+			this.label57.Name = "label57";
+			this.label57.Size = new System.Drawing.Size(76, 17);
+			this.label57.TabIndex = 34;
+			this.label57.Text = "Adjustment:";
+			// 
+			// numericUpDown3
+			// 
+			this.numericUpDown3.DecimalPlaces = 2;
+			this.numericUpDown3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.numericUpDown3.Location = new System.Drawing.Point(0, 0);
+			this.numericUpDown3.Name = "numericUpDown3";
+			this.numericUpDown3.Size = new System.Drawing.Size(108, 25);
+			this.numericUpDown3.TabIndex = 5;
+			this.numericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			// 
+			// label59
+			// 
+			this.label59.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label59.AutoSize = true;
+			this.label59.Location = new System.Drawing.Point(3, 131);
+			this.label59.Name = "label59";
+			this.label59.Size = new System.Drawing.Size(84, 17);
+			this.label59.TabIndex = 0;
+			this.label59.Text = "Loading age:";
+			// 
+			// numericUpDown2
+			// 
+			this.numericUpDown2.DecimalPlaces = 2;
+			this.numericUpDown2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.numericUpDown2.Enabled = false;
+			this.numericUpDown2.Location = new System.Drawing.Point(389, 127);
+			this.numericUpDown2.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.numericUpDown2.Name = "numericUpDown2";
+			this.numericUpDown2.ReadOnly = true;
+			this.numericUpDown2.Size = new System.Drawing.Size(137, 25);
+			this.numericUpDown2.TabIndex = 5;
+			this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.numericUpDown2.ThousandsSeparator = true;
+			// 
+			// label60
+			// 
+			this.label60.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label60.Location = new System.Drawing.Point(108, 0);
+			this.label60.Name = "label60";
+			this.label60.Size = new System.Drawing.Size(19, 25);
+			this.label60.TabIndex = 0;
+			this.label60.Text = "%";
+			this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// panel2
+			// 
+			this.panel2.Controls.Add(this.numericUpDown3);
+			this.panel2.Controls.Add(this.label60);
+			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel2.Location = new System.Drawing.Point(171, 127);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(127, 25);
+			this.panel2.TabIndex = 35;
+			// 
+			// panel4
+			// 
+			this.panel4.Controls.Add(this.num_insurance_loading_percent);
+			this.panel4.Controls.Add(this.label19);
+			this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel4.Location = new System.Drawing.Point(171, 158);
+			this.panel4.Name = "panel4";
+			this.panel4.Size = new System.Drawing.Size(127, 25);
+			this.panel4.TabIndex = 36;
+			// 
+			// panel5
+			// 
+			this.panel5.Controls.Add(this.num_insurance_ncb_percent);
+			this.panel5.Controls.Add(this.label20);
+			this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel5.Location = new System.Drawing.Point(171, 189);
+			this.panel5.Name = "panel5";
+			this.panel5.Size = new System.Drawing.Size(127, 25);
+			this.panel5.TabIndex = 37;
 			// 
 			// Form_vehicle_sale
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(943, 580);
+			this.ClientSize = new System.Drawing.Size(999, 627);
 			this.Controls.Add(this.tabControl1);
 			this.Controls.Add(this.panel1);
 			this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2999,12 +3247,12 @@
 			this.tableLayoutPanel5.PerformLayout();
 			this.tabPage4.ResumeLayout(false);
 			this.tabPage4.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_guarantor_id)).EndInit();
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_trade_in)).EndInit();
 			this.toolStrip6.ResumeLayout(false);
 			this.toolStrip6.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.num_guarantor_id)).EndInit();
 			this.tabPage3.ResumeLayout(false);
 			this.tableLayoutPanel3.ResumeLayout(false);
 			this.groupBox5.ResumeLayout(false);
@@ -3016,12 +3264,10 @@
 			((System.ComponentModel.ISupportInitialize)(this.num_loan_year)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_loan_installment)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_loan_amount)).EndInit();
-			this.groupBox6.ResumeLayout(false);
-			this.groupBox6.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_insurance_driver)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.grd_insurance_misc)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_insurance_ncb_percent)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.num_insurance_ncb_amount)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.num_insurance_ncd_amount)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_insurance_loading_percent)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_insurance_loading_amount)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_insurance_premium)).EndInit();
@@ -3084,6 +3330,17 @@
 			this.panel3.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.num_mileage)).EndInit();
 			this.tabControl1.ResumeLayout(false);
+			this.tabPage5.ResumeLayout(false);
+			this.tabPage5.PerformLayout();
+			this.tableLayoutPanel4.ResumeLayout(false);
+			this.tableLayoutPanel4.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_additional_comprehensive)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+			this.panel2.ResumeLayout(false);
+			this.panel4.ResumeLayout(false);
+			this.panel5.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -3099,7 +3356,6 @@
 		private System.Windows.Forms.TextBox txt_guarantor_name;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.TabPage tabPage3;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
 		private System.Windows.Forms.GroupBox groupBox5;
 		private System.Windows.Forms.TextBox txt_loan_company;
 		private System.Windows.Forms.Label label8;
@@ -3121,11 +3377,10 @@
 		private System.Windows.Forms.Button btn_loan_company;
 		private System.Windows.Forms.Label label30;
 		private System.Windows.Forms.Label label33;
-		private System.Windows.Forms.GroupBox groupBox6;
 		private System.Windows.Forms.DataGridView grd_insurance_driver;
 		private System.Windows.Forms.DataGridView grd_insurance_misc;
 		private System.Windows.Forms.NumericUpDown num_insurance_ncb_percent;
-		private System.Windows.Forms.NumericUpDown num_insurance_ncb_amount;
+		private System.Windows.Forms.NumericUpDown num_insurance_ncd_amount;
 		private System.Windows.Forms.NumericUpDown num_insurance_loading_percent;
 		private System.Windows.Forms.NumericUpDown num_insurance_loading_amount;
 		private System.Windows.Forms.NumericUpDown num_insurance_premium;
@@ -3303,5 +3558,23 @@
 		private System.Windows.Forms.ToolStripLabel lbl_charges_less;
 		private System.Windows.Forms.Button btn_clear_loan_org;
 		private System.Windows.Forms.Button btn_clear_insurance_org;
+		private System.Windows.Forms.TextBox txt_insurance_branch;
+		private System.Windows.Forms.Label label46;
+		private System.Windows.Forms.TextBox txt_loan_branch;
+		private System.Windows.Forms.Label label47;
+		private System.Windows.Forms.NumericUpDown num_additional_comprehensive;
+		private System.Windows.Forms.Label label58;
+		private System.Windows.Forms.TabPage tabPage5;
+		private System.Windows.Forms.NumericUpDown numericUpDown3;
+		private System.Windows.Forms.NumericUpDown numericUpDown2;
+		private System.Windows.Forms.Label label60;
+		private System.Windows.Forms.Label label59;
+		private System.Windows.Forms.Label label57;
+		private System.Windows.Forms.NumericUpDown numericUpDown1;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+		private System.Windows.Forms.Panel panel2;
+		private System.Windows.Forms.Panel panel4;
+		private System.Windows.Forms.Panel panel5;
 	}
 }

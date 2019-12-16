@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using VehicleDealership.Classes;
 using VehicleDealership.Datasets;
@@ -16,6 +13,7 @@ namespace VehicleDealership.View
 {
 	public partial class Form_datagridview : Form
 	{
+		Form_vehicle_sale _form_vehicle_sale = null;
 
 		public Form_datagridview()
 		{
@@ -183,17 +181,6 @@ namespace VehicleDealership.View
 						permission_denied = true;
 					else
 						Setup_form_location();
-					break;
-				case "INSURANCE_TYPE":
-					// user will be editing straight to cell so display delete only
-					deleteToolStripMenuItem.Visible = true;
-					lbl_edit_will_affect_all.Visible = true;
-
-					if (!Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT) &&
-						!Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_DELETE))
-						permission_denied = true;
-					else
-						Setup_form_insurance_type();
 					break;
 				case "INSURANCE_CATEGORY":
 					// user will be editing straight to cell so display delete only
@@ -1063,18 +1050,14 @@ namespace VehicleDealership.View
 		#region VEHICLE SALE
 		private void Setup_form_vehicle_sale()
 		{
-			ts_vehicle.Visible = true;
-			btn_print_vehicle_in.Visible = false;
-			cmb_vehicle_status.Visible = false; // all vehicles are sold status.
-
-			cmb_vehicle_acquire.SelectedItem = "ALL";
+			ts_vehicle_sale.Visible = true;
 
 			bool has_add_edit_permission = Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_SALE_ADD_EDIT);
 			bool has_delete_permission = Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_SALE_DELETE);
 
-			btn_add_vehicle.Enabled = has_add_edit_permission;
-			btn_edit_vehicle.Enabled = has_add_edit_permission;
-			btn_delete_vehicle.Enabled = has_delete_permission;
+			btn_add_vehicle_sale.Enabled = has_add_edit_permission;
+			btn_edit_vehicle_sale.Enabled = has_add_edit_permission;
+			btn_delete_vehicle_sale.Enabled = has_delete_permission;
 
 			addToolStripMenuItem.Enabled = has_add_edit_permission;
 			editToolStripMenuItem.Enabled = has_add_edit_permission;
@@ -1082,14 +1065,13 @@ namespace VehicleDealership.View
 
 			Setup_grd_vehicle_sale();
 
-			txt_search_vehicle.TextChanged += (sender2, e2) => Apply_filter_vehicle_sale();
-			cmb_vehicle_acquire.ComboBox.SelectedIndexChanged += (sender2, e2) => Apply_filter_vehicle_sale();
+			txt_search_vehicle_sale.TextChanged += (sender2, e2) => Apply_filter_vehicle_sale();
 
-			btn_add_vehicle.Click += Add_vehicle_sale;
+			btn_add_vehicle_sale.Click += Add_vehicle_sale;
 			addToolStripMenuItem.Click += Add_vehicle_sale;
-			btn_edit_vehicle.Click += Edit_vehicle_sale;
+			btn_edit_vehicle_sale.Click += Edit_vehicle_sale;
 			editToolStripMenuItem.Click += Edit_vehicle_sale;
-			btn_delete_vehicle.Click += Delete_vehicle_sale;
+			btn_delete_vehicle_sale.Click += Delete_vehicle_sale;
 			deleteToolStripMenuItem.Click += Delete_vehicle_sale;
 		}
 		private void Setup_grd_vehicle_sale(int int_vehicle = 0)
@@ -1099,6 +1081,9 @@ namespace VehicleDealership.View
 			grd_main.Columns["sale_price"].DefaultCellStyle.Format = "N2";
 			grd_main.AutoResizeColumns();
 
+			if (!Program.System_user.IsDeveloper)
+				Class_datagridview.Hide_columns(grd_main, new string[] { "vehicle" });
+
 			Apply_filter_vehicle_sale();
 
 			if (int_vehicle != 0)
@@ -1106,7 +1091,16 @@ namespace VehicleDealership.View
 		}
 		private void Apply_filter_vehicle_sale()
 		{
+			if (grd_main.DataSource == null) return;
 
+			string str_search = txt_search_vehicle_sale.Text.Trim();
+
+			string str_filter = "[reference_no] LIKE '%" + str_search +
+				"%' OR [registration_no] LIKE '%" + str_search + "%' OR [customer] LIKE '%" + str_search +
+				"%' OR [guarantor_name] LIKE '%" + str_search + "%' OR [salesperson] LIKE '%" + str_search +
+				"%'";
+
+			((DataTable)grd_main.DataSource).DefaultView.RowFilter = str_filter;
 		}
 		private void Add_vehicle_sale(object sender, EventArgs e)
 		{
@@ -1117,18 +1111,40 @@ namespace VehicleDealership.View
 			{
 				if (dlg_select.ShowDialog() != DialogResult.OK) return;
 
-				using (Form_vehicle_sale form_sale = new Form_vehicle_sale(dlg_select.Get_selected_value_as_int("vehicle")))
-				{
-					if (form_sale.ShowDialog() == DialogResult.OK)
-						Setup_grd_vehicle_sale(dlg_select.Get_selected_value_as_int("vehicle"));
-				}
-
+				//using (Form_vehicle_sale form_sale = new Form_vehicle_sale(dlg_select.Get_selected_value_as_int("vehicle")))
+				//{
+				//	if (form_sale.ShowDialog() == DialogResult.OK)
+				//		Setup_grd_vehicle_sale(dlg_select.Get_selected_value_as_int("vehicle"));
+				//}
+				_form_vehicle_sale = new Form_vehicle_sale(dlg_select.Get_selected_value_as_int("vehicle"));
+				//form_sale.MdiParent = this.MdiParent;
+				//form_sale.FormClosed += Form2Closed;
+				//form_sale.Show();
+				//this.Visible = false;
+				Class_form.Show_dialog_as_mdi_child(_form_vehicle_sale, this, Test);
 			}
+		}
+		private void Test()
+		{
+			//Setup_grd_vehicle_sale(dlg_select.Get_selected_value_as_int("vehicle"));
+			Setup_grd_vehicle_sale(_form_vehicle_sale.VehicleID);
+			_form_vehicle_sale.Dispose();
 		}
 		private void Edit_vehicle_sale(object sender, EventArgs e)
 		{
+			if (grd_main.SelectedCells.Count == 0) return;
 
+			using (Form_vehicle_sale form_sale = new Form_vehicle_sale((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value))
+			{
+				if (form_sale.ShowDialog() == DialogResult.OK)
+					Setup_grd_vehicle_sale((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value);
+			}
 		}
+		private void Form2Closed(object sender, FormClosedEventArgs e)
+		{
+			this.Visible = true;
+		}
+
 		private void Delete_vehicle_sale(object sender, EventArgs e)
 		{
 			if (grd_main.SelectedCells.Count == 0) return;
@@ -1136,8 +1152,8 @@ namespace VehicleDealership.View
 			// MUST CONFIRM GOT PERMISSION TO DELETE!!!!
 			if (!Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_SALE_DELETE)) return;
 
-			if (MessageBox.Show("Are you sure? This action cannot be undone.", "WARNING",
-				MessageBoxButtons.OK, MessageBoxIcon.Warning) != DialogResult.OK) return;
+			if (MessageBox.Show("Are you sure? This action cannot be undone.", "WARNING", MessageBoxButtons.OKCancel,
+				MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.OK) return;
 
 			List<int> list_vehicle = new List<int>();
 
@@ -1330,64 +1346,6 @@ namespace VehicleDealership.View
 					MessageBox.Show("Update failed.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 			Setup_grd_location();
-		}
-		#endregion
-		#region INSURANCE_TYPE 
-		private void Setup_form_insurance_type()
-		{
-			if (Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT))
-			{
-				grd_main.ReadOnly = false;
-				grd_main.AllowUserToAddRows = true;
-			}
-			deleteToolStripMenuItem.Enabled = false; // default
-			if (Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_DELETE))
-			{
-				grd_main.AllowUserToDeleteRows = true;
-				deleteToolStripMenuItem.Enabled = true;
-			}
-			ts_save_only.Visible = true;
-			Setup_grd_insurance_type();
-			btn_save.Click += Btn_save_insurance_type_Click;
-			deleteToolStripMenuItem.Click += Delete_grd_main_row;
-		}
-		private void Setup_grd_insurance_type()
-		{
-			Class_datagridview.Setup_and_preselect(grd_main,
-				Insurance_type_ds.Select_insurance_type(), "insurance_type");
-			grd_main.AutoResizeColumns();
-			grd_main.Columns["insurance_type"].DefaultCellStyle.BackColor = Color.LightGray;
-			Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_main, "description");
-		}
-		private void Btn_save_insurance_type_Click(object sender, EventArgs e)
-		{
-			Class_datagridview.Apply_all_changes(grd_main);
-			DataTable dttable = ((DataTable)grd_main.DataSource).Copy();
-			Class_datatable.Add_uploaded_by_columns(ref dttable);
-
-			if (dttable.Select().GroupBy(c => c["description"].ToString().ToUpper()).Where(c => c.Count() > 1).Count() > 0)
-			{
-				MessageBox.Show("Duplicate descriptions are not allowed", "Invalid",
-					MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
-			}
-			Class_bulkcopy bk = new Class_bulkcopy(dttable)
-			{
-				INT1 = "insurance_type",
-				NVARCHAR1 = "description"
-			};
-			if (!bk.Write_to_db()) return;
-
-			if (Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_DELETE))
-				if (!Insurance_type_ds.Delete_insurance_type())
-					MessageBox.Show("One or more insurance type cannot be deleted because there are items applying this setting.",
-						"Some items cannot be deleted", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-			if (Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT))
-				if (!Insurance_type_ds.Update_insert_insurance_type())
-					MessageBox.Show("Update failed.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-			Setup_grd_insurance_type();
 		}
 		#endregion
 		#region INSURANCE_CATEGORY

@@ -9,7 +9,7 @@ namespace VehicleDealership.Datasets
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="int_person">person id</param>
+		/// <param name="int_person">person id, -1 to select all</param>
 		/// <returns></returns>
 		public static sp_select_personDataTable Select_person(int int_person)
 		{

@@ -98,6 +98,7 @@
     <Compile Include="Classes\Class_datagridview.cs" />
     <Compile Include="Classes\Class_datatable.cs" />
     <Compile Include="Classes\Class_enum.cs" />
+    <Compile Include="Classes\Class_form.cs" />
     <Compile Include="Classes\Class_image.cs" />
     <Compile Include="Classes\Class_listview.cs" />
     <Compile Include="Classes\Class_misc.cs" />
@@ -262,14 +263,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Insurance_misc_charges_ds.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Datasets\Insurance_type_ds.cs">
-      <DependentUpon>Insurance_type_ds.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Datasets\Insurance_type_ds.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Insurance_type_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\Loan_ds.cs">
       <DependentUpon>Loan_ds.xsd</DependentUpon>
@@ -616,6 +609,12 @@
     <Compile Include="View\Form_edit_salesperson.Designer.cs">
       <DependentUpon>Form_edit_salesperson.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Form_select_person_org.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form_select_person_org.Designer.cs">
+      <DependentUpon>Form_select_person_org.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Form_usergroup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -719,6 +718,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form_edit_salesperson.resx">
       <DependentUpon>Form_edit_salesperson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Form_select_person_org.resx">
+      <DependentUpon>Form_select_person_org.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form_usergroup.resx">
       <DependentUpon>Form_usergroup.cs</DependentUpon>
@@ -907,17 +909,6 @@
     </None>
     <None Include="Datasets\Insurance_misc_charges_ds.xss">
       <DependentUpon>Insurance_misc_charges_ds.xsd</DependentUpon>
-    </None>
-    <None Include="Datasets\Insurance_type_ds.xsc">
-      <DependentUpon>Insurance_type_ds.xsd</DependentUpon>
-    </None>
-    <None Include="Datasets\Insurance_type_ds.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Insurance_type_ds.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Datasets\Insurance_type_ds.xss">
-      <DependentUpon>Insurance_type_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Loan_ds.xsc">
       <DependentUpon>Loan_ds.xsd</DependentUpon>

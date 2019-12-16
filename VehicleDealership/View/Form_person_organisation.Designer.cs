@@ -183,8 +183,12 @@
 			// cmb_type
 			// 
 			this.cmb_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cmb_type.Items.AddRange(new object[] {
+            "PERSON",
+            "ORGANISATION"});
 			this.cmb_type.Name = "cmb_type";
 			this.cmb_type.Size = new System.Drawing.Size(160, 25);
+			this.cmb_type.SelectedIndexChanged += new System.EventHandler(this.Cmb_type_SelectedIndexChanged);
 			// 
 			// toolStripLabel2
 			// 

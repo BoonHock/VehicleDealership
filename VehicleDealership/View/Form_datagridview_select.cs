@@ -71,7 +71,6 @@ namespace VehicleDealership.View
 			if (_value_col_name != "")
 				Class_datagridview.Select_row_by_value(grd_main, _value_col_name, _preselect_value);
 		}
-
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
 			if (grd_main.SelectedCells.Count == 0)
@@ -84,7 +83,6 @@ namespace VehicleDealership.View
 			this.DialogResult = DialogResult.OK;
 			this.Close();
 		}
-
 		private void Btn_cancel_Click(object sender, EventArgs e)
 		{
 			this.DialogResult = DialogResult.Cancel;

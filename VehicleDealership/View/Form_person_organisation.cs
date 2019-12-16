@@ -20,7 +20,7 @@ namespace VehicleDealership.View
 		{
 			get
 			{
-				return cmb_type.ComboBox.SelectedValue.ToString().ToUpper();
+				return cmb_type.ComboBox.SelectedItem.ToString().ToUpper();
 			}
 		}
 		public int SelectedID
@@ -29,7 +29,7 @@ namespace VehicleDealership.View
 			{
 				int int_result = 0;
 
-				if (cmb_type.ComboBox.SelectedValue.ToString().ToUpper() == "PERSON")
+				if (cmb_type.ComboBox.SelectedItem.ToString().ToUpper() == "PERSON")
 				{
 					if (grd_main.SelectedCells.Count > 0)
 						int_result = int.Parse(grd_main.SelectedCells[0].OwningRow.Cells["person"].Value.ToString());
@@ -49,7 +49,7 @@ namespace VehicleDealership.View
 			{
 				int int_result = 0;
 
-				if (cmb_type.ComboBox.SelectedValue.ToString().ToUpper() == "ORGANISATION" && grd_main.SelectedCells.Count > 0)
+				if (cmb_type.ComboBox.SelectedItem.ToString().ToUpper() == "ORGANISATION" && grd_main.SelectedCells.Count > 0)
 				{
 					int_result = int.Parse(grd_main.SelectedCells[0].OwningRow.Cells["organisation_branch"].Value.ToString());
 				}
@@ -57,30 +57,42 @@ namespace VehicleDealership.View
 				return int_result;
 			}
 		}
-		public Form_person_organisation(string select_for)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="select_for">
+		/// SALESPERSON/FINANCE/INSURANCE/LOAN. 
+		/// passstring if just person and organisation
+		/// </param>
+		public Form_person_organisation(string select_for = "")
 		{
 			InitializeComponent();
 
 			_select_for = select_for;
 
-			DataTable dttable = new DataTable();
-			dttable.Columns.Add("display", typeof(string));
-			dttable.Columns.Add("value", typeof(string));
-			dttable.Rows.Add("PERSON", "PERSON");
-			dttable.Rows.Add("ORGANISATION", "ORGANISATION");
-
-			cmb_type.ComboBox.DisplayMember = "display";
-			cmb_type.ComboBox.ValueMember = "value";
-			cmb_type.ComboBox.DataSource = dttable;
-
-			cmb_type.SelectedIndexChanged += Cmb_type_SelectedIndexChanged;
 			grd_main.MouseDown += Class_datagridview.MouseDown_select_cell;
 		}
 		private void Form_person_organisation_Shown(object sender, EventArgs e)
 		{
 			Class_style.Grd_style.Common_style(grd_main);
 
+			cmb_type.ComboBox.SelectedIndex = 0;
+
 			Setup_grd_main();
+		}
+		public int Get_selected_value_as_int(string str_value_col)
+		{
+			if (grd_main.SelectedCells.Count > 0)
+				return int.Parse(grd_main.SelectedCells[0].OwningRow.Cells[str_value_col].Value.ToString());
+
+			return 0;
+		}
+		public string Get_selected_value_as_string(string str_value_col)
+		{
+			if (grd_main.SelectedCells.Count > 0)
+				return grd_main.SelectedCells[0].OwningRow.Cells[str_value_col].Value.ToString();
+
+			return "";
 		}
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
@@ -104,8 +116,22 @@ namespace VehicleDealership.View
 
 			switch (_select_for)
 			{
+				case "":
+					if (cmb_type.ComboBox.SelectedItem.ToString() == "PERSON")
+					{
+						grd_main.DataSource = Person_ds.Select_person(-1);
+						Class_datagridview.Hide_columns(grd_main,
+							new string[] { "person", "image", "person_type", "gender", "race", "country" });
+					}
+					else
+					{
+						grd_main.DataSource = Organisation_ds.Select_organisation(-1);
+						Class_datagridview.Hide_columns(grd_main,
+							new string[] { "organisation", "organisation_type", "country" });
+					}
+					break;
 				case "SALESPERSON":
-					if (cmb_type.ComboBox.SelectedValue.ToString() == "PERSON")
+					if (cmb_type.ComboBox.SelectedItem.ToString() == "PERSON")
 						grd_main.DataSource = Person_ds.Select_person_not_salesperson();
 					else
 						grd_main.DataSource = Organisation_branch_ds.Select_organisation_not_salesperson();
@@ -127,7 +153,7 @@ namespace VehicleDealership.View
 					break;
 			}
 
-			if (cmb_type.ComboBox.SelectedValue.ToString() == "PERSON")
+			if (cmb_type.ComboBox.SelectedItem.ToString() == "PERSON")
 			{
 				Class_datagridview.Hide_columns(grd_main, new string[] { "person" });
 
@@ -196,23 +222,18 @@ namespace VehicleDealership.View
 		}
 		private void Add_Click(object sender, EventArgs e)
 		{
-			if (cmb_type.ComboBox.SelectedValue.ToString() == "PERSON")
+			if (cmb_type.ComboBox.SelectedItem.ToString() == "PERSON")
 				Add_person();
 			else
 				Add_organisation();
 		}
 		private void Edit_Click(object sender, EventArgs e)
 		{
-			if (cmb_type.ComboBox.SelectedValue.ToString() == "PERSON")
+			if (cmb_type.ComboBox.SelectedItem.ToString() == "PERSON")
 				Edit_person();
 			else
 				Edit_organisation();
 		}
-		private void Cmb_type_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			Setup_grd_main();
-		}
-
 		private void Txt_search_TextChanged(object sender, EventArgs e)
 		{
 			Apply_search_filter_to_grd_main();
@@ -223,7 +244,7 @@ namespace VehicleDealership.View
 
 			string str_search = txt_search.Text.Trim();
 
-			if (cmb_type.ComboBox.SelectedValue.ToString() == "PERSON")
+			if (cmb_type.ComboBox.SelectedItem.ToString() == "PERSON")
 			{
 				((DataTable)grd_main.DataSource).DefaultView.RowFilter = "[name] LIKE '%" +
 					str_search + "%' OR [ic_no] LIKE '%" + str_search + "%'";
@@ -246,6 +267,11 @@ namespace VehicleDealership.View
 		private void Grd_main_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
 			btn_ok.PerformClick();
+		}
+
+		private void Cmb_type_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			Setup_grd_main();
 		}
 	}
 }

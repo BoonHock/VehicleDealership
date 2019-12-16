@@ -94,27 +94,29 @@ namespace VehicleDealership.View
 
 			if (PersonID == 0) return; // if zero means adding new person instead of editing
 
-			Person_ds.sp_select_personDataTable dttable_person = Person_ds.Select_person(PersonID);
-			if (dttable_person.Rows.Count == 0) return;
+			using (Person_ds.sp_select_personDataTable dttable_person = Person_ds.Select_person(PersonID))
+			{
+				if (dttable_person.Rows.Count == 0) return;
 
-			txt_name.Text = dttable_person[0].name;
-			txt_ic_no.Text = dttable_person[0].ic_no;
+				txt_name.Text = dttable_person[0].name;
+				txt_ic_no.Text = dttable_person[0].ic_no;
 
-			if (dttable_person.Rows[0]["image"] != DBNull.Value)
-				picbox_image.Image = Image.FromStream(new MemoryStream(dttable_person[0].image));
+				if (dttable_person.Rows[0]["image"] != DBNull.Value)
+					picbox_image.Image = Image.FromStream(new MemoryStream(dttable_person[0].image));
 
-			cmb_type.SelectedValue = dttable_person[0].person_type;
-			txt_driving_license.Text = dttable_person[0].driving_license;
-			cmb_gender.SelectedValue = (dttable_person[0].gender) ? "MALE" : "FEMALE";
-			cmb_race.SelectedValue = dttable_person[0].race;
-			txt_address.Text = dttable_person[0].address;
-			txt_city.Text = dttable_person[0].city;
-			txt_state.Text = dttable_person[0].state;
-			txt_postcode.Text = dttable_person[0].postcode;
-			cmb_country.SelectedValue = dttable_person[0].country;
-			txt_occupation.Text = dttable_person[0].occupation;
-			txt_company.Text = dttable_person[0].company;
-			txt_url.Text = dttable_person[0].url;
+				cmb_type.SelectedValue = dttable_person[0].person_type;
+				txt_driving_license.Text = dttable_person[0].driving_license;
+				cmb_gender.SelectedValue = (dttable_person[0].gender) ? "MALE" : "FEMALE";
+				cmb_race.SelectedValue = dttable_person[0].race;
+				txt_address.Text = dttable_person[0].address;
+				txt_city.Text = dttable_person[0].city;
+				txt_state.Text = dttable_person[0].state;
+				txt_postcode.Text = dttable_person[0].postcode;
+				cmb_country.SelectedValue = dttable_person[0].country;
+				txt_occupation.Text = dttable_person[0].occupation;
+				txt_company.Text = dttable_person[0].company;
+				txt_url.Text = dttable_person[0].url;
+			}
 		}
 
 		private void Btn_ok_Click(object sender, EventArgs e)
@@ -199,8 +201,10 @@ namespace VehicleDealership.View
 				return;
 			}
 			// upload contact information
-			DataColumn dt_col1 = new DataColumn("modified_by", typeof(int));
-			dt_col1.DefaultValue = Program.System_user.UserID;
+			DataColumn dt_col1 = new DataColumn("modified_by", typeof(int))
+			{
+				DefaultValue = Program.System_user.UserID
+			};
 			dttable_contact.Columns.Add(dt_col1);
 
 			Bulkcopy_table_ds.Delete_by_user();

@@ -45,7 +45,8 @@ namespace VehicleDealership.Datasets
 			string insurance_endorsement_no, string insurance_policy_no, System.DateTime insurance_date,
 			int? insurance_category, int? insurance_type, decimal insurance_sum_insured, decimal insurance_premium,
 			decimal insurance_stamp_duty, decimal insurance_loading_percent, decimal insurance_ncb_percent,
-			decimal insurance_windscreen, decimal insurance_windscreen_sum_insured, int salesperson, string remark)
+			decimal insurance_windscreen, decimal insurance_windscreen_sum_insured,
+			decimal insurance_total_premium, int salesperson, string remark)
 		{
 			try
 			{
@@ -54,10 +55,11 @@ namespace VehicleDealership.Datasets
 					adapter.sp_insert_vehicle_sale(vehicle, ref_no_prefix, customer_person, customer_org_branch,
 						sale_date, sale_price, road_tax_amount, road_tax_month, loan, loan_amount, loan_month,
 						loan_interest_percentage, loan_monthly_installment, loan_ref_no, loan_approval_date,
-						loan_ownership_claim_no, guarantor_person, insurance, insurance_cover_note_no, insurance_endorsement_no,
-						insurance_policy_no, insurance_date, insurance_category, insurance_type, insurance_windscreen_sum_insured,
-						insurance_premium, insurance_stamp_duty, insurance_loading_percent, insurance_ncb_percent,
-						insurance_windscreen, insurance_windscreen_sum_insured, salesperson, remark, Program.System_user.UserID);
+						loan_ownership_claim_no, guarantor_person, insurance, insurance_cover_note_no,
+						insurance_endorsement_no, insurance_policy_no, insurance_date, insurance_category,
+						insurance_type, insurance_sum_insured, insurance_premium, insurance_stamp_duty,
+						insurance_loading_percent, insurance_ncb_percent, insurance_windscreen, insurance_windscreen_sum_insured,
+						insurance_total_premium, salesperson, remark, Program.System_user.UserID);
 					return true;
 				}
 			}
@@ -75,7 +77,8 @@ namespace VehicleDealership.Datasets
 			string insurance_endorsement_no, string insurance_policy_no, System.DateTime insurance_date,
 			int? insurance_category, int? insurance_type, decimal insurance_sum_insured, decimal insurance_premium,
 			decimal insurance_stamp_duty, decimal insurance_loading_percent, decimal insurance_ncb_percent,
-			decimal insurance_windscreen, decimal insurance_windscreen_sum_insured, int salesperson, string remark)
+			decimal insurance_windscreen, decimal insurance_windscreen_sum_insured,
+			decimal insurance_total_premium, int salesperson, string remark)
 		{
 			try
 			{
@@ -85,9 +88,10 @@ namespace VehicleDealership.Datasets
 						sale_price, road_tax_amount, road_tax_month, loan, loan_amount, loan_month,
 						loan_interest_percentage, loan_monthly_installment, loan_ref_no, loan_approval_date,
 						loan_ownership_claim_no, guarantor_person, insurance, insurance_cover_note_no, insurance_endorsement_no,
-						insurance_policy_no, insurance_date, insurance_category, insurance_type, insurance_windscreen_sum_insured,
+						insurance_policy_no, insurance_date, insurance_category, insurance_type, insurance_sum_insured,
 						insurance_premium, insurance_stamp_duty, insurance_loading_percent, insurance_ncb_percent,
-						insurance_windscreen, insurance_windscreen_sum_insured, salesperson, remark, Program.System_user.UserID);
+						insurance_windscreen, insurance_windscreen_sum_insured, insurance_total_premium,
+						salesperson, remark, Program.System_user.UserID);
 				}
 			}
 			catch (System.Exception e)

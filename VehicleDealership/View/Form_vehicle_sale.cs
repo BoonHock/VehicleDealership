@@ -51,7 +51,7 @@ namespace VehicleDealership.View
 			int? insurance_type = cmb_insurance_type.SelectedIndex < 0 ? (int?)null : (int)cmb_insurance_type.SelectedValue;
 			int? guarantor = num_guarantor_id.Value == 0 ? (int?)null : (int)num_guarantor_id.Value;
 
-			if (txt_customer_type.Text == "")
+			if (txt_customer_type.Text == "PERSON")
 				customer_person = (int)num_customer_id.Value;
 			else
 				customer_org = (int)num_customer_id.Value;
@@ -74,8 +74,9 @@ namespace VehicleDealership.View
 						txt_insurance_cover_note_no.Text.Trim(), txt_insurance_endorsement_no.Text.Trim(),
 						txt_insurance_policy_no.Text.Trim(), dtp_insurance_date.Value, insurance_category, insurance_type,
 						num_insurance_sum_insured.Value, num_insurance_premium.Value, num_insurance_stamp_duty.Value,
-						num_insurance_loading_percent.Value, num_insurance_ncb_percent.Value, num_insurance_windscreen.Value,
-						num_insurance_windscreen_sum_insured.Value, (int)num_salesperson_id.Value, txt_remark.Text.Trim());
+						num_insurance_loading_percent.Value, num_insurance_ncb_percent.Value,
+						num_insurance_windscreen.Value, num_insurance_windscreen_sum_insured.Value,
+						num_insurance_premium_to_pay.Value, (int)num_salesperson_id.Value, txt_remark.Text.Trim());
 				}
 				else
 				{
@@ -89,8 +90,9 @@ namespace VehicleDealership.View
 						txt_insurance_cover_note_no.Text.Trim(), txt_insurance_endorsement_no.Text.Trim(),
 						txt_insurance_policy_no.Text.Trim(), dtp_insurance_date.Value, insurance_category, insurance_type,
 						num_insurance_sum_insured.Value, num_insurance_premium.Value, num_insurance_stamp_duty.Value,
-						num_insurance_loading_percent.Value, num_insurance_ncb_percent.Value, num_insurance_windscreen.Value,
-						num_insurance_windscreen_sum_insured.Value, (int)num_salesperson_id.Value, txt_remark.Text.Trim());
+						num_insurance_loading_percent.Value, num_insurance_ncb_percent.Value,
+						num_insurance_windscreen.Value, num_insurance_windscreen_sum_insured.Value,
+						num_insurance_premium_to_pay.Value, (int)num_salesperson_id.Value, txt_remark.Text.Trim());
 				}
 			}
 
@@ -240,7 +242,7 @@ namespace VehicleDealership.View
 		private void Update_veh_sale_payment_receive_misc()
 		{
 			using (Veh_sale_payment_receive_misc_ds.sp_select_veh_sale_payment_receive_miscDataTable dttable =
-				(Veh_sale_payment_receive_misc_ds.sp_select_veh_sale_payment_receive_miscDataTable)grd_payment_received.DataSource)
+				(Veh_sale_payment_receive_misc_ds.sp_select_veh_sale_payment_receive_miscDataTable)grd_misc_payment_received.DataSource)
 			{
 				List<int> list_payment_id = new List<int>();
 				List<int> list_charge_to_customer = new List<int>();
@@ -285,9 +287,7 @@ namespace VehicleDealership.View
 			cmb_insurance_category.ValueMember = "insurance_category";
 			cmb_insurance_category.DataSource = Insurance_category_ds.Select_insurance_category();
 
-			cmb_insurance_type.DisplayMember = "description";
-			cmb_insurance_type.ValueMember = "insurance_type";
-			cmb_insurance_type.DataSource = Insurance_type_ds.Select_insurance_type();
+			cmb_insurance_type.SelectedIndex = 0; // default
 
 			// LOAD VEHICLE DETAILS
 			using (Vehicle_ds.sp_select_vehicleDataTable dttable =
@@ -325,7 +325,9 @@ namespace VehicleDealership.View
 			{
 				if (dttable.Rows.Count > 0)
 				{
+					num_salesperson_id.Value = dttable[0].salesperson_id;
 					txt_salesperson.Text = dttable[0].salesperson;
+
 					txt_customer_type.Text = dttable[0].customer_type;
 					if (dttable[0].customer_type == "PERSON")
 					{
@@ -354,11 +356,14 @@ namespace VehicleDealership.View
 					}
 
 					num_selling_price.Value = dttable[0].sale_price;
-					//num_net_purchase.Value = dttable[0].
 
-					txt_loan_company.Text = dttable[0].loan_org_name;
-					num_loan_company_id.Value = dttable[0].loan;
-					txt_loan_reg_no.Text = dttable[0].loan_org_reg_no;
+					if (dttable[0]["loan"] != DBNull.Value)
+					{
+						num_loan_company_id.Value = dttable[0].loan;
+						txt_loan_company.Text = dttable[0].loan_org_name;
+						txt_loan_branch.Text = dttable[0].loan_org_branch_name;
+						txt_loan_reg_no.Text = dttable[0].loan_org_reg_no;
+					}
 					num_loan_amount.Value = dttable[0].loan_amount;
 					num_loan_year.Value = Math.Floor((decimal)dttable[0].loan_month / 12);
 					num_loan_month.Value = (decimal)dttable[0].loan_month % 12;
@@ -368,15 +373,23 @@ namespace VehicleDealership.View
 					dtp_loan_approved_date.Value = dttable[0].loan_approval_date;
 					txt_loan_ownership_claim.Text = dttable[0].loan_ownership_claim_no;
 
-					txt_insurance_company.Text = dttable[0].insurance_org_name;
-					num_insurance_company_id.Value = dttable[0].insurance;
-					txt_insurance_reg_no.Text = dttable[0].insurance_org_reg_no;
+					if (dttable[0]["insurance"] != DBNull.Value)
+					{
+						num_insurance_company_id.Value = dttable[0].insurance;
+						txt_insurance_company.Text = dttable[0].insurance_org_name;
+						txt_insurance_branch.Text = dttable[0].insurance_org_branch_name;
+						txt_insurance_reg_no.Text = dttable[0].insurance_org_reg_no;
+					}
 					txt_insurance_cover_note_no.Text = dttable[0].insurance_cover_note_no;
 					txt_insurance_endorsement_no.Text = dttable[0].insurance_endorsement_no;
 					txt_insurance_policy_no.Text = dttable[0].insurance_policy_no;
 					dtp_insurance_date.Value = dttable[0].insurance_date;
-					cmb_insurance_category.SelectedValue = dttable[0].insurance_category;
-					cmb_insurance_type.SelectedValue = dttable[0].insurance_type;
+
+					if (dttable[0]["insurance_category"] != DBNull.Value)
+						cmb_insurance_category.SelectedValue = dttable[0].insurance_category;
+					if (dttable[0]["insurance_type"] != DBNull.Value)
+						cmb_insurance_type.SelectedValue = dttable[0].insurance_type;
+
 					num_insurance_sum_insured.Value = dttable[0].insurance_sum_insured;
 					num_insurance_premium.Value = dttable[0].insurance_premium;
 					num_insurance_stamp_duty.Value = dttable[0].insurance_stamp_duty;
@@ -384,13 +397,16 @@ namespace VehicleDealership.View
 					num_insurance_loading_amount.Value = (num_insurance_premium.Value - num_insurance_stamp_duty.Value) *
 						num_insurance_loading_percent.Value;
 					num_insurance_ncb_percent.Value = dttable[0].insurance_ncb_percent;
-					num_insurance_ncb_amount.Value = (num_insurance_premium.Value - num_insurance_stamp_duty.Value) *
+					num_insurance_ncd_amount.Value = (num_insurance_premium.Value - num_insurance_stamp_duty.Value) *
 						num_insurance_ncb_percent.Value;
 					num_insurance_windscreen.Value = dttable[0].insurance_windscreen;
 					num_insurance_windscreen_sum_insured.Value = dttable[0].insurance_windscreen_sum_insured;
-					//num_insurance_premium_to_pay .Value = // TODO
-					txt_guarantor_name.Text = dttable[0].guarantor_name;
-					num_guarantor_id.Value = dttable[0].guarantor_person;
+					num_insurance_premium_to_pay.Value = dttable[0].insurance_total_premium;
+					if (dttable[0]["guarantor_person"] != DBNull.Value)
+					{
+						num_guarantor_id.Value = dttable[0].guarantor_person;
+						txt_guarantor_name.Text = dttable[0].guarantor_name;
+					}
 					txt_remark.Text = dttable[0].remark;
 				}
 			}
@@ -580,7 +596,7 @@ namespace VehicleDealership.View
 		{
 			num_insurance_loading_amount.Value =
 				(num_insurance_premium.Value - num_insurance_stamp_duty.Value) * num_insurance_loading_percent.Value / 100;
-			num_insurance_ncb_amount.Value =
+			num_insurance_ncd_amount.Value =
 				(num_insurance_premium.Value - num_insurance_stamp_duty.Value) * num_insurance_ncb_percent.Value / 100;
 		}
 		private void Calculate_vehicle_payment()
@@ -637,6 +653,7 @@ namespace VehicleDealership.View
 				if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
 				{
 					txt_loan_company.Text = dlg_select.Get_selected_value_as_string("name");
+					txt_loan_branch.Text = dlg_select.Get_selected_value_as_string("branch_name");
 					txt_loan_reg_no.Text = dlg_select.Get_selected_value_as_string("registration_no");
 					num_loan_company_id.Value = dlg_select.Get_selected_value_as_int("loan");
 				}
@@ -651,6 +668,7 @@ namespace VehicleDealership.View
 				if (dlg_select.ShowDialog() == DialogResult.OK && dlg_select.grd_main.SelectedCells.Count > 0)
 				{
 					txt_insurance_company.Text = dlg_select.Get_selected_value_as_string("name");
+					txt_insurance_branch.Text = dlg_select.Get_selected_value_as_string("branch_name");
 					txt_insurance_reg_no.Text = dlg_select.Get_selected_value_as_string("registration_no");
 					num_insurance_company_id.Value = dlg_select.Get_selected_value_as_int("insurance");
 				}
@@ -758,7 +776,7 @@ namespace VehicleDealership.View
 				using (Form_datagridview_select dlg = new Form_datagridview_select(dttable,
 					new string[] { "name", "branch_name", "registration_no" }, "salesperson", num_salesperson_id.Value.ToString()))
 				{
-					if (dlg.ShowDialog() == DialogResult.OK)
+					if (dlg.ShowDialog(this) == DialogResult.OK)
 					{
 						num_salesperson_id.Value = dlg.Get_selected_value_as_int("salesperson");
 						txt_salesperson.Text = dlg.Get_selected_value_as_string("name");
@@ -768,11 +786,11 @@ namespace VehicleDealership.View
 		}
 		private void Btn_customer_Click(object sender, EventArgs e)
 		{
-			using (Form_datagridview_select dlg = new Form_datagridview_select("PERSON_ORGANISATION"))
+			using (Form_person_organisation dlg = new Form_person_organisation())
 			{
 				if (dlg.ShowDialog() == DialogResult.OK)
 				{
-					txt_customer_type.Text = dlg.cmb_type.SelectedItem.ToString().ToUpper();
+					txt_customer_type.Text = dlg.SelectedType;
 
 					if (txt_customer_type.Text == "PERSON")
 					{
@@ -781,7 +799,7 @@ namespace VehicleDealership.View
 					}
 					else
 					{
-						num_customer_id.Value = dlg.Get_selected_value_as_int("organisation");
+						num_customer_id.Value = dlg.Get_selected_value_as_int("organisation_branch");
 						txt_customer_reg_no.Text = dlg.Get_selected_value_as_string("registration_no");
 					}
 
@@ -792,14 +810,16 @@ namespace VehicleDealership.View
 		private void Btn_clear_loan_org_Click(object sender, EventArgs e)
 		{
 			txt_loan_company.Text = "";
+			txt_loan_branch.Text = "";
 			txt_loan_reg_no.Text = "";
 			num_loan_company_id.Value = 0;
 		}
 		private void Btn_clear_insurance_org_Click(object sender, EventArgs e)
 		{
-			txt_insurance_company.Text = "";
-			txt_insurance_reg_no.Text = "";
 			num_insurance_company_id.Value = 0;
+			txt_insurance_company.Text = "";
+			txt_insurance_branch.Text = "";
+			txt_insurance_reg_no.Text = "";
 		}
 		private void Btn_expenses_add_Click(object sender, EventArgs e)
 		{

@@ -6,19 +6,20 @@ namespace VehicleDealership.Datasets
 
 	partial class Organisation_ds
 	{
-		private static Organisation_dsTableAdapters.sp_select_organisationTableAdapter Select_OrganisationTableAdapter()
-		{
-			return new Organisation_dsTableAdapters.sp_select_organisationTableAdapter();
-		}
-		private static Organisation_dsTableAdapters.QueriesTableAdapter QueriesTableAdapter()
-		{
-			return new Organisation_dsTableAdapters.QueriesTableAdapter();
-		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="int_org">-1 to select all</param>
+		/// <returns></returns>
 		public static sp_select_organisationDataTable Select_organisation(int int_org)
 		{
 			try
 			{
-				return Select_OrganisationTableAdapter().GetData(int_org);
+				using (Organisation_dsTableAdapters.sp_select_organisationTableAdapter adapter =
+					new Organisation_dsTableAdapters.sp_select_organisationTableAdapter())
+				{
+					return adapter.GetData(int_org);
+				}
 			}
 			catch (System.Exception e)
 			{
@@ -46,8 +47,11 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				return int.Parse(QueriesTableAdapter().sp_insert_organisation(str_name,
-					str_registration_no, int_org_type, short_country, str_url, Program.System_user.UserID).ToString());
+				using (Organisation_dsTableAdapters.QueriesTableAdapter adapter = new Organisation_dsTableAdapters.QueriesTableAdapter())
+				{
+					return int.Parse(adapter.sp_insert_organisation(str_name, str_registration_no,
+						int_org_type, short_country, str_url, Program.System_user.UserID).ToString());
+				}
 			}
 			catch (System.Exception e)
 			{
@@ -61,8 +65,11 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				QueriesTableAdapter().sp_update_organisation(int_org, str_name,
-					str_registration_no, int_org_type, short_country, str_url, Program.System_user.UserID);
+				using (Organisation_dsTableAdapters.QueriesTableAdapter adapter = new Organisation_dsTableAdapters.QueriesTableAdapter())
+				{
+					adapter.sp_update_organisation(int_org, str_name, str_registration_no,
+						int_org_type, short_country, str_url, Program.System_user.UserID);
+				}
 				return true;
 			}
 			catch (System.Exception e)

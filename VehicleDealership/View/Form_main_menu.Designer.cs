@@ -38,6 +38,14 @@
 			this.brandGroupModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.transmissionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.fuelTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.organisationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.financeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.insuranceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.loanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.miscellaneousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.salespersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.colourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.locationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.vehicleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.vehicleToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.vehicleReturnsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,14 +63,6 @@
 			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ssl_usergroup = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ssl_status = new System.Windows.Forms.ToolStripStatusLabel();
-			this.organisationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.miscellaneousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.colourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.salespersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.financeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.insuranceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.locationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.loanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.main_menu_strip.SuspendLayout();
 			this.log_in_menustrip.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
@@ -101,19 +101,19 @@
             this.usersToolStripMenuItem,
             this.userGroupsToolStripMenuItem});
 			this.permissionToolStripMenuItem.Name = "permissionToolStripMenuItem";
-			this.permissionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.permissionToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
 			this.permissionToolStripMenuItem.Text = "Permission";
 			// 
 			// usersToolStripMenuItem
 			// 
 			this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-			this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.usersToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
 			this.usersToolStripMenuItem.Text = "Users";
 			// 
 			// userGroupsToolStripMenuItem
 			// 
 			this.userGroupsToolStripMenuItem.Name = "userGroupsToolStripMenuItem";
-			this.userGroupsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.userGroupsToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
 			this.userGroupsToolStripMenuItem.Text = "Usergroups";
 			// 
 			// vehicleToolStripMenuItem
@@ -123,7 +123,7 @@
             this.transmissionToolStripMenuItem,
             this.fuelTypeToolStripMenuItem});
 			this.vehicleToolStripMenuItem.Name = "vehicleToolStripMenuItem";
-			this.vehicleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.vehicleToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
 			this.vehicleToolStripMenuItem.Text = "Vehicle";
 			// 
 			// brandGroupModelToolStripMenuItem
@@ -143,6 +143,62 @@
 			this.fuelTypeToolStripMenuItem.Name = "fuelTypeToolStripMenuItem";
 			this.fuelTypeToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
 			this.fuelTypeToolStripMenuItem.Text = "Fuel type";
+			// 
+			// organisationsToolStripMenuItem
+			// 
+			this.organisationsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.financeToolStripMenuItem,
+            this.insuranceToolStripMenuItem,
+            this.loanToolStripMenuItem});
+			this.organisationsToolStripMenuItem.Name = "organisationsToolStripMenuItem";
+			this.organisationsToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+			this.organisationsToolStripMenuItem.Text = "Organisations";
+			// 
+			// financeToolStripMenuItem
+			// 
+			this.financeToolStripMenuItem.Name = "financeToolStripMenuItem";
+			this.financeToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+			this.financeToolStripMenuItem.Text = "Finance";
+			// 
+			// insuranceToolStripMenuItem
+			// 
+			this.insuranceToolStripMenuItem.Name = "insuranceToolStripMenuItem";
+			this.insuranceToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+			this.insuranceToolStripMenuItem.Text = "Insurance";
+			// 
+			// loanToolStripMenuItem
+			// 
+			this.loanToolStripMenuItem.Name = "loanToolStripMenuItem";
+			this.loanToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+			this.loanToolStripMenuItem.Text = "Loan";
+			// 
+			// miscellaneousToolStripMenuItem
+			// 
+			this.miscellaneousToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.salespersonToolStripMenuItem,
+            this.colourToolStripMenuItem,
+            this.locationToolStripMenuItem});
+			this.miscellaneousToolStripMenuItem.Name = "miscellaneousToolStripMenuItem";
+			this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+			this.miscellaneousToolStripMenuItem.Text = "Miscellaneous";
+			// 
+			// salespersonToolStripMenuItem
+			// 
+			this.salespersonToolStripMenuItem.Name = "salespersonToolStripMenuItem";
+			this.salespersonToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+			this.salespersonToolStripMenuItem.Text = "Salesperson";
+			// 
+			// colourToolStripMenuItem
+			// 
+			this.colourToolStripMenuItem.Name = "colourToolStripMenuItem";
+			this.colourToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+			this.colourToolStripMenuItem.Text = "Colour";
+			// 
+			// locationToolStripMenuItem
+			// 
+			this.locationToolStripMenuItem.Name = "locationToolStripMenuItem";
+			this.locationToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+			this.locationToolStripMenuItem.Text = "Location";
 			// 
 			// vehicleToolStripMenuItem1
 			// 
@@ -176,7 +232,7 @@
 			// salesOrderToolStripMenuItem
 			// 
 			this.salesOrderToolStripMenuItem.Name = "salesOrderToolStripMenuItem";
-			this.salesOrderToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+			this.salesOrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.salesOrderToolStripMenuItem.Text = "Sales order";
 			// 
 			// aboutToolStripMenuItem
@@ -286,62 +342,6 @@
 			this.ssl_status.Name = "ssl_status";
 			this.ssl_status.Size = new System.Drawing.Size(43, 19);
 			this.ssl_status.Text = "Ready";
-			// 
-			// organisationsToolStripMenuItem
-			// 
-			this.organisationsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.financeToolStripMenuItem,
-            this.insuranceToolStripMenuItem,
-            this.loanToolStripMenuItem});
-			this.organisationsToolStripMenuItem.Name = "organisationsToolStripMenuItem";
-			this.organisationsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.organisationsToolStripMenuItem.Text = "Organisations";
-			// 
-			// miscellaneousToolStripMenuItem
-			// 
-			this.miscellaneousToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.salespersonToolStripMenuItem,
-            this.colourToolStripMenuItem,
-            this.locationToolStripMenuItem});
-			this.miscellaneousToolStripMenuItem.Name = "miscellaneousToolStripMenuItem";
-			this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.miscellaneousToolStripMenuItem.Text = "Miscellaneous";
-			// 
-			// colourToolStripMenuItem
-			// 
-			this.colourToolStripMenuItem.Name = "colourToolStripMenuItem";
-			this.colourToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.colourToolStripMenuItem.Text = "Colour";
-			// 
-			// salespersonToolStripMenuItem
-			// 
-			this.salespersonToolStripMenuItem.Name = "salespersonToolStripMenuItem";
-			this.salespersonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.salespersonToolStripMenuItem.Text = "Salesperson";
-			// 
-			// financeToolStripMenuItem
-			// 
-			this.financeToolStripMenuItem.Name = "financeToolStripMenuItem";
-			this.financeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.financeToolStripMenuItem.Text = "Finance";
-			// 
-			// insuranceToolStripMenuItem
-			// 
-			this.insuranceToolStripMenuItem.Name = "insuranceToolStripMenuItem";
-			this.insuranceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.insuranceToolStripMenuItem.Text = "Insurance";
-			// 
-			// locationToolStripMenuItem
-			// 
-			this.locationToolStripMenuItem.Name = "locationToolStripMenuItem";
-			this.locationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.locationToolStripMenuItem.Text = "Location";
-			// 
-			// loanToolStripMenuItem
-			// 
-			this.loanToolStripMenuItem.Name = "loanToolStripMenuItem";
-			this.loanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.loanToolStripMenuItem.Text = "Loan";
 			// 
 			// Form_main_menu
 			// 

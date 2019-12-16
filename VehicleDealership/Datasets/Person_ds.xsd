@@ -30,6 +30,7 @@
               <Mapping SourceColumn="person_type_description" DataSetColumn="person_type_description" />
               <Mapping SourceColumn="driving_license" DataSetColumn="driving_license" />
               <Mapping SourceColumn="gender" DataSetColumn="gender" />
+              <Mapping SourceColumn="gender_description" DataSetColumn="gender_description" />
               <Mapping SourceColumn="race" DataSetColumn="race" />
               <Mapping SourceColumn="race_description" DataSetColumn="race_description" />
               <Mapping SourceColumn="address" DataSetColumn="address" />
@@ -138,7 +139,7 @@
   <xs:element name="Person_ds" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Person_ds" msprop:Generator_UserDSName="Person_ds">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="sp_select_person" msprop:Generator_TableClassName="sp_select_personDataTable" msprop:Generator_TableVarName="tablesp_select_person" msprop:Generator_RowChangedName="sp_select_personRowChanged" msprop:Generator_TablePropName="sp_select_person" msprop:Generator_RowDeletingName="sp_select_personRowDeleting" msprop:Generator_RowChangingName="sp_select_personRowChanging" msprop:Generator_RowEvHandlerName="sp_select_personRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_select_personRowDeleted" msprop:Generator_RowClassName="sp_select_personRow" msprop:Generator_UserTableName="sp_select_person" msprop:Generator_RowEvArgName="sp_select_personRowChangeEvent">
+        <xs:element name="sp_select_person" msprop:Generator_TableClassName="sp_select_personDataTable" msprop:Generator_TableVarName="tablesp_select_person" msprop:Generator_TablePropName="sp_select_person" msprop:Generator_RowDeletingName="sp_select_personRowDeleting" msprop:Generator_RowChangingName="sp_select_personRowChanging" msprop:Generator_RowEvHandlerName="sp_select_personRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_select_personRowDeleted" msprop:Generator_UserTableName="sp_select_person" msprop:Generator_RowChangedName="sp_select_personRowChanged" msprop:Generator_RowEvArgName="sp_select_personRowChangeEvent" msprop:Generator_RowClassName="sp_select_personRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="person" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnperson" msprop:Generator_ColumnPropNameInRow="person" msprop:Generator_ColumnPropNameInTable="personColumn" msprop:Generator_UserColumnName="person" type="xs:int" />
@@ -173,6 +174,13 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="gender" msprop:Generator_ColumnVarNameInTable="columngender" msprop:Generator_ColumnPropNameInRow="gender" msprop:Generator_ColumnPropNameInTable="genderColumn" msprop:Generator_UserColumnName="gender" type="xs:boolean" />
+              <xs:element name="gender_description" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columngender_description" msprop:Generator_ColumnPropNameInRow="gender_description" msprop:Generator_ColumnPropNameInTable="gender_descriptionColumn" msprop:Generator_UserColumnName="gender_description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="race" msprop:Generator_ColumnVarNameInTable="columnrace" msprop:Generator_ColumnPropNameInRow="race" msprop:Generator_ColumnPropNameInTable="raceColumn" msprop:Generator_UserColumnName="race" type="xs:int" />
               <xs:element name="race_description" msprop:Generator_ColumnVarNameInTable="columnrace_description" msprop:Generator_ColumnPropNameInRow="race_description" msprop:Generator_ColumnPropNameInTable="race_descriptionColumn" msprop:Generator_UserColumnName="race_description">
                 <xs:simpleType>
@@ -241,7 +249,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Person_simplified" msprop:Generator_TableClassName="Person_simplifiedDataTable" msprop:Generator_TableVarName="tablePerson_simplified" msprop:Generator_TablePropName="Person_simplified" msprop:Generator_RowDeletingName="Person_simplifiedRowDeleting" msprop:Generator_RowChangingName="Person_simplifiedRowChanging" msprop:Generator_RowEvHandlerName="Person_simplifiedRowChangeEventHandler" msprop:Generator_RowDeletedName="Person_simplifiedRowDeleted" msprop:Generator_UserTableName="Person_simplified" msprop:Generator_RowChangedName="Person_simplifiedRowChanged" msprop:Generator_RowEvArgName="Person_simplifiedRowChangeEvent" msprop:Generator_RowClassName="Person_simplifiedRow">
+        <xs:element name="Person_simplified" msprop:Generator_TableClassName="Person_simplifiedDataTable" msprop:Generator_TableVarName="tablePerson_simplified" msprop:Generator_RowChangedName="Person_simplifiedRowChanged" msprop:Generator_TablePropName="Person_simplified" msprop:Generator_RowDeletingName="Person_simplifiedRowDeleting" msprop:Generator_RowChangingName="Person_simplifiedRowChanging" msprop:Generator_RowEvHandlerName="Person_simplifiedRowChangeEventHandler" msprop:Generator_RowDeletedName="Person_simplifiedRowDeleted" msprop:Generator_RowClassName="Person_simplifiedRow" msprop:Generator_UserTableName="Person_simplified" msprop:Generator_RowEvArgName="Person_simplifiedRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="person" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnperson" msprop:Generator_ColumnPropNameInRow="person" msprop:Generator_ColumnPropNameInTable="personColumn" msprop:Generator_UserColumnName="person" type="xs:int" />

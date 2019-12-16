@@ -93,7 +93,6 @@ namespace VehicleDealership.View
 					return;
 				}
 			}
-
 			Form form_to_open = (Form)Activator.CreateInstance(f_type);
 			form_to_open.MdiParent = this;
 			if (is_maximised) form_to_open.WindowState = FormWindowState.Maximized;
