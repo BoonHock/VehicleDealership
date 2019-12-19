@@ -112,7 +112,7 @@ namespace VehicleDealership.View
 			{
 				VehicleID = Vehicle_ds.Insert_vehicle((int)num_seller_id.Value, txt_seller_type.Text == "PERSON",
 					str_reg_no, txt_prev_reg_no.Text.Trim(), int_chassis, (int)cmb_vehicle_colour.SelectedValue,
-					rad_vehicle_new.Checked, int_location, str_engine_no, (double)num_engine_cc.Value,
+					rad_vehicle_new.Checked, int_location, str_engine_no, (int)num_engine_cc.Value,
 					(int)num_mileage.Value, int_vehicle_sale, consignment_mortgage, txt_door_key.Text.Trim(),
 					txt_ignition_key.Text.Trim(), dtp_purchase_date.Value, dtp_date_received.Value,
 					dtp_settle_by.Value, txt_invoice_no.Text.Trim(), num_road_tax_amount.Value,
@@ -126,7 +126,7 @@ namespace VehicleDealership.View
 				// update vehicle
 				Vehicle_ds.Update_vehicle(VehicleID, (int)num_seller_id.Value, txt_seller_type.Text == "PERSON",
 					str_reg_no, txt_prev_reg_no.Text.Trim(), int_chassis, (int)cmb_vehicle_colour.SelectedValue,
-					rad_vehicle_new.Checked, int_location, str_engine_no, (double)num_engine_cc.Value,
+					rad_vehicle_new.Checked, int_location, str_engine_no, (int)num_engine_cc.Value,
 					(int)num_mileage.Value, int_vehicle_sale, consignment_mortgage, txt_door_key.Text.Trim(),
 					txt_ignition_key.Text.Trim(), dtp_purchase_date.Value, dtp_date_received.Value,
 					dtp_settle_by.Value, txt_invoice_no.Text.Trim(), num_road_tax_amount.Value,

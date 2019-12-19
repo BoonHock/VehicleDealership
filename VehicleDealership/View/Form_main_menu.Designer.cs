@@ -63,6 +63,7 @@
 			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ssl_usergroup = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ssl_status = new System.Windows.Forms.ToolStripStatusLabel();
+			this.insuranceComprehensiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.main_menu_strip.SuspendLayout();
 			this.log_in_menustrip.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
@@ -101,7 +102,7 @@
             this.usersToolStripMenuItem,
             this.userGroupsToolStripMenuItem});
 			this.permissionToolStripMenuItem.Name = "permissionToolStripMenuItem";
-			this.permissionToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+			this.permissionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.permissionToolStripMenuItem.Text = "Permission";
 			// 
 			// usersToolStripMenuItem
@@ -123,7 +124,7 @@
             this.transmissionToolStripMenuItem,
             this.fuelTypeToolStripMenuItem});
 			this.vehicleToolStripMenuItem.Name = "vehicleToolStripMenuItem";
-			this.vehicleToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+			this.vehicleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.vehicleToolStripMenuItem.Text = "Vehicle";
 			// 
 			// brandGroupModelToolStripMenuItem
@@ -151,7 +152,7 @@
             this.insuranceToolStripMenuItem,
             this.loanToolStripMenuItem});
 			this.organisationsToolStripMenuItem.Name = "organisationsToolStripMenuItem";
-			this.organisationsToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+			this.organisationsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.organisationsToolStripMenuItem.Text = "Organisations";
 			// 
 			// financeToolStripMenuItem
@@ -177,27 +178,28 @@
 			this.miscellaneousToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.salespersonToolStripMenuItem,
             this.colourToolStripMenuItem,
-            this.locationToolStripMenuItem});
+            this.locationToolStripMenuItem,
+            this.insuranceComprehensiveToolStripMenuItem});
 			this.miscellaneousToolStripMenuItem.Name = "miscellaneousToolStripMenuItem";
-			this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+			this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.miscellaneousToolStripMenuItem.Text = "Miscellaneous";
 			// 
 			// salespersonToolStripMenuItem
 			// 
 			this.salespersonToolStripMenuItem.Name = "salespersonToolStripMenuItem";
-			this.salespersonToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+			this.salespersonToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
 			this.salespersonToolStripMenuItem.Text = "Salesperson";
 			// 
 			// colourToolStripMenuItem
 			// 
 			this.colourToolStripMenuItem.Name = "colourToolStripMenuItem";
-			this.colourToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+			this.colourToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
 			this.colourToolStripMenuItem.Text = "Colour";
 			// 
 			// locationToolStripMenuItem
 			// 
 			this.locationToolStripMenuItem.Name = "locationToolStripMenuItem";
-			this.locationToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+			this.locationToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
 			this.locationToolStripMenuItem.Text = "Location";
 			// 
 			// vehicleToolStripMenuItem1
@@ -232,7 +234,7 @@
 			// salesOrderToolStripMenuItem
 			// 
 			this.salesOrderToolStripMenuItem.Name = "salesOrderToolStripMenuItem";
-			this.salesOrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.salesOrderToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
 			this.salesOrderToolStripMenuItem.Text = "Sales order";
 			// 
 			// aboutToolStripMenuItem
@@ -343,6 +345,12 @@
 			this.ssl_status.Size = new System.Drawing.Size(43, 19);
 			this.ssl_status.Text = "Ready";
 			// 
+			// insuranceComprehensiveToolStripMenuItem
+			// 
+			this.insuranceComprehensiveToolStripMenuItem.Name = "insuranceComprehensiveToolStripMenuItem";
+			this.insuranceComprehensiveToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+			this.insuranceComprehensiveToolStripMenuItem.Text = "Insurance comprehensive";
+			// 
 			// Form_main_menu
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -408,5 +416,6 @@
 		private System.Windows.Forms.ToolStripMenuItem salespersonToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem colourToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem locationToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem insuranceComprehensiveToolStripMenuItem;
 	}
 }

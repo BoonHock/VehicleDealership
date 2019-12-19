@@ -15,6 +15,7 @@ namespace VehicleDealership.Classes
 		// provide datadatable column name to match database table column name
 		public string INT1 = "";
 		public string INT2 = "";
+		public string INT3 = "";
 		public string NVARCHAR1 = "";
 		public string NVARCHAR2 = "";
 		public string NVARCHAR3 = "";
@@ -46,6 +47,7 @@ namespace VehicleDealership.Classes
 					{
 						if (INT1 != "") bulkCopy.ColumnMappings.Add(INT1, "int1");
 						if (INT2 != "") bulkCopy.ColumnMappings.Add(INT2, "int2");
+						if (INT3 != "") bulkCopy.ColumnMappings.Add(INT2, "int3");
 						if (NVARCHAR1 != "") bulkCopy.ColumnMappings.Add(NVARCHAR1, "nvarchar1");
 						if (NVARCHAR2 != "") bulkCopy.ColumnMappings.Add(NVARCHAR2, "nvarchar2");
 						if (NVARCHAR3 != "") bulkCopy.ColumnMappings.Add(NVARCHAR3, "nvarchar3");

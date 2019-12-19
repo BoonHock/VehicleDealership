@@ -48,8 +48,8 @@ namespace VehicleDealership.View
 			int? loan = num_loan_company_id.Value == 0 ? (int?)null : (int)num_loan_company_id.Value;
 			int? insurance = num_insurance_company_id.Value == 0 ? (int?)null : (int)num_insurance_company_id.Value;
 			int? insurance_category = cmb_insurance_category.SelectedIndex < 0 ? (int?)null : (int)cmb_insurance_category.SelectedValue;
-			int? insurance_type = cmb_insurance_type.SelectedIndex < 0 ? (int?)null : (int)cmb_insurance_type.SelectedValue;
 			int? guarantor = num_guarantor_id.Value == 0 ? (int?)null : (int)num_guarantor_id.Value;
+			int? insurance_comprehensive = cmb_ins_comprehensive.SelectedIndex < 0 ? (int?)null : (int)cmb_ins_comprehensive.SelectedValue;
 
 			if (txt_customer_type.Text == "PERSON")
 				customer_person = (int)num_customer_id.Value;
@@ -72,27 +72,33 @@ namespace VehicleDealership.View
 						num_loan_interest.Value, num_loan_installment.Value, txt_loan_finance_ref_no.Text.Trim(),
 						dtp_loan_approved_date.Value, txt_loan_ownership_claim.Text.Trim(), guarantor, insurance,
 						txt_insurance_cover_note_no.Text.Trim(), txt_insurance_endorsement_no.Text.Trim(),
-						txt_insurance_policy_no.Text.Trim(), dtp_insurance_date.Value, insurance_category, insurance_type,
-						num_insurance_sum_insured.Value, num_insurance_premium.Value, num_insurance_stamp_duty.Value,
-						num_insurance_loading_percent.Value, num_insurance_ncb_percent.Value,
-						num_insurance_windscreen.Value, num_insurance_windscreen_sum_insured.Value,
-						num_insurance_premium_to_pay.Value, (int)num_salesperson_id.Value, txt_remark.Text.Trim());
+						txt_insurance_policy_no.Text.Trim(), dtp_insurance_date.Value, insurance_category,
+						cmb_insurance_type.SelectedItem.ToString() == "COMPREHENSIVE", num_insurance_basic.Value,
+						num_insurance_sum_insured.Value, insurance_comprehensive, num_additional_comprehensive.Value,
+						num_insurance_adjustment.Value, num_insurance_loading_age_percent.Value,
+						num_insurance_loading_percent.Value, num_insurance_ncd_amount.Value,
+						num_insurance_stamp_duty.Value, num_insurance_windscreen_sum_insured.Value,
+						num_insurance_windscreen.Value, num_insurance_total_payable.Value,
+						(int)num_salesperson_id.Value, txt_remark.Text.Trim());
 				}
 				else
 				{
 					// inserting
 					Vehicle_sale_ds.Insert_vehicle_sale(VehicleID, Document_prefix_ds.Select_document_prefix("VEHICLE_SALE"),
-						customer_person, customer_org, dtp_sale_date.Value, num_net_selling_price.Value,
-						num_road_tax_amount.Value, road_tax_month, loan, num_loan_amount.Value,
-						(int)(num_loan_year.Value * 12 + num_loan_month.Value), num_loan_interest.Value,
-						num_loan_installment.Value, txt_loan_finance_ref_no.Text.Trim(), dtp_loan_approved_date.Value,
-						txt_loan_ownership_claim.Text.Trim(), guarantor, insurance,
+						customer_person, customer_org, dtp_sale_date.Value,
+						num_net_selling_price.Value, num_road_tax_amount.Value, road_tax_month, loan,
+						num_loan_amount.Value, (int)(num_loan_year.Value * 12 + num_loan_month.Value),
+						num_loan_interest.Value, num_loan_installment.Value, txt_loan_finance_ref_no.Text.Trim(),
+						dtp_loan_approved_date.Value, txt_loan_ownership_claim.Text.Trim(), guarantor, insurance,
 						txt_insurance_cover_note_no.Text.Trim(), txt_insurance_endorsement_no.Text.Trim(),
-						txt_insurance_policy_no.Text.Trim(), dtp_insurance_date.Value, insurance_category, insurance_type,
-						num_insurance_sum_insured.Value, num_insurance_premium.Value, num_insurance_stamp_duty.Value,
-						num_insurance_loading_percent.Value, num_insurance_ncb_percent.Value,
-						num_insurance_windscreen.Value, num_insurance_windscreen_sum_insured.Value,
-						num_insurance_premium_to_pay.Value, (int)num_salesperson_id.Value, txt_remark.Text.Trim());
+						txt_insurance_policy_no.Text.Trim(), dtp_insurance_date.Value, insurance_category,
+						cmb_insurance_type.SelectedItem.ToString() == "COMPREHENSIVE", num_insurance_basic.Value,
+						num_insurance_sum_insured.Value, insurance_comprehensive, num_additional_comprehensive.Value,
+						num_insurance_adjustment.Value, num_insurance_loading_age_percent.Value,
+						num_insurance_loading_percent.Value, num_insurance_ncd_amount.Value,
+						num_insurance_stamp_duty.Value, num_insurance_windscreen_sum_insured.Value,
+						num_insurance_windscreen.Value, num_insurance_total_payable.Value,
+						(int)num_salesperson_id.Value, txt_remark.Text.Trim());
 				}
 			}
 
@@ -287,6 +293,10 @@ namespace VehicleDealership.View
 			cmb_insurance_category.ValueMember = "insurance_category";
 			cmb_insurance_category.DataSource = Insurance_category_ds.Select_insurance_category();
 
+			cmb_ins_comprehensive.DisplayMember = "title";
+			cmb_ins_comprehensive.ValueMember = "insurance_comprehensive";
+			cmb_ins_comprehensive.DataSource = Insurance_comprehensive_ds.Select_insurance_comprehensive();
+
 			cmb_insurance_type.SelectedIndex = 0; // default
 
 			// LOAD VEHICLE DETAILS
@@ -380,28 +390,32 @@ namespace VehicleDealership.View
 						txt_insurance_branch.Text = dttable[0].insurance_org_branch_name;
 						txt_insurance_reg_no.Text = dttable[0].insurance_org_reg_no;
 					}
+					txt_insurance_policy_no.Text = dttable[0].insurance_policy_no;
 					txt_insurance_cover_note_no.Text = dttable[0].insurance_cover_note_no;
 					txt_insurance_endorsement_no.Text = dttable[0].insurance_endorsement_no;
-					txt_insurance_policy_no.Text = dttable[0].insurance_policy_no;
 					dtp_insurance_date.Value = dttable[0].insurance_date;
 
 					if (dttable[0]["insurance_category"] != DBNull.Value)
 						cmb_insurance_category.SelectedValue = dttable[0].insurance_category;
-					if (dttable[0]["insurance_type"] != DBNull.Value)
-						cmb_insurance_type.SelectedValue = dttable[0].insurance_type;
+
+					cmb_insurance_type.SelectedItem = dttable[0].insurance_type ? "COMPREHENSIVE" : "THIRD PARTY";
+
+					if (dttable[0]["insurance_comprehensive"] != DBNull.Value)
+						cmb_ins_comprehensive.SelectedValue = dttable[0].insurance_comprehensive;
 
 					num_insurance_sum_insured.Value = dttable[0].insurance_sum_insured;
-					num_insurance_premium.Value = dttable[0].insurance_premium;
+					num_insurance_basic.Value = dttable[0].insurance_basic_premium;
 					num_insurance_stamp_duty.Value = dttable[0].insurance_stamp_duty;
 					num_insurance_loading_percent.Value = dttable[0].insurance_loading_percent;
-					num_insurance_loading_amount.Value = (num_insurance_premium.Value - num_insurance_stamp_duty.Value) *
+					num_insurance_loading_amount.Value = (num_insurance_basic.Value - num_insurance_stamp_duty.Value) *
 						num_insurance_loading_percent.Value;
-					num_insurance_ncb_percent.Value = dttable[0].insurance_ncb_percent;
-					num_insurance_ncd_amount.Value = (num_insurance_premium.Value - num_insurance_stamp_duty.Value) *
-						num_insurance_ncb_percent.Value;
+					num_insurance_ncd_percent.Value = dttable[0].insurance_ncd_percent;
+					num_insurance_ncd_amount.Value = (num_insurance_basic.Value - num_insurance_stamp_duty.Value) *
+						num_insurance_ncd_percent.Value;
 					num_insurance_windscreen.Value = dttable[0].insurance_windscreen;
 					num_insurance_windscreen_sum_insured.Value = dttable[0].insurance_windscreen_sum_insured;
-					num_insurance_premium_to_pay.Value = dttable[0].insurance_total_premium;
+					num_insurance_total_payable.Value = dttable[0].insurance_total_payable;
+
 					if (dttable[0]["guarantor_person"] != DBNull.Value)
 					{
 						num_guarantor_id.Value = dttable[0].guarantor_person;
@@ -498,6 +512,7 @@ namespace VehicleDealership.View
 			Setup_grd_trade_in(0, true);
 
 			((DataTable)grd_charges.DataSource).RowChanged += (sender2, e2) => Grd_charges_calculate_total();
+			((DataTable)grd_insurance_misc.DataSource).RowChanged += (sender2, e2) => Calculate_insurance_total_payable();
 
 			Calculate_vehicle_payment();
 
@@ -592,13 +607,6 @@ namespace VehicleDealership.View
 			Calculate_trade_in();
 		}
 
-		private void Calculate_insurance_ValueChanged(object sender, EventArgs e)
-		{
-			num_insurance_loading_amount.Value =
-				(num_insurance_premium.Value - num_insurance_stamp_duty.Value) * num_insurance_loading_percent.Value / 100;
-			num_insurance_ncd_amount.Value =
-				(num_insurance_premium.Value - num_insurance_stamp_duty.Value) * num_insurance_ncb_percent.Value / 100;
-		}
 		private void Calculate_vehicle_payment()
 		{
 			// PAYMENT RECEIVED
@@ -1087,6 +1095,72 @@ namespace VehicleDealership.View
 				if (list_payment_id.Contains(dttable[i].payment)) dttable.Rows.RemoveAt(i);
 			}
 			Calculate_vehicle_payment();
+		}
+
+		private void Cmb_insurance_type_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (cmb_insurance_type.SelectedItem == null) return;
+
+			bool is_comprehensive = cmb_insurance_type.SelectedItem.ToString() == "COMPREHENSIVE";
+
+			num_insurance_basic.Enabled = !is_comprehensive;
+			cmb_ins_comprehensive.Enabled = is_comprehensive;
+
+			if (is_comprehensive) Calculate_insurance_comprehensive_basic_premium();
+		}
+
+		private void Cmb_ins_comprehensive_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			Calculate_insurance_comprehensive_basic_premium();
+		}
+		private void Calculate_insurance_comprehensive_basic_premium()
+		{
+			if (cmb_ins_comprehensive.SelectedIndex < 0) return;
+			Insurance_comprehensive_rate_ds.sp_select_insurance_comprehensive_rateDataTable dttable =
+				Insurance_comprehensive_rate_ds.Select_insurance_comprehensive_rate(
+					(int)cmb_ins_comprehensive.SelectedValue, int.Parse(txt_engine_cc.Text));
+
+			if (dttable.Any()) num_insurance_basic.Value = dttable[0].value;
+		}
+		private void Calculate_insurance_subtotal(object sender, EventArgs e)
+		{
+			num_insurance_subtotal.Value = num_insurance_basic.Value + (num_insurance_sum_insured.Value / 1000) *
+				num_additional_comprehensive.Value + num_insurance_adjustment.Value;
+		}
+		private void Num_insurance_after_subtotal_ValueChanged(object sender, EventArgs e)
+		{
+			Calculate_insurance_total_payable();
+		}
+		private void Num_insurance_loading_age_percent_ValueChanged(object sender, EventArgs e)
+		{
+			num_insurance_loading_age_amount.Value = num_insurance_subtotal.Value *
+				num_insurance_loading_age_percent.Value / 100;
+		}
+		private void Num_insurance_loading_percent_ValueChanged(object sender, EventArgs e)
+		{
+			num_insurance_loading_amount.Value = (num_insurance_subtotal.Value +
+				num_insurance_loading_age_amount.Value) * num_insurance_loading_percent.Value / 100;
+		}
+		private void Num_insurance_ncd_percent_ValueChanged(object sender, EventArgs e)
+		{
+			num_insurance_ncd_amount.Value = (num_insurance_subtotal.Value +
+				num_insurance_loading_age_amount.Value +
+				num_insurance_loading_amount.Value) * num_insurance_ncd_percent.Value / 100;
+		}
+		private void Calculate_insurance_total_payable()
+		{
+			decimal total_payable = num_insurance_subtotal.Value + num_insurance_loading_age_amount.Value +
+				num_insurance_loading_amount.Value + num_insurance_ncd_amount.Value +
+				num_insurance_stamp_duty.Value + num_insurance_windscreen.Value;
+
+			Insurance_misc_charges_ds.sp_select_insurance_misc_chargesDataTable dttable =
+				(Insurance_misc_charges_ds.sp_select_insurance_misc_chargesDataTable)grd_insurance_misc.DataSource;
+
+			dttable.AcceptChanges();
+
+			if (dttable.Any()) total_payable += (from row in dttable select row.amount).Sum();
+
+			num_insurance_total_payable.Value = total_payable;
 		}
 	}
 }

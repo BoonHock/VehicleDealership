@@ -8,23 +8,12 @@ namespace VehicleDealership.Datasets
 
 	partial class Vehicle_ds
 	{
-		private static Vehicle_dsTableAdapters.sp_select_vehicle_simplifiedTableAdapter Select_Vehicle_SimplifiedTableAdapter()
-		{
-			return new Vehicle_dsTableAdapters.sp_select_vehicle_simplifiedTableAdapter();
-		}
-		private static Vehicle_dsTableAdapters.sp_select_vehicleTableAdapter Select_VehicleTableAdapter()
-		{
-			return new Vehicle_dsTableAdapters.sp_select_vehicleTableAdapter();
-		}
-		private static Vehicle_dsTableAdapters.QueriesTableAdapter QueriesTableAdapter()
-		{
-			return new Vehicle_dsTableAdapters.QueriesTableAdapter();
-		}
 		public static sp_select_vehicle_simplifiedDataTable Select_vehicle_simplified()
 		{
 			try
 			{
-				using (Vehicle_dsTableAdapters.sp_select_vehicle_simplifiedTableAdapter adapter = Select_Vehicle_SimplifiedTableAdapter())
+				using (Vehicle_dsTableAdapters.sp_select_vehicle_simplifiedTableAdapter adapter =
+					new Vehicle_dsTableAdapters.sp_select_vehicle_simplifiedTableAdapter())
 				{
 					return adapter.GetData();
 				}
@@ -45,7 +34,8 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				using (Vehicle_dsTableAdapters.sp_select_vehicleTableAdapter adapter = Select_VehicleTableAdapter())
+				using (Vehicle_dsTableAdapters.sp_select_vehicleTableAdapter adapter =
+					new Vehicle_dsTableAdapters.sp_select_vehicleTableAdapter())
 				{
 					return adapter.GetData(int_vehicle, "", "");
 				}
@@ -61,7 +51,8 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				using (Vehicle_dsTableAdapters.sp_select_vehicleTableAdapter adapter = Select_VehicleTableAdapter())
+				using (Vehicle_dsTableAdapters.sp_select_vehicleTableAdapter adapter =
+					new Vehicle_dsTableAdapters.sp_select_vehicleTableAdapter())
 				{
 					sp_select_vehicleDataTable dttable = adapter.GetData(-1, str_reg_no, str_chassis_no);
 
@@ -86,7 +77,7 @@ namespace VehicleDealership.Datasets
 			return new sp_select_vehicleDataTable();
 		}
 		public static int Insert_vehicle(int int_seller, bool seller_is_person, string str_reg_no, string str_prev_reg_no,
-			int int_chassis, int int_colour, bool is_new, int? int_location, string str_engine_no, double doub_engine_cc,
+			int int_chassis, int int_colour, bool is_new, int? int_location, string str_engine_no, int int_engine_cc,
 			int int_mileage, int? int_vehicle_sale, bool? consignment_mortgage, string str_door_key,
 			string str_ignition_key, System.DateTime purchase_date, System.DateTime date_received,
 			System.DateTime settlement_date, string str_invoice_no, decimal dec_road_tax, System.DateTime road_tax_expiry,
@@ -97,10 +88,11 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				using (Vehicle_dsTableAdapters.QueriesTableAdapter adapter = QueriesTableAdapter())
+				using (Vehicle_dsTableAdapters.QueriesTableAdapter adapter =
+					new Vehicle_dsTableAdapters.QueriesTableAdapter())
 				{
 					return int.Parse(adapter.sp_insert_vehicle(int_seller, seller_is_person, str_reg_no, str_prev_reg_no,
-						int_chassis, int_colour, is_new, int_location, str_engine_no, doub_engine_cc, int_mileage,
+						int_chassis, int_colour, is_new, int_location, str_engine_no, int_engine_cc, int_mileage,
 						int_vehicle_sale, consignment_mortgage, str_door_key, str_ignition_key, purchase_date,
 						date_received, settlement_date, str_invoice_no, dec_road_tax, road_tax_expiry, dec_purchase_price,
 						dec_overtrade, dec_list_price, dec_max_can_loan, dec_loan_balance, dec_loan_installment_amount,
@@ -117,7 +109,7 @@ namespace VehicleDealership.Datasets
 		}
 		public static bool Update_vehicle(int int_vehicle, int int_seller, bool seller_is_person, string str_reg_no,
 			string str_prev_reg_no, int int_chassis, int int_colour, bool is_new, int? int_location, string str_engine_no,
-			double doub_engine_cc, int int_mileage, int? int_vehicle_sale, bool? consignment_mortgage, string str_door_key,
+			int int_engine_cc, int int_mileage, int? int_vehicle_sale, bool? consignment_mortgage, string str_door_key,
 			string str_ignition_key, System.DateTime purchase_date, System.DateTime date_received,
 			System.DateTime settlement_date, string str_invoice_no, decimal dec_road_tax, System.DateTime road_tax_expiry,
 			decimal dec_purchase_price, decimal dec_overtrade, decimal dec_list_price, decimal dec_max_can_loan,
@@ -126,10 +118,11 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				using (Vehicle_dsTableAdapters.QueriesTableAdapter adapter = QueriesTableAdapter())
+				using (Vehicle_dsTableAdapters.QueriesTableAdapter adapter =
+					new Vehicle_dsTableAdapters.QueriesTableAdapter())
 				{
 					adapter.sp_update_vehicle(int_vehicle, int_seller, seller_is_person, str_reg_no, str_prev_reg_no,
-						int_chassis, int_colour, is_new, int_location, str_engine_no, doub_engine_cc, int_mileage,
+						int_chassis, int_colour, is_new, int_location, str_engine_no, int_engine_cc, int_mileage,
 						int_vehicle_sale, consignment_mortgage, str_door_key, str_ignition_key, purchase_date,
 						date_received, settlement_date, str_invoice_no, dec_road_tax, road_tax_expiry, dec_purchase_price,
 						dec_overtrade, dec_list_price, dec_max_can_loan, dec_loan_balance, dec_loan_installment_amount,
@@ -148,7 +141,8 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				using (Vehicle_dsTableAdapters.QueriesTableAdapter adapter = QueriesTableAdapter())
+				using (Vehicle_dsTableAdapters.QueriesTableAdapter adapter =
+					new Vehicle_dsTableAdapters.QueriesTableAdapter())
 				{
 					adapter.sp_delete_vehicle(int_vehicle);
 					return true;

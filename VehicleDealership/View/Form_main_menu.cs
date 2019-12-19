@@ -39,6 +39,7 @@ namespace VehicleDealership.View
 			insuranceToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "INSURANCE");
 			locationToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "LOCATION");
 			loanToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "LOAN");
+			insuranceToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_insurance_comprehensive));
 
 			vehicleToolStripMenuItem2.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "VEHICLE");
 			vehicleReturnsToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "VEHICLE RETURN");
@@ -79,7 +80,9 @@ namespace VehicleDealership.View
 			insuranceToolStripMenuItem.Enabled = (
 				Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT) ||
 				Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_DELETE));
-
+			insuranceComprehensiveToolStripMenuItem.Enabled = (
+				Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_COMPREHENSIVE_ADD_EDIT) ||
+				Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_COMPREHENSIVE_VIEW));
 
 		}
 		private void Open_form(Type f_type, bool is_maximised = false, string form_tag = "")

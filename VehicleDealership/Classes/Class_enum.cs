@@ -44,6 +44,8 @@ namespace VehicleDealership.Classes
 			public static string INSURANCE_DELETE { get { return "INSURANCE_DELETE"; } }
 			public static string LOAN_ADD_EDIT { get { return "LOAN_ADD_EDIT"; } }
 			public static string LOAN_DELETE { get { return "LOAN_DELETE"; } }
+			public static string INSURANCE_COMPREHENSIVE_VIEW { get { return "INSURANCE_COMPREHENSIVE_VIEW"; } }
+			public static string INSURANCE_COMPREHENSIVE_ADD_EDIT { get { return "INSURANCE_COMPREHENSIVE_ADD_EDIT"; } }
 		}
 	}
 }

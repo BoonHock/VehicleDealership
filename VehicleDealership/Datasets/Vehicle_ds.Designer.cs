@@ -955,7 +955,7 @@ namespace VehicleDealership.Datasets {
                         System.DateTime date_received, 
                         System.DateTime settlement_date, 
                         string engine_no, 
-                        double engine_cc, 
+                        int engine_cc, 
                         decimal road_tax, 
                         System.DateTime road_tax_expiry_date, 
                         decimal purchase_price, 
@@ -1141,7 +1141,7 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columnsettlement_date);
                 this.columnengine_no = new global::System.Data.DataColumn("engine_no", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnengine_no);
-                this.columnengine_cc = new global::System.Data.DataColumn("engine_cc", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnengine_cc = new global::System.Data.DataColumn("engine_cc", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnengine_cc);
                 this.columnroad_tax = new global::System.Data.DataColumn("road_tax", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnroad_tax);
@@ -2530,7 +2530,7 @@ namespace VehicleDealership.Datasets {
                         int location, 
                         string location_name, 
                         string engine_no, 
-                        double engine_cc, 
+                        int engine_cc, 
                         int mileage, 
                         string acquire_method, 
                         string vehicle_status, 
@@ -2770,7 +2770,7 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columnlocation_name);
                 this.columnengine_no = new global::System.Data.DataColumn("engine_no", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnengine_no);
-                this.columnengine_cc = new global::System.Data.DataColumn("engine_cc", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnengine_cc = new global::System.Data.DataColumn("engine_cc", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnengine_cc);
                 this.columnmileage = new global::System.Data.DataColumn("mileage", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmileage);
@@ -4065,9 +4065,9 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double engine_cc {
+            public int engine_cc {
                 get {
-                    return ((double)(this[this.tablesp_vehicle_incoming_doc.engine_ccColumn]));
+                    return ((int)(this[this.tablesp_vehicle_incoming_doc.engine_ccColumn]));
                 }
                 set {
                     this[this.tablesp_vehicle_incoming_doc.engine_ccColumn] = value;
@@ -5157,9 +5157,9 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double engine_cc {
+            public int engine_cc {
                 get {
-                    return ((double)(this[this.tablesp_select_vehicle.engine_ccColumn]));
+                    return ((int)(this[this.tablesp_select_vehicle.engine_ccColumn]));
                 }
                 set {
                     this[this.tablesp_select_vehicle.engine_ccColumn] = value;
@@ -7161,7 +7161,7 @@ namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@is_new", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@location", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@engine_no", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@engine_cc", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 53, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@engine_cc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mileage", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle_sale", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@consignment_mortgate", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7200,7 +7200,7 @@ namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@is_new", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@location", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@engine_no", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@engine_cc", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 53, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@engine_cc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mileage", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle_sale", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@consignment_mortgate", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7265,7 +7265,7 @@ namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
                     global::System.Nullable<bool> is_new, 
                     global::System.Nullable<int> location, 
                     string engine_no, 
-                    global::System.Nullable<double> engine_cc, 
+                    global::System.Nullable<int> engine_cc, 
                     global::System.Nullable<int> mileage, 
                     global::System.Nullable<int> vehicle_sale, 
                     global::System.Nullable<bool> consignment_mortgate, 
@@ -7352,7 +7352,7 @@ namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
                 command.Parameters[10].Value = ((string)(engine_no));
             }
             if ((engine_cc.HasValue == true)) {
-                command.Parameters[11].Value = ((double)(engine_cc.Value));
+                command.Parameters[11].Value = ((int)(engine_cc.Value));
             }
             else {
                 command.Parameters[11].Value = global::System.DBNull.Value;
@@ -7537,7 +7537,7 @@ namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
                     global::System.Nullable<bool> is_new, 
                     global::System.Nullable<int> location, 
                     string engine_no, 
-                    global::System.Nullable<double> engine_cc, 
+                    global::System.Nullable<int> engine_cc, 
                     global::System.Nullable<int> mileage, 
                     global::System.Nullable<int> vehicle_sale, 
                     global::System.Nullable<bool> consignment_mortgate, 
@@ -7618,7 +7618,7 @@ namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
                 command.Parameters[9].Value = ((string)(engine_no));
             }
             if ((engine_cc.HasValue == true)) {
-                command.Parameters[10].Value = ((double)(engine_cc.Value));
+                command.Parameters[10].Value = ((int)(engine_cc.Value));
             }
             else {
                 command.Parameters[10].Value = global::System.DBNull.Value;

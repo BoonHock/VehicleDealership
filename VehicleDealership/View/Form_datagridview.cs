@@ -1165,7 +1165,7 @@ namespace VehicleDealership.View
 
 			foreach (int tmp_int in list_vehicle)
 			{
-				Vehicle_sale_ds.Delete_vehicle_sale_full(tmp_int);
+				Vehicle_sale_ds.Delete_vehicle_sale(tmp_int);
 			}
 			Setup_grd_vehicle_sale();
 		}

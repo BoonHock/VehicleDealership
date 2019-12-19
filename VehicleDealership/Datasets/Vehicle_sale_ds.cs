@@ -41,12 +41,13 @@ namespace VehicleDealership.Datasets
 			int? customer_org_branch, System.DateTime sale_date, decimal sale_price, decimal road_tax_amount,
 			byte? road_tax_month, int? loan, decimal loan_amount, int loan_month, decimal loan_interest_percentage,
 			decimal loan_monthly_installment, string loan_ref_no, System.DateTime loan_approval_date,
-			string loan_ownership_claim_no, int? guarantor_person, int? insurance, string insurance_cover_note_no,
-			string insurance_endorsement_no, string insurance_policy_no, System.DateTime insurance_date,
-			int? insurance_category, int? insurance_type, decimal insurance_sum_insured, decimal insurance_premium,
-			decimal insurance_stamp_duty, decimal insurance_loading_percent, decimal insurance_ncb_percent,
-			decimal insurance_windscreen, decimal insurance_windscreen_sum_insured,
-			decimal insurance_total_premium, int salesperson, string remark)
+			string loan_ownership_claim_no, int? guarantor_person, int? insurance,
+			string insurance_cover_note_no, string insurance_endorsement_no, string insurance_policy_no,
+			System.DateTime insurance_date, int? insurance_category, bool insurance_type, decimal insurance_basic,
+			decimal insurance_sum_insured, int? insurance_comprehensive, decimal insurance_add_comprehensive,
+			decimal insurance_adjustment, decimal insurance_loading_age_percent, decimal insurance_loading_percent,
+			decimal insurance_ncd_percent, decimal insurance_stamp_duty, decimal insurance_windscreen_sum_insured,
+			decimal insurance_windscreen, decimal insurance_total_payable, int salesperson, string remark)
 		{
 			try
 			{
@@ -57,9 +58,11 @@ namespace VehicleDealership.Datasets
 						loan_interest_percentage, loan_monthly_installment, loan_ref_no, loan_approval_date,
 						loan_ownership_claim_no, guarantor_person, insurance, insurance_cover_note_no,
 						insurance_endorsement_no, insurance_policy_no, insurance_date, insurance_category,
-						insurance_type, insurance_sum_insured, insurance_premium, insurance_stamp_duty,
-						insurance_loading_percent, insurance_ncb_percent, insurance_windscreen, insurance_windscreen_sum_insured,
-						insurance_total_premium, salesperson, remark, Program.System_user.UserID);
+						insurance_type, insurance_basic, insurance_sum_insured, insurance_comprehensive,
+						insurance_add_comprehensive, insurance_adjustment, insurance_loading_age_percent,
+						insurance_loading_percent, insurance_ncd_percent, insurance_stamp_duty,
+						insurance_windscreen_sum_insured, insurance_windscreen, insurance_total_payable,
+						salesperson, remark, Program.System_user.UserID);
 					return true;
 				}
 			}
@@ -73,24 +76,27 @@ namespace VehicleDealership.Datasets
 			int? customer_org_branch, System.DateTime sale_date, decimal sale_price, decimal road_tax_amount,
 			byte? road_tax_month, int? loan, decimal loan_amount, int loan_month, decimal loan_interest_percentage,
 			decimal loan_monthly_installment, string loan_ref_no, System.DateTime loan_approval_date,
-			string loan_ownership_claim_no, int? guarantor_person, int? insurance, string insurance_cover_note_no,
-			string insurance_endorsement_no, string insurance_policy_no, System.DateTime insurance_date,
-			int? insurance_category, int? insurance_type, decimal insurance_sum_insured, decimal insurance_premium,
-			decimal insurance_stamp_duty, decimal insurance_loading_percent, decimal insurance_ncb_percent,
-			decimal insurance_windscreen, decimal insurance_windscreen_sum_insured,
-			decimal insurance_total_premium, int salesperson, string remark)
+			string loan_ownership_claim_no, int? guarantor_person, int? insurance,
+			string insurance_cover_note_no, string insurance_endorsement_no, string insurance_policy_no,
+			System.DateTime insurance_date, int? insurance_category, bool insurance_type, decimal insurance_basic,
+			decimal insurance_sum_insured, int? insurance_comprehensive, decimal insurance_add_comprehensive,
+			decimal insurance_adjustment, decimal insurance_loading_age_percent, decimal insurance_loading_percent,
+			decimal insurance_ncd_percent, decimal insurance_stamp_duty, decimal insurance_windscreen_sum_insured,
+			decimal insurance_windscreen, decimal insurance_total_payable, int salesperson, string remark)
 		{
 			try
 			{
 				using (Vehicle_sale_dsTableAdapters.QueriesTableAdapter adapter = new Vehicle_sale_dsTableAdapters.QueriesTableAdapter())
 				{
-					adapter.sp_update_vehicle_sale(vehicle, customer_person, customer_org_branch, sale_date,
-						sale_price, road_tax_amount, road_tax_month, loan, loan_amount, loan_month,
+					adapter.sp_update_vehicle_sale(vehicle, customer_person, customer_org_branch,
+						sale_date, sale_price, road_tax_amount, road_tax_month, loan, loan_amount, loan_month,
 						loan_interest_percentage, loan_monthly_installment, loan_ref_no, loan_approval_date,
-						loan_ownership_claim_no, guarantor_person, insurance, insurance_cover_note_no, insurance_endorsement_no,
-						insurance_policy_no, insurance_date, insurance_category, insurance_type, insurance_sum_insured,
-						insurance_premium, insurance_stamp_duty, insurance_loading_percent, insurance_ncb_percent,
-						insurance_windscreen, insurance_windscreen_sum_insured, insurance_total_premium,
+						loan_ownership_claim_no, guarantor_person, insurance, insurance_cover_note_no,
+						insurance_endorsement_no, insurance_policy_no, insurance_date, insurance_category,
+						insurance_type, insurance_basic, insurance_sum_insured, insurance_comprehensive,
+						insurance_add_comprehensive, insurance_adjustment, insurance_loading_age_percent,
+						insurance_loading_percent, insurance_ncd_percent, insurance_stamp_duty,
+						insurance_windscreen_sum_insured, insurance_windscreen, insurance_total_payable,
 						salesperson, remark, Program.System_user.UserID);
 				}
 			}
@@ -100,14 +106,14 @@ namespace VehicleDealership.Datasets
 			}
 			return false;
 		}
-		public static bool Delete_vehicle_sale_full(int int_vehicle)
+		public static bool Delete_vehicle_sale(int int_vehicle)
 		{
 			try
 			{
 				using (Vehicle_sale_dsTableAdapters.QueriesTableAdapter adapter =
 					new Vehicle_sale_dsTableAdapters.QueriesTableAdapter())
 				{
-					adapter.sp_delete_vehicle_sale_full(int_vehicle, Program.System_user.UserID);
+					adapter.sp_delete_vehicle_sale(int_vehicle, Program.System_user.UserID);
 					return true;
 				}
 			}
@@ -117,5 +123,6 @@ namespace VehicleDealership.Datasets
 			}
 			return false;
 		}
+
 	}
 }
