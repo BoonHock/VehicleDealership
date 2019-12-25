@@ -39,7 +39,7 @@ namespace VehicleDealership.View
 			insuranceToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "INSURANCE");
 			locationToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "LOCATION");
 			loanToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "LOAN");
-			insuranceToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_insurance_comprehensive));
+			insuranceComprehensiveToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_insurance_comprehensive));
 
 			vehicleToolStripMenuItem2.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "VEHICLE");
 			vehicleReturnsToolStripMenuItem.Click += (sender2, e2) => Open_form(typeof(Form_datagridview), false, "VEHICLE RETURN");
@@ -92,6 +92,7 @@ namespace VehicleDealership.View
 				if (f.GetType() == f_type && ((f.Tag == null && form_tag == "") ||
 					(f.Tag != null && f.Tag.ToString() == form_tag)))
 				{
+					f.Visible = true;
 					f.Activate();
 					return;
 				}

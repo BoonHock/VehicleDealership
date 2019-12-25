@@ -10,6 +10,12 @@ namespace VehicleDealership.Classes
 	class Class_form
 	{
 		public delegate void MyFunction();
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="form_child"></param>
+		/// <param name="form_parent"></param>
+		/// <param name="f">function to run when dialog result == DialogResult.OK</param>
 		public static void Show_dialog_as_mdi_child(Form form_child, Form form_parent, MyFunction f)
 		{
 			form_child.MdiParent = form_parent.MdiParent;

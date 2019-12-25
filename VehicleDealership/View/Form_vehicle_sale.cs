@@ -28,6 +28,251 @@ namespace VehicleDealership.View
 			grd_expenses.CellDoubleClick += (sender, e) => Grd_payment_CellDoubleClick(e, grd_expenses, btn_expenses_edit);
 			grd_misc_payment_received.CellDoubleClick += (sender, e) => Grd_payment_CellDoubleClick(e, grd_misc_payment_received, btn_misc_payment_received_edit);
 		}
+		private void Form_vehicle_sale_Load(object sender, EventArgs e)
+		{
+			// LOAD VEHICLE DETAILS
+			using (Vehicle_ds.sp_select_vehicleDataTable dttable =
+				Vehicle_ds.Select_vehicle(VehicleID))
+			{
+				if (!dttable.Any())
+				{
+					// whether user adding/editing, vehicle must exist in record!
+					MessageBox.Show("Vehicle not found!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					this.Close();
+					return;
+				}
+
+				txt_reg_no.Text = dttable[0].registration_no;
+				txt_chassis.Text = dttable[0].chassis_no;
+				txt_vehicle_model.Text = dttable[0].vehicle_model_name;
+				txt_vehicle_group.Text = dttable[0].vehicle_group_name;
+				txt_vehicle_brand.Text = dttable[0].vehicle_brand_name;
+				txt_jpj.Text = dttable[0].jpj_serial_no;
+				txt_engine_no.Text = dttable[0].engine_no;
+				num_engine_cc.Value = dttable[0].engine_cc;
+				txt_year_make.Text = dttable[0].year_make.ToString();
+				txt_vehicle_colour.Text = dttable[0].colour_name;
+				num_mileage.Value = dttable[0].mileage;
+
+				dtp_road_tax_expiry.Value = dttable[0].road_tax_expiry_date;
+				dtp_registered.Value = dttable[0].registration_date;
+
+				num_net_purchase.Value = dttable[0].purchase_price - dttable[0].overtrade;
+				dtp_new_road_tax.Value = dttable[0].road_tax_expiry_date;
+			}
+			// LOAD VEHICLE SALE DETAILS
+			using (Vehicle_sale_ds.sp_select_vehicle_saleDataTable dttable =
+				Vehicle_sale_ds.Select_vehicle_sale(VehicleID))
+			{
+				if (dttable.Rows.Count > 0)
+				{
+					num_salesperson_id.Value = dttable[0].salesperson_id;
+					txt_salesperson.Text = dttable[0].salesperson;
+
+					txt_customer_type.Text = dttable[0].customer_type;
+					if (dttable[0].customer_type == "PERSON")
+					{
+						txt_customer_name.Text = dttable[0].customer_person_name;
+						num_customer_id.Value = dttable[0].customer_person;
+						txt_customer_reg_no.Text = dttable[0].customer_person_ic;
+					}
+					else
+					{
+						txt_customer_name.Text = dttable[0].customer_org_name + " " + dttable[0].customer_organisation_branch;
+						num_customer_id.Value = dttable[0].customer_organisation_branch;
+						txt_customer_reg_no.Text = dttable[0].customer_org_reg_no;
+					}
+					dtp_sale_date.Value = dttable[0].sale_date;
+
+					if (dttable[0]["road_tax_month"] == DBNull.Value)
+					{
+						dtp_new_road_tax.Checked = false;
+					}
+					else
+					{
+						dtp_new_road_tax.Checked = true;
+						rad_road_tax_month6.Checked = dttable[0].road_tax_month == 6;
+						rad_road_tax_month12.Checked = dttable[0].road_tax_month == 12;
+						num_road_tax_amount.Value = dttable[0].road_tax_amount;
+					}
+
+					num_selling_price.Value = dttable[0].sale_price;
+
+					if (dttable[0]["loan"] != DBNull.Value)
+					{
+						num_loan_company_id.Value = dttable[0].loan;
+						txt_loan_company.Text = dttable[0].loan_org_name;
+						txt_loan_branch.Text = dttable[0].loan_org_branch_name;
+						txt_loan_reg_no.Text = dttable[0].loan_org_reg_no;
+					}
+					num_loan_amount.Value = dttable[0].loan_amount;
+					num_loan_year.Value = Math.Floor((decimal)dttable[0].loan_month / 12);
+					num_loan_month.Value = (decimal)dttable[0].loan_month % 12;
+					num_loan_interest.Value = dttable[0].loan_interest_percentage;
+					num_loan_installment.Value = dttable[0].loan_monthly_installment;
+					txt_loan_finance_ref_no.Text = dttable[0].loan_ref_no;
+					dtp_loan_approved_date.Value = dttable[0].loan_approval_date;
+					txt_loan_ownership_claim.Text = dttable[0].loan_ownership_claim_no;
+
+					if (dttable[0]["insurance"] != DBNull.Value)
+					{
+						num_insurance_company_id.Value = dttable[0].insurance;
+						txt_insurance_company.Text = dttable[0].insurance_org_name;
+						txt_insurance_branch.Text = dttable[0].insurance_org_branch_name;
+						txt_insurance_reg_no.Text = dttable[0].insurance_org_reg_no;
+					}
+					txt_insurance_policy_no.Text = dttable[0].insurance_policy_no;
+					txt_insurance_cover_note_no.Text = dttable[0].insurance_cover_note_no;
+					txt_insurance_endorsement_no.Text = dttable[0].insurance_endorsement_no;
+					dtp_insurance_date.Value = dttable[0].insurance_date;
+
+					cmb_insurance_type.SelectedItem = dttable[0].insurance_type ? "COMPREHENSIVE" : "THIRD PARTY";
+
+					if (dttable[0]["insurance_comprehensive"] != DBNull.Value)
+						cmb_ins_comprehensive.SelectedValue = dttable[0].insurance_comprehensive;
+
+					num_insurance_sum_insured.Value = dttable[0].insurance_sum_insured;
+					num_insurance_basic.Value = dttable[0].insurance_basic_premium;
+					num_insurance_stamp_duty.Value = dttable[0].insurance_stamp_duty;
+					num_insurance_loading_percent.Value = dttable[0].insurance_loading_percent;
+					num_insurance_loading_amount.Value = (num_insurance_basic.Value - num_insurance_stamp_duty.Value) *
+						num_insurance_loading_percent.Value;
+					num_insurance_ncd_percent.Value = dttable[0].insurance_ncd_percent;
+					num_insurance_ncd_amount.Value = (num_insurance_basic.Value - num_insurance_stamp_duty.Value) *
+						num_insurance_ncd_percent.Value;
+					num_insurance_windscreen.Value = dttable[0].insurance_windscreen;
+					num_insurance_windscreen_sum_insured.Value = dttable[0].insurance_windscreen_sum_insured;
+					num_insurance_total_payable.Value = dttable[0].insurance_total_payable;
+
+					if (dttable[0]["guarantor_person"] != DBNull.Value)
+					{
+						num_guarantor_id.Value = dttable[0].guarantor_person;
+						txt_guarantor_name.Text = dttable[0].guarantor_name;
+					}
+					txt_remark.Text = dttable[0].remark;
+				}
+			}
+			// CHARGES
+			using (Vehicle_sale_charges_ds.sp_select_vehicle_sale_chargesDataTable dttable =
+				Vehicle_sale_charges_ds.Select_vehicle_sale_charges(VehicleID))
+			{
+				dttable.modified_byColumn.ReadOnly = true;
+				dttable.descriptionColumn.DefaultValue = "CHARGES";
+				dttable.amountColumn.DefaultValue = 0;
+				dttable.modified_byColumn.DefaultValue = Program.System_user.Name;
+				grd_charges.DataSource = dttable;
+				grd_charges.Columns["modified_by"].DefaultCellStyle.BackColor = Color.LightGray;
+
+				Class_datagridview.Set_column_to_money_column(grd_charges, "amount");
+				Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_charges, "description");
+			}
+			// EXPENSES
+			using (Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable dttable =
+				Vehicle_expenses_ds.Select_vehicle_expenses(VehicleID))
+			{
+				grd_expenses.DataSource = null;
+				grd_expenses.DataSource = dttable;
+
+				Class_datagridview.Set_column_to_money_column(grd_expenses, "amount");
+
+				grd_expenses.AutoResizeColumns();
+
+				// column charge_to_customer will be checkbox. allow user to tick/untick. other columns cannot edit
+				foreach (DataGridViewColumn grd_col in grd_expenses.Columns)
+				{
+					if (grd_col.Name == "charge_to_customer")
+					{
+						grd_col.ReadOnly = false;
+						grd_col.DefaultCellStyle.BackColor = Color.Yellow;
+					}
+					else
+					{
+						grd_col.ReadOnly = true;
+						grd_col.DefaultCellStyle.BackColor = Color.LightGray;
+					}
+				}
+			}
+			// PAYMENT RECEIVED FROM CUSTOMER
+			using (Veh_sale_payment_customer_ds.sp_select_veh_sale_payment_customerDataTable dttable =
+				Veh_sale_payment_customer_ds.Select_veh_sale_payment_customer(VehicleID))
+			{
+				grd_payment_received.DataSource = null;
+				grd_payment_received.DataSource = dttable;
+
+				Class_datagridview.Set_column_to_money_column(grd_payment_received, "amount");
+
+				grd_payment_received.AutoResizeColumns();
+			}
+			// MISC RECEIVED
+			using (Veh_sale_payment_receive_misc_ds.sp_select_veh_sale_payment_receive_miscDataTable dttable =
+				Veh_sale_payment_receive_misc_ds.Select_veh_sale_payment_receive_misc(VehicleID))
+			{
+				grd_misc_payment_received.DataSource = null;
+				grd_misc_payment_received.DataSource = dttable;
+
+				Class_datagridview.Set_column_to_money_column(grd_misc_payment_received, "amount");
+
+				grd_misc_payment_received.AutoResizeColumns();
+			}
+			// INSURANCE DRIVER
+			using (Insurance_driver_ds.sp_select_insurance_driverDataTable dttable =
+				Insurance_driver_ds.Select_insurance_driver(VehicleID))
+			{
+				dttable.modified_byColumn.ReadOnly = true;
+				dttable.modified_byColumn.DefaultValue = Program.System_user.Name;
+				grd_insurance_driver.DataSource = dttable;
+				Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_insurance_driver, "driver");
+				Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_insurance_driver, "ic_no");
+			}
+			// INSURANCE MISC CHARGES
+			using (Insurance_misc_charges_ds.sp_select_insurance_misc_chargesDataTable dttable =
+				Insurance_misc_charges_ds.Select_insurance_misc_charges(VehicleID))
+			{
+				dttable.descriptionColumn.DefaultValue = "Description";
+				dttable.amountColumn.DefaultValue = 0;
+				dttable.modified_byColumn.ReadOnly = true;
+				dttable.modified_byColumn.DefaultValue = Program.System_user.Name;
+				grd_insurance_misc.DataSource = dttable;
+
+				Class_datagridview.Set_column_to_money_column(grd_insurance_misc, "amount");
+				Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_insurance_misc, "description");
+				Class_datagridview.Set_readonly_columns(grd_insurance_misc, "insurance_misc_charges", "modified_by");
+			}
+		}
+		private void Form_vehicle_sale_Shown(object sender, EventArgs e)
+		{
+			cmb_ins_comprehensive.DisplayMember = "title";
+			cmb_ins_comprehensive.ValueMember = "insurance_comprehensive";
+			cmb_ins_comprehensive.DataSource = Insurance_comprehensive_ds.Select_insurance_comprehensive();
+
+			cmb_insurance_type.SelectedIndex = 0; // default
+
+			Setup_grd_trade_in(0, true);
+
+			((DataTable)grd_charges.DataSource).RowChanged += (sender2, e2) => Grd_charges_calculate_total();
+			((DataTable)grd_insurance_misc.DataSource).RowChanged += (sender2, e2) => Calculate_insurance_total_payable();
+
+			Calculate_vehicle_payment();
+
+			// hide unnecessary columns
+			if (!Program.System_user.IsDeveloper)
+			{
+				Class_datagridview.Hide_columns(grd_charges, new string[] { "vehicle_sale_charges" });
+				Class_datagridview.Hide_columns(grd_insurance_misc, "insurance_misc_charges");
+				Class_datagridview.Hide_unnecessary_columns(grd_payment_received,
+					"payment_no", "payment_description", "pay_to", "amount", "payment_date",
+					"is_paid", "payment_method_type", "cheque_no", "credit_card_no",
+					"payment_method", "finance", "remark", "modified_by");
+				Class_datagridview.Hide_unnecessary_columns(grd_expenses,
+					"charge_to_customer", "payment_no", "payment_description", "pay_to", "amount",
+					"payment_date", "is_paid", "payment_method_type", "cheque_no", "credit_card_no",
+					"payment_method", "finance", "remark", "modified_by");
+				Class_datagridview.Hide_unnecessary_columns(grd_misc_payment_received,
+					"payment_no", "payment_description", "pay_to", "amount",
+					"payment_date", "is_paid", "payment_method_type", "cheque_no", "credit_card_no",
+					"payment_method", "finance", "remark", "modified_by");
+			}
+		}
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
 			string str_error = "";
@@ -47,7 +292,6 @@ namespace VehicleDealership.View
 			int? customer_org = null;
 			int? loan = num_loan_company_id.Value == 0 ? (int?)null : (int)num_loan_company_id.Value;
 			int? insurance = num_insurance_company_id.Value == 0 ? (int?)null : (int)num_insurance_company_id.Value;
-			int? insurance_category = cmb_insurance_category.SelectedIndex < 0 ? (int?)null : (int)cmb_insurance_category.SelectedValue;
 			int? guarantor = num_guarantor_id.Value == 0 ? (int?)null : (int)num_guarantor_id.Value;
 			int? insurance_comprehensive = cmb_ins_comprehensive.SelectedIndex < 0 ? (int?)null : (int)cmb_ins_comprehensive.SelectedValue;
 
@@ -72,7 +316,7 @@ namespace VehicleDealership.View
 						num_loan_interest.Value, num_loan_installment.Value, txt_loan_finance_ref_no.Text.Trim(),
 						dtp_loan_approved_date.Value, txt_loan_ownership_claim.Text.Trim(), guarantor, insurance,
 						txt_insurance_cover_note_no.Text.Trim(), txt_insurance_endorsement_no.Text.Trim(),
-						txt_insurance_policy_no.Text.Trim(), dtp_insurance_date.Value, insurance_category,
+						txt_insurance_policy_no.Text.Trim(), dtp_insurance_date.Value,
 						cmb_insurance_type.SelectedItem.ToString() == "COMPREHENSIVE", num_insurance_basic.Value,
 						num_insurance_sum_insured.Value, insurance_comprehensive, num_additional_comprehensive.Value,
 						num_insurance_adjustment.Value, num_insurance_loading_age_percent.Value,
@@ -91,7 +335,7 @@ namespace VehicleDealership.View
 						num_loan_interest.Value, num_loan_installment.Value, txt_loan_finance_ref_no.Text.Trim(),
 						dtp_loan_approved_date.Value, txt_loan_ownership_claim.Text.Trim(), guarantor, insurance,
 						txt_insurance_cover_note_no.Text.Trim(), txt_insurance_endorsement_no.Text.Trim(),
-						txt_insurance_policy_no.Text.Trim(), dtp_insurance_date.Value, insurance_category,
+						txt_insurance_policy_no.Text.Trim(), dtp_insurance_date.Value,
 						cmb_insurance_type.SelectedItem.ToString() == "COMPREHENSIVE", num_insurance_basic.Value,
 						num_insurance_sum_insured.Value, insurance_comprehensive, num_additional_comprehensive.Value,
 						num_insurance_adjustment.Value, num_insurance_loading_age_percent.Value,
@@ -163,8 +407,6 @@ namespace VehicleDealership.View
 				MessageBox.Show("Failed to update trade in.", "ERROR",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
-
-			return; // TODO: temporary. remove this.
 
 			this.DialogResult = DialogResult.OK;
 			this.Close();
@@ -287,253 +529,6 @@ namespace VehicleDealership.View
 			this.DialogResult = DialogResult.Cancel;
 			this.Close();
 		}
-		private void Form_vehicle_sale_Shown(object sender, EventArgs e)
-		{
-			cmb_insurance_category.DisplayMember = "description";
-			cmb_insurance_category.ValueMember = "insurance_category";
-			cmb_insurance_category.DataSource = Insurance_category_ds.Select_insurance_category();
-
-			cmb_ins_comprehensive.DisplayMember = "title";
-			cmb_ins_comprehensive.ValueMember = "insurance_comprehensive";
-			cmb_ins_comprehensive.DataSource = Insurance_comprehensive_ds.Select_insurance_comprehensive();
-
-			cmb_insurance_type.SelectedIndex = 0; // default
-
-			// LOAD VEHICLE DETAILS
-			using (Vehicle_ds.sp_select_vehicleDataTable dttable =
-				Vehicle_ds.Select_vehicle(VehicleID))
-			{
-				if (!dttable.Any())
-				{
-					// whether user adding/editing, vehicle must exist in record!
-					MessageBox.Show("Vehicle not found!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					this.Close();
-					return;
-				}
-
-				txt_reg_no.Text = dttable[0].registration_no;
-				txt_chassis.Text = dttable[0].chassis_no;
-				txt_vehicle_model.Text = dttable[0].vehicle_model_name;
-				txt_vehicle_group.Text = dttable[0].vehicle_group_name;
-				txt_vehicle_brand.Text = dttable[0].vehicle_brand_name;
-				txt_jpj.Text = dttable[0].jpj_serial_no;
-				txt_engine_no.Text = dttable[0].engine_no;
-				txt_engine_cc.Text = dttable[0].engine_cc.ToString("#,##0");
-				txt_year_make.Text = dttable[0].year_make.ToString();
-				txt_vehicle_colour.Text = dttable[0].colour_name;
-				num_mileage.Value = dttable[0].mileage;
-
-				dtp_road_tax_expiry.Value = dttable[0].road_tax_expiry_date;
-				dtp_registered.Value = dttable[0].registration_date;
-
-				num_net_purchase.Value = dttable[0].purchase_price - dttable[0].overtrade;
-				dtp_new_road_tax.Value = dttable[0].road_tax_expiry_date;
-			}
-			// LOAD VEHICLE SALE DETAILS
-			using (Vehicle_sale_ds.sp_select_vehicle_saleDataTable dttable =
-				Vehicle_sale_ds.Select_vehicle_sale(VehicleID))
-			{
-				if (dttable.Rows.Count > 0)
-				{
-					num_salesperson_id.Value = dttable[0].salesperson_id;
-					txt_salesperson.Text = dttable[0].salesperson;
-
-					txt_customer_type.Text = dttable[0].customer_type;
-					if (dttable[0].customer_type == "PERSON")
-					{
-						txt_customer_name.Text = dttable[0].customer_person_name;
-						num_customer_id.Value = dttable[0].customer_person;
-						txt_customer_reg_no.Text = dttable[0].customer_person_ic;
-					}
-					else
-					{
-						txt_customer_name.Text = dttable[0].customer_org_name + " " + dttable[0].customer_organisation_branch;
-						num_customer_id.Value = dttable[0].customer_organisation_branch;
-						txt_customer_reg_no.Text = dttable[0].customer_org_reg_no;
-					}
-					dtp_sale_date.Value = dttable[0].sale_date;
-
-					if (dttable[0]["road_tax_month"] == DBNull.Value)
-					{
-						dtp_new_road_tax.Checked = false;
-					}
-					else
-					{
-						dtp_new_road_tax.Checked = true;
-						rad_road_tax_month6.Checked = dttable[0].road_tax_month == 6;
-						rad_road_tax_month12.Checked = dttable[0].road_tax_month == 12;
-						num_road_tax_amount.Value = dttable[0].road_tax_amount;
-					}
-
-					num_selling_price.Value = dttable[0].sale_price;
-
-					if (dttable[0]["loan"] != DBNull.Value)
-					{
-						num_loan_company_id.Value = dttable[0].loan;
-						txt_loan_company.Text = dttable[0].loan_org_name;
-						txt_loan_branch.Text = dttable[0].loan_org_branch_name;
-						txt_loan_reg_no.Text = dttable[0].loan_org_reg_no;
-					}
-					num_loan_amount.Value = dttable[0].loan_amount;
-					num_loan_year.Value = Math.Floor((decimal)dttable[0].loan_month / 12);
-					num_loan_month.Value = (decimal)dttable[0].loan_month % 12;
-					num_loan_interest.Value = dttable[0].loan_interest_percentage;
-					num_loan_installment.Value = dttable[0].loan_monthly_installment;
-					txt_loan_finance_ref_no.Text = dttable[0].loan_ref_no;
-					dtp_loan_approved_date.Value = dttable[0].loan_approval_date;
-					txt_loan_ownership_claim.Text = dttable[0].loan_ownership_claim_no;
-
-					if (dttable[0]["insurance"] != DBNull.Value)
-					{
-						num_insurance_company_id.Value = dttable[0].insurance;
-						txt_insurance_company.Text = dttable[0].insurance_org_name;
-						txt_insurance_branch.Text = dttable[0].insurance_org_branch_name;
-						txt_insurance_reg_no.Text = dttable[0].insurance_org_reg_no;
-					}
-					txt_insurance_policy_no.Text = dttable[0].insurance_policy_no;
-					txt_insurance_cover_note_no.Text = dttable[0].insurance_cover_note_no;
-					txt_insurance_endorsement_no.Text = dttable[0].insurance_endorsement_no;
-					dtp_insurance_date.Value = dttable[0].insurance_date;
-
-					if (dttable[0]["insurance_category"] != DBNull.Value)
-						cmb_insurance_category.SelectedValue = dttable[0].insurance_category;
-
-					cmb_insurance_type.SelectedItem = dttable[0].insurance_type ? "COMPREHENSIVE" : "THIRD PARTY";
-
-					if (dttable[0]["insurance_comprehensive"] != DBNull.Value)
-						cmb_ins_comprehensive.SelectedValue = dttable[0].insurance_comprehensive;
-
-					num_insurance_sum_insured.Value = dttable[0].insurance_sum_insured;
-					num_insurance_basic.Value = dttable[0].insurance_basic_premium;
-					num_insurance_stamp_duty.Value = dttable[0].insurance_stamp_duty;
-					num_insurance_loading_percent.Value = dttable[0].insurance_loading_percent;
-					num_insurance_loading_amount.Value = (num_insurance_basic.Value - num_insurance_stamp_duty.Value) *
-						num_insurance_loading_percent.Value;
-					num_insurance_ncd_percent.Value = dttable[0].insurance_ncd_percent;
-					num_insurance_ncd_amount.Value = (num_insurance_basic.Value - num_insurance_stamp_duty.Value) *
-						num_insurance_ncd_percent.Value;
-					num_insurance_windscreen.Value = dttable[0].insurance_windscreen;
-					num_insurance_windscreen_sum_insured.Value = dttable[0].insurance_windscreen_sum_insured;
-					num_insurance_total_payable.Value = dttable[0].insurance_total_payable;
-
-					if (dttable[0]["guarantor_person"] != DBNull.Value)
-					{
-						num_guarantor_id.Value = dttable[0].guarantor_person;
-						txt_guarantor_name.Text = dttable[0].guarantor_name;
-					}
-					txt_remark.Text = dttable[0].remark;
-				}
-			}
-			// CHARGES
-			using (Vehicle_sale_charges_ds.sp_select_vehicle_sale_chargesDataTable dttable =
-				Vehicle_sale_charges_ds.Select_vehicle_sale_charges(VehicleID))
-			{
-				dttable.modified_byColumn.ReadOnly = true;
-				dttable.descriptionColumn.DefaultValue = "CHARGES";
-				dttable.amountColumn.DefaultValue = 0;
-				dttable.modified_byColumn.DefaultValue = Program.System_user.Name;
-				grd_charges.DataSource = dttable;
-				grd_charges.Columns["modified_by"].DefaultCellStyle.BackColor = Color.LightGray;
-
-				Class_datagridview.Hide_columns(grd_charges, new string[] { "vehicle_sale_charges" });
-				Class_datagridview.Set_column_to_money_column(grd_charges, "amount");
-				Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_charges, "description");
-			}
-			// EXPENSES
-			using (Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable dttable =
-				Vehicle_expenses_ds.Select_vehicle_expenses(VehicleID))
-			{
-				grd_expenses.DataSource = null;
-				grd_expenses.DataSource = dttable;
-
-				Class_datagridview.Set_column_to_money_column(grd_expenses, "amount");
-
-				grd_expenses.AutoResizeColumns();
-
-				// column charge_to_customer will be checkbox. allow user to tick/untick. other columns cannot edit
-				foreach (DataGridViewColumn grd_col in grd_expenses.Columns)
-				{
-					if (grd_col.Name == "charge_to_customer")
-					{
-						grd_col.ReadOnly = false;
-						grd_col.DefaultCellStyle.BackColor = Color.Yellow;
-					}
-					else
-					{
-						grd_col.ReadOnly = true;
-						grd_col.DefaultCellStyle.BackColor = Color.LightGray;
-					}
-				}
-			}
-			// PAYMENT RECEIVED FROM CUSTOMER
-			using (Veh_sale_payment_customer_ds.sp_select_veh_sale_payment_customerDataTable dttable =
-				Veh_sale_payment_customer_ds.Select_veh_sale_payment_customer(VehicleID))
-			{
-				grd_payment_received.DataSource = null;
-				grd_payment_received.DataSource = dttable;
-
-				Class_datagridview.Set_column_to_money_column(grd_payment_received, "amount");
-
-				grd_payment_received.AutoResizeColumns();
-			}
-			// MISC RECEIVED
-			using (Veh_sale_payment_receive_misc_ds.sp_select_veh_sale_payment_receive_miscDataTable dttable =
-				Veh_sale_payment_receive_misc_ds.Select_veh_sale_payment_receive_misc(VehicleID))
-			{
-				grd_misc_payment_received.DataSource = null;
-				grd_misc_payment_received.DataSource = dttable;
-
-				Class_datagridview.Set_column_to_money_column(grd_misc_payment_received, "amount");
-
-				grd_misc_payment_received.AutoResizeColumns();
-			}
-			// INSURANCE DRIVER
-			using (Insurance_driver_ds.sp_select_insurance_driverDataTable dttable =
-				Insurance_driver_ds.Select_insurance_driver(VehicleID))
-			{
-				dttable.modified_byColumn.ReadOnly = true;
-				dttable.modified_byColumn.DefaultValue = Program.System_user.Name;
-				grd_insurance_driver.DataSource = dttable;
-				Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_insurance_driver, "driver");
-				Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_insurance_driver, "ic_no");
-			}
-			// INSURANCE MISC CHARGES
-			using (Insurance_misc_charges_ds.sp_select_insurance_misc_chargesDataTable dttable =
-				Insurance_misc_charges_ds.Select_insurance_misc_charges(VehicleID))
-			{
-				dttable.modified_byColumn.ReadOnly = true;
-				dttable.modified_byColumn.DefaultValue = Program.System_user.Name;
-				grd_insurance_misc.DataSource = dttable;
-				Class_datagridview.Set_column_to_money_column(grd_insurance_misc, "amount");
-				grd_insurance_misc.Columns["insurance_misc_charges"].Visible = false;
-				Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_insurance_misc, "description");
-			}
-
-			Setup_grd_trade_in(0, true);
-
-			((DataTable)grd_charges.DataSource).RowChanged += (sender2, e2) => Grd_charges_calculate_total();
-			((DataTable)grd_insurance_misc.DataSource).RowChanged += (sender2, e2) => Calculate_insurance_total_payable();
-
-			Calculate_vehicle_payment();
-
-			btn_trade_in_add.Visible = Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_ADD_EDIT);
-			btn_trade_in_edit.Visible = Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_ADD_EDIT);
-			btn_trade_in_delete.Visible = Program.System_user.Has_permission(Class_enum.User_permission.VEHICLE_ADD_EDIT);
-
-			// hide unnecessary columns
-			if (!Program.System_user.IsDeveloper) Class_datagridview.Hide_unnecessary_columns(grd_payment_received,
-				"payment_no", "payment_description", "pay_to", "amount",
-				"payment_date", "is_paid", "payment_method_type", "cheque_no", "credit_card_no",
-				"payment_method", "finance", "remark", "modified_by");
-			if (!Program.System_user.IsDeveloper) Class_datagridview.Hide_unnecessary_columns(grd_expenses,
-				"charge_to_customer", "payment_no", "payment_description", "pay_to", "amount",
-				"payment_date", "is_paid", "payment_method_type", "cheque_no", "credit_card_no",
-				"payment_method", "finance", "remark", "modified_by");
-			if (!Program.System_user.IsDeveloper) Class_datagridview.Hide_unnecessary_columns(grd_misc_payment_received,
-				"payment_no", "payment_description", "pay_to", "amount",
-				"payment_date", "is_paid", "payment_method_type", "cheque_no", "credit_card_no",
-				"payment_method", "finance", "remark", "modified_by");
-		}
 		private void Grd_charges_calculate_total()
 		{
 			DataTable dttable = (DataTable)grd_charges.DataSource;
@@ -585,25 +580,30 @@ namespace VehicleDealership.View
 		//			Class_datagridview.Select_row_by_value(grd, "payment", int_preselect);
 		//	}
 		//}
-		public void Setup_grd_trade_in(int int_vehicle = 0, bool is_init = false)
+		public void Setup_grd_trade_in(int preselect_value = 0, bool is_init = false)
 		{
 			/*
 			 * if is initialising, then select trade in for this vehicle sale's vehicle ID. 
 			 * else, select only what is in @list_trade_in_vehicle_id
 			 */
-			using (Vehicle_ds.sp_select_vehicle_trade_inDataTable dttable =
+			using (Vehicle_ds.Trade_inDataTable dttable =
 				Vehicle_ds.Select_vehicle_trade_in(is_init ? VehicleID : 0, string.Join(",", list_trade_in_vehicle_id)))
 			{
 				grd_trade_in.DataSource = null;
 				grd_trade_in.DataSource = dttable;
-				Class_datagridview.Hide_columns(grd_trade_in, new string[] { "vehicle" });
+
+				Class_datagridview.Set_column_to_money_column(grd_trade_in, "purchase_price");
+
+				if (!Program.System_user.IsDeveloper)
+					Class_datagridview.Hide_columns(grd_trade_in, new string[] { "vehicle" });
+
 				grd_trade_in.AutoResizeColumns();
 
 				// set @list_trade_in_vehicle_id to be same with what is selected
 				if (dttable.Rows.Count > 0)
 					list_trade_in_vehicle_id = (from row in dttable select row.vehicle).ToList();
 			}
-			Class_datagridview.Select_row_by_value(grd_trade_in, "vehicle", int_vehicle);
+			Class_datagridview.Select_row_by_value(grd_trade_in, "vehicle", preselect_value);
 			Calculate_trade_in();
 		}
 
@@ -698,51 +698,48 @@ namespace VehicleDealership.View
 		}
 		private void Btn_trade_in_add_Click(object sender, EventArgs e)
 		{
-			using (Form_edit_vehicle dlg = new Form_edit_vehicle(0, false))
+			List<int> exclude_vehicle = new List<int>(list_trade_in_vehicle_id)
 			{
-				if (dlg.ShowDialog() != DialogResult.OK) return;
+				VehicleID // add self to list. must exclude self from selection also
+			};
 
-				list_trade_in_vehicle_id.Add(dlg.VehicleID);
-				Setup_grd_trade_in(dlg.VehicleID);
-			}
-		}
-		private void Btn_trade_in_edit_Click(object sender, EventArgs e)
-		{
-			if (grd_trade_in.SelectedCells.Count == 0) return;
-
-			int int_vehicle_id = (int)grd_trade_in.SelectedCells[0].OwningRow.Cells["vehicle"].Value;
-
-			using (Form_edit_vehicle dlg = new Form_edit_vehicle(int_vehicle_id, false))
+			using (Vehicle_ds.Trade_inDataTable dttable =
+				Vehicle_ds.Select_vehicle_for_trade_in(string.Join(",", exclude_vehicle)))
 			{
-				if (dlg.ShowDialog() == DialogResult.OK) Setup_grd_trade_in(int_vehicle_id);
+				dttable.registration_noColumn.SetOrdinal(0); // make reg no first column because going to hide "vehicle" col
+
+				using (Form_listview_select dlg = new Form_listview_select(dttable, "vehicle",
+					new string[] { "vehicle" }, new string[] { "purchase_price" }))
+				{
+					if (dlg.ShowDialog() != DialogResult.OK) return;
+
+					foreach (int tmp_int in dlg.SelectedValuesInt)
+					{
+						list_trade_in_vehicle_id.Add(tmp_int);
+						Setup_grd_trade_in();
+					}
+				}
 			}
 		}
 		private void Btn_trade_in_delete_Click(object sender, EventArgs e)
 		{
 			if (grd_trade_in.SelectedCells.Count == 0) return;
-			if (MessageBox.Show("Are you sure? NOTE: Vehicle will only be removed as trade in for this vehicle sale. Vehicle record will still exist.",
-				"Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK)
+			if (MessageBox.Show("Are you sure? ", "Confirm", MessageBoxButtons.OKCancel,
+				MessageBoxIcon.Warning) != DialogResult.OK)
 				return;
 
-			int int_vehicle_id = (int)grd_trade_in.SelectedCells[0].OwningRow.Cells["vehicle"].Value;
-
-			Vehicle_ds.sp_select_vehicle_trade_inDataTable dttable =
-				(Vehicle_ds.sp_select_vehicle_trade_inDataTable)grd_trade_in.DataSource;
-
-			for (int i = 0, j = dttable.Rows.Count; i < j; i++)
-			{
-				if (dttable[i].vehicle == int_vehicle_id) dttable.Rows.RemoveAt(i);
-			}
-
-			Calculate_trade_in();
-
 			list_trade_in_vehicle_id = list_trade_in_vehicle_id.Distinct().ToList();
-			list_trade_in_vehicle_id.Remove(int_vehicle_id);
+
+			foreach (DataGridViewCell grd_cell in grd_trade_in.SelectedCells)
+			{
+				list_trade_in_vehicle_id.Remove((int)grd_cell.OwningRow.Cells["vehicle"].Value);
+			}
+			Setup_grd_trade_in();
 		}
 		private void Calculate_trade_in()
 		{
-			Vehicle_ds.sp_select_vehicle_trade_inDataTable dttable =
-				(Vehicle_ds.sp_select_vehicle_trade_inDataTable)grd_trade_in.DataSource;
+			Vehicle_ds.Trade_inDataTable dttable =
+				(Vehicle_ds.Trade_inDataTable)grd_trade_in.DataSource;
 
 			decimal trade_in_total = 0;
 
@@ -913,6 +910,11 @@ namespace VehicleDealership.View
 				dt_row.remark))
 			{
 				if (dlg_payment.ShowDialog() != DialogResult.OK) return;
+
+				foreach (DataColumn dt_col in dt_row.Table.Columns)
+				{
+					dt_col.ReadOnly = false; // make all columns editable
+				}
 
 				dt_row.payment_description = dlg_payment.PaymentDescription;
 				dt_row.pay_to_id = dlg_payment.PayToId;
@@ -1103,7 +1105,9 @@ namespace VehicleDealership.View
 
 			bool is_comprehensive = cmb_insurance_type.SelectedItem.ToString() == "COMPREHENSIVE";
 
+			num_insurance_basic.ReadOnly = is_comprehensive;
 			num_insurance_basic.Enabled = !is_comprehensive;
+
 			cmb_ins_comprehensive.Enabled = is_comprehensive;
 
 			if (is_comprehensive) Calculate_insurance_comprehensive_basic_premium();
@@ -1118,7 +1122,7 @@ namespace VehicleDealership.View
 			if (cmb_ins_comprehensive.SelectedIndex < 0) return;
 			Insurance_comprehensive_rate_ds.sp_select_insurance_comprehensive_rateDataTable dttable =
 				Insurance_comprehensive_rate_ds.Select_insurance_comprehensive_rate(
-					(int)cmb_ins_comprehensive.SelectedValue, int.Parse(txt_engine_cc.Text));
+					(int)cmb_ins_comprehensive.SelectedValue, (int)num_engine_cc.Value);
 
 			if (dttable.Any()) num_insurance_basic.Value = dttable[0].value;
 		}
@@ -1156,9 +1160,7 @@ namespace VehicleDealership.View
 			Insurance_misc_charges_ds.sp_select_insurance_misc_chargesDataTable dttable =
 				(Insurance_misc_charges_ds.sp_select_insurance_misc_chargesDataTable)grd_insurance_misc.DataSource;
 
-			dttable.AcceptChanges();
-
-			if (dttable.Any()) total_payable += (from row in dttable select row.amount).Sum();
+			if (dttable != null && dttable.Any()) total_payable += (from row in dttable select row.amount).Sum();
 
 			num_insurance_total_payable.Value = total_payable;
 		}

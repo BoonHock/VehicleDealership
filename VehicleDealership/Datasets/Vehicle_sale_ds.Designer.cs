@@ -382,8 +382,6 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columninsurance_date;
             
-            private global::System.Data.DataColumn columninsurance_category;
-            
             private global::System.Data.DataColumn columninsurance_type;
             
             private global::System.Data.DataColumn columninsurance_sum_insured;
@@ -725,14 +723,6 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn insurance_categoryColumn {
-                get {
-                    return this.columninsurance_category;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn insurance_typeColumn {
                 get {
                     return this.columninsurance_type;
@@ -939,7 +929,6 @@ namespace VehicleDealership.Datasets {
                         string insurance_endorsement_no, 
                         string insurance_policy_no, 
                         System.DateTime insurance_date, 
-                        int insurance_category, 
                         bool insurance_type, 
                         decimal insurance_sum_insured, 
                         decimal insurance_basic_premium, 
@@ -993,7 +982,6 @@ namespace VehicleDealership.Datasets {
                         insurance_endorsement_no,
                         insurance_policy_no,
                         insurance_date,
-                        insurance_category,
                         insurance_type,
                         insurance_sum_insured,
                         insurance_basic_premium,
@@ -1067,7 +1055,6 @@ namespace VehicleDealership.Datasets {
                 this.columninsurance_endorsement_no = base.Columns["insurance_endorsement_no"];
                 this.columninsurance_policy_no = base.Columns["insurance_policy_no"];
                 this.columninsurance_date = base.Columns["insurance_date"];
-                this.columninsurance_category = base.Columns["insurance_category"];
                 this.columninsurance_type = base.Columns["insurance_type"];
                 this.columninsurance_sum_insured = base.Columns["insurance_sum_insured"];
                 this.columninsurance_basic_premium = base.Columns["insurance_basic_premium"];
@@ -1158,8 +1145,6 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columninsurance_policy_no);
                 this.columninsurance_date = new global::System.Data.DataColumn("insurance_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columninsurance_date);
-                this.columninsurance_category = new global::System.Data.DataColumn("insurance_category", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columninsurance_category);
                 this.columninsurance_type = new global::System.Data.DataColumn("insurance_type", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columninsurance_type);
                 this.columninsurance_sum_insured = new global::System.Data.DataColumn("insurance_sum_insured", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -1231,7 +1216,6 @@ namespace VehicleDealership.Datasets {
                 this.columninsurance_policy_no.AllowDBNull = false;
                 this.columninsurance_policy_no.MaxLength = 50;
                 this.columninsurance_date.AllowDBNull = false;
-                this.columninsurance_category.AllowDBNull = false;
                 this.columninsurance_type.AllowDBNull = false;
                 this.columninsurance_sum_insured.AllowDBNull = false;
                 this.columninsurance_basic_premium.AllowDBNull = false;
@@ -2257,17 +2241,6 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int insurance_category {
-                get {
-                    return ((int)(this[this.tablesp_select_vehicle_sale.insurance_categoryColumn]));
-                }
-                set {
-                    this[this.tablesp_select_vehicle_sale.insurance_categoryColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool insurance_type {
                 get {
                     return ((bool)(this[this.tablesp_select_vehicle_sale.insurance_typeColumn]));
@@ -3167,7 +3140,6 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
             tableMapping.ColumnMappings.Add("insurance_endorsement_no", "insurance_endorsement_no");
             tableMapping.ColumnMappings.Add("insurance_policy_no", "insurance_policy_no");
             tableMapping.ColumnMappings.Add("insurance_date", "insurance_date");
-            tableMapping.ColumnMappings.Add("insurance_category", "insurance_category");
             tableMapping.ColumnMappings.Add("insurance_type", "insurance_type");
             tableMapping.ColumnMappings.Add("insurance_sum_insured", "insurance_sum_insured");
             tableMapping.ColumnMappings.Add("insurance_basic_premium", "insurance_basic_premium");
@@ -3418,54 +3390,18 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
             this._commandCollection = new global::System.Data.IDbCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "fin.sp_insert_vehicle_sale";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "fin.sp_delete_vehicle_sale";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ref_no_prefix", global::System.Data.SqlDbType.NVarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@customer_person", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@customer_org_branch", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sale_date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sale_price", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@road_tax_amount", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@road_tax_month", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 3, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_amount", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_month", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_interest_percentage", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 5, 2, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_monthly_installment", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_ref_no", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_approval_date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_ownership_claim_no", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@guarantor_person", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_cover_note_no", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_endorsement_no", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_policy_no", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_category", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_type", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_basic", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_sum_insured", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_comprehensive", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_add_comprehensive", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_adjustment", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_loading_age_percent", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 5, 2, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_loading_percent", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 5, 2, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_ncd_percent", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 5, 2, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_stamp_duty", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_windscreen_sum_insured", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_windscreen", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_total_payable", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@salesperson", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@remark", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modified_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@uid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandText = "fin.sp_update_vehicle_sale";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandText = "fin.sp_insert_vehicle_sale";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ref_no_prefix", global::System.Data.SqlDbType.NVarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@customer_person", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@customer_org_branch", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sale_date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3486,7 +3422,6 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_endorsement_no", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_policy_no", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_category", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_type", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_basic", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_sum_insured", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3505,17 +3440,86 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modified_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Connection = new global::System.Data.SqlClient.SqlConnection(global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString);
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).CommandText = "fin.sp_delete_vehicle_sale";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).CommandText = "fin.sp_update_vehicle_sale";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@uid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@customer_person", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@customer_org_branch", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sale_date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sale_price", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@road_tax_amount", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@road_tax_month", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 3, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_amount", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_month", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_interest_percentage", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 5, 2, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_monthly_installment", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_ref_no", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_approval_date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loan_ownership_claim_no", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@guarantor_person", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_cover_note_no", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_endorsement_no", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_policy_no", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_type", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_basic", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_sum_insured", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_comprehensive", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_add_comprehensive", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_adjustment", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_loading_age_percent", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 5, 2, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_loading_percent", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 5, 2, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_ncd_percent", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 5, 2, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_stamp_duty", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_windscreen_sum_insured", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_windscreen", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@insurance_total_payable", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@salesperson", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@remark", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modified_by", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object sp_insert_vehicle_sale(
+        public virtual int sp_delete_vehicle_sale(global::System.Nullable<int> vehicle, global::System.Nullable<int> uid) {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
+            if ((vehicle.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(vehicle.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((uid.HasValue == true)) {
+                command.Parameters[2].Value = ((int)(uid.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int sp_insert_vehicle_sale(
                     global::System.Nullable<int> vehicle, 
                     string ref_no_prefix, 
                     global::System.Nullable<int> customer_person, 
@@ -3538,7 +3542,6 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
                     string insurance_endorsement_no, 
                     string insurance_policy_no, 
                     global::System.Nullable<global::System.DateTime> insurance_date, 
-                    global::System.Nullable<int> insurance_category, 
                     global::System.Nullable<bool> insurance_type, 
                     global::System.Nullable<decimal> insurance_basic, 
                     global::System.Nullable<decimal> insurance_sum_insured, 
@@ -3555,7 +3558,7 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
                     global::System.Nullable<int> salesperson, 
                     string remark, 
                     global::System.Nullable<int> modified_by) {
-            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[1]));
             if ((vehicle.HasValue == true)) {
                 command.Parameters[1].Value = ((int)(vehicle.Value));
             }
@@ -3688,129 +3691,117 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
             else {
                 command.Parameters[22].Value = global::System.DBNull.Value;
             }
-            if ((insurance_category.HasValue == true)) {
-                command.Parameters[23].Value = ((int)(insurance_category.Value));
+            if ((insurance_type.HasValue == true)) {
+                command.Parameters[23].Value = ((bool)(insurance_type.Value));
             }
             else {
                 command.Parameters[23].Value = global::System.DBNull.Value;
             }
-            if ((insurance_type.HasValue == true)) {
-                command.Parameters[24].Value = ((bool)(insurance_type.Value));
+            if ((insurance_basic.HasValue == true)) {
+                command.Parameters[24].Value = ((decimal)(insurance_basic.Value));
             }
             else {
                 command.Parameters[24].Value = global::System.DBNull.Value;
             }
-            if ((insurance_basic.HasValue == true)) {
-                command.Parameters[25].Value = ((decimal)(insurance_basic.Value));
+            if ((insurance_sum_insured.HasValue == true)) {
+                command.Parameters[25].Value = ((decimal)(insurance_sum_insured.Value));
             }
             else {
                 command.Parameters[25].Value = global::System.DBNull.Value;
             }
-            if ((insurance_sum_insured.HasValue == true)) {
-                command.Parameters[26].Value = ((decimal)(insurance_sum_insured.Value));
+            if ((insurance_comprehensive.HasValue == true)) {
+                command.Parameters[26].Value = ((int)(insurance_comprehensive.Value));
             }
             else {
                 command.Parameters[26].Value = global::System.DBNull.Value;
             }
-            if ((insurance_comprehensive.HasValue == true)) {
-                command.Parameters[27].Value = ((int)(insurance_comprehensive.Value));
+            if ((insurance_add_comprehensive.HasValue == true)) {
+                command.Parameters[27].Value = ((decimal)(insurance_add_comprehensive.Value));
             }
             else {
                 command.Parameters[27].Value = global::System.DBNull.Value;
             }
-            if ((insurance_add_comprehensive.HasValue == true)) {
-                command.Parameters[28].Value = ((decimal)(insurance_add_comprehensive.Value));
+            if ((insurance_adjustment.HasValue == true)) {
+                command.Parameters[28].Value = ((decimal)(insurance_adjustment.Value));
             }
             else {
                 command.Parameters[28].Value = global::System.DBNull.Value;
             }
-            if ((insurance_adjustment.HasValue == true)) {
-                command.Parameters[29].Value = ((decimal)(insurance_adjustment.Value));
+            if ((insurance_loading_age_percent.HasValue == true)) {
+                command.Parameters[29].Value = ((decimal)(insurance_loading_age_percent.Value));
             }
             else {
                 command.Parameters[29].Value = global::System.DBNull.Value;
             }
-            if ((insurance_loading_age_percent.HasValue == true)) {
-                command.Parameters[30].Value = ((decimal)(insurance_loading_age_percent.Value));
+            if ((insurance_loading_percent.HasValue == true)) {
+                command.Parameters[30].Value = ((decimal)(insurance_loading_percent.Value));
             }
             else {
                 command.Parameters[30].Value = global::System.DBNull.Value;
             }
-            if ((insurance_loading_percent.HasValue == true)) {
-                command.Parameters[31].Value = ((decimal)(insurance_loading_percent.Value));
+            if ((insurance_ncd_percent.HasValue == true)) {
+                command.Parameters[31].Value = ((decimal)(insurance_ncd_percent.Value));
             }
             else {
                 command.Parameters[31].Value = global::System.DBNull.Value;
             }
-            if ((insurance_ncd_percent.HasValue == true)) {
-                command.Parameters[32].Value = ((decimal)(insurance_ncd_percent.Value));
+            if ((insurance_stamp_duty.HasValue == true)) {
+                command.Parameters[32].Value = ((decimal)(insurance_stamp_duty.Value));
             }
             else {
                 command.Parameters[32].Value = global::System.DBNull.Value;
             }
-            if ((insurance_stamp_duty.HasValue == true)) {
-                command.Parameters[33].Value = ((decimal)(insurance_stamp_duty.Value));
+            if ((insurance_windscreen_sum_insured.HasValue == true)) {
+                command.Parameters[33].Value = ((decimal)(insurance_windscreen_sum_insured.Value));
             }
             else {
                 command.Parameters[33].Value = global::System.DBNull.Value;
             }
-            if ((insurance_windscreen_sum_insured.HasValue == true)) {
-                command.Parameters[34].Value = ((decimal)(insurance_windscreen_sum_insured.Value));
+            if ((insurance_windscreen.HasValue == true)) {
+                command.Parameters[34].Value = ((decimal)(insurance_windscreen.Value));
             }
             else {
                 command.Parameters[34].Value = global::System.DBNull.Value;
             }
-            if ((insurance_windscreen.HasValue == true)) {
-                command.Parameters[35].Value = ((decimal)(insurance_windscreen.Value));
+            if ((insurance_total_payable.HasValue == true)) {
+                command.Parameters[35].Value = ((decimal)(insurance_total_payable.Value));
             }
             else {
                 command.Parameters[35].Value = global::System.DBNull.Value;
             }
-            if ((insurance_total_payable.HasValue == true)) {
-                command.Parameters[36].Value = ((decimal)(insurance_total_payable.Value));
+            if ((salesperson.HasValue == true)) {
+                command.Parameters[36].Value = ((int)(salesperson.Value));
             }
             else {
                 command.Parameters[36].Value = global::System.DBNull.Value;
             }
-            if ((salesperson.HasValue == true)) {
-                command.Parameters[37].Value = ((int)(salesperson.Value));
-            }
-            else {
+            if ((remark == null)) {
                 command.Parameters[37].Value = global::System.DBNull.Value;
             }
-            if ((remark == null)) {
-                command.Parameters[38].Value = global::System.DBNull.Value;
-            }
             else {
-                command.Parameters[38].Value = ((string)(remark));
+                command.Parameters[37].Value = ((string)(remark));
             }
             if ((modified_by.HasValue == true)) {
-                command.Parameters[39].Value = ((int)(modified_by.Value));
+                command.Parameters[38].Value = ((int)(modified_by.Value));
             }
             else {
-                command.Parameters[39].Value = global::System.DBNull.Value;
+                command.Parameters[38].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
                 command.Connection.Open();
             }
-            object returnValue;
+            int returnValue;
             try {
-                returnValue = command.ExecuteScalar();
+                returnValue = command.ExecuteNonQuery();
             }
             finally {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     command.Connection.Close();
                 }
             }
-            if (((returnValue == null) 
-                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return null;
-            }
-            else {
-                return ((object)(returnValue));
-            }
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3838,7 +3829,6 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
                     string insurance_endorsement_no, 
                     string insurance_policy_no, 
                     global::System.Nullable<global::System.DateTime> insurance_date, 
-                    global::System.Nullable<int> insurance_category, 
                     global::System.Nullable<bool> insurance_type, 
                     global::System.Nullable<decimal> insurance_basic, 
                     global::System.Nullable<decimal> insurance_sum_insured, 
@@ -3855,7 +3845,7 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
                     global::System.Nullable<int> salesperson, 
                     string remark, 
                     global::System.Nullable<int> modified_by) {
-            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[1]));
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[2]));
             if ((vehicle.HasValue == true)) {
                 command.Parameters[1].Value = ((int)(vehicle.Value));
             }
@@ -3982,141 +3972,101 @@ namespace VehicleDealership.Datasets.Vehicle_sale_dsTableAdapters {
             else {
                 command.Parameters[21].Value = global::System.DBNull.Value;
             }
-            if ((insurance_category.HasValue == true)) {
-                command.Parameters[22].Value = ((int)(insurance_category.Value));
+            if ((insurance_type.HasValue == true)) {
+                command.Parameters[22].Value = ((bool)(insurance_type.Value));
             }
             else {
                 command.Parameters[22].Value = global::System.DBNull.Value;
             }
-            if ((insurance_type.HasValue == true)) {
-                command.Parameters[23].Value = ((bool)(insurance_type.Value));
+            if ((insurance_basic.HasValue == true)) {
+                command.Parameters[23].Value = ((decimal)(insurance_basic.Value));
             }
             else {
                 command.Parameters[23].Value = global::System.DBNull.Value;
             }
-            if ((insurance_basic.HasValue == true)) {
-                command.Parameters[24].Value = ((decimal)(insurance_basic.Value));
+            if ((insurance_sum_insured.HasValue == true)) {
+                command.Parameters[24].Value = ((decimal)(insurance_sum_insured.Value));
             }
             else {
                 command.Parameters[24].Value = global::System.DBNull.Value;
             }
-            if ((insurance_sum_insured.HasValue == true)) {
-                command.Parameters[25].Value = ((decimal)(insurance_sum_insured.Value));
+            if ((insurance_comprehensive.HasValue == true)) {
+                command.Parameters[25].Value = ((int)(insurance_comprehensive.Value));
             }
             else {
                 command.Parameters[25].Value = global::System.DBNull.Value;
             }
-            if ((insurance_comprehensive.HasValue == true)) {
-                command.Parameters[26].Value = ((int)(insurance_comprehensive.Value));
+            if ((insurance_add_comprehensive.HasValue == true)) {
+                command.Parameters[26].Value = ((decimal)(insurance_add_comprehensive.Value));
             }
             else {
                 command.Parameters[26].Value = global::System.DBNull.Value;
             }
-            if ((insurance_add_comprehensive.HasValue == true)) {
-                command.Parameters[27].Value = ((decimal)(insurance_add_comprehensive.Value));
+            if ((insurance_adjustment.HasValue == true)) {
+                command.Parameters[27].Value = ((decimal)(insurance_adjustment.Value));
             }
             else {
                 command.Parameters[27].Value = global::System.DBNull.Value;
             }
-            if ((insurance_adjustment.HasValue == true)) {
-                command.Parameters[28].Value = ((decimal)(insurance_adjustment.Value));
+            if ((insurance_loading_age_percent.HasValue == true)) {
+                command.Parameters[28].Value = ((decimal)(insurance_loading_age_percent.Value));
             }
             else {
                 command.Parameters[28].Value = global::System.DBNull.Value;
             }
-            if ((insurance_loading_age_percent.HasValue == true)) {
-                command.Parameters[29].Value = ((decimal)(insurance_loading_age_percent.Value));
+            if ((insurance_loading_percent.HasValue == true)) {
+                command.Parameters[29].Value = ((decimal)(insurance_loading_percent.Value));
             }
             else {
                 command.Parameters[29].Value = global::System.DBNull.Value;
             }
-            if ((insurance_loading_percent.HasValue == true)) {
-                command.Parameters[30].Value = ((decimal)(insurance_loading_percent.Value));
+            if ((insurance_ncd_percent.HasValue == true)) {
+                command.Parameters[30].Value = ((decimal)(insurance_ncd_percent.Value));
             }
             else {
                 command.Parameters[30].Value = global::System.DBNull.Value;
             }
-            if ((insurance_ncd_percent.HasValue == true)) {
-                command.Parameters[31].Value = ((decimal)(insurance_ncd_percent.Value));
+            if ((insurance_stamp_duty.HasValue == true)) {
+                command.Parameters[31].Value = ((decimal)(insurance_stamp_duty.Value));
             }
             else {
                 command.Parameters[31].Value = global::System.DBNull.Value;
             }
-            if ((insurance_stamp_duty.HasValue == true)) {
-                command.Parameters[32].Value = ((decimal)(insurance_stamp_duty.Value));
+            if ((insurance_windscreen_sum_insured.HasValue == true)) {
+                command.Parameters[32].Value = ((decimal)(insurance_windscreen_sum_insured.Value));
             }
             else {
                 command.Parameters[32].Value = global::System.DBNull.Value;
             }
-            if ((insurance_windscreen_sum_insured.HasValue == true)) {
-                command.Parameters[33].Value = ((decimal)(insurance_windscreen_sum_insured.Value));
+            if ((insurance_windscreen.HasValue == true)) {
+                command.Parameters[33].Value = ((decimal)(insurance_windscreen.Value));
             }
             else {
                 command.Parameters[33].Value = global::System.DBNull.Value;
             }
-            if ((insurance_windscreen.HasValue == true)) {
-                command.Parameters[34].Value = ((decimal)(insurance_windscreen.Value));
+            if ((insurance_total_payable.HasValue == true)) {
+                command.Parameters[34].Value = ((decimal)(insurance_total_payable.Value));
             }
             else {
                 command.Parameters[34].Value = global::System.DBNull.Value;
             }
-            if ((insurance_total_payable.HasValue == true)) {
-                command.Parameters[35].Value = ((decimal)(insurance_total_payable.Value));
+            if ((salesperson.HasValue == true)) {
+                command.Parameters[35].Value = ((int)(salesperson.Value));
             }
             else {
                 command.Parameters[35].Value = global::System.DBNull.Value;
             }
-            if ((salesperson.HasValue == true)) {
-                command.Parameters[36].Value = ((int)(salesperson.Value));
-            }
-            else {
+            if ((remark == null)) {
                 command.Parameters[36].Value = global::System.DBNull.Value;
             }
-            if ((remark == null)) {
-                command.Parameters[37].Value = global::System.DBNull.Value;
-            }
             else {
-                command.Parameters[37].Value = ((string)(remark));
+                command.Parameters[36].Value = ((string)(remark));
             }
             if ((modified_by.HasValue == true)) {
-                command.Parameters[38].Value = ((int)(modified_by.Value));
+                command.Parameters[37].Value = ((int)(modified_by.Value));
             }
             else {
-                command.Parameters[38].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int sp_delete_vehicle_sale(global::System.Nullable<int> vehicle, global::System.Nullable<int> uid) {
-            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[2]));
-            if ((vehicle.HasValue == true)) {
-                command.Parameters[1].Value = ((int)(vehicle.Value));
-            }
-            else {
-                command.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((uid.HasValue == true)) {
-                command.Parameters[2].Value = ((int)(uid.Value));
-            }
-            else {
-                command.Parameters[2].Value = global::System.DBNull.Value;
+                command.Parameters[37].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 

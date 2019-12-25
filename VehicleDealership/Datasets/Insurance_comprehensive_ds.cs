@@ -53,7 +53,7 @@ namespace VehicleDealership.Datasets
 				using (Insurance_comprehensive_dsTableAdapters.QueriesTableAdapter adapter =
 					new Insurance_comprehensive_dsTableAdapters.QueriesTableAdapter())
 				{
-					return (int)adapter.sp_insert_insurance_comprehensive(str_title, Program.System_user.UserID);
+					return int.Parse(adapter.sp_insert_insurance_comprehensive(str_title, Program.System_user.UserID).ToString());
 				}
 			}
 			catch (System.Data.SqlClient.SqlException e)

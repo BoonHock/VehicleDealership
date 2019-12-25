@@ -61,6 +61,7 @@
 			// 
 			// grd_ins
 			// 
+			this.grd_ins.AllowUserToResizeRows = false;
 			this.grd_ins.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -142,6 +143,7 @@
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F);
 			this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this.Name = "Form_edit_insurance_comprehensive";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Insurance comprehensive";
 			this.Shown += new System.EventHandler(this.Form_edit_insurance_comprehensive_Shown);
 			((System.ComponentModel.ISupportInitialize)(this.grd_ins)).EndInit();

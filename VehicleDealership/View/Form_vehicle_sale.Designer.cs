@@ -43,7 +43,6 @@
 			this.grd_trade_in = new System.Windows.Forms.DataGridView();
 			this.toolStrip6 = new System.Windows.Forms.ToolStrip();
 			this.btn_trade_in_add = new System.Windows.Forms.ToolStripButton();
-			this.btn_trade_in_edit = new System.Windows.Forms.ToolStripButton();
 			this.btn_trade_in_delete = new System.Windows.Forms.ToolStripButton();
 			this.toolStripLabel11 = new System.Windows.Forms.ToolStripLabel();
 			this.lbl_trade_in_total = new System.Windows.Forms.ToolStripLabel();
@@ -91,7 +90,6 @@
 			this.num_insurance_stamp_duty = new System.Windows.Forms.NumericUpDown();
 			this.num_insurance_sum_insured = new System.Windows.Forms.NumericUpDown();
 			this.cmb_insurance_type = new System.Windows.Forms.ComboBox();
-			this.cmb_insurance_category = new System.Windows.Forms.ComboBox();
 			this.dtp_insurance_date = new System.Windows.Forms.DateTimePicker();
 			this.btn_insurance_company = new System.Windows.Forms.Button();
 			this.label21 = new System.Windows.Forms.Label();
@@ -108,7 +106,6 @@
 			this.label19 = new System.Windows.Forms.Label();
 			this.label15 = new System.Windows.Forms.Label();
 			this.txt_insurance_policy_no = new System.Windows.Forms.TextBox();
-			this.label14 = new System.Windows.Forms.Label();
 			this.label13 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
 			this.txt_insurance_endorsement_no = new System.Windows.Forms.TextBox();
@@ -207,6 +204,7 @@
 			this.num_road_tax_amount = new System.Windows.Forms.NumericUpDown();
 			this.groupBox11 = new System.Windows.Forms.GroupBox();
 			this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+			this.num_engine_cc = new System.Windows.Forms.NumericUpDown();
 			this.label66 = new System.Windows.Forms.Label();
 			this.dtp_road_tax_expiry = new System.Windows.Forms.DateTimePicker();
 			this.txt_reg_no = new System.Windows.Forms.TextBox();
@@ -226,7 +224,6 @@
 			this.label77 = new System.Windows.Forms.Label();
 			this.label53 = new System.Windows.Forms.Label();
 			this.txt_jpj = new System.Windows.Forms.TextBox();
-			this.txt_engine_cc = new System.Windows.Forms.TextBox();
 			this.txt_vehicle_colour = new System.Windows.Forms.TextBox();
 			this.label73 = new System.Windows.Forms.Label();
 			this.label69 = new System.Windows.Forms.Label();
@@ -329,6 +326,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.num_road_tax_amount)).BeginInit();
 			this.groupBox11.SuspendLayout();
 			this.tableLayoutPanel8.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_engine_cc)).BeginInit();
 			this.panel3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.num_mileage)).BeginInit();
 			this.tabControl1.SuspendLayout();
@@ -498,7 +496,6 @@
 			this.toolStrip6.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.toolStrip6.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btn_trade_in_add,
-            this.btn_trade_in_edit,
             this.btn_trade_in_delete,
             this.toolStripLabel11,
             this.lbl_trade_in_total});
@@ -517,16 +514,6 @@
 			this.btn_trade_in_add.Size = new System.Drawing.Size(23, 22);
 			this.btn_trade_in_add.Text = "Add";
 			this.btn_trade_in_add.Click += new System.EventHandler(this.Btn_trade_in_add_Click);
-			// 
-			// btn_trade_in_edit
-			// 
-			this.btn_trade_in_edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btn_trade_in_edit.Image = global::VehicleDealership.Properties.Resources.CustomActionEditor_16x;
-			this.btn_trade_in_edit.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btn_trade_in_edit.Name = "btn_trade_in_edit";
-			this.btn_trade_in_edit.Size = new System.Drawing.Size(23, 22);
-			this.btn_trade_in_edit.Text = "Edit";
-			this.btn_trade_in_edit.Click += new System.EventHandler(this.Btn_trade_in_edit_Click);
 			// 
 			// btn_trade_in_delete
 			// 
@@ -904,10 +891,10 @@
 			// 
 			this.grd_insurance_driver.AllowUserToResizeRows = false;
 			this.grd_insurance_driver.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.grd_insurance_driver.Location = new System.Drawing.Point(6, 306);
+			this.grd_insurance_driver.Location = new System.Drawing.Point(6, 279);
 			this.grd_insurance_driver.Name = "grd_insurance_driver";
-			this.grd_insurance_driver.RowHeadersWidth = 20;
-			this.grd_insurance_driver.Size = new System.Drawing.Size(413, 157);
+			this.grd_insurance_driver.RowHeadersWidth = 35;
+			this.grd_insurance_driver.Size = new System.Drawing.Size(413, 184);
 			this.grd_insurance_driver.TabIndex = 6;
 			this.grd_insurance_driver.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_DataError);
 			// 
@@ -917,7 +904,7 @@
 			this.grd_insurance_misc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.grd_insurance_misc.Location = new System.Drawing.Point(531, 328);
 			this.grd_insurance_misc.Name = "grd_insurance_misc";
-			this.grd_insurance_misc.RowHeadersWidth = 20;
+			this.grd_insurance_misc.RowHeadersWidth = 35;
 			this.grd_insurance_misc.Size = new System.Drawing.Size(427, 135);
 			this.grd_insurance_misc.TabIndex = 6;
 			this.grd_insurance_misc.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_DataError);
@@ -1095,21 +1082,11 @@
 			this.cmb_insurance_type.Items.AddRange(new object[] {
             "COMPREHENSIVE",
             "THIRD PARTY"});
-			this.cmb_insurance_type.Location = new System.Drawing.Point(122, 255);
+			this.cmb_insurance_type.Location = new System.Drawing.Point(122, 224);
 			this.cmb_insurance_type.Name = "cmb_insurance_type";
 			this.cmb_insurance_type.Size = new System.Drawing.Size(148, 25);
 			this.cmb_insurance_type.TabIndex = 4;
 			this.cmb_insurance_type.SelectedIndexChanged += new System.EventHandler(this.Cmb_insurance_type_SelectedIndexChanged);
-			// 
-			// cmb_insurance_category
-			// 
-			this.cmb_insurance_category.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cmb_insurance_category.Enabled = false;
-			this.cmb_insurance_category.FormattingEnabled = true;
-			this.cmb_insurance_category.Location = new System.Drawing.Point(122, 224);
-			this.cmb_insurance_category.Name = "cmb_insurance_category";
-			this.cmb_insurance_category.Size = new System.Drawing.Size(148, 25);
-			this.cmb_insurance_category.TabIndex = 4;
 			// 
 			// dtp_insurance_date
 			// 
@@ -1152,7 +1129,7 @@
 			// label26
 			// 
 			this.label26.AutoSize = true;
-			this.label26.Location = new System.Drawing.Point(6, 286);
+			this.label26.Location = new System.Drawing.Point(6, 259);
 			this.label26.Name = "label26";
 			this.label26.Size = new System.Drawing.Size(46, 17);
 			this.label26.TabIndex = 0;
@@ -1250,7 +1227,7 @@
 			// label15
 			// 
 			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(8, 259);
+			this.label15.Location = new System.Drawing.Point(8, 228);
 			this.label15.Name = "label15";
 			this.label15.Size = new System.Drawing.Size(39, 17);
 			this.label15.TabIndex = 0;
@@ -1262,16 +1239,6 @@
 			this.txt_insurance_policy_no.Name = "txt_insurance_policy_no";
 			this.txt_insurance_policy_no.Size = new System.Drawing.Size(148, 25);
 			this.txt_insurance_policy_no.TabIndex = 1;
-			// 
-			// label14
-			// 
-			this.label14.AutoSize = true;
-			this.label14.Enabled = false;
-			this.label14.Location = new System.Drawing.Point(8, 227);
-			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(64, 17);
-			this.label14.TabIndex = 0;
-			this.label14.Text = "Category:";
 			// 
 			// label13
 			// 
@@ -1506,7 +1473,7 @@
 			this.grd_charges.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.grd_charges.Location = new System.Drawing.Point(3, 46);
 			this.grd_charges.Name = "grd_charges";
-			this.grd_charges.RowHeadersWidth = 20;
+			this.grd_charges.RowHeadersWidth = 35;
 			this.grd_charges.Size = new System.Drawing.Size(467, 192);
 			this.grd_charges.TabIndex = 1;
 			this.grd_charges.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_DataError);
@@ -2561,6 +2528,7 @@
 			this.tableLayoutPanel8.ColumnCount = 2;
 			this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel8.Controls.Add(this.num_engine_cc, 1, 7);
 			this.tableLayoutPanel8.Controls.Add(this.label66, 0, 0);
 			this.tableLayoutPanel8.Controls.Add(this.dtp_road_tax_expiry, 1, 11);
 			this.tableLayoutPanel8.Controls.Add(this.txt_reg_no, 1, 0);
@@ -2580,7 +2548,6 @@
 			this.tableLayoutPanel8.Controls.Add(this.label77, 0, 9);
 			this.tableLayoutPanel8.Controls.Add(this.label53, 0, 5);
 			this.tableLayoutPanel8.Controls.Add(this.txt_jpj, 1, 5);
-			this.tableLayoutPanel8.Controls.Add(this.txt_engine_cc, 1, 7);
 			this.tableLayoutPanel8.Controls.Add(this.txt_vehicle_colour, 1, 9);
 			this.tableLayoutPanel8.Controls.Add(this.label73, 0, 11);
 			this.tableLayoutPanel8.Controls.Add(this.label69, 0, 10);
@@ -2611,6 +2578,24 @@
 			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel8.Size = new System.Drawing.Size(376, 433);
 			this.tableLayoutPanel8.TabIndex = 35;
+			// 
+			// num_engine_cc
+			// 
+			this.num_engine_cc.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_engine_cc.Enabled = false;
+			this.num_engine_cc.Location = new System.Drawing.Point(110, 205);
+			this.num_engine_cc.Margin = new System.Windows.Forms.Padding(2);
+			this.num_engine_cc.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_engine_cc.Name = "num_engine_cc";
+			this.num_engine_cc.ReadOnly = true;
+			this.num_engine_cc.Size = new System.Drawing.Size(127, 25);
+			this.num_engine_cc.TabIndex = 30;
+			this.num_engine_cc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_engine_cc.ThousandsSeparator = true;
 			// 
 			// label66
 			// 
@@ -2813,16 +2798,6 @@
 			this.txt_jpj.ReadOnly = true;
 			this.txt_jpj.Size = new System.Drawing.Size(264, 25);
 			this.txt_jpj.TabIndex = 6;
-			// 
-			// txt_engine_cc
-			// 
-			this.txt_engine_cc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.txt_engine_cc.Location = new System.Drawing.Point(110, 205);
-			this.txt_engine_cc.Margin = new System.Windows.Forms.Padding(2);
-			this.txt_engine_cc.Name = "txt_engine_cc";
-			this.txt_engine_cc.ReadOnly = true;
-			this.txt_engine_cc.Size = new System.Drawing.Size(264, 25);
-			this.txt_engine_cc.TabIndex = 6;
 			// 
 			// txt_vehicle_colour
 			// 
@@ -3039,11 +3014,9 @@
 			this.tabPage5.Controls.Add(this.label7);
 			this.tabPage5.Controls.Add(this.num_insurance_total_payable);
 			this.tabPage5.Controls.Add(this.label13);
-			this.tabPage5.Controls.Add(this.label14);
 			this.tabPage5.Controls.Add(this.txt_insurance_policy_no);
 			this.tabPage5.Controls.Add(this.label15);
 			this.tabPage5.Controls.Add(this.cmb_insurance_type);
-			this.tabPage5.Controls.Add(this.cmb_insurance_category);
 			this.tabPage5.Controls.Add(this.dtp_insurance_date);
 			this.tabPage5.Controls.Add(this.label27);
 			this.tabPage5.Controls.Add(this.btn_insurance_company);
@@ -3307,8 +3280,9 @@
 			this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "Form_vehicle_sale";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Sale";
+			this.Load += new System.EventHandler(this.Form_vehicle_sale_Load);
 			this.Shown += new System.EventHandler(this.Form_vehicle_sale_Shown);
 			this.panel1.ResumeLayout(false);
 			this.tableLayoutPanel5.ResumeLayout(false);
@@ -3394,6 +3368,7 @@
 			this.groupBox11.ResumeLayout(false);
 			this.tableLayoutPanel8.ResumeLayout(false);
 			this.tableLayoutPanel8.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_engine_cc)).EndInit();
 			this.panel3.ResumeLayout(false);
 			this.panel3.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.num_mileage)).EndInit();
@@ -3458,7 +3433,6 @@
 		private System.Windows.Forms.NumericUpDown num_insurance_total_payable;
 		private System.Windows.Forms.NumericUpDown num_insurance_sum_insured;
 		private System.Windows.Forms.ComboBox cmb_insurance_type;
-		private System.Windows.Forms.ComboBox cmb_insurance_category;
 		private System.Windows.Forms.DateTimePicker dtp_insurance_date;
 		private System.Windows.Forms.Button btn_insurance_company;
 		private System.Windows.Forms.Label label21;
@@ -3474,7 +3448,6 @@
 		private System.Windows.Forms.Label label19;
 		private System.Windows.Forms.Label label15;
 		private System.Windows.Forms.TextBox txt_insurance_policy_no;
-		private System.Windows.Forms.Label label14;
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.TextBox txt_insurance_endorsement_no;
@@ -3600,7 +3573,6 @@
 		private System.Windows.Forms.Label label56;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel5;
 		private System.Windows.Forms.ToolStripLabel lbl_expenses_charged;
-		private System.Windows.Forms.TextBox txt_engine_cc;
 		private System.Windows.Forms.TextBox txt_vehicle_colour;
 		private System.Windows.Forms.Label label22;
 		private System.Windows.Forms.Panel panel3;
@@ -3619,7 +3591,6 @@
 		private System.Windows.Forms.DataGridView grd_trade_in;
 		private System.Windows.Forms.ToolStrip toolStrip6;
 		private System.Windows.Forms.ToolStripButton btn_trade_in_add;
-		private System.Windows.Forms.ToolStripButton btn_trade_in_edit;
 		private System.Windows.Forms.ToolStripButton btn_trade_in_delete;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel11;
 		private System.Windows.Forms.ToolStripLabel lbl_trade_in_total;
@@ -3649,5 +3620,6 @@
 		private System.Windows.Forms.ComboBox cmb_ins_comprehensive;
 		private System.Windows.Forms.NumericUpDown num_insurance_subtotal;
 		private System.Windows.Forms.Label label62;
+		private System.Windows.Forms.NumericUpDown num_engine_cc;
 	}
 }

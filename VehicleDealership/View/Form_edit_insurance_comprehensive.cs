@@ -46,6 +46,14 @@ namespace VehicleDealership.View
 			using (Insurance_comprehensive_rate_ds.sp_select_insurance_comprehensive_rateDataTable dttable =
 				Insurance_comprehensive_rate_ds.Select_insurance_comprehensive_rate(InsuranceComprehensive, -1))
 			{
+				dttable.insurance_comprehensiveColumn.ReadOnly = true;
+				dttable.modified_byColumn.ReadOnly = true;
+
+				// not showing column but column needs value
+				dttable.insurance_comprehensiveColumn.DefaultValue = InsuranceComprehensive;
+				dttable.cc_minColumn.DefaultValue = 0;
+				dttable.cc_maxColumn.DefaultValue = 0;
+				dttable.valueColumn.DefaultValue = 0;
 				// not showing column but column needs value
 				dttable.modified_byColumn.DefaultValue = Program.System_user.Name;
 				// columns must have value!
@@ -54,8 +62,12 @@ namespace VehicleDealership.View
 				dttable.valueColumn.AllowDBNull = false;
 
 				grd_ins.DataSource = dttable;
-				Class_datagridview.Hide_unnecessary_columns(grd_ins,
-					new string[] { "cc_min", "cc_max", "value" });
+
+				if (!Program.System_user.IsDeveloper)
+				{
+					Class_datagridview.Hide_unnecessary_columns(grd_ins,
+						new string[] { "cc_min", "cc_max", "value" });
+				}
 
 				Class_datagridview.Set_column_to_money_column(grd_ins, "value");
 				grd_ins.Columns["modified_by"].ReadOnly = true;
@@ -78,14 +90,12 @@ namespace VehicleDealership.View
 				MessageBox.Show("Title is required.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-
 			if (!Insurance_comprehensive_ds.Check_ins_com_title_available(str_title, InsuranceComprehensive))
 			{
 				MessageBox.Show("Title is already in use. Please enter a new title.",
 					"Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-
 			Insurance_comprehensive_rate_ds.sp_select_insurance_comprehensive_rateDataTable dttable_ins =
 				(Insurance_comprehensive_rate_ds.sp_select_insurance_comprehensive_rateDataTable)grd_ins.DataSource;
 
@@ -95,10 +105,23 @@ namespace VehicleDealership.View
 					"Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-
+			// make sure cc min and max are positive values
 			if ((from row in dttable_ins where row.cc_max < 0 || row.cc_min < 0 select row).Count() > 0)
 			{
 				MessageBox.Show("Negative CC value is not allowed. Please check and retry.",
+					"Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
+			int count_duplicate_cc_min_max = (from row in dttable_ins
+											  group row by new { row.cc_min, row.cc_max } into g
+											  where g.Count() > 1
+											  select g).Count();
+
+
+			if (count_duplicate_cc_min_max > 0)
+			{
+				MessageBox.Show("Duplicate CC min and max is not allowed. Please check and retry.",
 					"Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
@@ -114,14 +137,6 @@ namespace VehicleDealership.View
 						"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
 				}
-
-				Class_bulkcopy bk = new Class_bulkcopy(dttable_ins)
-				{
-					INT1 = "cc_min",
-					INT2 = "cc_max",
-					DECIMAL18_4 = "value"
-				};
-				bk.Write_to_db();
 			}
 			else
 			{
@@ -133,6 +148,14 @@ namespace VehicleDealership.View
 					return;
 				}
 			}
+
+			Class_bulkcopy bk = new Class_bulkcopy(dttable_ins)
+			{
+				INT1 = "cc_min",
+				INT2 = "cc_max",
+				DECIMAL18_4 = "value"
+			};
+			bk.Write_to_db();
 
 			if (!Insurance_comprehensive_rate_ds.Update_insert_ins_com_rate(InsuranceComprehensive))
 			{
@@ -149,10 +172,14 @@ namespace VehicleDealership.View
 			this.DialogResult = DialogResult.Cancel;
 			this.Close();
 		}
-
 		private void Grd_ins_DataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
 			e.Cancel = true;
+			MessageBox.Show("Input invalid." +
+				"\n - Only numerical values are allowed." +
+				"\n - No duplicate CC min and CC max are allowed." +
+				"\n\nPlease try again.",
+				"Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 		}
 	}
 }

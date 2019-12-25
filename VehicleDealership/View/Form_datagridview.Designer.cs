@@ -547,10 +547,11 @@
 			this.Font = new System.Drawing.Font("Segoe UI", 11.25F);
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "Form_datagridview";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Manage";
 			this.Load += new System.EventHandler(this.Form_datagridview_Load);
 			this.Shown += new System.EventHandler(this.Form_datagridview_Shown);
+			this.VisibleChanged += new System.EventHandler(this.Form_datagridview_VisibleChanged);
 			this.ts_user.ResumeLayout(false);
 			this.ts_user.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_main)).EndInit();

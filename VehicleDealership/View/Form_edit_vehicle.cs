@@ -724,6 +724,11 @@ namespace VehicleDealership.View
 			{
 				if (dlg_payment.ShowDialog() != DialogResult.OK) return;
 
+				foreach (DataColumn dt_col in dt_row.Table.Columns)
+				{
+					dt_col.ReadOnly = false; // make all columns editable
+				}
+
 				dt_row.payment_description = dlg_payment.PaymentDescription;
 				dt_row.pay_to_id = dlg_payment.PayToId;
 				dt_row.pay_to = dlg_payment.PayToName;
@@ -839,6 +844,11 @@ namespace VehicleDealership.View
 				dt_row.remark))
 			{
 				if (dlg_payment.ShowDialog() != DialogResult.OK) return;
+
+				foreach (DataColumn dt_col in dt_row.Table.Columns)
+				{
+					dt_col.ReadOnly = false; // make all columns editable
+				}
 
 				dt_row.payment_description = dlg_payment.PaymentDescription;
 				dt_row.pay_to_id = dlg_payment.PayToId;

@@ -5,54 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
+using System.Drawing;
 
 namespace VehicleDealership.Classes
 {
 	class Class_datagridview
 	{
-		/// <summary>
-		/// setup datagridview. will select back cell after setting up based on @value_col
-		/// </summary>
-		/// <param name="grd"></param>
-		/// <param name="dttable"></param>
-		/// <param name="value_col"></param>
-		//public static void Setup_and_preselect(DataGridView grd, DataTable dttable, string value_col)
-		//{
-		//	string cell_value = "";
-		//	string selected_col_name = "";
-		//	bool has_current_cell = false;
-
-		//	// if datagridview has row and has current cell initially, store its value and position
-		//	if (grd.Rows.Count > 0 && grd.CurrentCell != null)
-		//	{
-		//		has_current_cell = true;
-		//		cell_value = grd.Rows[grd.CurrentCell.RowIndex].Cells[value_col].Value.ToString();
-		//		selected_col_name = grd.Columns[grd.CurrentCell.ColumnIndex].Name;
-		//	}
-
-		//	// setup datagridview
-		//	grd.DataSource = null;
-		//	grd.DataSource = dttable;
-
-		//	// if previously has current cell, select same cell back.
-		//	if (has_current_cell)
-		//	{
-		//		foreach (DataGridViewRow grd_row in grd.Rows)
-		//		{
-		//			if (grd_row.IsNewRow) continue;
-
-		//			if (grd_row.Cells[value_col].Value.ToString() == cell_value)
-		//			{
-		//				grd.CurrentCell = null;
-		//				grd.ClearSelection();
-
-		//				grd_row.Cells[selected_col_name].Selected = true;
-		//				grd.CurrentCell = grd_row.Cells[selected_col_name];
-		//				break;
-		//			}
-		//		}
-		//	}
-		//}
 		public static void Setup_and_preselect(DataGridView grd, DataTable dttable, string value_col, string[] cols_to_view = null, string preselect_value = "")
 		{
 			string cell_value = preselect_value;
@@ -334,6 +292,22 @@ namespace VehicleDealership.Classes
 				{
 					grd.Columns[tmp_str].DefaultCellStyle.Format = "N2";
 					grd.Columns[tmp_str].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+				}
+			}
+		}
+		/// <summary>
+		/// set datagridviewcolumn to readonly = true and backcolor to lightgray
+		/// </summary>
+		/// <param name="grd"></param>
+		/// <param name="readonly_cols">columns to set readonly true</param>
+		public static void Set_readonly_columns(DataGridView grd, params string[] readonly_cols)
+		{
+			foreach (DataGridViewColumn grd_col in grd.Columns)
+			{
+				if (readonly_cols.Contains(grd_col.Name, StringComparer.OrdinalIgnoreCase))
+				{
+					grd_col.ReadOnly = true;
+					grd_col.DefaultCellStyle.BackColor = Color.LightGray;
 				}
 			}
 		}

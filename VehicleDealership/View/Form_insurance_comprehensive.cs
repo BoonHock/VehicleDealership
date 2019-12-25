@@ -35,24 +35,14 @@ namespace VehicleDealership.View
 			btn_edit.Enabled = can_add_edit;
 
 			Setup_listbox_ins();
-		}
-		private void Listbox_ins_SelectedValueChanged(object sender, EventArgs e)
-		{
-			if (listbox_ins.SelectedIndex >= 0)
-			{
-				grd_ins.DataSource = null;
-				grd_ins.DataSource = Insurance_comprehensive_rate_ds.
-					Select_insurance_comprehensive_rate((int)listbox_ins.SelectedValue, -1);
 
-				Class_datagridview.Hide_unnecessary_columns(grd_ins,
-					new string[] { "cc_min", "cc_max", "value", "modified_by" });
-			}
+			Class_style.Grd_style.Common_style(grd_ins);
 		}
 		private void Setup_listbox_ins(int preselect = 0)
 		{
-			listbox_ins.DataSource = Insurance_comprehensive_ds.Select_insurance_comprehensive();
 			listbox_ins.DisplayMember = "title";
 			listbox_ins.ValueMember = "insurance_comprehensive";
+			listbox_ins.DataSource = Insurance_comprehensive_ds.Select_insurance_comprehensive();
 
 			if (preselect != 0)
 				listbox_ins.SelectedValue = preselect;
@@ -76,6 +66,25 @@ namespace VehicleDealership.View
 			{
 				if (form_edit.ShowDialog() == DialogResult.OK)
 					Setup_listbox_ins(form_edit.InsuranceComprehensive);
+			}
+		}
+
+		private void Listbox_ins_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (listbox_ins.SelectedIndex >= 0)
+			{
+				grd_ins.DataSource = null;
+				grd_ins.DataSource = Insurance_comprehensive_rate_ds.
+					Select_insurance_comprehensive_rate((int)listbox_ins.SelectedValue, -1);
+
+				Class_datagridview.Set_column_to_money_column(grd_ins, new string[] { "value" });
+				grd_ins.AutoResizeColumns();
+
+				if (!Program.System_user.IsDeveloper)
+				{
+					Class_datagridview.Hide_unnecessary_columns(grd_ins,
+						new string[] { "cc_min", "cc_max", "value", "modified_by" });
+				}
 			}
 		}
 	}

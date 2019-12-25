@@ -84,19 +84,20 @@
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(716, 543);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(716, 502);
 			this.tableLayoutPanel1.TabIndex = 1;
 			// 
 			// grd_ins
 			// 
 			this.grd_ins.AllowUserToAddRows = false;
 			this.grd_ins.AllowUserToDeleteRows = false;
+			this.grd_ins.AllowUserToResizeRows = false;
 			this.grd_ins.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.grd_ins.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.grd_ins.Location = new System.Drawing.Point(260, 3);
 			this.grd_ins.Name = "grd_ins";
 			this.grd_ins.ReadOnly = true;
-			this.grd_ins.Size = new System.Drawing.Size(453, 537);
+			this.grd_ins.Size = new System.Drawing.Size(453, 496);
 			this.grd_ins.TabIndex = 0;
 			// 
 			// listbox_ins
@@ -106,20 +107,21 @@
 			this.listbox_ins.ItemHeight = 17;
 			this.listbox_ins.Location = new System.Drawing.Point(3, 3);
 			this.listbox_ins.Name = "listbox_ins";
-			this.listbox_ins.Size = new System.Drawing.Size(251, 537);
+			this.listbox_ins.Size = new System.Drawing.Size(251, 496);
 			this.listbox_ins.TabIndex = 1;
-			this.listbox_ins.SelectedValueChanged += new System.EventHandler(this.Listbox_ins_SelectedValueChanged);
+			this.listbox_ins.SelectedIndexChanged += new System.EventHandler(this.Listbox_ins_SelectedIndexChanged);
 			// 
 			// Form_insurance_comprehensive
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(716, 568);
+			this.ClientSize = new System.Drawing.Size(716, 527);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Controls.Add(this.toolStrip1);
 			this.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "Form_insurance_comprehensive";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Insurance comprehensive";
 			this.Shown += new System.EventHandler(this.Form_insurance_comprehensive_Shown);
 			this.toolStrip1.ResumeLayout(false);

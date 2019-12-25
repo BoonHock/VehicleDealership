@@ -13,7 +13,7 @@ namespace VehicleDealership.View
 {
 	public partial class Form_datagridview : Form
 	{
-		Form_vehicle_sale _form_vehicle_sale = null;
+		int VehicleID = 0;
 
 		public Form_datagridview()
 		{
@@ -181,16 +181,6 @@ namespace VehicleDealership.View
 						permission_denied = true;
 					else
 						Setup_form_location();
-					break;
-				case "INSURANCE_CATEGORY":
-					// user will be editing straight to cell so display delete only
-					deleteToolStripMenuItem.Visible = true;
-
-					if (!Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT) &&
-						!Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_DELETE))
-						permission_denied = true;
-					else
-						Setup_form_insurance_category();
 					break;
 			}
 
@@ -1104,41 +1094,30 @@ namespace VehicleDealership.View
 		}
 		private void Add_vehicle_sale(object sender, EventArgs e)
 		{
-
 			using (Form_datagridview_select dlg_select = new Form_datagridview_select(Vehicle_ds.Select_unsold_vehicle(),
 				new string[] { "purchase_date", "registration_no", "chassis_no", "vehcle_model_name",
 	 "vehicle_group_name", "vehicle_brand_name", "colour_name", "acquire_method" }))
 			{
 				if (dlg_select.ShowDialog() != DialogResult.OK) return;
 
-				//using (Form_vehicle_sale form_sale = new Form_vehicle_sale(dlg_select.Get_selected_value_as_int("vehicle")))
-				//{
-				//	if (form_sale.ShowDialog() == DialogResult.OK)
-				//		Setup_grd_vehicle_sale(dlg_select.Get_selected_value_as_int("vehicle"));
-				//}
-				_form_vehicle_sale = new Form_vehicle_sale(dlg_select.Get_selected_value_as_int("vehicle"));
-				//form_sale.MdiParent = this.MdiParent;
-				//form_sale.FormClosed += Form2Closed;
-				//form_sale.Show();
-				//this.Visible = false;
-				Class_form.Show_dialog_as_mdi_child(_form_vehicle_sale, this, Test);
+				Form_vehicle_sale form_sale =
+					new Form_vehicle_sale(dlg_select.Get_selected_value_as_int("vehicle"));
+				VehicleID = dlg_select.Get_selected_value_as_int("vehicle");
+				Class_form.Show_dialog_as_mdi_child(form_sale, this, Show_form_vehicle_sale);
 			}
 		}
-		private void Test()
+		private void Show_form_vehicle_sale()
 		{
-			//Setup_grd_vehicle_sale(dlg_select.Get_selected_value_as_int("vehicle"));
-			Setup_grd_vehicle_sale(_form_vehicle_sale.VehicleID);
-			_form_vehicle_sale.Dispose();
+			Setup_grd_vehicle_sale(VehicleID);
 		}
 		private void Edit_vehicle_sale(object sender, EventArgs e)
 		{
 			if (grd_main.SelectedCells.Count == 0) return;
 
-			using (Form_vehicle_sale form_sale = new Form_vehicle_sale((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value))
-			{
-				if (form_sale.ShowDialog() == DialogResult.OK)
-					Setup_grd_vehicle_sale((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value);
-			}
+			Form_vehicle_sale form_sale =
+				new Form_vehicle_sale((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value);
+			VehicleID = (int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value;
+			Class_form.Show_dialog_as_mdi_child(form_sale, this, Show_form_vehicle_sale);
 		}
 		private void Form2Closed(object sender, FormClosedEventArgs e)
 		{
@@ -1348,62 +1327,28 @@ namespace VehicleDealership.View
 			Setup_grd_location();
 		}
 		#endregion
-		#region INSURANCE_CATEGORY
-		private void Setup_form_insurance_category()
-		{
-			if (Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT))
-			{
-				grd_main.ReadOnly = false;
-				grd_main.AllowUserToAddRows = true;
-			}
-			deleteToolStripMenuItem.Enabled = false; // default
-			if (Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_DELETE))
-			{
-				grd_main.AllowUserToDeleteRows = true;
-				deleteToolStripMenuItem.Enabled = true;
-			}
-			ts_save_only.Visible = true;
-			Setup_grd_insurance_category();
-			btn_save.Click += Btn_save_insurance_category_Click;
-			deleteToolStripMenuItem.Click += Delete_grd_main_row;
-		}
-		private void Setup_grd_insurance_category()
-		{
-			Class_datagridview.Setup_and_preselect(grd_main,
-				Insurance_category_ds.Select_insurance_category(), "insurance_category");
-			grd_main.AutoResizeColumns();
-			grd_main.Columns["insurance_category"].DefaultCellStyle.BackColor = Color.LightGray;
-			Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_main, "description");
-		}
-		private void Btn_save_insurance_category_Click(object sender, EventArgs e)
-		{
-			Class_datagridview.Apply_all_changes(grd_main);
-			DataTable dttable = ((DataTable)grd_main.DataSource).Copy();
-			Class_datatable.Add_uploaded_by_columns(ref dttable);
-			if (dttable.Select().GroupBy(c => c["description"].ToString().ToUpper()).Where(c => c.Count() > 1).Count() > 0)
-			{
-				MessageBox.Show("Duplicate descriptions are not allowed", "Invalid",
-					MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
-			}
-			Class_bulkcopy bk = new Class_bulkcopy(dttable)
-			{
-				INT1 = "insurance_category",
-				NVARCHAR1 = "description"
-			};
-			if (!bk.Write_to_db()) return;
 
-			if (Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_DELETE))
-				if (!Insurance_category_ds.Delete_insurance_category())
-					MessageBox.Show("One or more insurance category cannot be deleted because there are items applying this setting.",
-						"Some items cannot be deleted", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		private void Form_datagridview_VisibleChanged(object sender, EventArgs e)
+		{
+			// if this form is made visible and already has a "mdi child" opnened as dialog 
+			// via @Class_form.Show_dialog_as_mdi_child()
+			// then show the "child form" and hide this form back
 
-			if (Program.System_user.Has_permission(Class_enum.User_permission.INSURANCE_ADD_EDIT))
-				if (!Insurance_category_ds.Update_insert_insurance_category())
-					MessageBox.Show("Update failed.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			if (!this.Visible) return;
 
-			Setup_grd_insurance_category();
+			if (this.Tag.ToString().ToUpper() == "VEHICLE SALE")
+			{
+				foreach (Form form in this.MdiParent.MdiChildren)
+				{
+					if (form.GetType() == typeof(Form_vehicle_sale))
+					{
+						form.Activate();
+						this.Visible = false;
+						return;
+					}
+				}
+			}
+
 		}
-		#endregion
 	}
 }

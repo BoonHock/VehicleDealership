@@ -232,14 +232,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\Insurance_category_ds.cs">
-      <DependentUpon>Insurance_category_ds.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Datasets\Insurance_category_ds.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Insurance_category_ds.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Datasets\Insurance_comprehensive_ds.cs">
       <DependentUpon>Insurance_comprehensive_ds.xsd</DependentUpon>
     </Compile>
@@ -595,6 +587,12 @@
     <Compile Include="View\Form_insurance_comprehensive.Designer.cs">
       <DependentUpon>Form_insurance_comprehensive.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Form_listview_select.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form_listview_select.Designer.cs">
+      <DependentUpon>Form_listview_select.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Form_log_in.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -731,6 +729,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form_insurance_comprehensive.resx">
       <DependentUpon>Form_insurance_comprehensive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Form_listview_select.resx">
+      <DependentUpon>Form_listview_select.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form_log_in.resx">
       <DependentUpon>Form_log_in.cs</DependentUpon>
@@ -899,17 +900,6 @@
     </None>
     <None Include="Datasets\Fuel_type_ds.xss">
       <DependentUpon>Fuel_type_ds.xsd</DependentUpon>
-    </None>
-    <None Include="Datasets\Insurance_category_ds.xsc">
-      <DependentUpon>Insurance_category_ds.xsd</DependentUpon>
-    </None>
-    <None Include="Datasets\Insurance_category_ds.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Insurance_category_ds.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Datasets\Insurance_category_ds.xss">
-      <DependentUpon>Insurance_category_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Insurance_comprehensive_ds.xsc">
       <DependentUpon>Insurance_comprehensive_ds.xsd</DependentUpon>

@@ -195,14 +195,14 @@ namespace VehicleDealership.Datasets
 		/// <param name="int_vehicle_sale"></param>
 		/// <param name="str_vehicle_id">comma separated vehicle IDs. if user add vehicle as trade in but haven't save yet, this vehicle will not have vehicle sale id foreign key yet</param>
 		/// <returns></returns>
-		public static sp_select_vehicle_trade_inDataTable Select_vehicle_trade_in(int int_vehicle_sale, string str_vehicle_id = "")
+		public static Trade_inDataTable Select_vehicle_trade_in(int int_vehicle_sale, string str_vehicle_combine = "")
 		{
 			try
 			{
-				using (Vehicle_dsTableAdapters.sp_select_vehicle_trade_inTableAdapter adapter =
-					new Vehicle_dsTableAdapters.sp_select_vehicle_trade_inTableAdapter())
+				using (Vehicle_dsTableAdapters.Trade_inTableAdapter adapter =
+					new Vehicle_dsTableAdapters.Trade_inTableAdapter())
 				{
-					return adapter.GetData(int_vehicle_sale, str_vehicle_id);
+					return adapter.sp_select_vehicle_trade_in(int_vehicle_sale, str_vehicle_combine);
 				}
 			}
 			catch (System.Data.SqlClient.SqlException e)
@@ -210,7 +210,24 @@ namespace VehicleDealership.Datasets
 				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
 					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
-			return new sp_select_vehicle_trade_inDataTable();
+			return new Trade_inDataTable();
+		}
+		public static Trade_inDataTable Select_vehicle_for_trade_in(string str_vehicle_exclude_combine = "")
+		{
+			try
+			{
+				using (Vehicle_dsTableAdapters.Trade_inTableAdapter adapter =
+					new Vehicle_dsTableAdapters.Trade_inTableAdapter())
+				{
+					return adapter.sp_select_vehicle_for_trade_in(str_vehicle_exclude_combine);
+				}
+			}
+			catch (System.Data.SqlClient.SqlException e)
+			{
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
+					MethodBase.GetCurrentMethod().Name, e.Message);
+			}
+			return new Trade_inDataTable();
 		}
 		public static bool Update_road_tax_mileage(int vehicle, System.DateTime? expiry_date, decimal? amount, int mileage)
 		{
