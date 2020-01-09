@@ -21,7 +21,7 @@ namespace VehicleDealership.View
 		string _str_reg_no = "";
 		string _str_chassis_no = "";
 
-		public Form_edit_vehicle(int int_vehicle = 0, bool show_trade_in = true)
+		public Form_edit_vehicle(int int_vehicle = 0)
 		{
 			InitializeComponent();
 
@@ -34,10 +34,6 @@ namespace VehicleDealership.View
 			grd_image.MouseDown += Class_datagridview.MouseDown_select_cell;
 			grd_expenses.MouseDown += Class_datagridview.MouseDown_select_cell;
 			grd_payment.MouseDown += Class_datagridview.MouseDown_select_cell;
-
-			lbl_sale_order.Visible = show_trade_in;
-			txt_sale_order.Visible = show_trade_in;
-			btn_sales_order.Visible = show_trade_in;
 		}
 		private void Btn_ok_Click(object sender, EventArgs e)
 		{
@@ -148,7 +144,6 @@ namespace VehicleDealership.View
 				(Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable)grd_expenses.DataSource)
 			{
 				List<int> list_payment_id = new List<int>();
-				List<int> list_charge_to_customer = new List<int>();
 
 				dttable_expenses.AcceptChanges();
 
@@ -156,9 +151,9 @@ namespace VehicleDealership.View
 
 				foreach (Vehicle_expenses_ds.sp_select_vehicle_expensesRow dt_row in dttable_expenses)
 				{
-					int int_payment_id = Class_payment.Update_insert_payment(str_doc_prefix, dt_row.payment,
-						dt_row.payment_description, dt_row.pay_to_id, dt_row.pay_to_type, dt_row.amount,
-						dt_row.payment_date, dt_row.is_paid, dt_row.payment_method_type,
+					int int_payment_id = Class_payment.Update_insert_payment_out(str_doc_prefix,
+						dt_row.payment_out, dt_row.payment_description, dt_row.pay_to_id, dt_row.pay_to_type,
+						dt_row.amount, dt_row.payment_date, dt_row.is_paid, dt_row.payment_method_type,
 						(dt_row["payment_method_id"] == DBNull.Value) ? 0 : dt_row.payment_method_id,
 						(dt_row["cheque_no"] == DBNull.Value) ? "" : dt_row.cheque_no,
 						(dt_row["credit_card_no"] == DBNull.Value) ? "" : dt_row.credit_card_no,
@@ -170,11 +165,9 @@ namespace VehicleDealership.View
 					if (int_payment_id == 0) continue;
 
 					list_payment_id.Add(int_payment_id);
-					if (dt_row.charge_to_customer) list_charge_to_customer.Add(int_payment_id);
 				}
 
-				if (!Vehicle_expenses_ds.Update_vehicle_expenses(VehicleID, string.Join(",", list_payment_id),
-					string.Join(",", list_charge_to_customer)))
+				if (!Vehicle_expenses_ds.Update_vehicle_expenses(VehicleID, string.Join(",", list_payment_id)))
 				{
 					MessageBox.Show("Vehicle expenses update failed.", "ERROR",
 						MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -193,7 +186,7 @@ namespace VehicleDealership.View
 
 				foreach (Vehicle_payment_seller_ds.sp_select_vehicle_payment_sellerRow dt_row in dttable_payment)
 				{
-					int int_payment_id = Class_payment.Update_insert_payment(str_doc_prefix, dt_row.payment,
+					int int_payment_id = Class_payment.Update_insert_payment_out(str_doc_prefix, dt_row.payment,
 						dt_row.payment_description, dt_row.pay_to_id, dt_row.pay_to_type, dt_row.amount,
 						dt_row.payment_date, dt_row.is_paid, dt_row.payment_method_type,
 						(dt_row["payment_method_id"] == DBNull.Value) ? 0 : dt_row.payment_method_id,
@@ -647,12 +640,33 @@ namespace VehicleDealership.View
 		}
 		private void Cmb_acquire_method_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			btn_sales_order.Enabled = cmb_acquire_method.SelectedItem.ToString() == "TRADE-IN";
+			if (cmb_acquire_method.SelectedItem.ToString() == "TRADE-IN")
+			{
+				btn_sales_order.Enabled = true;
+			}
+			else
+			{
+				btn_sales_order.Enabled = false;
+				txt_sale_order.Text = "";
+				num_sale.Value = 0;
+			}
 		}
 		private void Btn_sales_order_Click(object sender, EventArgs e)
 		{
-			// TODO
-
+			using (Vehicle_sale_ds.sp_select_vehicle_sale_simplifiedDataTable dttable =
+				Vehicle_sale_ds.Select_vehicle_sale_simplified(VehicleID))
+			{
+				using (Form_datagridview_select dlg = new Form_datagridview_select(dttable, new string[] {
+	 "reference_no", "registration_no","customer", "customer_type",
+	 "sale_date", "sale_price", "guarantor_name", "salesperson"}))
+				{
+					if (dlg.ShowDialog() == DialogResult.OK)
+					{
+						txt_sale_order.Text = dlg.Get_selected_value_as_string("reference_no");
+						num_sale.Value = dlg.Get_selected_value_as_int("vehicle");
+					}
+				}
+			}
 		}
 		private void Recalculate_nums(object sender, EventArgs e)
 		{
@@ -688,7 +702,7 @@ namespace VehicleDealership.View
 				Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable dttable =
 					(Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable)grd_expenses.DataSource;
 
-				dttable.Addsp_select_vehicle_expensesRow(true, dlg_payment.PaymentNo,
+				dttable.Addsp_select_vehicle_expensesRow(dlg_payment.PaymentNo,
 					dlg_payment.PaymentDescription, dlg_payment.PayToId, dlg_payment.PayToName,
 					dlg_payment.PayToType, dlg_payment.PaymentAmount, dlg_payment.PaymentDate,
 					dlg_payment.IsPaid, dlg_payment.PaymentMethodType,
@@ -707,10 +721,10 @@ namespace VehicleDealership.View
 
 			Vehicle_expenses_ds.sp_select_vehicle_expensesRow dt_row =
 				(from row in (Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable)grd_expenses.DataSource
-				 where row.payment == (int)grd_expenses.SelectedCells[0].OwningRow.Cells["payment"].Value
+				 where row.payment_out == (int)grd_expenses.SelectedCells[0].OwningRow.Cells["payment_out"].Value
 				 select row).ToList()[0];
 
-			using (Form_edit_payment dlg_payment = new Form_edit_payment(dt_row.payment, dt_row.payment_no,
+			using (Form_edit_payment dlg_payment = new Form_edit_payment(dt_row.payment_out, dt_row.payment_no,
 				dt_row.payment_description, dt_row.is_paid, dt_row.pay_to_id, dt_row.pay_to,
 				dt_row.pay_to_type, dt_row.payment_date, dt_row.amount, dt_row.payment_method_type,
 				(dt_row["payment_method_id"] == DBNull.Value) ? 0 : dt_row.payment_method_id,
@@ -768,11 +782,11 @@ namespace VehicleDealership.View
 
 			foreach (DataGridViewCell grd_cell in grd_expenses.SelectedCells)
 			{
-				list_payment_id.Add((int)grd_cell.OwningRow.Cells["payment"].Value);
+				list_payment_id.Add((int)grd_cell.OwningRow.Cells["payment_out"].Value);
 			}
 			for (int i = dttable.Rows.Count - 1; i >= 0; i--)
 			{
-				if (list_payment_id.Contains(dttable[i].payment)) dttable.Rows.RemoveAt(i);
+				if (list_payment_id.Contains(dttable[i].payment_out)) dttable.Rows.RemoveAt(i);
 			}
 			Process_vehicle_expenses();
 		}
@@ -791,7 +805,7 @@ namespace VehicleDealership.View
 			decimal dcml_expenses = (from row in dttable select row.amount).Sum();
 			decimal dcml_expenses_charged = 0;
 
-			var query_charged = (from row in dttable where row.charge_to_customer select row.amount);
+			var query_charged = (from row in dttable select row.amount);
 			if (query_charged.Count() > 0) dcml_expenses_charged = query_charged.Sum();
 
 			lbl_total_expenses.Text = dcml_expenses.ToString("#,##0.00");

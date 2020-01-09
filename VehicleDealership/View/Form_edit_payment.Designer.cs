@@ -32,10 +32,10 @@
 			this.dtp_payment_date = new System.Windows.Forms.DateTimePicker();
 			this.num_amount = new System.Windows.Forms.NumericUpDown();
 			this.label2 = new System.Windows.Forms.Label();
-			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+			this.panel_paid = new System.Windows.Forms.FlowLayoutPanel();
 			this.rad_paid = new System.Windows.Forms.RadioButton();
 			this.rad_unpaid = new System.Windows.Forms.RadioButton();
-			this.label3 = new System.Windows.Forms.Label();
+			this.lbl_paid = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.btn_cancel = new System.Windows.Forms.Button();
@@ -63,7 +63,7 @@
 			this.txt_remark = new System.Windows.Forms.TextBox();
 			this.txt_pay_to = new System.Windows.Forms.TextBox();
 			this.btn_pay_to = new System.Windows.Forms.Button();
-			this.label6 = new System.Windows.Forms.Label();
+			this.lbl_pay_to = new System.Windows.Forms.Label();
 			this.txt_description = new System.Windows.Forms.TextBox();
 			this.label9 = new System.Windows.Forms.Label();
 			this.txt_payment_no = new System.Windows.Forms.TextBox();
@@ -72,7 +72,7 @@
 			this.num_pay_to_id = new System.Windows.Forms.NumericUpDown();
 			this.num_payment_method_finance = new System.Windows.Forms.NumericUpDown();
 			((System.ComponentModel.ISupportInitialize)(this.num_amount)).BeginInit();
-			this.flowLayoutPanel1.SuspendLayout();
+			this.panel_paid.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.flowLayoutPanel2.SuspendLayout();
@@ -123,15 +123,15 @@
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Amount (MYR):";
 			// 
-			// flowLayoutPanel1
+			// panel_paid
 			// 
-			this.flowLayoutPanel1.AutoSize = true;
-			this.flowLayoutPanel1.Controls.Add(this.rad_paid);
-			this.flowLayoutPanel1.Controls.Add(this.rad_unpaid);
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(111, 78);
-			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(160, 31);
-			this.flowLayoutPanel1.TabIndex = 3;
+			this.panel_paid.AutoSize = true;
+			this.panel_paid.Controls.Add(this.rad_paid);
+			this.panel_paid.Controls.Add(this.rad_unpaid);
+			this.panel_paid.Location = new System.Drawing.Point(111, 78);
+			this.panel_paid.Name = "panel_paid";
+			this.panel_paid.Size = new System.Drawing.Size(160, 31);
+			this.panel_paid.TabIndex = 3;
 			// 
 			// rad_paid
 			// 
@@ -155,14 +155,14 @@
 			this.rad_unpaid.Text = "No";
 			this.rad_unpaid.UseVisualStyleBackColor = true;
 			// 
-			// label3
+			// lbl_paid
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(12, 83);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(41, 20);
-			this.label3.TabIndex = 0;
-			this.label3.Text = "Paid:";
+			this.lbl_paid.AutoSize = true;
+			this.lbl_paid.Location = new System.Drawing.Point(12, 83);
+			this.lbl_paid.Name = "lbl_paid";
+			this.lbl_paid.Size = new System.Drawing.Size(41, 20);
+			this.lbl_paid.TabIndex = 0;
+			this.lbl_paid.Text = "Paid:";
 			// 
 			// panel1
 			// 
@@ -342,6 +342,7 @@
 			this.dtp_payment_method_date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
 			this.dtp_payment_method_date.Location = new System.Drawing.Point(134, 170);
 			this.dtp_payment_method_date.Name = "dtp_payment_method_date";
+			this.dtp_payment_method_date.ShowUpDown = true;
 			this.dtp_payment_method_date.Size = new System.Drawing.Size(122, 27);
 			this.dtp_payment_method_date.TabIndex = 6;
 			// 
@@ -474,15 +475,15 @@
 			this.btn_pay_to.UseVisualStyleBackColor = true;
 			this.btn_pay_to.Click += new System.EventHandler(this.Btn_pay_to_Click);
 			// 
-			// label6
+			// lbl_pay_to
 			// 
-			this.label6.AutoSize = true;
-			this.label6.BackColor = System.Drawing.Color.Yellow;
-			this.label6.Location = new System.Drawing.Point(9, 118);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(53, 20);
-			this.label6.TabIndex = 0;
-			this.label6.Text = "Pay to:";
+			this.lbl_pay_to.AutoSize = true;
+			this.lbl_pay_to.BackColor = System.Drawing.Color.Yellow;
+			this.lbl_pay_to.Location = new System.Drawing.Point(9, 118);
+			this.lbl_pay_to.Name = "lbl_pay_to";
+			this.lbl_pay_to.Size = new System.Drawing.Size(53, 20);
+			this.lbl_pay_to.TabIndex = 0;
+			this.lbl_pay_to.Text = "Pay to:";
 			// 
 			// txt_description
 			// 
@@ -572,11 +573,11 @@
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.groupBox1);
-			this.Controls.Add(this.flowLayoutPanel1);
+			this.Controls.Add(this.panel_paid);
 			this.Controls.Add(this.num_amount);
 			this.Controls.Add(this.dtp_payment_date);
-			this.Controls.Add(this.label3);
-			this.Controls.Add(this.label6);
+			this.Controls.Add(this.lbl_paid);
+			this.Controls.Add(this.lbl_pay_to);
 			this.Controls.Add(this.label10);
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.label2);
@@ -588,8 +589,8 @@
 			this.Text = "Payment";
 			this.Shown += new System.EventHandler(this.Form_edit_payment_Shown);
 			((System.ComponentModel.ISupportInitialize)(this.num_amount)).EndInit();
-			this.flowLayoutPanel1.ResumeLayout(false);
-			this.flowLayoutPanel1.PerformLayout();
+			this.panel_paid.ResumeLayout(false);
+			this.panel_paid.PerformLayout();
 			this.panel1.ResumeLayout(false);
 			this.tableLayoutPanel2.ResumeLayout(false);
 			this.tableLayoutPanel2.PerformLayout();
@@ -612,10 +613,10 @@
 		private System.Windows.Forms.DateTimePicker dtp_payment_date;
 		private System.Windows.Forms.NumericUpDown num_amount;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+		private System.Windows.Forms.FlowLayoutPanel panel_paid;
 		private System.Windows.Forms.RadioButton rad_paid;
 		private System.Windows.Forms.RadioButton rad_unpaid;
-		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label lbl_paid;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.Button btn_cancel;
@@ -635,7 +636,7 @@
 		private System.Windows.Forms.TextBox txt_remark;
 		private System.Windows.Forms.TextBox txt_pay_to;
 		private System.Windows.Forms.Button btn_pay_to;
-		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Label lbl_pay_to;
 		private System.Windows.Forms.TextBox txt_description;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.TextBox txt_payment_no;

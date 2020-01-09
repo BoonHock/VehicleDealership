@@ -10,7 +10,7 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				using (Veh_sale_payment_customer_dsTableAdapters.sp_select_veh_sale_payment_customerTableAdapter adapter = 
+				using (Veh_sale_payment_customer_dsTableAdapters.sp_select_veh_sale_payment_customerTableAdapter adapter =
 					new Veh_sale_payment_customer_dsTableAdapters.sp_select_veh_sale_payment_customerTableAdapter())
 				{
 					return adapter.GetData(vehicle);

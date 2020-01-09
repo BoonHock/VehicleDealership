@@ -70,18 +70,18 @@
 			this.txt_seller_branch = new System.Windows.Forms.TextBox();
 			this.label55 = new System.Windows.Forms.Label();
 			this.label53 = new System.Windows.Forms.Label();
-			this.dtp_purchase_date = new System.Windows.Forms.DateTimePicker();
-			this.dtp_date_received = new System.Windows.Forms.DateTimePicker();
-			this.label52 = new System.Windows.Forms.Label();
-			this.label51 = new System.Windows.Forms.Label();
+			this.cmb_acquire_method = new System.Windows.Forms.ComboBox();
 			this.lbl_sale_order = new System.Windows.Forms.Label();
 			this.txt_sale_order = new System.Windows.Forms.TextBox();
 			this.btn_sales_order = new System.Windows.Forms.Button();
-			this.cmb_acquire_method = new System.Windows.Forms.ComboBox();
 			this.num_seller_id = new System.Windows.Forms.NumericUpDown();
 			this.num_checked_by_id = new System.Windows.Forms.NumericUpDown();
 			this.txt_seller_type = new System.Windows.Forms.TextBox();
 			this.num_sale = new System.Windows.Forms.NumericUpDown();
+			this.dtp_purchase_date = new System.Windows.Forms.DateTimePicker();
+			this.dtp_date_received = new System.Windows.Forms.DateTimePicker();
+			this.label52 = new System.Windows.Forms.Label();
+			this.label51 = new System.Windows.Forms.Label();
 			this.groupBox11 = new System.Windows.Forms.GroupBox();
 			this.table_vehicle_details = new System.Windows.Forms.TableLayoutPanel();
 			this.label66 = new System.Windows.Forms.Label();
@@ -769,19 +769,19 @@
 			this.table_acquire_details.Controls.Add(this.btn_checked_by, 2, 2);
 			this.table_acquire_details.Controls.Add(this.txt_seller_branch, 1, 1);
 			this.table_acquire_details.Controls.Add(this.label55, 0, 1);
-			this.table_acquire_details.Controls.Add(this.label53, 0, 5);
-			this.table_acquire_details.Controls.Add(this.dtp_purchase_date, 1, 6);
-			this.table_acquire_details.Controls.Add(this.dtp_date_received, 1, 7);
-			this.table_acquire_details.Controls.Add(this.label52, 0, 6);
-			this.table_acquire_details.Controls.Add(this.label51, 0, 7);
+			this.table_acquire_details.Controls.Add(this.label53, 0, 7);
+			this.table_acquire_details.Controls.Add(this.cmb_acquire_method, 1, 7);
 			this.table_acquire_details.Controls.Add(this.lbl_sale_order, 0, 8);
 			this.table_acquire_details.Controls.Add(this.txt_sale_order, 1, 8);
 			this.table_acquire_details.Controls.Add(this.btn_sales_order, 2, 8);
-			this.table_acquire_details.Controls.Add(this.cmb_acquire_method, 1, 5);
 			this.table_acquire_details.Controls.Add(this.num_seller_id, 2, 1);
 			this.table_acquire_details.Controls.Add(this.num_checked_by_id, 2, 3);
 			this.table_acquire_details.Controls.Add(this.txt_seller_type, 2, 5);
 			this.table_acquire_details.Controls.Add(this.num_sale, 2, 7);
+			this.table_acquire_details.Controls.Add(this.dtp_purchase_date, 1, 5);
+			this.table_acquire_details.Controls.Add(this.dtp_date_received, 1, 6);
+			this.table_acquire_details.Controls.Add(this.label52, 0, 5);
+			this.table_acquire_details.Controls.Add(this.label51, 0, 6);
 			this.table_acquire_details.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.table_acquire_details.Location = new System.Drawing.Point(3, 21);
 			this.table_acquire_details.Name = "table_acquire_details";
@@ -909,53 +909,28 @@
 			// 
 			this.label53.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label53.AutoSize = true;
-			this.label53.Location = new System.Drawing.Point(3, 123);
+			this.label53.Location = new System.Drawing.Point(3, 182);
 			this.label53.Name = "label53";
 			this.label53.Size = new System.Drawing.Size(57, 17);
 			this.label53.TabIndex = 0;
 			this.label53.Text = "Method:";
 			// 
-			// dtp_purchase_date
+			// cmb_acquire_method
 			// 
-			this.dtp_purchase_date.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.dtp_purchase_date.CustomFormat = "";
-			this.dtp_purchase_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtp_purchase_date.Location = new System.Drawing.Point(101, 149);
-			this.dtp_purchase_date.Margin = new System.Windows.Forms.Padding(2);
-			this.dtp_purchase_date.Name = "dtp_purchase_date";
-			this.dtp_purchase_date.Size = new System.Drawing.Size(123, 25);
-			this.dtp_purchase_date.TabIndex = 10;
-			// 
-			// dtp_date_received
-			// 
-			this.dtp_date_received.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.dtp_date_received.CustomFormat = "";
-			this.dtp_date_received.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtp_date_received.Location = new System.Drawing.Point(101, 178);
-			this.dtp_date_received.Margin = new System.Windows.Forms.Padding(2);
-			this.dtp_date_received.Name = "dtp_date_received";
-			this.dtp_date_received.Size = new System.Drawing.Size(123, 25);
-			this.dtp_date_received.TabIndex = 11;
-			// 
-			// label52
-			// 
-			this.label52.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label52.AutoSize = true;
-			this.label52.Location = new System.Drawing.Point(3, 153);
-			this.label52.Name = "label52";
-			this.label52.Size = new System.Drawing.Size(93, 17);
-			this.label52.TabIndex = 30;
-			this.label52.Text = "Purchase date:";
-			// 
-			// label51
-			// 
-			this.label51.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label51.AutoSize = true;
-			this.label51.Location = new System.Drawing.Point(3, 182);
-			this.label51.Name = "label51";
-			this.label51.Size = new System.Drawing.Size(91, 17);
-			this.label51.TabIndex = 26;
-			this.label51.Text = "Date received:";
+			this.cmb_acquire_method.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.cmb_acquire_method.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cmb_acquire_method.FormattingEnabled = true;
+			this.cmb_acquire_method.Items.AddRange(new object[] {
+            "CONSIGNMENT",
+            "MORTGAGE",
+            "PURCHASE",
+            "TRADE-IN"});
+			this.cmb_acquire_method.Location = new System.Drawing.Point(101, 180);
+			this.cmb_acquire_method.Margin = new System.Windows.Forms.Padding(2);
+			this.cmb_acquire_method.Name = "cmb_acquire_method";
+			this.cmb_acquire_method.Size = new System.Drawing.Size(224, 25);
+			this.cmb_acquire_method.TabIndex = 8;
+			this.cmb_acquire_method.SelectedIndexChanged += new System.EventHandler(this.Cmb_acquire_method_SelectedIndexChanged);
 			// 
 			// lbl_sale_order
 			// 
@@ -988,23 +963,6 @@
 			this.btn_sales_order.Text = "...";
 			this.btn_sales_order.UseVisualStyleBackColor = true;
 			this.btn_sales_order.Click += new System.EventHandler(this.Btn_sales_order_Click);
-			// 
-			// cmb_acquire_method
-			// 
-			this.cmb_acquire_method.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.cmb_acquire_method.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cmb_acquire_method.FormattingEnabled = true;
-			this.cmb_acquire_method.Items.AddRange(new object[] {
-            "CONSIGNMENT",
-            "MORTGAGE",
-            "PURCHASE",
-            "TRADE-IN"});
-			this.cmb_acquire_method.Location = new System.Drawing.Point(101, 121);
-			this.cmb_acquire_method.Margin = new System.Windows.Forms.Padding(2);
-			this.cmb_acquire_method.Name = "cmb_acquire_method";
-			this.cmb_acquire_method.Size = new System.Drawing.Size(224, 25);
-			this.cmb_acquire_method.TabIndex = 8;
-			this.cmb_acquire_method.SelectedIndexChanged += new System.EventHandler(this.Cmb_acquire_method_SelectedIndexChanged);
 			// 
 			// num_seller_id
 			// 
@@ -1064,6 +1022,48 @@
 			this.num_sale.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.num_sale.ThousandsSeparator = true;
 			this.num_sale.Visible = false;
+			// 
+			// dtp_purchase_date
+			// 
+			this.dtp_purchase_date.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.dtp_purchase_date.CustomFormat = "";
+			this.dtp_purchase_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtp_purchase_date.Location = new System.Drawing.Point(101, 119);
+			this.dtp_purchase_date.Margin = new System.Windows.Forms.Padding(2);
+			this.dtp_purchase_date.Name = "dtp_purchase_date";
+			this.dtp_purchase_date.Size = new System.Drawing.Size(123, 25);
+			this.dtp_purchase_date.TabIndex = 10;
+			// 
+			// dtp_date_received
+			// 
+			this.dtp_date_received.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.dtp_date_received.CustomFormat = "";
+			this.dtp_date_received.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtp_date_received.Location = new System.Drawing.Point(101, 149);
+			this.dtp_date_received.Margin = new System.Windows.Forms.Padding(2);
+			this.dtp_date_received.Name = "dtp_date_received";
+			this.dtp_date_received.Size = new System.Drawing.Size(123, 25);
+			this.dtp_date_received.TabIndex = 11;
+			// 
+			// label52
+			// 
+			this.label52.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label52.AutoSize = true;
+			this.label52.Location = new System.Drawing.Point(3, 123);
+			this.label52.Name = "label52";
+			this.label52.Size = new System.Drawing.Size(93, 17);
+			this.label52.TabIndex = 30;
+			this.label52.Text = "Purchase date:";
+			// 
+			// label51
+			// 
+			this.label51.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label51.AutoSize = true;
+			this.label51.Location = new System.Drawing.Point(3, 153);
+			this.label51.Name = "label51";
+			this.label51.Size = new System.Drawing.Size(91, 17);
+			this.label51.TabIndex = 26;
+			this.label51.Text = "Date received:";
 			// 
 			// groupBox11
 			// 

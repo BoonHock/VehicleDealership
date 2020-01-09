@@ -125,7 +125,7 @@ namespace VehicleDealership.View
 					}
 					else
 					{
-						grd_main.DataSource = Organisation_ds.Select_organisation(-1);
+						grd_main.DataSource = Organisation_branch_ds.Select_organisation_branch_with_org_details(-1);
 						Class_datagridview.Hide_columns(grd_main,
 							new string[] { "organisation", "organisation_type", "country" });
 					}

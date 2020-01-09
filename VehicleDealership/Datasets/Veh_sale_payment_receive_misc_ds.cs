@@ -22,7 +22,7 @@ namespace VehicleDealership.Datasets
 			}
 			return new sp_select_veh_sale_payment_receive_miscDataTable();
 		}
-		public static bool Update_veh_sale_payment_receive_misc (int vehicle, string payment_combine)
+		public static bool Update_veh_sale_payment_receive_misc(int vehicle, string payment_combine)
 		{
 			try
 			{

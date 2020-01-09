@@ -65,7 +65,7 @@ namespace VehicleDealership.View
 
 			grd_main.AutoResizeColumns();
 
-			if (_cols_to_display.Count() > 0)
+			if (_cols_to_display != null && _cols_to_display.Count() > 0)
 				Class_datagridview.Hide_unnecessary_columns(grd_main, _cols_to_display);
 
 			if (_value_col_name != "")

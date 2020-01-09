@@ -860,8 +860,6 @@ namespace VehicleDealership.View
 		private void Setup_form_vehicle()
 		{
 			ts_vehicle.Visible = true;
-			btn_print_vehicle_out.Visible = false;
-
 			cmb_vehicle_acquire.SelectedItem = "ALL";
 			cmb_vehicle_status.SelectedItem = "ALL";
 
@@ -1119,11 +1117,6 @@ namespace VehicleDealership.View
 			VehicleID = (int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value;
 			Class_form.Show_dialog_as_mdi_child(form_sale, this, Show_form_vehicle_sale);
 		}
-		private void Form2Closed(object sender, FormClosedEventArgs e)
-		{
-			this.Visible = true;
-		}
-
 		private void Delete_vehicle_sale(object sender, EventArgs e)
 		{
 			if (grd_main.SelectedCells.Count == 0) return;
@@ -1148,6 +1141,45 @@ namespace VehicleDealership.View
 			}
 			Setup_grd_vehicle_sale();
 		}
+		private void SalesOrderToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (grd_main.SelectedCells.Count == 0) return;
+
+			Cursor = Cursors.WaitCursor;
+
+			using (Crystal_report.CR_sales_order cr_report = new Crystal_report.CR_sales_order())
+			{
+				cr_report.SetDataSource(Vehicle_sale_ds.Vehicle_sale_doc((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value).CopyToDataTable());
+
+				using (Crystal_report.Form_crystal_report dlg_cr = new Crystal_report.Form_crystal_report(cr_report))
+				{
+					dlg_cr.Text = "Sales order";
+					dlg_cr.ShowDialog();
+				}
+			}
+			Cursor = Cursors.Default;
+		}
+		private void APFormToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
+		private void SoldSlipToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
+		private void OwnershipClaimToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
+		private void JPJSalesLetter1ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
+		private void JPJSalesLetter2ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
+
 		#endregion
 		#region VEHICLE RETURN
 		private void Setup_form_vehicle_return()
@@ -1216,7 +1248,15 @@ namespace VehicleDealership.View
 	 "vehicle_model", "purchase_date", "location", "chassis_no", "engine_no", "year_make" }))
 			{
 				if (dlg_select.ShowDialog() == DialogResult.OK)
+				{
+					if (dlg_select.Get_selected_value_as_string("acquire_method").ToUpper() == "TRADE-IN")
+					{
+						if (MessageBox.Show("This is a trade-in vehicle. Trade-in will be removed. Proceed?",
+							"Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK)
+							return;
+					}
 					Show_form_return_edit(dlg_select.Get_selected_value_as_int("vehicle"));
+				}
 			}
 		}
 		private void Edit_vehicle_return(object sender, EventArgs e)
@@ -1327,28 +1367,5 @@ namespace VehicleDealership.View
 			Setup_grd_location();
 		}
 		#endregion
-
-		private void Form_datagridview_VisibleChanged(object sender, EventArgs e)
-		{
-			// if this form is made visible and already has a "mdi child" opnened as dialog 
-			// via @Class_form.Show_dialog_as_mdi_child()
-			// then show the "child form" and hide this form back
-
-			if (!this.Visible) return;
-
-			if (this.Tag.ToString().ToUpper() == "VEHICLE SALE")
-			{
-				foreach (Form form in this.MdiParent.MdiChildren)
-				{
-					if (form.GetType() == typeof(Form_vehicle_sale))
-					{
-						form.Activate();
-						this.Visible = false;
-						return;
-					}
-				}
-			}
-
-		}
 	}
 }

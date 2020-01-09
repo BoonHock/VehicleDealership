@@ -94,7 +94,6 @@ namespace VehicleDealership.View
 			Init_form();
 
 			_is_paying = is_paying;
-
 			PaymentID = payment_id;
 			txt_payment_no.Text = payment_no;
 			txt_description.Text = payment_desc;
@@ -121,8 +120,6 @@ namespace VehicleDealership.View
 				cmb_payment_method.SelectedIndex = 0;
 			if (cmb_credit_card_type.SelectedIndex < 0 && cmb_credit_card_type.Items.Count > 0)
 				cmb_credit_card_type.SelectedIndex = 0;
-
-
 		}
 		/// <summary>
 		/// Add new payment
@@ -210,8 +207,12 @@ namespace VehicleDealership.View
 		private void Form_edit_payment_Shown(object sender, EventArgs e)
 		{
 			// if receiving payment, no need show
+			lbl_pay_to.Visible = _is_paying;
 			txt_pay_to.Visible = _is_paying;
 			btn_pay_to.Visible = _is_paying;
+
+			lbl_paid.Visible = _is_paying;
+			panel_paid.Visible = _is_paying;
 
 			Setup_payment_method_groupbox();
 		}
@@ -271,7 +272,7 @@ namespace VehicleDealership.View
 		}
 		private void Btn_payment_method_finance_Click(object sender, EventArgs e)
 		{
-			using (Form_datagridview_select dlg_select = new Form_datagridview_select(Finance_ds.Select_finance(-1), 
+			using (Form_datagridview_select dlg_select = new Form_datagridview_select(Finance_ds.Select_finance(-1),
 				new string[] { "name", "branch_name", "registration_no", "address", "city", "state", "postcode",
 	 "country_name", "url", "remark" }, "finance", num_payment_method_finance.Value.ToString()))
 			{

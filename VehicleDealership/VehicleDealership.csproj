@@ -124,6 +124,18 @@
       <DependentUpon>CR_sales_n_purchase_agreement.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Crystal_report\CR_sales_order.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CR_sales_order.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Crystal_report\CR_vehicle_expenses.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CR_vehicle_expenses.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Crystal_report\CR_vehicle_received_note.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -320,13 +332,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Organisation_type_ds.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\Payment_ds.cs">
-      <DependentUpon>Payment_ds.xsd</DependentUpon>
+    <Compile Include="Datasets\Payment_in_ds.cs">
+      <DependentUpon>Payment_in_ds.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\Payment_ds.Designer.cs">
+    <Compile Include="Datasets\Payment_in_ds.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Payment_ds.xsd</DependentUpon>
+      <DependentUpon>Payment_in_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\Payment_method_ds.cs">
       <DependentUpon>Payment_method_ds.xsd</DependentUpon>
@@ -335,6 +347,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Payment_method_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Payment_out_ds.cs">
+      <DependentUpon>Payment_out_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Payment_out_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Payment_out_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\Permission_ds.cs">
       <DependentUpon>Permission_ds.xsd</DependentUpon>
@@ -676,6 +696,14 @@
     <EmbeddedResource Include="Crystal_report\CR_sales_n_purchase_agreement.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CR_sales_n_purchase_agreement.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal_report\CR_sales_order.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CR_sales_order.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal_report\CR_vehicle_expenses.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CR_vehicle_expenses.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Crystal_report\CR_vehicle_received_note.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1022,16 +1050,16 @@
     <None Include="Datasets\Organisation_type_ds.xss">
       <DependentUpon>Organisation_type_ds.xsd</DependentUpon>
     </None>
-    <None Include="Datasets\Payment_ds.xsc">
-      <DependentUpon>Payment_ds.xsd</DependentUpon>
+    <None Include="Datasets\Payment_in_ds.xsc">
+      <DependentUpon>Payment_in_ds.xsd</DependentUpon>
     </None>
-    <None Include="Datasets\Payment_ds.xsd">
+    <None Include="Datasets\Payment_in_ds.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Payment_ds.Designer.cs</LastGenOutput>
+      <LastGenOutput>Payment_in_ds.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Datasets\Payment_ds.xss">
-      <DependentUpon>Payment_ds.xsd</DependentUpon>
+    <None Include="Datasets\Payment_in_ds.xss">
+      <DependentUpon>Payment_in_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Payment_method_ds.xsc">
       <DependentUpon>Payment_method_ds.xsd</DependentUpon>
@@ -1043,6 +1071,17 @@
     </None>
     <None Include="Datasets\Payment_method_ds.xss">
       <DependentUpon>Payment_method_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Payment_out_ds.xsc">
+      <DependentUpon>Payment_out_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Payment_out_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Payment_out_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Payment_out_ds.xss">
+      <DependentUpon>Payment_out_ds.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Permission_ds.xsc">
       <DependentUpon>Permission_ds.xsd</DependentUpon>

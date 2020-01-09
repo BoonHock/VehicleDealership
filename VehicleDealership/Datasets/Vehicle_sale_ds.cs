@@ -21,14 +21,19 @@ namespace VehicleDealership.Datasets
 			}
 			return new sp_select_vehicle_saleDataTable();
 		}
-		public static sp_select_vehicle_sale_simplifiedDataTable Select_vehicle_sale_simplified()
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="int_exclude_vehicle"></param>
+		/// <returns></returns>
+		public static sp_select_vehicle_sale_simplifiedDataTable Select_vehicle_sale_simplified(int int_exclude_vehicle = 0)
 		{
 			try
 			{
 				using (Vehicle_sale_dsTableAdapters.sp_select_vehicle_sale_simplifiedTableAdapter adapter =
 					new Vehicle_sale_dsTableAdapters.sp_select_vehicle_sale_simplifiedTableAdapter())
 				{
-					return adapter.GetData();
+					return adapter.GetData(int_exclude_vehicle);
 				}
 			}
 			catch (System.Exception e)
@@ -98,6 +103,7 @@ namespace VehicleDealership.Datasets
 						insurance_loading_percent, insurance_ncd_percent, insurance_stamp_duty,
 						insurance_windscreen_sum_insured, insurance_windscreen, insurance_total_payable,
 						salesperson, remark, Program.System_user.UserID);
+					return true;
 				}
 			}
 			catch (System.Exception e)
@@ -123,6 +129,21 @@ namespace VehicleDealership.Datasets
 			}
 			return false;
 		}
-
+		public static sp_vehicle_sale_docDataTable Vehicle_sale_doc(int int_vehicle)
+		{
+			try
+			{
+				using (Vehicle_sale_dsTableAdapters.sp_vehicle_sale_docTableAdapter adapter =
+					new Vehicle_sale_dsTableAdapters.sp_vehicle_sale_docTableAdapter())
+				{
+					return adapter.GetData(int_vehicle);
+				}
+			}
+			catch (System.Exception e)
+			{
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod(), e.Message);
+			}
+			return new sp_vehicle_sale_docDataTable();
+		}
 	}
 }

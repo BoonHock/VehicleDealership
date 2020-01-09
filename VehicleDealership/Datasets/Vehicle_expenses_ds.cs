@@ -10,7 +10,7 @@ namespace VehicleDealership.Datasets
 		{
 			try
 			{
-				using (Vehicle_expenses_dsTableAdapters.sp_select_vehicle_expensesTableAdapter adapter = 
+				using (Vehicle_expenses_dsTableAdapters.sp_select_vehicle_expensesTableAdapter adapter =
 					new Vehicle_expenses_dsTableAdapters.sp_select_vehicle_expensesTableAdapter())
 				{
 					return adapter.GetData(vehicle);
@@ -22,14 +22,14 @@ namespace VehicleDealership.Datasets
 			}
 			return new sp_select_vehicle_expensesDataTable();
 		}
-		public static bool Update_vehicle_expenses(int vehicle, string payment_combine, string payment_charge_to_customer)
+		public static bool Update_vehicle_expenses(int vehicle, string payment_combine)
 		{
 			try
 			{
 				using (Vehicle_expenses_dsTableAdapters.QueriesTableAdapter adapter =
 					new Vehicle_expenses_dsTableAdapters.QueriesTableAdapter())
 				{
-					adapter.sp_update_vehicle_expenses(vehicle, payment_combine, payment_charge_to_customer, Program.System_user.UserID);
+					adapter.sp_update_vehicle_expenses(vehicle, payment_combine, Program.System_user.UserID);
 					return true;
 				}
 			}
