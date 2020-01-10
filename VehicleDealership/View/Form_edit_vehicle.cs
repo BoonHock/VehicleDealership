@@ -702,7 +702,7 @@ namespace VehicleDealership.View
 				Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable dttable =
 					(Vehicle_expenses_ds.sp_select_vehicle_expensesDataTable)grd_expenses.DataSource;
 
-				dttable.Addsp_select_vehicle_expensesRow(dlg_payment.PaymentNo,
+				dttable.Addsp_select_vehicle_expensesRow(VehicleID, dlg_payment.PaymentNo,
 					dlg_payment.PaymentDescription, dlg_payment.PayToId, dlg_payment.PayToName,
 					dlg_payment.PayToType, dlg_payment.PaymentAmount, dlg_payment.PaymentDate,
 					dlg_payment.IsPaid, dlg_payment.PaymentMethodType,

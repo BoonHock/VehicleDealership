@@ -23,6 +23,7 @@
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="payment_out" DataSetColumn="payment_out" />
+              <Mapping SourceColumn="vehicle" DataSetColumn="vehicle" />
               <Mapping SourceColumn="payment_no" DataSetColumn="payment_no" />
               <Mapping SourceColumn="payment_description" DataSetColumn="payment_description" />
               <Mapping SourceColumn="pay_to_id" DataSetColumn="pay_to_id" />
@@ -72,6 +73,7 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="payment_out" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnpayment_out" msprop:Generator_ColumnPropNameInRow="payment_out" msprop:Generator_ColumnPropNameInTable="payment_outColumn" msprop:Generator_UserColumnName="payment_out" type="xs:int" />
+              <xs:element name="vehicle" msprop:Generator_ColumnVarNameInTable="columnvehicle" msprop:Generator_ColumnPropNameInRow="vehicle" msprop:Generator_ColumnPropNameInTable="vehicleColumn" msprop:Generator_UserColumnName="vehicle" type="xs:int" />
               <xs:element name="payment_no" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnpayment_no" msprop:Generator_ColumnPropNameInRow="payment_no" msprop:Generator_ColumnPropNameInTable="payment_noColumn" msprop:Generator_UserColumnName="payment_no" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">

@@ -24,8 +24,6 @@ namespace VehicleDealership.Datasets {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class Vehicle_ds : global::System.Data.DataSet {
         
-        private sp_vehicle_incoming_docDataTable tablesp_vehicle_incoming_doc;
-        
         private sp_select_vehicle_simplifiedDataTable tablesp_select_vehicle_simplified;
         
         private sp_select_vehicleDataTable tablesp_select_vehicle;
@@ -33,6 +31,8 @@ namespace VehicleDealership.Datasets {
         private sp_select_vehicle_unsoldDataTable tablesp_select_vehicle_unsold;
         
         private Trade_inDataTable tableTrade_in;
+        
+        private sp_vehicle_incoming_docDataTable tablesp_vehicle_incoming_doc;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -62,9 +62,6 @@ namespace VehicleDealership.Datasets {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["sp_vehicle_incoming_doc"] != null)) {
-                    base.Tables.Add(new sp_vehicle_incoming_docDataTable(ds.Tables["sp_vehicle_incoming_doc"]));
-                }
                 if ((ds.Tables["sp_select_vehicle_simplified"] != null)) {
                     base.Tables.Add(new sp_select_vehicle_simplifiedDataTable(ds.Tables["sp_select_vehicle_simplified"]));
                 }
@@ -76,6 +73,9 @@ namespace VehicleDealership.Datasets {
                 }
                 if ((ds.Tables["Trade_in"] != null)) {
                     base.Tables.Add(new Trade_inDataTable(ds.Tables["Trade_in"]));
+                }
+                if ((ds.Tables["sp_vehicle_incoming_doc"] != null)) {
+                    base.Tables.Add(new sp_vehicle_incoming_docDataTable(ds.Tables["sp_vehicle_incoming_doc"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -93,16 +93,6 @@ namespace VehicleDealership.Datasets {
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
             base.Tables.CollectionChanged += schemaChangedHandler;
             this.Relations.CollectionChanged += schemaChangedHandler;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public sp_vehicle_incoming_docDataTable sp_vehicle_incoming_doc {
-            get {
-                return this.tablesp_vehicle_incoming_doc;
-            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -142,6 +132,16 @@ namespace VehicleDealership.Datasets {
         public Trade_inDataTable Trade_in {
             get {
                 return this.tableTrade_in;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public sp_vehicle_incoming_docDataTable sp_vehicle_incoming_doc {
+            get {
+                return this.tablesp_vehicle_incoming_doc;
             }
         }
         
@@ -212,9 +212,6 @@ namespace VehicleDealership.Datasets {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["sp_vehicle_incoming_doc"] != null)) {
-                    base.Tables.Add(new sp_vehicle_incoming_docDataTable(ds.Tables["sp_vehicle_incoming_doc"]));
-                }
                 if ((ds.Tables["sp_select_vehicle_simplified"] != null)) {
                     base.Tables.Add(new sp_select_vehicle_simplifiedDataTable(ds.Tables["sp_select_vehicle_simplified"]));
                 }
@@ -226,6 +223,9 @@ namespace VehicleDealership.Datasets {
                 }
                 if ((ds.Tables["Trade_in"] != null)) {
                     base.Tables.Add(new Trade_inDataTable(ds.Tables["Trade_in"]));
+                }
+                if ((ds.Tables["sp_vehicle_incoming_doc"] != null)) {
+                    base.Tables.Add(new sp_vehicle_incoming_docDataTable(ds.Tables["sp_vehicle_incoming_doc"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -260,12 +260,6 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablesp_vehicle_incoming_doc = ((sp_vehicle_incoming_docDataTable)(base.Tables["sp_vehicle_incoming_doc"]));
-            if ((initTable == true)) {
-                if ((this.tablesp_vehicle_incoming_doc != null)) {
-                    this.tablesp_vehicle_incoming_doc.InitVars();
-                }
-            }
             this.tablesp_select_vehicle_simplified = ((sp_select_vehicle_simplifiedDataTable)(base.Tables["sp_select_vehicle_simplified"]));
             if ((initTable == true)) {
                 if ((this.tablesp_select_vehicle_simplified != null)) {
@@ -290,6 +284,12 @@ namespace VehicleDealership.Datasets {
                     this.tableTrade_in.InitVars();
                 }
             }
+            this.tablesp_vehicle_incoming_doc = ((sp_vehicle_incoming_docDataTable)(base.Tables["sp_vehicle_incoming_doc"]));
+            if ((initTable == true)) {
+                if ((this.tablesp_vehicle_incoming_doc != null)) {
+                    this.tablesp_vehicle_incoming_doc.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -300,8 +300,6 @@ namespace VehicleDealership.Datasets {
             this.Namespace = "http://tempuri.org/Vehicle_ds.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablesp_vehicle_incoming_doc = new sp_vehicle_incoming_docDataTable();
-            base.Tables.Add(this.tablesp_vehicle_incoming_doc);
             this.tablesp_select_vehicle_simplified = new sp_select_vehicle_simplifiedDataTable();
             base.Tables.Add(this.tablesp_select_vehicle_simplified);
             this.tablesp_select_vehicle = new sp_select_vehicleDataTable();
@@ -310,12 +308,8 @@ namespace VehicleDealership.Datasets {
             base.Tables.Add(this.tablesp_select_vehicle_unsold);
             this.tableTrade_in = new Trade_inDataTable();
             base.Tables.Add(this.tableTrade_in);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializesp_vehicle_incoming_doc() {
-            return false;
+            this.tablesp_vehicle_incoming_doc = new sp_vehicle_incoming_docDataTable();
+            base.Tables.Add(this.tablesp_vehicle_incoming_doc);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -339,6 +333,12 @@ namespace VehicleDealership.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeTrade_in() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializesp_vehicle_incoming_doc() {
             return false;
         }
         
@@ -398,9 +398,6 @@ namespace VehicleDealership.Datasets {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void sp_vehicle_incoming_docRowChangeEventHandler(object sender, sp_vehicle_incoming_docRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void sp_select_vehicle_simplifiedRowChangeEventHandler(object sender, sp_select_vehicle_simplifiedRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -412,963 +409,8 @@ namespace VehicleDealership.Datasets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void Trade_inRowChangeEventHandler(object sender, Trade_inRowChangeEvent e);
         
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class sp_vehicle_incoming_docDataTable : global::System.Data.TypedTableBase<sp_vehicle_incoming_docRow> {
-            
-            private global::System.Data.DataColumn columncompany_name;
-            
-            private global::System.Data.DataColumn columncompany_registration_no;
-            
-            private global::System.Data.DataColumn columncompany_address;
-            
-            private global::System.Data.DataColumn columncompany_tel_no;
-            
-            private global::System.Data.DataColumn columncompany_fax_no;
-            
-            private global::System.Data.DataColumn columncompany_email;
-            
-            private global::System.Data.DataColumn columnreference_no;
-            
-            private global::System.Data.DataColumn columncustomer_name_short;
-            
-            private global::System.Data.DataColumn columncustomer_name_long;
-            
-            private global::System.Data.DataColumn columncustomer_registration_no;
-            
-            private global::System.Data.DataColumn columncustomer_registration_no_with_text;
-            
-            private global::System.Data.DataColumn columncustomer_address;
-            
-            private global::System.Data.DataColumn columnchassis_no;
-            
-            private global::System.Data.DataColumn columnvehicle_brand_name;
-            
-            private global::System.Data.DataColumn columnvehicle_group_name;
-            
-            private global::System.Data.DataColumn columnvehicle_model_name;
-            
-            private global::System.Data.DataColumn columncolour_name;
-            
-            private global::System.Data.DataColumn columnyear_make;
-            
-            private global::System.Data.DataColumn columnregistration_date;
-            
-            private global::System.Data.DataColumn columnregistration_no;
-            
-            private global::System.Data.DataColumn columninvoice_no;
-            
-            private global::System.Data.DataColumn columnpurchase_date;
-            
-            private global::System.Data.DataColumn columndate_received;
-            
-            private global::System.Data.DataColumn columnsettlement_date;
-            
-            private global::System.Data.DataColumn columnengine_no;
-            
-            private global::System.Data.DataColumn columnengine_cc;
-            
-            private global::System.Data.DataColumn columnroad_tax;
-            
-            private global::System.Data.DataColumn columnroad_tax_expiry_date;
-            
-            private global::System.Data.DataColumn columnpurchase_price;
-            
-            private global::System.Data.DataColumn columnovertrade;
-            
-            private global::System.Data.DataColumn columnnet_purchase;
-            
-            private global::System.Data.DataColumn columntotal_expenses;
-            
-            private global::System.Data.DataColumn columntotal_cost;
-            
-            private global::System.Data.DataColumn columnbalance_to_pay;
-            
-            private global::System.Data.DataColumn columnmax_can_loan;
-            
-            private global::System.Data.DataColumn columnloan_sentence;
-            
-            private global::System.Data.DataColumn columnloan_balance;
-            
-            private global::System.Data.DataColumn columnloan_installment_amount;
-            
-            private global::System.Data.DataColumn columnloan_branch_name;
-            
-            private global::System.Data.DataColumn columnloan_org_name;
-            
-            private global::System.Data.DataColumn columnloan_address;
-            
-            private global::System.Data.DataColumn columnloan_installment_day_of_month;
-            
-            private global::System.Data.DataColumn columnloan_settlement_date;
-            
-            private global::System.Data.DataColumn columnloan_agreement_no;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_vehicle_incoming_docDataTable() {
-                this.TableName = "sp_vehicle_incoming_doc";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal sp_vehicle_incoming_docDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected sp_vehicle_incoming_docDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn company_nameColumn {
-                get {
-                    return this.columncompany_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn company_registration_noColumn {
-                get {
-                    return this.columncompany_registration_no;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn company_addressColumn {
-                get {
-                    return this.columncompany_address;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn company_tel_noColumn {
-                get {
-                    return this.columncompany_tel_no;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn company_fax_noColumn {
-                get {
-                    return this.columncompany_fax_no;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn company_emailColumn {
-                get {
-                    return this.columncompany_email;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn reference_noColumn {
-                get {
-                    return this.columnreference_no;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn customer_name_shortColumn {
-                get {
-                    return this.columncustomer_name_short;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn customer_name_longColumn {
-                get {
-                    return this.columncustomer_name_long;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn customer_registration_noColumn {
-                get {
-                    return this.columncustomer_registration_no;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn customer_registration_no_with_textColumn {
-                get {
-                    return this.columncustomer_registration_no_with_text;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn customer_addressColumn {
-                get {
-                    return this.columncustomer_address;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn chassis_noColumn {
-                get {
-                    return this.columnchassis_no;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn vehicle_brand_nameColumn {
-                get {
-                    return this.columnvehicle_brand_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn vehicle_group_nameColumn {
-                get {
-                    return this.columnvehicle_group_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn vehicle_model_nameColumn {
-                get {
-                    return this.columnvehicle_model_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn colour_nameColumn {
-                get {
-                    return this.columncolour_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn year_makeColumn {
-                get {
-                    return this.columnyear_make;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn registration_dateColumn {
-                get {
-                    return this.columnregistration_date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn registration_noColumn {
-                get {
-                    return this.columnregistration_no;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn invoice_noColumn {
-                get {
-                    return this.columninvoice_no;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn purchase_dateColumn {
-                get {
-                    return this.columnpurchase_date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn date_receivedColumn {
-                get {
-                    return this.columndate_received;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn settlement_dateColumn {
-                get {
-                    return this.columnsettlement_date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn engine_noColumn {
-                get {
-                    return this.columnengine_no;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn engine_ccColumn {
-                get {
-                    return this.columnengine_cc;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn road_taxColumn {
-                get {
-                    return this.columnroad_tax;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn road_tax_expiry_dateColumn {
-                get {
-                    return this.columnroad_tax_expiry_date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn purchase_priceColumn {
-                get {
-                    return this.columnpurchase_price;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn overtradeColumn {
-                get {
-                    return this.columnovertrade;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn net_purchaseColumn {
-                get {
-                    return this.columnnet_purchase;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn total_expensesColumn {
-                get {
-                    return this.columntotal_expenses;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn total_costColumn {
-                get {
-                    return this.columntotal_cost;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn balance_to_payColumn {
-                get {
-                    return this.columnbalance_to_pay;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn max_can_loanColumn {
-                get {
-                    return this.columnmax_can_loan;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn loan_sentenceColumn {
-                get {
-                    return this.columnloan_sentence;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn loan_balanceColumn {
-                get {
-                    return this.columnloan_balance;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn loan_installment_amountColumn {
-                get {
-                    return this.columnloan_installment_amount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn loan_branch_nameColumn {
-                get {
-                    return this.columnloan_branch_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn loan_org_nameColumn {
-                get {
-                    return this.columnloan_org_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn loan_addressColumn {
-                get {
-                    return this.columnloan_address;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn loan_installment_day_of_monthColumn {
-                get {
-                    return this.columnloan_installment_day_of_month;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn loan_settlement_dateColumn {
-                get {
-                    return this.columnloan_settlement_date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn loan_agreement_noColumn {
-                get {
-                    return this.columnloan_agreement_no;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_vehicle_incoming_docRow this[int index] {
-                get {
-                    return ((sp_vehicle_incoming_docRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_vehicle_incoming_docRowChangeEventHandler sp_vehicle_incoming_docRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_vehicle_incoming_docRowChangeEventHandler sp_vehicle_incoming_docRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_vehicle_incoming_docRowChangeEventHandler sp_vehicle_incoming_docRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event sp_vehicle_incoming_docRowChangeEventHandler sp_vehicle_incoming_docRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Addsp_vehicle_incoming_docRow(sp_vehicle_incoming_docRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_vehicle_incoming_docRow Addsp_vehicle_incoming_docRow(
-                        string company_name, 
-                        string company_registration_no, 
-                        string company_address, 
-                        string company_tel_no, 
-                        string company_fax_no, 
-                        string company_email, 
-                        string reference_no, 
-                        string customer_name_short, 
-                        string customer_name_long, 
-                        string customer_registration_no, 
-                        string customer_registration_no_with_text, 
-                        string customer_address, 
-                        string chassis_no, 
-                        string vehicle_brand_name, 
-                        string vehicle_group_name, 
-                        string vehicle_model_name, 
-                        string colour_name, 
-                        short year_make, 
-                        System.DateTime registration_date, 
-                        string registration_no, 
-                        string invoice_no, 
-                        System.DateTime purchase_date, 
-                        System.DateTime date_received, 
-                        System.DateTime settlement_date, 
-                        string engine_no, 
-                        int engine_cc, 
-                        decimal road_tax, 
-                        System.DateTime road_tax_expiry_date, 
-                        decimal purchase_price, 
-                        decimal overtrade, 
-                        decimal net_purchase, 
-                        decimal total_expenses, 
-                        decimal total_cost, 
-                        decimal balance_to_pay, 
-                        decimal max_can_loan, 
-                        string loan_sentence, 
-                        decimal loan_balance, 
-                        decimal loan_installment_amount, 
-                        string loan_branch_name, 
-                        string loan_org_name, 
-                        string loan_address, 
-                        byte loan_installment_day_of_month, 
-                        System.DateTime loan_settlement_date, 
-                        string loan_agreement_no) {
-                sp_vehicle_incoming_docRow rowsp_vehicle_incoming_docRow = ((sp_vehicle_incoming_docRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        company_name,
-                        company_registration_no,
-                        company_address,
-                        company_tel_no,
-                        company_fax_no,
-                        company_email,
-                        reference_no,
-                        customer_name_short,
-                        customer_name_long,
-                        customer_registration_no,
-                        customer_registration_no_with_text,
-                        customer_address,
-                        chassis_no,
-                        vehicle_brand_name,
-                        vehicle_group_name,
-                        vehicle_model_name,
-                        colour_name,
-                        year_make,
-                        registration_date,
-                        registration_no,
-                        invoice_no,
-                        purchase_date,
-                        date_received,
-                        settlement_date,
-                        engine_no,
-                        engine_cc,
-                        road_tax,
-                        road_tax_expiry_date,
-                        purchase_price,
-                        overtrade,
-                        net_purchase,
-                        total_expenses,
-                        total_cost,
-                        balance_to_pay,
-                        max_can_loan,
-                        loan_sentence,
-                        loan_balance,
-                        loan_installment_amount,
-                        loan_branch_name,
-                        loan_org_name,
-                        loan_address,
-                        loan_installment_day_of_month,
-                        loan_settlement_date,
-                        loan_agreement_no};
-                rowsp_vehicle_incoming_docRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowsp_vehicle_incoming_docRow);
-                return rowsp_vehicle_incoming_docRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                sp_vehicle_incoming_docDataTable cln = ((sp_vehicle_incoming_docDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new sp_vehicle_incoming_docDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columncompany_name = base.Columns["company_name"];
-                this.columncompany_registration_no = base.Columns["company_registration_no"];
-                this.columncompany_address = base.Columns["company_address"];
-                this.columncompany_tel_no = base.Columns["company_tel_no"];
-                this.columncompany_fax_no = base.Columns["company_fax_no"];
-                this.columncompany_email = base.Columns["company_email"];
-                this.columnreference_no = base.Columns["reference_no"];
-                this.columncustomer_name_short = base.Columns["customer_name_short"];
-                this.columncustomer_name_long = base.Columns["customer_name_long"];
-                this.columncustomer_registration_no = base.Columns["customer_registration_no"];
-                this.columncustomer_registration_no_with_text = base.Columns["customer_registration_no_with_text"];
-                this.columncustomer_address = base.Columns["customer_address"];
-                this.columnchassis_no = base.Columns["chassis_no"];
-                this.columnvehicle_brand_name = base.Columns["vehicle_brand_name"];
-                this.columnvehicle_group_name = base.Columns["vehicle_group_name"];
-                this.columnvehicle_model_name = base.Columns["vehicle_model_name"];
-                this.columncolour_name = base.Columns["colour_name"];
-                this.columnyear_make = base.Columns["year_make"];
-                this.columnregistration_date = base.Columns["registration_date"];
-                this.columnregistration_no = base.Columns["registration_no"];
-                this.columninvoice_no = base.Columns["invoice_no"];
-                this.columnpurchase_date = base.Columns["purchase_date"];
-                this.columndate_received = base.Columns["date_received"];
-                this.columnsettlement_date = base.Columns["settlement_date"];
-                this.columnengine_no = base.Columns["engine_no"];
-                this.columnengine_cc = base.Columns["engine_cc"];
-                this.columnroad_tax = base.Columns["road_tax"];
-                this.columnroad_tax_expiry_date = base.Columns["road_tax_expiry_date"];
-                this.columnpurchase_price = base.Columns["purchase_price"];
-                this.columnovertrade = base.Columns["overtrade"];
-                this.columnnet_purchase = base.Columns["net_purchase"];
-                this.columntotal_expenses = base.Columns["total_expenses"];
-                this.columntotal_cost = base.Columns["total_cost"];
-                this.columnbalance_to_pay = base.Columns["balance_to_pay"];
-                this.columnmax_can_loan = base.Columns["max_can_loan"];
-                this.columnloan_sentence = base.Columns["loan_sentence"];
-                this.columnloan_balance = base.Columns["loan_balance"];
-                this.columnloan_installment_amount = base.Columns["loan_installment_amount"];
-                this.columnloan_branch_name = base.Columns["loan_branch_name"];
-                this.columnloan_org_name = base.Columns["loan_org_name"];
-                this.columnloan_address = base.Columns["loan_address"];
-                this.columnloan_installment_day_of_month = base.Columns["loan_installment_day_of_month"];
-                this.columnloan_settlement_date = base.Columns["loan_settlement_date"];
-                this.columnloan_agreement_no = base.Columns["loan_agreement_no"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columncompany_name = new global::System.Data.DataColumn("company_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncompany_name);
-                this.columncompany_registration_no = new global::System.Data.DataColumn("company_registration_no", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncompany_registration_no);
-                this.columncompany_address = new global::System.Data.DataColumn("company_address", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncompany_address);
-                this.columncompany_tel_no = new global::System.Data.DataColumn("company_tel_no", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncompany_tel_no);
-                this.columncompany_fax_no = new global::System.Data.DataColumn("company_fax_no", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncompany_fax_no);
-                this.columncompany_email = new global::System.Data.DataColumn("company_email", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncompany_email);
-                this.columnreference_no = new global::System.Data.DataColumn("reference_no", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnreference_no);
-                this.columncustomer_name_short = new global::System.Data.DataColumn("customer_name_short", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncustomer_name_short);
-                this.columncustomer_name_long = new global::System.Data.DataColumn("customer_name_long", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncustomer_name_long);
-                this.columncustomer_registration_no = new global::System.Data.DataColumn("customer_registration_no", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncustomer_registration_no);
-                this.columncustomer_registration_no_with_text = new global::System.Data.DataColumn("customer_registration_no_with_text", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncustomer_registration_no_with_text);
-                this.columncustomer_address = new global::System.Data.DataColumn("customer_address", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncustomer_address);
-                this.columnchassis_no = new global::System.Data.DataColumn("chassis_no", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnchassis_no);
-                this.columnvehicle_brand_name = new global::System.Data.DataColumn("vehicle_brand_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvehicle_brand_name);
-                this.columnvehicle_group_name = new global::System.Data.DataColumn("vehicle_group_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvehicle_group_name);
-                this.columnvehicle_model_name = new global::System.Data.DataColumn("vehicle_model_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvehicle_model_name);
-                this.columncolour_name = new global::System.Data.DataColumn("colour_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncolour_name);
-                this.columnyear_make = new global::System.Data.DataColumn("year_make", typeof(short), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnyear_make);
-                this.columnregistration_date = new global::System.Data.DataColumn("registration_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnregistration_date);
-                this.columnregistration_no = new global::System.Data.DataColumn("registration_no", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnregistration_no);
-                this.columninvoice_no = new global::System.Data.DataColumn("invoice_no", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columninvoice_no);
-                this.columnpurchase_date = new global::System.Data.DataColumn("purchase_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpurchase_date);
-                this.columndate_received = new global::System.Data.DataColumn("date_received", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndate_received);
-                this.columnsettlement_date = new global::System.Data.DataColumn("settlement_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsettlement_date);
-                this.columnengine_no = new global::System.Data.DataColumn("engine_no", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnengine_no);
-                this.columnengine_cc = new global::System.Data.DataColumn("engine_cc", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnengine_cc);
-                this.columnroad_tax = new global::System.Data.DataColumn("road_tax", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnroad_tax);
-                this.columnroad_tax_expiry_date = new global::System.Data.DataColumn("road_tax_expiry_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnroad_tax_expiry_date);
-                this.columnpurchase_price = new global::System.Data.DataColumn("purchase_price", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpurchase_price);
-                this.columnovertrade = new global::System.Data.DataColumn("overtrade", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnovertrade);
-                this.columnnet_purchase = new global::System.Data.DataColumn("net_purchase", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnet_purchase);
-                this.columntotal_expenses = new global::System.Data.DataColumn("total_expenses", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntotal_expenses);
-                this.columntotal_cost = new global::System.Data.DataColumn("total_cost", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntotal_cost);
-                this.columnbalance_to_pay = new global::System.Data.DataColumn("balance_to_pay", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnbalance_to_pay);
-                this.columnmax_can_loan = new global::System.Data.DataColumn("max_can_loan", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmax_can_loan);
-                this.columnloan_sentence = new global::System.Data.DataColumn("loan_sentence", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnloan_sentence);
-                this.columnloan_balance = new global::System.Data.DataColumn("loan_balance", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnloan_balance);
-                this.columnloan_installment_amount = new global::System.Data.DataColumn("loan_installment_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnloan_installment_amount);
-                this.columnloan_branch_name = new global::System.Data.DataColumn("loan_branch_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnloan_branch_name);
-                this.columnloan_org_name = new global::System.Data.DataColumn("loan_org_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnloan_org_name);
-                this.columnloan_address = new global::System.Data.DataColumn("loan_address", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnloan_address);
-                this.columnloan_installment_day_of_month = new global::System.Data.DataColumn("loan_installment_day_of_month", typeof(byte), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnloan_installment_day_of_month);
-                this.columnloan_settlement_date = new global::System.Data.DataColumn("loan_settlement_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnloan_settlement_date);
-                this.columnloan_agreement_no = new global::System.Data.DataColumn("loan_agreement_no", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnloan_agreement_no);
-                this.columncompany_name.AllowDBNull = false;
-                this.columncompany_name.MaxLength = 150;
-                this.columncompany_registration_no.AllowDBNull = false;
-                this.columncompany_registration_no.MaxLength = 20;
-                this.columncompany_address.AllowDBNull = false;
-                this.columncompany_address.MaxLength = 255;
-                this.columncompany_tel_no.AllowDBNull = false;
-                this.columncompany_tel_no.MaxLength = 50;
-                this.columncompany_fax_no.AllowDBNull = false;
-                this.columncompany_fax_no.MaxLength = 50;
-                this.columncompany_email.AllowDBNull = false;
-                this.columncompany_email.MaxLength = 100;
-                this.columnreference_no.ReadOnly = true;
-                this.columnreference_no.MaxLength = 35;
-                this.columncustomer_name_short.ReadOnly = true;
-                this.columncustomer_name_short.MaxLength = 100;
-                this.columncustomer_name_long.ReadOnly = true;
-                this.columncustomer_name_long.MaxLength = 122;
-                this.columncustomer_registration_no.ReadOnly = true;
-                this.columncustomer_registration_no.MaxLength = 20;
-                this.columncustomer_registration_no_with_text.ReadOnly = true;
-                this.columncustomer_registration_no_with_text.MaxLength = 30;
-                this.columncustomer_address.ReadOnly = true;
-                this.columncustomer_address.MaxLength = 200;
-                this.columnchassis_no.AllowDBNull = false;
-                this.columnchassis_no.MaxLength = 20;
-                this.columnvehicle_brand_name.AllowDBNull = false;
-                this.columnvehicle_brand_name.MaxLength = 20;
-                this.columnvehicle_group_name.AllowDBNull = false;
-                this.columnvehicle_group_name.MaxLength = 50;
-                this.columnvehicle_model_name.AllowDBNull = false;
-                this.columnvehicle_model_name.MaxLength = 50;
-                this.columncolour_name.AllowDBNull = false;
-                this.columncolour_name.MaxLength = 20;
-                this.columnyear_make.AllowDBNull = false;
-                this.columnregistration_date.AllowDBNull = false;
-                this.columnregistration_no.AllowDBNull = false;
-                this.columnregistration_no.MaxLength = 10;
-                this.columninvoice_no.AllowDBNull = false;
-                this.columninvoice_no.MaxLength = 20;
-                this.columnpurchase_date.AllowDBNull = false;
-                this.columndate_received.AllowDBNull = false;
-                this.columnsettlement_date.AllowDBNull = false;
-                this.columnengine_no.AllowDBNull = false;
-                this.columnengine_no.MaxLength = 20;
-                this.columnengine_cc.AllowDBNull = false;
-                this.columnroad_tax.AllowDBNull = false;
-                this.columnpurchase_price.AllowDBNull = false;
-                this.columnovertrade.AllowDBNull = false;
-                this.columnnet_purchase.ReadOnly = true;
-                this.columntotal_expenses.ReadOnly = true;
-                this.columntotal_cost.ReadOnly = true;
-                this.columnbalance_to_pay.ReadOnly = true;
-                this.columnmax_can_loan.AllowDBNull = false;
-                this.columnloan_sentence.ReadOnly = true;
-                this.columnloan_sentence.MaxLength = 226;
-                this.columnloan_balance.AllowDBNull = false;
-                this.columnloan_installment_amount.AllowDBNull = false;
-                this.columnloan_branch_name.MaxLength = 20;
-                this.columnloan_org_name.MaxLength = 100;
-                this.columnloan_address.MaxLength = 200;
-                this.columnloan_installment_day_of_month.AllowDBNull = false;
-                this.columnloan_settlement_date.AllowDBNull = false;
-                this.columnloan_agreement_no.AllowDBNull = false;
-                this.columnloan_agreement_no.MaxLength = 30;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_vehicle_incoming_docRow Newsp_vehicle_incoming_docRow() {
-                return ((sp_vehicle_incoming_docRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new sp_vehicle_incoming_docRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(sp_vehicle_incoming_docRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.sp_vehicle_incoming_docRowChanged != null)) {
-                    this.sp_vehicle_incoming_docRowChanged(this, new sp_vehicle_incoming_docRowChangeEvent(((sp_vehicle_incoming_docRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.sp_vehicle_incoming_docRowChanging != null)) {
-                    this.sp_vehicle_incoming_docRowChanging(this, new sp_vehicle_incoming_docRowChangeEvent(((sp_vehicle_incoming_docRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.sp_vehicle_incoming_docRowDeleted != null)) {
-                    this.sp_vehicle_incoming_docRowDeleted(this, new sp_vehicle_incoming_docRowChangeEvent(((sp_vehicle_incoming_docRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.sp_vehicle_incoming_docRowDeleting != null)) {
-                    this.sp_vehicle_incoming_docRowDeleting(this, new sp_vehicle_incoming_docRowChangeEvent(((sp_vehicle_incoming_docRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Removesp_vehicle_incoming_docRow(sp_vehicle_incoming_docRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Vehicle_ds ds = new Vehicle_ds();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "sp_vehicle_incoming_docDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void sp_vehicle_incoming_docRowChangeEventHandler(object sender, sp_vehicle_incoming_docRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -3739,770 +2781,989 @@ namespace VehicleDealership.Datasets {
         }
         
         /// <summary>
-        ///Represents strongly named DataRow class.
+        ///Represents the strongly named DataTable class.
         ///</summary>
-        public partial class sp_vehicle_incoming_docRow : global::System.Data.DataRow {
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class sp_vehicle_incoming_docDataTable : global::System.Data.TypedTableBase<sp_vehicle_incoming_docRow> {
             
-            private sp_vehicle_incoming_docDataTable tablesp_vehicle_incoming_doc;
+            private global::System.Data.DataColumn columnvehicle;
+            
+            private global::System.Data.DataColumn columncompany_name;
+            
+            private global::System.Data.DataColumn columncompany_registration_no;
+            
+            private global::System.Data.DataColumn columncompany_address;
+            
+            private global::System.Data.DataColumn columncompany_tel_no;
+            
+            private global::System.Data.DataColumn columncompany_fax_no;
+            
+            private global::System.Data.DataColumn columncompany_email;
+            
+            private global::System.Data.DataColumn columnreference_no;
+            
+            private global::System.Data.DataColumn columncustomer_name_short;
+            
+            private global::System.Data.DataColumn columncustomer_name_long;
+            
+            private global::System.Data.DataColumn columncustomer_registration_no;
+            
+            private global::System.Data.DataColumn columncustomer_registration_no_with_text;
+            
+            private global::System.Data.DataColumn columncustomer_address;
+            
+            private global::System.Data.DataColumn columnchassis_no;
+            
+            private global::System.Data.DataColumn columnvehicle_brand_name;
+            
+            private global::System.Data.DataColumn columnvehicle_group_name;
+            
+            private global::System.Data.DataColumn columnvehicle_model_name;
+            
+            private global::System.Data.DataColumn columncolour_name;
+            
+            private global::System.Data.DataColumn columnyear_make;
+            
+            private global::System.Data.DataColumn columnregistration_date;
+            
+            private global::System.Data.DataColumn columnregistration_no;
+            
+            private global::System.Data.DataColumn columninvoice_no;
+            
+            private global::System.Data.DataColumn columnpurchase_date;
+            
+            private global::System.Data.DataColumn columndate_received;
+            
+            private global::System.Data.DataColumn columnsettlement_date;
+            
+            private global::System.Data.DataColumn columnengine_no;
+            
+            private global::System.Data.DataColumn columnengine_cc;
+            
+            private global::System.Data.DataColumn columnroad_tax;
+            
+            private global::System.Data.DataColumn columnroad_tax_expiry_date;
+            
+            private global::System.Data.DataColumn columnpurchase_price;
+            
+            private global::System.Data.DataColumn columnovertrade;
+            
+            private global::System.Data.DataColumn columnnet_purchase;
+            
+            private global::System.Data.DataColumn columntotal_expenses;
+            
+            private global::System.Data.DataColumn columntotal_cost;
+            
+            private global::System.Data.DataColumn columnbalance_to_pay;
+            
+            private global::System.Data.DataColumn columnmax_can_loan;
+            
+            private global::System.Data.DataColumn columnloan_sentence;
+            
+            private global::System.Data.DataColumn columnloan_balance;
+            
+            private global::System.Data.DataColumn columnloan_installment_amount;
+            
+            private global::System.Data.DataColumn columnloan_branch_name;
+            
+            private global::System.Data.DataColumn columnloan_org_name;
+            
+            private global::System.Data.DataColumn columnloan_address;
+            
+            private global::System.Data.DataColumn columnloan_installment_day_of_month;
+            
+            private global::System.Data.DataColumn columnloan_settlement_date;
+            
+            private global::System.Data.DataColumn columnloan_agreement_no;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal sp_vehicle_incoming_docRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablesp_vehicle_incoming_doc = ((sp_vehicle_incoming_docDataTable)(this.Table));
+            public sp_vehicle_incoming_docDataTable() {
+                this.TableName = "sp_vehicle_incoming_doc";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string company_name {
-                get {
-                    return ((string)(this[this.tablesp_vehicle_incoming_doc.company_nameColumn]));
+            internal sp_vehicle_incoming_docDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
                 }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.company_nameColumn] = value;
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected sp_vehicle_incoming_docDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn vehicleColumn {
+                get {
+                    return this.columnvehicle;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string company_registration_no {
+            public global::System.Data.DataColumn company_nameColumn {
                 get {
-                    return ((string)(this[this.tablesp_vehicle_incoming_doc.company_registration_noColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.company_registration_noColumn] = value;
+                    return this.columncompany_name;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string company_address {
+            public global::System.Data.DataColumn company_registration_noColumn {
                 get {
-                    return ((string)(this[this.tablesp_vehicle_incoming_doc.company_addressColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.company_addressColumn] = value;
+                    return this.columncompany_registration_no;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string company_tel_no {
+            public global::System.Data.DataColumn company_addressColumn {
                 get {
-                    return ((string)(this[this.tablesp_vehicle_incoming_doc.company_tel_noColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.company_tel_noColumn] = value;
+                    return this.columncompany_address;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string company_fax_no {
+            public global::System.Data.DataColumn company_tel_noColumn {
                 get {
-                    return ((string)(this[this.tablesp_vehicle_incoming_doc.company_fax_noColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.company_fax_noColumn] = value;
+                    return this.columncompany_tel_no;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string company_email {
+            public global::System.Data.DataColumn company_fax_noColumn {
                 get {
-                    return ((string)(this[this.tablesp_vehicle_incoming_doc.company_emailColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.company_emailColumn] = value;
+                    return this.columncompany_fax_no;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string reference_no {
+            public global::System.Data.DataColumn company_emailColumn {
                 get {
+                    return this.columncompany_email;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn reference_noColumn {
+                get {
+                    return this.columnreference_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn customer_name_shortColumn {
+                get {
+                    return this.columncustomer_name_short;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn customer_name_longColumn {
+                get {
+                    return this.columncustomer_name_long;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn customer_registration_noColumn {
+                get {
+                    return this.columncustomer_registration_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn customer_registration_no_with_textColumn {
+                get {
+                    return this.columncustomer_registration_no_with_text;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn customer_addressColumn {
+                get {
+                    return this.columncustomer_address;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn chassis_noColumn {
+                get {
+                    return this.columnchassis_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn vehicle_brand_nameColumn {
+                get {
+                    return this.columnvehicle_brand_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn vehicle_group_nameColumn {
+                get {
+                    return this.columnvehicle_group_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn vehicle_model_nameColumn {
+                get {
+                    return this.columnvehicle_model_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn colour_nameColumn {
+                get {
+                    return this.columncolour_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn year_makeColumn {
+                get {
+                    return this.columnyear_make;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn registration_dateColumn {
+                get {
+                    return this.columnregistration_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn registration_noColumn {
+                get {
+                    return this.columnregistration_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn invoice_noColumn {
+                get {
+                    return this.columninvoice_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn purchase_dateColumn {
+                get {
+                    return this.columnpurchase_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn date_receivedColumn {
+                get {
+                    return this.columndate_received;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn settlement_dateColumn {
+                get {
+                    return this.columnsettlement_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn engine_noColumn {
+                get {
+                    return this.columnengine_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn engine_ccColumn {
+                get {
+                    return this.columnengine_cc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn road_taxColumn {
+                get {
+                    return this.columnroad_tax;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn road_tax_expiry_dateColumn {
+                get {
+                    return this.columnroad_tax_expiry_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn purchase_priceColumn {
+                get {
+                    return this.columnpurchase_price;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn overtradeColumn {
+                get {
+                    return this.columnovertrade;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn net_purchaseColumn {
+                get {
+                    return this.columnnet_purchase;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn total_expensesColumn {
+                get {
+                    return this.columntotal_expenses;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn total_costColumn {
+                get {
+                    return this.columntotal_cost;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn balance_to_payColumn {
+                get {
+                    return this.columnbalance_to_pay;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn max_can_loanColumn {
+                get {
+                    return this.columnmax_can_loan;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn loan_sentenceColumn {
+                get {
+                    return this.columnloan_sentence;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn loan_balanceColumn {
+                get {
+                    return this.columnloan_balance;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn loan_installment_amountColumn {
+                get {
+                    return this.columnloan_installment_amount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn loan_branch_nameColumn {
+                get {
+                    return this.columnloan_branch_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn loan_org_nameColumn {
+                get {
+                    return this.columnloan_org_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn loan_addressColumn {
+                get {
+                    return this.columnloan_address;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn loan_installment_day_of_monthColumn {
+                get {
+                    return this.columnloan_installment_day_of_month;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn loan_settlement_dateColumn {
+                get {
+                    return this.columnloan_settlement_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn loan_agreement_noColumn {
+                get {
+                    return this.columnloan_agreement_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public sp_vehicle_incoming_docRow this[int index] {
+                get {
+                    return ((sp_vehicle_incoming_docRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event sp_vehicle_incoming_docRowChangeEventHandler sp_vehicle_incoming_docRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event sp_vehicle_incoming_docRowChangeEventHandler sp_vehicle_incoming_docRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event sp_vehicle_incoming_docRowChangeEventHandler sp_vehicle_incoming_docRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event sp_vehicle_incoming_docRowChangeEventHandler sp_vehicle_incoming_docRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Addsp_vehicle_incoming_docRow(sp_vehicle_incoming_docRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public sp_vehicle_incoming_docRow Addsp_vehicle_incoming_docRow(
+                        string company_name, 
+                        string company_registration_no, 
+                        string company_address, 
+                        string company_tel_no, 
+                        string company_fax_no, 
+                        string company_email, 
+                        string reference_no, 
+                        string customer_name_short, 
+                        string customer_name_long, 
+                        string customer_registration_no, 
+                        string customer_registration_no_with_text, 
+                        string customer_address, 
+                        string chassis_no, 
+                        string vehicle_brand_name, 
+                        string vehicle_group_name, 
+                        string vehicle_model_name, 
+                        string colour_name, 
+                        short year_make, 
+                        System.DateTime registration_date, 
+                        string registration_no, 
+                        string invoice_no, 
+                        System.DateTime purchase_date, 
+                        System.DateTime date_received, 
+                        System.DateTime settlement_date, 
+                        string engine_no, 
+                        int engine_cc, 
+                        decimal road_tax, 
+                        System.DateTime road_tax_expiry_date, 
+                        decimal purchase_price, 
+                        decimal overtrade, 
+                        decimal net_purchase, 
+                        decimal total_expenses, 
+                        decimal total_cost, 
+                        decimal balance_to_pay, 
+                        decimal max_can_loan, 
+                        string loan_sentence, 
+                        decimal loan_balance, 
+                        decimal loan_installment_amount, 
+                        string loan_branch_name, 
+                        string loan_org_name, 
+                        string loan_address, 
+                        byte loan_installment_day_of_month, 
+                        System.DateTime loan_settlement_date, 
+                        string loan_agreement_no) {
+                sp_vehicle_incoming_docRow rowsp_vehicle_incoming_docRow = ((sp_vehicle_incoming_docRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        company_name,
+                        company_registration_no,
+                        company_address,
+                        company_tel_no,
+                        company_fax_no,
+                        company_email,
+                        reference_no,
+                        customer_name_short,
+                        customer_name_long,
+                        customer_registration_no,
+                        customer_registration_no_with_text,
+                        customer_address,
+                        chassis_no,
+                        vehicle_brand_name,
+                        vehicle_group_name,
+                        vehicle_model_name,
+                        colour_name,
+                        year_make,
+                        registration_date,
+                        registration_no,
+                        invoice_no,
+                        purchase_date,
+                        date_received,
+                        settlement_date,
+                        engine_no,
+                        engine_cc,
+                        road_tax,
+                        road_tax_expiry_date,
+                        purchase_price,
+                        overtrade,
+                        net_purchase,
+                        total_expenses,
+                        total_cost,
+                        balance_to_pay,
+                        max_can_loan,
+                        loan_sentence,
+                        loan_balance,
+                        loan_installment_amount,
+                        loan_branch_name,
+                        loan_org_name,
+                        loan_address,
+                        loan_installment_day_of_month,
+                        loan_settlement_date,
+                        loan_agreement_no};
+                rowsp_vehicle_incoming_docRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowsp_vehicle_incoming_docRow);
+                return rowsp_vehicle_incoming_docRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public sp_vehicle_incoming_docRow FindByvehicle(int vehicle) {
+                return ((sp_vehicle_incoming_docRow)(this.Rows.Find(new object[] {
+                            vehicle})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                sp_vehicle_incoming_docDataTable cln = ((sp_vehicle_incoming_docDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new sp_vehicle_incoming_docDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnvehicle = base.Columns["vehicle"];
+                this.columncompany_name = base.Columns["company_name"];
+                this.columncompany_registration_no = base.Columns["company_registration_no"];
+                this.columncompany_address = base.Columns["company_address"];
+                this.columncompany_tel_no = base.Columns["company_tel_no"];
+                this.columncompany_fax_no = base.Columns["company_fax_no"];
+                this.columncompany_email = base.Columns["company_email"];
+                this.columnreference_no = base.Columns["reference_no"];
+                this.columncustomer_name_short = base.Columns["customer_name_short"];
+                this.columncustomer_name_long = base.Columns["customer_name_long"];
+                this.columncustomer_registration_no = base.Columns["customer_registration_no"];
+                this.columncustomer_registration_no_with_text = base.Columns["customer_registration_no_with_text"];
+                this.columncustomer_address = base.Columns["customer_address"];
+                this.columnchassis_no = base.Columns["chassis_no"];
+                this.columnvehicle_brand_name = base.Columns["vehicle_brand_name"];
+                this.columnvehicle_group_name = base.Columns["vehicle_group_name"];
+                this.columnvehicle_model_name = base.Columns["vehicle_model_name"];
+                this.columncolour_name = base.Columns["colour_name"];
+                this.columnyear_make = base.Columns["year_make"];
+                this.columnregistration_date = base.Columns["registration_date"];
+                this.columnregistration_no = base.Columns["registration_no"];
+                this.columninvoice_no = base.Columns["invoice_no"];
+                this.columnpurchase_date = base.Columns["purchase_date"];
+                this.columndate_received = base.Columns["date_received"];
+                this.columnsettlement_date = base.Columns["settlement_date"];
+                this.columnengine_no = base.Columns["engine_no"];
+                this.columnengine_cc = base.Columns["engine_cc"];
+                this.columnroad_tax = base.Columns["road_tax"];
+                this.columnroad_tax_expiry_date = base.Columns["road_tax_expiry_date"];
+                this.columnpurchase_price = base.Columns["purchase_price"];
+                this.columnovertrade = base.Columns["overtrade"];
+                this.columnnet_purchase = base.Columns["net_purchase"];
+                this.columntotal_expenses = base.Columns["total_expenses"];
+                this.columntotal_cost = base.Columns["total_cost"];
+                this.columnbalance_to_pay = base.Columns["balance_to_pay"];
+                this.columnmax_can_loan = base.Columns["max_can_loan"];
+                this.columnloan_sentence = base.Columns["loan_sentence"];
+                this.columnloan_balance = base.Columns["loan_balance"];
+                this.columnloan_installment_amount = base.Columns["loan_installment_amount"];
+                this.columnloan_branch_name = base.Columns["loan_branch_name"];
+                this.columnloan_org_name = base.Columns["loan_org_name"];
+                this.columnloan_address = base.Columns["loan_address"];
+                this.columnloan_installment_day_of_month = base.Columns["loan_installment_day_of_month"];
+                this.columnloan_settlement_date = base.Columns["loan_settlement_date"];
+                this.columnloan_agreement_no = base.Columns["loan_agreement_no"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnvehicle = new global::System.Data.DataColumn("vehicle", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvehicle);
+                this.columncompany_name = new global::System.Data.DataColumn("company_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncompany_name);
+                this.columncompany_registration_no = new global::System.Data.DataColumn("company_registration_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncompany_registration_no);
+                this.columncompany_address = new global::System.Data.DataColumn("company_address", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncompany_address);
+                this.columncompany_tel_no = new global::System.Data.DataColumn("company_tel_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncompany_tel_no);
+                this.columncompany_fax_no = new global::System.Data.DataColumn("company_fax_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncompany_fax_no);
+                this.columncompany_email = new global::System.Data.DataColumn("company_email", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncompany_email);
+                this.columnreference_no = new global::System.Data.DataColumn("reference_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnreference_no);
+                this.columncustomer_name_short = new global::System.Data.DataColumn("customer_name_short", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncustomer_name_short);
+                this.columncustomer_name_long = new global::System.Data.DataColumn("customer_name_long", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncustomer_name_long);
+                this.columncustomer_registration_no = new global::System.Data.DataColumn("customer_registration_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncustomer_registration_no);
+                this.columncustomer_registration_no_with_text = new global::System.Data.DataColumn("customer_registration_no_with_text", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncustomer_registration_no_with_text);
+                this.columncustomer_address = new global::System.Data.DataColumn("customer_address", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncustomer_address);
+                this.columnchassis_no = new global::System.Data.DataColumn("chassis_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnchassis_no);
+                this.columnvehicle_brand_name = new global::System.Data.DataColumn("vehicle_brand_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvehicle_brand_name);
+                this.columnvehicle_group_name = new global::System.Data.DataColumn("vehicle_group_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvehicle_group_name);
+                this.columnvehicle_model_name = new global::System.Data.DataColumn("vehicle_model_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvehicle_model_name);
+                this.columncolour_name = new global::System.Data.DataColumn("colour_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncolour_name);
+                this.columnyear_make = new global::System.Data.DataColumn("year_make", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnyear_make);
+                this.columnregistration_date = new global::System.Data.DataColumn("registration_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnregistration_date);
+                this.columnregistration_no = new global::System.Data.DataColumn("registration_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnregistration_no);
+                this.columninvoice_no = new global::System.Data.DataColumn("invoice_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columninvoice_no);
+                this.columnpurchase_date = new global::System.Data.DataColumn("purchase_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpurchase_date);
+                this.columndate_received = new global::System.Data.DataColumn("date_received", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndate_received);
+                this.columnsettlement_date = new global::System.Data.DataColumn("settlement_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsettlement_date);
+                this.columnengine_no = new global::System.Data.DataColumn("engine_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnengine_no);
+                this.columnengine_cc = new global::System.Data.DataColumn("engine_cc", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnengine_cc);
+                this.columnroad_tax = new global::System.Data.DataColumn("road_tax", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnroad_tax);
+                this.columnroad_tax_expiry_date = new global::System.Data.DataColumn("road_tax_expiry_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnroad_tax_expiry_date);
+                this.columnpurchase_price = new global::System.Data.DataColumn("purchase_price", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpurchase_price);
+                this.columnovertrade = new global::System.Data.DataColumn("overtrade", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnovertrade);
+                this.columnnet_purchase = new global::System.Data.DataColumn("net_purchase", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnet_purchase);
+                this.columntotal_expenses = new global::System.Data.DataColumn("total_expenses", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotal_expenses);
+                this.columntotal_cost = new global::System.Data.DataColumn("total_cost", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotal_cost);
+                this.columnbalance_to_pay = new global::System.Data.DataColumn("balance_to_pay", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbalance_to_pay);
+                this.columnmax_can_loan = new global::System.Data.DataColumn("max_can_loan", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmax_can_loan);
+                this.columnloan_sentence = new global::System.Data.DataColumn("loan_sentence", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnloan_sentence);
+                this.columnloan_balance = new global::System.Data.DataColumn("loan_balance", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnloan_balance);
+                this.columnloan_installment_amount = new global::System.Data.DataColumn("loan_installment_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnloan_installment_amount);
+                this.columnloan_branch_name = new global::System.Data.DataColumn("loan_branch_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnloan_branch_name);
+                this.columnloan_org_name = new global::System.Data.DataColumn("loan_org_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnloan_org_name);
+                this.columnloan_address = new global::System.Data.DataColumn("loan_address", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnloan_address);
+                this.columnloan_installment_day_of_month = new global::System.Data.DataColumn("loan_installment_day_of_month", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnloan_installment_day_of_month);
+                this.columnloan_settlement_date = new global::System.Data.DataColumn("loan_settlement_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnloan_settlement_date);
+                this.columnloan_agreement_no = new global::System.Data.DataColumn("loan_agreement_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnloan_agreement_no);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnvehicle}, true));
+                this.columnvehicle.AutoIncrement = true;
+                this.columnvehicle.AutoIncrementSeed = -1;
+                this.columnvehicle.AutoIncrementStep = -1;
+                this.columnvehicle.AllowDBNull = false;
+                this.columnvehicle.ReadOnly = true;
+                this.columnvehicle.Unique = true;
+                this.columncompany_name.AllowDBNull = false;
+                this.columncompany_name.MaxLength = 150;
+                this.columncompany_registration_no.AllowDBNull = false;
+                this.columncompany_registration_no.MaxLength = 20;
+                this.columncompany_address.AllowDBNull = false;
+                this.columncompany_address.MaxLength = 255;
+                this.columncompany_tel_no.AllowDBNull = false;
+                this.columncompany_tel_no.MaxLength = 50;
+                this.columncompany_fax_no.AllowDBNull = false;
+                this.columncompany_fax_no.MaxLength = 50;
+                this.columncompany_email.AllowDBNull = false;
+                this.columncompany_email.MaxLength = 100;
+                this.columnreference_no.ReadOnly = true;
+                this.columnreference_no.MaxLength = 35;
+                this.columncustomer_name_short.ReadOnly = true;
+                this.columncustomer_name_short.MaxLength = 100;
+                this.columncustomer_name_long.ReadOnly = true;
+                this.columncustomer_name_long.MaxLength = 122;
+                this.columncustomer_registration_no.ReadOnly = true;
+                this.columncustomer_registration_no.MaxLength = 20;
+                this.columncustomer_registration_no_with_text.ReadOnly = true;
+                this.columncustomer_registration_no_with_text.MaxLength = 30;
+                this.columncustomer_address.ReadOnly = true;
+                this.columncustomer_address.MaxLength = 200;
+                this.columnchassis_no.AllowDBNull = false;
+                this.columnchassis_no.MaxLength = 20;
+                this.columnvehicle_brand_name.AllowDBNull = false;
+                this.columnvehicle_brand_name.MaxLength = 20;
+                this.columnvehicle_group_name.AllowDBNull = false;
+                this.columnvehicle_group_name.MaxLength = 50;
+                this.columnvehicle_model_name.AllowDBNull = false;
+                this.columnvehicle_model_name.MaxLength = 50;
+                this.columncolour_name.AllowDBNull = false;
+                this.columncolour_name.MaxLength = 20;
+                this.columnyear_make.AllowDBNull = false;
+                this.columnregistration_date.AllowDBNull = false;
+                this.columnregistration_no.AllowDBNull = false;
+                this.columnregistration_no.MaxLength = 10;
+                this.columninvoice_no.AllowDBNull = false;
+                this.columninvoice_no.MaxLength = 20;
+                this.columnpurchase_date.AllowDBNull = false;
+                this.columndate_received.AllowDBNull = false;
+                this.columnsettlement_date.AllowDBNull = false;
+                this.columnengine_no.AllowDBNull = false;
+                this.columnengine_no.MaxLength = 20;
+                this.columnengine_cc.AllowDBNull = false;
+                this.columnroad_tax.AllowDBNull = false;
+                this.columnpurchase_price.AllowDBNull = false;
+                this.columnovertrade.AllowDBNull = false;
+                this.columnnet_purchase.ReadOnly = true;
+                this.columntotal_expenses.ReadOnly = true;
+                this.columntotal_cost.ReadOnly = true;
+                this.columnbalance_to_pay.ReadOnly = true;
+                this.columnmax_can_loan.AllowDBNull = false;
+                this.columnloan_sentence.ReadOnly = true;
+                this.columnloan_sentence.MaxLength = 226;
+                this.columnloan_balance.AllowDBNull = false;
+                this.columnloan_installment_amount.AllowDBNull = false;
+                this.columnloan_branch_name.MaxLength = 20;
+                this.columnloan_org_name.MaxLength = 100;
+                this.columnloan_address.MaxLength = 200;
+                this.columnloan_installment_day_of_month.AllowDBNull = false;
+                this.columnloan_settlement_date.AllowDBNull = false;
+                this.columnloan_agreement_no.AllowDBNull = false;
+                this.columnloan_agreement_no.MaxLength = 30;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public sp_vehicle_incoming_docRow Newsp_vehicle_incoming_docRow() {
+                return ((sp_vehicle_incoming_docRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new sp_vehicle_incoming_docRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(sp_vehicle_incoming_docRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.sp_vehicle_incoming_docRowChanged != null)) {
+                    this.sp_vehicle_incoming_docRowChanged(this, new sp_vehicle_incoming_docRowChangeEvent(((sp_vehicle_incoming_docRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.sp_vehicle_incoming_docRowChanging != null)) {
+                    this.sp_vehicle_incoming_docRowChanging(this, new sp_vehicle_incoming_docRowChangeEvent(((sp_vehicle_incoming_docRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.sp_vehicle_incoming_docRowDeleted != null)) {
+                    this.sp_vehicle_incoming_docRowDeleted(this, new sp_vehicle_incoming_docRowChangeEvent(((sp_vehicle_incoming_docRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.sp_vehicle_incoming_docRowDeleting != null)) {
+                    this.sp_vehicle_incoming_docRowDeleting(this, new sp_vehicle_incoming_docRowChangeEvent(((sp_vehicle_incoming_docRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Removesp_vehicle_incoming_docRow(sp_vehicle_incoming_docRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                Vehicle_ds ds = new Vehicle_ds();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "sp_vehicle_incoming_docDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
                     try {
-                        return ((string)(this[this.tablesp_vehicle_incoming_doc.reference_noColumn]));
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'reference_no\' in table \'sp_vehicle_incoming_doc\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.reference_noColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string customer_name_short {
-                get {
-                    try {
-                        return ((string)(this[this.tablesp_vehicle_incoming_doc.customer_name_shortColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'customer_name_short\' in table \'sp_vehicle_incoming_doc\' is " +
-                                "DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.customer_name_shortColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string customer_name_long {
-                get {
-                    try {
-                        return ((string)(this[this.tablesp_vehicle_incoming_doc.customer_name_longColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'customer_name_long\' in table \'sp_vehicle_incoming_doc\' is D" +
-                                "BNull.", e);
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
                     }
                 }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.customer_name_longColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string customer_registration_no {
-                get {
-                    try {
-                        return ((string)(this[this.tablesp_vehicle_incoming_doc.customer_registration_noColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'customer_registration_no\' in table \'sp_vehicle_incoming_doc" +
-                                "\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.customer_registration_noColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string customer_registration_no_with_text {
-                get {
-                    try {
-                        return ((string)(this[this.tablesp_vehicle_incoming_doc.customer_registration_no_with_textColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'customer_registration_no_with_text\' in table \'sp_vehicle_in" +
-                                "coming_doc\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.customer_registration_no_with_textColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string customer_address {
-                get {
-                    try {
-                        return ((string)(this[this.tablesp_vehicle_incoming_doc.customer_addressColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'customer_address\' in table \'sp_vehicle_incoming_doc\' is DBN" +
-                                "ull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.customer_addressColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string chassis_no {
-                get {
-                    return ((string)(this[this.tablesp_vehicle_incoming_doc.chassis_noColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.chassis_noColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string vehicle_brand_name {
-                get {
-                    return ((string)(this[this.tablesp_vehicle_incoming_doc.vehicle_brand_nameColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.vehicle_brand_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string vehicle_group_name {
-                get {
-                    return ((string)(this[this.tablesp_vehicle_incoming_doc.vehicle_group_nameColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.vehicle_group_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string vehicle_model_name {
-                get {
-                    return ((string)(this[this.tablesp_vehicle_incoming_doc.vehicle_model_nameColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.vehicle_model_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string colour_name {
-                get {
-                    return ((string)(this[this.tablesp_vehicle_incoming_doc.colour_nameColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.colour_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public short year_make {
-                get {
-                    return ((short)(this[this.tablesp_vehicle_incoming_doc.year_makeColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.year_makeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime registration_date {
-                get {
-                    return ((global::System.DateTime)(this[this.tablesp_vehicle_incoming_doc.registration_dateColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.registration_dateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string registration_no {
-                get {
-                    return ((string)(this[this.tablesp_vehicle_incoming_doc.registration_noColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.registration_noColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string invoice_no {
-                get {
-                    return ((string)(this[this.tablesp_vehicle_incoming_doc.invoice_noColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.invoice_noColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime purchase_date {
-                get {
-                    return ((global::System.DateTime)(this[this.tablesp_vehicle_incoming_doc.purchase_dateColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.purchase_dateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime date_received {
-                get {
-                    return ((global::System.DateTime)(this[this.tablesp_vehicle_incoming_doc.date_receivedColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.date_receivedColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime settlement_date {
-                get {
-                    return ((global::System.DateTime)(this[this.tablesp_vehicle_incoming_doc.settlement_dateColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.settlement_dateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string engine_no {
-                get {
-                    return ((string)(this[this.tablesp_vehicle_incoming_doc.engine_noColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.engine_noColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int engine_cc {
-                get {
-                    return ((int)(this[this.tablesp_vehicle_incoming_doc.engine_ccColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.engine_ccColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal road_tax {
-                get {
-                    return ((decimal)(this[this.tablesp_vehicle_incoming_doc.road_taxColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.road_taxColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime road_tax_expiry_date {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tablesp_vehicle_incoming_doc.road_tax_expiry_dateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'road_tax_expiry_date\' in table \'sp_vehicle_incoming_doc\' is" +
-                                " DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.road_tax_expiry_dateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal purchase_price {
-                get {
-                    return ((decimal)(this[this.tablesp_vehicle_incoming_doc.purchase_priceColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.purchase_priceColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal overtrade {
-                get {
-                    return ((decimal)(this[this.tablesp_vehicle_incoming_doc.overtradeColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.overtradeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal net_purchase {
-                get {
-                    try {
-                        return ((decimal)(this[this.tablesp_vehicle_incoming_doc.net_purchaseColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'net_purchase\' in table \'sp_vehicle_incoming_doc\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.net_purchaseColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal total_expenses {
-                get {
-                    try {
-                        return ((decimal)(this[this.tablesp_vehicle_incoming_doc.total_expensesColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'total_expenses\' in table \'sp_vehicle_incoming_doc\' is DBNul" +
-                                "l.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.total_expensesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal total_cost {
-                get {
-                    try {
-                        return ((decimal)(this[this.tablesp_vehicle_incoming_doc.total_costColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'total_cost\' in table \'sp_vehicle_incoming_doc\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.total_costColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal balance_to_pay {
-                get {
-                    try {
-                        return ((decimal)(this[this.tablesp_vehicle_incoming_doc.balance_to_payColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'balance_to_pay\' in table \'sp_vehicle_incoming_doc\' is DBNul" +
-                                "l.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.balance_to_payColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal max_can_loan {
-                get {
-                    return ((decimal)(this[this.tablesp_vehicle_incoming_doc.max_can_loanColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.max_can_loanColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string loan_sentence {
-                get {
-                    try {
-                        return ((string)(this[this.tablesp_vehicle_incoming_doc.loan_sentenceColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'loan_sentence\' in table \'sp_vehicle_incoming_doc\' is DBNull" +
-                                ".", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.loan_sentenceColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal loan_balance {
-                get {
-                    return ((decimal)(this[this.tablesp_vehicle_incoming_doc.loan_balanceColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.loan_balanceColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal loan_installment_amount {
-                get {
-                    return ((decimal)(this[this.tablesp_vehicle_incoming_doc.loan_installment_amountColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.loan_installment_amountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string loan_branch_name {
-                get {
-                    try {
-                        return ((string)(this[this.tablesp_vehicle_incoming_doc.loan_branch_nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'loan_branch_name\' in table \'sp_vehicle_incoming_doc\' is DBN" +
-                                "ull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.loan_branch_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string loan_org_name {
-                get {
-                    try {
-                        return ((string)(this[this.tablesp_vehicle_incoming_doc.loan_org_nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'loan_org_name\' in table \'sp_vehicle_incoming_doc\' is DBNull" +
-                                ".", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.loan_org_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string loan_address {
-                get {
-                    try {
-                        return ((string)(this[this.tablesp_vehicle_incoming_doc.loan_addressColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'loan_address\' in table \'sp_vehicle_incoming_doc\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.loan_addressColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public byte loan_installment_day_of_month {
-                get {
-                    return ((byte)(this[this.tablesp_vehicle_incoming_doc.loan_installment_day_of_monthColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.loan_installment_day_of_monthColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime loan_settlement_date {
-                get {
-                    return ((global::System.DateTime)(this[this.tablesp_vehicle_incoming_doc.loan_settlement_dateColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.loan_settlement_dateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string loan_agreement_no {
-                get {
-                    return ((string)(this[this.tablesp_vehicle_incoming_doc.loan_agreement_noColumn]));
-                }
-                set {
-                    this[this.tablesp_vehicle_incoming_doc.loan_agreement_noColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isreference_noNull() {
-                return this.IsNull(this.tablesp_vehicle_incoming_doc.reference_noColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setreference_noNull() {
-                this[this.tablesp_vehicle_incoming_doc.reference_noColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Iscustomer_name_shortNull() {
-                return this.IsNull(this.tablesp_vehicle_incoming_doc.customer_name_shortColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setcustomer_name_shortNull() {
-                this[this.tablesp_vehicle_incoming_doc.customer_name_shortColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Iscustomer_name_longNull() {
-                return this.IsNull(this.tablesp_vehicle_incoming_doc.customer_name_longColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setcustomer_name_longNull() {
-                this[this.tablesp_vehicle_incoming_doc.customer_name_longColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Iscustomer_registration_noNull() {
-                return this.IsNull(this.tablesp_vehicle_incoming_doc.customer_registration_noColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setcustomer_registration_noNull() {
-                this[this.tablesp_vehicle_incoming_doc.customer_registration_noColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Iscustomer_registration_no_with_textNull() {
-                return this.IsNull(this.tablesp_vehicle_incoming_doc.customer_registration_no_with_textColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setcustomer_registration_no_with_textNull() {
-                this[this.tablesp_vehicle_incoming_doc.customer_registration_no_with_textColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Iscustomer_addressNull() {
-                return this.IsNull(this.tablesp_vehicle_incoming_doc.customer_addressColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setcustomer_addressNull() {
-                this[this.tablesp_vehicle_incoming_doc.customer_addressColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isroad_tax_expiry_dateNull() {
-                return this.IsNull(this.tablesp_vehicle_incoming_doc.road_tax_expiry_dateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setroad_tax_expiry_dateNull() {
-                this[this.tablesp_vehicle_incoming_doc.road_tax_expiry_dateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isnet_purchaseNull() {
-                return this.IsNull(this.tablesp_vehicle_incoming_doc.net_purchaseColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setnet_purchaseNull() {
-                this[this.tablesp_vehicle_incoming_doc.net_purchaseColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Istotal_expensesNull() {
-                return this.IsNull(this.tablesp_vehicle_incoming_doc.total_expensesColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Settotal_expensesNull() {
-                this[this.tablesp_vehicle_incoming_doc.total_expensesColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Istotal_costNull() {
-                return this.IsNull(this.tablesp_vehicle_incoming_doc.total_costColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Settotal_costNull() {
-                this[this.tablesp_vehicle_incoming_doc.total_costColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isbalance_to_payNull() {
-                return this.IsNull(this.tablesp_vehicle_incoming_doc.balance_to_payColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setbalance_to_payNull() {
-                this[this.tablesp_vehicle_incoming_doc.balance_to_payColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isloan_sentenceNull() {
-                return this.IsNull(this.tablesp_vehicle_incoming_doc.loan_sentenceColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setloan_sentenceNull() {
-                this[this.tablesp_vehicle_incoming_doc.loan_sentenceColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isloan_branch_nameNull() {
-                return this.IsNull(this.tablesp_vehicle_incoming_doc.loan_branch_nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setloan_branch_nameNull() {
-                this[this.tablesp_vehicle_incoming_doc.loan_branch_nameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isloan_org_nameNull() {
-                return this.IsNull(this.tablesp_vehicle_incoming_doc.loan_org_nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setloan_org_nameNull() {
-                this[this.tablesp_vehicle_incoming_doc.loan_org_nameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isloan_addressNull() {
-                return this.IsNull(this.tablesp_vehicle_incoming_doc.loan_addressColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setloan_addressNull() {
-                this[this.tablesp_vehicle_incoming_doc.loan_addressColumn] = global::System.Convert.DBNull;
+                xs.Add(dsSchema);
+                return type;
             }
         }
         
@@ -6002,36 +5263,781 @@ namespace VehicleDealership.Datasets {
         }
         
         /// <summary>
-        ///Row event argument class
+        ///Represents strongly named DataRow class.
         ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class sp_vehicle_incoming_docRowChangeEvent : global::System.EventArgs {
+        public partial class sp_vehicle_incoming_docRow : global::System.Data.DataRow {
             
-            private sp_vehicle_incoming_docRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
+            private sp_vehicle_incoming_docDataTable tablesp_vehicle_incoming_doc;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_vehicle_incoming_docRowChangeEvent(sp_vehicle_incoming_docRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
+            internal sp_vehicle_incoming_docRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablesp_vehicle_incoming_doc = ((sp_vehicle_incoming_docDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_vehicle_incoming_docRow Row {
+            public int vehicle {
                 get {
-                    return this.eventRow;
+                    return ((int)(this[this.tablesp_vehicle_incoming_doc.vehicleColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.vehicleColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
+            public string company_name {
                 get {
-                    return this.eventAction;
+                    return ((string)(this[this.tablesp_vehicle_incoming_doc.company_nameColumn]));
                 }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.company_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string company_registration_no {
+                get {
+                    return ((string)(this[this.tablesp_vehicle_incoming_doc.company_registration_noColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.company_registration_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string company_address {
+                get {
+                    return ((string)(this[this.tablesp_vehicle_incoming_doc.company_addressColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.company_addressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string company_tel_no {
+                get {
+                    return ((string)(this[this.tablesp_vehicle_incoming_doc.company_tel_noColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.company_tel_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string company_fax_no {
+                get {
+                    return ((string)(this[this.tablesp_vehicle_incoming_doc.company_fax_noColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.company_fax_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string company_email {
+                get {
+                    return ((string)(this[this.tablesp_vehicle_incoming_doc.company_emailColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.company_emailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string reference_no {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_vehicle_incoming_doc.reference_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'reference_no\' in table \'sp_vehicle_incoming_doc\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.reference_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string customer_name_short {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_vehicle_incoming_doc.customer_name_shortColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'customer_name_short\' in table \'sp_vehicle_incoming_doc\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.customer_name_shortColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string customer_name_long {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_vehicle_incoming_doc.customer_name_longColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'customer_name_long\' in table \'sp_vehicle_incoming_doc\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.customer_name_longColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string customer_registration_no {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_vehicle_incoming_doc.customer_registration_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'customer_registration_no\' in table \'sp_vehicle_incoming_doc" +
+                                "\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.customer_registration_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string customer_registration_no_with_text {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_vehicle_incoming_doc.customer_registration_no_with_textColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'customer_registration_no_with_text\' in table \'sp_vehicle_in" +
+                                "coming_doc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.customer_registration_no_with_textColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string customer_address {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_vehicle_incoming_doc.customer_addressColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'customer_address\' in table \'sp_vehicle_incoming_doc\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.customer_addressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string chassis_no {
+                get {
+                    return ((string)(this[this.tablesp_vehicle_incoming_doc.chassis_noColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.chassis_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string vehicle_brand_name {
+                get {
+                    return ((string)(this[this.tablesp_vehicle_incoming_doc.vehicle_brand_nameColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.vehicle_brand_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string vehicle_group_name {
+                get {
+                    return ((string)(this[this.tablesp_vehicle_incoming_doc.vehicle_group_nameColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.vehicle_group_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string vehicle_model_name {
+                get {
+                    return ((string)(this[this.tablesp_vehicle_incoming_doc.vehicle_model_nameColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.vehicle_model_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string colour_name {
+                get {
+                    return ((string)(this[this.tablesp_vehicle_incoming_doc.colour_nameColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.colour_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public short year_make {
+                get {
+                    return ((short)(this[this.tablesp_vehicle_incoming_doc.year_makeColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.year_makeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime registration_date {
+                get {
+                    return ((global::System.DateTime)(this[this.tablesp_vehicle_incoming_doc.registration_dateColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.registration_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string registration_no {
+                get {
+                    return ((string)(this[this.tablesp_vehicle_incoming_doc.registration_noColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.registration_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string invoice_no {
+                get {
+                    return ((string)(this[this.tablesp_vehicle_incoming_doc.invoice_noColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.invoice_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime purchase_date {
+                get {
+                    return ((global::System.DateTime)(this[this.tablesp_vehicle_incoming_doc.purchase_dateColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.purchase_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime date_received {
+                get {
+                    return ((global::System.DateTime)(this[this.tablesp_vehicle_incoming_doc.date_receivedColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.date_receivedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime settlement_date {
+                get {
+                    return ((global::System.DateTime)(this[this.tablesp_vehicle_incoming_doc.settlement_dateColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.settlement_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string engine_no {
+                get {
+                    return ((string)(this[this.tablesp_vehicle_incoming_doc.engine_noColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.engine_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int engine_cc {
+                get {
+                    return ((int)(this[this.tablesp_vehicle_incoming_doc.engine_ccColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.engine_ccColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal road_tax {
+                get {
+                    return ((decimal)(this[this.tablesp_vehicle_incoming_doc.road_taxColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.road_taxColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime road_tax_expiry_date {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablesp_vehicle_incoming_doc.road_tax_expiry_dateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'road_tax_expiry_date\' in table \'sp_vehicle_incoming_doc\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.road_tax_expiry_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal purchase_price {
+                get {
+                    return ((decimal)(this[this.tablesp_vehicle_incoming_doc.purchase_priceColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.purchase_priceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal overtrade {
+                get {
+                    return ((decimal)(this[this.tablesp_vehicle_incoming_doc.overtradeColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.overtradeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal net_purchase {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_vehicle_incoming_doc.net_purchaseColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'net_purchase\' in table \'sp_vehicle_incoming_doc\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.net_purchaseColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal total_expenses {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_vehicle_incoming_doc.total_expensesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'total_expenses\' in table \'sp_vehicle_incoming_doc\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.total_expensesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal total_cost {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_vehicle_incoming_doc.total_costColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'total_cost\' in table \'sp_vehicle_incoming_doc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.total_costColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal balance_to_pay {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_vehicle_incoming_doc.balance_to_payColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'balance_to_pay\' in table \'sp_vehicle_incoming_doc\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.balance_to_payColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal max_can_loan {
+                get {
+                    return ((decimal)(this[this.tablesp_vehicle_incoming_doc.max_can_loanColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.max_can_loanColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string loan_sentence {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_vehicle_incoming_doc.loan_sentenceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'loan_sentence\' in table \'sp_vehicle_incoming_doc\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.loan_sentenceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal loan_balance {
+                get {
+                    return ((decimal)(this[this.tablesp_vehicle_incoming_doc.loan_balanceColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.loan_balanceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal loan_installment_amount {
+                get {
+                    return ((decimal)(this[this.tablesp_vehicle_incoming_doc.loan_installment_amountColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.loan_installment_amountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string loan_branch_name {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_vehicle_incoming_doc.loan_branch_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'loan_branch_name\' in table \'sp_vehicle_incoming_doc\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.loan_branch_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string loan_org_name {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_vehicle_incoming_doc.loan_org_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'loan_org_name\' in table \'sp_vehicle_incoming_doc\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.loan_org_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string loan_address {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_vehicle_incoming_doc.loan_addressColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'loan_address\' in table \'sp_vehicle_incoming_doc\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.loan_addressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public byte loan_installment_day_of_month {
+                get {
+                    return ((byte)(this[this.tablesp_vehicle_incoming_doc.loan_installment_day_of_monthColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.loan_installment_day_of_monthColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime loan_settlement_date {
+                get {
+                    return ((global::System.DateTime)(this[this.tablesp_vehicle_incoming_doc.loan_settlement_dateColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.loan_settlement_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string loan_agreement_no {
+                get {
+                    return ((string)(this[this.tablesp_vehicle_incoming_doc.loan_agreement_noColumn]));
+                }
+                set {
+                    this[this.tablesp_vehicle_incoming_doc.loan_agreement_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isreference_noNull() {
+                return this.IsNull(this.tablesp_vehicle_incoming_doc.reference_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setreference_noNull() {
+                this[this.tablesp_vehicle_incoming_doc.reference_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscustomer_name_shortNull() {
+                return this.IsNull(this.tablesp_vehicle_incoming_doc.customer_name_shortColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcustomer_name_shortNull() {
+                this[this.tablesp_vehicle_incoming_doc.customer_name_shortColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscustomer_name_longNull() {
+                return this.IsNull(this.tablesp_vehicle_incoming_doc.customer_name_longColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcustomer_name_longNull() {
+                this[this.tablesp_vehicle_incoming_doc.customer_name_longColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscustomer_registration_noNull() {
+                return this.IsNull(this.tablesp_vehicle_incoming_doc.customer_registration_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcustomer_registration_noNull() {
+                this[this.tablesp_vehicle_incoming_doc.customer_registration_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscustomer_registration_no_with_textNull() {
+                return this.IsNull(this.tablesp_vehicle_incoming_doc.customer_registration_no_with_textColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcustomer_registration_no_with_textNull() {
+                this[this.tablesp_vehicle_incoming_doc.customer_registration_no_with_textColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscustomer_addressNull() {
+                return this.IsNull(this.tablesp_vehicle_incoming_doc.customer_addressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcustomer_addressNull() {
+                this[this.tablesp_vehicle_incoming_doc.customer_addressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isroad_tax_expiry_dateNull() {
+                return this.IsNull(this.tablesp_vehicle_incoming_doc.road_tax_expiry_dateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setroad_tax_expiry_dateNull() {
+                this[this.tablesp_vehicle_incoming_doc.road_tax_expiry_dateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isnet_purchaseNull() {
+                return this.IsNull(this.tablesp_vehicle_incoming_doc.net_purchaseColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setnet_purchaseNull() {
+                this[this.tablesp_vehicle_incoming_doc.net_purchaseColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Istotal_expensesNull() {
+                return this.IsNull(this.tablesp_vehicle_incoming_doc.total_expensesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Settotal_expensesNull() {
+                this[this.tablesp_vehicle_incoming_doc.total_expensesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Istotal_costNull() {
+                return this.IsNull(this.tablesp_vehicle_incoming_doc.total_costColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Settotal_costNull() {
+                this[this.tablesp_vehicle_incoming_doc.total_costColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isbalance_to_payNull() {
+                return this.IsNull(this.tablesp_vehicle_incoming_doc.balance_to_payColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setbalance_to_payNull() {
+                this[this.tablesp_vehicle_incoming_doc.balance_to_payColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isloan_sentenceNull() {
+                return this.IsNull(this.tablesp_vehicle_incoming_doc.loan_sentenceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setloan_sentenceNull() {
+                this[this.tablesp_vehicle_incoming_doc.loan_sentenceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isloan_branch_nameNull() {
+                return this.IsNull(this.tablesp_vehicle_incoming_doc.loan_branch_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setloan_branch_nameNull() {
+                this[this.tablesp_vehicle_incoming_doc.loan_branch_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isloan_org_nameNull() {
+                return this.IsNull(this.tablesp_vehicle_incoming_doc.loan_org_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setloan_org_nameNull() {
+                this[this.tablesp_vehicle_incoming_doc.loan_org_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isloan_addressNull() {
+                return this.IsNull(this.tablesp_vehicle_incoming_doc.loan_addressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setloan_addressNull() {
+                this[this.tablesp_vehicle_incoming_doc.loan_addressColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6170,215 +6176,44 @@ namespace VehicleDealership.Datasets {
                 }
             }
         }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class sp_vehicle_incoming_docRowChangeEvent : global::System.EventArgs {
+            
+            private sp_vehicle_incoming_docRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public sp_vehicle_incoming_docRowChangeEvent(sp_vehicle_incoming_docRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public sp_vehicle_incoming_docRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
     }
 }
 namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
     
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class sp_vehicle_incoming_docTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public sp_vehicle_incoming_docTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "sp_vehicle_incoming_doc";
-            tableMapping.ColumnMappings.Add("company_name", "company_name");
-            tableMapping.ColumnMappings.Add("company_registration_no", "company_registration_no");
-            tableMapping.ColumnMappings.Add("company_address", "company_address");
-            tableMapping.ColumnMappings.Add("company_tel_no", "company_tel_no");
-            tableMapping.ColumnMappings.Add("company_fax_no", "company_fax_no");
-            tableMapping.ColumnMappings.Add("company_email", "company_email");
-            tableMapping.ColumnMappings.Add("reference_no", "reference_no");
-            tableMapping.ColumnMappings.Add("customer_name_short", "customer_name_short");
-            tableMapping.ColumnMappings.Add("customer_name_long", "customer_name_long");
-            tableMapping.ColumnMappings.Add("customer_registration_no", "customer_registration_no");
-            tableMapping.ColumnMappings.Add("customer_registration_no_with_text", "customer_registration_no_with_text");
-            tableMapping.ColumnMappings.Add("customer_address", "customer_address");
-            tableMapping.ColumnMappings.Add("chassis_no", "chassis_no");
-            tableMapping.ColumnMappings.Add("vehicle_brand_name", "vehicle_brand_name");
-            tableMapping.ColumnMappings.Add("vehicle_group_name", "vehicle_group_name");
-            tableMapping.ColumnMappings.Add("vehicle_model_name", "vehicle_model_name");
-            tableMapping.ColumnMappings.Add("colour_name", "colour_name");
-            tableMapping.ColumnMappings.Add("year_make", "year_make");
-            tableMapping.ColumnMappings.Add("registration_date", "registration_date");
-            tableMapping.ColumnMappings.Add("registration_no", "registration_no");
-            tableMapping.ColumnMappings.Add("invoice_no", "invoice_no");
-            tableMapping.ColumnMappings.Add("purchase_date", "purchase_date");
-            tableMapping.ColumnMappings.Add("date_received", "date_received");
-            tableMapping.ColumnMappings.Add("settlement_date", "settlement_date");
-            tableMapping.ColumnMappings.Add("engine_no", "engine_no");
-            tableMapping.ColumnMappings.Add("engine_cc", "engine_cc");
-            tableMapping.ColumnMappings.Add("road_tax", "road_tax");
-            tableMapping.ColumnMappings.Add("road_tax_expiry_date", "road_tax_expiry_date");
-            tableMapping.ColumnMappings.Add("purchase_price", "purchase_price");
-            tableMapping.ColumnMappings.Add("overtrade", "overtrade");
-            tableMapping.ColumnMappings.Add("net_purchase", "net_purchase");
-            tableMapping.ColumnMappings.Add("total_expenses", "total_expenses");
-            tableMapping.ColumnMappings.Add("total_cost", "total_cost");
-            tableMapping.ColumnMappings.Add("balance_to_pay", "balance_to_pay");
-            tableMapping.ColumnMappings.Add("max_can_loan", "max_can_loan");
-            tableMapping.ColumnMappings.Add("loan_sentence", "loan_sentence");
-            tableMapping.ColumnMappings.Add("loan_balance", "loan_balance");
-            tableMapping.ColumnMappings.Add("loan_installment_amount", "loan_installment_amount");
-            tableMapping.ColumnMappings.Add("loan_branch_name", "loan_branch_name");
-            tableMapping.ColumnMappings.Add("loan_org_name", "loan_org_name");
-            tableMapping.ColumnMappings.Add("loan_address", "loan_address");
-            tableMapping.ColumnMappings.Add("loan_installment_day_of_month", "loan_installment_day_of_month");
-            tableMapping.ColumnMappings.Add("loan_settlement_date", "loan_settlement_date");
-            tableMapping.ColumnMappings.Add("loan_agreement_no", "loan_agreement_no");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "fin.sp_vehicle_incoming_doc";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Vehicle_ds.sp_vehicle_incoming_docDataTable GetData(global::System.Nullable<int> vehicle) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((vehicle.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(vehicle.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            Vehicle_ds.sp_vehicle_incoming_docDataTable dataTable = new Vehicle_ds.sp_vehicle_incoming_docDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
     
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
@@ -7135,6 +6970,212 @@ namespace VehicleDealership.Datasets.Vehicle_dsTableAdapters {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(vid_exclude_combine));
             }
             Vehicle_ds.Trade_inDataTable dataTable = new Vehicle_ds.Trade_inDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class sp_vehicle_incoming_docTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public sp_vehicle_incoming_docTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "sp_vehicle_incoming_doc";
+            tableMapping.ColumnMappings.Add("vehicle", "vehicle");
+            tableMapping.ColumnMappings.Add("company_name", "company_name");
+            tableMapping.ColumnMappings.Add("company_registration_no", "company_registration_no");
+            tableMapping.ColumnMappings.Add("company_address", "company_address");
+            tableMapping.ColumnMappings.Add("company_tel_no", "company_tel_no");
+            tableMapping.ColumnMappings.Add("company_fax_no", "company_fax_no");
+            tableMapping.ColumnMappings.Add("company_email", "company_email");
+            tableMapping.ColumnMappings.Add("reference_no", "reference_no");
+            tableMapping.ColumnMappings.Add("customer_name_short", "customer_name_short");
+            tableMapping.ColumnMappings.Add("customer_name_long", "customer_name_long");
+            tableMapping.ColumnMappings.Add("customer_registration_no", "customer_registration_no");
+            tableMapping.ColumnMappings.Add("customer_registration_no_with_text", "customer_registration_no_with_text");
+            tableMapping.ColumnMappings.Add("customer_address", "customer_address");
+            tableMapping.ColumnMappings.Add("chassis_no", "chassis_no");
+            tableMapping.ColumnMappings.Add("vehicle_brand_name", "vehicle_brand_name");
+            tableMapping.ColumnMappings.Add("vehicle_group_name", "vehicle_group_name");
+            tableMapping.ColumnMappings.Add("vehicle_model_name", "vehicle_model_name");
+            tableMapping.ColumnMappings.Add("colour_name", "colour_name");
+            tableMapping.ColumnMappings.Add("year_make", "year_make");
+            tableMapping.ColumnMappings.Add("registration_date", "registration_date");
+            tableMapping.ColumnMappings.Add("registration_no", "registration_no");
+            tableMapping.ColumnMappings.Add("invoice_no", "invoice_no");
+            tableMapping.ColumnMappings.Add("purchase_date", "purchase_date");
+            tableMapping.ColumnMappings.Add("date_received", "date_received");
+            tableMapping.ColumnMappings.Add("settlement_date", "settlement_date");
+            tableMapping.ColumnMappings.Add("engine_no", "engine_no");
+            tableMapping.ColumnMappings.Add("engine_cc", "engine_cc");
+            tableMapping.ColumnMappings.Add("road_tax", "road_tax");
+            tableMapping.ColumnMappings.Add("road_tax_expiry_date", "road_tax_expiry_date");
+            tableMapping.ColumnMappings.Add("purchase_price", "purchase_price");
+            tableMapping.ColumnMappings.Add("overtrade", "overtrade");
+            tableMapping.ColumnMappings.Add("net_purchase", "net_purchase");
+            tableMapping.ColumnMappings.Add("total_expenses", "total_expenses");
+            tableMapping.ColumnMappings.Add("total_cost", "total_cost");
+            tableMapping.ColumnMappings.Add("balance_to_pay", "balance_to_pay");
+            tableMapping.ColumnMappings.Add("max_can_loan", "max_can_loan");
+            tableMapping.ColumnMappings.Add("loan_sentence", "loan_sentence");
+            tableMapping.ColumnMappings.Add("loan_balance", "loan_balance");
+            tableMapping.ColumnMappings.Add("loan_installment_amount", "loan_installment_amount");
+            tableMapping.ColumnMappings.Add("loan_branch_name", "loan_branch_name");
+            tableMapping.ColumnMappings.Add("loan_org_name", "loan_org_name");
+            tableMapping.ColumnMappings.Add("loan_address", "loan_address");
+            tableMapping.ColumnMappings.Add("loan_installment_day_of_month", "loan_installment_day_of_month");
+            tableMapping.ColumnMappings.Add("loan_settlement_date", "loan_settlement_date");
+            tableMapping.ColumnMappings.Add("loan_agreement_no", "loan_agreement_no");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::VehicleDealership.Properties.Settings.Default.VehicleDealershipConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "fin.sp_vehicle_incoming_doc";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual Vehicle_ds.sp_vehicle_incoming_docDataTable GetData(global::System.Nullable<int> vehicle) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((vehicle.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(vehicle.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            Vehicle_ds.sp_vehicle_incoming_docDataTable dataTable = new Vehicle_ds.sp_vehicle_incoming_docDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

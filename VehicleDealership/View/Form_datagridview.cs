@@ -1034,6 +1034,36 @@ namespace VehicleDealership.View
 			}
 			Cursor = Cursors.Default;
 		}
+		private void VehicleExpensesToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (grd_main.SelectedCells.Count == 0) return;
+
+			Cursor = Cursors.WaitCursor;
+			using (Crystal_report.CR_vehicle_expenses cr_report = new Crystal_report.CR_vehicle_expenses())
+			{
+				int vehicle = (int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value;
+
+				using (DataTable dttable_expenses = Vehicle_expenses_ds.Select_vehicle_expenses(vehicle))
+				{
+					if (dttable_expenses.Rows.Count > 0)
+					{
+						cr_report.Database.Tables["sp_vehicle_incoming_doc"].SetDataSource(Vehicle_ds.Vehicle_incoming_doc(vehicle).CopyToDataTable());
+						cr_report.Database.Tables["sp_select_vehicle_expenses"].SetDataSource(dttable_expenses);
+
+						using (Crystal_report.Form_crystal_report dlg_cr = new Crystal_report.Form_crystal_report(cr_report))
+						{
+							dlg_cr.Text = "Vehicle Expenses";
+							dlg_cr.ShowDialog();
+						}
+					}
+					else
+					{
+						MessageBox.Show("No expenses record available.","No data",MessageBoxButtons.OK,MessageBoxIcon.Information);
+					}
+				}
+			}
+			Cursor = Cursors.Default;
+		}
 		#endregion
 		#region VEHICLE SALE
 		private void Setup_form_vehicle_sale()

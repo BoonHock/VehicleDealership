@@ -281,6 +281,8 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columnpayment_out;
             
+            private global::System.Data.DataColumn columnvehicle;
+            
             private global::System.Data.DataColumn columnpayment_no;
             
             private global::System.Data.DataColumn columnpayment_description;
@@ -359,6 +361,14 @@ namespace VehicleDealership.Datasets {
             public global::System.Data.DataColumn payment_outColumn {
                 get {
                     return this.columnpayment_out;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn vehicleColumn {
+                get {
+                    return this.columnvehicle;
                 }
             }
             
@@ -560,6 +570,7 @@ namespace VehicleDealership.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public sp_select_vehicle_expensesRow Addsp_select_vehicle_expensesRow(
+                        int vehicle, 
                         string payment_no, 
                         string payment_description, 
                         int pay_to_id, 
@@ -583,6 +594,7 @@ namespace VehicleDealership.Datasets {
                 sp_select_vehicle_expensesRow rowsp_select_vehicle_expensesRow = ((sp_select_vehicle_expensesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
+                        vehicle,
                         payment_no,
                         payment_description,
                         pay_to_id,
@@ -633,6 +645,7 @@ namespace VehicleDealership.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnpayment_out = base.Columns["payment_out"];
+                this.columnvehicle = base.Columns["vehicle"];
                 this.columnpayment_no = base.Columns["payment_no"];
                 this.columnpayment_description = base.Columns["payment_description"];
                 this.columnpay_to_id = base.Columns["pay_to_id"];
@@ -660,6 +673,8 @@ namespace VehicleDealership.Datasets {
             private void InitClass() {
                 this.columnpayment_out = new global::System.Data.DataColumn("payment_out", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpayment_out);
+                this.columnvehicle = new global::System.Data.DataColumn("vehicle", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvehicle);
                 this.columnpayment_no = new global::System.Data.DataColumn("payment_no", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpayment_no);
                 this.columnpayment_description = new global::System.Data.DataColumn("payment_description", typeof(string), null, global::System.Data.MappingType.Element);
@@ -708,6 +723,7 @@ namespace VehicleDealership.Datasets {
                 this.columnpayment_out.AllowDBNull = false;
                 this.columnpayment_out.ReadOnly = true;
                 this.columnpayment_out.Unique = true;
+                this.columnvehicle.AllowDBNull = false;
                 this.columnpayment_no.ReadOnly = true;
                 this.columnpayment_no.MaxLength = 35;
                 this.columnpayment_description.AllowDBNull = false;
@@ -882,6 +898,17 @@ namespace VehicleDealership.Datasets {
                 }
                 set {
                     this[this.tablesp_select_vehicle_expenses.payment_outColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int vehicle {
+                get {
+                    return ((int)(this[this.tablesp_select_vehicle_expenses.vehicleColumn]));
+                }
+                set {
+                    this[this.tablesp_select_vehicle_expenses.vehicleColumn] = value;
                 }
             }
             
@@ -1516,6 +1543,7 @@ namespace VehicleDealership.Datasets.Vehicle_expenses_dsTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "sp_select_vehicle_expenses";
             tableMapping.ColumnMappings.Add("payment_out", "payment_out");
+            tableMapping.ColumnMappings.Add("vehicle", "vehicle");
             tableMapping.ColumnMappings.Add("payment_no", "payment_no");
             tableMapping.ColumnMappings.Add("payment_description", "payment_description");
             tableMapping.ColumnMappings.Add("pay_to_id", "pay_to_id");
