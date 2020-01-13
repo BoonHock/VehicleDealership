@@ -244,25 +244,7 @@ namespace VehicleDealership.View
 		}
 		private void Setup_grd_users(object sender = null, EventArgs e = null)
 		{
-			// setup grd_main
-			grd_main.RowEnter -= Grd_users_RowEnter;
 
-			if (Program.System_user.IsDeveloper)
-			{
-				Class_datagridview.Setup_and_preselect(grd_main, User_ds.Select_user_all(), "user");
-			}
-			else
-			{
-				Class_datagridview.Setup_and_preselect(grd_main, User_ds.Select_user_all(), "user",
-					new string[] { "username", "name", "ic_no", "usergroup",
-						"ic_no", "is_active", "join_date", "leave_date" });
-			}
-
-			//Apply_filter_user();
-			grd_main.AutoResizeColumns();
-
-			Setup_buttons_enable();
-			grd_main.RowEnter += Grd_users_RowEnter;
 		}
 		private void Apply_filter_user()
 		{
@@ -1058,7 +1040,7 @@ namespace VehicleDealership.View
 					}
 					else
 					{
-						MessageBox.Show("No expenses record available.","No data",MessageBoxButtons.OK,MessageBoxIcon.Information);
+						MessageBox.Show("No expenses record available.", "No data", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					}
 				}
 			}
@@ -1179,12 +1161,18 @@ namespace VehicleDealership.View
 
 			using (Crystal_report.CR_sales_order cr_report = new Crystal_report.CR_sales_order())
 			{
-				cr_report.SetDataSource(Vehicle_sale_ds.Vehicle_sale_doc((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value).CopyToDataTable());
+				int vehicle = (int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value;
 
-				using (Crystal_report.Form_crystal_report dlg_cr = new Crystal_report.Form_crystal_report(cr_report))
+				using (DataTable dttable_charges = Vehicle_sale_charges_ds.Select_vehicle_sale_charges(vehicle))
 				{
-					dlg_cr.Text = "Sales order";
-					dlg_cr.ShowDialog();
+					cr_report.Database.Tables["sp_vehicle_sale_doc"].SetDataSource(Vehicle_sale_ds.Vehicle_sale_doc((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value).CopyToDataTable());
+					cr_report.Database.Tables["sp_select_vehicle_sale_charges"].SetDataSource(dttable_charges);
+
+					using (Crystal_report.Form_crystal_report dlg_cr = new Crystal_report.Form_crystal_report(cr_report))
+					{
+						dlg_cr.Text = "Sales order";
+						dlg_cr.ShowDialog();
+					}
 				}
 			}
 			Cursor = Cursors.Default;
@@ -1397,5 +1385,6 @@ namespace VehicleDealership.View
 			Setup_grd_location();
 		}
 		#endregion
+
 	}
 }

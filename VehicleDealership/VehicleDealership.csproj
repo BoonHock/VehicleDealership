@@ -124,7 +124,7 @@
       <DependentUpon>CR_sales_n_purchase_agreement.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Crystal_report\CR_sales_order.cs">
+    <Compile Include="Crystal_report\CR_sales_order1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CR_sales_order.rpt</DependentUpon>
@@ -140,6 +140,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CR_vehicle_received_note.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Crystal_report\CR_vehicle_sale_charges.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CR_vehicle_sale_charges.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Crystal_report\Form_crystal_report.cs">
@@ -699,7 +705,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Crystal_report\CR_sales_order.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CR_sales_order.cs</LastGenOutput>
+      <LastGenOutput>CR_sales_order1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Crystal_report\CR_vehicle_expenses.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -708,6 +714,10 @@
     <EmbeddedResource Include="Crystal_report\CR_vehicle_received_note.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CR_vehicle_received_note.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal_report\CR_vehicle_sale_charges.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CR_vehicle_sale_charges.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Crystal_report\Form_crystal_report.resx">
       <DependentUpon>Form_crystal_report.cs</DependentUpon>

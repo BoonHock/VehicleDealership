@@ -169,6 +169,7 @@
 			this.label50 = new System.Windows.Forms.Label();
 			this.groupBox10 = new System.Windows.Forms.GroupBox();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.num_total_expenses = new System.Windows.Forms.NumericUpDown();
 			this.label71 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
@@ -253,7 +254,6 @@
 			this.panel5 = new System.Windows.Forms.Panel();
 			this.label62 = new System.Windows.Forms.Label();
 			this.num_additional_comprehensive = new System.Windows.Forms.NumericUpDown();
-			this.num_total_expenses = new System.Windows.Forms.NumericUpDown();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel5.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.num_loan_company_id)).BeginInit();
@@ -303,6 +303,7 @@
 			this.tableLayoutPanel6.SuspendLayout();
 			this.groupBox10.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_total_expenses)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_total_less_charges)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_total_additional_charges)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_net_selling_price)).BeginInit();
@@ -332,7 +333,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.num_insurance_loading_age_percent)).BeginInit();
 			this.panel5.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.num_additional_comprehensive)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.num_total_expenses)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// panel1
@@ -1484,6 +1484,7 @@
 			this.grd_charges.Size = new System.Drawing.Size(467, 192);
 			this.grd_charges.TabIndex = 1;
 			this.grd_charges.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grd_DataError);
+			this.grd_charges.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.Grd_charges_UserDeletedRow);
 			// 
 			// toolStrip1
 			// 
@@ -1946,6 +1947,30 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(524, 249);
 			this.tableLayoutPanel1.TabIndex = 30;
+			// 
+			// num_total_expenses
+			// 
+			this.num_total_expenses.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.num_total_expenses.DecimalPlaces = 2;
+			this.num_total_expenses.Enabled = false;
+			this.num_total_expenses.Location = new System.Drawing.Point(141, 31);
+			this.num_total_expenses.Margin = new System.Windows.Forms.Padding(2);
+			this.num_total_expenses.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.num_total_expenses.Minimum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            -2147483648});
+			this.num_total_expenses.Name = "num_total_expenses";
+			this.num_total_expenses.ReadOnly = true;
+			this.num_total_expenses.Size = new System.Drawing.Size(122, 25);
+			this.num_total_expenses.TabIndex = 30;
+			this.num_total_expenses.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.num_total_expenses.ThousandsSeparator = true;
 			// 
 			// label71
 			// 
@@ -3171,30 +3196,6 @@
             0});
 			this.num_additional_comprehensive.ValueChanged += new System.EventHandler(this.Calculate_insurance_subtotal);
 			// 
-			// num_total_expenses
-			// 
-			this.num_total_expenses.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.num_total_expenses.DecimalPlaces = 2;
-			this.num_total_expenses.Enabled = false;
-			this.num_total_expenses.Location = new System.Drawing.Point(141, 31);
-			this.num_total_expenses.Margin = new System.Windows.Forms.Padding(2);
-			this.num_total_expenses.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-			this.num_total_expenses.Minimum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            -2147483648});
-			this.num_total_expenses.Name = "num_total_expenses";
-			this.num_total_expenses.ReadOnly = true;
-			this.num_total_expenses.Size = new System.Drawing.Size(122, 25);
-			this.num_total_expenses.TabIndex = 30;
-			this.num_total_expenses.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.num_total_expenses.ThousandsSeparator = true;
-			// 
 			// Form_vehicle_sale
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -3274,6 +3275,7 @@
 			this.groupBox10.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.num_total_expenses)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_total_less_charges)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_total_additional_charges)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.num_net_selling_price)).EndInit();
@@ -3307,7 +3309,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.num_insurance_loading_age_percent)).EndInit();
 			this.panel5.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.num_additional_comprehensive)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.num_total_expenses)).EndInit();
 			this.ResumeLayout(false);
 
 		}

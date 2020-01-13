@@ -363,6 +363,7 @@ namespace VehicleDealership.View
 
 			// VEHICLE SALE CHARGES
 			{
+				((DataTable)grd_charges.DataSource).AcceptChanges();
 				Class_bulkcopy bk = new Class_bulkcopy(((DataTable)grd_charges.DataSource).Copy())
 				{
 					INT1 = "vehicle_sale_charges",
@@ -536,14 +537,14 @@ namespace VehicleDealership.View
 		}
 		private void Grd_charges_calculate_total()
 		{
-			DataTable dttable = (DataTable)grd_charges.DataSource;
+			Vehicle_sale_charges_ds.sp_select_vehicle_sale_chargesDataTable dttable = (Vehicle_sale_charges_ds.sp_select_vehicle_sale_chargesDataTable)grd_charges.DataSource;
 
 			decimal add_charges = 0, less_charges = 0;
 
-			var query = from row in dttable.AsEnumerable() where (decimal)row["amount"] > 0 select (decimal)row["amount"];
+			var query = from row in dttable where row.RowState != DataRowState.Deleted && row.amount > 0 select row.amount;
 			if (query.Any()) add_charges = query.Sum();
 
-			query = from row in dttable.AsEnumerable() where (decimal)row["amount"] < 0 select (decimal)row["amount"];
+			query = from row in dttable where row.RowState != DataRowState.Deleted && row.amount < 0 select row.amount;
 			if (query.Any()) less_charges = -query.Sum();
 
 			lbl_charges_add.Text = add_charges.ToString("#,##0.00");
@@ -1142,6 +1143,11 @@ namespace VehicleDealership.View
 			if (dttable != null && dttable.Any()) total_payable += (from row in dttable select row.amount).Sum();
 
 			num_insurance_total_payable.Value = total_payable;
+		}
+		private void Grd_charges_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
+		{
+			// update datatable when user delete row in datagridview
+			((Vehicle_sale_charges_ds.sp_select_vehicle_sale_chargesDataTable)grd_charges.DataSource).AcceptChanges();
 		}
 	}
 }

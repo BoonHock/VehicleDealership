@@ -590,7 +590,7 @@
 			// vehicleExpensesToolStripMenuItem
 			// 
 			this.vehicleExpensesToolStripMenuItem.Name = "vehicleExpensesToolStripMenuItem";
-			this.vehicleExpensesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.vehicleExpensesToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
 			this.vehicleExpensesToolStripMenuItem.Text = "Vehicle Expenses";
 			this.vehicleExpensesToolStripMenuItem.Click += new System.EventHandler(this.VehicleExpensesToolStripMenuItem_Click);
 			// 
