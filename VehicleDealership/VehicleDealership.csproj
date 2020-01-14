@@ -106,6 +106,12 @@
     <Compile Include="Classes\Class_style.cs" />
     <Compile Include="Classes\Class_treeview.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="Crystal_report\CR_ap_form.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CR_ap_form.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Crystal_report\CR_evidence_of_purchase.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -691,6 +697,10 @@
     <Compile Include="View\Form_vehicle_template.Designer.cs">
       <DependentUpon>Form_vehicle_template.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Crystal_report\CR_ap_form.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CR_ap_form.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Crystal_report\CR_evidence_of_purchase.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CR_evidence_of_purchase.cs</LastGenOutput>

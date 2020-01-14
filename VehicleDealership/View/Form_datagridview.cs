@@ -1179,11 +1179,21 @@ namespace VehicleDealership.View
 		}
 		private void APFormToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+			if (grd_main.SelectedCells.Count == 0) return;
 
-		}
-		private void SoldSlipToolStripMenuItem_Click(object sender, EventArgs e)
-		{
+			Cursor = Cursors.WaitCursor;
 
+			using (Crystal_report.CR_ap_form cr_report = new Crystal_report.CR_ap_form())
+			{
+				cr_report.SetDataSource(Vehicle_sale_ds.Vehicle_sale_doc((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value).CopyToDataTable());
+
+				using (Crystal_report.Form_crystal_report dlg_cr = new Crystal_report.Form_crystal_report(cr_report))
+				{
+					dlg_cr.Text = "AP Form";
+					dlg_cr.ShowDialog();
+				}
+			}
+			Cursor = Cursors.Default;
 		}
 		private void OwnershipClaimToolStripMenuItem_Click(object sender, EventArgs e)
 		{

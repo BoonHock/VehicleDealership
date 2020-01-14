@@ -80,7 +80,6 @@
 			this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
 			this.salesOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aPFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.soldSlipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ownershipClaimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.jPJSalesLetter1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.jPJSalesLetter2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -534,7 +533,6 @@
 			this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.salesOrderToolStripMenuItem,
             this.aPFormToolStripMenuItem,
-            this.soldSlipToolStripMenuItem,
             this.ownershipClaimToolStripMenuItem,
             this.jPJSalesLetter1ToolStripMenuItem,
             this.jPJSalesLetter2ToolStripMenuItem,
@@ -548,49 +546,42 @@
 			// salesOrderToolStripMenuItem
 			// 
 			this.salesOrderToolStripMenuItem.Name = "salesOrderToolStripMenuItem";
-			this.salesOrderToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+			this.salesOrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.salesOrderToolStripMenuItem.Text = "Sales Order";
 			this.salesOrderToolStripMenuItem.Click += new System.EventHandler(this.SalesOrderToolStripMenuItem_Click);
 			// 
 			// aPFormToolStripMenuItem
 			// 
 			this.aPFormToolStripMenuItem.Name = "aPFormToolStripMenuItem";
-			this.aPFormToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+			this.aPFormToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.aPFormToolStripMenuItem.Text = "AP Form";
 			this.aPFormToolStripMenuItem.Click += new System.EventHandler(this.APFormToolStripMenuItem_Click);
-			// 
-			// soldSlipToolStripMenuItem
-			// 
-			this.soldSlipToolStripMenuItem.Name = "soldSlipToolStripMenuItem";
-			this.soldSlipToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-			this.soldSlipToolStripMenuItem.Text = "Sold Slip";
-			this.soldSlipToolStripMenuItem.Click += new System.EventHandler(this.SoldSlipToolStripMenuItem_Click);
 			// 
 			// ownershipClaimToolStripMenuItem
 			// 
 			this.ownershipClaimToolStripMenuItem.Name = "ownershipClaimToolStripMenuItem";
-			this.ownershipClaimToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+			this.ownershipClaimToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.ownershipClaimToolStripMenuItem.Text = "Ownership Claim";
 			this.ownershipClaimToolStripMenuItem.Click += new System.EventHandler(this.OwnershipClaimToolStripMenuItem_Click);
 			// 
 			// jPJSalesLetter1ToolStripMenuItem
 			// 
 			this.jPJSalesLetter1ToolStripMenuItem.Name = "jPJSalesLetter1ToolStripMenuItem";
-			this.jPJSalesLetter1ToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+			this.jPJSalesLetter1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.jPJSalesLetter1ToolStripMenuItem.Text = "JPJ Sales Letter 1";
 			this.jPJSalesLetter1ToolStripMenuItem.Click += new System.EventHandler(this.JPJSalesLetter1ToolStripMenuItem_Click);
 			// 
 			// jPJSalesLetter2ToolStripMenuItem
 			// 
 			this.jPJSalesLetter2ToolStripMenuItem.Name = "jPJSalesLetter2ToolStripMenuItem";
-			this.jPJSalesLetter2ToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+			this.jPJSalesLetter2ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.jPJSalesLetter2ToolStripMenuItem.Text = "JPJ Sales Letter 2";
 			this.jPJSalesLetter2ToolStripMenuItem.Click += new System.EventHandler(this.JPJSalesLetter2ToolStripMenuItem_Click);
 			// 
 			// vehicleExpensesToolStripMenuItem
 			// 
 			this.vehicleExpensesToolStripMenuItem.Name = "vehicleExpensesToolStripMenuItem";
-			this.vehicleExpensesToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+			this.vehicleExpensesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.vehicleExpensesToolStripMenuItem.Text = "Vehicle Expenses";
 			this.vehicleExpensesToolStripMenuItem.Click += new System.EventHandler(this.VehicleExpensesToolStripMenuItem_Click);
 			// 
@@ -682,7 +673,6 @@
 		private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
 		private System.Windows.Forms.ToolStripMenuItem salesOrderToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem aPFormToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem soldSlipToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem ownershipClaimToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem jPJSalesLetter1ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem jPJSalesLetter2ToolStripMenuItem;
