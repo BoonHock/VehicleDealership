@@ -283,8 +283,6 @@ namespace VehicleDealership.Datasets {
             
             private global::System.Data.DataColumn columntransmission_name;
             
-            private global::System.Data.DataColumn columnmodified_by;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public sp_select_transmissionDataTable() {
@@ -336,14 +334,6 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn modified_byColumn {
-                get {
-                    return this.columnmodified_by;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -379,12 +369,11 @@ namespace VehicleDealership.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_select_transmissionRow Addsp_select_transmissionRow(string transmission_name, string modified_by) {
+            public sp_select_transmissionRow Addsp_select_transmissionRow(string transmission_name) {
                 sp_select_transmissionRow rowsp_select_transmissionRow = ((sp_select_transmissionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        transmission_name,
-                        modified_by};
+                        transmission_name};
                 rowsp_select_transmissionRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_select_transmissionRow);
                 return rowsp_select_transmissionRow;
@@ -416,7 +405,6 @@ namespace VehicleDealership.Datasets {
             internal void InitVars() {
                 this.columntransmission = base.Columns["transmission"];
                 this.columntransmission_name = base.Columns["transmission_name"];
-                this.columnmodified_by = base.Columns["modified_by"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -426,8 +414,6 @@ namespace VehicleDealership.Datasets {
                 base.Columns.Add(this.columntransmission);
                 this.columntransmission_name = new global::System.Data.DataColumn("transmission_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntransmission_name);
-                this.columnmodified_by = new global::System.Data.DataColumn("modified_by", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmodified_by);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columntransmission}, true));
                 this.columntransmission.AutoIncrement = true;
@@ -438,8 +424,6 @@ namespace VehicleDealership.Datasets {
                 this.columntransmission.Unique = true;
                 this.columntransmission_name.AllowDBNull = false;
                 this.columntransmission_name.MaxLength = 20;
-                this.columnmodified_by.AllowDBNull = false;
-                this.columnmodified_by.MaxLength = 200;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -599,17 +583,6 @@ namespace VehicleDealership.Datasets {
                 }
                 set {
                     this[this.tablesp_select_transmission.transmission_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string modified_by {
-                get {
-                    return ((string)(this[this.tablesp_select_transmission.modified_byColumn]));
-                }
-                set {
-                    this[this.tablesp_select_transmission.modified_byColumn] = value;
                 }
             }
         }
@@ -775,7 +748,6 @@ namespace VehicleDealership.Datasets.Transmission_dsTableAdapters {
             tableMapping.DataSetTable = "sp_select_transmission";
             tableMapping.ColumnMappings.Add("transmission", "transmission");
             tableMapping.ColumnMappings.Add("transmission_name", "transmission_name");
-            tableMapping.ColumnMappings.Add("modified_by", "modified_by");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

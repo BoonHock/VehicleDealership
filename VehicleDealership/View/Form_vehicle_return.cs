@@ -100,6 +100,7 @@ namespace VehicleDealership.View
 
 		private void Btn_return_by_Click(object sender, EventArgs e)
 		{
+			// TODO: select only active user instead of all!!
 			using (Form_datagridview_select dlg_select = new Form_datagridview_select(User_ds.Select_user_all(),
 				new string[] { "name", "usergroup", "ic_no", "is_active", "join_date", "leave_date" }, "user",
 				btn_return_by.Tag.ToString()))

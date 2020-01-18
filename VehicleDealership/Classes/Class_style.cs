@@ -15,7 +15,7 @@ namespace VehicleDealership.Classes
 			public static void Common_style(DataGridView grd, int row_header_width = 15)
 			{
 				grd.AllowUserToResizeRows = false;
-				grd.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+				grd.AlternatingRowsDefaultCellStyle.BackColor = Color.LightBlue;
 				if (row_header_width > 0) grd.RowHeadersWidth = row_header_width;
 			}
 		}

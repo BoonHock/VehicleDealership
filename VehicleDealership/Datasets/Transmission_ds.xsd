@@ -23,7 +23,6 @@
             <Mappings>
               <Mapping SourceColumn="transmission" DataSetColumn="transmission" />
               <Mapping SourceColumn="transmission_name" DataSetColumn="transmission_name" />
-              <Mapping SourceColumn="modified_by" DataSetColumn="modified_by" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -66,13 +65,6 @@
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="modified_by" msprop:Generator_ColumnVarNameInTable="columnmodified_by" msprop:Generator_ColumnPropNameInRow="modified_by" msprop:Generator_ColumnPropNameInTable="modified_byColumn" msprop:Generator_UserColumnName="modified_by">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

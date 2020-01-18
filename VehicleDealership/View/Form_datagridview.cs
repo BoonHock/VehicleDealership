@@ -242,9 +242,14 @@ namespace VehicleDealership.View
 			btn_deactivate_user.Click += Btn_activate_deactivate_user_Click;
 			btn_activate_user.Click += Btn_activate_deactivate_user_Click;
 		}
-		private void Setup_grd_users(object sender = null, EventArgs e = null)
+		private void Setup_grd_users()
 		{
+			User_ds.sp_select_user_allDataTable dttable = User_ds.Select_user_all();
 
+			Class_datagridview.Setup_and_preselect(grd_main, dttable, "username");
+			Class_datagridview.Hide_columns(grd_main, "user");
+
+			grd_main.AutoResizeColumns();
 		}
 		private void Apply_filter_user()
 		{
@@ -260,7 +265,6 @@ namespace VehicleDealership.View
 				str_filter = "(" + str_filter + ") AND [is_active] = '" +
 					cmb_is_active_user.ComboBox.SelectedItem.ToString() + "'";
 			}
-
 			((DataTable)grd_main.DataSource).DefaultView.RowFilter = str_filter;
 		}
 		private void Edit_user(object sender, EventArgs e)
@@ -456,14 +460,14 @@ namespace VehicleDealership.View
 		{
 			Transmission_ds.sp_select_transmissionDataTable dttable = Transmission_ds.Select_transmission();
 
-			dttable.modified_byColumn.DefaultValue = Program.System_user.Name;
-			dttable.modified_byColumn.ReadOnly = true;
+			//dttable.modified_byColumn.DefaultValue = Program.System_user.Name;
+			//dttable.modified_byColumn.ReadOnly = true;
 
 			Class_datagridview.Setup_and_preselect(grd_main, dttable, "transmission_name");
 
 			grd_main.AutoResizeColumns();
-			grd_main.Columns["transmission"].DefaultCellStyle.BackColor = Color.LightGray;
-			grd_main.Columns["modified_by"].DefaultCellStyle.BackColor = Color.LightGray;
+			//grd_main.Columns["transmission"].DefaultCellStyle.BackColor = Color.LightGray;
+			//grd_main.Columns["modified_by"].DefaultCellStyle.BackColor = Color.LightGray;
 			Class_datagridview.Set_max_length_grd_col_same_with_datatable_col(grd_main, "transmission_name");
 		}
 		private void Btn_save_transmission_Click(object sender, EventArgs e)

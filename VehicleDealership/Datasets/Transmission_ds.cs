@@ -23,7 +23,7 @@ namespace VehicleDealership.Datasets
 			}
 			catch (System.Exception e)
 			{
-				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(), 
+				Classes.Class_misc.Display_dataset_error(MethodBase.GetCurrentMethod().DeclaringType.ToString(),
 					MethodBase.GetCurrentMethod().Name, e.Message);
 			}
 			return new sp_select_transmissionDataTable();
