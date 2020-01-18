@@ -81,8 +81,7 @@
 			this.salesOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aPFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ownershipClaimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.jPJSalesLetter1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.jPJSalesLetter2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.jPJSalesLetterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.vehicleExpensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ts_user.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grd_main)).BeginInit();
@@ -534,8 +533,7 @@
             this.salesOrderToolStripMenuItem,
             this.aPFormToolStripMenuItem,
             this.ownershipClaimToolStripMenuItem,
-            this.jPJSalesLetter1ToolStripMenuItem,
-            this.jPJSalesLetter2ToolStripMenuItem,
+            this.jPJSalesLetterToolStripMenuItem,
             this.vehicleExpensesToolStripMenuItem});
 			this.toolStripDropDownButton1.Image = global::VehicleDealership.Properties.Resources.Print_16x;
 			this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -564,19 +562,12 @@
 			this.ownershipClaimToolStripMenuItem.Text = "Ownership Claim";
 			this.ownershipClaimToolStripMenuItem.Click += new System.EventHandler(this.OwnershipClaimToolStripMenuItem_Click);
 			// 
-			// jPJSalesLetter1ToolStripMenuItem
+			// jPJSalesLetterToolStripMenuItem
 			// 
-			this.jPJSalesLetter1ToolStripMenuItem.Name = "jPJSalesLetter1ToolStripMenuItem";
-			this.jPJSalesLetter1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.jPJSalesLetter1ToolStripMenuItem.Text = "JPJ Sales Letter 1";
-			this.jPJSalesLetter1ToolStripMenuItem.Click += new System.EventHandler(this.JPJSalesLetter1ToolStripMenuItem_Click);
-			// 
-			// jPJSalesLetter2ToolStripMenuItem
-			// 
-			this.jPJSalesLetter2ToolStripMenuItem.Name = "jPJSalesLetter2ToolStripMenuItem";
-			this.jPJSalesLetter2ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.jPJSalesLetter2ToolStripMenuItem.Text = "JPJ Sales Letter 2";
-			this.jPJSalesLetter2ToolStripMenuItem.Click += new System.EventHandler(this.JPJSalesLetter2ToolStripMenuItem_Click);
+			this.jPJSalesLetterToolStripMenuItem.Name = "jPJSalesLetterToolStripMenuItem";
+			this.jPJSalesLetterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.jPJSalesLetterToolStripMenuItem.Text = "JPJ Sales Letter";
+			this.jPJSalesLetterToolStripMenuItem.Click += new System.EventHandler(this.JPJSalesLetterToolStripMenuItem_Click);
 			// 
 			// vehicleExpensesToolStripMenuItem
 			// 
@@ -674,9 +665,8 @@
 		private System.Windows.Forms.ToolStripMenuItem salesOrderToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem aPFormToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem ownershipClaimToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem jPJSalesLetter1ToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem jPJSalesLetter2ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem expensesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem vehicleExpensesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem jPJSalesLetterToolStripMenuItem;
 	}
 }

@@ -1197,17 +1197,40 @@ namespace VehicleDealership.View
 		}
 		private void OwnershipClaimToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+			if (grd_main.SelectedCells.Count == 0) return;
 
+			Cursor = Cursors.WaitCursor;
+
+			using (Crystal_report.CR_ownership_claim cr_report = new Crystal_report.CR_ownership_claim())
+			{
+				cr_report.SetDataSource(Vehicle_sale_ds.Vehicle_sale_doc((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value).CopyToDataTable());
+
+				using (Crystal_report.Form_crystal_report dlg_cr = new Crystal_report.Form_crystal_report(cr_report))
+				{
+					dlg_cr.Text = "Ownership Claim Form";
+					dlg_cr.ShowDialog();
+				}
+			}
+			Cursor = Cursors.Default;
 		}
-		private void JPJSalesLetter1ToolStripMenuItem_Click(object sender, EventArgs e)
+		private void JPJSalesLetterToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+			if (grd_main.SelectedCells.Count == 0) return;
 
+			Cursor = Cursors.WaitCursor;
+
+			using (Crystal_report.CR_jpj_sales_letter cr_report = new Crystal_report.CR_jpj_sales_letter())
+			{
+				cr_report.SetDataSource(Vehicle_sale_ds.Vehicle_sale_doc((int)grd_main.SelectedCells[0].OwningRow.Cells["vehicle"].Value).CopyToDataTable());
+
+				using (Crystal_report.Form_crystal_report dlg_cr = new Crystal_report.Form_crystal_report(cr_report))
+				{
+					dlg_cr.Text = "Ownership Claim Form";
+					dlg_cr.ShowDialog();
+				}
+			}
+			Cursor = Cursors.Default;
 		}
-		private void JPJSalesLetter2ToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-
-		}
-
 		#endregion
 		#region VEHICLE RETURN
 		private void Setup_form_vehicle_return()

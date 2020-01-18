@@ -124,6 +124,18 @@
       <DependentUpon>CR_hire_purchase.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Crystal_report\CR_jpj_sales_letter.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CR_jpj_sales_letter.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Crystal_report\CR_ownership_claim.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CR_ownership_claim.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Crystal_report\CR_sales_n_purchase_agreement.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -708,6 +720,14 @@
     <EmbeddedResource Include="Crystal_report\CR_hire_purchase.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CR_hire_purchase.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal_report\CR_jpj_sales_letter.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CR_jpj_sales_letter.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal_report\CR_ownership_claim.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CR_ownership_claim.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Crystal_report\CR_sales_n_purchase_agreement.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
